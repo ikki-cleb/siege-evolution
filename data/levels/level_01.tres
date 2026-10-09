@@ -1,0 +1,185 @@
+[gd_resource type="Resource" script_class="LevelData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="1_c0wg5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_a27lr"]
+[ext_resource type="Resource" path="res://data/units/membrane.tres" id="3_0duyb"]
+[ext_resource type="Resource" path="res://data/units/clot.tres" id="4_0crcv"]
+[ext_resource type="Resource" path="res://data/units/neutrophil.tres" id="5_cr4qp"]
+[ext_resource type="Resource" path="res://data/units/b_cell.tres" id="6_wjnqv"]
+[ext_resource type="Script" path="res://scripts/data/wave_data.gd" id="7_yk1dp"]
+[ext_resource type="Script" path="res://scripts/data/wave_entry.gd" id="8_ed6kk"]
+[ext_resource type="Resource" path="res://data/invaders/rhinovirus.tres" id="9_njawt"]
+[ext_resource type="Resource" path="res://data/invaders/bacterium.tres" id="10_lriho"]
+[ext_resource type="Resource" path="res://data/invaders/worm.tres" id="11_4dtr7"]
+[ext_resource type="Resource" path="res://data/invaders/spore.tres" id="12_l6nkq"]
+
+[sub_resource type="Resource" id="Resource_n26oj"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("9_njawt")
+count = 6
+spacing = 1.2
+
+[sub_resource type="Resource" id="Resource_tmk06"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_n26oj")])
+
+[sub_resource type="Resource" id="Resource_i0oqf"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("9_njawt")
+count = 10
+spacing = 0.9
+
+[sub_resource type="Resource" id="Resource_8yf0e"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_i0oqf")])
+
+[sub_resource type="Resource" id="Resource_6il7h"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("10_lriho")
+count = 4
+spacing = 2.5
+
+[sub_resource type="Resource" id="Resource_5wcyr"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("9_njawt")
+count = 6
+delay = 3.0
+
+[sub_resource type="Resource" id="Resource_i5f3d"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_6il7h"), SubResource("Resource_5wcyr")])
+
+[sub_resource type="Resource" id="Resource_n8g30"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("9_njawt")
+count = 16
+spacing = 0.6
+
+[sub_resource type="Resource" id="Resource_gixgg"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_n8g30")])
+
+[sub_resource type="Resource" id="Resource_gei27"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("10_lriho")
+count = 4
+spacing = 2.2
+
+[sub_resource type="Resource" id="Resource_tykhb"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("9_njawt")
+count = 8
+spacing = 0.8
+delay = 4.0
+
+[sub_resource type="Resource" id="Resource_w2lkn"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_gei27"), SubResource("Resource_tykhb")])
+
+[sub_resource type="Resource" id="Resource_ym15l"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("11_4dtr7")
+count = 2
+spacing = 6.0
+
+[sub_resource type="Resource" id="Resource_f0qly"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("9_njawt")
+count = 10
+spacing = 0.8
+delay = 2.0
+
+[sub_resource type="Resource" id="Resource_jnhio"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_ym15l"), SubResource("Resource_f0qly")])
+
+[sub_resource type="Resource" id="Resource_0r623"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("12_l6nkq")
+count = 6
+spacing = 1.5
+
+[sub_resource type="Resource" id="Resource_5npo0"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("9_njawt")
+count = 12
+spacing = 0.7
+delay = 1.0
+
+[sub_resource type="Resource" id="Resource_xd0vd"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_0r623"), SubResource("Resource_5npo0")])
+
+[sub_resource type="Resource" id="Resource_vmush"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("10_lriho")
+count = 8
+spacing = 1.4
+
+[sub_resource type="Resource" id="Resource_41dem"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("11_4dtr7")
+count = 3
+spacing = 5.0
+delay = 3.0
+
+[sub_resource type="Resource" id="Resource_2mvvj"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_vmush"), SubResource("Resource_41dem")])
+
+[sub_resource type="Resource" id="Resource_nrsro"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("9_njawt")
+count = 24
+spacing = 0.4
+
+[sub_resource type="Resource" id="Resource_ya35p"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("12_l6nkq")
+count = 8
+delay = 4.0
+
+[sub_resource type="Resource" id="Resource_neoap"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_nrsro"), SubResource("Resource_ya35p")])
+
+[sub_resource type="Resource" id="Resource_kvslv"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("11_4dtr7")
+count = 3
+spacing = 4.0
+
+[sub_resource type="Resource" id="Resource_sdctc"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("10_lriho")
+count = 6
+spacing = 1.6
+delay = 2.0
+
+[sub_resource type="Resource" id="Resource_yy4u4"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("9_njawt")
+count = 14
+spacing = 0.5
+delay = 6.0
+
+[sub_resource type="Resource" id="Resource_4q1am"]
+script = ExtResource("8_ed6kk")
+invader = ExtResource("12_l6nkq")
+count = 8
+spacing = 1.2
+delay = 8.0
+
+[sub_resource type="Resource" id="Resource_d3kdk"]
+script = ExtResource("7_yk1dp")
+entries = Array[ExtResource("8_ed6kk")]([SubResource("Resource_kvslv"), SubResource("Resource_sdctc"), SubResource("Resource_yy4u4"), SubResource("Resource_4q1am")])
+
+[resource]
+script = ExtResource("1_c0wg5")
+display_name = "1. First Infection"
+layout = PackedStringArray("....S....", ".........", ".........", "..#...#..", ".........", ".........", "#.......#", ".........", ".........", "..#...#..", ".........", ".........", ".........", "....B....")
+starting_hand = Array[ExtResource("2_a27lr")]([ExtResource("3_0duyb"), ExtResource("3_0duyb"), ExtResource("3_0duyb"), ExtResource("3_0duyb"), ExtResource("3_0duyb"), ExtResource("3_0duyb"), ExtResource("5_cr4qp"), ExtResource("5_cr4qp"), ExtResource("6_wjnqv")])
+shop = Array[ExtResource("2_a27lr")]([ExtResource("3_0duyb"), ExtResource("4_0crcv"), ExtResource("5_cr4qp"), ExtResource("6_wjnqv")])
+starting_atp = 12
+atp_per_wave = 10
+waves = Array[ExtResource("7_yk1dp")]([SubResource("Resource_tmk06"), SubResource("Resource_8yf0e"), SubResource("Resource_i5f3d"), SubResource("Resource_gixgg"), SubResource("Resource_w2lkn"), SubResource("Resource_jnhio"), SubResource("Resource_xd0vd"), SubResource("Resource_2mvvj"), SubResource("Resource_neoap"), SubResource("Resource_d3kdk")])

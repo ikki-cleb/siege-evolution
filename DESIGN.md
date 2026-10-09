@@ -1,6 +1,6 @@
-# Game Design Document
+# Siege Evolution — Game Design Document
 
-Status: **pre-production, v0.1**. Items marked _(proposed)_ are Claude's
+Status: **prototype v0.1 playable** (2 levels, 4 units, 4 invaders). Items marked _(proposed)_ are Claude's
 suggestions awaiting the user's approval.
 
 ## Pitch
@@ -31,14 +31,32 @@ each biome's final boss the game zooms out to a bigger world with new towers.
 3. Repeat for **10 waves**. Survive wave 10 to clear the level.
 4. **Lose condition:** the base has HP, and each invader that reaches it does damage.
    Tougher invaders do more damage. The level fails at 0 HP.
+5. **Pass/fail only:** no star ratings or scores. Clearing wave 10 = level passed.
+
+**Between waves:**
+- All damaged units are **repaired to full automatically, for free**, and units
+  that smashers destroyed are restored too.
+- Units can be **sold for 75% of their cost in ATP** (build phase only), even
+  units that came free from the starting hand. _(Claude's call; confirm)_
+- Undo reverses placements and sales during the current build phase.
+
+**Currency:** ATP (the cell's energy molecule). You get a starting amount, plus
+a fixed amount after each cleared wave. There are no per-kill rewards.
+
+**Controls:** tap a unit in the bottom bar, then tap tiles to place it. Tap
+a placed unit to see its info and range, and to sell it.
+
+**Targeting:** attackers always shoot the invader in range that is closest to
+the base.
 
 ## Grid & pathing
 
-- Fixed grid of about **9 columns × 14 rows**, with the whole level visible and no scrolling.
+- Fixed grid of **9 columns × 14 rows**, with the whole level visible and no scrolling.
+- Spawn points (one or more) and the base position vary per level.
 - Invaders path toward the base with grid pathfinding (A*), recalculated when
   the layout changes.
 - **The player may never fully seal the path.** Placement is rejected if it
-  would leave no route. _(proposed: standard mazing-TD rule)_
+  would leave no route.
 - Level designers can pre-place rocks or terrain to shape each puzzle.
 
 ## Units (the player's side)
@@ -69,9 +87,12 @@ level's allowed list.
 Behavior depends on invader type:
 
 - **Pathers:** route around all blockers (most invaders).
-- **Smashers:** walk straight toward the base and attack blocking units
-  until they break.
-- **Fliers:** ignore blockers entirely, so you need attackers with range coverage.
+- **Smashers:** take the shortest route that only avoids terrain, and chew
+  through **any** unit (wall or attacker) in the way.
+- **Fliers:** fly straight to the base, ignoring blockers. Only some
+  attackers (e.g. the B-Cell) can hit them.
+- **Base:** 20 HP by default (set per level). Each invader does its own
+  base damage when it arrives.
 
 ### Starter roster, World 1 _(proposed)_
 
@@ -99,6 +120,27 @@ Behavior depends on invader type:
 - Undo during build phase
 - Next-wave preview
 
+## Prototype stats (v0.1)
+
+Tuned with the automated playtest (`tests/sim_test.gd`), not real play yet.
+The current values live in the .tres files in `data/`.
+
+| Unit | Role | Cost | HP | Damage | Range | Rate | Air |
+|---|---|---|---|---|---|---|---|
+| Membrane | Wall | 4 | 20 | – | – | – | – |
+| Platelet Clot | Wall | 10 | 90 | – | – | – | – |
+| Neutrophil | Attacker | 12 | 30 | 3 | 1.5 | 0.5s | No |
+| B-Cell | Attacker | 16 | 15 | 4 | 3.0 | 1.0s | Yes |
+
+| Invader | Type | HP | Speed | Base dmg | Notes |
+|---|---|---|---|---|---|
+| Rhinovirus | Pather | 6 | 1.6 | 1 | Swarms |
+| Bacterium | Pather | 14 | 1.0 | 2 | Splits into 2 halves (5 HP, 1.2 speed) |
+| Parasite Worm | Smasher | 40 | 0.7 | 3 | Chews units at 6 HP/s |
+| Spore | Flier | 8 | 1.0 | 1 | |
+
+Not built yet: Macrophage, Fever Node, Superbug boss.
+
 ## Prototype scope
 
 - **About 5 levels** in World 1 (Immune System), ending with a boss level.
@@ -106,10 +148,6 @@ Behavior depends on invader type:
 
 ## Open questions
 
-- Game title / working name
 - Final unit and invader roster and stats
-- Do units get destroyed permanently by smashers, or repaired between waves?
-- Star rating or scoring per level?
-- Can units be sold or refunded, and for how much?
 - Save system details (local only, iCloud/Google Play sync?)
 - Sound and music direction

@@ -1,0 +1,128 @@
+<title>Siege Evolution</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap">
+<style>
+/* Single dark look to match the game: full-bleed canvas, loading card centered over it. */
+:root {
+	--tissue: #170d14;      /* page + game background */
+	--membrane: #2a1622;    /* empty loading-bar cells */
+	--plasma: #ff4d6d;      /* base-heart red, filled cells */
+	--antibody: #9fd3ff;    /* secondary accent */
+	--ink: #f3e3ea;
+	--ink-dim: #b79aa8;
+	--display: "Pixelify Sans", ui-monospace, "Courier New", monospace;
+	color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+	margin: 0;
+	background: var(--tissue);
+	color: var(--ink);
+	overflow: hidden;
+	touch-action: none;
+	font-family: var(--display);
+}
+#canvas { display: block; width: 100%; height: 100%; }
+#canvas:focus { outline: none; }
+#status {
+	position: fixed;
+	inset: 0;
+	display: grid;
+	place-content: center;
+	justify-items: center;
+	gap: 18px;
+	padding-inline: 16px;
+	background: var(--tissue);
+	text-align: center;
+}
+#status h1 {
+	margin: 0;
+	font-size: clamp(30px, 9vw, 46px);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 0.04em;
+	text-wrap: balance;
+}
+#status h1 span { color: var(--plasma); }
+#world { margin: 0; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--antibody); }
+#bar { display: grid; grid-template-columns: repeat(14, 12px); gap: 3px; }
+#bar i { height: 12px; background: var(--membrane); }
+#bar i.on { background: var(--plasma); }
+#hint { margin: 0; max-width: 30ch; font-size: 14px; line-height: 1.4; color: var(--ink-dim); }
+#notice { display: none; max-width: 34ch; font-size: 14px; line-height: 1.4; color: var(--plasma); white-space: pre-line; }
+@media (prefers-reduced-motion: no-preference) {
+	#bar i.on { transition: background 120ms linear; }
+}
+</style>
+<script>
+// The web host only serves a fixed set of file types, so the engine
+// (index.wasm, gzipped) and game data (index.pck) ship as base64 text files.
+// This decodes them in the browser when Godot asks for the originals.
+(function () {
+	var nativeFetch = window.fetch;
+	var packed = { 'index.wasm': 'index.wasm.gz.b64.txt', 'index.pck': 'index.pck.b64.txt' };
+	function decode(text) {
+		var bin = atob(text.replace(/\s/g, ''));
+		var bytes = new Uint8Array(bin.length);
+		for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+		return bytes;
+	}
+	window.fetch = function (url, options) {
+		var s = String((url && url.url) || url);
+		var name = Object.keys(packed).find(function (n) { return s.split('?')[0].endsWith(n); });
+		if (!name) return nativeFetch.apply(this, arguments);
+		return nativeFetch(s.replace(name, packed[name]), options).then(function (r) {
+			if (!r.ok) return nativeFetch(s, options);
+			return r.text().then(function (text) {
+				var bytes = decode(text);
+				var gzipped = bytes[0] === 31 && bytes[1] === 139;
+				var body = gzipped ? new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip')) : bytes;
+				var type = name === 'index.wasm' ? 'application/wasm' : 'application/octet-stream';
+				return new Response(body, { headers: { 'Content-Type': type } });
+			});
+		});
+	};
+})();
+</script>
+$GODOT_HEAD_INCLUDE
+
+<canvas id="canvas">Your browser can't show this game (no canvas support).</canvas>
+<div id="status">
+	<h1>Siege <span>Evolution</span></h1>
+	<p id="world">World 1 · Immune System</p>
+	<div id="bar" aria-label="Loading"></div>
+	<p id="hint">Tap a unit in the bar, then tap tiles to build your maze. Invaders must never be fully sealed off.</p>
+	<p id="notice"></p>
+</div>
+<script src="$GODOT_URL"></script>
+<script>
+const GODOT_CONFIG = $GODOT_CONFIG;
+const engine = new Engine(GODOT_CONFIG);
+(function () {
+	const status = document.getElementById('status');
+	const bar = document.getElementById('bar');
+	const notice = document.getElementById('notice');
+	const cells = [];
+	for (let i = 0; i < 14; i++) { cells.push(bar.appendChild(document.createElement('i'))); }
+
+	function fail(err) {
+		console.error(err);
+		notice.textContent = 'The game could not start.\n' + (err && err.message ? err.message : String(err));
+		notice.style.display = 'block';
+		bar.hidden = true;
+	}
+
+	const missing = Engine.getMissingFeatures({ threads: $GODOT_THREADS_ENABLED });
+	if (missing.length) {
+		fail(new Error('This browser is missing: ' + missing.join(', ')));
+		return;
+	}
+	engine.startGame({
+		onProgress: function (current, total) {
+			const lit = total > 0 ? Math.round((current / total) * cells.length) : 0;
+			cells.forEach(function (c, i) { c.classList.toggle('on', i < lit); });
+		},
+	}).then(function () { status.remove(); }, fail);
+})();
+</script>

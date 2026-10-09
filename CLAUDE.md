@@ -1,4 +1,4 @@
-# Project: Micro-scale puzzle tower defense (working title TBD)
+# Project: Siege Evolution (working title)
 
 Godot 4 mobile game (iOS + Android), portrait, 16×16 pixel art. See `DESIGN.md`
 for the full game design — keep it updated whenever a design decision changes.
@@ -18,7 +18,7 @@ for the full game design — keep it updated whenever a design decision changes.
 
 ## Conventions
 
-- Engine: Godot 4.x, GDScript (not C#).
+- Engine: Godot 4.7, GDScript (not C#).
 - Data-driven content: units, invaders, and levels defined as Resources /
   data files, not hardcoded in scripts, so new content needs no code changes.
 - Placeholder art is fine; the user will draw final art. Keep sprites 16×16

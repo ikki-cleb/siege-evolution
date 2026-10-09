@@ -1,0 +1,4 @@
+# Godot's local cache (regenerated automatically)
+.godot/
+# Exported builds
+build/

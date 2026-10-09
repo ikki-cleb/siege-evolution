@@ -1,0 +1,33 @@
+; Engine configuration file.
+; Open this folder in Godot 4.7 to edit the game.
+
+config_version=5
+
+[application]
+
+config/name="Siege Evolution"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[display]
+
+window/size/viewport_width=360
+window/size/viewport_height=720
+window/size/window_width_override=405
+window/size/window_height_override=810
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.09, 0.05, 0.08, 1)
+
+[editor]
+
+; Keep .tres files as text when exporting: the binary conversion in 4.7.2
+; drops LevelData.layout (a PackedStringArray), leaving levels empty.
+export/convert_text_resources_to_binary=false
