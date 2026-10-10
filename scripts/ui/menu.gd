@@ -9,7 +9,13 @@ const DIM_TEXT := Look.TEXT_DIM
 const GOLD := Look.GOLD
 
 var _content: VBoxContainer
+var _scroll: ScrollContainer
 var _biome: BiomeData
+## Drag-to-scroll: a press that moves further than this is a scroll, not a tap.
+const DRAG_THRESHOLD := 10.0
+var _press_position := Vector2.ZERO
+var _pressing := false
+var _dragged := false
 ## The screen being shown, so it can redraw itself after a purchase.
 var _current_screen: Callable
 
@@ -24,7 +30,9 @@ func _ready() -> void:
 	var scroll := ScrollContainer.new()
 	scroll.set_anchors_preset(Control.PRESET_FULL_RECT)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.scroll_deadzone = int(DRAG_THRESHOLD)
 	add_child(scroll)
+	_scroll = scroll
 	var margin := MarginContainer.new()
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	for side in ["left", "right", "top", "bottom"]:
@@ -52,6 +60,31 @@ func _show(screen: Callable) -> void:
 	_current_screen = screen
 	_clear()
 	screen.call()
+	_let_drags_through(_content)
+
+
+## Cards and buttons normally swallow a finger press, so only the screen's
+## edges could scroll. Passing presses on lets a drag anywhere scroll the list.
+func _let_drags_through(node: Node) -> void:
+	for child in node.get_children():
+		if child is Control and not child is Label:
+			child.mouse_filter = Control.MOUSE_FILTER_PASS
+		_let_drags_through(child)
+
+
+## Tells taps from drags. Phones scroll the list on their own once presses
+## pass through; with a mouse (desktop browsers) we scroll it here.
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		_pressing = event.pressed
+		if event.pressed:
+			_press_position = event.position
+			_dragged = false
+	elif event is InputEventMouseMotion and _pressing:
+		if event.position.distance_to(_press_position) > DRAG_THRESHOLD:
+			_dragged = true
+		if _dragged and not DisplayServer.is_touchscreen_available():
+			_scroll.scroll_vertical -= int(event.relative.y)
 
 
 # --- Screens ----------------------------------------------------------------
@@ -251,7 +284,9 @@ func _header(title: String, back: Callable) -> void:
 	var back_button := Button.new()
 	back_button.text = "Back"
 	back_button.custom_minimum_size = Vector2(64, 36)
-	back_button.pressed.connect(back)
+	back_button.pressed.connect(func():
+		if not _dragged:
+			back.call())
 	row.add_child(back_button)
 	var label := _label(title, 20, Color.WHITE, HORIZONTAL_ALIGNMENT_LEFT, row)
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -287,8 +322,12 @@ func _button(text: String, action: Callable, parent: Control = null) -> Button:
 	button.custom_minimum_size = Vector2(0, 44)
 	button.add_theme_font_size_override("font_size", 14)
 	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	button.pressed.connect(func(): Audio.play("button"))
-	button.pressed.connect(action)
+	# A press that turned into a scroll doesn't count as a tap.
+	button.pressed.connect(func():
+		if _dragged:
+			return
+		Audio.play("button")
+		action.call())
 	(parent if parent else _content).add_child(button)
 	return button
 

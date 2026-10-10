@@ -35,6 +35,10 @@ var _unit_row: HBoxContainer
 var _unit_buttons := {}  # UnitData -> Button
 var _selection_row: HBoxContainer
 var _evolve_buttons: Array[Button] = []
+## Upgrades take two taps: the first previews (this index), the second buys.
+var _armed_option := -1
+## The unit whose upgrade is being previewed (a new selection resets it).
+var _armed_unit: Unit = null
 var _sell_button: Button
 var _speed_button: Button
 ## Shown while a unit is selected, so it's obvious how to deselect it.
@@ -66,6 +70,12 @@ func refresh() -> void:
 	_coins_label.text = "%s %d" % [Palette.COIN, game.coins - _orb_coins]
 	_next_label.text = game.next_wave_summary()
 	_footnote_label.text = game.footnote()
+	# Selecting a different unit (or nothing) cancels an upgrade preview.
+	if game.selected_unit() != _armed_unit or game.phase != game.Phase.BUILD:
+		_disarm()
+	if _armed_option >= 0:
+		# The footnote area shows the before → after numbers.
+		_footnote_label.text = game.stat_changes(_armed_unit.data, _armed_unit.data.evolutions[_armed_option])
 
 	var building: bool = game.phase == game.Phase.BUILD
 	for type in _unit_buttons:
@@ -98,10 +108,14 @@ func refresh() -> void:
 				button.text = "%s\nafter 1 wave" % options[i].display_name
 				button.icon = options[i].texture
 				button.disabled = true
+			elif i == _armed_option:
+				button.text = "Tap again\nto buy %s %d" % [Palette.COIN, options[i].cost]
+				button.icon = options[i].texture
+				button.disabled = not game.can_evolve(options[i])
 			else:
 				button.text = "%s\n%s %d" % [options[i].display_name, Palette.COIN, options[i].cost]
 				button.icon = options[i].texture
-				button.disabled = not game.can_evolve(options[i])
+				button.disabled = false  # tap to preview, even if it's too expensive yet
 		var value: Dictionary = game.sell_value(unit)
 		_sell_button.text = "Remove\nto hand" if value.to_hand else "Remove\n+%s %d" % [Palette.COIN, value.coins]
 
@@ -372,10 +386,31 @@ func _build_bottom_bar() -> void:
 		control_row.add_child(button)
 
 
+## First tap: preview what the upgrade does. Second tap on the same one: buy it.
 func _on_evolve_pressed(index: int) -> void:
 	var unit: Unit = game.selected_unit()
-	if unit and index < unit.data.evolutions.size():
-		game.evolve_selected(unit.data.evolutions[index])
+	if unit == null or index >= unit.data.evolutions.size():
+		return
+	var option: UnitData = unit.data.evolutions[index]
+	if _armed_unit == unit and _armed_option == index:
+		_disarm()
+		game.evolve_selected(option)
+		return
+	_armed_unit = unit
+	_armed_option = index
+	var cost_note := "" if game.coins >= option.cost else "  (need %s %d)" % [Palette.COIN, option.cost]
+	show_message("%s: %s%s" % [option.display_name, option.description, cost_note])
+	refresh()
+	game.board.preview_range = option.attack_range if option.can_attack() else 0.0
+	game.board.queue_redraw()
+
+
+func _disarm() -> void:
+	_armed_option = -1
+	_armed_unit = null
+	if game.board.preview_range > 0.0:
+		game.board.preview_range = 0.0
+		game.board.queue_redraw()
 
 
 ## A bar across the screen with a thin accent line on the side facing the board.

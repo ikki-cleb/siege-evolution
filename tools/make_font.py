@@ -9,7 +9,8 @@ Run from the project folder:  python3 tools/make_font.py
 Needs fontTools:  pip install fonttools
 
 It also adds a coin icon (the in-game currency) as character U+E000, so a
-coin can sit inside any text. Scripts write it as Palette.COIN.
+coin can sit inside any text (scripts write it as Palette.COIN), and a
+right arrow (U+2192) for upgrade previews.
 
 To change a digit or the coin, edit its picture below ('#' = filled pixel)
 and rerun.
@@ -38,9 +39,13 @@ DIGITS = {
     "9": [".###.", "#...#", "#...#", ".####", "....#", "...#.", ".##.."],
 }
 
-# The coin: 7 pixels wide, drawn at the same pixel size as the digits.
-COIN_CHAR = 0xE000
-COIN = ["..###..", ".#####.", "##.####", "##.####", "#######", ".#####.", "..###.."]
+# New characters, drawn at the same pixel size as the digits:
+# the coin (U+E000, Palette.COIN) and a right arrow (U+2192) for
+# "before → after" stat changes.
+EXTRA = {
+    0xE000: ("coin", ["..###..", ".#####.", "##.####", "##.####", "#######", ".#####.", "..###.."]),
+    0x2192: ("arrowright", [".....", "..#..", "...#.", "#####", "...#.", "..#..", "....."]),
+}
 
 # Where Pixelify's own digits sit (font units, 1000 per em), so the new ones
 # line up with the letters around them.
@@ -93,14 +98,16 @@ def main():
         glyph.recalcBounds(font["glyf"])
         advance = font["hmtx"][name][0]
         font["hmtx"][name] = (advance, glyph.xMin)
-    # The coin is a brand-new character.
-    coin = pixel_glyph(COIN)
-    font.setGlyphOrder(font.getGlyphOrder() + ["coin"])
-    font["glyf"]["coin"] = coin
-    coin.recalcBounds(font["glyf"])
-    font["hmtx"]["coin"] = (round(LEFT * 2 + PIXEL_W * len(COIN[0])), coin.xMin)
-    for table in font["cmap"].tables:
-        table.cmap[COIN_CHAR] = "coin"
+    # Brand-new characters.
+    for char, (name, rows) in EXTRA.items():
+        glyph = pixel_glyph(rows)
+        if name not in font.getGlyphOrder():
+            font.setGlyphOrder(font.getGlyphOrder() + [name])
+        font["glyf"][name] = glyph
+        glyph.recalcBounds(font["glyf"])
+        font["hmtx"][name] = (round(LEFT * 2 + PIXEL_W * len(rows[0])), glyph.xMin)
+        for table in font["cmap"].tables:
+            table.cmap[char] = name
     # A modified font gets its own name (as the font license asks).
     for record in font["name"].names:
         if record.nameID in (1, 3, 4, 6, 16):

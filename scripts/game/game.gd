@@ -484,6 +484,41 @@ func describe(type: UnitData) -> String:
 	return "%s: %s." % [type.display_name, ", ".join(parts)]
 
 
+## What changes when `from` evolves into `to`, e.g.
+## "dmg 9 → 17, HP 60 → 80, new: chains to 2." Used by the upgrade preview.
+func stat_changes(from: UnitData, to: UnitData) -> String:
+	var parts: Array[String] = []
+	var numbers := [["HP", from.max_hp, to.max_hp], ["dmg", from.damage, to.damage],
+		["range", from.attack_range, to.attack_range],
+		["attacks/s", 1.0 / from.attack_interval, 1.0 / to.attack_interval],
+		["splash", from.splash_radius, to.splash_radius], ["regen", from.regen, to.regen],
+		["slow %", from.slow * 100, to.slow * 100], ["stun", from.stun_duration, to.stun_duration],
+		["poison", from.poison_dps, to.poison_dps], ["mark %", from.mark_bonus * 100, to.mark_bonus * 100],
+		["reflect %", from.reflect * 100, to.reflect * 100]]
+	for row in numbers:
+		if not is_equal_approx(row[1], row[2]):
+			parts.append("%s %s \u2192 %s" % [row[0], _num(row[1]), _num(row[2])])
+	if to.hits_air and not from.hits_air:
+		parts.append("now hits fliers")
+	if to.pierce and not from.pierce:
+		parts.append("now pierces armor")
+	# Anything describe() mentions that the old unit didn't have (new mechanics).
+	var before := describe(from).split(": ", true, 1)[1].trim_suffix(".").split(", ")
+	for part in describe(to).split(": ", true, 1)[1].trim_suffix(".").split(", "):
+		if not before.has(part) and not _is_number_part(part):
+			parts.append("new: " + part)
+	return ", ".join(parts) if not parts.is_empty() else "no stat changes"
+
+
+## describe() parts that stat_changes() already shows as numbers.
+func _is_number_part(part: String) -> bool:
+	for prefix in ["HP", "range", "slows", "stuns", "poison", "marks", "reflects", "regen", "splash",
+			"hits fliers", "ground only", "pierces armor"]:
+		if part.begins_with(prefix):
+			return true
+	return part.contains(" dmg")
+
+
 func _num(value: float) -> String:
 	return str(snappedf(value, 0.1)).trim_suffix(".0")
 

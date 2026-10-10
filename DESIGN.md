@@ -128,6 +128,14 @@ worlds show those names until stage 2 gives each world themed names.
   evolve or remove it.
 - While a unit type or a placed unit is selected, a **Cancel** button
   appears next to Start Wave; tapping it (or the same unit again) deselects.
+- **Upgrades take two taps.** The first tap previews an option: its
+  description in the message line, before → after numbers and new mechanics
+  in the footnote, its new range as a gold circle on the board, and the
+  button changes to "Tap again to buy". The second tap buys it. Selecting
+  anything else cancels the preview. Too-expensive options can still be
+  previewed.
+- **Menus scroll by dragging anywhere** (cards and buttons pass drags
+  through). A press that moves more than 10 pixels is a scroll, not a tap.
 
 ## Grid & pathing
 

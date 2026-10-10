@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 74
+const MIN_RULE_CHECKS := 81
 var progress: Node
 
 
@@ -32,6 +32,8 @@ func _run() -> void:
 	await _test_selection(biome)
 	await _test_party(progress.load_biome(6))
 	await _test_capstones(biome)
+	await _test_upgrade_preview(biome)
+	await _test_menu_scrolling()
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index; 5 = Kitchen, 6 = Birthday).
 		var worlds := [0, 1, 2, 3, 4, 5, 6]
@@ -625,6 +627,65 @@ func _test_capstones(biome: BiomeData) -> void:
 		"Capstones refund fully the round they're bought")
 	_check(unit.total_cost() == base.cost + tier1.cost + capstone.cost, "Bombers see a capstone's full value")
 	await _stop(game)
+
+
+# --- Upgrade preview and menu scrolling ----------------------------------------
+
+func _test_upgrade_preview(biome: BiomeData) -> void:
+	var game := await _start(biome, 0, 0)
+	game.coins = 999
+	var base: UnitData = game.unit_types[1]  # Macrophage
+	game.try_place(base, Vector2i(0, 10))
+	var unit: Unit = game.board.units[Vector2i(0, 10)]
+	game.wave_number += 1
+	game._select_cell(unit.cell)
+	game.hud.refresh()
+	game.hud._on_evolve_pressed(0)
+	var option: UnitData = base.evolutions[0]
+	_check(unit.data == base and game.hud._message_label.text.contains(option.description),
+		"The first tap on an upgrade only previews it")
+	_check(game.hud._footnote_label.text.contains("dmg 9 \u2192 17"),
+		"The preview shows stat changes (%s)" % game.hud._footnote_label.text)
+	_check(game.hud._evolve_buttons[0].text.begins_with("Tap again"), "The previewed button asks for a second tap")
+	game.hud._on_evolve_pressed(0)
+	_check(unit.data == option, "The second tap buys the upgrade")
+	# Previewing then selecting something else cancels the preview.
+	game.wave_number += 1
+	game.hud._on_evolve_pressed(1)
+	game._select_cell(Board.NO_CELL)
+	game.hud.refresh()
+	_check(game.hud._armed_option == -1 and game.board.preview_range == 0.0,
+		"Deselecting cancels an upgrade preview")
+	await _stop(game)
+
+
+func _test_menu_scrolling() -> void:
+	progress.return_screen = "store"
+	var menu: Control = load("res://scenes/menu.tscn").instantiate()
+	root.add_child(menu)
+	await process_frame
+	var blocking := []
+	var find_blockers := func(node: Node, again: Callable) -> void:
+		for child in node.get_children():
+			if child is Control and child.mouse_filter == Control.MOUSE_FILTER_STOP:
+				blocking.append(child)
+			again.call(child, again)
+	find_blockers.call(menu._content, find_blockers)
+	_check(blocking.is_empty(), "Menu cards and buttons let drags through to scroll (%d block)" % blocking.size())
+	# A press that turned into a drag doesn't press the button.
+	var shown := [menu._current_screen]
+	menu._dragged = true
+	var back: Button = menu._content.get_child(0).get_child(0)
+	back.pressed.emit()
+	await process_frame
+	_check(menu._current_screen == shown[0], "Dragging across a button doesn't press it")
+	menu._dragged = false
+	back.pressed.emit()
+	await process_frame
+	_check(menu._current_screen != shown[0], "A plain tap still presses it")
+	menu.queue_free()
+	progress.return_screen = "title"
+	await process_frame
 
 
 ## Every Label and Button text under a node (for checking screens).

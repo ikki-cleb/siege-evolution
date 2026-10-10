@@ -76,6 +76,9 @@ var preview_smashers := false
 var preview_fliers := false
 var preview_jumpers := false
 var selected_cell := NO_CELL
+## While an upgrade is being previewed: its range, drawn as a gold circle
+## around the selected unit (0 = no preview).
+var preview_range := 0.0
 
 ## A tile treated as blocked while testing "what if a unit stood here?".
 var _pretend_unit := NO_CELL
@@ -630,6 +633,8 @@ func _draw() -> void:
 		var unit: Unit = units.get(selected_cell)
 		if unit and unit.data.can_attack():
 			draw_arc(cell_center(selected_cell), unit.data.attack_range * TILE, 0, TAU, 48, Color(1, 1, 1, 0.6), 1.0)
+		if preview_range > 0.0:
+			draw_arc(cell_center(selected_cell), preview_range * TILE, 0, TAU, 48, Color(Palette.GOLD, 0.9), 1.5)
 
 	if _flash_time > 0.0:
 		draw_rect(Rect2(Vector2(_flash_cell * TILE), Vector2(TILE, TILE)), Color(1, 0, 0, _flash_time))
