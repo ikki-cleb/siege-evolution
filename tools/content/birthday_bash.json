@@ -1354,7 +1354,7 @@
     {
       "name": "2. Living Room",
       "tiles": "living",
-      "budget": 24,
+      "budget": 21,
       "hand": [
         10,
         8,
@@ -1363,7 +1363,7 @@
         0,
         0
       ],
-      "coins": 16,
+      "coins": 18,
       "income": 5,
       "layout": [
         "S.......S",
@@ -1384,7 +1384,7 @@
     },
     {
       "name": "3. Present Pile",
-      "budget": 36,
+      "budget": 29,
       "hand": [
         12,
         8,
@@ -1393,7 +1393,7 @@
         8,
         0
       ],
-      "coins": 16,
+      "coins": 18,
       "income": 5,
       "layout": [
         "S...S...S",
@@ -1415,7 +1415,7 @@
     {
       "name": "4. Sugar Rush",
       "tiles": "bouncy",
-      "budget": 39,
+      "budget": 32,
       "hand": [
         14,
         10,
@@ -1424,7 +1424,7 @@
         8,
         6
       ],
-      "coins": 16,
+      "coins": 20,
       "income": 6,
       "layout": [
         "S...S...S",
@@ -1445,7 +1445,7 @@
     },
     {
       "name": "5. Clown Time",
-      "budget": 41,
+      "budget": 34,
       "boss": "clown",
       "hand": [
         18,
@@ -1455,7 +1455,7 @@
         8,
         6
       ],
-      "coins": 20,
+      "coins": 22,
       "income": 6,
       "layout": [
         "S...S...S",

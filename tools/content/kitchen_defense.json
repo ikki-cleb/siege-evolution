@@ -1265,7 +1265,7 @@
     {
       "name": "2. Counter Top",
       "tiles": "counter",
-      "budget": 28,
+      "budget": 24,
       "hand": [
         10,
         8,
@@ -1274,7 +1274,7 @@
         0,
         0
       ],
-      "coins": 12,
+      "coins": 16,
       "income": 5,
       "layout": [
         "S.......S",
@@ -1295,7 +1295,7 @@
     },
     {
       "name": "3. Top Shelf",
-      "budget": 36,
+      "budget": 30,
       "hand": [
         12,
         8,
@@ -1304,7 +1304,7 @@
         8,
         0
       ],
-      "coins": 12,
+      "coins": 16,
       "income": 5,
       "layout": [
         "S...S...S",
@@ -1326,7 +1326,7 @@
     {
       "name": "4. Crumb Trail",
       "tiles": "floor",
-      "budget": 39,
+      "budget": 32,
       "hand": [
         14,
         10,
@@ -1335,7 +1335,7 @@
         8,
         6
       ],
-      "coins": 16,
+      "coins": 20,
       "income": 6,
       "layout": [
         "S...S...S",
@@ -1356,7 +1356,7 @@
     },
     {
       "name": "5. Rat King's Feast",
-      "budget": 41,
+      "budget": 34,
       "boss": "rat_king",
       "hand": [
         18,
@@ -1366,7 +1366,7 @@
         8,
         6
       ],
-      "coins": 20,
+      "coins": 22,
       "income": 6,
       "layout": [
         "S...S...S",
