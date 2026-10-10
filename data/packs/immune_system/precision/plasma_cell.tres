@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_7w3rt")
 id = "plasma_cell"
-display_name = "Plasma Cell"
+display_name = "Heavy Antibody Shooter"
 role = 1
 cost = 13
 max_hp = 15

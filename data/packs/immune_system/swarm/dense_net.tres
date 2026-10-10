@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_ie1jt")
 id = "dense_net"
-display_name = "Dense NET"
+display_name = "Thick Sticky Net"
 cost = 6
 max_hp = 60
 attack_mode = 1

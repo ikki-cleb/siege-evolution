@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_qt8f1")
 id = "whirling_nk"
-display_name = "Whirling NK Cell"
+display_name = "Multi Hunter Killer Cell"
 role = 1
 cost = 52
 max_hp = 25

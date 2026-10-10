@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_jqf3y")
 id = "interferon_storm"
-display_name = "Interferon Storm"
+display_name = "Armor-Eating Loud Alarm Signal"
 role = 2
 cost = 52
 max_hp = 35

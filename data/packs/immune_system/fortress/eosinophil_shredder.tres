@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_cnl5p")
 id = "eosinophil_shredder"
-display_name = "Eosinophil Shredder"
+display_name = "Armor-Eating Long Blaster Cell"
 role = 1
 cost = 84
 max_hp = 40

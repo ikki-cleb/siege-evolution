@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gejc7")
 id = "cilia_trap"
-display_name = "Cilia Trap"
+display_name = "Grabbing Prickly Skin Cell"
 cost = 14
 max_hp = 22
 reflect = 0.4

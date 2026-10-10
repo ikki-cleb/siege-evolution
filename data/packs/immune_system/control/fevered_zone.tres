@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ud5v1")
 id = "fevered_zone"
-display_name = "Fevered Zone"
+display_name = "Lucky Big Swelling"
 role = 1
 cost = 68
 max_hp = 30

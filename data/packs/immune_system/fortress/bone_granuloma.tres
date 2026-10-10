@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_n226a")
 id = "bone_granuloma"
-display_name = "Bone Granuloma"
+display_name = "Regrowing Rock-Hard Lump"
 cost = 68
 max_hp = 480
 attack_mode = 1

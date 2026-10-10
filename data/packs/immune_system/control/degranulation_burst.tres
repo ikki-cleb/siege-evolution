@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_amr57")
 id = "degranulation_burst"
-display_name = "Degranulation Burst"
+display_name = "Burning Strong Allergy Cell"
 role = 1
 cost = 46
 max_hp = 25

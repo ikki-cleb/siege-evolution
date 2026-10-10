@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_o52qk")
 id = "scorched_zone"
-display_name = "Scorched Zone"
+display_name = "Armor-Eating Hot Swelling"
 role = 1
 cost = 68
 max_hp = 30

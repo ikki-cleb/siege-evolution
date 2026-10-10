@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ixrfh")
 id = "memory_lance"
-display_name = "Memory Lance"
+display_name = "Piercing Long Antibody Shooter"
 role = 1
 cost = 56
 max_hp = 15

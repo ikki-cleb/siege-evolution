@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gr74p")
 id = "bounty_lance"
-display_name = "Bounty Lance"
+display_name = "Lucky Rapid Antibody Sniper"
 role = 1
 cost = 92
 max_hp = 15

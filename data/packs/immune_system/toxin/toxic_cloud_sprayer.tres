@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_fl2rv")
 id = "toxic_cloud_sprayer"
-display_name = "Toxic Cloud Sprayer"
+display_name = "Toxic Strong Poison Sprayer"
 role = 1
 cost = 54
 max_hp = 15

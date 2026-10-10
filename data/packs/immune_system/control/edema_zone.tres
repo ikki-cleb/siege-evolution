@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_jww53")
 id = "edema_zone"
-display_name = "Edema Zone"
+display_name = "Shoving Big Swelling"
 role = 1
 cost = 68
 max_hp = 30

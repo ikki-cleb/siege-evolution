@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_rhfp4")
 id = "spilling_pool"
-display_name = "Spilling Pool"
+display_name = "Spilling Acid Puddle"
 role = 1
 cost = 13
 attack_mode = 1

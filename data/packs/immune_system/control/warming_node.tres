@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_fw4rt")
 id = "warming_node"
-display_name = "Warming Node"
+display_name = "Cheering Wide Fever Spot"
 role = 1
 cost = 60
 max_hp = 25

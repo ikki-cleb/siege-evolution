@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_hntxh")
 id = "railgun_lance"
-display_name = "Railgun Lance"
+display_name = "Piercing Heavy Antibody Sniper"
 role = 1
 cost = 92
 max_hp = 15

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gkv1v")
 id = "keloid_wall"
-display_name = "Keloid Wall"
+display_name = "Regrowing Tough Scar Tissue"
 cost = 40
 max_hp = 200
 regen = 6.0

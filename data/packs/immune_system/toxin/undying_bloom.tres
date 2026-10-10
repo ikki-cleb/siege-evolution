@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_0xuml")
 id = "undying_bloom"
-display_name = "Undying Bloom"
+display_name = "Regrowing Hard Rot Patch"
 cost = 52
 max_hp = 100
 attack_mode = 1

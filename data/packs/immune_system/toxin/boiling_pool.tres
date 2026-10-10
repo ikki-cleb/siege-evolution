@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_oulm4")
 id = "boiling_pool"
-display_name = "Boiling Pool"
+display_name = "Toxic Strong Acid Puddle"
 role = 1
 cost = 54
 attack_mode = 1

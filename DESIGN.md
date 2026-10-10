@@ -176,6 +176,16 @@ and reflect (bounces part of smasher damage back).
 
 The full roster and stats live in `tools/content/immune_system.json`.
 
+## World 1 unit names
+
+World 1 (Microscopic) uses plain body words, not biology terms, so the
+theme reads instantly: Scab, Germ Eater, Scout Cell, White Blood Cell,
+Skin Cell, Killer Cell, Antibody Shooter, Germ Tagger, Mucus Wall,
+Sneeze Blaster, Fever Spot, Poison Cell, Acid Puddle, Rot Patch, and so on.
+Capstones add a plain mechanic word ("Regrowing Thick Scab", "Chain Strong
+Scout Cell"). File names and ids keep the original biology ids (e.g.
+`macrophage.png` is the Germ Eater), so nothing else had to change.
+
 ## How worlds reuse packs
 
 Each pack plays exactly the same in every world: same stats, same unlock

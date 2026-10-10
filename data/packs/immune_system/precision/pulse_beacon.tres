@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_0ybjk")
 id = "pulse_beacon"
-display_name = "Pulse Beacon"
+display_name = "Shoving Tall Alarm Signal"
 role = 2
 cost = 52
 max_hp = 35

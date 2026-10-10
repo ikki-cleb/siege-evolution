@@ -655,7 +655,7 @@ func _capstone_names(world: BiomeData) -> Array[String]:
 func _test_upgrade_preview(biome: BiomeData) -> void:
 	var game := await _start(biome, 0, 0)
 	game.coins = 999
-	var base: UnitData = game.unit_types[1]  # Macrophage
+	var base: UnitData = game.unit_types[1]  # Germ Eater
 	game.try_place(base, Vector2i(0, 10))
 	var unit: Unit = game.board.units[Vector2i(0, 10)]
 	game.wave_number += 1

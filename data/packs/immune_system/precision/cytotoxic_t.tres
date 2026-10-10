@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_wfy70")
 id = "cytotoxic_t"
-display_name = "Cytotoxic T-Cell"
+display_name = "Germ Stabber"
 role = 1
 cost = 18
 max_hp = 25

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_xltj0")
 id = "heatwave_node"
-display_name = "Heatwave Node"
+display_name = "Shoving Wide Fever Spot"
 role = 1
 cost = 60
 max_hp = 25

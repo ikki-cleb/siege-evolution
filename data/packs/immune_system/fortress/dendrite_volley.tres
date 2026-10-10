@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_26bdx")
 id = "dendrite_volley"
-display_name = "Dendrite Volley"
+display_name = "Multi Strong Scout Cell"
 role = 1
 cost = 56
 max_hp = 30

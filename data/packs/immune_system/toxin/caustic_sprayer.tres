@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_e66sm")
 id = "caustic_sprayer"
-display_name = "Caustic Sprayer"
+display_name = "Strong Poison Sprayer"
 role = 1
 cost = 13
 max_hp = 15

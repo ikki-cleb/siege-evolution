@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ehavc")
 id = "clotting_snare"
-display_name = "Clotting Snare"
+display_name = "Grabbing Thick Scab"
 cost = 34
 max_hp = 220
 tier = 2

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_4a36h")
 id = "thrombus_mine"
-display_name = "Thrombus Mine"
+display_name = "Bursting Spiky Scab"
 cost = 34
 max_hp = 120
 reflect = 0.6

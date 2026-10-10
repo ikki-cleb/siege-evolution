@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_kmycq")
 id = "acid_pool"
-display_name = "Acid Pool"
+display_name = "Strong Acid Puddle"
 role = 1
 cost = 13
 attack_mode = 1

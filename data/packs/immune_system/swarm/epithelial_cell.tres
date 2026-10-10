@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_r0cbm")
 id = "epithelial_cell"
-display_name = "Epithelial Cell"
+display_name = "Skin Cell"
 cost = 3
 max_hp = 18
 evolutions = Array[ExtResource("1_r0cbm")]([ExtResource("2_ggyok"), ExtResource("3_p0cxn")])

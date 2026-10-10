@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_bkvl6")
 id = "piercing_monocyte"
-display_name = "Piercing Monocyte"
+display_name = "Armor-Eating Double Spike Shooter"
 role = 1
 cost = 36
 max_hp = 12

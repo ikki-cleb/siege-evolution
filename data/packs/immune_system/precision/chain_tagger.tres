@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_0tfp1")
 id = "chain_tagger"
-display_name = "Chain Tagger"
+display_name = "Chain Strong Germ Tagger"
 role = 2
 cost = 48
 max_hp = 15

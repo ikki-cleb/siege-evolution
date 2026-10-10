@@ -14,7 +14,7 @@
       "units": [
         {
           "id": "platelet_clot",
-          "name": "Platelet Clot",
+          "name": "Scab",
           "role": "wall",
           "cost": 7,
           "hp": 90,
@@ -26,14 +26,14 @@
           "evolutions": [
             {
               "id": "fibrin_mesh",
-              "name": "Fibrin Mesh",
+              "name": "Thick Scab",
               "cost": 10,
               "hp": 220,
               "desc": "Much more HP.",
               "evolutions": [
                 {
                   "id": "fibrin_bastion",
-                  "name": "Fibrin Bastion",
+                  "name": "Regrowing Thick Scab",
                   "cost": 34,
                   "desc": "Rebuilds itself once per wave at full HP.",
                   "rebuild": true,
@@ -41,7 +41,7 @@
                 },
                 {
                   "id": "clotting_snare",
-                  "name": "Clotting Snare",
+                  "name": "Grabbing Thick Scab",
                   "cost": 34,
                   "desc": "Smashers that bite it get stuck for 1.2s.",
                   "grab": 1.2
@@ -50,7 +50,7 @@
             },
             {
               "id": "thrombus_spike",
-              "name": "Thrombus Spike",
+              "name": "Spiky Scab",
               "cost": 10,
               "hp": 120,
               "reflect": 0.6,
@@ -58,14 +58,14 @@
               "evolutions": [
                 {
                   "id": "thrombus_mine",
-                  "name": "Thrombus Mine",
+                  "name": "Bursting Spiky Scab",
                   "cost": 34,
                   "desc": "Blasts everything around it when it breaks.",
                   "explode": 70
                 },
                 {
                   "id": "barbed_thrombus",
-                  "name": "Barbed Thrombus",
+                  "name": "Grabbing Spiky Scab",
                   "cost": 34,
                   "desc": "Reflects 90% and snags smashers.",
                   "reflect": 0.9,
@@ -78,7 +78,7 @@
         },
         {
           "id": "macrophage",
-          "name": "Macrophage",
+          "name": "Germ Eater",
           "role": "attacker",
           "cost": 14,
           "hp": 60,
@@ -93,7 +93,7 @@
           "evolutions": [
             {
               "id": "giant_macrophage",
-              "name": "Giant Macrophage",
+              "name": "Giant Germ Eater",
               "cost": 16,
               "damage": 17,
               "hp": 80,
@@ -101,7 +101,7 @@
               "evolutions": [
                 {
                   "id": "devouring_macrophage",
-                  "name": "Devouring Macrophage",
+                  "name": "Finishing Giant Germ Eater",
                   "cost": 60,
                   "desc": "Swallows wounded invaders whole (below 25% HP).",
                   "execute": 0.25,
@@ -109,7 +109,7 @@
                 },
                 {
                   "id": "titan_macrophage",
-                  "name": "Titan Macrophage",
+                  "name": "Shoving Giant Germ Eater",
                   "cost": 60,
                   "desc": "Crushing hits shove invaders back.",
                   "knockback": 1,
@@ -119,7 +119,7 @@
             },
             {
               "id": "foam_macrophage",
-              "name": "Foam Macrophage",
+              "name": "Wide Germ Eater",
               "cost": 16,
               "splash": 1.0,
               "range": 1.8,
@@ -127,7 +127,7 @@
               "evolutions": [
                 {
                   "id": "engulfing_foam",
-                  "name": "Engulfing Foam",
+                  "name": "Armor-Eating Wide Germ Eater",
                   "cost": 60,
                   "desc": "Wide splash that strips armor.",
                   "splash": 1.5,
@@ -135,7 +135,7 @@
                 },
                 {
                   "id": "foam_eruption",
-                  "name": "Foam Eruption",
+                  "name": "Burning Wide Germ Eater",
                   "cost": 60,
                   "desc": "Hits leave a burning patch.",
                   "zone": "burn",
@@ -147,7 +147,7 @@
         },
         {
           "id": "dendritic_cell",
-          "name": "Dendritic Cell",
+          "name": "Scout Cell",
           "role": "attacker",
           "cost": 13,
           "hp": 30,
@@ -163,21 +163,21 @@
           "evolutions": [
             {
               "id": "mature_dendrite",
-              "name": "Mature Dendrite",
+              "name": "Strong Scout Cell",
               "cost": 15,
               "damage": 15,
               "desc": "Much more damage.",
               "evolutions": [
                 {
                   "id": "presenting_dendrite",
-                  "name": "Presenting Dendrite",
+                  "name": "Chain Strong Scout Cell",
                   "cost": 56,
                   "desc": "Shots chain to 2 more invaders.",
                   "chain": 2
                 },
                 {
                   "id": "dendrite_volley",
-                  "name": "Dendrite Volley",
+                  "name": "Multi Strong Scout Cell",
                   "cost": 56,
                   "desc": "Fires at 2 targets at once.",
                   "multishot": 2
@@ -186,21 +186,21 @@
             },
             {
               "id": "roaming_dendrite",
-              "name": "Roaming Dendrite",
+              "name": "Far Scout Cell",
               "cost": 15,
               "range": 3.6,
               "desc": "Much more range.",
               "evolutions": [
                 {
                   "id": "sentinel_dendrite",
-                  "name": "Sentinel Dendrite",
+                  "name": "Piercing Far Scout Cell",
                   "cost": 56,
                   "desc": "Shots pierce every invader in a line.",
                   "line": true
                 },
                 {
                   "id": "harvesting_dendrite",
-                  "name": "Harvesting Dendrite",
+                  "name": "Lucky Far Scout Cell",
                   "cost": 56,
                   "desc": "Its kills drop 2 extra coins.",
                   "bounty": 2
@@ -211,7 +211,7 @@
         },
         {
           "id": "fibroblast",
-          "name": "Fibroblast",
+          "name": "Scar Tissue",
           "role": "wall",
           "cost": 10,
           "hp": 70,
@@ -224,14 +224,14 @@
           "evolutions": [
             {
               "id": "scar_fibroblast",
-              "name": "Scar Fibroblast",
+              "name": "Tough Scar Tissue",
               "cost": 10,
               "hp": 150,
               "desc": "Much more HP.",
               "evolutions": [
                 {
                   "id": "keloid_wall",
-                  "name": "Keloid Wall",
+                  "name": "Regrowing Tough Scar Tissue",
                   "cost": 40,
                   "desc": "Rebuilds itself once per wave.",
                   "rebuild": true,
@@ -239,7 +239,7 @@
                 },
                 {
                   "id": "scar_lattice",
-                  "name": "Scar Lattice",
+                  "name": "Shielding Tough Scar Tissue",
                   "cost": 40,
                   "desc": "Neighbors take 30% less damage.",
                   "aura_shield": 0.3
@@ -248,21 +248,21 @@
             },
             {
               "id": "healing_fibroblast",
-              "name": "Healing Fibroblast",
+              "name": "Quick-Heal Tissue",
               "cost": 10,
               "regen": 16,
               "desc": "Heals much faster.",
               "evolutions": [
                 {
                   "id": "signaling_fibroblast",
-                  "name": "Signaling Fibroblast",
+                  "name": "Cheering Quick-Heal Tissue",
                   "cost": 40,
                   "desc": "Neighbors attack 25% faster.",
                   "aura_speed": 0.25
                 },
                 {
                   "id": "granulation_tissue",
-                  "name": "Granulation Tissue",
+                  "name": "Grabbing Quick-Heal Tissue",
                   "cost": 40,
                   "desc": "Smashers that bite it get stuck.",
                   "grab": 1.0
@@ -273,7 +273,7 @@
         },
         {
           "id": "eosinophil",
-          "name": "Eosinophil",
+          "name": "Blaster Cell",
           "role": "attacker",
           "cost": 22,
           "hp": 40,
@@ -290,21 +290,21 @@
           "evolutions": [
             {
               "id": "eosinophil_burst",
-              "name": "Eosinophil Burst",
+              "name": "Big Blaster Cell",
               "cost": 20,
               "damage": 52,
               "desc": "Even bigger blasts.",
               "evolutions": [
                 {
                   "id": "eosinophil_barrage",
-                  "name": "Eosinophil Barrage",
+                  "name": "Multi Big Blaster Cell",
                   "cost": 84,
                   "desc": "Blasts 2 targets at once.",
                   "multishot": 2
                 },
                 {
                   "id": "major_basic_protein",
-                  "name": "Major Basic Protein",
+                  "name": "Finishing Big Blaster Cell",
                   "cost": 84,
                   "desc": "Finishes off invaders below 30% HP.",
                   "execute": 0.3
@@ -313,21 +313,21 @@
             },
             {
               "id": "eosinophil_lancer",
-              "name": "Eosinophil Lancer",
+              "name": "Long Blaster Cell",
               "cost": 20,
               "range": 3.2,
               "desc": "Much more range.",
               "evolutions": [
                 {
                   "id": "eosinophil_spear",
-                  "name": "Eosinophil Spear",
+                  "name": "Piercing Long Blaster Cell",
                   "cost": 84,
                   "desc": "Blasts pierce every invader in a line.",
                   "line": true
                 },
                 {
                   "id": "eosinophil_shredder",
-                  "name": "Eosinophil Shredder",
+                  "name": "Armor-Eating Long Blaster Cell",
                   "cost": 84,
                   "desc": "Strips 2 armor and shoves back.",
                   "shred": 2,
@@ -339,7 +339,7 @@
         },
         {
           "id": "granuloma",
-          "name": "Granuloma",
+          "name": "Hard Lump",
           "role": "wall",
           "cost": 18,
           "hp": 260,
@@ -355,14 +355,14 @@
           "evolutions": [
             {
               "id": "calcified_granuloma",
-              "name": "Calcified Granuloma",
+              "name": "Rock-Hard Lump",
               "cost": 16,
               "hp": 480,
               "desc": "Nearly unbreakable.",
               "evolutions": [
                 {
                   "id": "fortress_granuloma",
-                  "name": "Fortress Granuloma",
+                  "name": "Cleaning Rock-Hard Lump",
                   "cost": 68,
                   "desc": "Neighbors take 30% less damage and ignore goo.",
                   "aura_shield": 0.3,
@@ -370,7 +370,7 @@
                 },
                 {
                   "id": "bone_granuloma",
-                  "name": "Bone Granuloma",
+                  "name": "Regrowing Rock-Hard Lump",
                   "cost": 68,
                   "desc": "Rebuilds itself once per wave.",
                   "rebuild": true
@@ -379,7 +379,7 @@
             },
             {
               "id": "caseous_granuloma",
-              "name": "Caseous Granuloma",
+              "name": "Spiky Lump",
               "cost": 16,
               "reflect": 0.8,
               "damage": 5,
@@ -387,14 +387,14 @@
               "evolutions": [
                 {
                   "id": "bursting_granuloma",
-                  "name": "Bursting Granuloma",
+                  "name": "Bursting Spiky Lump",
                   "cost": 68,
                   "desc": "Erupts violently when it breaks.",
                   "explode": 120
                 },
                 {
                   "id": "grasping_granuloma",
-                  "name": "Grasping Granuloma",
+                  "name": "Grabbing Spiky Lump",
                   "cost": 68,
                   "desc": "Smashers that bite it get stuck for 1.5s.",
                   "grab": 1.5
@@ -413,7 +413,7 @@
       "units": [
         {
           "id": "epithelial_cell",
-          "name": "Epithelial Cell",
+          "name": "Skin Cell",
           "role": "wall",
           "cost": 3,
           "hp": 18,
@@ -425,21 +425,21 @@
           "evolutions": [
             {
               "id": "keratinized_cell",
-              "name": "Keratinized Cell",
+              "name": "Tough Skin Cell",
               "cost": 4,
               "hp": 40,
               "desc": "More HP.",
               "evolutions": [
                 {
                   "id": "cornified_layer",
-                  "name": "Cornified Layer",
+                  "name": "Regrowing Tough Skin Cell",
                   "cost": 14,
                   "desc": "Rebuilds itself once per wave.",
                   "rebuild": true
                 },
                 {
                   "id": "mucosal_barrier",
-                  "name": "Mucosal Barrier",
+                  "name": "Cleaning Tough Skin Cell",
                   "cost": 14,
                   "desc": "Neighbors attack 10% faster and ignore goo.",
                   "aura_speed": 0.1,
@@ -449,7 +449,7 @@
             },
             {
               "id": "ciliated_cell",
-              "name": "Ciliated Cell",
+              "name": "Prickly Skin Cell",
               "cost": 4,
               "hp": 22,
               "reflect": 0.4,
@@ -457,14 +457,14 @@
               "evolutions": [
                 {
                   "id": "cilia_trap",
-                  "name": "Cilia Trap",
+                  "name": "Grabbing Prickly Skin Cell",
                   "cost": 14,
                   "desc": "Smashers that bite it get stuck.",
                   "grab": 0.6
                 },
                 {
                   "id": "bursting_cell",
-                  "name": "Bursting Cell",
+                  "name": "Bursting Prickly Skin Cell",
                   "cost": 14,
                   "desc": "Pops when it breaks, hurting nearby invaders.",
                   "explode": 25
@@ -476,7 +476,7 @@
         },
         {
           "id": "neutrophil",
-          "name": "Neutrophil",
+          "name": "White Blood Cell",
           "role": "attacker",
           "cost": 8,
           "hp": 20,
@@ -492,21 +492,21 @@
           "evolutions": [
             {
               "id": "frenzied_neutrophil",
-              "name": "Frenzied Neutrophil",
+              "name": "Angry White Cell",
               "cost": 8,
               "damage": 3.5,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "frenzied_horde",
-                  "name": "Frenzied Horde",
+                  "name": "Multi Angry White Cell",
                   "cost": 32,
                   "desc": "Jabs 2 targets at once.",
                   "multishot": 2
                 },
                 {
                   "id": "killer_neutrophil",
-                  "name": "Killer Neutrophil",
+                  "name": "Finishing Angry White Cell",
                   "cost": 32,
                   "desc": "Finishes off invaders below 20% HP.",
                   "execute": 0.2
@@ -515,21 +515,21 @@
             },
             {
               "id": "scout_neutrophil",
-              "name": "Scout Neutrophil",
+              "name": "Long-Reach White Cell",
               "cost": 8,
               "range": 2.3,
               "desc": "More range.",
               "evolutions": [
                 {
                   "id": "net_neutrophil",
-                  "name": "NET Neutrophil",
+                  "name": "Chain Long-Reach White Cell",
                   "cost": 32,
                   "desc": "Jabs chain to 2 more invaders.",
                   "chain": 2
                 },
                 {
                   "id": "scavenger_neutrophil",
-                  "name": "Scavenger Neutrophil",
+                  "name": "Lucky Long-Reach White Cell",
                   "cost": 32,
                   "desc": "Its kills drop an extra coin.",
                   "bounty": 1
@@ -540,7 +540,7 @@
         },
         {
           "id": "monocyte",
-          "name": "Monocyte",
+          "name": "Spike Shooter",
           "role": "attacker",
           "cost": 9,
           "hp": 12,
@@ -557,21 +557,21 @@
           "evolutions": [
             {
               "id": "volley_monocyte",
-              "name": "Volley Monocyte",
+              "name": "Double Spike Shooter",
               "cost": 9,
               "damage": 4.2,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "barrage_monocyte",
-                  "name": "Barrage Monocyte",
+                  "name": "Multi Double Spike Shooter",
                   "cost": 36,
                   "desc": "Pokes 3 targets at once.",
                   "multishot": 3
                 },
                 {
                   "id": "piercing_monocyte",
-                  "name": "Piercing Monocyte",
+                  "name": "Armor-Eating Double Spike Shooter",
                   "cost": 36,
                   "desc": "Each poke strips 1 armor.",
                   "shred": 1
@@ -580,21 +580,21 @@
             },
             {
               "id": "lookout_monocyte",
-              "name": "Lookout Monocyte",
+              "name": "Long Spike Shooter",
               "cost": 9,
               "range": 3.5,
               "desc": "More range.",
               "evolutions": [
                 {
                   "id": "sniper_monocyte",
-                  "name": "Sniper Monocyte",
+                  "name": "Piercing Long Spike Shooter",
                   "cost": 36,
                   "desc": "Pokes pierce every invader in a line.",
                   "line": true
                 },
                 {
                   "id": "signal_monocyte",
-                  "name": "Signal Monocyte",
+                  "name": "Cheering Long Spike Shooter",
                   "cost": 36,
                   "desc": "Neighbors attack 15% faster.",
                   "aura_speed": 0.15
@@ -605,7 +605,7 @@
         },
         {
           "id": "basophil",
-          "name": "Basophil",
+          "name": "Itch Cell",
           "role": "attacker",
           "cost": 9,
           "hp": 15,
@@ -622,14 +622,14 @@
           "evolutions": [
             {
               "id": "degranulating_basophil",
-              "name": "Degranulating Basophil",
+              "name": "Extra-Itchy Cell",
               "cost": 9,
               "damage": 2.2,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "histamine_burst",
-                  "name": "Histamine Burst",
+                  "name": "Burning Extra-Itchy Cell",
                   "cost": 36,
                   "desc": "Leaves a burning patch around itself.",
                   "zone": "burn",
@@ -637,7 +637,7 @@
                 },
                 {
                   "id": "shredding_basophil",
-                  "name": "Shredding Basophil",
+                  "name": "Armor-Eating Extra-Itchy Cell",
                   "cost": 36,
                   "desc": "Each pulse strips 1 armor.",
                   "shred": 1
@@ -646,7 +646,7 @@
             },
             {
               "id": "wide_basophil",
-              "name": "Wide Basophil",
+              "name": "Wide Itch Cell",
               "cost": 9,
               "range": 2.4,
               "air": true,
@@ -654,14 +654,14 @@
               "evolutions": [
                 {
                   "id": "shockwave_basophil",
-                  "name": "Shockwave Basophil",
+                  "name": "Shoving Wide Itch Cell",
                   "cost": 36,
                   "desc": "Pulses shove invaders back.",
                   "knockback": 1
                 },
                 {
                   "id": "rallying_basophil",
-                  "name": "Rallying Basophil",
+                  "name": "Cheering Wide Itch Cell",
                   "cost": 36,
                   "desc": "Neighbors attack 20% faster.",
                   "aura_speed": 0.2
@@ -672,7 +672,7 @@
         },
         {
           "id": "nk_cell",
-          "name": "NK Cell",
+          "name": "Killer Cell",
           "role": "attacker",
           "cost": 14,
           "hp": 25,
@@ -689,21 +689,21 @@
           "evolutions": [
             {
               "id": "killer_nk_cell",
-              "name": "Killer NK Cell",
+              "name": "Fierce Killer Cell",
               "cost": 12,
               "damage": 7,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "executioner_nk",
-                  "name": "Executioner NK Cell",
+                  "name": "Finishing Fierce Killer Cell",
                   "cost": 52,
                   "desc": "Finishes off invaders below 25% HP.",
                   "execute": 0.25
                 },
                 {
                   "id": "chain_nk",
-                  "name": "Chain NK Cell",
+                  "name": "Chain Fierce Killer Cell",
                   "cost": 52,
                   "desc": "Strikes chain to 2 more invaders.",
                   "chain": 2
@@ -712,7 +712,7 @@
             },
             {
               "id": "hunting_nk_cell",
-              "name": "Hunting NK Cell",
+              "name": "Hunter Killer Cell",
               "cost": 12,
               "range": 2.3,
               "air": true,
@@ -720,14 +720,14 @@
               "evolutions": [
                 {
                   "id": "stalker_nk",
-                  "name": "Stalker NK Cell",
+                  "name": "Lucky Hunter Killer Cell",
                   "cost": 52,
                   "desc": "Its kills drop an extra coin.",
                   "bounty": 1
                 },
                 {
                   "id": "whirling_nk",
-                  "name": "Whirling NK Cell",
+                  "name": "Multi Hunter Killer Cell",
                   "cost": 52,
                   "desc": "Strikes 3 targets at once.",
                   "multishot": 3
@@ -738,7 +738,7 @@
         },
         {
           "id": "net_trap",
-          "name": "NET Trap",
+          "name": "Sticky Net",
           "role": "wall",
           "cost": 6,
           "hp": 25,
@@ -756,21 +756,21 @@
           "evolutions": [
             {
               "id": "dense_net",
-              "name": "Dense NET",
+              "name": "Thick Sticky Net",
               "cost": 6,
               "hp": 60,
               "desc": "More HP.",
               "evolutions": [
                 {
                   "id": "snaring_net",
-                  "name": "Snaring NET",
+                  "name": "Grabbing Thick Sticky Net",
                   "cost": 24,
                   "desc": "Smashers that bite it get stuck.",
                   "grab": 0.8
                 },
                 {
                   "id": "regrowing_net",
-                  "name": "Regrowing NET",
+                  "name": "Regrowing Thick Sticky Net",
                   "cost": 24,
                   "desc": "Rebuilds itself once per wave.",
                   "rebuild": true
@@ -779,7 +779,7 @@
             },
             {
               "id": "wide_net",
-              "name": "Wide NET",
+              "name": "Wide Sticky Net",
               "cost": 6,
               "slow": 0.5,
               "range": 2.2,
@@ -787,7 +787,7 @@
               "evolutions": [
                 {
                   "id": "freezing_net",
-                  "name": "Freezing NET",
+                  "name": "Chilling Wide Sticky Net",
                   "cost": 24,
                   "desc": "Leaves a freezing patch around itself.",
                   "zone": "freeze",
@@ -795,7 +795,7 @@
                 },
                 {
                   "id": "bursting_net",
-                  "name": "Bursting NET",
+                  "name": "Bursting Wide Sticky Net",
                   "cost": 24,
                   "desc": "Bursts when it breaks, hurting nearby invaders.",
                   "explode": 30
@@ -814,7 +814,7 @@
       "units": [
         {
           "id": "keratin_plate",
-          "name": "Keratin Plate",
+          "name": "Nail Plate",
           "role": "wall",
           "cost": 5,
           "hp": 30,
@@ -826,21 +826,21 @@
           "evolutions": [
             {
               "id": "layered_plate",
-              "name": "Layered Plate",
+              "name": "Thick Nail Plate",
               "cost": 6,
               "hp": 70,
               "desc": "More HP.",
               "evolutions": [
                 {
                   "id": "armored_keratin",
-                  "name": "Armored Keratin",
+                  "name": "Shielding Thick Nail Plate",
                   "cost": 22,
                   "desc": "Neighbors take 25% less damage.",
                   "aura_shield": 0.25
                 },
                 {
                   "id": "rebuilt_plate",
-                  "name": "Regrowing Plate",
+                  "name": "Regrowing Thick Nail Plate",
                   "cost": 22,
                   "desc": "Rebuilds itself once per wave.",
                   "rebuild": true
@@ -849,7 +849,7 @@
             },
             {
               "id": "spined_plate",
-              "name": "Spined Plate",
+              "name": "Spiked Nail Plate",
               "cost": 6,
               "hp": 35,
               "reflect": 0.5,
@@ -857,14 +857,14 @@
               "evolutions": [
                 {
                   "id": "spike_trap_plate",
-                  "name": "Spike Trap Plate",
+                  "name": "Bursting Spiked Nail Plate",
                   "cost": 22,
                   "desc": "Blasts nearby invaders when it breaks.",
                   "explode": 35
                 },
                 {
                   "id": "hooked_plate",
-                  "name": "Hooked Plate",
+                  "name": "Grabbing Spiked Nail Plate",
                   "cost": 22,
                   "desc": "Smashers that bite it get stuck.",
                   "grab": 0.8
@@ -876,7 +876,7 @@
         },
         {
           "id": "b_cell",
-          "name": "B-Cell",
+          "name": "Antibody Shooter",
           "role": "attacker",
           "cost": 15,
           "hp": 15,
@@ -892,21 +892,21 @@
           "evolutions": [
             {
               "id": "plasma_cell",
-              "name": "Plasma Cell",
+              "name": "Heavy Antibody Shooter",
               "cost": 13,
               "damage": 8,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "antibody_storm",
-                  "name": "Antibody Storm",
+                  "name": "Multi Heavy Antibody Shooter",
                   "cost": 56,
                   "desc": "Fires at 3 targets at once.",
                   "multishot": 3
                 },
                 {
                   "id": "neutralizing_plasma",
-                  "name": "Neutralizing Plasma",
+                  "name": "Finishing Heavy Antibody Shooter",
                   "cost": 56,
                   "desc": "Finishes off invaders below 20% HP.",
                   "execute": 0.2
@@ -915,21 +915,21 @@
             },
             {
               "id": "memory_b_cell",
-              "name": "Memory B-Cell",
+              "name": "Long Antibody Shooter",
               "cost": 13,
               "range": 4.5,
               "desc": "Much more range.",
               "evolutions": [
                 {
                   "id": "memory_lance",
-                  "name": "Memory Lance",
+                  "name": "Piercing Long Antibody Shooter",
                   "cost": 56,
                   "desc": "Shots pierce every invader in a line.",
                   "line": true
                 },
                 {
                   "id": "long_lived_b_cell",
-                  "name": "Long-Lived B-Cell",
+                  "name": "Lucky Long Antibody Shooter",
                   "cost": 56,
                   "desc": "Its kills drop 2 extra coins.",
                   "bounty": 2
@@ -940,7 +940,7 @@
         },
         {
           "id": "antibody_tagger",
-          "name": "Antibody Tagger",
+          "name": "Germ Tagger",
           "role": "support",
           "cost": 12,
           "hp": 15,
@@ -958,21 +958,21 @@
           "evolutions": [
             {
               "id": "opsonizer",
-              "name": "Opsonizer",
+              "name": "Strong Germ Tagger",
               "cost": 12,
               "mark": 0.7,
               "desc": "Marks for +70% damage.",
               "evolutions": [
                 {
                   "id": "complement_tagger",
-                  "name": "Complement Tagger",
+                  "name": "Armor-Eating Strong Germ Tagger",
                   "cost": 48,
                   "desc": "Tags strip 2 armor.",
                   "shred": 2
                 },
                 {
                   "id": "chain_tagger",
-                  "name": "Chain Tagger",
+                  "name": "Chain Strong Germ Tagger",
                   "cost": 48,
                   "desc": "Tags chain to 3 more invaders.",
                   "chain": 3
@@ -981,21 +981,21 @@
             },
             {
               "id": "long_tagger",
-              "name": "Long Tagger",
+              "name": "Long Germ Tagger",
               "cost": 12,
               "range": 4.5,
               "desc": "Much more range.",
               "evolutions": [
                 {
                   "id": "multi_tagger",
-                  "name": "Multi-Tagger",
+                  "name": "Multi Long Germ Tagger",
                   "cost": 48,
                   "desc": "Tags 3 targets at once.",
                   "multishot": 3
                 },
                 {
                   "id": "coordinator_tagger",
-                  "name": "Coordinator Tagger",
+                  "name": "Cheering Long Germ Tagger",
                   "cost": 48,
                   "desc": "Neighbors attack 20% faster.",
                   "aura_speed": 0.2
@@ -1006,7 +1006,7 @@
         },
         {
           "id": "cytotoxic_t",
-          "name": "Cytotoxic T-Cell",
+          "name": "Germ Stabber",
           "role": "attacker",
           "cost": 18,
           "hp": 25,
@@ -1022,21 +1022,21 @@
           "evolutions": [
             {
               "id": "effector_t",
-              "name": "Effector T-Cell",
+              "name": "Strong Germ Stabber",
               "cost": 16,
               "damage": 21,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "executioner_t",
-                  "name": "Executioner T-Cell",
+                  "name": "Finishing Strong Germ Stabber",
                   "cost": 68,
                   "desc": "Finishes off invaders below 30% HP.",
                   "execute": 0.3
                 },
                 {
                   "id": "hammer_t",
-                  "name": "Hammer T-Cell",
+                  "name": "Shoving Strong Germ Stabber",
                   "cost": 68,
                   "desc": "Strikes shove invaders back.",
                   "knockback": 1
@@ -1045,7 +1045,7 @@
             },
             {
               "id": "patrol_t",
-              "name": "Patrol T-Cell",
+              "name": "Patrol Germ Stabber",
               "cost": 16,
               "range": 3.5,
               "air": true,
@@ -1053,14 +1053,14 @@
               "evolutions": [
                 {
                   "id": "hunter_t",
-                  "name": "Hunter T-Cell",
+                  "name": "Chain Patrol Germ Stabber",
                   "cost": 68,
                   "desc": "Strikes chain to 2 more invaders.",
                   "chain": 2
                 },
                 {
                   "id": "twin_patrol_t",
-                  "name": "Twin Patrol T-Cell",
+                  "name": "Multi Patrol Germ Stabber",
                   "cost": 68,
                   "desc": "Strikes 2 targets at once.",
                   "multishot": 2
@@ -1071,7 +1071,7 @@
         },
         {
           "id": "opsonin_lance",
-          "name": "Opsonin Lance",
+          "name": "Antibody Sniper",
           "role": "attacker",
           "cost": 24,
           "hp": 15,
@@ -1088,21 +1088,21 @@
           "evolutions": [
             {
               "id": "heavy_lance",
-              "name": "Heavy Lance",
+              "name": "Heavy Antibody Sniper",
               "cost": 22,
               "damage": 55,
               "desc": "Much more damage.",
               "evolutions": [
                 {
                   "id": "railgun_lance",
-                  "name": "Railgun Lance",
+                  "name": "Piercing Heavy Antibody Sniper",
                   "cost": 92,
                   "desc": "Shots pierce every invader in a line.",
                   "line": true
                 },
                 {
                   "id": "finishing_lance",
-                  "name": "Finishing Lance",
+                  "name": "Finishing Heavy Antibody Sniper",
                   "cost": 92,
                   "desc": "Finishes off invaders below 35% HP.",
                   "execute": 0.35
@@ -1111,21 +1111,21 @@
             },
             {
               "id": "rapid_lance",
-              "name": "Rapid Lance",
+              "name": "Rapid Antibody Sniper",
               "cost": 22,
               "interval": 1.9,
               "desc": "Fires much faster.",
               "evolutions": [
                 {
                   "id": "bounty_lance",
-                  "name": "Bounty Lance",
+                  "name": "Lucky Rapid Antibody Sniper",
                   "cost": 92,
                   "desc": "Its kills drop 2 extra coins.",
                   "bounty": 2
                 },
                 {
                   "id": "ricochet_lance",
-                  "name": "Ricochet Lance",
+                  "name": "Chain Rapid Antibody Sniper",
                   "cost": 92,
                   "desc": "Shots ricochet to 2 more invaders.",
                   "chain": 2
@@ -1136,7 +1136,7 @@
         },
         {
           "id": "interferon_beacon",
-          "name": "Interferon Beacon",
+          "name": "Alarm Signal",
           "role": "support",
           "cost": 14,
           "hp": 35,
@@ -1154,21 +1154,21 @@
           "evolutions": [
             {
               "id": "alarm_beacon",
-              "name": "Alarm Beacon",
+              "name": "Loud Alarm Signal",
               "cost": 12,
               "mark": 0.45,
               "desc": "Marks for +45% damage.",
               "evolutions": [
                 {
                   "id": "interferon_storm",
-                  "name": "Interferon Storm",
+                  "name": "Armor-Eating Loud Alarm Signal",
                   "cost": 52,
                   "desc": "Pulses strip 1 armor.",
                   "shred": 1
                 },
                 {
                   "id": "rallying_beacon",
-                  "name": "Rallying Beacon",
+                  "name": "Cheering Loud Alarm Signal",
                   "cost": 52,
                   "desc": "Neighbors attack 25% faster.",
                   "aura_speed": 0.25
@@ -1177,14 +1177,14 @@
             },
             {
               "id": "tall_beacon",
-              "name": "Tall Beacon",
+              "name": "Tall Alarm Signal",
               "cost": 12,
               "range": 3.5,
               "desc": "Much more range.",
               "evolutions": [
                 {
                   "id": "shield_beacon",
-                  "name": "Shield Beacon",
+                  "name": "Cleaning Tall Alarm Signal",
                   "cost": 52,
                   "desc": "Neighbors take 30% less damage and ignore goo.",
                   "aura_shield": 0.3,
@@ -1192,7 +1192,7 @@
                 },
                 {
                   "id": "pulse_beacon",
-                  "name": "Pulse Beacon",
+                  "name": "Shoving Tall Alarm Signal",
                   "cost": 52,
                   "desc": "Pulses shove invaders back.",
                   "knockback": 1
@@ -1235,14 +1235,14 @@
               "evolutions": [
                 {
                   "id": "mucus_plug",
-                  "name": "Mucus Plug",
+                  "name": "Regrowing Thick Mucus",
                   "cost": 22,
                   "desc": "Rebuilds itself once per wave.",
                   "rebuild": true
                 },
                 {
                   "id": "grasping_mucus",
-                  "name": "Grasping Mucus",
+                  "name": "Grabbing Thick Mucus",
                   "cost": 22,
                   "desc": "Smashers that bite it get stuck.",
                   "grab": 0.8
@@ -1258,7 +1258,7 @@
               "evolutions": [
                 {
                   "id": "glue_mucus",
-                  "name": "Glue Mucus",
+                  "name": "Chilling Sticky Mucus",
                   "cost": 22,
                   "desc": "Leaves a freezing patch around itself.",
                   "zone": "freeze",
@@ -1266,7 +1266,7 @@
                 },
                 {
                   "id": "bursting_mucus",
-                  "name": "Bursting Mucus",
+                  "name": "Bursting Sticky Mucus",
                   "cost": 22,
                   "desc": "Bursts when it breaks, hurting nearby invaders.",
                   "explode": 30
@@ -1278,7 +1278,7 @@
         },
         {
           "id": "mast_cell",
-          "name": "Mast Cell",
+          "name": "Allergy Cell",
           "role": "attacker",
           "cost": 11,
           "hp": 25,
@@ -1296,21 +1296,21 @@
           "evolutions": [
             {
               "id": "reactive_mast_cell",
-              "name": "Reactive Mast Cell",
+              "name": "Strong Allergy Cell",
               "cost": 12,
               "damage": 3.5,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "shredding_mast_cell",
-                  "name": "Shredding Mast Cell",
+                  "name": "Armor-Eating Strong Allergy Cell",
                   "cost": 46,
                   "desc": "Pulses strip 1 armor.",
                   "shred": 1
                 },
                 {
                   "id": "degranulation_burst",
-                  "name": "Degranulation Burst",
+                  "name": "Burning Strong Allergy Cell",
                   "cost": 46,
                   "desc": "Leaves a burning patch around itself.",
                   "zone": "burn",
@@ -1320,21 +1320,21 @@
             },
             {
               "id": "spreading_mast_cell",
-              "name": "Spreading Mast Cell",
+              "name": "Wide Allergy Cell",
               "cost": 12,
               "range": 2.6,
               "desc": "More range.",
               "evolutions": [
                 {
                   "id": "shoving_mast_cell",
-                  "name": "Shoving Mast Cell",
+                  "name": "Shoving Wide Allergy Cell",
                   "cost": 46,
                   "desc": "Pulses shove invaders back.",
                   "knockback": 1
                 },
                 {
                   "id": "alarm_mast_cell",
-                  "name": "Alarm Mast Cell",
+                  "name": "Cheering Wide Allergy Cell",
                   "cost": 46,
                   "desc": "Neighbors attack 20% faster.",
                   "aura_speed": 0.2
@@ -1345,7 +1345,7 @@
         },
         {
           "id": "histamine_spitter",
-          "name": "Histamine Spitter",
+          "name": "Sneeze Blaster",
           "role": "attacker",
           "cost": 13,
           "hp": 15,
@@ -1362,21 +1362,21 @@
           "evolutions": [
             {
               "id": "acid_spitter",
-              "name": "Acid Spitter",
+              "name": "Big Sneeze Blaster",
               "cost": 12,
               "damage": 6,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "corrosive_spitter",
-                  "name": "Corrosive Spitter",
+                  "name": "Armor-Eating Big Sneeze Blaster",
                   "cost": 50,
                   "desc": "Splashes strip 1 armor.",
                   "shred": 1
                 },
                 {
                   "id": "burning_spitter",
-                  "name": "Burning Spitter",
+                  "name": "Burning Big Sneeze Blaster",
                   "cost": 50,
                   "desc": "Shots leave a burning patch.",
                   "zone": "burn",
@@ -1386,21 +1386,21 @@
             },
             {
               "id": "far_spitter",
-              "name": "Far Spitter",
+              "name": "Far Sneeze Blaster",
               "cost": 12,
               "range": 4.0,
               "desc": "More range.",
               "evolutions": [
                 {
                   "id": "twin_spitter",
-                  "name": "Twin Spitter",
+                  "name": "Multi Far Sneeze Blaster",
                   "cost": 50,
                   "desc": "Spits at 2 targets at once.",
                   "multishot": 2
                 },
                 {
                   "id": "bouncing_spitter",
-                  "name": "Bouncing Spitter",
+                  "name": "Chain Far Sneeze Blaster",
                   "cost": 50,
                   "desc": "Spit bounces to 2 more invaders.",
                   "chain": 2
@@ -1411,7 +1411,7 @@
         },
         {
           "id": "fever_node",
-          "name": "Fever Node",
+          "name": "Fever Spot",
           "role": "attacker",
           "cost": 16,
           "hp": 25,
@@ -1428,14 +1428,14 @@
           "evolutions": [
             {
               "id": "high_fever",
-              "name": "High Fever",
+              "name": "High Fever Spot",
               "cost": 14,
               "damage": 6,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "inferno_node",
-                  "name": "Inferno Node",
+                  "name": "Burning High Fever Spot",
                   "cost": 60,
                   "desc": "Leaves a burning patch around itself.",
                   "zone": "burn",
@@ -1443,7 +1443,7 @@
                 },
                 {
                   "id": "heatstroke_node",
-                  "name": "Heatstroke Node",
+                  "name": "Finishing High Fever Spot",
                   "cost": 60,
                   "desc": "Finishes off invaders below 15% HP.",
                   "execute": 0.15
@@ -1452,21 +1452,21 @@
             },
             {
               "id": "wide_fever",
-              "name": "Wide Fever",
+              "name": "Wide Fever Spot",
               "cost": 14,
               "range": 3.0,
               "desc": "More range.",
               "evolutions": [
                 {
                   "id": "heatwave_node",
-                  "name": "Heatwave Node",
+                  "name": "Shoving Wide Fever Spot",
                   "cost": 60,
                   "desc": "Pulses shove invaders back.",
                   "knockback": 1
                 },
                 {
                   "id": "warming_node",
-                  "name": "Warming Node",
+                  "name": "Cheering Wide Fever Spot",
                   "cost": 60,
                   "desc": "Neighbors attack 20% faster.",
                   "aura_speed": 0.2
@@ -1477,7 +1477,7 @@
         },
         {
           "id": "cytokine_storm",
-          "name": "Cytokine Storm",
+          "name": "Stun Cell",
           "role": "attacker",
           "cost": 18,
           "hp": 20,
@@ -1494,21 +1494,21 @@
           "evolutions": [
             {
               "id": "paralyzing_storm",
-              "name": "Paralyzing Storm",
+              "name": "Long Stun Cell",
               "cost": 16,
               "stun": 1.1,
               "desc": "Longer stun.",
               "evolutions": [
                 {
                   "id": "chain_storm",
-                  "name": "Chain Storm",
+                  "name": "Chain Long Stun Cell",
                   "cost": 68,
                   "desc": "Stuns chain to 3 more invaders.",
                   "chain": 3
                 },
                 {
                   "id": "storm_volley",
-                  "name": "Storm Volley",
+                  "name": "Multi Long Stun Cell",
                   "cost": 68,
                   "desc": "Stuns 2 targets at once.",
                   "multishot": 2
@@ -1517,21 +1517,21 @@
             },
             {
               "id": "rolling_storm",
-              "name": "Rolling Storm",
+              "name": "Wide Stun Cell",
               "cost": 16,
               "splash": 1.2,
               "desc": "Stuns a whole area.",
               "evolutions": [
                 {
                   "id": "shockwave_storm",
-                  "name": "Shockwave Storm",
+                  "name": "Shoving Wide Stun Cell",
                   "cost": 68,
                   "desc": "Hits shove invaders 2 tiles back.",
                   "knockback": 2
                 },
                 {
                   "id": "freezing_storm",
-                  "name": "Freezing Storm",
+                  "name": "Chilling Wide Stun Cell",
                   "cost": 68,
                   "desc": "Hits leave a freezing patch.",
                   "zone": "freeze",
@@ -1543,7 +1543,7 @@
         },
         {
           "id": "inflammation_zone",
-          "name": "Inflammation Zone",
+          "name": "Swelling",
           "role": "attacker",
           "cost": 18,
           "hp": 30,
@@ -1562,21 +1562,21 @@
           "evolutions": [
             {
               "id": "searing_zone",
-              "name": "Searing Zone",
+              "name": "Hot Swelling",
               "cost": 16,
               "damage": 3,
               "desc": "More damage.",
               "evolutions": [
                 {
                   "id": "scorched_zone",
-                  "name": "Scorched Zone",
+                  "name": "Armor-Eating Hot Swelling",
                   "cost": 68,
                   "desc": "Pulses strip 1 armor.",
                   "shred": 1
                 },
                 {
                   "id": "sepsis_zone",
-                  "name": "Sepsis Zone",
+                  "name": "Finishing Hot Swelling",
                   "cost": 68,
                   "desc": "Finishes off invaders below 15% HP.",
                   "execute": 0.15
@@ -1585,21 +1585,21 @@
             },
             {
               "id": "swollen_zone",
-              "name": "Swollen Zone",
+              "name": "Big Swelling",
               "cost": 16,
               "range": 3.5,
               "desc": "More range.",
               "evolutions": [
                 {
                   "id": "edema_zone",
-                  "name": "Edema Zone",
+                  "name": "Shoving Big Swelling",
                   "cost": 68,
                   "desc": "Pulses shove invaders back.",
                   "knockback": 1
                 },
                 {
                   "id": "fevered_zone",
-                  "name": "Fevered Zone",
+                  "name": "Lucky Big Swelling",
                   "cost": 68,
                   "desc": "Its kills drop an extra coin.",
                   "bounty": 1
@@ -1619,7 +1619,7 @@
       "units": [
         {
           "id": "toxic_membrane",
-          "name": "Toxic Membrane",
+          "name": "Toxic Skin",
           "role": "wall",
           "cost": 5,
           "hp": 25,
@@ -1632,21 +1632,21 @@
           "evolutions": [
             {
               "id": "thick_membrane",
-              "name": "Thick Membrane",
+              "name": "Thick Toxic Skin",
               "cost": 6,
               "hp": 60,
               "desc": "More HP.",
               "evolutions": [
                 {
                   "id": "regrowing_membrane",
-                  "name": "Regrowing Membrane",
+                  "name": "Regrowing Thick Toxic Skin",
                   "cost": 22,
                   "desc": "Rebuilds itself once per wave.",
                   "rebuild": true
                 },
                 {
                   "id": "sticky_membrane",
-                  "name": "Sticky Membrane",
+                  "name": "Grabbing Thick Toxic Skin",
                   "cost": 22,
                   "desc": "Smashers that bite it get stuck.",
                   "grab": 0.8
@@ -1655,14 +1655,14 @@
             },
             {
               "id": "venom_membrane",
-              "name": "Venom Membrane",
+              "name": "Venom Skin",
               "cost": 6,
               "reflect": 0.8,
               "desc": "Reflects 80% of smasher damage.",
               "evolutions": [
                 {
                   "id": "toxic_burst_membrane",
-                  "name": "Toxic Burst Membrane",
+                  "name": "Bursting Venom Skin",
                   "cost": 22,
                   "desc": "Bursts into a toxic cloud when it breaks.",
                   "explode": 30,
@@ -1671,7 +1671,7 @@
                 },
                 {
                   "id": "antitoxin_membrane",
-                  "name": "Antitoxin Membrane",
+                  "name": "Cleaning Venom Skin",
                   "cost": 22,
                   "desc": "Neighbors take 20% less damage and ignore goo.",
                   "aura_shield": 0.2,
@@ -1684,7 +1684,7 @@
         },
         {
           "id": "killer_t",
-          "name": "Killer T-Cell",
+          "name": "Poison Cell",
           "role": "attacker",
           "cost": 12,
           "hp": 20,
@@ -1701,21 +1701,21 @@
           "evolutions": [
             {
               "id": "venomous_t",
-              "name": "Venomous T-Cell",
+              "name": "Strong Poison Cell",
               "cost": 12,
               "poison": 6,
               "desc": "Stronger poison.",
               "evolutions": [
                 {
                   "id": "necrotizing_t",
-                  "name": "Necrotizing T-Cell",
+                  "name": "Finishing Strong Poison Cell",
                   "cost": 48,
                   "desc": "Finishes off invaders below 20% HP.",
                   "execute": 0.2
                 },
                 {
                   "id": "twin_venom_t",
-                  "name": "Twin Venom T-Cell",
+                  "name": "Multi Strong Poison Cell",
                   "cost": 48,
                   "desc": "Poisons 2 targets at once.",
                   "multishot": 2
@@ -1724,21 +1724,21 @@
             },
             {
               "id": "reaching_t",
-              "name": "Reaching T-Cell",
+              "name": "Long Poison Cell",
               "cost": 12,
               "range": 3.0,
               "desc": "More range.",
               "evolutions": [
                 {
                   "id": "chain_venom_t",
-                  "name": "Chain Venom T-Cell",
+                  "name": "Chain Long Poison Cell",
                   "cost": 48,
                   "desc": "Poison chains to 2 more invaders.",
                   "chain": 2
                 },
                 {
                   "id": "venom_sniper_t",
-                  "name": "Venom Sniper T-Cell",
+                  "name": "Piercing Long Poison Cell",
                   "cost": 48,
                   "desc": "Poison pierces every invader in a line.",
                   "line": true
@@ -1749,7 +1749,7 @@
         },
         {
           "id": "complement_sprayer",
-          "name": "Complement Sprayer",
+          "name": "Poison Sprayer",
           "role": "attacker",
           "cost": 14,
           "hp": 15,
@@ -1768,21 +1768,21 @@
           "evolutions": [
             {
               "id": "caustic_sprayer",
-              "name": "Caustic Sprayer",
+              "name": "Strong Poison Sprayer",
               "cost": 13,
               "poison": 4.5,
               "desc": "Stronger poison.",
               "evolutions": [
                 {
                   "id": "corroding_sprayer",
-                  "name": "Corroding Sprayer",
+                  "name": "Armor-Eating Strong Poison Sprayer",
                   "cost": 54,
                   "desc": "Spray strips 1 armor.",
                   "shred": 1
                 },
                 {
                   "id": "toxic_cloud_sprayer",
-                  "name": "Toxic Cloud Sprayer",
+                  "name": "Toxic Strong Poison Sprayer",
                   "cost": 54,
                   "desc": "Spray leaves a toxic cloud.",
                   "zone": "toxic",
@@ -1792,21 +1792,21 @@
             },
             {
               "id": "misting_sprayer",
-              "name": "Misting Sprayer",
+              "name": "Misting Poison Sprayer",
               "cost": 13,
               "range": 3.5,
               "desc": "More range.",
               "evolutions": [
                 {
                   "id": "fanning_sprayer",
-                  "name": "Fanning Sprayer",
+                  "name": "Multi Misting Poison Sprayer",
                   "cost": 54,
                   "desc": "Sprays 2 targets at once.",
                   "multishot": 2
                 },
                 {
                   "id": "harvest_sprayer",
-                  "name": "Harvest Sprayer",
+                  "name": "Lucky Misting Poison Sprayer",
                   "cost": 54,
                   "desc": "Its kills drop an extra coin.",
                   "bounty": 1
@@ -1817,7 +1817,7 @@
         },
         {
           "id": "lysozyme_pool",
-          "name": "Lysozyme Pool",
+          "name": "Acid Puddle",
           "role": "attacker",
           "cost": 14,
           "hp": 20,
@@ -1834,21 +1834,21 @@
           "evolutions": [
             {
               "id": "acid_pool",
-              "name": "Acid Pool",
+              "name": "Strong Acid Puddle",
               "cost": 13,
               "poison": 4.5,
               "desc": "Stronger poison.",
               "evolutions": [
                 {
                   "id": "dissolving_pool",
-                  "name": "Dissolving Pool",
+                  "name": "Armor-Eating Strong Acid Puddle",
                   "cost": 54,
                   "desc": "Pulses strip 1 armor.",
                   "shred": 1
                 },
                 {
                   "id": "boiling_pool",
-                  "name": "Boiling Pool",
+                  "name": "Toxic Strong Acid Puddle",
                   "cost": 54,
                   "desc": "Leaves a toxic patch around itself.",
                   "zone": "toxic",
@@ -1858,7 +1858,7 @@
             },
             {
               "id": "spilling_pool",
-              "name": "Spilling Pool",
+              "name": "Spilling Acid Puddle",
               "cost": 13,
               "range": 2.5,
               "air": true,
@@ -1866,14 +1866,14 @@
               "evolutions": [
                 {
                   "id": "flooding_pool",
-                  "name": "Flooding Pool",
+                  "name": "Shoving Spilling Acid Puddle",
                   "cost": 54,
                   "desc": "Pulses shove invaders back.",
                   "knockback": 1
                 },
                 {
                   "id": "rich_pool",
-                  "name": "Rich Pool",
+                  "name": "Lucky Spilling Acid Puddle",
                   "cost": 54,
                   "desc": "Its kills drop an extra coin.",
                   "bounty": 1
@@ -1884,7 +1884,7 @@
         },
         {
           "id": "perforin_lancer",
-          "name": "Perforin Lancer",
+          "name": "Plague Cell",
           "role": "attacker",
           "cost": 20,
           "hp": 20,
@@ -1903,21 +1903,21 @@
           "evolutions": [
             {
               "id": "plague_lancer",
-              "name": "Plague Lancer",
+              "name": "Strong Plague Cell",
               "cost": 18,
               "poison": 8,
               "desc": "Stronger poison.",
               "evolutions": [
                 {
                   "id": "pandemic_lancer",
-                  "name": "Pandemic Lancer",
+                  "name": "Chain Strong Plague Cell",
                   "cost": 76,
                   "desc": "Plague chains to 3 more invaders.",
                   "chain": 3
                 },
                 {
                   "id": "plague_executioner",
-                  "name": "Plague Executioner",
+                  "name": "Finishing Strong Plague Cell",
                   "cost": 76,
                   "desc": "Finishes off invaders below 20% HP.",
                   "execute": 0.2
@@ -1926,21 +1926,21 @@
             },
             {
               "id": "long_lancer",
-              "name": "Long Lancer",
+              "name": "Long Plague Cell",
               "cost": 18,
               "range": 3.5,
               "desc": "More range.",
               "evolutions": [
                 {
                   "id": "plague_volley",
-                  "name": "Plague Volley",
+                  "name": "Multi Long Plague Cell",
                   "cost": 76,
                   "desc": "Infects 2 targets at once.",
                   "multishot": 2
                 },
                 {
                   "id": "plague_spear",
-                  "name": "Plague Spear",
+                  "name": "Piercing Long Plague Cell",
                   "cost": 76,
                   "desc": "Plague pierces every invader in a line.",
                   "line": true
@@ -1951,7 +1951,7 @@
         },
         {
           "id": "necrosis_bloom",
-          "name": "Necrosis Bloom",
+          "name": "Rot Patch",
           "role": "wall",
           "cost": 14,
           "hp": 40,
@@ -1969,21 +1969,21 @@
           "evolutions": [
             {
               "id": "hardened_bloom",
-              "name": "Hardened Bloom",
+              "name": "Hard Rot Patch",
               "cost": 12,
               "hp": 100,
               "desc": "More HP.",
               "evolutions": [
                 {
                   "id": "undying_bloom",
-                  "name": "Undying Bloom",
+                  "name": "Regrowing Hard Rot Patch",
                   "cost": 52,
                   "desc": "Rebuilds itself once per wave.",
                   "rebuild": true
                 },
                 {
                   "id": "choking_bloom",
-                  "name": "Choking Bloom",
+                  "name": "Grabbing Hard Rot Patch",
                   "cost": 52,
                   "desc": "Smashers that bite it get stuck.",
                   "grab": 1.0
@@ -1992,14 +1992,14 @@
             },
             {
               "id": "virulent_bloom",
-              "name": "Virulent Bloom",
+              "name": "Nasty Rot Patch",
               "cost": 12,
               "poison": 6,
               "desc": "Stronger poison.",
               "evolutions": [
                 {
                   "id": "spore_burst_bloom",
-                  "name": "Spore Burst Bloom",
+                  "name": "Bursting Nasty Rot Patch",
                   "cost": 52,
                   "desc": "Bursts into a toxic cloud when it breaks.",
                   "explode": 60,
@@ -2008,7 +2008,7 @@
                 },
                 {
                   "id": "blight_field",
-                  "name": "Blight Field",
+                  "name": "Toxic Nasty Rot Patch",
                   "cost": 52,
                   "desc": "Leaves a toxic patch around itself.",
                   "zone": "toxic",

@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_xovbq")
 id = "inflammation_zone"
-display_name = "Inflammation Zone"
+display_name = "Swelling"
 role = 1
 cost = 18
 max_hp = 30

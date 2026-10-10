@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_bvdx1")
 id = "killer_neutrophil"
-display_name = "Killer Neutrophil"
+display_name = "Finishing Angry White Cell"
 role = 1
 cost = 32
 damage = 3.5

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_tbwol")
 id = "corrosive_spitter"
-display_name = "Corrosive Spitter"
+display_name = "Armor-Eating Big Sneeze Blaster"
 role = 1
 cost = 50
 max_hp = 15

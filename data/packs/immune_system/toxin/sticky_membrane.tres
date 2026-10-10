@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_h2rjr")
 id = "sticky_membrane"
-display_name = "Sticky Membrane"
+display_name = "Grabbing Thick Toxic Skin"
 cost = 22
 max_hp = 60
 reflect = 0.3

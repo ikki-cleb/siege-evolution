@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_q0g35")
 id = "eosinophil_barrage"
-display_name = "Eosinophil Barrage"
+display_name = "Multi Big Blaster Cell"
 role = 1
 cost = 84
 max_hp = 40

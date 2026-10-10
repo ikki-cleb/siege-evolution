@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gsd50")
 id = "signal_monocyte"
-display_name = "Signal Monocyte"
+display_name = "Cheering Long Spike Shooter"
 role = 1
 cost = 36
 max_hp = 12

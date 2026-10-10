@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gxvsk")
 id = "engulfing_foam"
-display_name = "Engulfing Foam"
+display_name = "Armor-Eating Wide Germ Eater"
 role = 1
 cost = 60
 max_hp = 60

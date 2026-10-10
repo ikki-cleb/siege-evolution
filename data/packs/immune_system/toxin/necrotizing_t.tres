@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gdp4c")
 id = "necrotizing_t"
-display_name = "Necrotizing T-Cell"
+display_name = "Finishing Strong Poison Cell"
 role = 1
 cost = 48
 damage = 1.0

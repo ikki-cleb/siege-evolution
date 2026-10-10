@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_nv8rv")
 id = "rich_pool"
-display_name = "Rich Pool"
+display_name = "Lucky Spilling Acid Puddle"
 role = 1
 cost = 54
 attack_mode = 1

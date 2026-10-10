@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_16l0f")
 id = "sniper_monocyte"
-display_name = "Sniper Monocyte"
+display_name = "Piercing Long Spike Shooter"
 role = 1
 cost = 36
 max_hp = 12

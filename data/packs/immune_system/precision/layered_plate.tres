@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_lrvev")
 id = "layered_plate"
-display_name = "Layered Plate"
+display_name = "Thick Nail Plate"
 cost = 6
 max_hp = 70
 tier = 1

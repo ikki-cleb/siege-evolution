@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_clkcq")
 id = "keratinized_cell"
-display_name = "Keratinized Cell"
+display_name = "Tough Skin Cell"
 cost = 4
 max_hp = 40
 tier = 1

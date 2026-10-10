@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_onjrh")
 id = "lysozyme_pool"
-display_name = "Lysozyme Pool"
+display_name = "Acid Puddle"
 role = 1
 cost = 14
 attack_mode = 1

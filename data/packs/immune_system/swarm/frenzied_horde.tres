@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_vsauu")
 id = "frenzied_horde"
-display_name = "Frenzied Horde"
+display_name = "Multi Angry White Cell"
 role = 1
 cost = 32
 damage = 3.5

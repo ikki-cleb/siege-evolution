@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_xws4m")
 id = "major_basic_protein"
-display_name = "Major Basic Protein"
+display_name = "Finishing Big Blaster Cell"
 role = 1
 cost = 84
 max_hp = 40

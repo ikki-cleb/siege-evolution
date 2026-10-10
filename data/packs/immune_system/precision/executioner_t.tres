@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_x51j7")
 id = "executioner_t"
-display_name = "Executioner T-Cell"
+display_name = "Finishing Strong Germ Stabber"
 role = 1
 cost = 68
 max_hp = 25

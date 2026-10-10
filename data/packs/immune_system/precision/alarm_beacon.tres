@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_ggivq")
 id = "alarm_beacon"
-display_name = "Alarm Beacon"
+display_name = "Loud Alarm Signal"
 role = 2
 cost = 12
 max_hp = 35

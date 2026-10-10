@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_fwu2q")
 id = "glue_mucus"
-display_name = "Glue Mucus"
+display_name = "Chilling Sticky Mucus"
 cost = 22
 max_hp = 25
 attack_mode = 1

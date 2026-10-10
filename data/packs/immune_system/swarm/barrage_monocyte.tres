@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_u2kdf")
 id = "barrage_monocyte"
-display_name = "Barrage Monocyte"
+display_name = "Multi Double Spike Shooter"
 role = 1
 cost = 36
 max_hp = 12

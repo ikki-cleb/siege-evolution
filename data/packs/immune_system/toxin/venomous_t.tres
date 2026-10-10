@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_2kvpf")
 id = "venomous_t"
-display_name = "Venomous T-Cell"
+display_name = "Strong Poison Cell"
 role = 1
 cost = 12
 damage = 1.0

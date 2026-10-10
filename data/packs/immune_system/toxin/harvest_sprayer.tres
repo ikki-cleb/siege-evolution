@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2b67v")
 id = "harvest_sprayer"
-display_name = "Harvest Sprayer"
+display_name = "Lucky Misting Poison Sprayer"
 role = 1
 cost = 54
 max_hp = 15

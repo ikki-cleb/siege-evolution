@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_4mckr")
 id = "armored_keratin"
-display_name = "Armored Keratin"
+display_name = "Shielding Thick Nail Plate"
 cost = 22
 max_hp = 70
 tier = 2

@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_aersl")
 id = "keratin_plate"
-display_name = "Keratin Plate"
+display_name = "Nail Plate"
 max_hp = 30
 evolutions = Array[ExtResource("1_aersl")]([ExtResource("2_yi41c"), ExtResource("3_6mv04")])
 can_place_on_water = true

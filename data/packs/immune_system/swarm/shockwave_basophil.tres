@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_vr8tg")
 id = "shockwave_basophil"
-display_name = "Shockwave Basophil"
+display_name = "Shoving Wide Itch Cell"
 role = 1
 cost = 36
 max_hp = 15

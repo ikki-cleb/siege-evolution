@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_afr2l")
 id = "alarm_mast_cell"
-display_name = "Alarm Mast Cell"
+display_name = "Cheering Wide Allergy Cell"
 role = 1
 cost = 46
 max_hp = 25

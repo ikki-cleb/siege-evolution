@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_sec26")
 id = "burning_spitter"
-display_name = "Burning Spitter"
+display_name = "Burning Big Sneeze Blaster"
 role = 1
 cost = 50
 max_hp = 15

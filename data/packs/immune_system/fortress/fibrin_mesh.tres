@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_gf10q")
 id = "fibrin_mesh"
-display_name = "Fibrin Mesh"
+display_name = "Thick Scab"
 cost = 10
 max_hp = 220
 tier = 1

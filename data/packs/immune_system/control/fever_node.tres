@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_4875q")
 id = "fever_node"
-display_name = "Fever Node"
+display_name = "Fever Spot"
 role = 1
 cost = 16
 max_hp = 25

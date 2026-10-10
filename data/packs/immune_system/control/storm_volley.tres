@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_mya6g")
 id = "storm_volley"
-display_name = "Storm Volley"
+display_name = "Multi Long Stun Cell"
 role = 1
 cost = 68
 damage = 4.0

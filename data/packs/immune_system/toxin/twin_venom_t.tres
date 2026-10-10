@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2btvo")
 id = "twin_venom_t"
-display_name = "Twin Venom T-Cell"
+display_name = "Multi Strong Poison Cell"
 role = 1
 cost = 48
 damage = 1.0

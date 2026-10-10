@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ok7l1")
 id = "chain_nk"
-display_name = "Chain NK Cell"
+display_name = "Chain Fierce Killer Cell"
 role = 1
 cost = 52
 max_hp = 25

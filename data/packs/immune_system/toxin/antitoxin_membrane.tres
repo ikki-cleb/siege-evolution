@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_665ug")
 id = "antitoxin_membrane"
-display_name = "Antitoxin Membrane"
+display_name = "Cleaning Venom Skin"
 cost = 22
 max_hp = 25
 reflect = 0.8

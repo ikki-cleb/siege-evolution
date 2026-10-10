@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_iiwv2")
 id = "barbed_thrombus"
-display_name = "Barbed Thrombus"
+display_name = "Grabbing Spiky Scab"
 cost = 34
 max_hp = 120
 reflect = 0.9

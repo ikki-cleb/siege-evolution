@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_q78sx")
 id = "rallying_basophil"
-display_name = "Rallying Basophil"
+display_name = "Cheering Wide Itch Cell"
 role = 1
 cost = 36
 max_hp = 15

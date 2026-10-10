@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_nvitt")
 id = "cytokine_storm"
-display_name = "Cytokine Storm"
+display_name = "Stun Cell"
 role = 1
 cost = 18
 damage = 4.0

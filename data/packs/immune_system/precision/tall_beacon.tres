@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_fotl4")
 id = "tall_beacon"
-display_name = "Tall Beacon"
+display_name = "Tall Alarm Signal"
 role = 2
 cost = 12
 max_hp = 35

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_1sp40")
 id = "regrowing_net"
-display_name = "Regrowing NET"
+display_name = "Regrowing Thick Sticky Net"
 cost = 24
 max_hp = 60
 attack_mode = 1

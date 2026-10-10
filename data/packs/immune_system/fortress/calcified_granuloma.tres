@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_iihtf")
 id = "calcified_granuloma"
-display_name = "Calcified Granuloma"
+display_name = "Rock-Hard Lump"
 cost = 16
 max_hp = 480
 attack_mode = 1

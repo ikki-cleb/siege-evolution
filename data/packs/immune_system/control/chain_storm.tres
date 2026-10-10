@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_iiysk")
 id = "chain_storm"
-display_name = "Chain Storm"
+display_name = "Chain Long Stun Cell"
 role = 1
 cost = 68
 damage = 4.0

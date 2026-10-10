@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_367u1")
 id = "histamine_burst"
-display_name = "Histamine Burst"
+display_name = "Burning Extra-Itchy Cell"
 role = 1
 cost = 36
 max_hp = 15

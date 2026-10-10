@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_lfwbv")
 id = "opsonizer"
-display_name = "Opsonizer"
+display_name = "Strong Germ Tagger"
 role = 2
 cost = 12
 max_hp = 15

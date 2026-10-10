@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_hd8g4")
 id = "caseous_granuloma"
-display_name = "Caseous Granuloma"
+display_name = "Spiky Lump"
 cost = 16
 max_hp = 260
 reflect = 0.8

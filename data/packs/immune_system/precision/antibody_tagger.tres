@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_3hkeo")
 id = "antibody_tagger"
-display_name = "Antibody Tagger"
+display_name = "Germ Tagger"
 role = 2
 cost = 12
 max_hp = 15

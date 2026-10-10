@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_jhxsc")
 id = "interferon_beacon"
-display_name = "Interferon Beacon"
+display_name = "Alarm Signal"
 role = 2
 cost = 14
 max_hp = 35

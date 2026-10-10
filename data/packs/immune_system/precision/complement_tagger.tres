@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_amhed")
 id = "complement_tagger"
-display_name = "Complement Tagger"
+display_name = "Armor-Eating Strong Germ Tagger"
 role = 2
 cost = 48
 max_hp = 15

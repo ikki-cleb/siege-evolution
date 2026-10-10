@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_c4k41")
 id = "cornified_layer"
-display_name = "Cornified Layer"
+display_name = "Regrowing Tough Skin Cell"
 cost = 14
 max_hp = 40
 tier = 2

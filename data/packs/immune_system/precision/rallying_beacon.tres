@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_y8clu")
 id = "rallying_beacon"
-display_name = "Rallying Beacon"
+display_name = "Cheering Loud Alarm Signal"
 role = 2
 cost = 52
 max_hp = 35

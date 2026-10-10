@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_6bm5t")
 id = "mucus_plug"
-display_name = "Mucus Plug"
+display_name = "Regrowing Thick Mucus"
 cost = 22
 max_hp = 60
 attack_mode = 1

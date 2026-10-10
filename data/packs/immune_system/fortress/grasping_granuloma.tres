@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gymur")
 id = "grasping_granuloma"
-display_name = "Grasping Granuloma"
+display_name = "Grabbing Spiky Lump"
 cost = 68
 max_hp = 260
 reflect = 0.8

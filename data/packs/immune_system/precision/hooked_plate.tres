@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_7mfim")
 id = "hooked_plate"
-display_name = "Hooked Plate"
+display_name = "Grabbing Spiked Nail Plate"
 cost = 22
 max_hp = 35
 reflect = 0.5

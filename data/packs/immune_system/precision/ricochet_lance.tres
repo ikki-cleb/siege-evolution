@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_xsakp")
 id = "ricochet_lance"
-display_name = "Ricochet Lance"
+display_name = "Chain Rapid Antibody Sniper"
 role = 1
 cost = 92
 max_hp = 15

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_qucx2")
 id = "regrowing_membrane"
-display_name = "Regrowing Membrane"
+display_name = "Regrowing Thick Toxic Skin"
 cost = 22
 max_hp = 60
 reflect = 0.3

@@ -423,7 +423,7 @@ func next_wave_summary() -> String:
 	return "Next: " + ", ".join(parts)
 
 
-## One line of stats for a unit, e.g. "Neutrophil: 2 dmg, range 1.5, ground only."
+## One line of stats for a unit, e.g. "White Blood Cell: 2 dmg, range 1.5, ground only."
 func describe(type: UnitData) -> String:
 	var parts: Array[String] = []
 	if type.role == UnitData.Role.WALL or not type.can_attack():

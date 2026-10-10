@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_qvx3a")
 id = "scout_neutrophil"
-display_name = "Scout Neutrophil"
+display_name = "Long-Reach White Cell"
 role = 1
 cost = 8
 damage = 2.3

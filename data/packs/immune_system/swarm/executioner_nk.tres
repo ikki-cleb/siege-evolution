@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_235ry")
 id = "executioner_nk"
-display_name = "Executioner NK Cell"
+display_name = "Finishing Fierce Killer Cell"
 role = 1
 cost = 52
 max_hp = 25

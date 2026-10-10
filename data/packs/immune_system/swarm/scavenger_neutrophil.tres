@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2v7gv")
 id = "scavenger_neutrophil"
-display_name = "Scavenger Neutrophil"
+display_name = "Lucky Long-Reach White Cell"
 role = 1
 cost = 32
 damage = 2.3

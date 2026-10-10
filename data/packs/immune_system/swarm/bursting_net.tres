@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_80kpn")
 id = "bursting_net"
-display_name = "Bursting NET"
+display_name = "Bursting Wide Sticky Net"
 cost = 24
 max_hp = 25
 attack_mode = 1

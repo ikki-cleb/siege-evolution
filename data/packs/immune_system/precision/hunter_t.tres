@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_wn345")
 id = "hunter_t"
-display_name = "Hunter T-Cell"
+display_name = "Chain Patrol Germ Stabber"
 role = 1
 cost = 68
 max_hp = 25

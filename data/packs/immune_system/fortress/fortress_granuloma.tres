@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_inhx8")
 id = "fortress_granuloma"
-display_name = "Fortress Granuloma"
+display_name = "Cleaning Rock-Hard Lump"
 cost = 68
 max_hp = 480
 attack_mode = 1

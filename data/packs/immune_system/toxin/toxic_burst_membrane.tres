@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_4yvx1")
 id = "toxic_burst_membrane"
-display_name = "Toxic Burst Membrane"
+display_name = "Bursting Venom Skin"
 cost = 22
 max_hp = 25
 reflect = 0.8

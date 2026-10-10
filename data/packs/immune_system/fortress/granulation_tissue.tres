@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2v4l3")
 id = "granulation_tissue"
-display_name = "Granulation Tissue"
+display_name = "Grabbing Quick-Heal Tissue"
 cost = 40
 max_hp = 70
 regen = 16.0

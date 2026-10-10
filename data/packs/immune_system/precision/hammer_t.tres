@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_hh35o")
 id = "hammer_t"
-display_name = "Hammer T-Cell"
+display_name = "Shoving Strong Germ Stabber"
 role = 1
 cost = 68
 max_hp = 25

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_1yjmp")
 id = "harvesting_dendrite"
-display_name = "Harvesting Dendrite"
+display_name = "Lucky Far Scout Cell"
 role = 1
 cost = 56
 max_hp = 30

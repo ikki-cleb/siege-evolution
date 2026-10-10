@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_al85y")
 id = "scar_lattice"
-display_name = "Scar Lattice"
+display_name = "Shielding Tough Scar Tissue"
 cost = 40
 max_hp = 150
 regen = 6.0

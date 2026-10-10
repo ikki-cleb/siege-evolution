@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_5mqi1")
 id = "searing_zone"
-display_name = "Searing Zone"
+display_name = "Hot Swelling"
 role = 1
 cost = 16
 max_hp = 30

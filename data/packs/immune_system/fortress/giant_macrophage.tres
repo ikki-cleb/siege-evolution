@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_m4k6t")
 id = "giant_macrophage"
-display_name = "Giant Macrophage"
+display_name = "Giant Germ Eater"
 role = 1
 cost = 16
 max_hp = 80

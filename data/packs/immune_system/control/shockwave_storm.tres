@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_shyem")
 id = "shockwave_storm"
-display_name = "Shockwave Storm"
+display_name = "Shoving Wide Stun Cell"
 role = 1
 cost = 68
 damage = 4.0

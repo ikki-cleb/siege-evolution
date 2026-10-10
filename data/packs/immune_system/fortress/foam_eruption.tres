@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_fx3eo")
 id = "foam_eruption"
-display_name = "Foam Eruption"
+display_name = "Burning Wide Germ Eater"
 role = 1
 cost = 60
 max_hp = 60

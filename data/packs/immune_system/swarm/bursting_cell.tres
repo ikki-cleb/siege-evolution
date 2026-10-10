@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2n4ke")
 id = "bursting_cell"
-display_name = "Bursting Cell"
+display_name = "Bursting Prickly Skin Cell"
 cost = 14
 max_hp = 22
 reflect = 0.4

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_6a5rg")
 id = "sentinel_dendrite"
-display_name = "Sentinel Dendrite"
+display_name = "Piercing Far Scout Cell"
 role = 1
 cost = 56
 max_hp = 30

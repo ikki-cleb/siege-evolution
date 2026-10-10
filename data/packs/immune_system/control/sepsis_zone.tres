@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_72tgm")
 id = "sepsis_zone"
-display_name = "Sepsis Zone"
+display_name = "Finishing Hot Swelling"
 role = 1
 cost = 68
 max_hp = 30

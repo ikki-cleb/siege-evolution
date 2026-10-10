@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_uupo3")
 id = "shredding_basophil"
-display_name = "Shredding Basophil"
+display_name = "Armor-Eating Extra-Itchy Cell"
 role = 1
 cost = 36
 max_hp = 15

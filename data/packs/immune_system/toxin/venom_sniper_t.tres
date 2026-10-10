@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_fiaj8")
 id = "venom_sniper_t"
-display_name = "Venom Sniper T-Cell"
+display_name = "Piercing Long Poison Cell"
 role = 1
 cost = 48
 damage = 1.0

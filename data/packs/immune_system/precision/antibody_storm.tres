@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ue3tm")
 id = "antibody_storm"
-display_name = "Antibody Storm"
+display_name = "Multi Heavy Antibody Shooter"
 role = 1
 cost = 56
 max_hp = 15

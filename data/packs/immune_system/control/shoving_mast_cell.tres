@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_j1j1e")
 id = "shoving_mast_cell"
-display_name = "Shoving Mast Cell"
+display_name = "Shoving Wide Allergy Cell"
 role = 1
 cost = 46
 max_hp = 25

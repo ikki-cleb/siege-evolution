@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_r02l6")
 id = "dissolving_pool"
-display_name = "Dissolving Pool"
+display_name = "Armor-Eating Strong Acid Puddle"
 role = 1
 cost = 54
 attack_mode = 1

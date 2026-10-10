@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gect4")
 id = "twin_spitter"
-display_name = "Twin Spitter"
+display_name = "Multi Far Sneeze Blaster"
 role = 1
 cost = 50
 max_hp = 15

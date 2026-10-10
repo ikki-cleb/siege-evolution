@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_yf3kk")
 id = "mucosal_barrier"
-display_name = "Mucosal Barrier"
+display_name = "Cleaning Tough Skin Cell"
 cost = 14
 max_hp = 40
 tier = 2

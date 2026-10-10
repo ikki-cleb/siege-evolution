@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_cdtvb")
 id = "stalker_nk"
-display_name = "Stalker NK Cell"
+display_name = "Lucky Hunter Killer Cell"
 role = 1
 cost = 52
 max_hp = 25

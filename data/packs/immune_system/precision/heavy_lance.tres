@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_hjaxr")
 id = "heavy_lance"
-display_name = "Heavy Lance"
+display_name = "Heavy Antibody Sniper"
 role = 1
 cost = 22
 max_hp = 15

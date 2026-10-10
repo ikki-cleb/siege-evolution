@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_0wnka")
 id = "signaling_fibroblast"
-display_name = "Signaling Fibroblast"
+display_name = "Cheering Quick-Heal Tissue"
 cost = 40
 max_hp = 70
 regen = 16.0

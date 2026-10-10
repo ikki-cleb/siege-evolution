@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_g4aa1")
 id = "freezing_storm"
-display_name = "Freezing Storm"
+display_name = "Chilling Wide Stun Cell"
 role = 1
 cost = 68
 damage = 4.0

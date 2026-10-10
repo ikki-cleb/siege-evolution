@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_rt1n8")
 id = "effector_t"
-display_name = "Effector T-Cell"
+display_name = "Strong Germ Stabber"
 role = 1
 cost = 16
 max_hp = 25

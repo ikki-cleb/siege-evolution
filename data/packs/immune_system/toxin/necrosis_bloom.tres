@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_r7oyl")
 id = "necrosis_bloom"
-display_name = "Necrosis Bloom"
+display_name = "Rot Patch"
 cost = 14
 max_hp = 40
 attack_mode = 1

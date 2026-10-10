@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_0ulgt")
 id = "healing_fibroblast"
-display_name = "Healing Fibroblast"
+display_name = "Quick-Heal Tissue"
 cost = 10
 max_hp = 70
 regen = 16.0

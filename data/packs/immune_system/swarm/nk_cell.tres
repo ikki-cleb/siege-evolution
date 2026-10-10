@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_751vp")
 id = "nk_cell"
-display_name = "NK Cell"
+display_name = "Killer Cell"
 role = 1
 cost = 14
 max_hp = 25

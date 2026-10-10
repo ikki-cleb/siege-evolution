@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_v28e2")
 id = "fanning_sprayer"
-display_name = "Fanning Sprayer"
+display_name = "Multi Misting Poison Sprayer"
 role = 1
 cost = 54
 max_hp = 15

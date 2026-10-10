@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_mnkud")
 id = "wide_net"
-display_name = "Wide NET"
+display_name = "Wide Sticky Net"
 cost = 6
 max_hp = 25
 attack_mode = 1

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_wgv43")
 id = "flooding_pool"
-display_name = "Flooding Pool"
+display_name = "Shoving Spilling Acid Puddle"
 role = 1
 cost = 54
 attack_mode = 1

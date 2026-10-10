@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_jra1l")
 id = "presenting_dendrite"
-display_name = "Presenting Dendrite"
+display_name = "Chain Strong Scout Cell"
 role = 1
 cost = 56
 max_hp = 30

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_fmb15")
 id = "bursting_granuloma"
-display_name = "Bursting Granuloma"
+display_name = "Bursting Spiky Lump"
 cost = 68
 max_hp = 260
 reflect = 0.8

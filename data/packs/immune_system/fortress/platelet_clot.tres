@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_4q27p")
 id = "platelet_clot"
-display_name = "Platelet Clot"
+display_name = "Scab"
 cost = 7
 max_hp = 90
 evolutions = Array[ExtResource("1_4q27p")]([ExtResource("2_cxsaq"), ExtResource("3_ae8o2")])

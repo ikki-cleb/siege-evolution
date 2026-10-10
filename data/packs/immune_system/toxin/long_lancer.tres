@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_anidn")
 id = "long_lancer"
-display_name = "Long Lancer"
+display_name = "Long Plague Cell"
 role = 1
 cost = 18
 damage = 2.0
