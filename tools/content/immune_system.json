@@ -2177,12 +2177,12 @@
       "smash": {
         "normal": "worm",
         "elite": "hookworm",
-        "elite_level": 4
+        "elite_level": 3
       },
       "fly": {
         "normal": "spore",
         "elite": "fungal_spore",
-        "elite_level": 5
+        "elite_level": 4
       }
     },
     "mix": [
@@ -2214,22 +2214,13 @@
         "fly": 0.3
       },
       {
-        "smash": 0.4,
-        "split": 0.3,
-        "fly": 0.3
-      },
-      {
-        "swarm": 0.6,
-        "split": 0.4
-      },
-      {
         "swarm": 0.3,
         "split": 0.25,
         "smash": 0.25,
         "fly": 0.2
       }
     ],
-    "growth_per_wave": 0.32
+    "growth_per_wave": 0.411
   },
   "tutorial": {
     "waves": [
@@ -2317,34 +2308,6 @@
         [
           "worm",
           3,
-          5.0,
-          0
-        ],
-        [
-          "spore",
-          6,
-          1.2,
-          3
-        ]
-      ],
-      [
-        [
-          "rhinovirus",
-          20,
-          0.45,
-          0
-        ],
-        [
-          "bacterium",
-          4,
-          2.0,
-          4
-        ]
-      ],
-      [
-        [
-          "worm",
-          3,
           4.0,
           0
         ],
@@ -2376,8 +2339,6 @@
       "Parasite Worms ignore your maze and chew through any unit in their way (red line).",
       "Spores fly straight to the base (blue dashes). Only some units can hit fliers.",
       "Units are repaired for free after every wave. Let nothing through for a bonus.",
-      "Smashers and fliers together: cover both the red line and the blue dashes.",
-      "Big swarm incoming. Area and fast attacks shine here.",
       "Final wave! Later levels bring tougher elite versions of everything you've seen."
     ]
   },
@@ -2443,37 +2404,7 @@
       ]
     },
     {
-      "name": "3. Bloodstream",
-      "hand": [
-        12,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "coins": 20,
-      "income": 5,
-      "budget": 17,
-      "layout": [
-        "S.......S",
-        ".........",
-        ".........",
-        "...###...",
-        ".........",
-        ".........",
-        "#.......#",
-        ".........",
-        ".........",
-        "...#.#...",
-        ".........",
-        ".........",
-        ".........",
-        "....B...."
-      ]
-    },
-    {
-      "name": "4. Lymph Node",
+      "name": "3. Lymph Node",
       "hand": [
         14,
         8,
@@ -2503,37 +2434,7 @@
       ]
     },
     {
-      "name": "5. Lung Alveoli",
-      "hand": [
-        16,
-        12,
-        7,
-        5,
-        10,
-        0
-      ],
-      "coins": 25,
-      "income": 6,
-      "budget": 23,
-      "layout": [
-        "........S",
-        ".........",
-        ".##......",
-        ".##...#..",
-        "......#..",
-        "S........",
-        ".........",
-        "....##...",
-        "....##...",
-        ".........",
-        ".#.......",
-        ".#....##.",
-        ".........",
-        "B........"
-      ]
-    },
-    {
-      "name": "6. Gut Lining",
+      "name": "4. Gut Lining",
       "hand": [
         16,
         12,
@@ -2563,7 +2464,7 @@
       ]
     },
     {
-      "name": "7. Bone Marrow",
+      "name": "5. Bone Marrow",
       "hand": [
         20,
         12,

@@ -108,65 +108,31 @@ entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_n8xae"), SubResou
 script = ExtResource("3_7niaj")
 invader = ExtResource("6_s5iml")
 count = 3
-spacing = 5.0
-
-[sub_resource type="Resource" id="Resource_sitfq"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("7_ouwir")
-count = 6
-spacing = 1.2000000000000002
-delay = 3.0
-
-[sub_resource type="Resource" id="Resource_gw5fc"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_1j5mv"), SubResource("Resource_sitfq")])
-
-[sub_resource type="Resource" id="Resource_tj6um"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("4_gregp")
-count = 20
-spacing = 0.45
-
-[sub_resource type="Resource" id="Resource_rnl3e"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("5_avb1p")
-count = 4
-spacing = 2.0
-delay = 4.0
-
-[sub_resource type="Resource" id="Resource_qtjbt"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_tj6um"), SubResource("Resource_rnl3e")])
-
-[sub_resource type="Resource" id="Resource_65jww"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("6_s5iml")
-count = 3
 spacing = 4.0
 
-[sub_resource type="Resource" id="Resource_ndw8r"]
+[sub_resource type="Resource" id="Resource_sitfq"]
 script = ExtResource("3_7niaj")
 invader = ExtResource("5_avb1p")
 spacing = 1.6
 delay = 2.0
 
-[sub_resource type="Resource" id="Resource_dxebm"]
+[sub_resource type="Resource" id="Resource_gw5fc"]
 script = ExtResource("3_7niaj")
 invader = ExtResource("4_gregp")
 count = 12
 spacing = 0.5
 delay = 6.0
 
-[sub_resource type="Resource" id="Resource_g3thr"]
+[sub_resource type="Resource" id="Resource_tj6um"]
 script = ExtResource("3_7niaj")
 invader = ExtResource("7_ouwir")
 count = 6
 spacing = 1.2000000000000002
 delay = 8.0
 
-[sub_resource type="Resource" id="Resource_ikpi5"]
+[sub_resource type="Resource" id="Resource_rnl3e"]
 script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_65jww"), SubResource("Resource_ndw8r"), SubResource("Resource_dxebm"), SubResource("Resource_g3thr")])
+entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_1j5mv"), SubResource("Resource_sitfq"), SubResource("Resource_gw5fc"), SubResource("Resource_tj6um")])
 
 [resource]
 script = ExtResource("1_fjv3w")
@@ -175,5 +141,5 @@ layout = PackedStringArray("....S....", ".........", ".........", "..#...#..", "
 hand_value = PackedInt32Array(12, 15, 7, 0, 0, 0)
 starting_coins = 20
 show_path_preview = true
-wave_tips = PackedStringArray("Rhinoviruses walk around your units. Use walls to make their route longer, and put attackers beside it. Every kill drops coins.", "Units that survived a wave can evolve: tap one and pick a branch. Anything placed this round refunds in full.", "Bacteria split into two halves when killed.", "Units from earlier rounds only refund 50% if you remove them, so plan ahead.", "Parasite Worms ignore your maze and chew through any unit in their way (red line).", "Spores fly straight to the base (blue dashes). Only some units can hit fliers.", "Units are repaired for free after every wave. Let nothing through for a bonus.", "Smashers and fliers together: cover both the red line and the blue dashes.", "Big swarm incoming. Area and fast attacks shine here.", "Final wave! Later levels bring tougher elite versions of everything you\'ve seen.")
-waves = Array[ExtResource("2_hqf0y")]([SubResource("Resource_d53cw"), SubResource("Resource_kppfn"), SubResource("Resource_bjffi"), SubResource("Resource_b7e11"), SubResource("Resource_0a0pd"), SubResource("Resource_hc34k"), SubResource("Resource_ue1w7"), SubResource("Resource_gw5fc"), SubResource("Resource_qtjbt"), SubResource("Resource_ikpi5")])
+wave_tips = PackedStringArray("Rhinoviruses walk around your units. Use walls to make their route longer, and put attackers beside it. Every kill drops coins.", "Units that survived a wave can evolve: tap one and pick a branch. Anything placed this round refunds in full.", "Bacteria split into two halves when killed.", "Units from earlier rounds only refund 50% if you remove them, so plan ahead.", "Parasite Worms ignore your maze and chew through any unit in their way (red line).", "Spores fly straight to the base (blue dashes). Only some units can hit fliers.", "Units are repaired for free after every wave. Let nothing through for a bonus.", "Final wave! Later levels bring tougher elite versions of everything you\'ve seen.")
+waves = Array[ExtResource("2_hqf0y")]([SubResource("Resource_d53cw"), SubResource("Resource_kppfn"), SubResource("Resource_bjffi"), SubResource("Resource_b7e11"), SubResource("Resource_0a0pd"), SubResource("Resource_hc34k"), SubResource("Resource_ue1w7"), SubResource("Resource_rnl3e")])

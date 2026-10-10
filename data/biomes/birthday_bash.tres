@@ -1,33 +1,31 @@
 [gd_resource type="Resource" script_class="BiomeData" format=3]
 
-[ext_resource type="Texture2D" path="res://art/tiles/birthday_bash/base.png" id="1_84mou"]
-[ext_resource type="Texture2D" path="res://art/tiles/birthday_bash/floor.png" id="2_8et27"]
-[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="3_yg3vh"]
-[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_01.tres" id="4_nays6"]
-[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_02.tres" id="5_7jc6d"]
-[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_03.tres" id="6_ryngc"]
-[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_04.tres" id="7_dp4lu"]
-[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_05.tres" id="8_1lr10"]
-[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_06.tres" id="9_7qgsx"]
-[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_07.tres" id="10_3eyga"]
-[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="11_5hwsb"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/fortress_pack.tres" id="12_5ryg6"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/swarm_pack.tres" id="13_6p5ys"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/precision_pack.tres" id="14_pnjeb"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/control_pack.tres" id="15_ma6ab"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/toxin_pack.tres" id="16_dwng7"]
-[ext_resource type="Texture2D" path="res://art/tiles/birthday_bash/rock.png" id="17_5w1f0"]
-[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="18_iou7j"]
-[ext_resource type="Texture2D" path="res://art/tiles/birthday_bash/spawn.png" id="19_e76ol"]
+[ext_resource type="Texture2D" path="res://art/tiles/birthday_bash/base.png" id="1_eav8s"]
+[ext_resource type="Texture2D" path="res://art/tiles/birthday_bash/floor.png" id="2_oijlv"]
+[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="3_84mou"]
+[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_01.tres" id="4_8et27"]
+[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_02.tres" id="5_yg3vh"]
+[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_03.tres" id="6_nays6"]
+[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_04.tres" id="7_7jc6d"]
+[ext_resource type="Resource" path="res://data/levels/birthday_bash/level_05.tres" id="8_ryngc"]
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="9_dp4lu"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/fortress_pack.tres" id="10_1lr10"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/swarm_pack.tres" id="11_7qgsx"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/precision_pack.tres" id="12_3eyga"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/control_pack.tres" id="13_5hwsb"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/toxin_pack.tres" id="14_5ryg6"]
+[ext_resource type="Texture2D" path="res://art/tiles/birthday_bash/rock.png" id="15_6p5ys"]
+[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="16_pnjeb"]
+[ext_resource type="Texture2D" path="res://art/tiles/birthday_bash/spawn.png" id="17_ma6ab"]
 
 [resource]
-script = ExtResource("18_iou7j")
+script = ExtResource("16_pnjeb")
 id = "birthday_bash"
 display_name = "Birthday Bash"
 description = "Bonus world (post-game). Party crashers invade a birthday party: wind-up toys, balloons, piñatas and a clown. Defend the cake."
-packs = Array[ExtResource("11_5hwsb")]([ExtResource("12_5ryg6"), ExtResource("13_6p5ys"), ExtResource("14_pnjeb"), ExtResource("15_ma6ab"), ExtResource("16_dwng7")])
-levels = Array[ExtResource("3_yg3vh")]([ExtResource("4_nays6"), ExtResource("5_7jc6d"), ExtResource("6_ryngc"), ExtResource("7_dp4lu"), ExtResource("8_1lr10"), ExtResource("9_7qgsx"), ExtResource("10_3eyga")])
-floor_texture = ExtResource("2_8et27")
-rock_texture = ExtResource("17_5w1f0")
-spawn_texture = ExtResource("19_e76ol")
-base_texture = ExtResource("1_84mou")
+packs = Array[ExtResource("9_dp4lu")]([ExtResource("10_1lr10"), ExtResource("11_7qgsx"), ExtResource("12_3eyga"), ExtResource("13_5hwsb"), ExtResource("14_5ryg6")])
+levels = Array[ExtResource("3_84mou")]([ExtResource("4_8et27"), ExtResource("5_yg3vh"), ExtResource("6_nays6"), ExtResource("7_7jc6d"), ExtResource("8_ryngc")])
+floor_texture = ExtResource("2_oijlv")
+rock_texture = ExtResource("15_6p5ys")
+spawn_texture = ExtResource("17_ma6ab")
+base_texture = ExtResource("1_eav8s")

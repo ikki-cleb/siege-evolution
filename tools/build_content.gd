@@ -18,6 +18,9 @@ const WORLD_FILES: Array[String] = ["immune_system.json", "backyard_bugs.json", 
 	"total_war.json", "galactic_siege.json", "kitchen_defense.json",
 	"birthday_bash.json"]
 
+## Every level has this many waves; the boss arrives on the last one.
+const WAVES_PER_LEVEL := 8
+
 var invaders := {}
 var _content_by_id := {}
 
@@ -94,8 +97,8 @@ static func _apply_rename(row: Dictionary, renames: Dictionary) -> void:
 # Each level row in the JSON:
 #   hand: coin value of free units per pack slot (see LevelData.hand_value)
 #   coins: starting coins. income: bonus coins for a wave where nothing leaks
-#   budget: threat of wave 1 (levels 2-7); later waves grow by growth_per_wave
-#   boss: invader id that arrives on wave 10 (optional)
+#   budget: threat of wave 1 (levels 2-5); later waves grow by growth_per_wave
+#   boss: invader id that arrives on the last wave (optional)
 # Level 1 uses the handwritten "tutorial" waves and tips instead.
 
 func _level(biome_id: String, number: int, table: Dictionary, content: Dictionary) -> LevelData:
@@ -123,7 +126,7 @@ func _level(biome_id: String, number: int, table: Dictionary, content: Dictionar
 				wave.entries.append(_entry(row[0], int(row[1]), row[2], row[3]))
 			level.waves.append(wave)
 	else:
-		for w in 10:
+		for w in WAVES_PER_LEVEL:
 			level.waves.append(_generated_wave(number, w, table, content.waves))
 	return _save(level, "res://data/levels/%s/level_%02d.tres" % [biome_id, number])
 
@@ -134,7 +137,7 @@ func _generated_wave(level_number: int, wave_index: int, table: Dictionary, rule
 	var wave := WaveData.new()
 	var budget: float = table.budget * (1.0 + rules.growth_per_wave * wave_index)
 	var delay := 0.0
-	if table.has("boss") and wave_index == 9:
+	if table.has("boss") and wave_index == WAVES_PER_LEVEL - 1:
 		wave.entries.append(_entry(table.boss, 1, 1.0, 6.0, 0))
 		budget *= 0.5  # The boss brings minions, so fewer escorts.
 	# Sea levels use their own mix (boats plus landing troops).

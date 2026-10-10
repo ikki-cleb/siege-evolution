@@ -1020,12 +1020,12 @@
       "smash": {
         "normal": "rhino_beetle",
         "elite": "hercules_beetle",
-        "elite_level": 4
+        "elite_level": 3
       },
       "fly": {
         "normal": "mosquito",
         "elite": "hornet",
-        "elite_level": 5
+        "elite_level": 4
       },
       "burrow": {
         "normal": "mole_cricket"
@@ -1062,16 +1062,6 @@
         "fly": 0.4
       },
       {
-        "smash": 0.35,
-        "split": 0.35,
-        "burrow": 0.3
-      },
-      {
-        "swarm": 0.5,
-        "burrow": 0.25,
-        "fly": 0.25
-      },
-      {
         "swarm": 0.25,
         "split": 0.2,
         "smash": 0.2,
@@ -1079,7 +1069,7 @@
         "burrow": 0.2
       }
     ],
-    "growth_per_wave": 0.32
+    "growth_per_wave": 0.411
   },
   "tutorial": {
     "waves": [
@@ -1173,34 +1163,6 @@
         [
           "rhino_beetle",
           3,
-          5.0,
-          0
-        ],
-        [
-          "mosquito",
-          6,
-          1.2,
-          3
-        ]
-      ],
-      [
-        [
-          "termite",
-          20,
-          0.45,
-          0
-        ],
-        [
-          "mole_cricket",
-          4,
-          2.5,
-          4
-        ]
-      ],
-      [
-        [
-          "rhino_beetle",
-          3,
           4.0,
           0
         ],
@@ -1232,8 +1194,6 @@
       "Rhino Beetles ignore your maze and ram through any unit in their way (red line).",
       "Mosquitoes fly straight to the anthill (blue dashes). Only some units can hit fliers.",
       "Burrowers and splitters together: keep attackers near the end of the route too.",
-      "Rammers and fliers: cover both the red line and the blue dashes.",
-      "Big swarm, plus tunnelers. Area attacks near the anthill shine here.",
       "Final wave! Later levels bring elite versions, and the boss can tunnel too."
     ]
   },
@@ -1299,37 +1259,7 @@
       ]
     },
     {
-      "name": "3. Under the Porch",
-      "hand": [
-        12,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "coins": 20,
-      "income": 5,
-      "budget": 20,
-      "layout": [
-        "S.......S",
-        ".........",
-        "#.#...#.#",
-        ".........",
-        ".........",
-        "..#...#..",
-        ".........",
-        ".........",
-        "#.......#",
-        ".........",
-        "...#.#...",
-        ".........",
-        ".........",
-        "....B...."
-      ]
-    },
-    {
-      "name": "4. Compost Heap",
+      "name": "3. Compost Heap",
       "hand": [
         14,
         8,
@@ -1359,37 +1289,7 @@
       ]
     },
     {
-      "name": "5. Puddle Crossing",
-      "hand": [
-        16,
-        12,
-        7,
-        5,
-        10,
-        0
-      ],
-      "coins": 25,
-      "income": 6,
-      "budget": 28,
-      "layout": [
-        "S........",
-        ".........",
-        "...##....",
-        "...##...S",
-        ".........",
-        ".........",
-        ".##...##.",
-        ".##...##.",
-        ".........",
-        ".........",
-        "....##...",
-        "....##...",
-        ".........",
-        "........B"
-      ]
-    },
-    {
-      "name": "6. Picnic Blanket",
+      "name": "4. Picnic Blanket",
       "hand": [
         16,
         12,
@@ -1419,7 +1319,7 @@
       ]
     },
     {
-      "name": "7. Old Oak Roots",
+      "name": "5. Old Oak Roots",
       "hand": [
         20,
         12,

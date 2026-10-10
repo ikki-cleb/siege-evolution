@@ -1076,17 +1076,17 @@
       "blink": {
         "normal": "blinker",
         "elite": "phase_stalker",
-        "elite_level": 4
+        "elite_level": 3
       },
       "smash": {
         "normal": "crusher",
         "elite": "assault_mech",
-        "elite_level": 5
+        "elite_level": 4
       },
       "fly": {
         "normal": "saucer",
         "elite": "interceptor",
-        "elite_level": 6
+        "elite_level": 4
       },
       "jump": {
         "normal": "hopper"
@@ -1131,17 +1131,6 @@
         "fly": 0.3
       },
       {
-        "smash": 0.3,
-        "split": 0.2,
-        "jump": 0.2,
-        "bomb": 0.3
-      },
-      {
-        "swarm": 0.3,
-        "blink": 0.4,
-        "burrow": 0.3
-      },
-      {
         "swarm": 0.15,
         "split": 0.15,
         "smash": 0.15,
@@ -1151,7 +1140,7 @@
         "bomb": 0.15
       }
     ],
-    "growth_per_wave": 0.32
+    "growth_per_wave": 0.411
   },
   "tutorial": {
     "waves": [
@@ -1160,14 +1149,6 @@
           "grub",
           7,
           1.1,
-          0
-        ]
-      ],
-      [
-        [
-          "grub",
-          10,
-          0.9,
           0
         ]
       ],
@@ -1257,20 +1238,6 @@
       ],
       [
         [
-          "grub",
-          18,
-          0.45,
-          0
-        ],
-        [
-          "blinker",
-          4,
-          2.0,
-          4
-        ]
-      ],
-      [
-        [
           "crusher",
           3,
           4.0,
@@ -1304,14 +1271,12 @@
     ],
     "tips": [
       "The final frontier! Your pack plays exactly the same out here. Alien grubs crawl around your units; every kill drops coins.",
-      "Units that survived a wave can evolve. Anything placed this round refunds in full.",
       "NEW: Blinkers teleport 3 tiles forward along their route every few seconds. Spread your attackers along the whole route, not one kill zone.",
       "Brood Pods burst into three spawnlings.",
       "Crusher Mechs ignore your maze and stomp through units (red line).",
       "Saucers fly straight in. Hoppers leap single walls, so build them two thick.",
       "Tunnelers dig under part of the route. Every trick you've learned comes together here.",
       "UFO Bombers target your most valuable units. Keep anti-air nearby.",
-      "Blinker swarm! Coverage along the whole route matters most.",
       "Final wave! The Mothership waits at the end of this world."
     ]
   },
@@ -1378,38 +1343,7 @@
       ]
     },
     {
-      "name": "3. Asteroid Belt",
-      "tiles": "asteroid",
-      "hand": [
-        12,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "coins": 20,
-      "income": 5,
-      "budget": 23,
-      "layout": [
-        "S........",
-        ".........",
-        ".##...#..",
-        ".##......",
-        "......##.",
-        "..#...##.",
-        ".........",
-        ".#.......",
-        ".....#...",
-        "..##.....",
-        "..##..#..",
-        ".........",
-        ".......#.",
-        "........B"
-      ]
-    },
-    {
-      "name": "4. Crater Base",
+      "name": "3. Crater Base",
       "hand": [
         14,
         8,
@@ -1439,38 +1373,7 @@
       ]
     },
     {
-      "name": "5. Reactor Deck",
-      "tiles": "station",
-      "hand": [
-        16,
-        12,
-        7,
-        5,
-        10,
-        0
-      ],
-      "coins": 25,
-      "income": 6,
-      "budget": 28,
-      "layout": [
-        "S...S...S",
-        ".........",
-        "#.##.##.#",
-        ".........",
-        ".........",
-        "##.....##",
-        ".........",
-        ".........",
-        "##.....##",
-        ".........",
-        ".........",
-        "#.##.##.#",
-        ".........",
-        "....B...."
-      ]
-    },
-    {
-      "name": "6. Comet Tail",
+      "name": "4. Comet Tail",
       "tiles": "asteroid",
       "hand": [
         16,
@@ -1501,7 +1404,7 @@
       ]
     },
     {
-      "name": "7. Mothership Assault",
+      "name": "5. Mothership Assault",
       "hand": [
         20,
         12,

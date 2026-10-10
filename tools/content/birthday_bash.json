@@ -1115,17 +1115,17 @@
       "spill": {
         "normal": "soda_spill",
         "elite": "frosting_blob",
-        "elite_level": 4
+        "elite_level": 3
       },
       "smash": {
         "normal": "toy_robot",
         "elite": "mega_robot",
-        "elite_level": 5
+        "elite_level": 4
       },
       "fly": {
         "normal": "balloon",
         "elite": "big_balloon",
-        "elite_level": 6
+        "elite_level": 4
       },
       "jump": {
         "normal": "bouncy_ball"
@@ -1171,17 +1171,6 @@
         "fly": 0.3
       },
       {
-        "smash": 0.3,
-        "spill": 0.3,
-        "jump": 0.2,
-        "bomb": 0.2
-      },
-      {
-        "pinata": 0.5,
-        "swarm": 0.3,
-        "spill": 0.2
-      },
-      {
         "swarm": 0.15,
         "split": 0.1,
         "smash": 0.15,
@@ -1192,7 +1181,7 @@
         "spill": 0.1
       }
     ],
-    "growth_per_wave": 0.45
+    "growth_per_wave": 0.579
   },
   "tutorial": {
     "waves": [
@@ -1292,40 +1281,6 @@
         [
           "toy_robot",
           2,
-          5.0,
-          0
-        ],
-        [
-          "balloon",
-          6,
-          1.2,
-          3
-        ],
-        [
-          "bouncy_ball",
-          3,
-          2.0,
-          4
-        ]
-      ],
-      [
-        [
-          "windup_mouse",
-          16,
-          0.5,
-          0
-        ],
-        [
-          "pinata",
-          2,
-          3.0,
-          4
-        ]
-      ],
-      [
-        [
-          "toy_robot",
-          2,
           4.0,
           0
         ],
@@ -1363,8 +1318,6 @@
       "Toy Robots ignore your maze and stomp through units (red line).",
       "Balloons float straight in. Water Balloons splash your most valuable units.",
       "Soda Spills soak the units beside their route: sticky units attack slower until the wave ends.",
-      "Robots on the ground, balloons in the air, balls bouncing over walls.",
-      "Swarm and piñatas! Remember what was inside last time.",
       "Final wave! The Clown waits at the end of this world."
     ]
   },
@@ -1431,38 +1384,7 @@
       ]
     },
     {
-      "name": "3. Bouncy Castle",
-      "tiles": "bouncy",
-      "budget": 26,
-      "hand": [
-        10,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "coins": 16,
-      "income": 5,
-      "layout": [
-        "S...S....",
-        ".........",
-        "#.#...#.#",
-        ".........",
-        "...#.#...",
-        ".........",
-        ".#.....#.",
-        ".........",
-        "...#.#...",
-        ".........",
-        "#.#...#.#",
-        ".........",
-        ".........",
-        "......B.."
-      ]
-    },
-    {
-      "name": "4. Present Pile",
+      "name": "3. Present Pile",
       "budget": 36,
       "hand": [
         12,
@@ -1492,38 +1414,7 @@
       ]
     },
     {
-      "name": "5. Musical Chairs",
-      "tiles": "living",
-      "budget": 31,
-      "hand": [
-        14,
-        10,
-        7,
-        5,
-        8,
-        0
-      ],
-      "coins": 16,
-      "income": 6,
-      "layout": [
-        "S.......S",
-        ".........",
-        "#.#.#.#.#",
-        ".........",
-        ".........",
-        ".#.#.#.#.",
-        ".........",
-        ".........",
-        "#.#.#.#.#",
-        ".........",
-        ".........",
-        ".#.#.#.#.",
-        ".........",
-        "B........"
-      ]
-    },
-    {
-      "name": "6. Sugar Rush",
+      "name": "4. Sugar Rush",
       "tiles": "bouncy",
       "budget": 39,
       "hand": [
@@ -1554,7 +1445,7 @@
       ]
     },
     {
-      "name": "7. Clown Time",
+      "name": "5. Clown Time",
       "budget": 41,
       "boss": "clown",
       "hand": [

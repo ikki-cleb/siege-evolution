@@ -39,5 +39,5 @@ extends Resource
 @export var spawn_texture: Texture2D
 @export var base_texture: Texture2D
 
-## Exactly 10 waves per level (by design), played in order.
+## Exactly 8 waves per level (by design), played in order.
 @export var waves: Array[WaveData] = []

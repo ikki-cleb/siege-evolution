@@ -124,79 +124,38 @@ entries = Array[ExtResource("3_0ydnx")]([SubResource("Resource_obgu6"), SubResou
 script = ExtResource("3_0ydnx")
 invader = ExtResource("8_um5vq")
 count = 2
-spacing = 5.0
-
-[sub_resource type="Resource" id="Resource_gtjic"]
-script = ExtResource("3_0ydnx")
-invader = ExtResource("9_2yipq")
-count = 6
-spacing = 1.2000000000000002
-delay = 3.0
-
-[sub_resource type="Resource" id="Resource_nsx2n"]
-script = ExtResource("3_0ydnx")
-invader = ExtResource("7_n7klo")
-count = 3
-spacing = 2.0
-delay = 4.0
-
-[sub_resource type="Resource" id="Resource_732ft"]
-script = ExtResource("2_q558q")
-entries = Array[ExtResource("3_0ydnx")]([SubResource("Resource_vnpc0"), SubResource("Resource_gtjic"), SubResource("Resource_nsx2n")])
-
-[sub_resource type="Resource" id="Resource_4e2gh"]
-script = ExtResource("3_0ydnx")
-invader = ExtResource("4_kjb3w")
-count = 16
-spacing = 0.5
-
-[sub_resource type="Resource" id="Resource_yu8oi"]
-script = ExtResource("3_0ydnx")
-invader = ExtResource("5_aey8j")
-count = 2
-spacing = 3.0
-delay = 4.0
-
-[sub_resource type="Resource" id="Resource_q08o1"]
-script = ExtResource("2_q558q")
-entries = Array[ExtResource("3_0ydnx")]([SubResource("Resource_4e2gh"), SubResource("Resource_yu8oi")])
-
-[sub_resource type="Resource" id="Resource_ngxy5"]
-script = ExtResource("3_0ydnx")
-invader = ExtResource("8_um5vq")
-count = 2
 spacing = 4.0
 
-[sub_resource type="Resource" id="Resource_a43eq"]
+[sub_resource type="Resource" id="Resource_gtjic"]
 script = ExtResource("3_0ydnx")
 invader = ExtResource("6_wy0g5")
 count = 4
 spacing = 1.8
 delay = 2.0
 
-[sub_resource type="Resource" id="Resource_11lik"]
+[sub_resource type="Resource" id="Resource_nsx2n"]
 script = ExtResource("3_0ydnx")
 invader = ExtResource("5_aey8j")
 count = 2
 spacing = 3.0
 delay = 5.0
 
-[sub_resource type="Resource" id="Resource_7vfyr"]
+[sub_resource type="Resource" id="Resource_732ft"]
 script = ExtResource("3_0ydnx")
 invader = ExtResource("9_2yipq")
 spacing = 1.2000000000000002
 delay = 8.0
 
-[sub_resource type="Resource" id="Resource_t2ufc"]
+[sub_resource type="Resource" id="Resource_4e2gh"]
 script = ExtResource("3_0ydnx")
 invader = ExtResource("10_j8ntf")
 count = 1
 spacing = 4.0
 delay = 9.0
 
-[sub_resource type="Resource" id="Resource_pecps"]
+[sub_resource type="Resource" id="Resource_yu8oi"]
 script = ExtResource("2_q558q")
-entries = Array[ExtResource("3_0ydnx")]([SubResource("Resource_ngxy5"), SubResource("Resource_a43eq"), SubResource("Resource_11lik"), SubResource("Resource_7vfyr"), SubResource("Resource_t2ufc")])
+entries = Array[ExtResource("3_0ydnx")]([SubResource("Resource_vnpc0"), SubResource("Resource_gtjic"), SubResource("Resource_nsx2n"), SubResource("Resource_732ft"), SubResource("Resource_4e2gh")])
 
 [resource]
 script = ExtResource("1_2mlio")
@@ -205,5 +164,5 @@ layout = PackedStringArray("....S....", ".........", "..#...#..", ".........", "
 hand_value = PackedInt32Array(12, 12, 7, 0, 0, 0)
 starting_coins = 45
 show_path_preview = true
-wave_tips = PackedStringArray("Bonus world! This party is post-game: tight maps and wild waves. Wind-up mice scurry around your units; every kill drops coins.", "NEW: Piñatas burst into a surprise when broken. It looks random, but the same wave always hides the same surprise.", "Break piñatas early, far from the cake, so their surprise has a long way to go.", "Party Bags burst into gumdrops. Bouncy Balls hop single walls, so build them two thick.", "Toy Robots ignore your maze and stomp through units (red line).", "Balloons float straight in. Water Balloons splash your most valuable units.", "Soda Spills soak the units beside their route: sticky units attack slower until the wave ends.", "Robots on the ground, balloons in the air, balls bouncing over walls.", "Swarm and piñatas! Remember what was inside last time.", "Final wave! The Clown waits at the end of this world.")
-waves = Array[ExtResource("2_q558q")]([SubResource("Resource_b28xs"), SubResource("Resource_dpxmc"), SubResource("Resource_lhhpo"), SubResource("Resource_liuoh"), SubResource("Resource_odilk"), SubResource("Resource_q2vk7"), SubResource("Resource_qeyl7"), SubResource("Resource_732ft"), SubResource("Resource_q08o1"), SubResource("Resource_pecps")])
+wave_tips = PackedStringArray("Bonus world! This party is post-game: tight maps and wild waves. Wind-up mice scurry around your units; every kill drops coins.", "NEW: Piñatas burst into a surprise when broken. It looks random, but the same wave always hides the same surprise.", "Break piñatas early, far from the cake, so their surprise has a long way to go.", "Party Bags burst into gumdrops. Bouncy Balls hop single walls, so build them two thick.", "Toy Robots ignore your maze and stomp through units (red line).", "Balloons float straight in. Water Balloons splash your most valuable units.", "Soda Spills soak the units beside their route: sticky units attack slower until the wave ends.", "Final wave! The Clown waits at the end of this world.")
+waves = Array[ExtResource("2_q558q")]([SubResource("Resource_b28xs"), SubResource("Resource_dpxmc"), SubResource("Resource_lhhpo"), SubResource("Resource_liuoh"), SubResource("Resource_odilk"), SubResource("Resource_q2vk7"), SubResource("Resource_qeyl7"), SubResource("Resource_yu8oi")])

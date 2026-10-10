@@ -1,33 +1,31 @@
 [gd_resource type="Resource" script_class="BiomeData" format=3]
 
-[ext_resource type="Texture2D" path="res://art/tiles/kitchen_defense/base.png" id="1_yplva"]
-[ext_resource type="Texture2D" path="res://art/tiles/kitchen_defense/floor.png" id="2_2upr1"]
-[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="3_25pg3"]
-[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_01.tres" id="4_8jy3r"]
-[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_02.tres" id="5_3gkm2"]
-[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_03.tres" id="6_vm1lf"]
-[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_04.tres" id="7_y4krh"]
-[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_05.tres" id="8_uvqui"]
-[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_06.tres" id="9_uw7qq"]
-[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_07.tres" id="10_8578d"]
-[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="11_d5new"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/fortress_pack.tres" id="12_sjfdo"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/swarm_pack.tres" id="13_isams"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/precision_pack.tres" id="14_voim3"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/control_pack.tres" id="15_xn4ur"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/toxin_pack.tres" id="16_017kh"]
-[ext_resource type="Texture2D" path="res://art/tiles/kitchen_defense/rock.png" id="17_sg31f"]
-[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="18_a5lyy"]
-[ext_resource type="Texture2D" path="res://art/tiles/kitchen_defense/spawn.png" id="19_snpcs"]
+[ext_resource type="Texture2D" path="res://art/tiles/kitchen_defense/base.png" id="1_leemg"]
+[ext_resource type="Texture2D" path="res://art/tiles/kitchen_defense/floor.png" id="2_y1tse"]
+[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="3_yplva"]
+[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_01.tres" id="4_2upr1"]
+[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_02.tres" id="5_25pg3"]
+[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_03.tres" id="6_8jy3r"]
+[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_04.tres" id="7_3gkm2"]
+[ext_resource type="Resource" path="res://data/levels/kitchen_defense/level_05.tres" id="8_vm1lf"]
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="9_y4krh"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/fortress_pack.tres" id="10_uvqui"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/swarm_pack.tres" id="11_uw7qq"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/precision_pack.tres" id="12_8578d"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/control_pack.tres" id="13_d5new"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/toxin_pack.tres" id="14_sjfdo"]
+[ext_resource type="Texture2D" path="res://art/tiles/kitchen_defense/rock.png" id="15_isams"]
+[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="16_voim3"]
+[ext_resource type="Texture2D" path="res://art/tiles/kitchen_defense/spawn.png" id="17_xn4ur"]
 
 [resource]
-script = ExtResource("18_a5lyy")
+script = ExtResource("16_voim3")
 id = "kitchen_defense"
 display_name = "Kitchen Defense"
 description = "Bonus world (post-game). Ants, slugs, mice and roaches raid the kitchen. Defend the cookie jar."
-packs = Array[ExtResource("11_d5new")]([ExtResource("12_sjfdo"), ExtResource("13_isams"), ExtResource("14_voim3"), ExtResource("15_xn4ur"), ExtResource("16_017kh")])
-levels = Array[ExtResource("3_25pg3")]([ExtResource("4_8jy3r"), ExtResource("5_3gkm2"), ExtResource("6_vm1lf"), ExtResource("7_y4krh"), ExtResource("8_uvqui"), ExtResource("9_uw7qq"), ExtResource("10_8578d")])
-floor_texture = ExtResource("2_2upr1")
-rock_texture = ExtResource("17_sg31f")
-spawn_texture = ExtResource("19_snpcs")
-base_texture = ExtResource("1_yplva")
+packs = Array[ExtResource("9_y4krh")]([ExtResource("10_uvqui"), ExtResource("11_uw7qq"), ExtResource("12_8578d"), ExtResource("13_d5new"), ExtResource("14_sjfdo")])
+levels = Array[ExtResource("3_yplva")]([ExtResource("4_2upr1"), ExtResource("5_25pg3"), ExtResource("6_8jy3r"), ExtResource("7_3gkm2"), ExtResource("8_vm1lf")])
+floor_texture = ExtResource("2_y1tse")
+rock_texture = ExtResource("15_isams")
+spawn_texture = ExtResource("17_xn4ur")
+base_texture = ExtResource("1_leemg")

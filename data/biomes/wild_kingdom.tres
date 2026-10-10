@@ -1,33 +1,31 @@
 [gd_resource type="Resource" script_class="BiomeData" format=3]
 
-[ext_resource type="Texture2D" path="res://art/tiles/wild_kingdom/base.png" id="1_ff2vm"]
-[ext_resource type="Texture2D" path="res://art/tiles/wild_kingdom/floor.png" id="2_8plr2"]
-[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="3_h20wx"]
-[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_01.tres" id="4_5ue50"]
-[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_02.tres" id="5_vqhgy"]
-[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_03.tres" id="6_341c8"]
-[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_04.tres" id="7_6u0td"]
-[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_05.tres" id="8_mxli5"]
-[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_06.tres" id="9_16623"]
-[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_07.tres" id="10_fe3ax"]
-[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="11_sqb11"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/fortress_pack.tres" id="12_bajt8"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/swarm_pack.tres" id="13_udayp"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/precision_pack.tres" id="14_0k28o"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/control_pack.tres" id="15_1qm4h"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/toxin_pack.tres" id="16_xvlvp"]
-[ext_resource type="Texture2D" path="res://art/tiles/wild_kingdom/rock.png" id="17_2g72y"]
-[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="18_4v1jy"]
-[ext_resource type="Texture2D" path="res://art/tiles/wild_kingdom/spawn.png" id="19_70bqp"]
+[ext_resource type="Texture2D" path="res://art/tiles/wild_kingdom/base.png" id="1_jur00"]
+[ext_resource type="Texture2D" path="res://art/tiles/wild_kingdom/floor.png" id="2_xft1r"]
+[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="3_ff2vm"]
+[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_01.tres" id="4_8plr2"]
+[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_02.tres" id="5_h20wx"]
+[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_03.tres" id="6_5ue50"]
+[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_04.tres" id="7_vqhgy"]
+[ext_resource type="Resource" path="res://data/levels/wild_kingdom/level_05.tres" id="8_341c8"]
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="9_6u0td"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/fortress_pack.tres" id="10_mxli5"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/swarm_pack.tres" id="11_16623"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/precision_pack.tres" id="12_fe3ax"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/control_pack.tres" id="13_sqb11"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/toxin_pack.tres" id="14_bajt8"]
+[ext_resource type="Texture2D" path="res://art/tiles/wild_kingdom/rock.png" id="15_udayp"]
+[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="16_0k28o"]
+[ext_resource type="Texture2D" path="res://art/tiles/wild_kingdom/spawn.png" id="17_1qm4h"]
 
 [resource]
-script = ExtResource("18_4v1jy")
+script = ExtResource("16_0k28o")
 id = "wild_kingdom"
 display_name = "Wild Kingdom"
 description = "Out on the farm. Keep foxes, wolves, boars, crows and leaping deer away from the farmhouse."
-packs = Array[ExtResource("11_sqb11")]([ExtResource("12_bajt8"), ExtResource("13_udayp"), ExtResource("14_0k28o"), ExtResource("15_1qm4h"), ExtResource("16_xvlvp")])
-levels = Array[ExtResource("3_h20wx")]([ExtResource("4_5ue50"), ExtResource("5_vqhgy"), ExtResource("6_341c8"), ExtResource("7_6u0td"), ExtResource("8_mxli5"), ExtResource("9_16623"), ExtResource("10_fe3ax")])
-floor_texture = ExtResource("2_8plr2")
-rock_texture = ExtResource("17_2g72y")
-spawn_texture = ExtResource("19_70bqp")
-base_texture = ExtResource("1_ff2vm")
+packs = Array[ExtResource("9_6u0td")]([ExtResource("10_mxli5"), ExtResource("11_16623"), ExtResource("12_fe3ax"), ExtResource("13_sqb11"), ExtResource("14_bajt8")])
+levels = Array[ExtResource("3_ff2vm")]([ExtResource("4_8plr2"), ExtResource("5_h20wx"), ExtResource("6_5ue50"), ExtResource("7_vqhgy"), ExtResource("8_341c8")])
+floor_texture = ExtResource("2_xft1r")
+rock_texture = ExtResource("15_udayp")
+spawn_texture = ExtResource("17_1qm4h")
+base_texture = ExtResource("1_jur00")

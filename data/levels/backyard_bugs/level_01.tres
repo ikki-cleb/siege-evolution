@@ -114,66 +114,32 @@ entries = Array[ExtResource("3_qryt2")]([SubResource("Resource_d8ueb"), SubResou
 script = ExtResource("3_qryt2")
 invader = ExtResource("7_vmrsw")
 count = 3
-spacing = 5.0
-
-[sub_resource type="Resource" id="Resource_3ip4j"]
-script = ExtResource("3_qryt2")
-invader = ExtResource("8_47mi6")
-count = 6
-spacing = 1.2000000000000002
-delay = 3.0
-
-[sub_resource type="Resource" id="Resource_rgjw2"]
-script = ExtResource("2_bxtap")
-entries = Array[ExtResource("3_qryt2")]([SubResource("Resource_1n8g7"), SubResource("Resource_3ip4j")])
-
-[sub_resource type="Resource" id="Resource_4ontl"]
-script = ExtResource("3_qryt2")
-invader = ExtResource("4_bvlo3")
-count = 20
-spacing = 0.45
-
-[sub_resource type="Resource" id="Resource_xq6t0"]
-script = ExtResource("3_qryt2")
-invader = ExtResource("5_5hcmy")
-count = 4
-spacing = 2.5
-delay = 4.0
-
-[sub_resource type="Resource" id="Resource_24qp3"]
-script = ExtResource("2_bxtap")
-entries = Array[ExtResource("3_qryt2")]([SubResource("Resource_4ontl"), SubResource("Resource_xq6t0")])
-
-[sub_resource type="Resource" id="Resource_l0uhy"]
-script = ExtResource("3_qryt2")
-invader = ExtResource("7_vmrsw")
-count = 3
 spacing = 4.0
 
-[sub_resource type="Resource" id="Resource_cm0y5"]
+[sub_resource type="Resource" id="Resource_3ip4j"]
 script = ExtResource("3_qryt2")
 invader = ExtResource("6_2lg4f")
 count = 4
 spacing = 1.8
 delay = 2.0
 
-[sub_resource type="Resource" id="Resource_x374x"]
+[sub_resource type="Resource" id="Resource_rgjw2"]
 script = ExtResource("3_qryt2")
 invader = ExtResource("5_5hcmy")
 count = 4
 spacing = 2.0
 delay = 5.0
 
-[sub_resource type="Resource" id="Resource_g4rim"]
+[sub_resource type="Resource" id="Resource_4ontl"]
 script = ExtResource("3_qryt2")
 invader = ExtResource("8_47mi6")
 count = 6
 spacing = 1.2000000000000002
 delay = 8.0
 
-[sub_resource type="Resource" id="Resource_ocig4"]
+[sub_resource type="Resource" id="Resource_xq6t0"]
 script = ExtResource("2_bxtap")
-entries = Array[ExtResource("3_qryt2")]([SubResource("Resource_l0uhy"), SubResource("Resource_cm0y5"), SubResource("Resource_x374x"), SubResource("Resource_g4rim")])
+entries = Array[ExtResource("3_qryt2")]([SubResource("Resource_1n8g7"), SubResource("Resource_3ip4j"), SubResource("Resource_rgjw2"), SubResource("Resource_4ontl")])
 
 [resource]
 script = ExtResource("1_2tifa")
@@ -182,5 +148,5 @@ layout = PackedStringArray("....S....", ".........", ".........", ".#.....#.", "
 hand_value = PackedInt32Array(12, 15, 7, 0, 0, 0)
 starting_coins = 20
 show_path_preview = true
-wave_tips = PackedStringArray("New world, new scale! Your pack plays exactly the same here. Termites walk around your units; every kill drops coins.", "Units that survived a wave can evolve. Anything placed this round refunds in full.", "NEW: Mole Crickets walk 3 tiles, then tunnel under the next 6 tiles of the route and pop up further along. Defend deep, not just the entrance.", "Aphid Clusters burst into three aphids when killed.", "Rhino Beetles ignore your maze and ram through any unit in their way (red line).", "Mosquitoes fly straight to the anthill (blue dashes). Only some units can hit fliers.", "Burrowers and splitters together: keep attackers near the end of the route too.", "Rammers and fliers: cover both the red line and the blue dashes.", "Big swarm, plus tunnelers. Area attacks near the anthill shine here.", "Final wave! Later levels bring elite versions, and the boss can tunnel too.")
-waves = Array[ExtResource("2_bxtap")]([SubResource("Resource_uy261"), SubResource("Resource_qkd38"), SubResource("Resource_gvl2b"), SubResource("Resource_xjh0r"), SubResource("Resource_ngv3t"), SubResource("Resource_qd7hc"), SubResource("Resource_mdv16"), SubResource("Resource_rgjw2"), SubResource("Resource_24qp3"), SubResource("Resource_ocig4")])
+wave_tips = PackedStringArray("New world, new scale! Your pack plays exactly the same here. Termites walk around your units; every kill drops coins.", "Units that survived a wave can evolve. Anything placed this round refunds in full.", "NEW: Mole Crickets walk 3 tiles, then tunnel under the next 6 tiles of the route and pop up further along. Defend deep, not just the entrance.", "Aphid Clusters burst into three aphids when killed.", "Rhino Beetles ignore your maze and ram through any unit in their way (red line).", "Mosquitoes fly straight to the anthill (blue dashes). Only some units can hit fliers.", "Burrowers and splitters together: keep attackers near the end of the route too.", "Final wave! Later levels bring elite versions, and the boss can tunnel too.")
+waves = Array[ExtResource("2_bxtap")]([SubResource("Resource_uy261"), SubResource("Resource_qkd38"), SubResource("Resource_gvl2b"), SubResource("Resource_xjh0r"), SubResource("Resource_ngv3t"), SubResource("Resource_qd7hc"), SubResource("Resource_mdv16"), SubResource("Resource_xq6t0")])

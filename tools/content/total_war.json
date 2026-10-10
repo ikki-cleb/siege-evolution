@@ -1106,7 +1106,7 @@
       "smash": {
         "normal": "toy_tank",
         "elite": "heavy_tank",
-        "elite_level": 5
+        "elite_level": 4
       },
       "jump": {
         "normal": "motorbike"
@@ -1114,17 +1114,17 @@
       "fly": {
         "normal": "paper_plane",
         "elite": "jet",
-        "elite_level": 4
+        "elite_level": 3
       },
       "bomb": {
         "normal": "toy_bomber",
         "elite": "heavy_bomber",
-        "elite_level": 6
+        "elite_level": 4
       },
       "navy": {
         "normal": "patrol_boat",
         "elite": "destroyer",
-        "elite_level": 4
+        "elite_level": 3
       },
       "battleship": {
         "normal": "battleship"
@@ -1163,16 +1163,6 @@
         "swarm": 0.5,
         "jump": 0.25,
         "fly": 0.25
-      },
-      {
-        "smash": 0.35,
-        "split": 0.3,
-        "bomb": 0.35
-      },
-      {
-        "swarm": 0.4,
-        "jump": 0.3,
-        "bomb": 0.3
       },
       {
         "swarm": 0.2,
@@ -1216,16 +1206,6 @@
         "sub": 0.25
       },
       {
-        "battleship": 0.35,
-        "sub": 0.3,
-        "swarm": 0.35
-      },
-      {
-        "navy": 0.4,
-        "bomb": 0.3,
-        "swarm": 0.3
-      },
-      {
         "navy": 0.25,
         "sub": 0.2,
         "battleship": 0.2,
@@ -1233,7 +1213,7 @@
         "bomb": 0.15
       }
     ],
-    "growth_per_wave": 0.32
+    "growth_per_wave": 0.411
   },
   "tutorial": {
     "waves": [
@@ -1327,34 +1307,6 @@
         [
           "toy_tank",
           3,
-          5.0,
-          0
-        ],
-        [
-          "toy_bomber",
-          2,
-          5.0,
-          3
-        ]
-      ],
-      [
-        [
-          "toy_soldier",
-          20,
-          0.45,
-          0
-        ],
-        [
-          "motorbike",
-          4,
-          2.0,
-          4
-        ]
-      ],
-      [
-        [
-          "toy_tank",
-          3,
           4.0,
           0
         ],
@@ -1392,8 +1344,6 @@
       "Paper Planes fly straight to the HQ (blue dashes). Only some units can hit fliers.",
       "NEW: Toy Bombers drop a bomb on your most valuable unit near their flight line. Shoot them down early, or spread out.",
       "Stunt Bikes jump any single unit tile, like the deer. Build walls two tiles thick.",
-      "Tanks and bombers together: guard your expensive units.",
-      "Big march with bikes mixed in. Thick walls keep the bikes on the long route.",
       "Final wave! Next level takes the war to the water."
     ]
   },
@@ -1472,37 +1422,7 @@
       ]
     },
     {
-      "name": "3. Toy Shelf",
-      "hand": [
-        12,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "coins": 20,
-      "income": 5,
-      "budget": 15,
-      "layout": [
-        "S.......S",
-        ".........",
-        "..#...#..",
-        ".........",
-        "##.....##",
-        ".........",
-        "...#.#...",
-        ".........",
-        "##.....##",
-        ".........",
-        "..#...#..",
-        ".........",
-        ".........",
-        "....B...."
-      ]
-    },
-    {
-      "name": "4. Rubber Duck Harbor",
+      "name": "3. Rubber Duck Harbor",
       "sea": true,
       "hand": [
         14,
@@ -1545,37 +1465,7 @@
       ]
     },
     {
-      "name": "5. Bedroom Floor",
-      "hand": [
-        16,
-        12,
-        7,
-        5,
-        10,
-        0
-      ],
-      "coins": 25,
-      "income": 6,
-      "budget": 21,
-      "layout": [
-        "S........",
-        ".........",
-        "...##....",
-        "...##...S",
-        ".........",
-        ".........",
-        ".##...##.",
-        ".##...##.",
-        ".........",
-        ".........",
-        "....##...",
-        "....##...",
-        ".........",
-        "........B"
-      ]
-    },
-    {
-      "name": "6. Pool Party Landing",
+      "name": "4. Pool Party Landing",
       "sea": true,
       "hand": [
         16,
@@ -1606,7 +1496,7 @@
       ]
     },
     {
-      "name": "7. Playroom Siege",
+      "name": "5. Playroom Siege",
       "hand": [
         20,
         12,

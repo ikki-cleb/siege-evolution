@@ -1,6 +1,6 @@
 # Siege Evolution: Game Design Document
 
-Status: **v0.9, all 5 main worlds plus the Kitchen Defense bonus world** (42 levels,
+Status: **v1.2, all 5 main worlds plus both bonus worlds** (35 levels,
 5 packs, evolutions, saved progress, sound, music, store in test mode). Balance is tuned against an automated player, not real play yet.
 
 ## Pitch
@@ -24,11 +24,16 @@ inside the body, and each world's final boss zooms you out to a bigger world.
 
 ## Structure
 
+Worlds were cut from 7 levels of 10 waves to **5 levels of 8 waves** (the
+old levels 3 and 5 were dropped, and waves grow faster so the final wave
+is as big as before). Old saves convert by position. The balance numbers
+quoted below for the bonus worlds were measured before the cut.
+
 ```
-Title → World select → Pack select → Level select (7 levels) → Level (10 waves)
+Title → World select → Pack select → Level select (5 levels) → Level (8 waves)
 ```
 
-- **Worlds (biomes):** 7 levels each, at one scale. Beating level 7 (the boss)
+- **Worlds (biomes):** 5 levels each, at one scale. Beating level 5 (the boss)
   unlocks the next, larger-scale world. The five main worlds, in order:
   1. **Microscopic** (the immune system), built
   2. **Backyard Bugs** (defend the queen's anthill), built
@@ -44,8 +49,8 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
   - **Kitchen Defense**: built (see its section below).
   - **Birthday Bash**: built (see its section below).
 - **Each world has its own invader roster.** All behavior types appear in
-  that world's level 1, and levels 2–7 add **elite variants** of them.
-- **Starter pack:** picked when entering a world and kept for all 7 levels.
+  that world's level 1, and levels 2–5 add **elite variants** of them.
+- **Starter pack:** picked when entering a world and kept for all 5 levels.
   Picking a different pack restarts that world at level 1 (after a confirm
   screen). Each pack plays the same way in every world; later worlds only
   give its units new names and art for the scale.
@@ -64,7 +69,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
    unit to evolve or remove it.
 2. **Wave phase:** invaders spawn and travel to the base. No building.
    Fast-forward is available (1×/2×/3×).
-3. Survive **10 waves** to clear the level. **Pass/fail only**, no stars.
+3. Survive **8 waves** to clear the level. **Pass/fail only**, no stars.
 4. **Lose:** the base has 20 HP, and each invader does its own base damage
    when it arrives.
 
@@ -151,7 +156,7 @@ becomes "Field-Repaired..." or "Barbed...". Names live in each world's
 ## Units and packs
 
 Every unit blocks its tile. Each pack has **6 units**: slots 0–2 at level 1,
-then one new unit on **levels 2, 4 and 6**. Each unit **evolves once**, into
+then one new unit on **levels 2, 3 and 4**. Each unit **evolves once**, into
 one of **two branches**, for coins during a build phase, but only after it has
 **survived a wave** (it can't evolve the round it's placed). Attackers usually get
 a damage branch and a range branch; walls get an HP branch and a
@@ -206,10 +211,10 @@ rattlesnakes).
 | Bacterium | Walker | Splits into 2 halves |
 | Biofilm Colony | Walker (elite, level 3+) | Armor 2, splits |
 | Parasite Worm | Smasher | Chews through any unit in its way |
-| Hookworm | Smasher (elite, level 4+) | Regenerates |
+| Hookworm | Smasher (elite, level 3+) | Regenerates |
 | Spore | Flier | Flies straight over the maze |
-| Fungal Spore | Flier (elite, level 5+) | Armor 1, tougher |
-| **Superbug** | Boss smasher (level 7, wave 10) | Armor 1, releases Rhinoviruses as it walks |
+| Fungal Spore | Flier (elite, level 4+) | Armor 1, tougher |
+| **Superbug** | Boss smasher (level 5, last wave) | Armor 1, releases Rhinoviruses as it walks |
 
 Armor reduces each non-piercing hit (a hit always does at least 1). Poison ignores armor.
 
@@ -227,10 +232,10 @@ further along. That rewards defense in depth over a single choke point.
 | Scale Colony | Walker (elite, level 3+) | Armor 2, bursts into aphids |
 | Mole Cricket | **Burrower** | Walks 3 tiles, tunnels under the next 6 |
 | Rhino Beetle | Smasher | Rams through units |
-| Hercules Beetle | Smasher (elite, level 4+) | Armor 2 |
+| Hercules Beetle | Smasher (elite, level 3+) | Armor 2 |
 | Mosquito | Flier | |
-| Hornet | Flier (elite, level 5+) | Armor 1, tougher |
-| **Giant Centipede** | Boss smasher (level 7, wave 10) | Tunnels once, releases termites |
+| Hornet | Flier (elite, level 4+) | Armor 1, tougher |
+| **Giant Centipede** | Boss smasher (level 5, last wave) | Tunnels once, releases termites |
 
 ## Invaders (World 3: Wild Kingdom)
 
@@ -247,13 +252,13 @@ the coins they drop, though drops stay generous enough to keep building.
 | Deer | **Jumper** | Hops single unit tiles |
 | Red Stag | Jumper (elite, level 3+) | Armor 1 |
 | Coyote Pack | Walker | Scatters into 3 coyotes |
-| Wolf Pack | Walker (elite, level 4+) | Armor 2, scatters into wolves |
+| Wolf Pack | Walker (elite, level 3+) | Armor 2, scatters into wolves |
 | Wild Boar | Smasher | Charges through units |
-| Moose | Smasher (elite, level 5+) | Armor 2 |
+| Moose | Smasher (elite, level 4+) | Armor 2 |
 | Crow | Flier | |
-| Hawk | Flier (elite, level 6+) | Armor 1 |
+| Hawk | Flier (elite, level 4+) | Armor 1 |
 | Gopher | Burrower | Tunnels under 6 tiles |
-| **Grizzly Bear** | Boss smasher (level 7, wave 10) | Armor 2, brings bear cubs |
+| **Grizzly Bear** | Boss smasher (level 5, last wave) | Armor 2, brings bear cubs |
 
 ## World 4: Total War (toy soldiers)
 
@@ -262,7 +267,7 @@ and bath-toy boats. You defend a toy fort HQ. Walls are toy fortifications
 (sandbags, barbed wire, concrete barriers, barricades, barrels), attackers
 are toy troops and turrets.
 
-**Sea levels (2, 4, 6) have water lanes.** Water tiles (`~`) carry boats only,
+**Sea levels (2, 3, 4) have water lanes.** Water tiles (`~`) carry boats only,
 starting from sea spawns (`N`). Land invaders can't cross water. Only each
 pack's **basic wall** can be placed on water, where it becomes a **net** (the
 base wall and its HP evolution) or a **naval mine** (its reflect evolution).
@@ -287,7 +292,7 @@ the wave as usual.
 | Patrol Boat / Destroyer (elite) | Boat | Water lanes |
 | Submarine | Boat burrower | Dives under 6 tiles |
 | Battleship | Boat smasher | Rams nets and mines |
-| **Mega Tank** | Boss smasher (level 7) | Deploys toy soldiers |
+| **Mega Tank** | Boss smasher (level 5) | Deploys toy soldiers |
 
 **Balance lesson:** invader stats should stay comparable across worlds,
 because packs restart at base stats in every world. Difficulty should come
@@ -296,7 +301,7 @@ from mechanics, layouts and wave mixes, not raw HP inflation.
 ## World 5: Galactic Siege (final main world)
 
 Levels alternate settings with their own tiles: **moon surface** (levels 1,
-4, 7), **station interior** (2, 5) and **asteroid field** (3, 6). Any level
+3, 5), **station interior** (2) and **asteroid field** (4). Any level
 can set its own tiles in its world's JSON (`"tiles": "station"`). You defend
 the colony reactor. Walls are tech barriers (hull plates, scrap, energy
 barriers, force fields, radioactive plates); attackers are robots and
@@ -340,10 +345,10 @@ Difficulty comes from mechanics, tighter layouts, nastier wave mixes and less
 starting coins, not inflated invader stats. Waves also grow faster (45% of
 wave 1 per wave, vs 32% in main worlds), so early waves are fair and the
 finish is brutal. Target was about 70% bot wins; tuning stopped at **85% on
-levels 2-7** (level 1 is the easy teaching level) because more global
+levels 2-5** (level 1 is the easy teaching level) because more global
 difficulty only broke Fortress and Precision while Swarm, Control and Toxin
 kept winning. Final call is the user's playtest. Every pack beats at least
-5 of 7 levels.
+3 of 5 levels.
 
 **New behavior: spillers.** Every 2 tiles it walks, a spiller splashes goo
 on the units on the 8 tiles around it. A sticky unit attacks 40% slower
@@ -363,7 +368,7 @@ Returning behaviors: walker swarms, splitters, smashers and fliers.
 | Mouse Nest / Rat Nest (elite) | Walker, bursts into mice |
 | Cockroach / Giant Roach (elite) | Smasher |
 | Fruit Fly / Housefly (elite) | Flier |
-| **Rat King** | Boss smasher (level 7): sheds rats, leaves a grease trail |
+| **Rat King** | Boss smasher (level 5): sheds rats, leaves a grease trail |
 
 Levels: 1 Pantry Raid, 2 Counter Top, 3 Under the Table, 4 Top Shelf,
 5 Sink Side, 6 Crumb Trail, 7 Rat King's Feast. Pantry tiles are the
@@ -384,9 +389,9 @@ noisemakers, sparklers, party horns, disco balls).
 
 Same post-game rules as Kitchen Defense: the store card's
 "POST-GAME: HARD" warning and faster wave growth (45% per wave). The bot
-wins **72% on levels 2-7** (Kitchen: 85%), every pack beats at least 5 of 7,
+wins **72% on levels 2-5** (Kitchen: 85%), every pack beats at least 3 of 5,
 and every pack wins the teaching level. Piñatas count as 14 threat (body
-plus surprise) and never appear in wave 1 of levels 2-7.
+plus surprise) and never appear in wave 1 of levels 2-5.
 
 **New behavior: piñatas.** A slow, tough walker that bursts into 3-5 small
 invaders when broken (walkers, jumpers, fliers, small smashers; never elites
@@ -408,7 +413,7 @@ bombers and spillers (the "everything" bonus world).
 | Water Balloon | Bomber |
 | Soda Spill / Frosting Blob (elite) | Spiller |
 | **Piñata** | New: bursts into a fixed "surprise" |
-| **The Clown** | Boss smasher (level 7): tosses mini piñatas a few tiles ahead onto its route |
+| **The Clown** | Boss smasher (level 5): tosses mini piñatas a few tiles ahead onto its route |
 
 Beating the Clown shows the bonus world-cleared screen.
 
@@ -466,7 +471,7 @@ every level of every world with every pack (two seeds each) and prints base
 HP left. `tests/debug_level.gd` replays one level and prints the layout and
 leaks wave by wave. As of v0.4 the auto-player wins most levels comfortably,
 so difficulty should be judged by human playtesting next. Current
-targets: every pack beats at least 6 of 7 levels, levels with no defenses
+targets: every pack beats at least 4 of 5 levels (3 of 5 in bonus worlds), levels with no defenses
 are lost, and the packs' averages stay close together. Human playtesting
 comes next.
 
@@ -474,7 +479,6 @@ comes next.
 
 - Cosmetic unlocks (palettes, skins, menu themes): what and when
 - User's v0.8 playtest notes (to handle after Kitchen Defense)
-- Orchard (World 3, level 3) is the hardest level for the bot, especially with Toxin
 - Overall difficulty after human playtesting (the bot finds most levels easy)
 - How the sound, music and new look feel in real play; Blinker frequency
 - Save sync (iCloud / Google Play) or local only

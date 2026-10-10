@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 82
+const MIN_RULE_CHECKS := 86
 var progress: Node
 
 
@@ -34,6 +34,7 @@ func _run() -> void:
 	await _test_capstones(biome)
 	await _test_upgrade_preview(biome)
 	await _test_menu_scrolling()
+	_test_level_counts()
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index; 5 = Kitchen, 6 = Birthday).
 		var worlds := [0, 1, 2, 3, 4, 5, 6]
@@ -124,8 +125,9 @@ func _test_balance(biome: BiomeData) -> void:
 			biome.levels[level_index].display_name, game.wave_number])
 		await _stop(game)
 	# Bonus worlds are post-game hard: the bot should win about 70% of runs,
-	# and every pack should still beat 5 of 7 levels (6 of 7 in main worlds).
-	print("Bot won %d of %d runs on levels 2-7 (%d%%)" % [runs_won, runs, roundi(100.0 * runs_won / runs)])
+	# and every pack should still beat 3 of 5 levels (4 of 5 in main worlds).
+	print("Bot won %d of %d runs on levels 2-%d (%d%%)" % [runs_won, runs, biome.levels.size(),
+		roundi(100.0 * runs_won / runs)])
 	var needed := biome.levels.size() - (2 if progress.is_bonus_biome(biome.id) else 1)
 	for pack_index in biome.packs.size():
 		_check(pack_wins.get(pack_index, 0) >= needed,
@@ -263,7 +265,7 @@ func _test_space(biome: BiomeData) -> void:
 	_check(jumped, "Blinkers teleport several tiles forward along their route")
 	await _stop(game)
 
-	game = await _start(biome, 0, 6)  # Mothership level
+	game = await _start(biome, 0, 4)  # Mothership level
 	board = game.board
 	var wall: UnitData = game.unit_types[0]
 	for x in [2, 4, 6]:
@@ -298,7 +300,7 @@ func _test_space(biome: BiomeData) -> void:
 		store.reset_test_purchases()
 		if owned:
 			store.buy(store.BUNDLE_ALL)
-		game = await _start(biome, 0, 6)
+		game = await _start(biome, 0, 4)
 		game.hud.show_end_screen(true)
 		await process_frame
 		var texts := _all_texts(game.hud)
@@ -369,7 +371,7 @@ func _test_kitchen(biome: BiomeData) -> void:
 	var store: Node = root.get_node("Store")
 	store.reset_test_purchases()
 	store.buy(store.WORLD_KITCHEN)
-	game = await _start(biome, 0, 6)
+	game = await _start(biome, 0, 4)
 	game.hud.show_end_screen(true)
 	await process_frame
 	var texts := _all_texts(game.hud)
@@ -421,7 +423,7 @@ func _test_party(biome: BiomeData) -> void:
 	_check(differs, "Different piñatas hide different surprises")
 
 	# The Clown tosses mini piñatas a few tiles ahead of itself.
-	var game := await _start(biome, 0, 6)
+	var game := await _start(biome, 0, 4)
 	var board: Board = game.board
 	board.wave_active = true
 	board.start_pinata_seeds("clown-test")
@@ -444,7 +446,7 @@ func _test_party(biome: BiomeData) -> void:
 	var store: Node = root.get_node("Store")
 	store.reset_test_purchases()
 	store.buy(store.WORLD_BIRTHDAY)
-	game = await _start(biome, 0, 6)
+	game = await _start(biome, 0, 4)
 	game.hud.show_end_screen(true)
 	await process_frame
 	var texts := _all_texts(game.hud)
@@ -650,6 +652,33 @@ func _capstone_names(world: BiomeData) -> Array[String]:
 	return names
 
 
+# --- Five levels of eight waves ------------------------------------------------
+
+func _test_level_counts() -> void:
+	var sizes_ok := true
+	for index in progress.WORLDS.size():
+		var world: BiomeData = progress.load_biome(index)
+		sizes_ok = sizes_ok and world.levels.size() == 5
+		for level in world.levels:
+			sizes_ok = sizes_ok and level.waves.size() == 8
+	_check(sizes_ok, "Every world has 5 levels of 8 waves")
+	var pack: PackData = progress.load_biome(0).packs[0]
+	_check(pack.units_for_level(4).size() == 6 and pack.units_for_level(3).size() == 5,
+		"New units unlock on levels 2, 3 and 4")
+	# An old save (7 levels per world) converts by position.
+	var old_save := {"biomes": {"a": {"pack": "fortress", "cleared": 7},
+		"b": {"pack": "swarm", "cleared": 4}, "c": {"pack": "swarm", "cleared": 3}}}
+	var file := FileAccess.open(progress.SAVE_PATH, FileAccess.WRITE)
+	file.store_string(JSON.stringify(old_save))
+	file.close()
+	progress._load()
+	_check(progress.cleared("a") == 5 and progress.cleared("b") == 3 and progress.cleared("c") == 2,
+		"Old saves convert: 7 -> 5, 4 -> 3, 3 -> 2 levels cleared")
+	progress._load()
+	_check(progress.cleared("a") == 5 and progress.cleared("b") == 3, "Converted saves don't convert twice")
+	progress.reset()
+
+
 # --- Upgrade preview and menu scrolling ----------------------------------------
 
 func _test_upgrade_preview(biome: BiomeData) -> void:
@@ -845,7 +874,7 @@ func _test_rules(biome: BiomeData) -> void:
 	await _stop(game)
 
 	# Reflect and boss minions.
-	game = await _start(biome, 0, 6)  # Fortress, level 7
+	game = await _start(biome, 0, 4)  # Fortress, level 5 (boss)
 	board = game.board
 	var spike: UnitData = game.unit_types[0].evolutions[1]
 	var spike_unit: Unit = board.place_unit(spike, Vector2i(4, 6))

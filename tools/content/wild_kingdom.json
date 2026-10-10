@@ -1067,17 +1067,17 @@
       "split": {
         "normal": "coyote_pack",
         "elite": "wolf_pack",
-        "elite_level": 4
+        "elite_level": 3
       },
       "smash": {
         "normal": "wild_boar",
         "elite": "moose",
-        "elite_level": 5
+        "elite_level": 4
       },
       "fly": {
         "normal": "crow",
         "elite": "hawk",
-        "elite_level": 6
+        "elite_level": 4
       },
       "burrow": {
         "normal": "gopher"
@@ -1116,16 +1116,6 @@
         "burrow": 0.25
       },
       {
-        "smash": 0.35,
-        "split": 0.3,
-        "jump": 0.35
-      },
-      {
-        "swarm": 0.4,
-        "jump": 0.3,
-        "burrow": 0.3
-      },
-      {
         "swarm": 0.2,
         "split": 0.2,
         "smash": 0.2,
@@ -1134,7 +1124,7 @@
         "burrow": 0.1
       }
     ],
-    "growth_per_wave": 0.32
+    "growth_per_wave": 0.411
   },
   "tutorial": {
     "waves": [
@@ -1228,34 +1218,6 @@
         [
           "wild_boar",
           3,
-          5.0,
-          0
-        ],
-        [
-          "crow",
-          6,
-          1.2,
-          3
-        ]
-      ],
-      [
-        [
-          "rat",
-          20,
-          0.45,
-          0
-        ],
-        [
-          "deer",
-          5,
-          2.0,
-          4
-        ]
-      ],
-      [
-        [
-          "wild_boar",
-          3,
           4.0,
           0
         ],
@@ -1293,8 +1255,6 @@
       "Wild Boars ignore your maze and charge through any unit in their way (red line).",
       "Crows fly straight to the farmhouse (blue dashes). Only some units can hit fliers.",
       "Gophers tunnel under part of the route, like the mole crickets. Guard the end of the route too.",
-      "Chargers and fliers together: cover the red line and the blue dashes.",
-      "Rat swarm with deer mixed in. Thick walls keep the deer on the long route.",
       "Final wave! Later levels bring elite versions, and the boss brings her cubs."
     ]
   },
@@ -1360,37 +1320,7 @@
       ]
     },
     {
-      "name": "3. Orchard",
-      "hand": [
-        12,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "coins": 20,
-      "income": 5,
-      "budget": 16,
-      "layout": [
-        "S.......S",
-        ".........",
-        ".#..#..#.",
-        ".........",
-        ".........",
-        "..#...#..",
-        ".........",
-        ".#..#..#.",
-        ".........",
-        ".........",
-        "..#...#..",
-        ".........",
-        ".........",
-        "....B...."
-      ]
-    },
-    {
-      "name": "4. Pig Pen",
+      "name": "3. Pig Pen",
       "hand": [
         14,
         8,
@@ -1420,37 +1350,7 @@
       ]
     },
     {
-      "name": "5. Duck Pond",
-      "hand": [
-        16,
-        12,
-        7,
-        5,
-        10,
-        0
-      ],
-      "coins": 25,
-      "income": 6,
-      "budget": 25,
-      "layout": [
-        "S........",
-        ".........",
-        ".........",
-        "...###...",
-        "...###...",
-        ".........",
-        "S........",
-        ".........",
-        "......##.",
-        "......##.",
-        ".........",
-        "..#......",
-        ".........",
-        "........B"
-      ]
-    },
-    {
-      "name": "6. Hay Barn",
+      "name": "4. Hay Barn",
       "hand": [
         16,
         12,
@@ -1480,7 +1380,7 @@
       ]
     },
     {
-      "name": "7. Bear Woods",
+      "name": "5. Bear Woods",
       "hand": [
         20,
         12,

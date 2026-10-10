@@ -1,343 +1,298 @@
 [gd_resource type="Resource" script_class="LevelData" format=3]
 
-[ext_resource type="Texture2D" path="res://art/tiles/galactic_siege/asteroid/base.png" id="1_yuip0"]
-[ext_resource type="Texture2D" path="res://art/tiles/galactic_siege/asteroid/floor.png" id="2_6yix6"]
-[ext_resource type="Texture2D" path="res://art/tiles/galactic_siege/asteroid/rock.png" id="3_2swe8"]
-[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="4_8jyr0"]
-[ext_resource type="Texture2D" path="res://art/tiles/galactic_siege/asteroid/spawn.png" id="5_bmkob"]
-[ext_resource type="Script" path="res://scripts/data/wave_data.gd" id="6_yrt7n"]
-[ext_resource type="Script" path="res://scripts/data/wave_entry.gd" id="7_41mlm"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/grub.tres" id="8_8pf0x"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/drone.tres" id="9_umroa"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/blinker.tres" id="10_tbsbg"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/brood_pod.tres" id="11_tt6ji"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/hive_pod.tres" id="12_8feen"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/saucer.tres" id="13_7li1w"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/crusher.tres" id="14_5n4tt"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/tunneler.tres" id="15_17h0r"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/hopper.tres" id="16_ng5d0"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/ufo_bomber.tres" id="17_3bvs6"]
+[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="1_uiqjy"]
+[ext_resource type="Script" path="res://scripts/data/wave_data.gd" id="2_8jj3b"]
+[ext_resource type="Script" path="res://scripts/data/wave_entry.gd" id="3_mv3t6"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/grub.tres" id="4_yuip0"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/drone.tres" id="5_6yix6"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/blinker.tres" id="6_2swe8"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/brood_pod.tres" id="7_8jyr0"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/hive_pod.tres" id="8_bmkob"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/phase_stalker.tres" id="9_yrt7n"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/saucer.tres" id="10_41mlm"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/crusher.tres" id="11_8pf0x"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/tunneler.tres" id="12_umroa"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/hopper.tres" id="13_tbsbg"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/ufo_bomber.tres" id="14_tt6ji"]
 
-[sub_resource type="Resource" id="Resource_qdp3w"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("8_8pf0x")
-count = 7
-spacing = 2.3000000000000003
-
-[sub_resource type="Resource" id="Resource_jhe3k"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("9_umroa")
-count = 2
-spacing = 5.0
-delay = 2.5
-
-[sub_resource type="Resource" id="Resource_24dpk"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("10_tbsbg")
-count = 3
-spacing = 5.0
-delay = 5.0
-
-[sub_resource type="Resource" id="Resource_5ep2r"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_qdp3w"), SubResource("Resource_jhe3k"), SubResource("Resource_24dpk")])
-
-[sub_resource type="Resource" id="Resource_m7644"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("8_8pf0x")
+[sub_resource type="Resource" id="Resource_8feen"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("4_yuip0")
 count = 8
 spacing = 2.0
 
-[sub_resource type="Resource" id="Resource_ldai6"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("9_umroa")
+[sub_resource type="Resource" id="Resource_7li1w"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("5_6yix6")
 count = 2
 spacing = 5.0
 delay = 2.5
 
-[sub_resource type="Resource" id="Resource_jl58q"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("11_tt6ji")
-count = 3
+[sub_resource type="Resource" id="Resource_5n4tt"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("6_2swe8")
+count = 2
 spacing = 5.0
 delay = 5.0
 
-[sub_resource type="Resource" id="Resource_eqf6s"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("12_8feen")
+[sub_resource type="Resource" id="Resource_17h0r"]
+script = ExtResource("2_8jj3b")
+entries = Array[ExtResource("3_mv3t6")]([SubResource("Resource_8feen"), SubResource("Resource_7li1w"), SubResource("Resource_5n4tt")])
+
+[sub_resource type="Resource" id="Resource_ng5d0"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("4_yuip0")
+count = 9
+spacing = 1.8
+
+[sub_resource type="Resource" id="Resource_3bvs6"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("5_6yix6")
+count = 2
+spacing = 5.0
+delay = 2.5
+
+[sub_resource type="Resource" id="Resource_qdp3w"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("7_8jyr0")
+count = 4
+spacing = 4.0
+delay = 5.0
+
+[sub_resource type="Resource" id="Resource_jhe3k"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("8_bmkob")
 count = 1
 spacing = 5.0
 delay = 7.5
 
-[sub_resource type="Resource" id="Resource_rvjc0"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_m7644"), SubResource("Resource_ldai6"), SubResource("Resource_jl58q"), SubResource("Resource_eqf6s")])
+[sub_resource type="Resource" id="Resource_24dpk"]
+script = ExtResource("2_8jj3b")
+entries = Array[ExtResource("3_mv3t6")]([SubResource("Resource_ng5d0"), SubResource("Resource_3bvs6"), SubResource("Resource_qdp3w"), SubResource("Resource_jhe3k")])
 
-[sub_resource type="Resource" id="Resource_81mvq"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("10_tbsbg")
-count = 6
-spacing = 2.6500000000000004
+[sub_resource type="Resource" id="Resource_5ep2r"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("6_2swe8")
+spacing = 3.2
 
-[sub_resource type="Resource" id="Resource_sdwvd"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("13_7li1w")
-count = 11
-spacing = 1.4500000000000002
+[sub_resource type="Resource" id="Resource_m7644"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("9_yrt7n")
+count = 1
+spacing = 5.0
 delay = 2.5
 
+[sub_resource type="Resource" id="Resource_ldai6"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("10_41mlm")
+count = 13
+spacing = 1.25
+delay = 5.0
+
+[sub_resource type="Resource" id="Resource_jl58q"]
+script = ExtResource("2_8jj3b")
+entries = Array[ExtResource("3_mv3t6")]([SubResource("Resource_5ep2r"), SubResource("Resource_m7644"), SubResource("Resource_ldai6")])
+
+[sub_resource type="Resource" id="Resource_eqf6s"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("4_yuip0")
+count = 8
+spacing = 2.0
+
+[sub_resource type="Resource" id="Resource_rvjc0"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("5_6yix6")
+count = 3
+spacing = 5.0
+delay = 2.5
+
+[sub_resource type="Resource" id="Resource_81mvq"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("11_8pf0x")
+count = 3
+spacing = 5.0
+delay = 5.0
+
+[sub_resource type="Resource" id="Resource_sdwvd"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("12_umroa")
+count = 6
+spacing = 2.6500000000000004
+delay = 7.5
+
 [sub_resource type="Resource" id="Resource_xbmfq"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_81mvq"), SubResource("Resource_sdwvd")])
+script = ExtResource("2_8jj3b")
+entries = Array[ExtResource("3_mv3t6")]([SubResource("Resource_eqf6s"), SubResource("Resource_rvjc0"), SubResource("Resource_81mvq"), SubResource("Resource_sdwvd")])
 
 [sub_resource type="Resource" id="Resource_mjjs1"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("8_8pf0x")
-count = 7
-spacing = 2.3000000000000003
+script = ExtResource("3_mv3t6")
+invader = ExtResource("7_8jyr0")
+count = 4
+spacing = 4.0
 
 [sub_resource type="Resource" id="Resource_5v8wh"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("9_umroa")
-count = 2
+script = ExtResource("3_mv3t6")
+invader = ExtResource("8_bmkob")
+count = 1
 spacing = 5.0
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_2pm4g"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("14_5n4tt")
-count = 3
-spacing = 5.0
+script = ExtResource("3_mv3t6")
+invader = ExtResource("13_tbsbg")
+count = 7
+spacing = 2.3000000000000003
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_ny28t"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("15_17h0r")
-spacing = 3.2
+script = ExtResource("3_mv3t6")
+invader = ExtResource("6_2swe8")
+count = 6
+spacing = 2.6500000000000004
 delay = 7.5
 
 [sub_resource type="Resource" id="Resource_uumuh"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_mjjs1"), SubResource("Resource_5v8wh"), SubResource("Resource_2pm4g"), SubResource("Resource_ny28t")])
+script = ExtResource("3_mv3t6")
+invader = ExtResource("9_yrt7n")
+count = 1
+spacing = 5.0
+delay = 10.0
 
 [sub_resource type="Resource" id="Resource_e6jt7"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("11_tt6ji")
-count = 3
-spacing = 5.0
+script = ExtResource("2_8jj3b")
+entries = Array[ExtResource("3_mv3t6")]([SubResource("Resource_mjjs1"), SubResource("Resource_5v8wh"), SubResource("Resource_2pm4g"), SubResource("Resource_ny28t"), SubResource("Resource_uumuh")])
 
 [sub_resource type="Resource" id="Resource_e0b1h"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("12_8feen")
-count = 1
-spacing = 5.0
-delay = 2.5
+script = ExtResource("3_mv3t6")
+invader = ExtResource("14_tt6ji")
+spacing = 3.2
 
 [sub_resource type="Resource" id="Resource_5nps2"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("16_ng5d0")
-count = 6
-spacing = 2.6500000000000004
-delay = 5.0
-
-[sub_resource type="Resource" id="Resource_oovbn"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("10_tbsbg")
+script = ExtResource("3_mv3t6")
+invader = ExtResource("11_8pf0x")
 count = 7
 spacing = 2.3000000000000003
-delay = 7.5
+delay = 2.5
+
+[sub_resource type="Resource" id="Resource_oovbn"]
+script = ExtResource("2_8jj3b")
+entries = Array[ExtResource("3_mv3t6")]([SubResource("Resource_e0b1h"), SubResource("Resource_5nps2")])
 
 [sub_resource type="Resource" id="Resource_yk8cs"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_e6jt7"), SubResource("Resource_e0b1h"), SubResource("Resource_5nps2"), SubResource("Resource_oovbn")])
+script = ExtResource("3_mv3t6")
+invader = ExtResource("4_yuip0")
+count = 15
+spacing = 1.05
 
 [sub_resource type="Resource" id="Resource_a86on"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("17_3bvs6")
-count = 4
-spacing = 4.0
+script = ExtResource("3_mv3t6")
+invader = ExtResource("5_6yix6")
+count = 6
+spacing = 2.6500000000000004
+delay = 2.5
 
 [sub_resource type="Resource" id="Resource_pnqem"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("14_5n4tt")
-count = 6
-spacing = 2.6500000000000004
-delay = 2.5
+script = ExtResource("3_mv3t6")
+invader = ExtResource("6_2swe8")
+spacing = 3.2
+delay = 5.0
 
 [sub_resource type="Resource" id="Resource_hq7l2"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_a86on"), SubResource("Resource_pnqem")])
+script = ExtResource("3_mv3t6")
+invader = ExtResource("9_yrt7n")
+count = 2
+spacing = 5.0
+delay = 7.5
 
 [sub_resource type="Resource" id="Resource_j202x"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("8_8pf0x")
-count = 12
-spacing = 1.35
+script = ExtResource("3_mv3t6")
+invader = ExtResource("10_41mlm")
+count = 15
+spacing = 1.05
+delay = 10.0
 
 [sub_resource type="Resource" id="Resource_lr55s"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("9_umroa")
-spacing = 3.2
-delay = 2.5
+script = ExtResource("2_8jj3b")
+entries = Array[ExtResource("3_mv3t6")]([SubResource("Resource_yk8cs"), SubResource("Resource_a86on"), SubResource("Resource_pnqem"), SubResource("Resource_hq7l2"), SubResource("Resource_j202x")])
 
 [sub_resource type="Resource" id="Resource_2n71v"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("10_tbsbg")
+script = ExtResource("3_mv3t6")
+invader = ExtResource("4_yuip0")
 count = 6
 spacing = 2.6500000000000004
-delay = 5.0
 
 [sub_resource type="Resource" id="Resource_ndrj3"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("13_7li1w")
-count = 12
-spacing = 1.35
-delay = 7.5
+script = ExtResource("3_mv3t6")
+invader = ExtResource("5_6yix6")
+count = 3
+spacing = 5.0
+delay = 2.5
 
 [sub_resource type="Resource" id="Resource_x6esh"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_j202x"), SubResource("Resource_lr55s"), SubResource("Resource_2n71v"), SubResource("Resource_ndrj3")])
+script = ExtResource("3_mv3t6")
+invader = ExtResource("7_8jyr0")
+count = 3
+spacing = 5.0
+delay = 5.0
 
 [sub_resource type="Resource" id="Resource_en26f"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("14_5n4tt")
-count = 3
+script = ExtResource("3_mv3t6")
+invader = ExtResource("8_bmkob")
+count = 1
 spacing = 5.0
+delay = 7.5
 
 [sub_resource type="Resource" id="Resource_qns3o"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("11_tt6ji")
-count = 3
+script = ExtResource("3_mv3t6")
+invader = ExtResource("11_8pf0x")
+count = 2
 spacing = 5.0
-delay = 2.5
+delay = 10.0
 
 [sub_resource type="Resource" id="Resource_0k705"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("12_8feen")
-count = 1
-spacing = 5.0
-delay = 5.0
-
-[sub_resource type="Resource" id="Resource_c4nu0"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("16_ng5d0")
-spacing = 3.2
-delay = 7.5
-
-[sub_resource type="Resource" id="Resource_s4w20"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("17_3bvs6")
+script = ExtResource("3_mv3t6")
+invader = ExtResource("6_2swe8")
 count = 4
 spacing = 4.0
-delay = 10.0
-
-[sub_resource type="Resource" id="Resource_x5bdj"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_en26f"), SubResource("Resource_qns3o"), SubResource("Resource_0k705"), SubResource("Resource_c4nu0"), SubResource("Resource_s4w20")])
-
-[sub_resource type="Resource" id="Resource_vcaac"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("8_8pf0x")
-count = 10
-spacing = 1.6
-
-[sub_resource type="Resource" id="Resource_tvxgw"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("9_umroa")
-spacing = 3.2
-delay = 2.5
-
-[sub_resource type="Resource" id="Resource_rs0nu"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("10_tbsbg")
-count = 10
-spacing = 1.6
-delay = 5.0
-
-[sub_resource type="Resource" id="Resource_ubc10"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("15_17h0r")
-count = 9
-spacing = 1.8
-delay = 7.5
-
-[sub_resource type="Resource" id="Resource_67vfg"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_vcaac"), SubResource("Resource_tvxgw"), SubResource("Resource_rs0nu"), SubResource("Resource_ubc10")])
-
-[sub_resource type="Resource" id="Resource_uha6f"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("8_8pf0x")
-spacing = 3.2
-
-[sub_resource type="Resource" id="Resource_wrbvw"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("9_umroa")
-count = 3
-spacing = 5.0
-delay = 2.5
-
-[sub_resource type="Resource" id="Resource_6wc2y"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("11_tt6ji")
-count = 2
-spacing = 5.0
-delay = 5.0
-
-[sub_resource type="Resource" id="Resource_oxwnd"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("12_8feen")
-count = 1
-spacing = 5.0
-delay = 7.5
-
-[sub_resource type="Resource" id="Resource_e7rpn"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("14_5n4tt")
-count = 2
-spacing = 5.0
-delay = 10.0
-
-[sub_resource type="Resource" id="Resource_ldgqu"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("10_tbsbg")
-count = 6
-spacing = 2.6500000000000004
 delay = 12.5
 
-[sub_resource type="Resource" id="Resource_c3xcx"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("16_ng5d0")
-count = 3
+[sub_resource type="Resource" id="Resource_c4nu0"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("9_yrt7n")
+count = 1
 spacing = 5.0
 delay = 15.0
 
-[sub_resource type="Resource" id="Resource_8rgk7"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("13_7li1w")
-spacing = 3.2
+[sub_resource type="Resource" id="Resource_s4w20"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("13_tbsbg")
+count = 3
+spacing = 5.0
 delay = 17.5
 
-[sub_resource type="Resource" id="Resource_e0hwc"]
-script = ExtResource("7_41mlm")
-invader = ExtResource("17_3bvs6")
-count = 2
-spacing = 5.0
+[sub_resource type="Resource" id="Resource_x5bdj"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("10_41mlm")
+spacing = 3.2
 delay = 20.0
 
-[sub_resource type="Resource" id="Resource_xqypp"]
-script = ExtResource("6_yrt7n")
-entries = Array[ExtResource("7_41mlm")]([SubResource("Resource_uha6f"), SubResource("Resource_wrbvw"), SubResource("Resource_6wc2y"), SubResource("Resource_oxwnd"), SubResource("Resource_e7rpn"), SubResource("Resource_ldgqu"), SubResource("Resource_c3xcx"), SubResource("Resource_8rgk7"), SubResource("Resource_e0hwc")])
+[sub_resource type="Resource" id="Resource_vcaac"]
+script = ExtResource("3_mv3t6")
+invader = ExtResource("14_tt6ji")
+count = 2
+spacing = 5.0
+delay = 22.5
+
+[sub_resource type="Resource" id="Resource_tvxgw"]
+script = ExtResource("2_8jj3b")
+entries = Array[ExtResource("3_mv3t6")]([SubResource("Resource_2n71v"), SubResource("Resource_ndrj3"), SubResource("Resource_x6esh"), SubResource("Resource_en26f"), SubResource("Resource_qns3o"), SubResource("Resource_0k705"), SubResource("Resource_c4nu0"), SubResource("Resource_s4w20"), SubResource("Resource_x5bdj"), SubResource("Resource_vcaac")])
 
 [resource]
-script = ExtResource("4_8jyr0")
-display_name = "3. Asteroid Belt"
-layout = PackedStringArray("S........", ".........", ".##...#..", ".##......", "......##.", "..#...##.", ".........", ".#.......", ".....#...", "..##.....", "..##..#..", ".........", ".......#.", "........B")
-hand_value = PackedInt32Array(12, 8, 7, 5, 0, 0)
+script = ExtResource("1_uiqjy")
+display_name = "3. Crater Base"
+layout = PackedStringArray("S.......S", ".........", "..#...#..", ".#.....#.", ".........", "...#.#...", "....#....", "...#.#...", ".........", ".#.....#.", "..#...#..", ".........", ".........", "....B....")
+hand_value = PackedInt32Array(14, 8, 7, 5, 10, 0)
 starting_coins = 20
+coins_per_wave = 6
 wave_tips = PackedStringArray()
-floor_texture = ExtResource("2_6yix6")
-rock_texture = ExtResource("3_2swe8")
-spawn_texture = ExtResource("5_bmkob")
-base_texture = ExtResource("1_yuip0")
-waves = Array[ExtResource("6_yrt7n")]([SubResource("Resource_5ep2r"), SubResource("Resource_rvjc0"), SubResource("Resource_xbmfq"), SubResource("Resource_uumuh"), SubResource("Resource_yk8cs"), SubResource("Resource_hq7l2"), SubResource("Resource_x6esh"), SubResource("Resource_x5bdj"), SubResource("Resource_67vfg"), SubResource("Resource_xqypp")])
+waves = Array[ExtResource("2_8jj3b")]([SubResource("Resource_17h0r"), SubResource("Resource_24dpk"), SubResource("Resource_jl58q"), SubResource("Resource_xbmfq"), SubResource("Resource_e6jt7"), SubResource("Resource_oovbn"), SubResource("Resource_lr55s"), SubResource("Resource_tvxgw")])

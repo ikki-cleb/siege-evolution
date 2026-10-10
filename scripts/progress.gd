@@ -4,7 +4,11 @@ extends Node
 ## can use it, e.g. Progress.pack.
 
 const SAVE_PATH := "user://save.json"
-const LEVELS_PER_BIOME := 7
+const LEVELS_PER_BIOME := 5
+## Saves from before worlds went from 7 levels to 5 have no version. Their
+## "cleared" count is converted: the kept levels were the old 1, 2, 4, 6, 7.
+const SAVE_VERSION := 2
+const OLD_LEVELS_KEPT: Array[int] = [1, 2, 4, 6, 7]
 
 ## Every world on the map. Main worlds unlock in order by beating the
 ## previous one; bonus worlds unlock by buying them in the Store. A world
@@ -36,7 +40,7 @@ var level_index := 0
 var return_screen := "title"
 
 # Saved data: { "biomes": { biome_id: { "pack": pack_id, "cleared": int } } }
-var _data := {"biomes": {}}
+var _data := {"biomes": {}, "version": SAVE_VERSION}
 
 
 func _ready() -> void:
@@ -115,6 +119,19 @@ func _load() -> void:
 	var parsed = JSON.parse_string(file.get_as_text())
 	if parsed is Dictionary and parsed.get("biomes") is Dictionary:
 		_data = parsed
+		if int(_data.get("version", 1)) < SAVE_VERSION:
+			_convert_old_save()
+
+
+## Old saves counted 7 levels per world. A player who had cleared, say, 4 old
+## levels keeps credit for every kept level up to old level 4 (new levels 1-3).
+func _convert_old_save() -> void:
+	for biome_id in _data.biomes:
+		var run: Dictionary = _data.biomes[biome_id]
+		var old_cleared := int(run.get("cleared", 0))
+		run["cleared"] = OLD_LEVELS_KEPT.filter(func(old_level): return old_level <= old_cleared).size()
+	_data["version"] = SAVE_VERSION
+	_save()
 
 
 func _save() -> void:
@@ -138,5 +155,5 @@ func unlock_all_for_testing() -> void:
 
 ## Wipes all progress (used by tests).
 func reset() -> void:
-	_data = {"biomes": {}}
+	_data = {"biomes": {}, "version": SAVE_VERSION}
 	_save()

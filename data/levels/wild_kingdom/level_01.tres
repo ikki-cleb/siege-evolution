@@ -116,72 +116,39 @@ entries = Array[ExtResource("3_dc0iq")]([SubResource("Resource_3a3vb"), SubResou
 script = ExtResource("3_dc0iq")
 invader = ExtResource("7_w6n2u")
 count = 3
-spacing = 5.0
-
-[sub_resource type="Resource" id="Resource_meujv"]
-script = ExtResource("3_dc0iq")
-invader = ExtResource("8_qu5os")
-count = 6
-spacing = 1.2000000000000002
-delay = 3.0
-
-[sub_resource type="Resource" id="Resource_q8oq0"]
-script = ExtResource("2_muc3s")
-entries = Array[ExtResource("3_dc0iq")]([SubResource("Resource_r24kt"), SubResource("Resource_meujv")])
-
-[sub_resource type="Resource" id="Resource_2x3e6"]
-script = ExtResource("3_dc0iq")
-invader = ExtResource("4_s5iur")
-count = 20
-spacing = 0.45
-
-[sub_resource type="Resource" id="Resource_ccbr2"]
-script = ExtResource("3_dc0iq")
-invader = ExtResource("5_hhod7")
-spacing = 2.0
-delay = 4.0
-
-[sub_resource type="Resource" id="Resource_7wu2o"]
-script = ExtResource("2_muc3s")
-entries = Array[ExtResource("3_dc0iq")]([SubResource("Resource_2x3e6"), SubResource("Resource_ccbr2")])
-
-[sub_resource type="Resource" id="Resource_oijud"]
-script = ExtResource("3_dc0iq")
-invader = ExtResource("7_w6n2u")
-count = 3
 spacing = 4.0
 
-[sub_resource type="Resource" id="Resource_tpbta"]
+[sub_resource type="Resource" id="Resource_meujv"]
 script = ExtResource("3_dc0iq")
 invader = ExtResource("6_53sub")
 count = 4
 spacing = 1.8
 delay = 2.0
 
-[sub_resource type="Resource" id="Resource_u67hi"]
+[sub_resource type="Resource" id="Resource_q8oq0"]
 script = ExtResource("3_dc0iq")
 invader = ExtResource("5_hhod7")
 count = 4
 spacing = 2.0
 delay = 5.0
 
-[sub_resource type="Resource" id="Resource_v3qk8"]
+[sub_resource type="Resource" id="Resource_2x3e6"]
 script = ExtResource("3_dc0iq")
 invader = ExtResource("8_qu5os")
 count = 6
 spacing = 1.2000000000000002
 delay = 8.0
 
-[sub_resource type="Resource" id="Resource_yxa66"]
+[sub_resource type="Resource" id="Resource_ccbr2"]
 script = ExtResource("3_dc0iq")
 invader = ExtResource("9_24kve")
 count = 3
 spacing = 2.0
 delay = 9.0
 
-[sub_resource type="Resource" id="Resource_sxnvf"]
+[sub_resource type="Resource" id="Resource_7wu2o"]
 script = ExtResource("2_muc3s")
-entries = Array[ExtResource("3_dc0iq")]([SubResource("Resource_oijud"), SubResource("Resource_tpbta"), SubResource("Resource_u67hi"), SubResource("Resource_v3qk8"), SubResource("Resource_yxa66")])
+entries = Array[ExtResource("3_dc0iq")]([SubResource("Resource_r24kt"), SubResource("Resource_meujv"), SubResource("Resource_q8oq0"), SubResource("Resource_2x3e6"), SubResource("Resource_ccbr2")])
 
 [resource]
 script = ExtResource("1_w6qgq")
@@ -190,5 +157,5 @@ layout = PackedStringArray("....S....", ".........", "..#...#..", ".........", "
 hand_value = PackedInt32Array(12, 15, 7, 0, 0, 0)
 starting_coins = 26
 show_path_preview = true
-wave_tips = PackedStringArray("Welcome to the farm! Your pack plays exactly the same at this scale. Rats walk around your units; every kill drops coins.", "Units that survived a wave can evolve. Anything placed this round refunds in full.", "NEW: Deer leap over any single unit tile (orange line). Build walls two tiles thick where you don\'t want them jumping.", "Coyote Packs scatter into three coyotes when killed.", "Wild Boars ignore your maze and charge through any unit in their way (red line).", "Crows fly straight to the farmhouse (blue dashes). Only some units can hit fliers.", "Gophers tunnel under part of the route, like the mole crickets. Guard the end of the route too.", "Chargers and fliers together: cover the red line and the blue dashes.", "Rat swarm with deer mixed in. Thick walls keep the deer on the long route.", "Final wave! Later levels bring elite versions, and the boss brings her cubs.")
-waves = Array[ExtResource("2_muc3s")]([SubResource("Resource_5mevv"), SubResource("Resource_nwqtr"), SubResource("Resource_q6srk"), SubResource("Resource_uqwax"), SubResource("Resource_v68vv"), SubResource("Resource_ovkpd"), SubResource("Resource_1jncr"), SubResource("Resource_q8oq0"), SubResource("Resource_7wu2o"), SubResource("Resource_sxnvf")])
+wave_tips = PackedStringArray("Welcome to the farm! Your pack plays exactly the same at this scale. Rats walk around your units; every kill drops coins.", "Units that survived a wave can evolve. Anything placed this round refunds in full.", "NEW: Deer leap over any single unit tile (orange line). Build walls two tiles thick where you don\'t want them jumping.", "Coyote Packs scatter into three coyotes when killed.", "Wild Boars ignore your maze and charge through any unit in their way (red line).", "Crows fly straight to the farmhouse (blue dashes). Only some units can hit fliers.", "Gophers tunnel under part of the route, like the mole crickets. Guard the end of the route too.", "Final wave! Later levels bring elite versions, and the boss brings her cubs.")
+waves = Array[ExtResource("2_muc3s")]([SubResource("Resource_5mevv"), SubResource("Resource_nwqtr"), SubResource("Resource_q6srk"), SubResource("Resource_uqwax"), SubResource("Resource_v68vv"), SubResource("Resource_ovkpd"), SubResource("Resource_1jncr"), SubResource("Resource_7wu2o")])

@@ -1046,17 +1046,17 @@
       "spill": {
         "normal": "slug",
         "elite": "honey_ant",
-        "elite_level": 4
+        "elite_level": 3
       },
       "smash": {
         "normal": "cockroach",
         "elite": "giant_roach",
-        "elite_level": 5
+        "elite_level": 4
       },
       "fly": {
         "normal": "fruit_fly",
         "elite": "housefly",
-        "elite_level": 6
+        "elite_level": 4
       }
     },
     "mix": [
@@ -1091,15 +1091,6 @@
         "fly": 0.3
       },
       {
-        "smash": 0.3,
-        "split": 0.3,
-        "spill": 0.4
-      },
-      {
-        "swarm": 0.4,
-        "spill": 0.6
-      },
-      {
         "swarm": 0.2,
         "split": 0.2,
         "smash": 0.2,
@@ -1107,7 +1098,7 @@
         "fly": 0.15
       }
     ],
-    "growth_per_wave": 0.45
+    "growth_per_wave": 0.579
   },
   "tutorial": {
     "waves": [
@@ -1206,34 +1197,6 @@
       [
         [
           "cockroach",
-          2,
-          5.0,
-          0
-        ],
-        [
-          "fruit_fly",
-          6,
-          1.2,
-          3
-        ]
-      ],
-      [
-        [
-          "sugar_ant",
-          18,
-          0.45,
-          0
-        ],
-        [
-          "slug",
-          3,
-          2.5,
-          4
-        ]
-      ],
-      [
-        [
-          "cockroach",
           3,
           4.0,
           0
@@ -1266,8 +1229,6 @@
       "Cockroaches ignore your maze and chew through units (red line).",
       "Fruit flies fly straight in. Keep anti-air near the cookie jar.",
       "Slugs and nests together. Kill spillers early, before they reach your best attackers.",
-      "Roaches on the ground, flies in the air.",
-      "Ant swarm with slugs behind it!",
       "Final wave! The Rat King waits at the end of this world."
     ]
   },
@@ -1334,38 +1295,7 @@
       ]
     },
     {
-      "name": "3. Under the Table",
-      "tiles": "floor",
-      "budget": 30,
-      "hand": [
-        10,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "coins": 12,
-      "income": 5,
-      "layout": [
-        "S...S....",
-        ".........",
-        ".#...#...",
-        ".......#.",
-        "..#......",
-        ".....#...",
-        ".#.......",
-        "....#..#.",
-        ".........",
-        "..#...#..",
-        ".........",
-        ".#...#...",
-        ".........",
-        ".......B."
-      ]
-    },
-    {
-      "name": "4. Top Shelf",
+      "name": "3. Top Shelf",
       "budget": 36,
       "hand": [
         12,
@@ -1395,38 +1325,7 @@
       ]
     },
     {
-      "name": "5. Sink Side",
-      "tiles": "counter",
-      "budget": 31,
-      "hand": [
-        14,
-        10,
-        7,
-        5,
-        8,
-        0
-      ],
-      "coins": 16,
-      "income": 6,
-      "layout": [
-        "S.......S",
-        ".........",
-        ".##...##.",
-        ".........",
-        "....#....",
-        ".##...##.",
-        ".........",
-        "....#....",
-        ".##...##.",
-        ".........",
-        "....#....",
-        ".........",
-        ".........",
-        "B........"
-      ]
-    },
-    {
-      "name": "6. Crumb Trail",
+      "name": "4. Crumb Trail",
       "tiles": "floor",
       "budget": 39,
       "hand": [
@@ -1457,7 +1356,7 @@
       ]
     },
     {
-      "name": "7. Rat King's Feast",
+      "name": "5. Rat King's Feast",
       "budget": 41,
       "boss": "rat_king",
       "hand": [

@@ -121,66 +121,32 @@ entries = Array[ExtResource("3_c2nw2")]([SubResource("Resource_y553p"), SubResou
 [sub_resource type="Resource" id="Resource_6wn6j"]
 script = ExtResource("3_c2nw2")
 invader = ExtResource("7_ue380")
-count = 2
-spacing = 5.0
-
-[sub_resource type="Resource" id="Resource_pplua"]
-script = ExtResource("3_c2nw2")
-invader = ExtResource("8_dwb87")
-count = 6
-spacing = 1.2000000000000002
-delay = 3.0
-
-[sub_resource type="Resource" id="Resource_ooas4"]
-script = ExtResource("2_lqego")
-entries = Array[ExtResource("3_c2nw2")]([SubResource("Resource_6wn6j"), SubResource("Resource_pplua")])
-
-[sub_resource type="Resource" id="Resource_e6r76"]
-script = ExtResource("3_c2nw2")
-invader = ExtResource("4_qv5dw")
-count = 18
-spacing = 0.45
-
-[sub_resource type="Resource" id="Resource_3o3t7"]
-script = ExtResource("3_c2nw2")
-invader = ExtResource("5_370da")
-count = 3
-spacing = 2.5
-delay = 4.0
-
-[sub_resource type="Resource" id="Resource_6ac74"]
-script = ExtResource("2_lqego")
-entries = Array[ExtResource("3_c2nw2")]([SubResource("Resource_e6r76"), SubResource("Resource_3o3t7")])
-
-[sub_resource type="Resource" id="Resource_nadmi"]
-script = ExtResource("3_c2nw2")
-invader = ExtResource("7_ue380")
 count = 3
 spacing = 4.0
 
-[sub_resource type="Resource" id="Resource_f2mgf"]
+[sub_resource type="Resource" id="Resource_pplua"]
 script = ExtResource("3_c2nw2")
 invader = ExtResource("6_5d2vd")
 count = 4
 spacing = 1.8
 delay = 2.0
 
-[sub_resource type="Resource" id="Resource_i7ofa"]
+[sub_resource type="Resource" id="Resource_ooas4"]
 script = ExtResource("3_c2nw2")
 invader = ExtResource("5_370da")
 count = 4
 spacing = 2.0
 delay = 5.0
 
-[sub_resource type="Resource" id="Resource_nfw55"]
+[sub_resource type="Resource" id="Resource_e6r76"]
 script = ExtResource("3_c2nw2")
 invader = ExtResource("8_dwb87")
 spacing = 1.2000000000000002
 delay = 8.0
 
-[sub_resource type="Resource" id="Resource_vph0j"]
+[sub_resource type="Resource" id="Resource_3o3t7"]
 script = ExtResource("2_lqego")
-entries = Array[ExtResource("3_c2nw2")]([SubResource("Resource_nadmi"), SubResource("Resource_f2mgf"), SubResource("Resource_i7ofa"), SubResource("Resource_nfw55")])
+entries = Array[ExtResource("3_c2nw2")]([SubResource("Resource_6wn6j"), SubResource("Resource_pplua"), SubResource("Resource_ooas4"), SubResource("Resource_e6r76")])
 
 [resource]
 script = ExtResource("1_ivpfl")
@@ -189,5 +155,5 @@ layout = PackedStringArray("....S....", ".........", ".#.....#.", ".........", "
 hand_value = PackedInt32Array(12, 12, 7, 0, 0, 0)
 starting_coins = 35
 show_path_preview = true
-wave_tips = PackedStringArray("Bonus world! This kitchen is post-game: tighter maps and nastier waves. Sugar ants march around your units; every kill drops coins.", "NEW: Slugs are spillers. Every couple of tiles they slime the units right beside their route, and sticky units attack 40% slower until the wave ends.", "Spill counter: ranged attackers can fight from two tiles back and stay clean. Walls don\'t mind being sticky.", "Mouse Nests burst into three mice.", "Cockroaches ignore your maze and chew through units (red line).", "Fruit flies fly straight in. Keep anti-air near the cookie jar.", "Slugs and nests together. Kill spillers early, before they reach your best attackers.", "Roaches on the ground, flies in the air.", "Ant swarm with slugs behind it!", "Final wave! The Rat King waits at the end of this world.")
-waves = Array[ExtResource("2_lqego")]([SubResource("Resource_qgmr6"), SubResource("Resource_8wfqm"), SubResource("Resource_g7728"), SubResource("Resource_tuwbp"), SubResource("Resource_2t5iu"), SubResource("Resource_rpt6j"), SubResource("Resource_kmf3o"), SubResource("Resource_ooas4"), SubResource("Resource_6ac74"), SubResource("Resource_vph0j")])
+wave_tips = PackedStringArray("Bonus world! This kitchen is post-game: tighter maps and nastier waves. Sugar ants march around your units; every kill drops coins.", "NEW: Slugs are spillers. Every couple of tiles they slime the units right beside their route, and sticky units attack 40% slower until the wave ends.", "Spill counter: ranged attackers can fight from two tiles back and stay clean. Walls don\'t mind being sticky.", "Mouse Nests burst into three mice.", "Cockroaches ignore your maze and chew through units (red line).", "Fruit flies fly straight in. Keep anti-air near the cookie jar.", "Slugs and nests together. Kill spillers early, before they reach your best attackers.", "Final wave! The Rat King waits at the end of this world.")
+waves = Array[ExtResource("2_lqego")]([SubResource("Resource_qgmr6"), SubResource("Resource_8wfqm"), SubResource("Resource_g7728"), SubResource("Resource_tuwbp"), SubResource("Resource_2t5iu"), SubResource("Resource_rpt6j"), SubResource("Resource_kmf3o"), SubResource("Resource_3o3t7")])

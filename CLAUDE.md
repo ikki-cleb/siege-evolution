@@ -30,7 +30,8 @@ for the full game design — keep it updated whenever a design decision changes.
 
 **Status (v1.0 content-complete):** all 5 main worlds plus both bonus
 worlds are built: **Kitchen Defense** (spillers, Rat King) and **Birthday
-Bash** (piñatas with seeded "surprise" contents, the Clown). 49 levels,
+Bash** (piñatas with seeded "surprise" contents, the Clown). 35 levels
+(5 per world, 8 waves each),
 5 packs, evolutions, saves, a test-mode store, the "Siege Pixel" font
 (clear digits + coin icon), coins as currency, a Cancel button, sound,
 music and victory screens. **Capstones** (a second evolution tier, 2 per
@@ -59,7 +60,7 @@ them; they upload it themselves.
 **How content works.** Pack stats live once in `tools/content/immune_system.json`.
 Every other world reuses them via `"packs_from"` + `"renames"`, so packs play
 the same at every scale. Each world's JSON holds its invaders, wave rules,
-tutorial (level 1) and level tables; levels 2-7 are generated from a threat
+tutorial (level 1) and level tables; levels 2-5 are generated from a threat
 budget. `tools/tune.py <id> key=value` edits stats.
 
 **Gotchas learned the hard way:**
@@ -79,11 +80,11 @@ budget. `tools/tune.py <id> key=value` edits stats.
 - Commit and push after every piece of work (a stop hook enforces it).
 
 **Open questions for the user:** how the bonus worlds feel in real play
-(bot wins 85% of Kitchen and 72% of Birthday levels 2-7; Fortress and
+(before the 5-level cut the bot won 85% of Kitchen and 72% of Birthday; Fortress and
 Precision struggle most in both); any more v0.8 playtest notes; how the sounds
 and music feel; Blinker frequency.
 
-**Latest full balance run (with capstones, bot wins on levels 2-7):** World 1
+**Full balance run before the 5-level cut (bot wins on levels 2-7):** World 1
 100%, World 2 98%, World 3 90%, World 4 93%, World 5 93%, Kitchen 88%,
 Birthday 72%. Every check passes.
 
