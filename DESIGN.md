@@ -37,6 +37,14 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
   5. **Galactic Siege** (moon, space station and asteroid levels), built
 - **Bonus worlds** (bought separately, playable as soon as they're bought):
   **Kitchen Defense** and **Birthday Bash** (a kid's birthday party).
+  They are **post-game**: harder than World 5, through mechanics, tighter
+  layouts, nastier wave mixes and less starting ATP (invader stats stay
+  comparable to the main worlds). The store card warns about this before
+  purchase. Each bonus world adds its own new invader type.
+  - **Kitchen Defense** (built first): pantry-pest scale (ants, cockroaches,
+    mice, fruit flies) raiding the pantry; you defend the cookie jar.
+    New behavior: **spillers**, which leave a sticky/greasy trail that slows
+    the attacks of units standing in it until the next wave.
 - **Each world has its own invader roster.** All behavior types appear in
   that world's level 1, and levels 2–7 add **elite variants** of them.
 - **Starter pack:** picked when entering a world and kept for all 7 levels.

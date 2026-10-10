@@ -6,9 +6,11 @@ for the full game design — keep it updated whenever a design decision changes.
 ## How to work with the user
 
 - **When running as an Opus model:** ask many clarifying questions at almost
-  every step of development (use AskUserQuestion, several rounds if useful)
-  before implementing. Surface design choices, edge cases, and trade-offs
-  rather than deciding silently.
+  every step of development, **always as AskUserQuestion prompts (multiple
+  choice / checkboxes), never as plain-text question lists**, and do it very
+  frequently (several rounds per feature is good) before implementing.
+  Surface design choices, edge cases, and trade-offs rather than deciding
+  silently.
 - **When running as any other model (Sonnet, Haiku, etc.):** assume the user
   wants a minor tweak. Just make the change; only ask a question if it is
   genuinely blocking.
