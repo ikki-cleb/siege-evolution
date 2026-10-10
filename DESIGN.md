@@ -18,7 +18,7 @@ inside the body, and each world's final boss zooms you out to a bigger world.
 | Engine | Godot 4.7, GDScript |
 | Platforms | iOS + Android (iOS builds need a Mac with Xcode). A web build is used for playtesting. |
 | Orientation | Portrait only |
-| Art | 16×16 pixel tiles, integer-scaled. Placeholders for now; the user draws the final art. |
+| Art | 16×16 pixel tiles, integer-scaled. Placeholders for now; the user draws the final art. Each level can also have a painted **ground background** (detailed pixel art, 1152×1792, 9:14 portrait, no obstacles baked in) that replaces its floor tiles; rocks, spawns, base and water still draw on top. |
 | Menus | Clean dark style with the "Siege Pixel" font (Pixelify Sans, SIL OFL, with redrawn digits because its 2 looked like an 8, plus the coin icon; built by `tools/make_font.py`) and an accent color per world (`scripts/look.gd`, `scripts/palette.gd`). |
 | Business model | Free, no ads. Optional $1 purchases (see Monetization). |
 

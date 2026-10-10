@@ -94,6 +94,8 @@ var fx: ShotEffects
 ## has its own.
 var biome: BiomeData
 var _tiles := {}
+## True when the level has a painted background instead of floor tiles.
+var _has_background := false
 
 
 func setup(level: LevelData, p_biome: BiomeData) -> void:
@@ -138,10 +140,30 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 			_boat_grid.set_point_solid(cell, sea_blocked)
 			_boat_smash_grid.set_point_solid(cell, sea_blocked)
 
+	if level.background:
+		_add_background(level.background)
 	fx = ShotEffects.new()
 	fx.z_index = 10
 	add_child(fx)
 	queue_redraw()
+
+
+## A painted ground image for the whole board, shrunk smoothly to fit
+## (drawn behind everything; the board then skips its floor tiles).
+func _add_background(texture: Texture2D) -> void:
+	# Smooth shrinking needs mipmaps (smaller copies of the image).
+	var image := texture.get_image()
+	if image.is_compressed():
+		image.decompress()
+	image.generate_mipmaps()
+	var sprite := Sprite2D.new()
+	sprite.texture = ImageTexture.create_from_image(image)
+	sprite.centered = false
+	sprite.scale = Vector2(grid_size * TILE) / Vector2(image.get_size())
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	sprite.z_index = -1  # behind the board's own tiles
+	add_child(sprite)
+	_has_background = true
 
 
 # --- Grid helpers -----------------------------------------------------------
@@ -602,7 +624,7 @@ func _draw() -> void:
 	for y in grid_size.y:
 		for x in grid_size.x:
 			var cell := Vector2i(x, y)
-			var texture: Texture2D = _tiles.floor
+			var texture: Texture2D = null if _has_background else _tiles.floor
 			if sea_spawn_cells.has(cell):
 				texture = biome.sea_spawn_texture
 			elif water.has(cell):
@@ -613,7 +635,8 @@ func _draw() -> void:
 				texture = _tiles.spawn
 			elif cell == base_cell:
 				texture = _tiles.base
-			draw_texture(texture, Vector2(cell * TILE))
+			if texture:
+				draw_texture(texture, Vector2(cell * TILE))
 
 	if show_path_preview:
 		for spawn in spawn_cells:

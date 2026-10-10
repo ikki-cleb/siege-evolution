@@ -59,6 +59,7 @@ them; they upload it themselves.
 - Replay one level with layouts and leaks: `... tests/debug_level.gd -- <world> <pack> <level> [seed]`
 - Placeholder art and audio: `python3 tools/make_placeholder_art.py --only-missing`, `python3 tools/make_audio.py --only-missing`
 - Game font (Pixelify Sans + clearer digits + coin icon U+E000): `pip install fonttools && python3 tools/make_font.py`
+- Painted level backgrounds (the user generates them): `python3 tools/import_backgrounds.py <folder>` (files named `<world_id>_level_NN.png`), then `godot --headless --import` and the content build. Levels without one keep their floor tiles.
 
 **How content works.** Pack stats live once in `tools/content/immune_system.json`.
 Every other world reuses them via `"packs_from"` + `"renames"`, so packs play

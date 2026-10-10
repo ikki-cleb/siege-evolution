@@ -1,0 +1,62 @@
+"""Brings painted level backgrounds into the game.
+
+Put the images in one folder, named <world_id>_level_NN.png (for example
+kitchen_defense_level_03.png), then run from the project folder:
+
+    python3 tools/import_backgrounds.py path/to/folder
+
+Each image is center-cropped to the board's 9:14 portrait shape, resized to
+1152x1792, and saved as a compressed WebP in art/backgrounds/<world>/level_NN.webp
+(WebP keeps the web build small). Then rebuild:
+
+    godot --headless --import
+    godot --headless --script tools/build_content.gd
+"""
+import re
+import sys
+from pathlib import Path
+
+from PIL import Image
+
+PROJECT = Path(__file__).resolve().parent.parent
+WIDTH, HEIGHT = 1152, 1792  # 8x the 144x224-pixel board
+QUALITY = 85
+NAME = re.compile(r"^([a-z_]+)_level_(\d\d)$")
+
+
+def fit(image):
+    """Center-crops to 9:14, then resizes to WIDTH x HEIGHT."""
+    image = image.convert("RGB")
+    w, h = image.size
+    target = WIDTH / HEIGHT
+    if w / h > target:  # too wide: trim the sides
+        new_w = round(h * target)
+        image = image.crop(((w - new_w) // 2, 0, (w - new_w) // 2 + new_w, h))
+    else:  # too tall: trim top and bottom
+        new_h = round(w / target)
+        image = image.crop((0, (h - new_h) // 2, w, (h - new_h) // 2 + new_h))
+    return image.resize((WIDTH, HEIGHT), Image.LANCZOS)
+
+
+def main(folder):
+    worlds = {p.stem for p in (PROJECT / "tools" / "content").glob("*.json")}
+    done = 0
+    for path in sorted(Path(folder).iterdir()):
+        match = NAME.match(path.stem)
+        if not match or path.suffix.lower() not in (".png", ".jpg", ".jpeg", ".webp"):
+            print("skipped (name should be <world_id>_level_NN.png):", path.name)
+            continue
+        world, number = match.groups()
+        if world not in worlds:
+            print("skipped (unknown world):", path.name)
+            continue
+        out = PROJECT / "art" / "backgrounds" / world / f"level_{number}.webp"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        fit(Image.open(path)).save(out, "WEBP", quality=QUALITY)
+        print(f"{path.name} -> {out.relative_to(PROJECT)} ({out.stat().st_size // 1024} KB)")
+        done += 1
+    print(done, "background(s) imported.")
+
+
+if __name__ == "__main__":
+    main(sys.argv[1] if len(sys.argv) > 1 else ".")

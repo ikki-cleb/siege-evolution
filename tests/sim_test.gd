@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 101
+const MIN_RULE_CHECKS := 102
 var progress: Node
 
 
@@ -38,6 +38,7 @@ func _run() -> void:
 	await _test_path_toggle(biome)
 	await _test_pack_swapping(biome)
 	await _test_achievements(biome)
+	await _test_background(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index; 5 = Kitchen, 6 = Birthday).
 		var worlds := [0, 1, 2, 3, 4, 5, 6]
@@ -654,6 +655,26 @@ func _capstone_names(world: BiomeData) -> Array[String]:
 				for capstone in tier1.evolutions:
 					names.append(capstone.display_name)
 	return names
+
+
+# --- Painted level backgrounds ---------------------------------------------------
+
+func _test_background(biome: BiomeData) -> void:
+	# A plain 1152x1792 image stands in for a painted background.
+	var image := Image.create(1152, 1792, false, Image.FORMAT_RGBA8)
+	image.fill(Color(0.3, 0.6, 0.3))
+	var level: LevelData = biome.levels[0]
+	level.background = ImageTexture.create_from_image(image)
+	var game := await _start(biome, 0, 0)
+	var sprite: Sprite2D = null
+	for child in game.board.get_children():
+		if child is Sprite2D:
+			sprite = child
+	_check(sprite != null and game.board._has_background
+		and is_equal_approx(sprite.scale.x * 1152, 9 * Board.TILE) and is_equal_approx(sprite.scale.y * 1792, 14 * Board.TILE),
+		"A level background fills the 9x14 board exactly")
+	level.background = null
+	await _stop(game)
 
 
 # --- Pack swapping and achievements ----------------------------------------------

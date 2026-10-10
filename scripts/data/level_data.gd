@@ -30,6 +30,10 @@ extends Resource
 @export var wave_tips: PackedStringArray = []
 
 @export_group("Tiles")
+## Optional painted ground for the whole board (art/backgrounds/<world>/
+## level_NN.webp, 1152x1792; see tools/import_backgrounds.py). It replaces the floor tiles;
+## rocks, spawns, the base and water are still drawn on top as tiles.
+@export var background: Texture2D
 ## Optional tile art for this level (e.g. a station level in a moon world).
 ## Empty means "use the world's tiles".
 @export var floor_texture: Texture2D

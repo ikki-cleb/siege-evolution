@@ -111,6 +111,12 @@ func _level(biome_id: String, number: int, table: Dictionary, content: Dictionar
 	level.coins_per_wave = int(table.income)
 	if table.has("tips"):
 		level.wave_tips = PackedStringArray(table.tips)
+	# Painted backgrounds (see tools/import_backgrounds.py), WebP or PNG.
+	for extension in ["webp", "png"]:
+		var background := "res://art/backgrounds/%s/level_%02d.%s" % [biome_id, number, extension]
+		if ResourceLoader.exists(background):
+			level.background = load(background)
+			break
 	if table.has("tiles"):
 		var tiles := "res://art/tiles/%s/%s/" % [biome_id, table.tiles]
 		level.floor_texture = load(tiles + "floor.png")
