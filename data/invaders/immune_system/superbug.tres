@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Resource" path="res://data/invaders/immune_system/rhinovirus.tres" id="1_lmn6c"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="2_h5gfh"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/superbug.png" id="3_3yjr3"]
+
+[resource]
+script = ExtResource("2_h5gfh")
+id = "superbug"
+display_name = "Superbug"
+movement = 1
+max_hp = 450
+armor = 1
+speed = 0.4
+base_damage = 10
+smash_damage = 15.0
+is_boss = true
+minion = ExtResource("1_lmn6c")
+minion_count = 1
+minion_interval = 4.0
+texture = ExtResource("3_3yjr3")
+description = "Boss: armored, smashes through units, and releases viruses as it goes."

@@ -1,0 +1,1151 @@
+{
+  "biome": {
+    "id": "immune_system",
+    "name": "Immune System",
+    "description": "Inside the body. Hold back viruses, bacteria, parasites and spores before they reach the heart."
+  },
+  "packs": [
+    {
+      "id": "fortress",
+      "name": "Fortress",
+      "color": "#d1603d",
+      "description": "Massive walls and slow, heavy hitters. Holds the line and outlasts smashers.",
+      "units": [
+        {
+          "id": "platelet_clot",
+          "name": "Platelet Clot",
+          "role": "wall",
+          "cost": 7,
+          "hp": 90,
+          "desc": "Very tough wall.",
+          "art": [
+            "block",
+            0
+          ],
+          "evolutions": [
+            {
+              "id": "fibrin_mesh",
+              "name": "Fibrin Mesh",
+              "cost": 10,
+              "hp": 220,
+              "desc": "Much more HP."
+            },
+            {
+              "id": "thrombus_spike",
+              "name": "Thrombus Spike",
+              "cost": 10,
+              "hp": 120,
+              "reflect": 0.6,
+              "desc": "Reflects 60% of smasher damage."
+            }
+          ]
+        },
+        {
+          "id": "macrophage",
+          "name": "Macrophage",
+          "role": "attacker",
+          "cost": 14,
+          "hp": 60,
+          "damage": 9,
+          "range": 1.5,
+          "interval": 1.1,
+          "desc": "Slow, crushing melee hits.",
+          "art": [
+            "cell",
+            0
+          ],
+          "evolutions": [
+            {
+              "id": "giant_macrophage",
+              "name": "Giant Macrophage",
+              "cost": 16,
+              "damage": 17,
+              "hp": 80,
+              "desc": "Hits far harder."
+            },
+            {
+              "id": "foam_macrophage",
+              "name": "Foam Macrophage",
+              "cost": 16,
+              "splash": 1.0,
+              "range": 1.8,
+              "desc": "Longer reach and hits splash."
+            }
+          ]
+        },
+        {
+          "id": "dendritic_cell",
+          "name": "Dendritic Cell",
+          "role": "attacker",
+          "cost": 13,
+          "hp": 30,
+          "damage": 8,
+          "range": 2.5,
+          "interval": 1.4,
+          "air": true,
+          "desc": "Heavy ranged shots. Hits fliers.",
+          "art": [
+            "cell",
+            1
+          ],
+          "evolutions": [
+            {
+              "id": "mature_dendrite",
+              "name": "Mature Dendrite",
+              "cost": 15,
+              "damage": 15,
+              "desc": "Much more damage."
+            },
+            {
+              "id": "roaming_dendrite",
+              "name": "Roaming Dendrite",
+              "cost": 15,
+              "range": 3.6,
+              "desc": "Much more range."
+            }
+          ]
+        },
+        {
+          "id": "fibroblast",
+          "name": "Fibroblast",
+          "role": "wall",
+          "cost": 10,
+          "hp": 70,
+          "regen": 6,
+          "desc": "Wall that heals itself when not under attack.",
+          "art": [
+            "block",
+            1
+          ],
+          "evolutions": [
+            {
+              "id": "scar_fibroblast",
+              "name": "Scar Fibroblast",
+              "cost": 10,
+              "hp": 150,
+              "desc": "Much more HP."
+            },
+            {
+              "id": "healing_fibroblast",
+              "name": "Healing Fibroblast",
+              "cost": 10,
+              "regen": 16,
+              "desc": "Heals much faster."
+            }
+          ]
+        },
+        {
+          "id": "eosinophil",
+          "name": "Eosinophil",
+          "role": "attacker",
+          "cost": 22,
+          "hp": 40,
+          "damage": 30,
+          "range": 2.0,
+          "interval": 2.6,
+          "air": true,
+          "pierce": true,
+          "desc": "Huge armor-piercing blasts.",
+          "art": [
+            "cell",
+            2
+          ],
+          "evolutions": [
+            {
+              "id": "eosinophil_burst",
+              "name": "Eosinophil Burst",
+              "cost": 20,
+              "damage": 52,
+              "desc": "Even bigger blasts."
+            },
+            {
+              "id": "eosinophil_lancer",
+              "name": "Eosinophil Lancer",
+              "cost": 20,
+              "range": 3.2,
+              "desc": "Much more range."
+            }
+          ]
+        },
+        {
+          "id": "granuloma",
+          "name": "Granuloma",
+          "role": "wall",
+          "cost": 18,
+          "hp": 260,
+          "mode": "pulse",
+          "damage": 3,
+          "range": 1.5,
+          "interval": 1.0,
+          "desc": "Enormous wall that damages everything next to it.",
+          "art": [
+            "block",
+            2
+          ],
+          "evolutions": [
+            {
+              "id": "calcified_granuloma",
+              "name": "Calcified Granuloma",
+              "cost": 16,
+              "hp": 480,
+              "desc": "Nearly unbreakable."
+            },
+            {
+              "id": "caseous_granuloma",
+              "name": "Caseous Granuloma",
+              "cost": 16,
+              "reflect": 0.8,
+              "damage": 5,
+              "desc": "Reflects 80% of smasher damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swarm",
+      "name": "Swarm",
+      "color": "#e9c46a",
+      "description": "Cheap units, and lots of them. Attacks faster when packed together.",
+      "units": [
+        {
+          "id": "epithelial_cell",
+          "name": "Epithelial Cell",
+          "role": "wall",
+          "cost": 3,
+          "hp": 18,
+          "desc": "Dirt-cheap wall.",
+          "art": [
+            "block",
+            3
+          ],
+          "evolutions": [
+            {
+              "id": "keratinized_cell",
+              "name": "Keratinized Cell",
+              "cost": 4,
+              "hp": 40,
+              "desc": "More HP."
+            },
+            {
+              "id": "ciliated_cell",
+              "name": "Ciliated Cell",
+              "cost": 4,
+              "hp": 22,
+              "reflect": 0.4,
+              "desc": "Reflects 40% of smasher damage."
+            }
+          ]
+        },
+        {
+          "id": "neutrophil",
+          "name": "Neutrophil",
+          "role": "attacker",
+          "cost": 8,
+          "hp": 20,
+          "damage": 2,
+          "range": 1.5,
+          "interval": 0.45,
+          "adjacency": 0.15,
+          "desc": "Fast melee jabs, faster in groups.",
+          "art": [
+            "cell",
+            3
+          ],
+          "evolutions": [
+            {
+              "id": "frenzied_neutrophil",
+              "name": "Frenzied Neutrophil",
+              "cost": 8,
+              "damage": 3.5,
+              "desc": "More damage."
+            },
+            {
+              "id": "scout_neutrophil",
+              "name": "Scout Neutrophil",
+              "cost": 8,
+              "range": 2.3,
+              "desc": "More range."
+            }
+          ]
+        },
+        {
+          "id": "monocyte",
+          "name": "Monocyte",
+          "role": "attacker",
+          "cost": 9,
+          "hp": 12,
+          "damage": 2,
+          "range": 2.5,
+          "interval": 0.7,
+          "air": true,
+          "adjacency": 0.15,
+          "desc": "Rapid ranged pokes. Hits fliers.",
+          "art": [
+            "cell",
+            4
+          ],
+          "evolutions": [
+            {
+              "id": "volley_monocyte",
+              "name": "Volley Monocyte",
+              "cost": 9,
+              "damage": 3.5,
+              "desc": "More damage."
+            },
+            {
+              "id": "lookout_monocyte",
+              "name": "Lookout Monocyte",
+              "cost": 9,
+              "range": 3.5,
+              "desc": "More range."
+            }
+          ]
+        },
+        {
+          "id": "basophil",
+          "name": "Basophil",
+          "role": "attacker",
+          "cost": 9,
+          "hp": 15,
+          "mode": "pulse",
+          "damage": 1.2,
+          "range": 1.5,
+          "interval": 0.6,
+          "adjacency": 0.15,
+          "desc": "Damages everything around it.",
+          "art": [
+            "cell",
+            5
+          ],
+          "evolutions": [
+            {
+              "id": "degranulating_basophil",
+              "name": "Degranulating Basophil",
+              "cost": 9,
+              "damage": 2.2,
+              "desc": "More damage."
+            },
+            {
+              "id": "wide_basophil",
+              "name": "Wide Basophil",
+              "cost": 9,
+              "range": 2.4,
+              "air": true,
+              "desc": "More range, hits fliers."
+            }
+          ]
+        },
+        {
+          "id": "nk_cell",
+          "name": "NK Cell",
+          "role": "attacker",
+          "cost": 14,
+          "hp": 25,
+          "damage": 4,
+          "range": 1.5,
+          "interval": 0.45,
+          "pierce": true,
+          "adjacency": 0.15,
+          "desc": "Armor-piercing melee flurries.",
+          "art": [
+            "cell",
+            6
+          ],
+          "evolutions": [
+            {
+              "id": "killer_nk_cell",
+              "name": "Killer NK Cell",
+              "cost": 12,
+              "damage": 7,
+              "desc": "More damage."
+            },
+            {
+              "id": "hunting_nk_cell",
+              "name": "Hunting NK Cell",
+              "cost": 12,
+              "range": 2.3,
+              "air": true,
+              "desc": "More range, hits fliers."
+            }
+          ]
+        },
+        {
+          "id": "net_trap",
+          "name": "NET Trap",
+          "role": "wall",
+          "cost": 6,
+          "hp": 25,
+          "mode": "pulse",
+          "damage": 0.5,
+          "slow": 0.3,
+          "slow_dur": 1.0,
+          "range": 1.5,
+          "interval": 0.5,
+          "desc": "Sticky wall that slows anything next to it.",
+          "art": [
+            "block",
+            4
+          ],
+          "evolutions": [
+            {
+              "id": "dense_net",
+              "name": "Dense NET",
+              "cost": 6,
+              "hp": 60,
+              "desc": "More HP."
+            },
+            {
+              "id": "wide_net",
+              "name": "Wide NET",
+              "cost": 6,
+              "slow": 0.5,
+              "range": 2.2,
+              "desc": "Stronger, wider slow."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "precision",
+      "name": "Precision",
+      "color": "#4ea8de",
+      "description": "Long range and big single hits. Marks targets so everything hits harder.",
+      "units": [
+        {
+          "id": "keratin_plate",
+          "name": "Keratin Plate",
+          "role": "wall",
+          "cost": 5,
+          "hp": 30,
+          "desc": "Sturdy wall.",
+          "art": [
+            "block",
+            5
+          ],
+          "evolutions": [
+            {
+              "id": "layered_plate",
+              "name": "Layered Plate",
+              "cost": 6,
+              "hp": 70,
+              "desc": "More HP."
+            },
+            {
+              "id": "spined_plate",
+              "name": "Spined Plate",
+              "cost": 6,
+              "hp": 35,
+              "reflect": 0.5,
+              "desc": "Reflects 50% of smasher damage."
+            }
+          ]
+        },
+        {
+          "id": "b_cell",
+          "name": "B-Cell",
+          "role": "attacker",
+          "cost": 15,
+          "hp": 15,
+          "damage": 4.5,
+          "range": 3.0,
+          "interval": 1.0,
+          "air": true,
+          "desc": "Long-range antibodies. Hits fliers.",
+          "art": [
+            "cell",
+            7
+          ],
+          "evolutions": [
+            {
+              "id": "plasma_cell",
+              "name": "Plasma Cell",
+              "cost": 13,
+              "damage": 8,
+              "desc": "More damage."
+            },
+            {
+              "id": "memory_b_cell",
+              "name": "Memory B-Cell",
+              "cost": 13,
+              "range": 4.5,
+              "desc": "Much more range."
+            }
+          ]
+        },
+        {
+          "id": "antibody_tagger",
+          "name": "Antibody Tagger",
+          "role": "support",
+          "cost": 12,
+          "hp": 15,
+          "damage": 1,
+          "range": 3.0,
+          "interval": 1.0,
+          "air": true,
+          "mark": 0.3,
+          "mark_dur": 3.0,
+          "desc": "Marks targets: they take 40% more damage from everything.",
+          "art": [
+            "cell",
+            8
+          ],
+          "evolutions": [
+            {
+              "id": "opsonizer",
+              "name": "Opsonizer",
+              "cost": 12,
+              "mark": 0.7,
+              "desc": "Marks for +70% damage."
+            },
+            {
+              "id": "long_tagger",
+              "name": "Long Tagger",
+              "cost": 12,
+              "range": 4.5,
+              "desc": "Much more range."
+            }
+          ]
+        },
+        {
+          "id": "cytotoxic_t",
+          "name": "Cytotoxic T-Cell",
+          "role": "attacker",
+          "cost": 18,
+          "hp": 25,
+          "damage": 12,
+          "range": 2.5,
+          "interval": 1.6,
+          "pierce": true,
+          "desc": "Armor-piercing strikes. Ground only.",
+          "art": [
+            "cell",
+            9
+          ],
+          "evolutions": [
+            {
+              "id": "effector_t",
+              "name": "Effector T-Cell",
+              "cost": 16,
+              "damage": 21,
+              "desc": "More damage."
+            },
+            {
+              "id": "patrol_t",
+              "name": "Patrol T-Cell",
+              "cost": 16,
+              "range": 3.5,
+              "air": true,
+              "desc": "More range, hits fliers."
+            }
+          ]
+        },
+        {
+          "id": "opsonin_lance",
+          "name": "Opsonin Lance",
+          "role": "attacker",
+          "cost": 24,
+          "hp": 15,
+          "damage": 30,
+          "range": 5.0,
+          "interval": 3.0,
+          "air": true,
+          "pierce": true,
+          "desc": "Sniper. Huge piercing shots across the map.",
+          "art": [
+            "cell",
+            10
+          ],
+          "evolutions": [
+            {
+              "id": "heavy_lance",
+              "name": "Heavy Lance",
+              "cost": 22,
+              "damage": 55,
+              "desc": "Much more damage."
+            },
+            {
+              "id": "rapid_lance",
+              "name": "Rapid Lance",
+              "cost": 22,
+              "interval": 1.9,
+              "desc": "Fires much faster."
+            }
+          ]
+        },
+        {
+          "id": "interferon_beacon",
+          "name": "Interferon Beacon",
+          "role": "support",
+          "cost": 14,
+          "hp": 35,
+          "mode": "pulse",
+          "range": 2.5,
+          "interval": 1.0,
+          "air": true,
+          "mark": 0.25,
+          "mark_dur": 1.5,
+          "desc": "Marks everything around it for +25% damage.",
+          "art": [
+            "block",
+            6
+          ],
+          "evolutions": [
+            {
+              "id": "alarm_beacon",
+              "name": "Alarm Beacon",
+              "cost": 12,
+              "mark": 0.45,
+              "desc": "Marks for +45% damage."
+            },
+            {
+              "id": "tall_beacon",
+              "name": "Tall Beacon",
+              "cost": 12,
+              "range": 3.5,
+              "desc": "Much more range."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "control",
+      "name": "Control",
+      "color": "#9d79d6",
+      "description": "Slows, stuns and area damage. Weak alone, deadly inside a long maze.",
+      "units": [
+        {
+          "id": "mucus_wall",
+          "name": "Mucus Wall",
+          "role": "wall",
+          "cost": 5,
+          "hp": 25,
+          "mode": "pulse",
+          "slow": 0.3,
+          "slow_dur": 1.0,
+          "range": 1.2,
+          "interval": 0.5,
+          "desc": "Wall that slows invaders walking past it.",
+          "art": [
+            "block",
+            7
+          ],
+          "evolutions": [
+            {
+              "id": "thick_mucus",
+              "name": "Thick Mucus",
+              "cost": 6,
+              "hp": 60,
+              "desc": "More HP."
+            },
+            {
+              "id": "sticky_mucus",
+              "name": "Sticky Mucus",
+              "cost": 6,
+              "slow": 0.5,
+              "desc": "Stronger slow."
+            }
+          ]
+        },
+        {
+          "id": "mast_cell",
+          "name": "Mast Cell",
+          "role": "attacker",
+          "cost": 11,
+          "hp": 25,
+          "mode": "pulse",
+          "damage": 2,
+          "slow": 0.35,
+          "slow_dur": 1.2,
+          "range": 1.8,
+          "interval": 1.0,
+          "desc": "Damages and slows everything around it.",
+          "art": [
+            "cell",
+            11
+          ],
+          "evolutions": [
+            {
+              "id": "reactive_mast_cell",
+              "name": "Reactive Mast Cell",
+              "cost": 12,
+              "damage": 3.5,
+              "desc": "More damage."
+            },
+            {
+              "id": "spreading_mast_cell",
+              "name": "Spreading Mast Cell",
+              "cost": 12,
+              "range": 2.6,
+              "desc": "More range."
+            }
+          ]
+        },
+        {
+          "id": "histamine_spitter",
+          "name": "Histamine Spitter",
+          "role": "attacker",
+          "cost": 13,
+          "hp": 15,
+          "damage": 3.5,
+          "splash": 1.0,
+          "range": 3.0,
+          "interval": 1.1,
+          "air": true,
+          "desc": "Ranged splash shots. Hits fliers.",
+          "art": [
+            "cell",
+            12
+          ],
+          "evolutions": [
+            {
+              "id": "acid_spitter",
+              "name": "Acid Spitter",
+              "cost": 12,
+              "damage": 6,
+              "desc": "More damage."
+            },
+            {
+              "id": "far_spitter",
+              "name": "Far Spitter",
+              "cost": 12,
+              "range": 4.0,
+              "desc": "More range."
+            }
+          ]
+        },
+        {
+          "id": "fever_node",
+          "name": "Fever Node",
+          "role": "attacker",
+          "cost": 16,
+          "hp": 25,
+          "mode": "pulse",
+          "damage": 3.5,
+          "range": 2.0,
+          "interval": 1.0,
+          "air": true,
+          "desc": "Burns everything in range, fliers too.",
+          "art": [
+            "cell",
+            13
+          ],
+          "evolutions": [
+            {
+              "id": "high_fever",
+              "name": "High Fever",
+              "cost": 14,
+              "damage": 6,
+              "desc": "More damage."
+            },
+            {
+              "id": "wide_fever",
+              "name": "Wide Fever",
+              "cost": 14,
+              "range": 3.0,
+              "desc": "More range."
+            }
+          ]
+        },
+        {
+          "id": "cytokine_storm",
+          "name": "Cytokine Storm",
+          "role": "attacker",
+          "cost": 18,
+          "hp": 20,
+          "damage": 4,
+          "stun": 0.6,
+          "range": 2.5,
+          "interval": 1.6,
+          "air": true,
+          "desc": "Stuns its target in place.",
+          "art": [
+            "cell",
+            14
+          ],
+          "evolutions": [
+            {
+              "id": "paralyzing_storm",
+              "name": "Paralyzing Storm",
+              "cost": 16,
+              "stun": 1.1,
+              "desc": "Longer stun."
+            },
+            {
+              "id": "rolling_storm",
+              "name": "Rolling Storm",
+              "cost": 16,
+              "splash": 1.2,
+              "desc": "Stuns a whole area."
+            }
+          ]
+        },
+        {
+          "id": "inflammation_zone",
+          "name": "Inflammation Zone",
+          "role": "attacker",
+          "cost": 18,
+          "hp": 30,
+          "mode": "pulse",
+          "damage": 1.5,
+          "slow": 0.5,
+          "slow_dur": 1.0,
+          "range": 2.5,
+          "interval": 0.5,
+          "air": true,
+          "desc": "Heavily slows and burns a wide area.",
+          "art": [
+            "cell",
+            15
+          ],
+          "evolutions": [
+            {
+              "id": "searing_zone",
+              "name": "Searing Zone",
+              "cost": 16,
+              "damage": 3,
+              "desc": "More damage."
+            },
+            {
+              "id": "swollen_zone",
+              "name": "Swollen Zone",
+              "cost": 16,
+              "range": 3.5,
+              "desc": "More range."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toxin",
+      "name": "Toxin",
+      "color": "#6cc551",
+      "description": "Poison that ignores armor and spreads between invaders. Slow to start, brutal on crowds.",
+      "units": [
+        {
+          "id": "toxic_membrane",
+          "name": "Toxic Membrane",
+          "role": "wall",
+          "cost": 5,
+          "hp": 25,
+          "reflect": 0.3,
+          "desc": "Wall that hurts smashers biting it.",
+          "art": [
+            "block",
+            8
+          ],
+          "evolutions": [
+            {
+              "id": "thick_membrane",
+              "name": "Thick Membrane",
+              "cost": 6,
+              "hp": 60,
+              "desc": "More HP."
+            },
+            {
+              "id": "venom_membrane",
+              "name": "Venom Membrane",
+              "cost": 6,
+              "reflect": 0.8,
+              "desc": "Reflects 80% of smasher damage."
+            }
+          ]
+        },
+        {
+          "id": "killer_t",
+          "name": "Killer T-Cell",
+          "role": "attacker",
+          "cost": 12,
+          "hp": 20,
+          "damage": 1,
+          "poison": 4,
+          "poison_dur": 4,
+          "range": 2.0,
+          "interval": 0.9,
+          "desc": "Poisons its target. Ground only.",
+          "art": [
+            "cell",
+            16
+          ],
+          "evolutions": [
+            {
+              "id": "venomous_t",
+              "name": "Venomous T-Cell",
+              "cost": 12,
+              "poison": 7,
+              "desc": "Stronger poison."
+            },
+            {
+              "id": "reaching_t",
+              "name": "Reaching T-Cell",
+              "cost": 12,
+              "range": 3.0,
+              "desc": "More range."
+            }
+          ]
+        },
+        {
+          "id": "complement_sprayer",
+          "name": "Complement Sprayer",
+          "role": "attacker",
+          "cost": 14,
+          "hp": 15,
+          "damage": 1,
+          "splash": 1.0,
+          "poison": 3,
+          "poison_dur": 3,
+          "range": 2.5,
+          "interval": 1.2,
+          "air": true,
+          "desc": "Poison splash. Hits fliers.",
+          "art": [
+            "cell",
+            17
+          ],
+          "evolutions": [
+            {
+              "id": "caustic_sprayer",
+              "name": "Caustic Sprayer",
+              "cost": 13,
+              "poison": 5,
+              "desc": "Stronger poison."
+            },
+            {
+              "id": "misting_sprayer",
+              "name": "Misting Sprayer",
+              "cost": 13,
+              "range": 3.5,
+              "desc": "More range."
+            }
+          ]
+        },
+        {
+          "id": "lysozyme_pool",
+          "name": "Lysozyme Pool",
+          "role": "attacker",
+          "cost": 14,
+          "hp": 20,
+          "mode": "pulse",
+          "poison": 3,
+          "poison_dur": 3,
+          "range": 1.6,
+          "interval": 1.0,
+          "desc": "Poisons everything around it.",
+          "art": [
+            "cell",
+            18
+          ],
+          "evolutions": [
+            {
+              "id": "acid_pool",
+              "name": "Acid Pool",
+              "cost": 13,
+              "poison": 5,
+              "desc": "Stronger poison."
+            },
+            {
+              "id": "spilling_pool",
+              "name": "Spilling Pool",
+              "cost": 13,
+              "range": 2.5,
+              "air": true,
+              "desc": "More range, hits fliers."
+            }
+          ]
+        },
+        {
+          "id": "perforin_lancer",
+          "name": "Perforin Lancer",
+          "role": "attacker",
+          "cost": 20,
+          "hp": 20,
+          "damage": 2,
+          "poison": 5,
+          "poison_dur": 5,
+          "spreads": true,
+          "range": 2.5,
+          "interval": 1.5,
+          "air": true,
+          "desc": "Poison that jumps to nearby invaders when its victim dies.",
+          "art": [
+            "cell",
+            19
+          ],
+          "evolutions": [
+            {
+              "id": "plague_lancer",
+              "name": "Plague Lancer",
+              "cost": 18,
+              "poison": 9,
+              "desc": "Stronger poison."
+            },
+            {
+              "id": "long_lancer",
+              "name": "Long Lancer",
+              "cost": 18,
+              "range": 3.5,
+              "desc": "More range."
+            }
+          ]
+        },
+        {
+          "id": "necrosis_bloom",
+          "name": "Necrosis Bloom",
+          "role": "wall",
+          "cost": 14,
+          "hp": 40,
+          "mode": "pulse",
+          "poison": 3,
+          "poison_dur": 2,
+          "spreads": true,
+          "range": 1.5,
+          "interval": 1.0,
+          "desc": "Wall that poisons everything next to it. The poison spreads.",
+          "art": [
+            "block",
+            9
+          ],
+          "evolutions": [
+            {
+              "id": "hardened_bloom",
+              "name": "Hardened Bloom",
+              "cost": 12,
+              "hp": 100,
+              "desc": "More HP."
+            },
+            {
+              "id": "virulent_bloom",
+              "name": "Virulent Bloom",
+              "cost": 12,
+              "poison": 6,
+              "desc": "Stronger poison."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "invaders": [
+    {
+      "id": "bacterium_half",
+      "name": "Bacterium",
+      "movement": "pather",
+      "hp": 5,
+      "speed": 1.2,
+      "base_damage": 1,
+      "art": "bacterium_half"
+    },
+    {
+      "id": "rhinovirus",
+      "name": "Rhinovirus",
+      "movement": "pather",
+      "hp": 6,
+      "speed": 1.6,
+      "base_damage": 1,
+      "art": "rhinovirus",
+      "desc": "Fast, weak, comes in swarms."
+    },
+    {
+      "id": "flu_virus",
+      "name": "Flu Virus",
+      "movement": "pather",
+      "hp": 10,
+      "speed": 2.2,
+      "base_damage": 1,
+      "elite": true,
+      "art": "flu_virus",
+      "desc": "Elite: a much faster virus."
+    },
+    {
+      "id": "bacterium",
+      "name": "Bacterium",
+      "movement": "pather",
+      "hp": 14,
+      "speed": 1.0,
+      "base_damage": 2,
+      "split_into": "bacterium_half",
+      "split_count": 2,
+      "art": "bacterium",
+      "desc": "Splits in two when killed."
+    },
+    {
+      "id": "biofilm",
+      "name": "Biofilm Colony",
+      "movement": "pather",
+      "hp": 24,
+      "armor": 2,
+      "speed": 0.9,
+      "base_damage": 2,
+      "split_into": "bacterium_half",
+      "split_count": 2,
+      "elite": true,
+      "art": "biofilm",
+      "desc": "Elite: armored bacteria. Armor reduces every hit by 2."
+    },
+    {
+      "id": "worm",
+      "name": "Parasite Worm",
+      "movement": "smasher",
+      "hp": 40,
+      "speed": 0.7,
+      "base_damage": 3,
+      "smash": 6,
+      "art": "worm",
+      "desc": "Ignores the maze and chews through units."
+    },
+    {
+      "id": "hookworm",
+      "name": "Hookworm",
+      "movement": "smasher",
+      "hp": 70,
+      "regen": 3,
+      "speed": 0.7,
+      "base_damage": 4,
+      "smash": 9,
+      "elite": true,
+      "art": "hookworm",
+      "desc": "Elite: a regenerating worm."
+    },
+    {
+      "id": "spore",
+      "name": "Spore",
+      "movement": "flier",
+      "hp": 8,
+      "speed": 1.0,
+      "base_damage": 1,
+      "art": "spore",
+      "desc": "Flies straight over everything."
+    },
+    {
+      "id": "fungal_spore",
+      "name": "Fungal Spore",
+      "movement": "flier",
+      "hp": 18,
+      "armor": 1,
+      "speed": 0.9,
+      "base_damage": 2,
+      "elite": true,
+      "art": "fungal_spore",
+      "desc": "Elite: a tougher armored flier."
+    },
+    {
+      "id": "superbug",
+      "name": "Superbug",
+      "movement": "smasher",
+      "hp": 450,
+      "armor": 1,
+      "speed": 0.4,
+      "base_damage": 10,
+      "smash": 15,
+      "boss": true,
+      "minion": "rhinovirus",
+      "minion_count": 1,
+      "minion_interval": 4.0,
+      "art": "superbug",
+      "desc": "Boss: armored, smashes through units, and releases viruses as it goes."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_b5exn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_id8um"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/keratin_plate.tres" id="3_e18iy"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/b_cell.tres" id="4_hjjsm"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/antibody_tagger.tres" id="5_2rpn4"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/cytotoxic_t.tres" id="6_64lhu"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/opsonin_lance.tres" id="7_hp7yh"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/interferon_beacon.tres" id="8_wi82o"]
+
+[resource]
+script = ExtResource("1_b5exn")
+id = "precision"
+display_name = "Precision"
+description = "Long range and big single hits. Marks targets so everything hits harder."
+color = Color(0.30588236, 0.65882355, 0.87058824, 1)
+units = Array[ExtResource("2_id8um")]([ExtResource("3_e18iy"), ExtResource("4_hjjsm"), ExtResource("5_2rpn4"), ExtResource("6_64lhu"), ExtResource("7_hp7yh"), ExtResource("8_wi82o")])

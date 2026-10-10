@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_dyr4v"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/worm.png" id="2_m3aii"]
+
+[resource]
+script = ExtResource("1_dyr4v")
+id = "worm"
+display_name = "Parasite Worm"
+movement = 1
+max_hp = 40
+speed = 0.7
+base_damage = 3
+smash_damage = 6.0
+texture = ExtResource("2_m3aii")
+description = "Ignores the maze and chews through units."

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bq63n"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/scar_fibroblast.png" id="2_3854h"]
+
+[resource]
+script = ExtResource("1_bq63n")
+id = "scar_fibroblast"
+display_name = "Scar Fibroblast"
+cost = 10
+max_hp = 150
+regen = 6.0
+texture = ExtResource("2_3854h")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Much more HP."

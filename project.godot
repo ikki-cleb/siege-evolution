@@ -6,8 +6,12 @@ config_version=5
 [application]
 
 config/name="Siege Evolution"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[autoload]
+
+Progress="*res://scripts/progress.gd"
 
 [display]
 

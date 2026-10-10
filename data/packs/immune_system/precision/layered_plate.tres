@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_snu3y"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/layered_plate.png" id="2_vfcom"]
+
+[resource]
+script = ExtResource("1_snu3y")
+id = "layered_plate"
+display_name = "Layered Plate"
+cost = 6
+max_hp = 70
+texture = ExtResource("2_vfcom")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "More HP."

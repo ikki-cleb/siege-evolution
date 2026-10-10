@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vay8i"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/virulent_bloom.png" id="2_ewhkb"]
+
+[resource]
+script = ExtResource("1_vay8i")
+id = "virulent_bloom"
+display_name = "Virulent Bloom"
+cost = 12
+max_hp = 40
+attack_mode = 1
+poison_dps = 6.0
+poison_duration = 2.0
+poison_spreads = true
+texture = ExtResource("2_ewhkb")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Stronger poison."

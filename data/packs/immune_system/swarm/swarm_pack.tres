@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_fen6n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_b5mw7"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/epithelial_cell.tres" id="3_uis7b"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/neutrophil.tres" id="4_84eht"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/monocyte.tres" id="5_dy5tj"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/basophil.tres" id="6_c40vw"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/nk_cell.tres" id="7_1da8f"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/net_trap.tres" id="8_eoib0"]
+
+[resource]
+script = ExtResource("1_fen6n")
+id = "swarm"
+display_name = "Swarm"
+description = "Cheap units, and lots of them. Attacks faster when packed together."
+color = Color(0.9137255, 0.76862746, 0.41568628, 1)
+units = Array[ExtResource("2_b5mw7")]([ExtResource("3_uis7b"), ExtResource("4_84eht"), ExtResource("5_dy5tj"), ExtResource("6_c40vw"), ExtResource("7_1da8f"), ExtResource("8_eoib0")])

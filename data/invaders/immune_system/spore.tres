@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_1rc7o"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/spore.png" id="2_o8as0"]
+
+[resource]
+script = ExtResource("1_1rc7o")
+id = "spore"
+display_name = "Spore"
+movement = 2
+max_hp = 8
+texture = ExtResource("2_o8as0")
+description = "Flies straight over everything."

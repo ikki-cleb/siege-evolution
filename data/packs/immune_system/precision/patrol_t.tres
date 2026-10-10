@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ye1bm"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/patrol_t.png" id="2_cl4p7"]
+
+[resource]
+script = ExtResource("1_ye1bm")
+id = "patrol_t"
+display_name = "Patrol T-Cell"
+role = 1
+cost = 16
+max_hp = 25
+damage = 12.0
+attack_range = 3.5
+attack_interval = 1.6
+hits_air = true
+pierce = true
+texture = ExtResource("2_cl4p7")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "More range, hits fliers."

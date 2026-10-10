@@ -1,23 +1,42 @@
-"""Draws the 16x16 placeholder sprites for the prototype.
+"""Draws the 16x16 placeholder sprites.
 
 Run from the project folder:  python3 tools/make_placeholder_art.py
+Unit sprites are generated from tools/content/*.json (one color per pack,
+a different pattern per unit, and a corner badge on evolutions: a red arrow
+for the power branch, a blue ring for the reach branch).
+
 Replace any PNG in art/ with your own 16x16 drawing of the same name and the
-game will use it automatically. (Don't re-run this script afterwards, or it
-will overwrite your art.)
+game will use it automatically. Re-running this script overwrites art/, so
+pass --only-missing once you've started drawing your own:
+    python3 tools/make_placeholder_art.py --only-missing
 """
+import colorsys
+import json
 import math
 import random
+import sys
 from pathlib import Path
 
 from PIL import Image
 
-ROOT = Path(__file__).resolve().parent.parent / "art"
+PROJECT = Path(__file__).resolve().parent.parent
+ROOT = PROJECT / "art"
 CLEAR = (0, 0, 0, 0)
+ONLY_MISSING = "--only-missing" in sys.argv
 
 
 def hexc(value, alpha=255):
     value = value.lstrip("#")
     return tuple(int(value[i:i + 2], 16) for i in (0, 2, 4)) + (alpha,)
+
+
+def shade(color, lightness):
+    """Lighten (>0) or darken (<0) a color, keeping its hue."""
+    r, g, b = (c / 255 for c in color[:3])
+    h, l, s = colorsys.rgb_to_hls(r, g, b)
+    l = max(0.0, min(1.0, l + lightness))
+    r, g, b = colorsys.hls_to_rgb(h, l, s)
+    return (int(r * 255), int(g * 255), int(b * 255), color[3])
 
 
 def new():
@@ -40,26 +59,29 @@ def ring(img, cx, cy, r, color, thickness=1.0):
 
 
 def rect(img, x0, y0, x1, y1, color):
-    for y in range(y0, y1 + 1):
-        for x in range(x0, x1 + 1):
+    for y in range(max(0, y0), min(15, y1) + 1):
+        for x in range(max(0, x0), min(15, x1) + 1):
             img.putpixel((x, y), color)
 
 
 def px(img, points, color):
-    for p in points:
-        img.putpixel(p, color)
-
-
-def save(img, rel):
-    path = ROOT / rel
-    path.parent.mkdir(parents=True, exist_ok=True)
-    img.save(path)
+    for x, y in points:
+        if 0 <= x < 16 and 0 <= y < 16:
+            img.putpixel((x, y), color)
 
 
 def speckle(img, colors, count, seed):
     rng = random.Random(seed)
     for _ in range(count):
         img.putpixel((rng.randrange(16), rng.randrange(16)), rng.choice(colors))
+
+
+def save(img, rel):
+    path = ROOT / rel
+    if ONLY_MISSING and path.exists():
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    img.save(path)
 
 
 # --- Tiles ------------------------------------------------------------------
@@ -90,84 +112,148 @@ def spawn():
 def base():
     img = floor()
     heart = hexc("#ff4d6d")
-    dark = hexc("#b3203f")
     disc(img, 5.5, 6, 3.6, heart)
     disc(img, 10.5, 6, 3.6, heart)
     for y in range(7, 15):
-        half = max(0, 7 - (y - 7))
-        rect(img, 8 - half, y, 7 + half, y, heart) if half > 0 else None
+        half = 7 - (y - 7)
+        if half > 0:
+            rect(img, 8 - half, y, 7 + half, y, heart)
     px(img, [(4, 5), (5, 4)], hexc("#ffb3c1"))
-    px(img, [(12, 9), (11, 11), (9, 13)], dark)
+    px(img, [(12, 9), (11, 11), (9, 13)], hexc("#b3203f"))
     return img
 
 
-# --- Units ------------------------------------------------------------------
+# --- Units (generated from the content table) -------------------------------
 
-def membrane():
+def block_unit(color, style):
+    """A wall: a chunky block with one of several surface patterns."""
     img = new()
-    rect(img, 1, 1, 14, 14, hexc("#e9c46a"))
-    rect(img, 1, 1, 14, 1, hexc("#f4dd9c"))
-    rect(img, 1, 14, 14, 14, hexc("#b8923a"))
-    for y in (4, 8, 12):
+    dark, light = shade(color, -0.22), shade(color, 0.15)
+    rect(img, 1, 1, 14, 14, color)
+    rect(img, 1, 1, 14, 1, light)
+    rect(img, 1, 14, 14, 14, dark)
+    rect(img, 1, 1, 1, 14, light)
+    rect(img, 14, 1, 14, 14, dark)
+    pattern = style % 5
+    if pattern == 0:  # bricks
+        for y in (5, 9):
+            rect(img, 2, y, 13, y, dark)
+        px(img, [(7, y) for y in range(2, 5)] + [(4, y) for y in range(6, 9)]
+           + [(10, y) for y in range(6, 9)] + [(7, y) for y in range(10, 14)], dark)
+    elif pattern == 1:  # fibers
+        for i in range(-12, 16, 4):
+            px(img, [(x, x - i) for x in range(2, 14) if 2 <= x - i <= 13], dark)
+    elif pattern == 2:  # nodules
+        for cx, cy in [(5, 5), (10, 6), (6, 10), (11, 11)]:
+            disc(img, cx, cy, 1.8, dark)
+            px(img, [(cx - 1, cy - 1)], light)
+    elif pattern == 3:  # spikes on top
         for x in range(2, 14, 3):
-            img.putpixel((x + (y // 4) % 2, y), hexc("#c9a24a"))
+            px(img, [(x, 0), (x, 1), (x + 1, 1)], light)
+        rect(img, 3, 6, 12, 9, dark)
+    else:  # dots
+        for y in range(3, 14, 3):
+            for x in range(3 + (y // 3) % 2, 14, 3):
+                px(img, [(x, y)], dark)
+    if style >= 5:  # second set of walls gets an inner frame
+        rect(img, 3, 3, 12, 3, light)
+        rect(img, 3, 12, 12, 12, dark)
     return img
 
 
-def clot():
+def cell_unit(color, style):
+    """An attacker: a round cell with one of several nucleus shapes."""
     img = new()
-    disc(img, 8, 8, 7.5, hexc("#8d1b2e"))
-    disc(img, 6, 6, 3, hexc("#b02a40"))
-    disc(img, 11, 10, 2.5, hexc("#a32438"))
-    px(img, [(5, 4), (4, 5)], hexc("#e0566e"))
-    ring(img, 8, 8, 7.5, hexc("#5a0f1c"))
+    body = shade(color, 0.18)
+    edge = shade(color, -0.18)
+    nucleus = shade(color, -0.32)
+    radius = 6.5 + (style % 3) * 0.4
+    disc(img, 8, 8, radius, body)
+    ring(img, 8, 8, radius, edge)
+    shape = style % 6
+    if shape == 0:  # one big round nucleus
+        disc(img, 8, 8.5, 3.2, nucleus)
+    elif shape == 1:  # lobed nucleus
+        for cx, cy in [(5.5, 7), (9, 6), (9.5, 10)]:
+            disc(img, cx, cy, 2.1, nucleus)
+    elif shape == 2:  # Y (antibody)
+        px(img, [(8, y) for y in range(8, 13)] + [(7, 7), (6, 6), (5, 5), (9, 7), (10, 6), (11, 5)], nucleus)
+        px(img, [(8, 9), (8, 10)], nucleus)
+    elif shape == 3:  # ring nucleus
+        ring(img, 8, 8, 3.5, nucleus, 1.2)
+    elif shape == 4:  # granules
+        for cx, cy in [(5, 6), (9, 5), (11, 9), (7, 10), (5, 10), (9, 8)]:
+            px(img, [(cx, cy), (cx + 1, cy)], nucleus)
+    else:  # star
+        for i in range(6):
+            a = i * math.tau / 6
+            px(img, [(int(8 + math.cos(a) * r), int(8 + math.sin(a) * r)) for r in (1, 2, 3)], nucleus)
+    if style >= 6:  # later units get a highlight and an outer membrane dot pattern
+        px(img, [(5, 4), (4, 5)], shade(color, 0.4))
+    if style >= 12:
+        for i in range(8):
+            a = i * math.tau / 8 + 0.4
+            px(img, [(int(8 + math.cos(a) * (radius + 0.5)), int(8 + math.sin(a) * (radius + 0.5)))], edge)
     return img
 
 
-def neutrophil():
-    img = new()
-    disc(img, 8, 8, 7, hexc("#d9c2f0"))
-    ring(img, 8, 8, 7, hexc("#9b7bc4"))
-    # Multi-lobed nucleus
-    disc(img, 5.5, 7, 2.2, hexc("#6a3fa0"))
-    disc(img, 9, 6, 2.2, hexc("#6a3fa0"))
-    disc(img, 9.5, 10, 2.2, hexc("#6a3fa0"))
+def add_badge(img, branch):
+    """Marks an evolution: red arrow (power branch) or blue ring (reach branch)."""
+    if branch == 0:
+        red, dark = hexc("#ff5a3c"), hexc("#7a1a0c")
+        rect(img, 11, 0, 15, 5, dark)
+        px(img, [(13, 1), (12, 2), (13, 2), (14, 2), (13, 3), (13, 4)], red)
+        px(img, [(11, 3), (15, 3)], dark)
+    else:
+        blue, dark = hexc("#7fe0ff"), hexc("#0c3a52")
+        rect(img, 11, 0, 15, 5, dark)
+        ring(img, 13.5, 2.5, 2.2, blue, 1.0)
     return img
 
 
-def b_cell():
-    img = new()
-    disc(img, 8, 8, 7, hexc("#9fd3ff"))
-    ring(img, 8, 8, 7, hexc("#3c7fc4"))
-    disc(img, 8, 9, 3.5, hexc("#2d5f99"))
-    # Little antibody "Y"
-    px(img, [(8, 2), (8, 3), (7, 1), (9, 1), (6, 0), (10, 0)], hexc("#ffffff"))
-    return img
+def unit_sprite(unit, pack_color):
+    kind, style = unit["art"]
+    color = hexc(pack_color)
+    return block_unit(color, style) if kind == "block" else cell_unit(color, style)
 
 
 # --- Invaders ---------------------------------------------------------------
 
-def rhinovirus():
+def rhinovirus(main="#7bd24a", edge="#3f8a22", tips="#b6f58a"):
     img = new()
-    disc(img, 8, 8, 4.5, hexc("#7bd24a"))
-    ring(img, 8, 8, 4.5, hexc("#3f8a22"))
+    disc(img, 8, 8, 4.5, hexc(main))
+    ring(img, 8, 8, 4.5, hexc(edge))
     for i in range(8):
         a = i * math.tau / 8
-        x, y = 8 + math.cos(a) * 6, 8 + math.sin(a) * 6
-        img.putpixel((int(x), int(y)), hexc("#b6f58a"))
-    px(img, [(7, 7), (9, 9)], hexc("#3f8a22"))
+        px(img, [(int(8 + math.cos(a) * 6), int(8 + math.sin(a) * 6))], hexc(tips))
+    px(img, [(7, 7), (9, 9)], hexc(edge))
     return img
 
 
-def bacterium():
+def flu_virus():
+    img = rhinovirus("#4ad2b0", "#1f7a63", "#ff8a8a")
+    # Speed streaks
+    px(img, [(0, 7), (1, 7), (0, 9), (1, 9), (2, 9)], hexc("#c8fff0"))
+    return img
+
+
+def bacterium(main="#c6d84a", light="#e2ef8a", dark="#7d8a1f"):
     img = new()
     for x in range(3, 13):
-        rect(img, x, 5, x, 10, hexc("#c6d84a"))
-    disc(img, 3.5, 8, 3, hexc("#c6d84a"))
-    disc(img, 12.5, 8, 3, hexc("#c6d84a"))
-    rect(img, 3, 5, 12, 5, hexc("#e2ef8a"))
-    px(img, [(5, 8), (8, 7), (11, 9)], hexc("#7d8a1f"))
-    px(img, [(15, 9), (15, 11), (0, 6)], hexc("#a7b83a"))
+        rect(img, x, 5, x, 10, hexc(main))
+    disc(img, 3.5, 8, 3, hexc(main))
+    disc(img, 12.5, 8, 3, hexc(main))
+    rect(img, 3, 5, 12, 5, hexc(light))
+    px(img, [(5, 8), (8, 7), (11, 9)], hexc(dark))
+    return img
+
+
+def biofilm():
+    img = bacterium("#9aa83a", "#c9d27a", "#4d5612")
+    # Slimy armor plates
+    for x in (4, 7, 10):
+        rect(img, x, 4, x + 1, 4, hexc("#5d6b9a"))
+        rect(img, x, 11, x + 1, 11, hexc("#5d6b9a"))
     return img
 
 
@@ -179,35 +265,72 @@ def bacterium_half():
     return img
 
 
-def worm():
+def worm(body="#c28a5a", alt="#a8703f", mouth="#ff6b6b"):
     img = new()
-    body = hexc("#c28a5a")
     for i, (x, y) in enumerate([(3, 12), (5, 10), (7, 8), (9, 6), (11, 5)]):
-        disc(img, x, y, 2.6 if i < 4 else 3.2, body if i % 2 else hexc("#a8703f"))
+        disc(img, x, y, 2.6 if i < 4 else 3.2, hexc(body) if i % 2 else hexc(alt))
     px(img, [(11, 4), (13, 5)], hexc("#2a1408"))
-    px(img, [(13, 6), (14, 6)], hexc("#ff6b6b"))
+    px(img, [(13, 6), (14, 6)], hexc(mouth))
     return img
 
 
-def spore():
+def hookworm():
+    img = worm("#b0605a", "#8a3f3a", "#ffd23c")
+    px(img, [(14, 4), (15, 3), (14, 7), (15, 8)], hexc("#f0e0d0"))  # hooks
+    return img
+
+
+def spore(main="#f0e6ff", edge="#a78bd6"):
     img = new()
-    disc(img, 8, 9, 3.5, hexc("#f0e6ff"))
-    ring(img, 8, 9, 3.5, hexc("#a78bd6"))
+    disc(img, 8, 9, 3.5, hexc(main))
+    ring(img, 8, 9, 3.5, hexc(edge))
     for x, y in [(2, 5), (14, 5), (3, 3), (13, 3), (4, 6), (12, 6)]:
         img.putpixel((x, y), hexc("#d8c8ff", 200))
-    px(img, [(8, 9)], hexc("#a78bd6"))
+    px(img, [(8, 9)], hexc(edge))
     return img
+
+
+def fungal_spore():
+    img = spore("#ffd9a8", "#b0703a")
+    ring(img, 8, 9, 5, hexc("#b0703a", 160))
+    return img
+
+
+def superbug():
+    img = new()
+    disc(img, 8, 8, 7, hexc("#5b2a86"))
+    ring(img, 8, 8, 7, hexc("#2a0f45"), 1.3)
+    for i in range(10):
+        a = i * math.tau / 10
+        px(img, [(int(8 + math.cos(a) * 7.4), int(8 + math.sin(a) * 7.4))], hexc("#e04aff"))
+    disc(img, 6, 7, 1.4, hexc("#ff3b3b"))
+    disc(img, 10, 7, 1.4, hexc("#ff3b3b"))
+    rect(img, 5, 10, 11, 11, hexc("#1a0626"))
+    px(img, [(6, 10), (8, 10), (10, 10)], hexc("#f0f0f0"))
+    return img
+
+
+INVADER_ART = {
+    "rhinovirus": rhinovirus, "flu_virus": flu_virus, "bacterium": bacterium,
+    "biofilm": biofilm, "bacterium_half": bacterium_half, "worm": worm,
+    "hookworm": hookworm, "spore": spore, "fungal_spore": fungal_spore,
+    "superbug": superbug,
+}
 
 
 if __name__ == "__main__":
-    for name, fn in {
-        "tiles/floor.png": floor, "tiles/rock.png": rock,
-        "tiles/spawn.png": spawn, "tiles/base.png": base,
-        "units/membrane.png": membrane, "units/clot.png": clot,
-        "units/neutrophil.png": neutrophil, "units/b_cell.png": b_cell,
-        "invaders/rhinovirus.png": rhinovirus, "invaders/bacterium.png": bacterium,
-        "invaders/bacterium_half.png": bacterium_half, "invaders/worm.png": worm,
-        "invaders/spore.png": spore,
-    }.items():
-        save(fn(), name)
+    for name, fn in {"floor": floor, "rock": rock, "spawn": spawn, "base": base}.items():
+        save(fn(), f"tiles/{name}.png")
+
+    for content_file in sorted((PROJECT / "tools" / "content").glob("*.json")):
+        content = json.loads(content_file.read_text())
+        biome_id = content["biome"]["id"]
+        for pack in content["packs"]:
+            for unit in pack["units"]:
+                sprite = unit_sprite(unit, pack["color"])
+                save(sprite, f"units/{biome_id}/{pack['id']}/{unit['id']}.png")
+                for branch, evo in enumerate(unit["evolutions"]):
+                    save(add_badge(sprite.copy(), branch), f"units/{biome_id}/{pack['id']}/{evo['id']}.png")
+        for invader in content["invaders"]:
+            save(INVADER_ART[invader["art"]](), f"invaders/{biome_id}/{invader['id']}.png")
     print("Placeholder art written to", ROOT)

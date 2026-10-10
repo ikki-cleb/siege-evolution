@@ -7,21 +7,27 @@ See `DESIGN.md` for the game design.
 
 | Folder | What's in it |
 |---|---|
-| `scenes/` | `main.tscn`, the scene that runs a level |
-| `scripts/game/` | Gameplay: `game.gd` (rules, waves, ATP), `board.gd` (grid and pathfinding), `unit.gd`, `invader.gd` |
-| `scripts/ui/` | `hud.gd`, the on-screen buttons and labels |
-| `scripts/data/` | Definitions of what a unit, invader, wave and level contain |
-| `data/` | The actual units, invaders and levels (`.tres` files you can edit in Godot's Inspector) |
+| `scenes/` | `menu.tscn` (starts the game) and `game.tscn` (plays one level) |
+| `scripts/game/` | Gameplay: `game.gd` (rules, waves, ATP, refunds, evolving), `board.gd` (grid and pathfinding), `unit.gd`, `invader.gd` |
+| `scripts/ui/` | `menu.gd` (world/pack/level select) and `hud.gd` (in-level buttons and labels) |
+| `scripts/progress.gd` | Saved progress and menu choices (available everywhere as `Progress`) |
+| `scripts/data/` | Definitions of what a unit, invader, pack, wave, level and biome contain |
+| `data/` | The actual content (`.tres` files you can edit in Godot's Inspector) |
 | `art/` | 16×16 sprites. Replace any PNG with your own art of the same name. |
-| `tests/` | Automated playtest |
-| `tools/` | Helper scripts (placeholder art, initial content, web export) |
+| `tests/` | Automated playtest and the auto-player used for balancing |
+| `tools/` | Content source (`tools/content/*.json`) and helper scripts |
 
 ## Common tasks
 
 - **Play it:** open the folder in Godot 4.7 and press F5.
-- **Rebalance:** open a file in `data/units/` or `data/invaders/` and change the numbers.
-- **Edit a level:** open `data/levels/level_01.tres`. `layout` is the map
-  (`.` floor, `#` wall tissue, `S` spawn, `B` base), and `waves` holds the 10 waves.
-- **Run the automated playtest:**
+- **Rebalance:** change a stat in `tools/content/immune_system.json` (or use
+  `python3 tools/tune.py unit_id damage=5`), then rebuild the content:
+  `godot --headless --script tools/build_content.gd`
+- **Edit a level:** level layouts and starting hands are in `tools/build_content.gd`
+  (`.` floor, `#` wall tissue, `S` spawn, `B` base). Rebuild the content afterwards.
+- **New art:** `python3 tools/make_placeholder_art.py --only-missing` draws
+  placeholders only for sprites that don't exist yet.
+- **Run the automated playtest** (rules checks plus a balance table for every pack):
   `godot --headless --fixed-fps 60 --script tests/sim_test.gd`
+  Add `-- rules` to skip the slower balance run.
 - **Build for the web:** `tools/export_web.sh path/to/godot`

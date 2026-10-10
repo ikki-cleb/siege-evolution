@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mkjal"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/healing_fibroblast.png" id="2_yyemp"]
+
+[resource]
+script = ExtResource("1_mkjal")
+id = "healing_fibroblast"
+display_name = "Healing Fibroblast"
+cost = 10
+max_hp = 70
+regen = 16.0
+texture = ExtResource("2_yyemp")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Heals much faster."

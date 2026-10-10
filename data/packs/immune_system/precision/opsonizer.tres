@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m15l7"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/opsonizer.png" id="2_5xjiw"]
+
+[resource]
+script = ExtResource("1_m15l7")
+id = "opsonizer"
+display_name = "Opsonizer"
+role = 2
+cost = 12
+max_hp = 15
+damage = 1.0
+attack_range = 3.0
+hits_air = true
+mark_bonus = 0.7
+mark_duration = 3.0
+texture = ExtResource("2_5xjiw")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Marks for +70% damage."

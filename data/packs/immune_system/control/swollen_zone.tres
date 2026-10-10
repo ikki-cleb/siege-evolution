@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0y6fd"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/swollen_zone.png" id="2_uvhev"]
+
+[resource]
+script = ExtResource("1_0y6fd")
+id = "swollen_zone"
+display_name = "Swollen Zone"
+role = 1
+cost = 16
+max_hp = 30
+attack_mode = 1
+damage = 1.5
+attack_range = 3.5
+attack_interval = 0.5
+hits_air = true
+slow = 0.5
+slow_duration = 1.0
+texture = ExtResource("2_uvhev")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "More range."

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_88yve"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/giant_macrophage.tres" id="2_8nma8"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/foam_macrophage.tres" id="3_rhjk2"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/macrophage.png" id="4_bdrhy"]
+
+[resource]
+script = ExtResource("1_88yve")
+id = "macrophage"
+display_name = "Macrophage"
+role = 1
+cost = 14
+max_hp = 60
+damage = 9.0
+attack_interval = 1.1
+evolutions = Array[ExtResource("1_88yve")]([ExtResource("2_8nma8"), ExtResource("3_rhjk2")])
+texture = ExtResource("4_bdrhy")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Slow, crushing melee hits."

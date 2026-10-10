@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_r7oyl"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/hardened_bloom.tres" id="2_5ycx5"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/virulent_bloom.tres" id="3_t0dsu"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/necrosis_bloom.png" id="4_wp27s"]
+
+[resource]
+script = ExtResource("1_r7oyl")
+id = "necrosis_bloom"
+display_name = "Necrosis Bloom"
+cost = 14
+max_hp = 40
+attack_mode = 1
+poison_dps = 3.0
+poison_duration = 2.0
+poison_spreads = true
+evolutions = Array[ExtResource("1_r7oyl")]([ExtResource("2_5ycx5"), ExtResource("3_t0dsu")])
+texture = ExtResource("4_wp27s")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that poisons everything next to it. The poison spreads."

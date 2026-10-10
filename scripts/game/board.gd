@@ -12,6 +12,8 @@ signal base_hit(invader: InvaderData)
 
 const TILE := 16
 const NO_CELL := Vector2i(-1, -1)
+## How far (in tiles) poison jumps when a poisoned invader dies.
+const POISON_SPREAD_RANGE := 1.5
 
 const FLOOR_TEXTURE := preload("res://art/tiles/floor.png")
 const ROCK_TEXTURE := preload("res://art/tiles/rock.png")
@@ -30,7 +32,7 @@ var base_cell := NO_CELL
 var units := {}  # Vector2i -> Unit
 var invaders: Array[Invader] = []
 
-## True while a wave is running. Units only attack during waves.
+## True while a wave is running. Units only act during waves.
 var wave_active := false
 
 # Two pathfinding grids. Walkers treat units as walls; smashers only avoid
@@ -39,7 +41,7 @@ var _walk_grid := AStarGrid2D.new()
 var _smash_grid := AStarGrid2D.new()
 
 # What the board draws on top of the tiles (set by the game).
-var show_path_preview := true
+var show_path_preview := false
 var preview_smashers := false
 var preview_fliers := false
 var selected_cell := NO_CELL
@@ -47,7 +49,7 @@ var selected_cell := NO_CELL
 var _flash_cell := NO_CELL
 var _flash_time := 0.0
 
-## Draws shot lines above units and invaders.
+## Draws shots and pulses above units and invaders.
 var fx: ShotEffects
 
 
@@ -97,17 +99,39 @@ func is_buildable(cell: Vector2i) -> bool:
 
 ## True if a unit could go here without sealing off the base from any spawn.
 func can_place(cell: Vector2i) -> bool:
-	if not is_buildable(cell):
-		return false
-	# Pretend the tile is blocked, test every route, then undo the pretend.
-	_walk_grid.set_point_solid(cell, true)
-	var still_open := true
+	return is_buildable(cell) and path_length_if_blocked(cell) >= 0
+
+
+## Total length of every walker route if this tile were blocked, or -1 if
+## blocking it would seal a spawn off from the base. Pass NO_CELL to measure
+## the routes as they are now.
+func path_length_if_blocked(cell: Vector2i) -> int:
+	var paths := walker_paths_if_blocked(cell)
+	if paths.is_empty():
+		return -1
+	var total := 0
+	for path in paths:
+		total += path.size()
+	return total
+
+
+## Every spawn's walker route if this tile were blocked (empty if that would
+## seal a spawn off). Pass NO_CELL for the routes as they are now.
+func walker_paths_if_blocked(cell: Vector2i) -> Array:
+	var pretend := is_inside(cell)
+	var was_solid := pretend and _walk_grid.is_point_solid(cell)
+	if pretend:
+		_walk_grid.set_point_solid(cell, true)
+	var paths := []
 	for spawn in spawn_cells:
-		if _walk_grid.get_id_path(spawn, base_cell).is_empty():
-			still_open = false
+		var path := _walk_grid.get_id_path(spawn, base_cell)
+		if path.is_empty():
+			paths.clear()
 			break
-	_walk_grid.set_point_solid(cell, false)
-	return still_open
+		paths.append(path)
+	if pretend:
+		_walk_grid.set_point_solid(cell, was_solid)
+	return paths
 
 
 ## The route a walking invader takes from `from_cell` to the base.
@@ -126,6 +150,16 @@ func intact_unit_at(cell: Vector2i) -> Unit:
 	if unit and not unit.destroyed:
 		return unit
 	return null
+
+
+## How many intact units stand on the 8 tiles around a tile.
+func neighbor_count(cell: Vector2i) -> int:
+	var count := 0
+	for dy in [-1, 0, 1]:
+		for dx in [-1, 0, 1]:
+			if (dx != 0 or dy != 0) and intact_unit_at(cell + Vector2i(dx, dy)):
+				count += 1
+	return count
 
 
 # --- Units ------------------------------------------------------------------
@@ -178,6 +212,23 @@ func spawn_invader(data: InvaderData, spawn_index: int) -> void:
 	_add_invader(data, cell_center(start), path, 0)
 
 
+## Adds invaders at another invader's position, following its route
+## (used for splitting and for boss minions).
+func spawn_from(parent: Invader, data: InvaderData, count: int) -> void:
+	for i in count:
+		# Nudge them apart a little so they don't overlap exactly.
+		var nudge := Vector2(randf_range(-3, 3), randf_range(-3, 3))
+		var path: Array[Vector2i] = []
+		var index := 0
+		if data.movement == InvaderData.Movement.PATHER and parent.path_index < parent.path.size():
+			# Walkers need a walker route, even if the parent was a smasher.
+			path = walker_path(parent.path[parent.path_index])
+		elif data.movement != InvaderData.Movement.FLIER:
+			path = parent.path.duplicate()
+			index = parent.path_index
+		_add_invader(data, parent.position + nudge, path, index)
+
+
 func _add_invader(data: InvaderData, pos: Vector2, path: Array[Vector2i], path_index: int) -> void:
 	var invader := Invader.new()
 	invader.setup(data, self, pos, path, path_index)
@@ -187,13 +238,13 @@ func _add_invader(data: InvaderData, pos: Vector2, path: Array[Vector2i], path_i
 
 func on_invader_killed(invader: Invader) -> void:
 	invaders.erase(invader)
-	var data := invader.data
-	if data.split_into:
-		for i in data.split_count:
-			# Nudge the pieces apart a little so they don't overlap exactly.
-			var nudge := Vector2(randf_range(-3, 3), randf_range(-3, 3))
-			_add_invader(data.split_into, invader.position + nudge,
-				invader.path.duplicate(), invader.path_index)
+	if invader.data.split_into:
+		spawn_from(invader, invader.data.split_into, invader.data.split_count)
+	# Spreading poison jumps to everyone nearby when its carrier dies.
+	if invader.poison_time > 0.0 and invader.poison_spreads:
+		for other in invaders:
+			if other.position.distance_to(invader.position) <= POISON_SPREAD_RANGE * TILE:
+				other.apply_poison(invader.poison_dps, invader.poison_time, true)
 	invader.queue_free()
 
 
@@ -253,7 +304,7 @@ func _draw() -> void:
 	if selected_cell != NO_CELL:
 		draw_rect(Rect2(Vector2(selected_cell * TILE), Vector2(TILE, TILE)), Color.WHITE, false, 1.0)
 		var unit: Unit = units.get(selected_cell)
-		if unit and unit.data.role == UnitData.Role.ATTACKER:
+		if unit and unit.data.can_attack():
 			draw_arc(cell_center(selected_cell), unit.data.attack_range * TILE, 0, TAU, 48, Color(1, 1, 1, 0.6), 1.0)
 
 	if _flash_time > 0.0:

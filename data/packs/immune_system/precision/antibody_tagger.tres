@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3hkeo"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/opsonizer.tres" id="2_x8wlu"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/long_tagger.tres" id="3_j2rfy"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/antibody_tagger.png" id="4_v3iy0"]
+
+[resource]
+script = ExtResource("1_3hkeo")
+id = "antibody_tagger"
+display_name = "Antibody Tagger"
+role = 2
+cost = 12
+max_hp = 15
+damage = 1.0
+attack_range = 3.0
+hits_air = true
+mark_bonus = 0.3
+mark_duration = 3.0
+evolutions = Array[ExtResource("1_3hkeo")]([ExtResource("2_x8wlu"), ExtResource("3_j2rfy")])
+texture = ExtResource("4_v3iy0")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Marks targets: they take 40% more damage from everything."

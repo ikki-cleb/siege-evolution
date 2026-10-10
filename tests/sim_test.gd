@@ -1,14 +1,16 @@
 extends SceneTree
-## Automated playtest. Plays levels without a screen, as fast as possible,
-## and checks the rules work. Run from the project folder:
-##   godot --headless --fixed-fps 60 --script tests/sim_test.gd
+## Automated playtest. Plays levels without a screen, as fast as possible.
+## Run from the project folder:
+##   godot --headless --fixed-fps 60 --script tests/sim_test.gd          (rules + balance)
+##   godot --headless --fixed-fps 60 --script tests/sim_test.gd -- rules (rules only)
 ##
-## Prints PASS/FAIL lines and exits with code 1 if anything failed.
+## Prints PASS/FAIL lines plus a balance table (base HP left for each pack on
+## each level) and exits with code 1 if anything failed.
 
-const MAIN_SCENE := "res://scenes/main.tscn"
-const GameScript := preload("res://scripts/game/game.gd")
+const GAME_SCENE := "res://scenes/game.tscn"
 
 var failures := 0
+var progress: Node
 
 
 func _initialize() -> void:
@@ -16,144 +18,189 @@ func _initialize() -> void:
 
 
 func _run() -> void:
-	await _test_rules()
-	await _test_level(0, [], false, "Level 1, no defenses")
-	await _test_level(0, LEVEL_1_PLAN, true, "Level 1, bot plan")
-	await _test_level(1, [], false, "Level 2, no defenses")
-	await _test_level(1, LEVEL_2_PLAN, true, "Level 2, bot plan")
+	progress = root.get_node("Progress")
+	var biome: BiomeData = progress.load_biome(0)
+	await _test_rules(biome)
+	if not OS.get_cmdline_user_args().has("rules"):
+		await _test_balance(biome)
+	progress.reset()
 	print("\n%s" % ("ALL TESTS PASSED" if failures == 0 else "%d TEST(S) FAILED" % failures))
 	quit(1 if failures > 0 else 0)
 
 
-# A simple "player": every build phase it tries each placement in order,
-# skipping ones it can't afford, that are already built, or that are illegal.
-const LEVEL_1_PLAN := [
-	# Worm kill zone: a clot in the smasher lane with neutrophils on its corners.
-	["clot", 4, 4], ["neutrophil", 3, 4], ["neutrophil", 5, 4],
-	["membrane", 0, 4], ["membrane", 1, 4], ["membrane", 2, 4], ["membrane", 6, 4],
-	["b_cell", 6, 5], ["membrane", 7, 4],
-	["neutrophil", 6, 7], ["b_cell", 5, 6],
-	["membrane", 8, 10], ["membrane", 7, 10], ["membrane", 6, 10], ["membrane", 5, 10],
-	["membrane", 4, 10], ["membrane", 3, 10], ["membrane", 2, 10], ["membrane", 1, 10],
-	["neutrophil", 1, 9], ["b_cell", 3, 12], ["neutrophil", 3, 9], ["b_cell", 5, 12],
-]
-
-const LEVEL_2_PLAN := [
-	# Kill zone for worms from the left spawn, flier defense near the base.
-	["clot", 1, 2], ["neutrophil", 0, 2], ["neutrophil", 2, 2],
-	["b_cell", 2, 12], ["b_cell", 3, 8],
-	# Serpentine: row 6 open only at x=1, row 9 open only at x=7..8.
-	["membrane", 2, 6], ["membrane", 3, 6], ["membrane", 4, 6], ["membrane", 5, 6],
-	["membrane", 6, 6], ["membrane", 7, 6], ["membrane", 8, 6], ["membrane", 0, 6],
-	["membrane", 0, 9], ["membrane", 1, 9], ["membrane", 2, 9], ["membrane", 3, 9],
-	["membrane", 4, 9], ["membrane", 5, 9], ["membrane", 6, 9],
-	# Kill zone for worms from the right spawn.
-	["clot", 8, 2], ["neutrophil", 7, 2], ["neutrophil", 7, 1],
-	["b_cell", 0, 11], ["neutrophil", 2, 7], ["b_cell", 6, 10], ["neutrophil", 8, 10],
-]
-
-
-func _start_level(index: int) -> Node:
-	GameScript.level_index = index
-	var game: Node = load(MAIN_SCENE).instantiate()
+func _start(biome: BiomeData, pack_index: int, level_index: int) -> Node:
+	progress.biome = biome
+	progress.pack = biome.packs[pack_index]
+	progress.level_index = level_index
+	var game: Node = load(GAME_SCENE).instantiate()
 	root.add_child(game)
 	await process_frame
 	return game
 
 
-func _unit_type(game: Node, id: String) -> UnitData:
-	for type in game.unit_types:
-		if type.id == id:
-			return type
-	return null
-
-
-func _place(game: Node, id: String, cell: Vector2i) -> bool:
-	var type := _unit_type(game, id)
-	var before: int = game.board.units.size()
-	game.selected_type = null
-	game.select_type(type)
-	game._on_cell_tapped(cell)
-	return game.board.units.size() > before
-
-
-func _test_level(index: int, plan: Array, expect_win: bool, label: String) -> void:
-	var game := await _start_level(index)
-	var frames := 0
-	var lowest_hp: int = game.base_hp
-	var log := []
-	var leaks := {}
-	game.board.base_hit.connect(func(inv): leaks[inv.id] = leaks.get(inv.id, 0) + 1)
+## Plays a level to the end. If `player` is null, nothing is ever built.
+func _play(game: Node, player: AutoPlayer) -> void:
+	var wave_frames := 0
 	while game.phase != game.Phase.WON and game.phase != game.Phase.LOST:
 		if game.phase == game.Phase.BUILD:
-			for step in plan:
-				var cell := Vector2i(step[1], step[2])
-				if not game.board.units.has(cell):
-					_place(game, step[0], cell)
-			log.append("w%d:%dhp/%du" % [game.wave_number + 1, game.base_hp, game.board.units.size()])
+			if player:
+				player.build_phase()
 			game.start_wave()
+			wave_frames = 0
 		await process_frame
-		frames += 1
-		if frames > 60 * 60 * 30:
-			break
-	var won: bool = game.phase == game.Phase.WON
-	_check(won == expect_win, "%s: %s with %d/%d base HP after %d waves (%.0fs game time)" % [
-		label, "WON" if won else "LOST", game.base_hp, game.level.base_hp, game.wave_number, frames / 60.0])
-	print("      ", " ".join(log))
-	print("      leaked: ", leaks)
+		wave_frames += 1
+		if wave_frames > 60 * 60 * 4:
+			_check(false, "Wave %d of %s never ended (stalemate?)" % [game.wave_number, game.level.display_name])
+			return
+
+
+func _stop(game: Node) -> void:
 	game.queue_free()
 	await process_frame
 
 
-func _test_rules() -> void:
-	var game := await _start_level(0)
+# --- Balance ----------------------------------------------------------------
+
+func _test_balance(biome: BiomeData) -> void:
+	print("\nBalance: base HP left (of 20) when the auto-player plays each pack. Two runs per cell; 'L8' = lost on wave 8.")
+	var header := "%-22s" % "Level"
+	for pack in biome.packs:
+		header += "%11s" % pack.display_name
+	print(header)
+	var pack_wins := {}
+	for level_index in biome.levels.size():
+		var row := "%-22s" % biome.levels[level_index].display_name
+		for pack_index in biome.packs.size():
+			# Two runs with different random seeds, to smooth out luck.
+			var results: Array[String] = []
+			var wins := 0
+			for seed_value in [7, 99]:
+				var game := await _start(biome, pack_index, level_index)
+				await _play(game, AutoPlayer.new(game, seed_value + level_index))
+				if game.phase == game.Phase.WON:
+					wins += 1
+					results.append(str(game.base_hp))
+				else:
+					results.append("L%d" % game.wave_number)
+				await _stop(game)
+			row += "%11s" % "/".join(results)
+			if wins >= 1:
+				pack_wins[pack_index] = pack_wins.get(pack_index, 0) + 1
+		print(row)
+
+	for level_index in [0, 1]:
+		var game := await _start(biome, 0, level_index)
+		await _play(game, null)
+		_check(game.phase == game.Phase.LOST, "%s is lost with no defenses (wave %d)" % [
+			biome.levels[level_index].display_name, game.wave_number])
+		await _stop(game)
+	for pack_index in biome.packs.size():
+		_check(pack_wins.get(pack_index, 0) >= biome.levels.size() - 1,
+			"%s pack beats at least %d of %d levels" % [biome.packs[pack_index].display_name,
+			biome.levels.size() - 1, biome.levels.size()])
+
+
+# --- Rules ------------------------------------------------------------------
+
+func _test_rules(biome: BiomeData) -> void:
+	var game := await _start(biome, 0, 0)  # Fortress, level 1
 	var board: Board = game.board
+	var wall: UnitData = game.unit_types[0]
+	var fighter: UnitData = game.unit_types[1]
+
+	_check(game.unit_types.size() == 3, "Level 1 offers the pack's first 3 units")
+	_check(game.hand.get(wall.id, 0) == 3, "Starting hand converts ATP value into copies (24 ATP of 8-ATP walls = 3)")
 
 	# Sealing the path must be refused. Row 1 is fully open, 9 tiles wide.
 	game.atp = 999
 	for x in 8:
-		_place(game, "membrane", Vector2i(x, 1))
-	var sealed := _place(game, "membrane", Vector2i(8, 1))
-	_check(not sealed and not board.walker_path(board.spawn_cells[0]).is_empty(),
+		game.try_place(wall, Vector2i(x, 1))
+	_check(not game.try_place(wall, Vector2i(8, 1)) and not board.walker_path(board.spawn_cells[0]).is_empty(),
 		"Placement that would seal the path is refused")
 
-	# The 6 free membranes went on x=0..5, so x=6 and x=7 were bought with ATP.
-	# Undoing the last one should remove it and refund its 4 ATP.
-	var atp_before: int = game.atp
-	game.undo()
-	_check(not board.units.has(Vector2i(7, 1)) and game.atp == atp_before + 4,
-		"Undo removes the last placed unit and refunds its ATP")
-	# Undo twice more: x=6 (bought) and x=5 (free, goes back to the hand).
-	game.undo()
-	game.undo()
-	_check(game.hand["membrane"] == 1 and game.atp == atp_before + 8,
-		"Undo returns free units to the hand")
-
-	# Selling refunds 75%, and undoing the sale takes it back.
-	game._on_cell_tapped(Vector2i(0, 1))
-	var atp_pre_sell: int = game.atp
+	# Same-round refunds: free units go back to the hand, bought units refund fully.
+	game._select_cell(Vector2i(0, 1))  # first wall came from the hand
 	game.sell_selected()
-	_check(game.atp == atp_pre_sell + 3 and not board.units.has(Vector2i(0, 1)),
-		"Selling a 4 ATP membrane refunds 3 ATP")
-	game.undo()
-	_check(game.atp == atp_pre_sell and board.units.has(Vector2i(0, 1)),
-		"Undoing a sale restores the unit and takes the ATP back")
+	_check(game.hand[wall.id] == 1, "Removing a free unit placed this round returns it to the hand")
+	var atp_before: int = game.atp
+	game._select_cell(Vector2i(7, 1))  # bought with ATP
+	game.sell_selected()
+	_check(game.atp == atp_before + wall.cost, "Removing a bought unit placed this round refunds 100%")
 
-	# Damaged and destroyed units are fully restored between waves.
-	var unit: Unit = board.units[Vector2i(0, 1)]
-	unit.take_damage(999)
-	var other: Unit = board.units[Vector2i(1, 1)]
-	other.take_damage(5)
-	_check(unit.destroyed, "A unit can be destroyed")
+	# Evolving costs ATP and also refunds fully in the same round.
+	game.try_place(fighter, Vector2i(4, 5))
+	game._select_cell(Vector2i(4, 5))
+	var evo: UnitData = fighter.evolutions[0]
+	atp_before = game.atp
+	game.evolve_selected(evo)
+	var unit: Unit = board.units[Vector2i(4, 5)]
+	_check(unit.data == evo and game.atp == atp_before - evo.cost, "Evolving swaps the unit and costs ATP")
+	_check(not game.can_evolve(fighter.evolutions[1]), "An evolved unit can't evolve again")
+
+	# Damage a wall and destroy another, then play a wave.
+	var damaged: Unit = board.units[Vector2i(1, 1)]
+	damaged.take_damage(5)
+	var broken: Unit = board.units[Vector2i(2, 1)]
+	broken.take_damage(9999)
+	_check(broken.destroyed, "A unit can be destroyed")
 	game.start_wave()
 	while game.phase == game.Phase.WAVE:
 		await process_frame
-	_check(not unit.destroyed and unit.hp == unit.data.max_hp and other.hp == other.data.max_hp,
+	_check(not broken.destroyed and broken.hp == broken.data.max_hp and damaged.hp == damaged.data.max_hp,
 		"Units are fully repaired between waves")
-	_check(not game.can_undo(), "Undo history is cleared once a wave starts")
 
-	game.queue_free()
-	await process_frame
+	# Next round: older units refund 50%, including evolution cost.
+	game._select_cell(Vector2i(4, 5))
+	var value: Dictionary = game.sell_value(unit)
+	_check(value.atp == int(fighter.cost * 0.5) + int(evo.cost * 0.5) and not value.to_hand,
+		"Units from earlier rounds refund 50% of unit + evolution cost")
+	value = game.sell_value(board.units[Vector2i(1, 1)])
+	_check(value.atp == int(wall.cost * 0.5) and not value.to_hand,
+		"Free units from earlier rounds refund 50% of their cost in ATP")
+	await _stop(game)
+
+	# Unit effects, checked directly on a board.
+	game = await _start(biome, 2, 0)  # Precision
+	board = game.board
+	var invader_data: InvaderData = load("res://data/invaders/immune_system/biofilm.tres")
+	board.spawn_invader(invader_data, 0)
+	var target: Invader = board.invaders[0]
+	target.take_damage(5)
+	_check(is_equal_approx(target.hp, invader_data.max_hp - 3), "Armor 2 reduces a 5-damage hit to 3")
+	target.take_damage(5, true)
+	_check(is_equal_approx(target.hp, invader_data.max_hp - 8), "Piercing hits ignore armor")
+	target.apply_mark(0.5, 2.0)
+	var hp_before := target.hp
+	target.take_damage(6, true)
+	_check(is_equal_approx(target.hp, hp_before - 9), "Marked invaders take extra damage")
+	target.apply_slow(0.5, 1.0)
+	target.apply_slow(0.2, 1.0)
+	_check(is_equal_approx(target.slow_amount, 0.5), "A weaker slow doesn't replace a stronger one")
+	target.apply_poison(4.0, 2.0, true)
+	board.spawn_invader(load("res://data/invaders/immune_system/rhinovirus.tres"), 0)
+	var neighbor: Invader = board.invaders[1]
+	neighbor.position = target.position
+	target.take_damage(999, true)
+	_check(neighbor.poison_time > 0.0, "Spreading poison jumps to nearby invaders on death")
+	await _stop(game)
+
+	# Reflect and boss minions.
+	game = await _start(biome, 0, 6)  # Fortress, level 7
+	board = game.board
+	var spike: UnitData = game.unit_types[0].evolutions[1]
+	var spike_unit: Unit = board.place_unit(spike, Vector2i(4, 6))
+	board.spawn_invader(load("res://data/invaders/immune_system/worm.tres"), 0)
+	var worm: Invader = board.invaders[0]
+	spike_unit.take_damage(10, worm)
+	_check(is_equal_approx(worm.hp, worm.data.max_hp - 10 * spike.reflect), "Reflect bounces smasher damage back")
+	board.wave_active = true
+	var boss_data: InvaderData = load("res://data/invaders/immune_system/superbug.tres")
+	board.spawn_invader(boss_data, 0)
+	var count_before := board.invaders.size()
+	for i in int(60 * (boss_data.minion_interval + 1.0)):
+		await process_frame
+	_check(board.invaders.size() > count_before, "The boss releases minions while it walks")
+	await _stop(game)
 
 
 func _check(ok: bool, text: String) -> void:

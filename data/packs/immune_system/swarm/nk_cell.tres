@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_751vp"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/killer_nk_cell.tres" id="2_1i8xq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/hunting_nk_cell.tres" id="3_mqw62"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/nk_cell.png" id="4_ko052"]
+
+[resource]
+script = ExtResource("1_751vp")
+id = "nk_cell"
+display_name = "NK Cell"
+role = 1
+cost = 14
+max_hp = 25
+damage = 4.0
+attack_interval = 0.45
+pierce = true
+adjacency_bonus = 0.15
+evolutions = Array[ExtResource("1_751vp")]([ExtResource("2_1i8xq"), ExtResource("3_mqw62")])
+texture = ExtResource("4_ko052")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Armor-piercing melee flurries."

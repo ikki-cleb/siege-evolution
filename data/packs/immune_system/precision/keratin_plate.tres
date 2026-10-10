@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_aersl"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/layered_plate.tres" id="2_yi41c"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/spined_plate.tres" id="3_6mv04"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/keratin_plate.png" id="4_2e6fr"]
+
+[resource]
+script = ExtResource("1_aersl")
+id = "keratin_plate"
+display_name = "Keratin Plate"
+max_hp = 30
+evolutions = Array[ExtResource("1_aersl")]([ExtResource("2_yi41c"), ExtResource("3_6mv04")])
+texture = ExtResource("4_2e6fr")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Sturdy wall."

@@ -2,28 +2,29 @@ extends Node2D
 ## Runs one level from start to finish:
 ##   build phase -> wave -> build phase -> wave ... -> level cleared (or lost)
 ##
-## The game owns the "rules" (ATP, the player's hand, undo, selling, waves).
-## The Board owns the battlefield itself.
+## The game owns the "rules" (ATP, the player's hand, selling, evolving,
+## waves). The Board owns the battlefield itself. Which biome, pack, and level
+## to play comes from Progress (set by the menu).
 
-const LEVELS: Array[String] = [
-	"res://data/levels/level_01.tres",
-	"res://data/levels/level_02.tres",
-]
-const SELL_REFUND := 0.75
-const BOARD_POSITION := Vector2(36, 96)
+## Selling a unit from an earlier round refunds this share of what it cost.
+const OLD_UNIT_REFUND := 0.5
+const BOARD_POSITION := Vector2(36, 82)
 const BOARD_SCALE := 2.0
+const MENU_SCENE := "res://scenes/menu.tscn"
+const PREVIEW_FOOTNOTE := "Path preview is only shown in the first level of each biome."
 
 enum Phase { BUILD, WAVE, WON, LOST }
 
-## Which level to load. "static" so it survives reloading the scene.
-static var level_index := 0
-
 var level: LevelData
+var pack: PackData
+## 1-based level number inside the biome.
+var level_number := 1
 var board: Board
 var hud: Hud
 
 var phase := Phase.BUILD
-## How many waves have been started so far (shown as "Wave 3/10").
+## How many waves have been started so far (shown as "Wave 3/10"). During a
+## build phase this is also the "round" number used for refunds.
 var wave_number := 0
 var base_hp := 0
 var atp := 0
@@ -33,14 +34,10 @@ var hand := {}
 var unit_types: Array[UnitData] = []
 ## The unit type chosen in the bar (what a tap on an empty tile will place).
 var selected_type: UnitData = null
-## A placed unit the player tapped (can be sold).
+## A placed unit the player tapped (can be evolved or sold).
 var selected_cell := Board.NO_CELL
 var speed := 1
 
-# Each entry records one build action so it can be undone:
-#   {"action": "place", "cell", "type", "paid_with": "hand" or "atp"}
-#   {"action": "sell",  "cell", "type", "refund"}
-var _undo_stack: Array[Dictionary] = []
 # Invaders still to appear this wave: {"time", "invader", "spawn"}, sorted by time.
 var _spawn_queue: Array[Dictionary] = []
 var _wave_time := 0.0
@@ -48,7 +45,13 @@ var _wave_time := 0.0
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
-	level = load(LEVELS[level_index])
+	if Progress.biome == null:
+		# Started directly from the editor: play level 1 with the first pack.
+		var biome := Progress.load_biome(0)
+		Progress.choose_pack(biome, biome.packs[0])
+	pack = Progress.pack
+	level_number = Progress.level_index + 1
+	level = Progress.biome.levels[Progress.level_index]
 
 	board = Board.new()
 	board.position = BOARD_POSITION
@@ -60,17 +63,19 @@ func _ready() -> void:
 
 	base_hp = level.base_hp
 	atp = level.starting_atp
-	for unit in level.starting_hand:
-		hand[unit.id] = hand.get(unit.id, 0) + 1
-		if not unit_types.has(unit):
-			unit_types.append(unit)
-	for unit in level.shop:
-		if not unit_types.has(unit):
-			unit_types.append(unit)
+	unit_types = pack.units_for_level(level_number)
+	for slot in unit_types.size():
+		if slot < level.hand_value.size() and level.hand_value[slot] > 0:
+			# At least one free copy, then as many as the value buys.
+			var copies := maxi(1, roundi(float(level.hand_value[slot]) / unit_types[slot].cost))
+			hand[unit_types[slot].id] = copies
 
 	hud = Hud.new()
 	add_child(hud)
 	hud.setup(self)
+	var new_unit := pack.unit_unlocked_on(level_number)
+	if new_unit:
+		hud.show_message("New unit unlocked: %s. %s" % [new_unit.display_name, new_unit.description])
 	_enter_build_phase()
 
 
@@ -79,7 +84,7 @@ func _ready() -> void:
 func _enter_build_phase() -> void:
 	phase = Phase.BUILD
 	board.wave_active = false
-	board.show_path_preview = true
+	board.show_path_preview = level.show_path_preview
 	var next_wave := level.waves[wave_number]
 	board.preview_smashers = _wave_has(next_wave, InvaderData.Movement.SMASHER)
 	board.preview_fliers = _wave_has(next_wave, InvaderData.Movement.FLIER)
@@ -87,12 +92,22 @@ func _enter_build_phase() -> void:
 	hud.refresh()
 
 
+## Footnote under the board: tutorial tips and the path preview note.
+func footnote() -> String:
+	var lines: Array[String] = []
+	if phase == Phase.BUILD and wave_number < level.wave_tips.size() and level.wave_tips[wave_number] != "":
+		lines.append(level.wave_tips[wave_number])
+	if level.show_path_preview:
+		lines.append(PREVIEW_FOOTNOTE)
+	return "\n".join(lines)
+
+
 func select_type(type: UnitData) -> void:
 	# Tapping the selected type again deselects it.
 	selected_type = null if selected_type == type else type
 	_select_cell(Board.NO_CELL)
 	if selected_type:
-		hud.show_message(_describe(selected_type))
+		hud.show_message(describe(selected_type))
 	hud.refresh()
 
 
@@ -100,78 +115,102 @@ func _on_cell_tapped(cell: Vector2i) -> void:
 	if phase == Phase.WON or phase == Phase.LOST:
 		return
 	if board.units.has(cell):
-		_select_cell(cell)
-		hud.show_message(_describe(board.units[cell].data))
+		_select_cell(Board.NO_CELL if selected_cell == cell else cell)
+		if selected_cell != Board.NO_CELL:
+			hud.show_message(describe(board.units[cell].data))
 	elif phase == Phase.BUILD and selected_type:
-		_try_place(selected_type, cell)
+		try_place(selected_type, cell)
 	else:
 		_select_cell(Board.NO_CELL)
 	hud.refresh()
 
 
-func _try_place(type: UnitData, cell: Vector2i) -> void:
+## Places a unit, paying from the hand if possible, otherwise with ATP.
+## Returns true if it was placed.
+func try_place(type: UnitData, cell: Vector2i) -> bool:
 	_select_cell(Board.NO_CELL)
-	if not board.is_buildable(cell):
+	if phase != Phase.BUILD or not board.is_buildable(cell):
 		board.flash(cell)
-		return
-	var paid_with := ""
-	if hand.get(type.id, 0) > 0:
-		paid_with = "hand"
-	elif level.shop.has(type) and atp >= type.cost:
-		paid_with = "atp"
-	else:
+		return false
+	var from_hand: bool = hand.get(type.id, 0) > 0
+	if not from_hand and atp < type.cost:
 		board.flash(cell)
-		hud.show_message("Not enough ATP." if level.shop.has(type) else "None left.")
-		return
+		hud.show_message("Not enough ATP.")
+		return false
 	if not board.can_place(cell):
 		board.flash(cell)
 		hud.show_message("Can't seal the path completely!")
-		return
+		return false
 
-	if paid_with == "hand":
+	if from_hand:
 		hand[type.id] -= 1
 	else:
 		atp -= type.cost
-	board.place_unit(type, cell)
-	_undo_stack.append({"action": "place", "cell": cell, "type": type, "paid_with": paid_with})
+	var unit := board.place_unit(type, cell)
+	unit.placed_round = wave_number
+	unit.from_hand = from_hand
+	return true
+
+
+func selected_unit() -> Unit:
+	return board.units.get(selected_cell)
+
+
+## Units bought or evolved during this build phase refund fully (free units
+## go back to the hand). Anything older refunds half its ATP cost.
+## Returns {"atp": int, "to_hand": bool}.
+func sell_value(unit: Unit) -> Dictionary:
+	var result := {"atp": 0, "to_hand": false}
+	if unit.placed_round == wave_number:
+		if unit.from_hand:
+			result.to_hand = true
+		else:
+			result.atp += unit.base_data.cost
+	else:
+		result.atp += int(unit.base_data.cost * OLD_UNIT_REFUND)
+	if unit.is_evolved():
+		if unit.evolved_round == wave_number:
+			result.atp += unit.data.cost
+		else:
+			result.atp += int(unit.data.cost * OLD_UNIT_REFUND)
+	return result
 
 
 func can_sell() -> bool:
-	return phase == Phase.BUILD and board.units.has(selected_cell)
+	return phase == Phase.BUILD and selected_unit() != null
 
 
 func sell_selected() -> void:
 	if not can_sell():
 		return
-	var cell := selected_cell
-	var type: UnitData = board.units[cell].data
-	var refund := int(type.cost * SELL_REFUND)
-	atp += refund
-	board.remove_unit(cell)
-	_undo_stack.append({"action": "sell", "cell": cell, "type": type, "refund": refund})
+	var unit := selected_unit()
+	var value := sell_value(unit)
+	atp += value.atp
+	if value.to_hand:
+		hand[unit.base_data.id] = hand.get(unit.base_data.id, 0) + 1
+	var unit_name := unit.data.display_name
+	board.remove_unit(selected_cell)
 	_select_cell(Board.NO_CELL)
-	hud.show_message("Sold %s for %d ATP." % [type.display_name, refund])
+	if value.to_hand:
+		hud.show_message("%s returned to your hand." % unit_name)
+	else:
+		hud.show_message("Removed %s for %d ATP." % [unit_name, value.atp])
 	hud.refresh()
 
 
-func can_undo() -> bool:
-	return phase == Phase.BUILD and not _undo_stack.is_empty()
+func can_evolve(into: UnitData) -> bool:
+	var unit := selected_unit()
+	return phase == Phase.BUILD and unit != null and not unit.is_evolved() and atp >= into.cost
 
 
-func undo() -> void:
-	if not can_undo():
+func evolve_selected(into: UnitData) -> void:
+	if not can_evolve(into):
 		return
-	var step: Dictionary = _undo_stack.pop_back()
-	if step.action == "place":
-		board.remove_unit(step.cell)
-		if step.paid_with == "hand":
-			hand[step.type.id] += 1
-		else:
-			atp += step.type.cost
-	elif step.action == "sell":
-		board.place_unit(step.type, step.cell)
-		atp -= step.refund
-	_select_cell(Board.NO_CELL)
+	var unit := selected_unit()
+	atp -= into.cost
+	unit.evolve(into)
+	unit.evolved_round = wave_number
+	hud.show_message("Evolved into %s! %s" % [into.display_name, into.description])
 	hud.refresh()
 
 
@@ -187,7 +226,6 @@ func start_wave() -> void:
 	if phase != Phase.BUILD:
 		return
 	phase = Phase.WAVE
-	_undo_stack.clear()
 	selected_type = null
 	_select_cell(Board.NO_CELL)
 	board.show_path_preview = false
@@ -245,8 +283,10 @@ func _finish(won: bool) -> void:
 	board.wave_active = false
 	board.process_mode = Node.PROCESS_MODE_DISABLED
 	Engine.time_scale = 1.0
+	if won:
+		Progress.complete_level()
 	hud.refresh()
-	hud.show_end_screen(won, won and has_next_level())
+	hud.show_end_screen(won)
 
 
 func cycle_speed() -> void:
@@ -255,8 +295,8 @@ func cycle_speed() -> void:
 	hud.refresh()
 
 
-func has_next_level() -> bool:
-	return level_index + 1 < LEVELS.size()
+func is_last_level() -> bool:
+	return Progress.level_index + 1 >= Progress.biome.levels.size()
 
 
 func retry() -> void:
@@ -264,8 +304,14 @@ func retry() -> void:
 
 
 func next_level() -> void:
-	level_index += 1
+	Progress.level_index += 1
 	get_tree().reload_current_scene()
+
+
+func quit_to_menu() -> void:
+	Engine.time_scale = 1.0
+	Progress.return_screen = "biomes" if phase == Phase.WON and is_last_level() else "levels"
+	get_tree().change_scene_to_file(MENU_SCENE)
 
 
 # --- Text helpers -----------------------------------------------------------
@@ -287,11 +333,40 @@ func next_wave_summary() -> String:
 	return "Next: " + ", ".join(parts)
 
 
-func _describe(type: UnitData) -> String:
-	if type.role == UnitData.Role.WALL:
-		return "%s: wall, %d HP." % [type.display_name, type.max_hp]
-	return "%s: %d dmg, range %.1f%s." % [type.display_name, type.damage,
-		type.attack_range, ", hits fliers" if type.hits_air else ", ground only"]
+## One line of stats for a unit, e.g. "Neutrophil: 2 dmg, range 1.5, ground only."
+func describe(type: UnitData) -> String:
+	var parts: Array[String] = []
+	if type.role == UnitData.Role.WALL or not type.can_attack():
+		parts.append("%d HP" % type.max_hp)
+	if type.damage > 0.0:
+		parts.append("%s dmg%s" % [_num(type.damage), " to all in range" if type.attack_mode == UnitData.AttackMode.PULSE else ""])
+	if type.can_attack():
+		parts.append("range %s" % _num(type.attack_range))
+	if type.splash_radius > 0.0:
+		parts.append("splash")
+	if type.slow > 0.0:
+		parts.append("slows %d%%" % roundi(type.slow * 100))
+	if type.stun_duration > 0.0:
+		parts.append("stuns %ss" % _num(type.stun_duration))
+	if type.poison_dps > 0.0:
+		parts.append("poison %s/s%s" % [_num(type.poison_dps), ", spreads" if type.poison_spreads else ""])
+	if type.mark_bonus > 0.0:
+		parts.append("marks +%d%% dmg" % roundi(type.mark_bonus * 100))
+	if type.pierce:
+		parts.append("pierces armor")
+	if type.reflect > 0.0:
+		parts.append("reflects %d%%" % roundi(type.reflect * 100))
+	if type.regen > 0.0:
+		parts.append("regen %s/s" % _num(type.regen))
+	if type.adjacency_bonus > 0.0:
+		parts.append("faster in groups")
+	if type.can_attack():
+		parts.append("hits fliers" if type.hits_air else "ground only")
+	return "%s: %s." % [type.display_name, ", ".join(parts)]
+
+
+func _num(value: float) -> String:
+	return str(snappedf(value, 0.1)).trim_suffix(".0")
 
 
 func _wave_has(wave: WaveData, movement: InvaderData.Movement) -> bool:

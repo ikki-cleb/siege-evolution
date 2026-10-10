@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_r0cbm"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/keratinized_cell.tres" id="2_ggyok"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/ciliated_cell.tres" id="3_p0cxn"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/epithelial_cell.png" id="4_2j0mb"]
+
+[resource]
+script = ExtResource("1_r0cbm")
+id = "epithelial_cell"
+display_name = "Epithelial Cell"
+cost = 3
+max_hp = 18
+evolutions = Array[ExtResource("1_r0cbm")]([ExtResource("2_ggyok"), ExtResource("3_p0cxn")])
+texture = ExtResource("4_2j0mb")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Dirt-cheap wall."

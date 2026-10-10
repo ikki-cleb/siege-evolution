@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_iba13"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_w1sxg"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/platelet_clot.tres" id="3_2oe2a"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/macrophage.tres" id="4_qieb4"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/dendritic_cell.tres" id="5_4gbom"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fibroblast.tres" id="6_5j7f2"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/eosinophil.tres" id="7_huep4"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/granuloma.tres" id="8_2u18h"]
+
+[resource]
+script = ExtResource("1_iba13")
+id = "fortress"
+display_name = "Fortress"
+description = "Massive walls and slow, heavy hitters. Holds the line and outlasts smashers."
+color = Color(0.81960785, 0.3764706, 0.23921569, 1)
+units = Array[ExtResource("2_w1sxg")]([ExtResource("3_2oe2a"), ExtResource("4_qieb4"), ExtResource("5_4gbom"), ExtResource("6_5j7f2"), ExtResource("7_huep4"), ExtResource("8_2u18h")])

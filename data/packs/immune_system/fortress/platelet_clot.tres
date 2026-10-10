@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4q27p"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fibrin_mesh.tres" id="2_cxsaq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/thrombus_spike.tres" id="3_ae8o2"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/platelet_clot.png" id="4_1tpab"]
+
+[resource]
+script = ExtResource("1_4q27p")
+id = "platelet_clot"
+display_name = "Platelet Clot"
+cost = 7
+max_hp = 90
+evolutions = Array[ExtResource("1_4q27p")]([ExtResource("2_cxsaq"), ExtResource("3_ae8o2")])
+texture = ExtResource("4_1tpab")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Very tough wall."

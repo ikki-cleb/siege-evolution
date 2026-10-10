@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_t1epi"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/hookworm.png" id="2_pti56"]
+
+[resource]
+script = ExtResource("1_t1epi")
+id = "hookworm"
+display_name = "Hookworm"
+movement = 1
+max_hp = 70
+regen = 3.0
+speed = 0.7
+base_damage = 4
+smash_damage = 9.0
+is_elite = true
+texture = ExtResource("2_pti56")
+description = "Elite: a regenerating worm."

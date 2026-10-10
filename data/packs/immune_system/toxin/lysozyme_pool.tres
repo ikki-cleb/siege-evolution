@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_onjrh"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/acid_pool.tres" id="2_focfe"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/spilling_pool.tres" id="3_1ql6r"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/lysozyme_pool.png" id="4_4s77u"]
+
+[resource]
+script = ExtResource("1_onjrh")
+id = "lysozyme_pool"
+display_name = "Lysozyme Pool"
+role = 1
+cost = 14
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 3.0
+poison_duration = 3.0
+evolutions = Array[ExtResource("1_onjrh")]([ExtResource("2_focfe"), ExtResource("3_1ql6r")])
+texture = ExtResource("4_4s77u")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poisons everything around it."
