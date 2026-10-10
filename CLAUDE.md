@@ -23,8 +23,9 @@ for the full game design — keep it updated whenever a design decision changes.
 - Engine: Godot 4.7, GDScript (not C#).
 - Data-driven content: units, invaders, and levels defined as Resources /
   data files, not hardcoded in scripts, so new content needs no code changes.
-- Placeholder art is fine; the user will draw final art. Keep sprites 16×16
-  and name files predictably so they can be swapped 1:1.
+- Art: animated sprites are code-drawn 32x32 strips (see Environment); the
+  user may swap any of them for generated art. Name files predictably so
+  they can be swapped 1:1. Still 16x16 sprites remain as fallbacks.
 
 ## Handoff: where the project stands (keep this section up to date)
 
@@ -40,7 +41,22 @@ plus a two-tap upgrade preview and drag-to-scroll menus. **Packs swap
 freely** (shared world progress; each pack remembers levels it beat) and
 there are **27 achievements** (`data/achievements.json`,
 `scripts/achievements.gd`, Achievements screen + unlock banner).
+**Art:** every unit and enemy has code-drawn animated sprites (idle/attack,
+move/death) in all 7 worlds; only living things have faces. Levels can take
+painted backgrounds (game support done, none delivered yet).
 `DESIGN.md` has every design decision; read it before changing gameplay.
+
+**Art handoff state.** The user is making the 35 level backgrounds in
+ChatGPT from drag-and-drop prompt files in `docs/art/chatgpt/` (one per
+world; filenames like `kitchen_defense_level_03.png`). When they send the
+images: `tools/import_backgrounds.py <folder>`, then import + content build,
+then republish. Follow-up once backgrounds exist: obstacle/spawn/base tiles
+have their old floor color baked in and will show as squares on top of the
+art; redraw them with transparency. Two Claude Docs briefs exist for
+reference: backgrounds https://claude.ai/artifact/Dk8EnbQN1PGpeuyhSoS4xK and
+sprites https://claude.ai/artifact/VnjA9ALpqnN1UNRHhVscKi (the sprite one
+describes 64x64 AI art; the user chose code-drawn 32x32 instead, with
+`docs/art/units.csv` / `enemies.csv` as full lists if they upgrade some).
 
 **Playtest links.** The private Claude artifact for this game is
 https://claude.ai/artifact/DA13mBPrv71jQU9WuZJDUC. Republish to that same URL
@@ -88,18 +104,25 @@ budget. `tools/tune.py <id> key=value` edits stats.
   `Progress.world_id(index)`; a win used to freeze ~10s from repeated loads.
 - Commit and push after every piece of work (a stop hook enforces it).
 
-**Open questions for the user:** how the bonus worlds feel in real play
-(bot wins 90% of Kitchen and 70% of Birthday levels 2-5; Fortress and
-Precision struggle most in both); any more v0.8 playtest notes; how the sounds
-and music feel; Blinker frequency.
+**Open questions for the user:** how the code-drawn sprites feel in play
+(any designs to redraw); how capstones feel (prices, strongest mechanics);
+how the bonus worlds feel (bot wins 90% of Kitchen and 70% of Birthday
+levels 2-5; Fortress and Precision struggle most); sounds and music;
+Blinker frequency.
+
+**Recent fixes worth knowing:** a ~10s freeze after winning a level (slow
+world loading in achievement checks) is fixed and guarded by a test; the
+loading screen no longer says "World 1". Web build: `index.pck.b64.txt` is
+~8.5 MB of the artifact's 16 MB-per-file limit; watch it when big art lands
+(backgrounds are imported as compressed WebP for this reason).
 
 **Latest balance (5 levels x 8 waves, bot wins on levels 2-5):** World 1
 95%, World 2 95%, World 3 90%, World 4 90%, World 5 85%, Kitchen 90%,
 Birthday 70%. Every check passes. Path preview now shows on every level
 (saved "Paths" toggle in the HUD).
 
-**Next steps (user's call):** capstone tuning once the user has played
-them (prices, strongest mechanics); playtest feedback on the bonus worlds;
-cosmetic unlocks; real billing (Apple StoreKit and
+**Next steps (user's call):** import the user's backgrounds when they
+arrive (and make obstacle tiles transparent); playtest feedback (sprites,
+capstones, bonus worlds); cosmetic unlocks; real billing (Apple StoreKit and
 Google Play Billing plugins, see the TODOs in `scripts/store.gd`); native
 iOS/Android builds and TestFlight / Play internal testing.
