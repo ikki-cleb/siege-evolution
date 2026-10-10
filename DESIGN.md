@@ -330,8 +330,10 @@ streamers); attackers are party gadgets (confetti cannons, water pistols,
 noisemakers, sparklers, party horns, disco balls).
 
 Same post-game rules as Kitchen Defense: the store card's
-"POST-GAME: HARD" warning, faster wave growth, less starting coin, and a
-similar bot win rate.
+"POST-GAME: HARD" warning and faster wave growth (45% per wave). The bot
+wins **72% on levels 2-7** (Kitchen: 85%), every pack beats at least 5 of 7,
+and every pack wins the teaching level. Piñatas count as 14 threat (body
+plus surprise) and never appear in wave 1 of levels 2-7.
 
 **New behavior: piñatas.** A slow, tough walker that bursts into 3-5 small
 invaders when broken (walkers, jumpers, fliers, small smashers; never elites

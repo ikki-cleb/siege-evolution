@@ -77,8 +77,8 @@ budget. `tools/tune.py <id> key=value` edits stats.
 - Commit and push after every piece of work (a stop hook enforces it).
 
 **Open questions for the user:** how the bonus worlds feel in real play
-(Kitchen: bot wins 85% of levels 2-7; Fortress/Precision struggle while
-Swarm/Control/Toxin cruise); any more v0.8 playtest notes; how the sounds
+(bot wins 85% of Kitchen and 72% of Birthday levels 2-7; Fortress and
+Precision struggle most in both); any more v0.8 playtest notes; how the sounds
 and music feel; Blinker frequency.
 
 **Next steps (user's call):** playtest feedback on the bonus worlds;
