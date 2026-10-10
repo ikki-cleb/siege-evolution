@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5esd5"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/walnut_shell.tres" id="2_ild4w"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/chestnut_burr.tres" id="3_iad1e"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/acorn_shell.png" id="4_7ysxm"]
+
+[resource]
+script = ExtResource("1_5esd5")
+id = "acorn_shell"
+display_name = "Acorn Shell"
+max_hp = 30
+evolutions = Array[ExtResource("1_5esd5")]([ExtResource("2_ild4w"), ExtResource("3_iad1e")])
+texture = ExtResource("4_7ysxm")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Sturdy wall."

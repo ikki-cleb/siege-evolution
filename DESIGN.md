@@ -1,7 +1,7 @@
 # Siege Evolution: Game Design Document
 
-Status: **v0.3, World 1 playable** (7 levels, 5 packs, evolutions, saved
-progress, store in test mode). Balance is tuned against an automated player, not real play yet.
+Status: **v0.4, Worlds 1–2 playable** (14 levels, 5 packs, evolutions,
+saved progress, store in test mode). Balance is tuned against an automated player, not real play yet.
 
 ## Pitch
 
@@ -31,7 +31,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
 - **Worlds (biomes):** 7 levels each, at one scale. Beating level 7 (the boss)
   unlocks the next, larger-scale world. The five main worlds, in order:
   1. **Microscopic** (the immune system), built
-  2. **Backyard Bugs**
+  2. **Backyard Bugs** (defend the queen's anthill), built
   3. **Wild Kingdom** (human and animal scale)
   4. **Total War** (ships, tanks, bombs)
   5. **Galactic Siege** (planets, starships, alien invaders)
@@ -116,6 +116,14 @@ and reflect (bounces part of smasher damage back).
 
 The full roster and stats live in `tools/content/immune_system.json`.
 
+## How worlds reuse packs
+
+Each pack plays exactly the same in every world: same stats, same unlock
+order, same evolutions. A world only renames the units and gives them new art
+(`"packs_from"` and `"renames"` in its JSON). In Backyard Bugs, walls are
+garden objects (pebbles, twigs, acorn shells, spiderwebs, nettles) and
+attackers are bugs (stag beetles, ants, spiders, stink bugs, wasps).
+
 ## Invaders (World 1)
 
 | Invader | Type | Notes |
@@ -131,6 +139,25 @@ The full roster and stats live in `tools/content/immune_system.json`.
 | **Superbug** | Boss smasher (level 7, wave 10) | Armor 1, releases Rhinoviruses as it walks |
 
 Armor reduces each non-piercing hit (a hit always does at least 1). Poison ignores armor.
+
+## Invaders (World 2: Backyard Bugs)
+
+New behavior: **burrowers.** They walk a few tiles, tunnel under the next
+stretch of their route (untargetable while underground), and resurface
+further along. That rewards defense in depth over a single choke point.
+
+| Invader | Type | Notes |
+|---|---|---|
+| Termite | Walker | Fast, weak swarms |
+| Soldier Termite | Walker (elite, level 2+) | Faster, armor 1 |
+| Aphid Cluster | Walker | Bursts into 3 aphids |
+| Scale Colony | Walker (elite, level 3+) | Armor 2, bursts into aphids |
+| Mole Cricket | **Burrower** | Walks 3 tiles, tunnels under the next 6 |
+| Rhino Beetle | Smasher | Rams through units |
+| Hercules Beetle | Smasher (elite, level 4+) | Armor 2 |
+| Mosquito | Flier | |
+| Hornet | Flier (elite, level 5+) | Armor 1, tougher |
+| **Giant Centipede** | Boss smasher (level 7, wave 10) | Tunnels once, releases termites |
 
 ## Monetization
 
@@ -158,15 +185,20 @@ in App Store Connect and Google Play Console.
 
 ## Level generation
 
-Level 1 is handwritten. Levels 2–7 are generated from a threat budget that
-grows 32% per wave and a fixed category mix per wave (swarm / split /
-smash / fly), with a growing share of elites once they're introduced. The
-output is regular .tres files that can be edited by hand.
+Each world's levels, wave rules and tutorial live in its JSON file
+(`tools/content/<world>.json`). Level 1 is handwritten. Levels 2–7 are
+generated from a threat budget that grows 32% per wave and a fixed category
+mix per wave (swarm / split / smash / fly, plus burrow in World 2), with a
+growing share of elites once they're introduced. The output is regular .tres
+files that can be edited by hand.
 
 ## Balancing method
 
 `tests/sim_test.gd` runs an automated player (`tests/auto_player.gd`) through
-every level with every pack (two seeds each) and prints base HP left. Current
+every level of every world with every pack (two seeds each) and prints base
+HP left. `tests/debug_level.gd` replays one level and prints the layout and
+leaks wave by wave. As of v0.4 the auto-player wins most levels comfortably,
+so difficulty should be judged by human playtesting next. Current
 targets: every pack beats at least 6 of 7 levels, levels with no defenses
 are lost, and the packs' averages stay close together. Human playtesting
 comes next.
@@ -175,7 +207,8 @@ comes next.
 
 - World 2 theme and scale (e.g. backyard bugs?), and how packs reskin there
 - Cosmetic unlocks (palettes, skins, menu themes): what and when
-- Content for worlds 2–5 and the two bonus worlds
+- Content for worlds 3–5 and the two bonus worlds
+- Overall difficulty after human playtesting (the bot finds most levels easy)
 - Sound and music direction
 - Sleek menu visual design
 - Save sync (iCloud / Google Play) or local only

@@ -17,10 +17,6 @@ const NO_CELL := Vector2i(-1, -1)
 ## How far (in tiles) poison jumps when a poisoned invader dies.
 const POISON_SPREAD_RANGE := 1.5
 
-const FLOOR_TEXTURE := preload("res://art/tiles/floor.png")
-const ROCK_TEXTURE := preload("res://art/tiles/rock.png")
-const SPAWN_TEXTURE := preload("res://art/tiles/spawn.png")
-const BASE_TEXTURE := preload("res://art/tiles/base.png")
 
 const PATH_COLOR := Color(1, 1, 1, 0.55)
 const SMASHER_PATH_COLOR := Color(1, 0.35, 0.25, 0.7)
@@ -53,9 +49,12 @@ var _flash_time := 0.0
 
 ## Draws shots and pulses above units and invaders.
 var fx: ShotEffects
+## Tile art comes from the world (biome) being played.
+var biome: BiomeData
 
 
-func setup(level: LevelData) -> void:
+func setup(level: LevelData, p_biome: BiomeData) -> void:
+	biome = p_biome
 	grid_size = Vector2i(level.layout[0].length(), level.layout.size())
 	for y in grid_size.y:
 		for x in grid_size.x:
@@ -290,13 +289,13 @@ func _draw() -> void:
 	for y in grid_size.y:
 		for x in grid_size.x:
 			var cell := Vector2i(x, y)
-			var texture := FLOOR_TEXTURE
+			var texture := biome.floor_texture
 			if rocks.has(cell):
-				texture = ROCK_TEXTURE
+				texture = biome.rock_texture
 			elif spawn_cells.has(cell):
-				texture = SPAWN_TEXTURE
+				texture = biome.spawn_texture
 			elif cell == base_cell:
-				texture = BASE_TEXTURE
+				texture = biome.base_texture
 			draw_texture(texture, Vector2(cell * TILE))
 
 	if show_path_preview:

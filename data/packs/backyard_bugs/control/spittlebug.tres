@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lpljd"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/froth_spittlebug.tres" id="2_qykbi"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/long_spittlebug.tres" id="3_nw513"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/spittlebug.png" id="4_lge2p"]
+
+[resource]
+script = ExtResource("1_lpljd")
+id = "spittlebug"
+display_name = "Spittlebug"
+role = 1
+cost = 13
+max_hp = 15
+damage = 3.5
+attack_range = 3.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+evolutions = Array[ExtResource("1_lpljd")]([ExtResource("2_qykbi"), ExtResource("3_nw513")])
+texture = ExtResource("4_lge2p")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Ranged splash shots. Hits fliers."

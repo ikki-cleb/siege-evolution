@@ -1,0 +1,973 @@
+{
+  "biome": {
+    "id": "backyard_bugs",
+    "name": "Backyard Bugs",
+    "description": "Down in the grass. Protect the queen's anthill from termites, beetles, mosquitoes and burrowing mole crickets."
+  },
+  "packs_from": "immune_system",
+  "renames": {
+    "platelet_clot": [
+      "pebble_wall",
+      "Pebble Wall"
+    ],
+    "fibrin_mesh": [
+      "cobblestone",
+      "Cobblestone"
+    ],
+    "thrombus_spike": [
+      "thorned_pebble",
+      "Thorned Pebble"
+    ],
+    "macrophage": [
+      "stag_beetle",
+      "Stag Beetle"
+    ],
+    "giant_macrophage": [
+      "goliath_stag",
+      "Goliath Stag"
+    ],
+    "foam_macrophage": [
+      "sweeping_stag",
+      "Sweeping Stag"
+    ],
+    "dendritic_cell": [
+      "bombardier_beetle",
+      "Bombardier Beetle"
+    ],
+    "mature_dendrite": [
+      "blast_bombardier",
+      "Blast Bombardier"
+    ],
+    "roaming_dendrite": [
+      "longshot_bombardier",
+      "Long-Shot Bombardier"
+    ],
+    "fibroblast": [
+      "moss_clump",
+      "Moss Clump"
+    ],
+    "scar_fibroblast": [
+      "dense_moss",
+      "Dense Moss"
+    ],
+    "healing_fibroblast": [
+      "lush_moss",
+      "Lush Moss"
+    ],
+    "eosinophil": [
+      "praying_mantis",
+      "Praying Mantis"
+    ],
+    "eosinophil_burst": [
+      "giant_mantis",
+      "Giant Mantis"
+    ],
+    "eosinophil_lancer": [
+      "orchid_mantis",
+      "Orchid Mantis"
+    ],
+    "granuloma": [
+      "tree_stump",
+      "Tree Stump"
+    ],
+    "calcified_granuloma": [
+      "petrified_stump",
+      "Petrified Stump"
+    ],
+    "caseous_granuloma": [
+      "thorny_stump",
+      "Thorny Stump"
+    ],
+    "epithelial_cell": [
+      "twig",
+      "Twig"
+    ],
+    "keratinized_cell": [
+      "twig_bundle",
+      "Twig Bundle"
+    ],
+    "ciliated_cell": [
+      "bramble_twig",
+      "Bramble Twig"
+    ],
+    "neutrophil": [
+      "worker_ant",
+      "Worker Ant"
+    ],
+    "frenzied_neutrophil": [
+      "fire_ant",
+      "Fire Ant"
+    ],
+    "scout_neutrophil": [
+      "scout_ant",
+      "Scout Ant"
+    ],
+    "monocyte": [
+      "acid_ant",
+      "Acid Ant"
+    ],
+    "volley_monocyte": [
+      "volley_ant",
+      "Volley Ant"
+    ],
+    "lookout_monocyte": [
+      "sentry_ant",
+      "Sentry Ant"
+    ],
+    "basophil": [
+      "honeybee",
+      "Honeybee"
+    ],
+    "degranulating_basophil": [
+      "angry_bee",
+      "Angry Bee"
+    ],
+    "wide_basophil": [
+      "buzzing_bee",
+      "Buzzing Bee"
+    ],
+    "nk_cell": [
+      "bullet_ant",
+      "Bullet Ant"
+    ],
+    "killer_nk_cell": [
+      "bullet_ant_major",
+      "Bullet Ant Major"
+    ],
+    "hunting_nk_cell": [
+      "hunting_ant",
+      "Hunting Ant"
+    ],
+    "net_trap": [
+      "sap_blob",
+      "Sap Blob"
+    ],
+    "dense_net": [
+      "thick_sap",
+      "Thick Sap"
+    ],
+    "wide_net": [
+      "spreading_sap",
+      "Spreading Sap"
+    ],
+    "keratin_plate": [
+      "acorn_shell",
+      "Acorn Shell"
+    ],
+    "layered_plate": [
+      "walnut_shell",
+      "Walnut Shell"
+    ],
+    "spined_plate": [
+      "chestnut_burr",
+      "Chestnut Burr"
+    ],
+    "b_cell": [
+      "spitting_spider",
+      "Spitting Spider"
+    ],
+    "plasma_cell": [
+      "venom_spitter",
+      "Venom Spitter"
+    ],
+    "memory_b_cell": [
+      "sharpshooter_spider",
+      "Sharpshooter Spider"
+    ],
+    "antibody_tagger": [
+      "firefly",
+      "Firefly"
+    ],
+    "opsonizer": [
+      "bright_firefly",
+      "Bright Firefly"
+    ],
+    "long_tagger": [
+      "signal_firefly",
+      "Signal Firefly"
+    ],
+    "cytotoxic_t": [
+      "assassin_bug",
+      "Assassin Bug"
+    ],
+    "effector_t": [
+      "masked_hunter",
+      "Masked Hunter"
+    ],
+    "patrol_t": [
+      "patrol_assassin",
+      "Patrol Assassin"
+    ],
+    "opsonin_lance": [
+      "jumping_spider",
+      "Jumping Spider"
+    ],
+    "heavy_lance": [
+      "heavy_jumper",
+      "Heavy Jumper"
+    ],
+    "rapid_lance": [
+      "quick_jumper",
+      "Quick Jumper"
+    ],
+    "interferon_beacon": [
+      "glowworm_lantern",
+      "Glowworm Lantern"
+    ],
+    "alarm_beacon": [
+      "blazing_lantern",
+      "Blazing Lantern"
+    ],
+    "tall_beacon": [
+      "tall_lantern",
+      "Tall Lantern"
+    ],
+    "mucus_wall": [
+      "spiderweb",
+      "Spiderweb"
+    ],
+    "thick_mucus": [
+      "thick_web",
+      "Thick Web"
+    ],
+    "sticky_mucus": [
+      "sticky_web",
+      "Sticky Web"
+    ],
+    "mast_cell": [
+      "stink_bug",
+      "Stink Bug"
+    ],
+    "reactive_mast_cell": [
+      "pungent_stink_bug",
+      "Pungent Stink Bug"
+    ],
+    "spreading_mast_cell": [
+      "wafting_stink_bug",
+      "Wafting Stink Bug"
+    ],
+    "histamine_spitter": [
+      "spittlebug",
+      "Spittlebug"
+    ],
+    "acid_spitter": [
+      "froth_spittlebug",
+      "Froth Spittlebug"
+    ],
+    "far_spitter": [
+      "long_spittlebug",
+      "Long Spittlebug"
+    ],
+    "fever_node": [
+      "magnifying_glass",
+      "Magnifying Glass"
+    ],
+    "high_fever": [
+      "focused_lens",
+      "Focused Lens"
+    ],
+    "wide_fever": [
+      "wide_lens",
+      "Wide Lens"
+    ],
+    "cytokine_storm": [
+      "click_beetle",
+      "Click Beetle"
+    ],
+    "paralyzing_storm": [
+      "thunder_click_beetle",
+      "Thunder Click Beetle"
+    ],
+    "rolling_storm": [
+      "shockwave_click_beetle",
+      "Shockwave Click Beetle"
+    ],
+    "inflammation_zone": [
+      "sprinkler",
+      "Sprinkler"
+    ],
+    "searing_zone": [
+      "power_sprinkler",
+      "Power Sprinkler"
+    ],
+    "swollen_zone": [
+      "wide_sprinkler",
+      "Wide Sprinkler"
+    ],
+    "toxic_membrane": [
+      "nettle_patch",
+      "Nettle Patch"
+    ],
+    "thick_membrane": [
+      "dense_nettles",
+      "Dense Nettles"
+    ],
+    "venom_membrane": [
+      "stinging_nettles",
+      "Stinging Nettles"
+    ],
+    "killer_t": [
+      "paper_wasp",
+      "Paper Wasp"
+    ],
+    "venomous_t": [
+      "yellowjacket",
+      "Yellowjacket"
+    ],
+    "reaching_t": [
+      "long_sting_wasp",
+      "Long-Sting Wasp"
+    ],
+    "complement_sprayer": [
+      "blister_beetle",
+      "Blister Beetle"
+    ],
+    "caustic_sprayer": [
+      "caustic_blister_beetle",
+      "Caustic Blister Beetle"
+    ],
+    "misting_sprayer": [
+      "misting_blister_beetle",
+      "Misting Blister Beetle"
+    ],
+    "lysozyme_pool": [
+      "toxic_mushroom",
+      "Toxic Mushroom"
+    ],
+    "acid_pool": [
+      "deathcap",
+      "Deathcap"
+    ],
+    "spilling_pool": [
+      "spore_puff",
+      "Spore Puff"
+    ],
+    "perforin_lancer": [
+      "scorpion",
+      "Scorpion"
+    ],
+    "plague_lancer": [
+      "deathstalker",
+      "Deathstalker"
+    ],
+    "long_lancer": [
+      "long_tail_scorpion",
+      "Long-Tail Scorpion"
+    ],
+    "necrosis_bloom": [
+      "poison_ivy",
+      "Poison Ivy"
+    ],
+    "hardened_bloom": [
+      "woody_ivy",
+      "Woody Ivy"
+    ],
+    "virulent_bloom": [
+      "virulent_ivy",
+      "Virulent Ivy"
+    ]
+  },
+  "art_style": "bugs",
+  "invaders": [
+    {
+      "id": "aphid",
+      "name": "Aphid",
+      "movement": "pather",
+      "hp": 4,
+      "speed": 1.3,
+      "base_damage": 1,
+      "drop": 0,
+      "art": "aphid"
+    },
+    {
+      "id": "termite",
+      "name": "Termite",
+      "movement": "pather",
+      "hp": 7,
+      "speed": 1.6,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "termite",
+      "desc": "Fast and weak, comes in swarms."
+    },
+    {
+      "id": "soldier_termite",
+      "name": "Soldier Termite",
+      "movement": "pather",
+      "hp": 12,
+      "armor": 1,
+      "speed": 1.8,
+      "base_damage": 1,
+      "elite": true,
+      "drop": 1,
+      "art": "soldier_termite",
+      "desc": "Elite: a faster, armored termite."
+    },
+    {
+      "id": "aphid_cluster",
+      "name": "Aphid Cluster",
+      "movement": "pather",
+      "hp": 15,
+      "speed": 1.0,
+      "base_damage": 2,
+      "split_into": "aphid",
+      "split_count": 3,
+      "drop": 1,
+      "art": "aphid_cluster",
+      "desc": "Bursts into three aphids when killed."
+    },
+    {
+      "id": "scale_colony",
+      "name": "Scale Colony",
+      "movement": "pather",
+      "hp": 26,
+      "armor": 2,
+      "speed": 0.9,
+      "base_damage": 2,
+      "split_into": "aphid",
+      "split_count": 3,
+      "elite": true,
+      "drop": 1,
+      "art": "scale_colony",
+      "desc": "Elite: an armored colony that bursts into aphids."
+    },
+    {
+      "id": "mole_cricket",
+      "name": "Mole Cricket",
+      "movement": "pather",
+      "hp": 18,
+      "speed": 1.0,
+      "base_damage": 2,
+      "burrow_after": 3,
+      "burrow_length": 6,
+      "drop": 1,
+      "art": "mole_cricket",
+      "desc": "Walks a few tiles, then burrows under 6 tiles of its route. Can't be hit underground."
+    },
+    {
+      "id": "rhino_beetle",
+      "name": "Rhino Beetle",
+      "movement": "smasher",
+      "hp": 45,
+      "speed": 0.7,
+      "base_damage": 3,
+      "smash": 6,
+      "drop": 2,
+      "art": "rhino_beetle",
+      "desc": "Ignores the maze and rams through units."
+    },
+    {
+      "id": "hercules_beetle",
+      "name": "Hercules Beetle",
+      "movement": "smasher",
+      "hp": 75,
+      "armor": 2,
+      "speed": 0.7,
+      "base_damage": 4,
+      "smash": 9,
+      "elite": true,
+      "drop": 3,
+      "art": "hercules_beetle",
+      "desc": "Elite: a heavily armored rammer."
+    },
+    {
+      "id": "mosquito",
+      "name": "Mosquito",
+      "movement": "flier",
+      "hp": 7,
+      "speed": 1.2,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "mosquito",
+      "desc": "Flies straight over everything."
+    },
+    {
+      "id": "hornet",
+      "name": "Hornet",
+      "movement": "flier",
+      "hp": 20,
+      "armor": 1,
+      "speed": 1.0,
+      "base_damage": 2,
+      "elite": true,
+      "drop": 1,
+      "art": "hornet",
+      "desc": "Elite: a tough armored flier."
+    },
+    {
+      "id": "giant_centipede",
+      "name": "Giant Centipede",
+      "movement": "smasher",
+      "hp": 520,
+      "armor": 1,
+      "speed": 0.45,
+      "base_damage": 10,
+      "smash": 15,
+      "burrow_after": 4,
+      "burrow_length": 5,
+      "boss": true,
+      "minion": "termite",
+      "minion_count": 1,
+      "minion_interval": 4.0,
+      "drop": 15,
+      "art": "giant_centipede",
+      "desc": "Boss: rams through units, tunnels under part of your maze, and releases termites."
+    }
+  ],
+  "waves": {
+    "threat": {
+      "termite": 1.0,
+      "soldier_termite": 1.9,
+      "aphid_cluster": 2.8,
+      "scale_colony": 4.8,
+      "rhino_beetle": 5.2,
+      "hercules_beetle": 9.5,
+      "mosquito": 1.4,
+      "hornet": 3.4,
+      "mole_cricket": 2.6
+    },
+    "categories": {
+      "swarm": {
+        "normal": "termite",
+        "elite": "soldier_termite",
+        "elite_level": 2
+      },
+      "split": {
+        "normal": "aphid_cluster",
+        "elite": "scale_colony",
+        "elite_level": 3
+      },
+      "smash": {
+        "normal": "rhino_beetle",
+        "elite": "hercules_beetle",
+        "elite_level": 4
+      },
+      "fly": {
+        "normal": "mosquito",
+        "elite": "hornet",
+        "elite_level": 5
+      },
+      "burrow": {
+        "normal": "mole_cricket"
+      }
+    },
+    "mix": [
+      {
+        "swarm": 0.7,
+        "burrow": 0.3
+      },
+      {
+        "swarm": 0.6,
+        "split": 0.4
+      },
+      {
+        "burrow": 0.5,
+        "fly": 0.5
+      },
+      {
+        "swarm": 0.5,
+        "smash": 0.5
+      },
+      {
+        "split": 0.4,
+        "burrow": 0.3,
+        "fly": 0.3
+      },
+      {
+        "burrow": 0.5,
+        "smash": 0.5
+      },
+      {
+        "swarm": 0.6,
+        "fly": 0.4
+      },
+      {
+        "smash": 0.35,
+        "split": 0.35,
+        "burrow": 0.3
+      },
+      {
+        "swarm": 0.5,
+        "burrow": 0.25,
+        "fly": 0.25
+      },
+      {
+        "swarm": 0.25,
+        "split": 0.2,
+        "smash": 0.2,
+        "fly": 0.15,
+        "burrow": 0.2
+      }
+    ],
+    "growth_per_wave": 0.32
+  },
+  "tutorial": {
+    "waves": [
+      [
+        [
+          "termite",
+          7,
+          1.1,
+          0
+        ]
+      ],
+      [
+        [
+          "termite",
+          10,
+          0.9,
+          0
+        ]
+      ],
+      [
+        [
+          "mole_cricket",
+          3,
+          3.0,
+          0
+        ],
+        [
+          "termite",
+          6,
+          1.0,
+          2
+        ]
+      ],
+      [
+        [
+          "aphid_cluster",
+          4,
+          2.2,
+          0
+        ],
+        [
+          "termite",
+          6,
+          1.0,
+          3
+        ]
+      ],
+      [
+        [
+          "rhino_beetle",
+          2,
+          6.0,
+          0
+        ],
+        [
+          "termite",
+          6,
+          1.0,
+          2
+        ]
+      ],
+      [
+        [
+          "mosquito",
+          7,
+          1.3,
+          0
+        ],
+        [
+          "termite",
+          8,
+          0.8,
+          1
+        ]
+      ],
+      [
+        [
+          "mole_cricket",
+          5,
+          2.0,
+          0
+        ],
+        [
+          "aphid_cluster",
+          3,
+          2.0,
+          3
+        ]
+      ],
+      [
+        [
+          "rhino_beetle",
+          3,
+          5.0,
+          0
+        ],
+        [
+          "mosquito",
+          6,
+          1.2,
+          3
+        ]
+      ],
+      [
+        [
+          "termite",
+          20,
+          0.45,
+          0
+        ],
+        [
+          "mole_cricket",
+          4,
+          2.5,
+          4
+        ]
+      ],
+      [
+        [
+          "rhino_beetle",
+          3,
+          4.0,
+          0
+        ],
+        [
+          "aphid_cluster",
+          4,
+          1.8,
+          2
+        ],
+        [
+          "mole_cricket",
+          4,
+          2.0,
+          5
+        ],
+        [
+          "mosquito",
+          6,
+          1.2,
+          8
+        ]
+      ]
+    ],
+    "tips": [
+      "New world, new scale! Your pack plays exactly the same here. Termites walk around your units; every kill drops ATP.",
+      "Units that survived a wave can evolve. Anything placed this round refunds in full.",
+      "NEW: Mole Crickets walk 3 tiles, then tunnel under the next 6 tiles of the route and pop up further along. Defend deep, not just the entrance.",
+      "Aphid Clusters burst into three aphids when killed.",
+      "Rhino Beetles ignore your maze and ram through any unit in their way (red line).",
+      "Mosquitoes fly straight to the anthill (blue dashes). Only some units can hit fliers.",
+      "Burrowers and splitters together: keep attackers near the end of the route too.",
+      "Rammers and fliers: cover both the red line and the blue dashes.",
+      "Big swarm, plus tunnelers. Area attacks near the anthill shine here.",
+      "Final wave! Later levels bring elite versions, and the boss can tunnel too."
+    ]
+  },
+  "levels": [
+    {
+      "name": "1. Garden Path",
+      "preview": true,
+      "hand": [
+        12,
+        15,
+        7,
+        0,
+        0,
+        0
+      ],
+      "atp": 20,
+      "income": 5,
+      "layout": [
+        "....S....",
+        ".........",
+        ".........",
+        ".#.....#.",
+        ".........",
+        ".........",
+        "...#.#...",
+        ".........",
+        ".........",
+        ".#.....#.",
+        ".........",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "2. Flower Bed",
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 15,
+      "income": 5,
+      "budget": 16,
+      "layout": [
+        "S........",
+        ".........",
+        "..##.....",
+        ".........",
+        ".....##..",
+        ".........",
+        ".........",
+        "..#......",
+        "..#...#..",
+        "......#..",
+        ".........",
+        ".##......",
+        ".........",
+        "........B"
+      ]
+    },
+    {
+      "name": "3. Under the Porch",
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 20,
+      "income": 5,
+      "budget": 20,
+      "layout": [
+        "S.......S",
+        ".........",
+        "#.#...#.#",
+        ".........",
+        ".........",
+        "..#...#..",
+        ".........",
+        ".........",
+        "#.......#",
+        ".........",
+        "...#.#...",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "4. Compost Heap",
+      "hand": [
+        14,
+        8,
+        7,
+        5,
+        10,
+        0
+      ],
+      "atp": 20,
+      "income": 6,
+      "budget": 26,
+      "layout": [
+        "....S....",
+        ".........",
+        "..#...#..",
+        ".........",
+        "#.......#",
+        "...###...",
+        ".........",
+        ".........",
+        "...###...",
+        "#.......#",
+        ".........",
+        "..#...#..",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "5. Puddle Crossing",
+      "hand": [
+        16,
+        12,
+        7,
+        5,
+        10,
+        0
+      ],
+      "atp": 25,
+      "income": 6,
+      "budget": 28,
+      "layout": [
+        "S........",
+        ".........",
+        "...##....",
+        "...##...S",
+        ".........",
+        ".........",
+        ".##...##.",
+        ".##...##.",
+        ".........",
+        ".........",
+        "....##...",
+        "....##...",
+        ".........",
+        "........B"
+      ]
+    },
+    {
+      "name": "6. Picnic Blanket",
+      "hand": [
+        16,
+        12,
+        7,
+        10,
+        10,
+        7
+      ],
+      "atp": 25,
+      "income": 6,
+      "budget": 30,
+      "layout": [
+        "S...S...S",
+        ".........",
+        ".........",
+        ".#.#.#.#.",
+        ".........",
+        ".........",
+        ".........",
+        "...#.#...",
+        ".........",
+        ".........",
+        ".#.....#.",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "7. Old Oak Roots",
+      "hand": [
+        20,
+        12,
+        15,
+        10,
+        10,
+        7
+      ],
+      "atp": 30,
+      "income": 7,
+      "budget": 38,
+      "boss": "giant_centipede",
+      "layout": [
+        "S...S....",
+        ".........",
+        "#..#.....",
+        "...#..#..",
+        "......#..",
+        ".........",
+        "..##.....",
+        ".......##",
+        ".........",
+        "..#...#..",
+        "..#...#..",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    }
+  ]
+}

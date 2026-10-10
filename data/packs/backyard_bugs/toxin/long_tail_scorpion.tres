@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tacov"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/long_tail_scorpion.png" id="2_d3tgu"]
+
+[resource]
+script = ExtResource("1_tacov")
+id = "long_tail_scorpion"
+display_name = "Long-Tail Scorpion"
+role = 1
+cost = 18
+damage = 2.0
+attack_range = 3.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 4.5
+poison_duration = 5.0
+poison_spreads = true
+texture = ExtResource("2_d3tgu")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "More range."

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_oah8x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_7y5pq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/acorn_shell.tres" id="3_rjfi1"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/spitting_spider.tres" id="4_yxotw"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/firefly.tres" id="5_2d12y"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/assassin_bug.tres" id="6_gbif1"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/jumping_spider.tres" id="7_q8jhr"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/glowworm_lantern.tres" id="8_sk74x"]
+
+[resource]
+script = ExtResource("1_oah8x")
+id = "precision"
+display_name = "Precision"
+description = "Long range and big single hits. Marks targets so everything hits harder."
+color = Color(0.30588236, 0.65882355, 0.87058824, 1)
+units = Array[ExtResource("2_7y5pq")]([ExtResource("3_rjfi1"), ExtResource("4_yxotw"), ExtResource("5_2d12y"), ExtResource("6_gbif1"), ExtResource("7_q8jhr"), ExtResource("8_sk74x")])

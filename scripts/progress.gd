@@ -12,8 +12,8 @@ const LEVELS_PER_BIOME := 7
 const WORLDS: Array[Dictionary] = [
 	{"name": "Microscopic", "path": "res://data/biomes/immune_system.tres",
 		"theme": "Inside the body: viruses, bacteria, parasites and spores."},
-	{"name": "Backyard Bugs", "path": "",
-		"theme": "Ants, beetles and wasps against pebbles, twigs and spiders."},
+	{"name": "Backyard Bugs", "path": "res://data/biomes/backyard_bugs.tres",
+		"theme": "Protect the anthill from termites, beetles, mosquitoes and burrowing mole crickets."},
 	{"name": "Wild Kingdom", "path": "",
 		"theme": "Human and animal scale: farms, forests and stone walls."},
 	{"name": "Total War", "path": "",
@@ -111,6 +111,19 @@ func _save() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
 		file.store_string(JSON.stringify(_data))
+
+
+## Test mode only: marks every built world as cleared, so all worlds open.
+func unlock_all_for_testing() -> void:
+	for index in WORLDS.size():
+		var world := load_biome(index)
+		if world and not is_bonus(index):
+			var run := _run(world.id)
+			run["cleared"] = LEVELS_PER_BIOME
+			if not run.has("pack"):
+				run["pack"] = world.packs[0].id
+			_data.biomes[world.id] = run
+	_save()
 
 
 ## Wipes all progress (used by tests).

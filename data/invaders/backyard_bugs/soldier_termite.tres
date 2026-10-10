@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_ioeqn"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/soldier_termite.png" id="2_rifmg"]
+
+[resource]
+script = ExtResource("1_ioeqn")
+id = "soldier_termite"
+display_name = "Soldier Termite"
+max_hp = 12
+armor = 1
+speed = 1.8
+is_elite = true
+texture = ExtResource("2_rifmg")
+description = "Elite: a faster, armored termite."

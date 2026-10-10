@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h45n1"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/deathcap.tres" id="2_nhsek"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/spore_puff.tres" id="3_io57g"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/toxic_mushroom.png" id="4_l38qm"]
+
+[resource]
+script = ExtResource("1_h45n1")
+id = "toxic_mushroom"
+display_name = "Toxic Mushroom"
+role = 1
+cost = 14
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 2.5
+poison_duration = 3.0
+evolutions = Array[ExtResource("1_h45n1")]([ExtResource("2_nhsek"), ExtResource("3_io57g")])
+texture = ExtResource("4_l38qm")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poisons everything around it."

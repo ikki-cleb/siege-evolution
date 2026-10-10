@@ -28,6 +28,13 @@ enum Movement {
 @export var is_elite: bool = false
 @export var is_boss: bool = false
 
+@export_group("Burrowing")
+## Tiles walked before digging underground (0 = never burrows).
+@export var burrow_after: int = 0
+## How many tiles of its route it skips while underground. Underground
+## invaders can't be hit and smashers don't chew while tunneling.
+@export var burrow_length: int = 0
+
 @export_group("Splitting")
 ## If set, this invader splits into copies of another invader when killed.
 @export var split_into: InvaderData

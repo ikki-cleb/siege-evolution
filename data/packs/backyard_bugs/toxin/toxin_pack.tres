@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_vd0vy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_6g5mu"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/nettle_patch.tres" id="3_kg0wc"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/paper_wasp.tres" id="4_ug77l"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/blister_beetle.tres" id="5_k2xbr"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/toxic_mushroom.tres" id="6_lp7hx"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/scorpion.tres" id="7_2b7na"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/poison_ivy.tres" id="8_x82nf"]
+
+[resource]
+script = ExtResource("1_vd0vy")
+id = "toxin"
+display_name = "Toxin"
+description = "Poison that ignores armor and spreads between invaders. Slow to start, brutal on crowds."
+color = Color(0.42352942, 0.77254903, 0.31764707, 1)
+product_id = "pack_toxin"
+units = Array[ExtResource("2_6g5mu")]([ExtResource("3_kg0wc"), ExtResource("4_ug77l"), ExtResource("5_k2xbr"), ExtResource("6_lp7hx"), ExtResource("7_2b7na"), ExtResource("8_x82nf")])

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1tjlg"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/dense_moss.png" id="2_r48bw"]
+
+[resource]
+script = ExtResource("1_1tjlg")
+id = "dense_moss"
+display_name = "Dense Moss"
+cost = 10
+max_hp = 150
+regen = 6.0
+texture = ExtResource("2_r48bw")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Much more HP."

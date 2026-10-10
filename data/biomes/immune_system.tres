@@ -1,25 +1,33 @@
 [gd_resource type="Resource" script_class="BiomeData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="1_51bj6"]
-[ext_resource type="Resource" path="res://data/levels/immune_system/level_01.tres" id="2_34r5e"]
-[ext_resource type="Resource" path="res://data/levels/immune_system/level_02.tres" id="3_3rxaf"]
-[ext_resource type="Resource" path="res://data/levels/immune_system/level_03.tres" id="4_t78ly"]
-[ext_resource type="Resource" path="res://data/levels/immune_system/level_04.tres" id="5_t574d"]
-[ext_resource type="Resource" path="res://data/levels/immune_system/level_05.tres" id="6_fq0ug"]
-[ext_resource type="Resource" path="res://data/levels/immune_system/level_06.tres" id="7_qdopq"]
-[ext_resource type="Resource" path="res://data/levels/immune_system/level_07.tres" id="8_xnyyy"]
-[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="9_8csiy"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fortress_pack.tres" id="10_5014o"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/swarm_pack.tres" id="11_7mrh6"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/precision_pack.tres" id="12_b3r13"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/control/control_pack.tres" id="13_v5l2x"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/toxin_pack.tres" id="14_vgv2e"]
-[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="15_dbghp"]
+[ext_resource type="Texture2D" path="res://art/tiles/immune_system/base.png" id="1_t574d"]
+[ext_resource type="Texture2D" path="res://art/tiles/immune_system/floor.png" id="2_fq0ug"]
+[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="3_qdopq"]
+[ext_resource type="Resource" path="res://data/levels/immune_system/level_01.tres" id="4_xnyyy"]
+[ext_resource type="Resource" path="res://data/levels/immune_system/level_02.tres" id="5_8csiy"]
+[ext_resource type="Resource" path="res://data/levels/immune_system/level_03.tres" id="6_5014o"]
+[ext_resource type="Resource" path="res://data/levels/immune_system/level_04.tres" id="7_7mrh6"]
+[ext_resource type="Resource" path="res://data/levels/immune_system/level_05.tres" id="8_b3r13"]
+[ext_resource type="Resource" path="res://data/levels/immune_system/level_06.tres" id="9_v5l2x"]
+[ext_resource type="Resource" path="res://data/levels/immune_system/level_07.tres" id="10_vgv2e"]
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="11_dbghp"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fortress_pack.tres" id="12_2rcqw"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/swarm_pack.tres" id="13_2amm7"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/precision_pack.tres" id="14_yepdo"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/control_pack.tres" id="15_uwtfi"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/toxin_pack.tres" id="16_nk0b1"]
+[ext_resource type="Texture2D" path="res://art/tiles/immune_system/rock.png" id="17_yec0l"]
+[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="18_kb6bx"]
+[ext_resource type="Texture2D" path="res://art/tiles/immune_system/spawn.png" id="19_gy1xt"]
 
 [resource]
-script = ExtResource("15_dbghp")
+script = ExtResource("18_kb6bx")
 id = "immune_system"
 display_name = "Microscopic"
 description = "Inside the body. Hold back viruses, bacteria, parasites and spores before they reach the heart."
-packs = Array[ExtResource("9_8csiy")]([ExtResource("10_5014o"), ExtResource("11_7mrh6"), ExtResource("12_b3r13"), ExtResource("13_v5l2x"), ExtResource("14_vgv2e")])
-levels = Array[ExtResource("1_51bj6")]([ExtResource("2_34r5e"), ExtResource("3_3rxaf"), ExtResource("4_t78ly"), ExtResource("5_t574d"), ExtResource("6_fq0ug"), ExtResource("7_qdopq"), ExtResource("8_xnyyy")])
+packs = Array[ExtResource("11_dbghp")]([ExtResource("12_2rcqw"), ExtResource("13_2amm7"), ExtResource("14_yepdo"), ExtResource("15_uwtfi"), ExtResource("16_nk0b1")])
+levels = Array[ExtResource("3_qdopq")]([ExtResource("4_xnyyy"), ExtResource("5_8csiy"), ExtResource("6_5014o"), ExtResource("7_7mrh6"), ExtResource("8_b3r13"), ExtResource("9_v5l2x"), ExtResource("10_vgv2e")])
+floor_texture = ExtResource("2_fq0ug")
+rock_texture = ExtResource("17_yec0l")
+spawn_texture = ExtResource("19_gy1xt")
+base_texture = ExtResource("1_t574d")

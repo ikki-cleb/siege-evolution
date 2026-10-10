@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ya4gr"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/thick_sap.png" id="2_652x3"]
+
+[resource]
+script = ExtResource("1_ya4gr")
+id = "thick_sap"
+display_name = "Thick Sap"
+cost = 6
+max_hp = 60
+attack_mode = 1
+damage = 0.5
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+texture = ExtResource("2_652x3")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "More HP."

@@ -20,11 +20,17 @@ See `DESIGN.md` for the game design.
 ## Common tasks
 
 - **Play it:** open the folder in Godot 4.7 and press F5.
-- **Rebalance:** change a stat in `tools/content/immune_system.json` (or use
+- **Rebalance:** change a stat in `tools/content/immune_system.json` (pack stats
+  live there and are shared by every world) or a world's own file (or use
   `python3 tools/tune.py unit_id damage=5`), then rebuild the content:
   `godot --headless --script tools/build_content.gd`
-- **Edit a level:** level layouts and starting hands are in `tools/build_content.gd`
-  (`.` floor, `#` wall tissue, `S` spawn, `B` base). Rebuild the content afterwards.
+- **Edit a level:** each world's layouts, starting hands, waves and tutorial tips
+  are in its file in `tools/content/` (`.` floor, `#` blocked, `S` spawn,
+  `B` base). Rebuild the content afterwards.
+- **Investigate one level:**
+  `godot --headless --fixed-fps 60 --script tests/debug_level.gd -- 1 swarm 2`
+  (world index, pack, level number)
+- **Try later worlds:** in a test build, Store → "Test: unlock all worlds".
 - **New art:** `python3 tools/make_placeholder_art.py --only-missing` draws
   placeholders only for sprites that don't exist yet.
 - **Run the automated playtest** (rules checks plus a balance table for every pack):

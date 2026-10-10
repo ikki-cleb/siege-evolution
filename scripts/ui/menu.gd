@@ -160,9 +160,9 @@ func _show_levels() -> void:
 	for i in _biome.levels.size():
 		var text := _biome.levels[i].display_name
 		if i < cleared:
-			text += "   ✓ cleared"
+			text += " · cleared"
 		elif i > cleared:
-			text += "   locked"
+			text += " · locked"
 		var unlock := Progress.pack.unit_unlocked_on(i + 1)
 		if unlock:
 			text += "\nNew unit: %s" % unlock.display_name
@@ -194,6 +194,9 @@ func _show_store() -> void:
 	_button("Restore Purchases", Store.restore_purchases)
 	if Store.test_mode:
 		_button("Reset test purchases", Store.reset_test_purchases)
+		_button("Test: unlock all worlds", func():
+			Progress.unlock_all_for_testing()
+			_show(_show_store))
 
 
 # --- Building blocks --------------------------------------------------------

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cjoo8"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorned_pebble.png" id="2_up22o"]
+
+[resource]
+script = ExtResource("1_cjoo8")
+id = "thorned_pebble"
+display_name = "Thorned Pebble"
+cost = 10
+max_hp = 120
+reflect = 0.6
+texture = ExtResource("2_up22o")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Reflects 60% of smasher damage."

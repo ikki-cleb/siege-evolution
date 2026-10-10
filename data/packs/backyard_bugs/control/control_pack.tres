@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_cp4k4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_p7wvj"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/spiderweb.tres" id="3_3t37v"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/stink_bug.tres" id="4_ki77d"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/spittlebug.tres" id="5_4i83t"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/magnifying_glass.tres" id="6_bk4jd"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/click_beetle.tres" id="7_gaub8"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/sprinkler.tres" id="8_phcyy"]
+
+[resource]
+script = ExtResource("1_cp4k4")
+id = "control"
+display_name = "Control"
+description = "Slows, stuns and area damage. Weak alone, deadly inside a long maze."
+color = Color(0.6156863, 0.4745098, 0.8392157, 1)
+product_id = "pack_control"
+units = Array[ExtResource("2_p7wvj")]([ExtResource("3_3t37v"), ExtResource("4_ki77d"), ExtResource("5_4i83t"), ExtResource("6_bk4jd"), ExtResource("7_gaub8"), ExtResource("8_phcyy")])

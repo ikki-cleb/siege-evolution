@@ -21,8 +21,10 @@ func _run() -> void:
 	progress = root.get_node("Progress")
 	var biome: BiomeData = progress.load_biome(0)
 	await _test_rules(biome)
+	await _test_burrowing(progress.load_biome(1))
 	if not OS.get_cmdline_user_args().has("rules"):
-		await _test_balance(biome)
+		for index in [0, 1]:
+			await _test_balance(progress.load_biome(index))
 	progress.reset()
 	print("\n%s" % ("ALL TESTS PASSED" if failures == 0 else "%d TEST(S) FAILED" % failures))
 	quit(1 if failures > 0 else 0)
@@ -98,6 +100,39 @@ func _test_balance(biome: BiomeData) -> void:
 		_check(pack_wins.get(pack_index, 0) >= biome.levels.size() - 1,
 			"%s pack beats at least %d of %d levels" % [biome.packs[pack_index].display_name,
 			biome.levels.size() - 1, biome.levels.size()])
+
+
+# --- Burrowing --------------------------------------------------------------
+
+func _test_burrowing(biome: BiomeData) -> void:
+	var game := await _start(biome, 0, 0)
+	var board: Board = game.board
+	board.wave_active = true
+	var data: InvaderData = load("res://data/invaders/backyard_bugs/mole_cricket.tres")
+	board.spawn_invader(data, 0)
+	var cricket: Invader = board.invaders[0]
+	var went_under := false
+	var hit_while_under := true
+	var max_index := 0
+	for i in 60 * 30:
+		await process_frame
+		if not is_instance_valid(cricket) or not cricket.alive:
+			break
+		if cricket.underground and not went_under:
+			went_under = true
+			var hp_before := cricket.hp
+			# Nothing should be able to target it now.
+			var tester: Unit = board.place_unit(game.unit_types[1], Vector2i(0, 13))
+			hit_while_under = tester._can_target(cricket)
+			board.remove_unit(Vector2i(0, 13))
+		max_index = max(max_index, cricket.path_index)
+		if went_under and not cricket.underground:
+			break
+	_check(went_under, "Mole Crickets burrow after walking a few tiles")
+	_check(not hit_while_under, "Underground invaders can't be targeted")
+	_check(max_index >= data.burrow_after + data.burrow_length,
+		"Burrowers resurface further along their route (tile %d)" % max_index)
+	await _stop(game)
 
 
 # --- Rules ------------------------------------------------------------------

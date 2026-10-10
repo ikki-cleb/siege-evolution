@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0t6xc"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/angry_bee.png" id="2_je44r"]
+
+[resource]
+script = ExtResource("1_0t6xc")
+id = "angry_bee"
+display_name = "Angry Bee"
+role = 1
+cost = 9
+max_hp = 15
+attack_mode = 1
+damage = 2.2
+attack_interval = 0.6
+adjacency_bonus = 0.15
+texture = ExtResource("2_je44r")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "More damage."

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_sxmo1"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/orchid_mantis.png" id="2_uixqt"]
+
+[resource]
+script = ExtResource("1_sxmo1")
+id = "orchid_mantis"
+display_name = "Orchid Mantis"
+role = 1
+cost = 20
+max_hp = 40
+damage = 30.0
+attack_range = 3.2
+attack_interval = 2.6
+hits_air = true
+pierce = true
+texture = ExtResource("2_uixqt")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Much more range."

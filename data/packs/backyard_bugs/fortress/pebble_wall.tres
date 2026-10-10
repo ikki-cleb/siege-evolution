@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3sqwe"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/cobblestone.tres" id="2_fs01p"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/thorned_pebble.tres" id="3_oesel"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/pebble_wall.png" id="4_s3miq"]
+
+[resource]
+script = ExtResource("1_3sqwe")
+id = "pebble_wall"
+display_name = "Pebble Wall"
+cost = 7
+max_hp = 90
+evolutions = Array[ExtResource("1_3sqwe")]([ExtResource("2_fs01p"), ExtResource("3_oesel")])
+texture = ExtResource("4_s3miq")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Very tough wall."

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Resource" path="res://data/invaders/backyard_bugs/termite.tres" id="1_b87nx"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="2_1upbf"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/giant_centipede.png" id="3_nh5b3"]
+
+[resource]
+script = ExtResource("2_1upbf")
+id = "giant_centipede"
+display_name = "Giant Centipede"
+movement = 1
+max_hp = 520
+armor = 1
+speed = 0.45
+base_damage = 10
+smash_damage = 15.0
+atp_drop = 15
+is_boss = true
+burrow_after = 4
+burrow_length = 5
+minion = ExtResource("1_b87nx")
+minion_count = 1
+minion_interval = 4.0
+texture = ExtResource("3_nh5b3")
+description = "Boss: rams through units, tunnels under part of your maze, and releases termites."

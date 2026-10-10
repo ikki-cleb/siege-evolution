@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_c6um8"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/dense_moss.tres" id="2_frqpj"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/lush_moss.tres" id="3_ug48c"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/moss_clump.png" id="4_1emh7"]
+
+[resource]
+script = ExtResource("1_c6um8")
+id = "moss_clump"
+display_name = "Moss Clump"
+cost = 10
+max_hp = 70
+regen = 6.0
+evolutions = Array[ExtResource("1_c6um8")]([ExtResource("2_frqpj"), ExtResource("3_ug48c")])
+texture = ExtResource("4_1emh7")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Wall that heals itself when not under attack."

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_imu4j"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/dense_nettles.png" id="2_qwbbb"]
+
+[resource]
+script = ExtResource("1_imu4j")
+id = "dense_nettles"
+display_name = "Dense Nettles"
+cost = 6
+max_hp = 60
+reflect = 0.3
+texture = ExtResource("2_qwbbb")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "More HP."

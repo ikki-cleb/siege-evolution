@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/tiles/backyard_bugs/base.png" id="1_lovbs"]
+[ext_resource type="Texture2D" path="res://art/tiles/backyard_bugs/floor.png" id="2_xhb0s"]
+[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="3_pra4e"]
+[ext_resource type="Resource" path="res://data/levels/backyard_bugs/level_01.tres" id="4_0he1v"]
+[ext_resource type="Resource" path="res://data/levels/backyard_bugs/level_02.tres" id="5_itkan"]
+[ext_resource type="Resource" path="res://data/levels/backyard_bugs/level_03.tres" id="6_ha318"]
+[ext_resource type="Resource" path="res://data/levels/backyard_bugs/level_04.tres" id="7_ilrcb"]
+[ext_resource type="Resource" path="res://data/levels/backyard_bugs/level_05.tres" id="8_spijh"]
+[ext_resource type="Resource" path="res://data/levels/backyard_bugs/level_06.tres" id="9_yr4h1"]
+[ext_resource type="Resource" path="res://data/levels/backyard_bugs/level_07.tres" id="10_4cuci"]
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="11_2j5lb"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/fortress_pack.tres" id="12_fwbg3"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/swarm_pack.tres" id="13_fe6ca"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/precision_pack.tres" id="14_hbkn8"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/control_pack.tres" id="15_ncxci"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/toxin_pack.tres" id="16_5cjap"]
+[ext_resource type="Texture2D" path="res://art/tiles/backyard_bugs/rock.png" id="17_fcao7"]
+[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="18_ydbu7"]
+[ext_resource type="Texture2D" path="res://art/tiles/backyard_bugs/spawn.png" id="19_tohn8"]
+
+[resource]
+script = ExtResource("18_ydbu7")
+id = "backyard_bugs"
+display_name = "Backyard Bugs"
+description = "Down in the grass. Protect the queen's anthill from termites, beetles, mosquitoes and burrowing mole crickets."
+packs = Array[ExtResource("11_2j5lb")]([ExtResource("12_fwbg3"), ExtResource("13_fe6ca"), ExtResource("14_hbkn8"), ExtResource("15_ncxci"), ExtResource("16_5cjap")])
+levels = Array[ExtResource("3_pra4e")]([ExtResource("4_0he1v"), ExtResource("5_itkan"), ExtResource("6_ha318"), ExtResource("7_ilrcb"), ExtResource("8_spijh"), ExtResource("9_yr4h1"), ExtResource("10_4cuci")])
+floor_texture = ExtResource("2_xhb0s")
+rock_texture = ExtResource("17_fcao7")
+spawn_texture = ExtResource("19_tohn8")
+base_texture = ExtResource("1_lovbs")

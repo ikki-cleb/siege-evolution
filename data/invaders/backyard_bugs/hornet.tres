@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_6vaab"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/hornet.png" id="2_8n2oi"]
+
+[resource]
+script = ExtResource("1_6vaab")
+id = "hornet"
+display_name = "Hornet"
+movement = 2
+max_hp = 20
+armor = 1
+base_damage = 2
+is_elite = true
+texture = ExtResource("2_8n2oi")
+description = "Elite: a tough armored flier."

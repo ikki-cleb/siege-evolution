@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uw6jy"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/dense_nettles.tres" id="2_0j6pg"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/stinging_nettles.tres" id="3_w3o7y"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/nettle_patch.png" id="4_7jkoi"]
+
+[resource]
+script = ExtResource("1_uw6jy")
+id = "nettle_patch"
+display_name = "Nettle Patch"
+max_hp = 25
+reflect = 0.3
+evolutions = Array[ExtResource("1_uw6jy")]([ExtResource("2_0j6pg"), ExtResource("3_w3o7y")])
+texture = ExtResource("4_7jkoi")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that hurts smashers biting it."

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_03hvd"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/power_sprinkler.tres" id="2_yp2sv"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/wide_sprinkler.tres" id="3_l2c60"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/sprinkler.png" id="4_m7fqg"]
+
+[resource]
+script = ExtResource("1_03hvd")
+id = "sprinkler"
+display_name = "Sprinkler"
+role = 1
+cost = 18
+max_hp = 30
+attack_mode = 1
+damage = 1.5
+attack_range = 2.5
+attack_interval = 0.5
+hits_air = true
+slow = 0.5
+slow_duration = 1.0
+evolutions = Array[ExtResource("1_03hvd")]([ExtResource("2_yp2sv"), ExtResource("3_l2c60")])
+texture = ExtResource("4_m7fqg")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Heavily slows and burns a wide area."

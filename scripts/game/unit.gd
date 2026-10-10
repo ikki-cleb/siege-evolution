@@ -135,7 +135,7 @@ func _hit(invader: Invader) -> void:
 
 
 func _can_target(invader: Invader) -> bool:
-	return invader.alive and (data.hits_air or not invader.is_flying())
+	return invader.alive and not invader.underground and (data.hits_air or not invader.is_flying())
 
 
 func _invaders_in_range(center: Vector2, tiles: float) -> Array[Invader]:

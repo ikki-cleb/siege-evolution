@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_qjr1m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_7b171"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/twig.tres" id="3_sxr5y"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/worker_ant.tres" id="4_i07nt"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/acid_ant.tres" id="5_x7wjk"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/honeybee.tres" id="6_56vva"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/bullet_ant.tres" id="7_eu8k2"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/sap_blob.tres" id="8_n4ks2"]
+
+[resource]
+script = ExtResource("1_qjr1m")
+id = "swarm"
+display_name = "Swarm"
+description = "Cheap units, and lots of them. Attacks faster when packed together."
+color = Color(0.9137255, 0.76862746, 0.41568628, 1)
+units = Array[ExtResource("2_7b171")]([ExtResource("3_sxr5y"), ExtResource("4_i07nt"), ExtResource("5_x7wjk"), ExtResource("6_56vva"), ExtResource("7_eu8k2"), ExtResource("8_n4ks2")])

@@ -125,8 +125,8 @@ func _place_wall() -> bool:
 			var touches_path := on_path.has(cell)
 			if gain <= 0 and cover_gain <= 0 and not touches_path:
 				continue
-			if cover_gain < -0.5:
-				continue  # Don't lead the route away from our attackers.
+			if cover_gain < 0.0:
+				continue  # Never lead the route away from our attackers.
 			# Prefer longer routes past our attackers, then extending lines.
 			var score := gain * 4.0 + cover_gain * 6.0 + _solid_neighbors(cell) \
 				+ (2.0 if touches_path else 0.0) + rng.randf()
@@ -164,16 +164,26 @@ func _place_fighter() -> bool:
 	var type := _choose_type(_types(false))
 	if type == null:
 		return false
-	var walker := _walker_cells()
-	var smasher := _smasher_cells() if _has_smashers else {}
+	var current_cover := _path_cover(board.walker_paths_if_blocked(Board.NO_CELL))
 	var best := Board.NO_CELL
 	var best_score := 0.0
 	for y in board.grid_size.y:
 		for x in board.grid_size.x:
 			var cell := Vector2i(x, y)
-			if not board.can_place(cell):
+			if not board.is_buildable(cell):
 				continue
+			# The unit blocks its own tile, so judge it by the route AFTER placing it.
+			var paths := board.walker_paths_if_blocked(cell)
+			if paths.is_empty():
+				continue
+			var walker := {}
+			for path in paths:
+				for path_cell in path:
+					walker[path_cell] = walker.get(path_cell, 0) + 1
+			var smasher := _smasher_cells() if _has_smashers else {}
 			var score := _coverage(cell, type, walker, smasher) + rng.randf() * 0.5
+			# Penalize moving the route away from attackers already placed.
+			score += min(0.0, _path_cover(paths) - current_cover)
 			score += type.adjacency_bonus * 10.0 * board.neighbor_count(cell)
 			if score > best_score:
 				best_score = score

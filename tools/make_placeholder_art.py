@@ -211,10 +211,196 @@ def add_badge(img, branch):
     return img
 
 
-def unit_sprite(unit, pack_color):
+def unit_sprite(unit, pack_color, art_style="cells"):
     kind, style = unit["art"]
     color = hexc(pack_color)
+    if art_style == "bugs":
+        return garden_wall(color, style) if kind == "block" else bug_unit(color, style)
     return block_unit(color, style) if kind == "block" else cell_unit(color, style)
+
+
+def pack_rows(content, all_content):
+    """A world's packs: its own, or another world's with units renamed."""
+    if "packs_from" not in content:
+        return content["packs"]
+    renames = content["renames"]
+    result = []
+    for pack in all_content[content["packs_from"]]["packs"]:
+        copy = json.loads(json.dumps(pack))
+        for unit in copy["units"]:
+            unit["id"] = renames[unit["id"]][0]
+            for evo in unit["evolutions"]:
+                evo["id"] = renames[evo["id"]][0]
+        result.append(copy)
+    return result
+
+
+# --- Backyard world ---------------------------------------------------------
+
+def grass():
+    img = Image.new("RGBA", (16, 16), hexc("#4f8a3a"))
+    speckle(img, [hexc("#5c9a44"), hexc("#447a32"), hexc("#6aa84f")], 50, 11)
+    for x, y in [(3, 4), (11, 9), (7, 13)]:
+        px(img, [(x, y), (x, y - 1), (x + 1, y - 2)], hexc("#7cc25c"))
+    rect(img, 0, 0, 15, 0, hexc("#437530"))
+    rect(img, 0, 0, 0, 15, hexc("#437530"))
+    return img
+
+
+def stone():
+    img = grass()
+    disc(img, 8, 8.5, 6.5, hexc("#8a8a84"))
+    disc(img, 6.5, 6.5, 3.5, hexc("#a3a39c"))
+    ring(img, 8, 8.5, 6.5, hexc("#5e5e58"))
+    px(img, [(10, 11), (11, 10), (5, 10)], hexc("#6f6f69"))
+    return img
+
+
+def dirt_hole():
+    img = grass()
+    disc(img, 8, 8, 6.5, hexc("#6b4a2b"))
+    disc(img, 8, 8.5, 4, hexc("#2a1a0c"))
+    ring(img, 8, 8, 6.5, hexc("#8a6440"))
+    return img
+
+
+def anthill():
+    img = grass()
+    for y in range(4, 15):
+        half = (y - 3) * 0.7
+        rect(img, int(8 - half), y, int(7 + half), y, hexc("#a8743f"))
+    speckle(img, [hexc("#8a5c2f")], 0, 1)
+    for x, y in [(6, 8), (9, 10), (5, 12), (10, 13), (8, 6)]:
+        px(img, [(x, y)], hexc("#8a5c2f"))
+    disc(img, 8, 5, 1.6, hexc("#2a1a0c"))
+    px(img, [(7, 2), (8, 1)], hexc("#ffd23c"))  # a little crown: the queen lives here
+    return img
+
+
+def bug_unit(color, style):
+    """An attacker drawn as a bug: body, head, legs and antennae."""
+    img = new()
+    body = shade(color, 0.05)
+    dark = shade(color, -0.3)
+    light = shade(color, 0.3)
+    leg = shade(color, -0.4)
+    width = 4.2 + (style % 3) * 0.6
+    # legs
+    for y in (6, 9, 12):
+        px(img, [(int(8 - width) - 1, y), (int(8 - width) - 2, y + 1), (int(8 + width), y), (int(8 + width) + 1, y + 1)], leg)
+    # abdomen and thorax
+    for y in range(6, 15):
+        w = width * (1 - ((y - 10) / 5.5) ** 2) ** 0.5 if abs(y - 10) < 5.5 else 0
+        if w > 0.5:
+            rect(img, int(round(8 - w)), y, int(round(7 + w)), y, body)
+    disc(img, 8, 4.5, 2.6, dark)  # head
+    px(img, [(6, 1), (5, 0), (10, 1), (11, 0)], leg)  # antennae
+    pattern = style % 4
+    if pattern == 0:  # wing seam
+        px(img, [(8, y) for y in range(7, 14)], dark)
+    elif pattern == 1:  # spots
+        for x, y in [(6, 9), (10, 9), (7, 12), (9, 12)]:
+            px(img, [(x, y)], dark)
+    elif pattern == 2:  # stripes
+        for y in (8, 11, 13):
+            rect(img, int(8 - width) + 1, y, int(7 + width) - 1, y, dark)
+    else:  # shine
+        px(img, [(6, 8), (6, 9), (7, 8)], light)
+    if style >= 6:  # mandibles for the later units
+        px(img, [(6, 2), (10, 2)], light)
+    return img
+
+
+def garden_wall(color, style):
+    """A wall drawn as a garden object, tinted with the pack color."""
+    img = new()
+    base = shade(color, -0.12)
+    dark, light = shade(color, -0.35), shade(color, 0.2)
+    kind = style % 5
+    if kind == 0:  # stacked pebbles
+        for cx, cy, r in [(5, 10, 4), (11, 10, 4), (8, 5, 4)]:
+            disc(img, cx, cy, r, base)
+            ring(img, cx, cy, r, dark)
+            px(img, [(int(cx) - 1, int(cy) - 2)], light)
+    elif kind == 1:  # moss mound
+        disc(img, 8, 10, 6.5, base)
+        for x, y in [(4, 8), (8, 5), (12, 8), (6, 11), (10, 12)]:
+            disc(img, x, y, 1.5, light)
+    elif kind == 2:  # stump / log end
+        disc(img, 8, 8, 7, base)
+        ring(img, 8, 8, 7, dark, 1.2)
+        ring(img, 8, 8, 4, dark)
+        px(img, [(8, 8)], dark)
+    elif kind == 3:  # twigs
+        for i in range(-6, 8, 3):
+            px(img, [(x, x + i) for x in range(1, 15) if 1 <= x + i <= 14], base)
+            px(img, [(x, x + i + 1) for x in range(1, 15) if 1 <= x + i + 1 <= 14], dark)
+    else:  # web / mesh
+        ring(img, 8, 8, 7, light)
+        ring(img, 8, 8, 4, light)
+        for i in range(8):
+            a = i * math.tau / 8
+            px(img, [(int(8 + math.cos(a) * r), int(8 + math.sin(a) * r)) for r in range(1, 8)], light)
+        disc(img, 8, 8, 1.5, base)
+    if style >= 5:
+        rect(img, 1, 14, 14, 15, dark)  # a soil base for the later walls
+    return img
+
+
+def bug_invader(body, head, legs=True, wings=False, size=1.0, spots=None, horn=False, segments=0):
+    img = new()
+    cx, cy = 8, 9
+    if segments:
+        for i in range(segments):
+            disc(img, 3 + i * 2.2, 11 - (i % 2), 2.0 * size, hexc(body) if i % 2 else shade(hexc(body), -0.15))
+        disc(img, 3 + segments * 2.2, 10, 2.4 * size, hexc(head))
+        for i in range(segments):
+            px(img, [(int(3 + i * 2.2), 13), (int(3 + i * 2.2), 14)], hexc("#2a1408"))
+        return img
+    if wings:
+        disc(img, 4, 6, 3, hexc("#d8f0ff", 170))
+        disc(img, 12, 6, 3, hexc("#d8f0ff", 170))
+    disc(img, cx, cy, 4.2 * size, hexc(body))
+    disc(img, cx, cy - 4.5 * size, 2.3 * size, hexc(head))
+    if legs:
+        for y in (8, 10, 12):
+            px(img, [(int(cx - 4.5 * size) - 1, y), (int(cx + 4.5 * size), y)], hexc("#2a1408"))
+    if spots:
+        for x, y in [(6, 9), (10, 9), (8, 11)]:
+            px(img, [(x, y)], hexc(spots))
+    if horn:
+        px(img, [(8, 1), (8, 2), (7, 0), (9, 3)], hexc("#2a1408"))
+    return img
+
+
+def aphid_cluster():
+    img = new()
+    for cx, cy in [(5, 7), (10, 6), (7, 11), (11, 11), (4, 11)]:
+        disc(img, cx, cy, 2.4, hexc("#9fd44a"))
+        px(img, [(int(cx), int(cy) - 1)], hexc("#d8f58a"))
+    return img
+
+
+def scale_colony():
+    img = aphid_cluster()
+    for x, y in [(5, 6), (10, 5), (7, 10), (11, 10)]:
+        rect(img, x - 1, y, x + 1, y, hexc("#8a7a6a"))
+    return img
+
+
+BACKYARD_INVADER_ART = {
+    "aphid": lambda: bug_invader("#9fd44a", "#7ab030", legs=False, size=0.6),
+    "termite": lambda: bug_invader("#e8d2a8", "#b07a3a", size=0.8),
+    "soldier_termite": lambda: bug_invader("#d8b888", "#7a3a1a", size=0.9, horn=True),
+    "aphid_cluster": aphid_cluster,
+    "scale_colony": scale_colony,
+    "mole_cricket": lambda: bug_invader("#8a5a32", "#5a3a1a", size=1.0, spots="#c08a5a"),
+    "rhino_beetle": lambda: bug_invader("#5a3a22", "#3a2414", size=1.1, horn=True),
+    "hercules_beetle": lambda: bug_invader("#a0a050", "#2a2a14", size=1.2, horn=True, spots="#3a3a1a"),
+    "mosquito": lambda: bug_invader("#6a6a72", "#3a3a40", size=0.6, wings=True),
+    "hornet": lambda: bug_invader("#e8b830", "#5a3a10", size=0.85, wings=True, spots="#2a1a08"),
+    "giant_centipede": lambda: bug_invader("#b0402a", "#5a1a10", size=1.0, segments=5),
+}
 
 
 # --- Invaders ---------------------------------------------------------------
@@ -320,17 +506,23 @@ INVADER_ART = {
 
 if __name__ == "__main__":
     for name, fn in {"floor": floor, "rock": rock, "spawn": spawn, "base": base}.items():
-        save(fn(), f"tiles/{name}.png")
+        save(fn(), f"tiles/immune_system/{name}.png")
+    for name, fn in {"floor": grass, "rock": stone, "spawn": dirt_hole, "base": anthill}.items():
+        save(fn(), f"tiles/backyard_bugs/{name}.png")
 
+    all_content = {}
     for content_file in sorted((PROJECT / "tools" / "content").glob("*.json")):
         content = json.loads(content_file.read_text())
-        biome_id = content["biome"]["id"]
-        for pack in content["packs"]:
+        all_content[content["biome"]["id"]] = content
+    for biome_id, content in all_content.items():
+        style = content.get("art_style", "cells")
+        for pack in pack_rows(content, all_content):
             for unit in pack["units"]:
-                sprite = unit_sprite(unit, pack["color"])
+                sprite = unit_sprite(unit, pack["color"], style)
                 save(sprite, f"units/{biome_id}/{pack['id']}/{unit['id']}.png")
                 for branch, evo in enumerate(unit["evolutions"]):
                     save(add_badge(sprite.copy(), branch), f"units/{biome_id}/{pack['id']}/{evo['id']}.png")
         for invader in content["invaders"]:
-            save(INVADER_ART[invader["art"]](), f"invaders/{biome_id}/{invader['id']}.png")
+            art = INVADER_ART.get(invader["art"]) or BACKYARD_INVADER_ART[invader["art"]]
+            save(art(), f"invaders/{biome_id}/{invader['id']}.png")
     print("Placeholder art written to", ROOT)

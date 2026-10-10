@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cb0p2"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/bullet_ant_major.tres" id="2_rybp5"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/hunting_ant.tres" id="3_mah66"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/bullet_ant.png" id="4_ytnan"]
+
+[resource]
+script = ExtResource("1_cb0p2")
+id = "bullet_ant"
+display_name = "Bullet Ant"
+role = 1
+cost = 14
+max_hp = 25
+damage = 4.0
+attack_interval = 0.45
+pierce = true
+adjacency_bonus = 0.15
+evolutions = Array[ExtResource("1_cb0p2")]([ExtResource("2_rybp5"), ExtResource("3_mah66")])
+texture = ExtResource("4_ytnan")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Armor-piercing melee flurries."

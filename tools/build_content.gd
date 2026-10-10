@@ -1,241 +1,94 @@
 extends SceneTree
-## Builds the game's content files (data/) from tools/content/immune_system.json
-## plus the level tables below.
+## Builds the game's content files (data/) from the world files in
+## tools/content/*.json (one file per world).
 ##
 ## Run from the project folder:
 ##   godot --headless --script tools/build_content.gd
 ##
 ## WARNING: re-running overwrites data/. If you've edited .tres files in the
-## Godot Inspector, copy those changes into the JSON / tables here first.
+## Godot Inspector, copy those changes into the JSON first.
+##
+## A world's JSON can say "packs_from": "<other world id>" plus a "renames"
+## table to reuse that world's packs with new names and art. That keeps every
+## pack playing exactly the same at every scale.
 
-const CONTENT := "res://tools/content/immune_system.json"
-
-## Invader "threat" used to fill each wave's budget (about how many
-## Rhinoviruses one invader is worth).
-const THREAT := {
-	"rhinovirus": 1.0, "flu_virus": 1.8, "bacterium": 2.6, "biofilm": 4.5,
-	"worm": 5.0, "hookworm": 9.0, "spore": 1.4, "fungal_spore": 3.2,
-}
-## Each wave category: [normal invader, elite version, level the elite appears].
-const CATEGORIES := {
-	"swarm": ["rhinovirus", "flu_virus", 2],
-	"split": ["bacterium", "biofilm", 3],
-	"smash": ["worm", "hookworm", 4],
-	"fly": ["spore", "fungal_spore", 5],
-}
-## The mix of categories for waves 1-10 of generated levels.
-const WAVE_MIX := [
-	{"swarm": 1.0},
-	{"swarm": 0.6, "split": 0.4},
-	{"split": 0.7, "fly": 0.3},
-	{"swarm": 0.5, "smash": 0.5},
-	{"fly": 0.6, "swarm": 0.4},
-	{"split": 0.5, "smash": 0.5},
-	{"swarm": 0.7, "fly": 0.3},
-	{"smash": 0.4, "split": 0.3, "fly": 0.3},
-	{"swarm": 0.6, "split": 0.4},
-	{"swarm": 0.3, "split": 0.25, "smash": 0.25, "fly": 0.2},
-]
+const CONTENT_DIR := "res://tools/content/"
+## Build order matters: worlds that borrow packs come after their source.
+const WORLD_FILES: Array[String] = ["immune_system.json", "backyard_bugs.json"]
 
 var invaders := {}
+var _content_by_id := {}
 
 
 func _initialize() -> void:
-	var content: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(CONTENT))
-	var biome_info: Dictionary = content.biome
-	var biome_id: String = biome_info.id
+	for file_name in WORLD_FILES:
+		var content: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(CONTENT_DIR + file_name))
+		_content_by_id[content.biome.id] = content
+		_build_world(content)
+	print("Content written to data/")
+	quit()
+
+
+func _build_world(content: Dictionary) -> void:
+	var info: Dictionary = content.biome
+	var biome_id: String = info.id
 	for dir in ["data/packs/" + biome_id, "data/invaders/" + biome_id, "data/levels/" + biome_id, "data/biomes"]:
 		DirAccess.make_dir_recursive_absolute("res://" + dir)
+	invaders.clear()
 
-	# Invaders first (in file order, so split targets exist before they're used).
+	# Invaders first (in file order, so split and minion targets exist first).
 	for row in content.invaders:
 		_invader(biome_id, row)
 
 	var biome := BiomeData.new()
 	biome.id = biome_id
-	biome.display_name = biome_info.name
-	biome.description = biome_info.description
-	for pack_row in content.packs:
+	biome.display_name = info.name
+	biome.description = info.description
+	var tiles := "res://art/tiles/%s/" % biome_id
+	biome.floor_texture = load(tiles + "floor.png")
+	biome.rock_texture = load(tiles + "rock.png")
+	biome.spawn_texture = load(tiles + "spawn.png")
+	biome.base_texture = load(tiles + "base.png")
+	for pack_row in pack_rows(content, _content_by_id):
 		biome.packs.append(_pack(biome_id, pack_row))
-	for i in LEVELS.size():
-		biome.levels.append(_level(biome_id, i + 1, LEVELS[i]))
+	for i in content.levels.size():
+		biome.levels.append(_level(biome_id, i + 1, content.levels[i], content))
 	_save(biome, "res://data/biomes/%s.tres" % biome_id)
-	print("Content written to data/")
-	quit()
+
+
+## The packs for a world: its own, or another world's with units renamed.
+## (Static so the art script's logic can mirror it.)
+static func pack_rows(content: Dictionary, all_content: Dictionary) -> Array:
+	if not content.has("packs_from"):
+		return content.packs
+	var source: Dictionary = all_content[content.packs_from]
+	var renames: Dictionary = content.renames
+	var result := []
+	for pack in source.packs:
+		var copy: Dictionary = pack.duplicate(true)
+		for unit in copy.units:
+			_apply_rename(unit, renames)
+			for evolution in unit.evolutions:
+				_apply_rename(evolution, renames)
+		result.append(copy)
+	return result
+
+
+static func _apply_rename(row: Dictionary, renames: Dictionary) -> void:
+	var entry: Array = renames[row.id]
+	row.id = entry[0]
+	row.name = entry[1]
 
 
 # --- Levels -----------------------------------------------------------------
-# hand: ATP value of free units per pack slot (see LevelData.hand_value).
-# atp: starting ATP. income: bonus ATP for a wave where nothing leaks
-# (most ATP now comes from kills).
-# budget: threat of wave 1; each later wave grows by 32%.
+# Each level row in the JSON:
+#   hand: ATP value of free units per pack slot (see LevelData.hand_value)
+#   atp: starting ATP. income: bonus ATP for a wave where nothing leaks
+#   budget: threat of wave 1 (levels 2-7); later waves grow by growth_per_wave
+#   boss: invader id that arrives on wave 10 (optional)
+# Level 1 uses the handwritten "tutorial" waves and tips instead.
 
-const LEVELS := [
-	{
-		"name": "1. First Infection", "preview": true, "hand": [12, 15, 7, 0, 0, 0], "atp": 20, "income": 5,
-		"layout": [
-			"....S....",
-			".........",
-			".........",
-			"..#...#..",
-			".........",
-			".........",
-			"#.......#",
-			".........",
-			".........",
-			"..#...#..",
-			".........",
-			".........",
-			".........",
-			"....B....",
-		],
-	},
-	{
-		"name": "2. Sinus Cavity", "hand": [12, 8, 7, 5, 0, 0], "atp": 15, "income": 5, "budget": 11.5,
-		"layout": [
-			"S........",
-			".........",
-			"...#.....",
-			"...#.....",
-			".........",
-			"......#..",
-			"......#..",
-			".........",
-			".##......",
-			".........",
-			".....#...",
-			".....#...",
-			".........",
-			"........B",
-		],
-	},
-	{
-		"name": "3. Bloodstream", "hand": [12, 8, 7, 5, 0, 0], "atp": 20, "income": 5, "budget": 13.8,
-		"layout": [
-			"S.......S",
-			".........",
-			".........",
-			"...###...",
-			".........",
-			".........",
-			"#.......#",
-			".........",
-			".........",
-			"...#.#...",
-			".........",
-			".........",
-			".........",
-			"....B....",
-		],
-	},
-	{
-		"name": "4. Lymph Node", "hand": [14, 8, 7, 5, 10, 0], "atp": 20, "income": 6, "budget": 18.4,
-		"layout": [
-			"....S....",
-			".........",
-			".........",
-			".#.....#.",
-			".........",
-			"...#.#...",
-			".........",
-			".........",
-			"...#.#...",
-			".........",
-			".#.....#.",
-			".........",
-			".........",
-			"....B....",
-		],
-	},
-	{
-		"name": "5. Lung Alveoli", "hand": [16, 12, 7, 5, 10, 0], "atp": 25, "income": 6, "budget": 19.5,
-		"layout": [
-			"........S",
-			".........",
-			".##......",
-			".##...#..",
-			"......#..",
-			"S........",
-			".........",
-			"....##...",
-			"....##...",
-			".........",
-			".#.......",
-			".#....##.",
-			".........",
-			"B........",
-		],
-	},
-	{
-		"name": "6. Gut Lining", "hand": [16, 12, 7, 10, 10, 7], "atp": 25, "income": 6, "budget": 24.1,
-		"layout": [
-			"S...S...S",
-			".........",
-			".........",
-			"#.#...#.#",
-			".........",
-			".........",
-			".........",
-			"..#...#..",
-			".........",
-			".........",
-			".........",
-			"#.......#",
-			".........",
-			"....B....",
-		],
-	},
-	{
-		"name": "7. Bone Marrow", "hand": [20, 12, 15, 10, 10, 7], "atp": 30, "income": 7, "budget": 26.4,
-		"boss": "superbug",
-		"layout": [
-			"S...S....",
-			".........",
-			".........",
-			"..#...#..",
-			"..#...#..",
-			".........",
-			".........",
-			"#...#...#",
-			".........",
-			".........",
-			"..#...#..",
-			"..#...#..",
-			".........",
-			"....B....",
-		],
-	},
-]
-
-# Level 1 teaches every invader in the biome, one idea per wave.
-# [invader, count, spacing, delay]
-const TUTORIAL_WAVES := [
-	[["rhinovirus", 6, 1.2, 0]],
-	[["rhinovirus", 10, 0.9, 0]],
-	[["bacterium", 4, 2.2, 0], ["rhinovirus", 6, 1.0, 3]],
-	[["rhinovirus", 14, 0.6, 0]],
-	[["worm", 2, 6.0, 0], ["rhinovirus", 6, 1.0, 2]],
-	[["spore", 6, 1.5, 0], ["rhinovirus", 8, 0.8, 1]],
-	[["bacterium", 6, 1.8, 0], ["rhinovirus", 8, 0.8, 4]],
-	[["worm", 3, 5.0, 0], ["spore", 6, 1.2, 3]],
-	[["rhinovirus", 20, 0.45, 0], ["bacterium", 4, 2.0, 4]],
-	[["worm", 3, 4.0, 0], ["bacterium", 5, 1.6, 2], ["rhinovirus", 12, 0.5, 6], ["spore", 6, 1.2, 8]],
-]
-const TUTORIAL_TIPS := [
-	"Rhinoviruses walk around your units. Use walls to make their route longer, and put attackers beside it. Every kill drops ATP.",
-	"Units that survived a wave can evolve: tap one and pick a branch. Anything placed this round refunds in full.",
-	"Bacteria split into two halves when killed.",
-	"Units from earlier rounds only refund 50% if you remove them, so plan ahead.",
-	"Parasite Worms ignore your maze and chew through any unit in their way (red line).",
-	"Spores fly straight to the base (blue dashes). Only some units can hit fliers.",
-	"Units are repaired for free after every wave. Let nothing through for a bonus.",
-	"Smashers and fliers together: cover both the red line and the blue dashes.",
-	"Big swarm incoming. Area and fast attacks shine here.",
-	"Final wave! Later levels bring tougher elite versions of everything you've seen.",
-]
-
-
-func _level(biome_id: String, number: int, table: Dictionary) -> LevelData:
+func _level(biome_id: String, number: int, table: Dictionary, content: Dictionary) -> LevelData:
 	var level := LevelData.new()
 	level.display_name = table.name
 	level.layout = PackedStringArray(table.layout)
@@ -245,39 +98,39 @@ func _level(biome_id: String, number: int, table: Dictionary) -> LevelData:
 	level.atp_per_wave = int(table.income)
 	level.show_path_preview = table.get("preview", false)
 	if number == 1:
-		level.wave_tips = PackedStringArray(TUTORIAL_TIPS)
-		for rows in TUTORIAL_WAVES:
+		level.wave_tips = PackedStringArray(content.tutorial.tips)
+		for rows in content.tutorial.waves:
 			var wave := WaveData.new()
 			for row in rows:
-				wave.entries.append(_entry(row[0], row[1], row[2], row[3]))
+				wave.entries.append(_entry(row[0], int(row[1]), row[2], row[3]))
 			level.waves.append(wave)
 	else:
 		for w in 10:
-			level.waves.append(_generated_wave(number, w, table))
+			level.waves.append(_generated_wave(number, w, table, content.waves))
 	return _save(level, "res://data/levels/%s/level_%02d.tres" % [biome_id, number])
 
 
 ## Fills a wave's threat budget from its category mix, swapping in a growing
 ## share of elites once they've been introduced.
-func _generated_wave(level_number: int, wave_index: int, table: Dictionary) -> WaveData:
+func _generated_wave(level_number: int, wave_index: int, table: Dictionary, rules: Dictionary) -> WaveData:
 	var wave := WaveData.new()
-	var budget: float = table.budget * (1.0 + 0.32 * wave_index)
+	var budget: float = table.budget * (1.0 + rules.growth_per_wave * wave_index)
 	var delay := 0.0
-	var is_boss_wave: bool = table.has("boss") and wave_index == 9
-	if is_boss_wave:
+	if table.has("boss") and wave_index == 9:
 		wave.entries.append(_entry(table.boss, 1, 1.0, 6.0, 0))
 		budget *= 0.5  # The boss brings minions, so fewer escorts.
-	var mix: Dictionary = WAVE_MIX[wave_index]
+	var mix: Dictionary = rules.mix[wave_index]
 	for category in mix:
-		var normal: String = CATEGORIES[category][0]
-		var elite: String = CATEGORIES[category][1]
-		var elite_level: int = CATEGORIES[category][2]
+		var info: Dictionary = rules.categories[category]
 		var share: float = budget * mix[category]
 		var elite_share := 0.0
-		if level_number >= elite_level:
-			elite_share = min(0.6, 0.2 + 0.1 * (level_number - elite_level) + 0.02 * wave_index)
-		for pair in [[normal, share * (1.0 - elite_share)], [elite, share * elite_share]]:
-			var count := int(round(pair[1] / THREAT[pair[0]]))
+		var elite: String = info.get("elite", "")
+		if elite != "" and level_number >= info.elite_level:
+			elite_share = min(0.6, 0.2 + 0.1 * (level_number - info.elite_level) + 0.02 * wave_index)
+		for pair in [[info.normal, share * (1.0 - elite_share)], [elite, share * elite_share]]:
+			if pair[0] == "":
+				continue
+			var count := int(round(pair[1] / rules.threat[pair[0]]))
 			if count <= 0:
 				continue
 			var spacing := clampf(16.0 / count, 0.35, 5.0)
@@ -307,8 +160,8 @@ func _pack(biome_id: String, row: Dictionary) -> PackData:
 	pack.product_id = row.get("product", "")
 	var dir := "res://data/packs/%s/%s" % [biome_id, row.id]
 	DirAccess.make_dir_recursive_absolute(dir)
+	var art_dir := "res://art/units/%s/%s" % [biome_id, row.id]
 	for unit_row in row.units:
-		var art_dir := "res://art/units/%s/%s" % [biome_id, row.id]
 		var unit := _unit(unit_row, {}, art_dir, pack.color)
 		for evo_row in unit_row.evolutions:
 			# Evolutions start as a copy of the base unit, then apply changes.
@@ -368,6 +221,8 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 	invader.base_damage = int(row.base_damage)
 	invader.smash_damage = row.get("smash", 0.0)
 	invader.atp_drop = int(row.get("drop", 1))
+	invader.burrow_after = int(row.get("burrow_after", 0))
+	invader.burrow_length = int(row.get("burrow_length", 0))
 	invader.is_elite = row.get("elite", false)
 	invader.is_boss = row.get("boss", false)
 	if row.has("split_into"):

@@ -17,6 +17,11 @@ var drops_atp := true
 var path: Array[Vector2i] = []
 ## Which tile in `path` it is currently heading toward.
 var path_index := 0
+## True while tunneling (can't be hit). Burrowers dig in only once.
+var underground := false
+var _has_burrowed := false
+var _start_index := 0
+var _emerge_index := 0
 
 # Active effects. Each has a strength and the seconds it has left.
 var slow_amount := 0.0
@@ -28,7 +33,7 @@ var poison_spreads := false
 var mark_bonus := 0.0
 var mark_time := 0.0
 
-const POISON_STACK_LIMIT := 3.0
+const POISON_STACK_LIMIT := 2.5
 
 var _minion_timer := 0.0
 var _sprite: Sprite2D
@@ -41,6 +46,7 @@ func setup(p_data: InvaderData, p_board: Board, start: Vector2, p_path: Array[Ve
 	position = start
 	path = p_path
 	path_index = p_index
+	_start_index = p_index
 	_minion_timer = data.minion_interval
 	_sprite = Sprite2D.new()
 	_sprite.texture = data.texture
@@ -92,7 +98,7 @@ func apply_stun(duration: float) -> void:
 
 
 ## Poison stacks: each new dose adds on top of what's already there, up to
-## three times the strength of the dose.
+## 2.5 times the strength of the dose.
 func apply_poison(dps: float, duration: float, spreads: bool) -> void:
 	var current := poison_dps if poison_time > 0.0 else 0.0
 	poison_dps = max(current, min(current + dps, dps * POISON_STACK_LIMIT))
@@ -107,7 +113,7 @@ func apply_mark(bonus: float, duration: float) -> void:
 
 ## Walkers find a new route when the maze changes (a smasher broke a unit).
 func repath() -> void:
-	if data.movement != InvaderData.Movement.PATHER or path_index >= path.size():
+	if data.movement != InvaderData.Movement.PATHER or path_index >= path.size() or underground:
 		return
 	var new_path := board.walker_path(path[path_index])
 	if not new_path.is_empty():
@@ -167,10 +173,16 @@ func _fly(tiles: float) -> void:
 
 func _walk(tiles: float, delta: float) -> void:
 	var step := tiles * Board.TILE
+	if underground:
+		_tunnel(step)
+		return
 	while step > 0.0:
 		if path_index >= path.size():
 			alive = false
 			board.on_invader_reached_base(self)
+			return
+		if _should_burrow():
+			_start_tunnel()
 			return
 		var next_cell := path[path_index]
 		# Smashers stop and chew on any unit standing on their next tile.
@@ -189,7 +201,38 @@ func _walk(tiles: float, delta: float) -> void:
 		path_index += 1
 
 
+func _should_burrow() -> bool:
+	return (data.burrow_after > 0 and not _has_burrowed
+		and path_index - _start_index >= data.burrow_after
+		and path_index + 1 < path.size() - 1)
+
+
+## Digs in: heads straight for a tile further along the route, underground.
+func _start_tunnel() -> void:
+	_has_burrowed = true
+	underground = true
+	_emerge_index = mini(path_index + data.burrow_length, path.size() - 2)
+	_sprite.visible = false
+	queue_redraw()
+
+
+func _tunnel(step: float) -> void:
+	var target := board.cell_center(path[_emerge_index])
+	position = position.move_toward(target, step)
+	if position.distance_to(target) < 0.5:
+		position = target
+		underground = false
+		path_index = _emerge_index + 1
+		_sprite.visible = true
+	queue_redraw()
+
+
 func _draw() -> void:
+	if underground:
+		# A little moving mound of dirt.
+		draw_circle(Vector2(0, 3), 4.0, Color(0.45, 0.3, 0.18))
+		draw_circle(Vector2(-2, 2), 1.5, Color(0.6, 0.42, 0.25))
+		return
 	var half := 9.0 if data.is_boss else 6.0
 	if hp < data.max_hp:
 		draw_rect(Rect2(-half, -half - 4, half * 2, 2), Color(0.1, 0.1, 0.1))

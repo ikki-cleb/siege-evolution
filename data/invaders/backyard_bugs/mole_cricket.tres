@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_dhnnb"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/mole_cricket.png" id="2_23ftb"]
+
+[resource]
+script = ExtResource("1_dhnnb")
+id = "mole_cricket"
+display_name = "Mole Cricket"
+max_hp = 18
+base_damage = 2
+burrow_after = 3
+burrow_length = 6
+texture = ExtResource("2_23ftb")
+description = "Walks a few tiles, then burrows under 6 tiles of its route. Can't be hit underground."

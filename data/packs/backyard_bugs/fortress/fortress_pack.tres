@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_wqpix"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_5ed0r"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/pebble_wall.tres" id="3_dwvjy"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/stag_beetle.tres" id="4_xyvbm"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/bombardier_beetle.tres" id="5_k18av"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/moss_clump.tres" id="6_l13ee"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/praying_mantis.tres" id="7_hdtbn"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/tree_stump.tres" id="8_e3l8g"]
+
+[resource]
+script = ExtResource("1_wqpix")
+id = "fortress"
+display_name = "Fortress"
+description = "Massive walls and slow, heavy hitters. Holds the line and outlasts smashers."
+color = Color(0.81960785, 0.3764706, 0.23921569, 1)
+units = Array[ExtResource("2_5ed0r")]([ExtResource("3_dwvjy"), ExtResource("4_xyvbm"), ExtResource("5_k18av"), ExtResource("6_l13ee"), ExtResource("7_hdtbn"), ExtResource("8_e3l8g")])

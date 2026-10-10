@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ox6ak"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/chestnut_burr.png" id="2_at28e"]
+
+[resource]
+script = ExtResource("1_ox6ak")
+id = "chestnut_burr"
+display_name = "Chestnut Burr"
+cost = 6
+max_hp = 35
+reflect = 0.5
+texture = ExtResource("2_at28e")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Reflects 50% of smasher damage."

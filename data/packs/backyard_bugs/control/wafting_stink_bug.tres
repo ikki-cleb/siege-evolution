@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u1gqo"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wafting_stink_bug.png" id="2_6npfy"]
+
+[resource]
+script = ExtResource("1_u1gqo")
+id = "wafting_stink_bug"
+display_name = "Wafting Stink Bug"
+role = 1
+cost = 12
+max_hp = 25
+attack_mode = 1
+damage = 2.0
+attack_range = 2.6
+slow = 0.35
+slow_duration = 1.2
+texture = ExtResource("2_6npfy")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "More range."
