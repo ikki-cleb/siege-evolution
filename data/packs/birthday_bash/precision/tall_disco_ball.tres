@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rjk4n"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/shield_beacon.tres" id="2_1jjmb"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/pulse_beacon.tres" id="3_2ht3j"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/party_proof_tall_disco_ball.tres" id="2_1jjmb"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bumper_tall_disco_ball.tres" id="3_2ht3j"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/tall_disco_ball.png" id="4_x62wg"]
 
 [resource]

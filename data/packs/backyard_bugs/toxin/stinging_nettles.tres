@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x3ng6"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/toxic_burst_membrane.tres" id="2_f02d5"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/antitoxin_membrane.tres" id="3_upd4q"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/bursting_stinging_nettles.tres" id="2_f02d5"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/rain_washed_stinging_nettles.tres" id="3_upd4q"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/stinging_nettles.png" id="4_6k01h"]
 
 [resource]

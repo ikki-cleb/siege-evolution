@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_o2ea3"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/executioner_t.tres" id="2_q3v2k"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/hammer_t.tres" id="3_57rtq"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/terminator_heavy_ion_cannon.tres" id="2_q3v2k"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/repulsor_heavy_ion_cannon.tres" id="3_57rtq"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/heavy_ion_cannon.png" id="4_3b0tp"]
 
 [resource]

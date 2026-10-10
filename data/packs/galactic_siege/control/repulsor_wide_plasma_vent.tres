@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_c0k25"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/repulsor_wide_plasma_vent.png" id="2_du82d"]
+
+[resource]
+script = ExtResource("1_c0k25")
+id = "repulsor_wide_plasma_vent"
+display_name = "Repulsor Wide Plasma Vent"
+role = 1
+cost = 60
+max_hp = 25
+attack_mode = 1
+damage = 3.5
+attack_range = 3.0
+hits_air = true
+tier = 2
+knockback = 1
+texture = ExtResource("2_du82d")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Pulses shove invaders back."

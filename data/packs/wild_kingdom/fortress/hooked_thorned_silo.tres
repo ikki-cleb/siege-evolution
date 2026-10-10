@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qouxa"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/hooked_thorned_silo.png" id="2_dc53r"]
+
+[resource]
+script = ExtResource("1_qouxa")
+id = "hooked_thorned_silo"
+display_name = "Hooked Thorned Silo"
+cost = 68
+max_hp = 260
+reflect = 0.8
+attack_mode = 1
+damage = 5.0
+tier = 2
+grab_stun = 1.5
+texture = ExtResource("2_dc53r")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Smashers that bite it get stuck for 1.5s."

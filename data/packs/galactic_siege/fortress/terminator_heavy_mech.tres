@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3hrk5"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/terminator_heavy_mech.png" id="2_y672o"]
+
+[resource]
+script = ExtResource("1_3hrk5")
+id = "terminator_heavy_mech"
+display_name = "Terminator Heavy Mech"
+role = 1
+cost = 60
+max_hp = 80
+damage = 22.0
+attack_interval = 1.1
+tier = 2
+execute_below = 0.25
+texture = ExtResource("2_y672o")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Swallows wounded invaders whole (below 25% HP)."

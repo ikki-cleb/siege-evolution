@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_b05xc"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/railgun_lance.tres" id="2_m3pon"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/finishing_lance.tres" id="3_q0122"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/skewering_four_slice_toaster.tres" id="2_m3pon"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/chopping_four_slice_toaster.tres" id="3_q0122"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/four_slice_toaster.png" id="4_qknw2"]
 
 [resource]

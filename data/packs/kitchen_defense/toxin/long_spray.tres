@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pwjr4"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/chain_venom_t.tres" id="2_w688q"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/venom_sniper_t.tres" id="3_teh3y"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/splattering_long_spray.tres" id="2_w688q"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/skewering_long_spray.tres" id="3_teh3y"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/long_spray.png" id="4_vnh2e"]
 
 [resource]

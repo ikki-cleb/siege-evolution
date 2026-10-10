@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4w6p0"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/railgun_lance.tres" id="2_6ama6"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/finishing_lance.tres" id="3_rs1qb"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/goring_peregrine_falcon.tres" id="2_6ama6"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/hunting_peregrine_falcon.tres" id="3_rs1qb"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/peregrine_falcon.png" id="4_yxrbn"]
 
 [resource]

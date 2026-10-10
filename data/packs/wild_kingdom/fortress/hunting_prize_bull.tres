@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_q8sno"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/hunting_prize_bull.png" id="2_xc4xr"]
+
+[resource]
+script = ExtResource("1_q8sno")
+id = "hunting_prize_bull"
+display_name = "Hunting Prize Bull"
+role = 1
+cost = 60
+max_hp = 80
+damage = 22.0
+attack_interval = 1.1
+tier = 2
+execute_below = 0.25
+texture = ExtResource("2_xc4xr")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Swallows wounded invaders whole (below 25% HP)."

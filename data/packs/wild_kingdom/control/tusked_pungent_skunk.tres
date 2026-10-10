@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4vtr6"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/tusked_pungent_skunk.png" id="2_3qg44"]
+
+[resource]
+script = ExtResource("1_4vtr6")
+id = "tusked_pungent_skunk"
+display_name = "Tusked Pungent Skunk"
+role = 1
+cost = 46
+max_hp = 25
+attack_mode = 1
+damage = 3.5
+attack_range = 1.8
+slow = 0.35
+slow_duration = 1.2
+tier = 2
+armor_shred = 1
+texture = ExtResource("2_3qg44")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Pulses strip 1 armor."

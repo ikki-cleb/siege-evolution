@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_w1va4"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/chain_storm.tres" id="2_k68pw"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/storm_volley.tres" id="3_4tsdw"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/splattering_mega_zapper.tres" id="2_k68pw"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/two_handed_mega_zapper.tres" id="3_4tsdw"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/mega_zapper.png" id="4_cgwsn"]
 
 [resource]

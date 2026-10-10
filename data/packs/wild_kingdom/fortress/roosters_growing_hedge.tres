@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kacvi"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/roosters_growing_hedge.png" id="2_dchll"]
+
+[resource]
+script = ExtResource("1_kacvi")
+id = "roosters_growing_hedge"
+display_name = "Rooster's Growing Hedge"
+cost = 40
+max_hp = 70
+regen = 16.0
+tier = 2
+aura_speed = 0.25
+texture = ExtResource("2_dchll")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Neighbors attack 25% faster."

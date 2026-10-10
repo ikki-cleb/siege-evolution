@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6q80a"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/devouring_macrophage.tres" id="2_lpg6t"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/titan_macrophage.tres" id="3_nofg6"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/commando_heavy_turret.tres" id="2_lpg6t"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/recoil_heavy_turret.tres" id="3_nofg6"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/fortress/heavy_turret.png" id="4_d6trf"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h5b5j"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/antibody_storm.tres" id="2_33ijq"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/neutralizing_plasma.tres" id="3_ftqol"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/many_legged_venom_spitter.tres" id="2_33ijq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/predator_venom_spitter.tres" id="3_ftqol"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/venom_spitter.png" id="4_1g0oh"]
 
 [resource]

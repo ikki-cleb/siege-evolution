@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qxfxs"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/undying_bloom.tres" id="2_rhoti"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/choking_bloom.tres" id="3_4vbh3"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/mended_woody_hemlock.tres" id="2_rhoti"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/hooked_woody_hemlock.tres" id="3_4vbh3"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/woody_hemlock.png" id="4_pq7qj"]
 
 [resource]

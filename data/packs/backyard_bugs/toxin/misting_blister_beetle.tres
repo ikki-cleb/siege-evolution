@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_s780c"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/fanning_sprayer.tres" id="2_r4ic3"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/harvest_sprayer.tres" id="3_j6544"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/many_legged_misting_blister_beetle.tres" id="2_r4ic3"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/foraging_misting_blister_beetle.tres" id="3_j6544"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/misting_blister_beetle.png" id="4_asm35"]
 
 [resource]

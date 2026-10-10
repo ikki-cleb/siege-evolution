@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n3axp"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/executioner_nk.tres" id="2_yhf2h"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/chain_nk.tres" id="3_ebsjg"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/super_elite_commando.tres" id="2_yhf2h"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/relay_elite_commando.tres" id="3_ebsjg"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/swarm/elite_commando.png" id="4_ofo5w"]
 
 [resource]

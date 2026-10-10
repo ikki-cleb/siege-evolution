@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_puo77"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/necrotizing_t.tres" id="2_38ffh"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/twin_venom_t.tres" id="3_1q0e4"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/chopping_extra_strength_spray.tres" id="2_38ffh"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/two_handed_extra_strength_spray.tres" id="3_1q0e4"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/extra_strength_spray.png" id="4_cyv63"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6ej8j"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/twin_spitter.tres" id="2_oqpb8"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/bouncing_spitter.tres" id="3_fpt8o"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/multi_target_long_arc_thrower.tres" id="2_oqpb8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/super_long_arc_thrower.tres" id="3_fpt8o"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/long_arc_thrower.png" id="4_2u6gl"]
 
 [resource]

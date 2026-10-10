@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tilmc"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/memory_lance.tres" id="2_4cb0v"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/long_lived_b_cell.tres" id="3_trcbq"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/laser_long_dart_blaster.tres" id="2_4cb0v"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/prize_long_dart_blaster.tres" id="3_trcbq"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/long_dart_blaster.png" id="4_gy5u5"]
 
 [resource]

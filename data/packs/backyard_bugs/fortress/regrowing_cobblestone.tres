@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lchs1"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/regrowing_cobblestone.png" id="2_ryc4p"]
+
+[resource]
+script = ExtResource("1_lchs1")
+id = "regrowing_cobblestone"
+display_name = "Regrowing Cobblestone"
+cost = 34
+max_hp = 260
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("2_ryc4p")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Rebuilds itself once per wave at full HP."

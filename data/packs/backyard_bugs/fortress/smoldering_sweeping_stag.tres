@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jlws5"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/smoldering_sweeping_stag.png" id="2_6xt56"]
+
+[resource]
+script = ExtResource("1_jlws5")
+id = "smoldering_sweeping_stag"
+display_name = "Smoldering Sweeping Stag"
+role = 1
+cost = 60
+max_hp = 60
+damage = 9.0
+attack_range = 1.8
+attack_interval = 1.1
+splash_radius = 1.0
+tier = 2
+zone_kind = "burn"
+zone_power = 5.0
+texture = ExtResource("2_6xt56")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Hits leave a burning patch."

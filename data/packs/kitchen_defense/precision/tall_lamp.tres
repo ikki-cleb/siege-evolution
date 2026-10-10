@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hmcbd"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/shield_beacon.tres" id="2_ox2j2"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/pulse_beacon.tres" id="3_mgg0e"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/wipe_clean_tall_lamp.tres" id="2_ox2j2"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/swatting_tall_lamp.tres" id="3_mgg0e"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/tall_lamp.png" id="4_obw6v"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lbbfg"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/executioner_t.tres" id="2_ottst"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/hammer_t.tres" id="3_oafol"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/hunting_fierce_ferret.tres" id="2_ottst"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/bucking_fierce_ferret.tres" id="3_oafol"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/fierce_ferret.png" id="4_ctxuy"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ure4l"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/regrowing_membrane.tres" id="2_m6nac"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/sticky_membrane.tres" id="3_vouml"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/self_repairing_shielded_rad_plate.tres" id="2_m6nac"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/tractor_shielded_rad_plate.tres" id="3_vouml"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/shielded_rad_plate.png" id="4_21k2x"]
 
 [resource]

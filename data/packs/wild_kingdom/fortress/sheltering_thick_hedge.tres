@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_oeq6r"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/sheltering_thick_hedge.png" id="2_j1uhk"]
+
+[resource]
+script = ExtResource("1_oeq6r")
+id = "sheltering_thick_hedge"
+display_name = "Sheltering Thick Hedge"
+cost = 40
+max_hp = 150
+regen = 6.0
+tier = 2
+aura_shield = 0.3
+texture = ExtResource("2_j1uhk")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Neighbors take 30% less damage."

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_r2nuv"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/smoldering_froth_spittlebug.png" id="2_8y6x2"]
+
+[resource]
+script = ExtResource("1_r2nuv")
+id = "smoldering_froth_spittlebug"
+display_name = "Smoldering Froth Spittlebug"
+role = 1
+cost = 50
+max_hp = 15
+damage = 6.0
+attack_range = 3.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+tier = 2
+zone_kind = "burn"
+zone_power = 4.0
+texture = ExtResource("2_8y6x2")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Shots leave a burning patch."

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hcj51"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/eosinophil_barrage.tres" id="2_7ab6a"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/major_basic_protein.tres" id="3_tw4ca"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/two_handed_big_pressure_cooker.tres" id="2_7ab6a"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/chopping_big_pressure_cooker.tres" id="3_tw4ca"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/big_pressure_cooker.png" id="4_m8ot3"]
 
 [resource]

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_g1ff3"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/two_handed_champagne_popper.png" id="2_atct5"]
+
+[resource]
+script = ExtResource("1_g1ff3")
+id = "two_handed_champagne_popper"
+display_name = "Two-Handed Champagne Popper"
+role = 1
+cost = 56
+max_hp = 30
+damage = 15.0
+attack_range = 2.5
+attack_interval = 1.4
+hits_air = true
+tier = 2
+multishot = 2
+texture = ExtResource("2_atct5")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Fires at 2 targets at once."

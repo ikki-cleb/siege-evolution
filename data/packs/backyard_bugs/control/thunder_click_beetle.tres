@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6el5c"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/chain_storm.tres" id="2_rgigg"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/storm_volley.tres" id="3_r4kfv"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/swarming_thunder_click_beetle.tres" id="2_rgigg"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/many_legged_thunder_click_beetle.tres" id="3_r4kfv"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/thunder_click_beetle.png" id="4_6psv2"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gik31"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shoving_mast_cell.tres" id="2_s188r"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/alarm_mast_cell.tres" id="3_xmmyo"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/charging_wafting_stink_bug.tres" id="2_s188r"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/buzzing_wafting_stink_bug.tres" id="3_xmmyo"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wafting_stink_bug.png" id="4_q8sda"]
 
 [resource]

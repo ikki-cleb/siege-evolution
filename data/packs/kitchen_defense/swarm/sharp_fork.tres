@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7oucx"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/frenzied_horde.tres" id="2_1bx6o"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/killer_neutrophil.tres" id="3_8ciot"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/two_handed_sharp_fork.tres" id="2_1bx6o"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/chopping_sharp_fork.tres" id="3_8ciot"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sharp_fork.png" id="4_p81q1"]
 
 [resource]

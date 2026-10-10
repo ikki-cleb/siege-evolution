@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0r7gt"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/memory_lance.tres" id="2_l2q8r"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/long_lived_b_cell.tres" id="3_xe707"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/lancing_sharpshooter_spider.tres" id="2_l2q8r"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/foraging_sharpshooter_spider.tres" id="3_xe707"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/sharpshooter_spider.png" id="4_chuol"]
 
 [resource]

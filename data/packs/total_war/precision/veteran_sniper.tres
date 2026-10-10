@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mb3a6"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/antibody_storm.tres" id="2_vehf2"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/neutralizing_plasma.tres" id="3_r0jhb"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/twin_barrel_veteran_sniper.tres" id="2_vehf2"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/commando_veteran_sniper.tres" id="3_r0jhb"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/precision/veteran_sniper.png" id="4_g10ij"]
 
 [resource]

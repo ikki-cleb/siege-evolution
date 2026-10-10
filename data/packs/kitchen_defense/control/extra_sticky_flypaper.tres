@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_k1wyc"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/glue_mucus.tres" id="2_be5j7"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/bursting_mucus.tres" id="3_ndqan"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/frozen_extra_sticky_flypaper.tres" id="2_be5j7"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/popping_extra_sticky_flypaper.tres" id="3_ndqan"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/extra_sticky_flypaper.png" id="4_716lm"]
 
 [resource]

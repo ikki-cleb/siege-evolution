@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5s52h"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/shockwave_basophil.tres" id="2_wn53i"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/rallying_basophil.tres" id="3_ldqak"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/recoil_wide_grenadier.tres" id="2_wn53i"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/rallying_wide_grenadier.tres" id="3_ldqak"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/swarm/wide_grenadier.png" id="4_mj6yo"]
 
 [resource]

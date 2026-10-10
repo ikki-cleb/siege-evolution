@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6ib1o"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/histamine_burst.tres" id="2_atktj"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/shredding_basophil.tres" id="3_y25ch"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/flaming_heavy_grenadier.tres" id="2_atktj"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/armor_piercing_heavy_grenadier.tres" id="3_y25ch"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/swarm/heavy_grenadier.png" id="4_gx35k"]
 
 [resource]

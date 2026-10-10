@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_56bdl"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/presenting_dendrite.tres" id="2_fl6av"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/dendrite_volley.tres" id="3_oi6cc"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/splattering_champagne_popper.tres" id="2_fl6av"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/two_handed_champagne_popper.tres" id="3_oi6cc"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/champagne_popper.png" id="4_qxlcm"]
 
 [resource]

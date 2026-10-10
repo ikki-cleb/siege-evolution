@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fvc4y"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/presenting_dendrite.tres" id="2_0202q"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/dendrite_volley.tres" id="3_etrld"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/herding_alpha_llama.tres" id="2_0202q"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/flurry_alpha_llama.tres" id="3_etrld"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/alpha_llama.png" id="4_8mm1l"]
 
 [resource]

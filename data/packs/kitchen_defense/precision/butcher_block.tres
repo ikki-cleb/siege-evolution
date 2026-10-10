@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rq6s3"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/armored_keratin.tres" id="2_b8yv1"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/rebuilt_plate.tres" id="3_txsv3"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/oven_mitt_butcher_block.tres" id="2_b8yv1"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/self_stacking_butcher_block.tres" id="3_txsv3"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/butcher_block.png" id="4_b0bfu"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x16bp"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/corroding_sprayer.tres" id="2_alaay"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/toxic_cloud_sprayer.tres" id="3_evjpu"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/tusked_cane_toad.tres" id="2_alaay"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/stinging_cane_toad.tres" id="3_evjpu"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/cane_toad.png" id="4_a0t0m"]
 
 [resource]

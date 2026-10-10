@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fsyqv"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/net_neutrophil.tres" id="2_3lmdy"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/scavenger_neutrophil.tres" id="3_s5g7b"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/herding_scout_hen.tres" id="2_3lmdy"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/market_scout_hen.tres" id="3_s5g7b"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/scout_hen.png" id="4_c5dqb"]
 
 [resource]

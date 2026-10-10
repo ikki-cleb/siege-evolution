@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ip27y"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/twin_spitter.tres" id="2_cksr4"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/bouncing_spitter.tres" id="3_7kdkk"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/two_handed_long_squirter.tres" id="2_cksr4"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/splattering_long_squirter.tres" id="3_7kdkk"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/long_squirter.png" id="4_kb3nj"]
 
 [resource]

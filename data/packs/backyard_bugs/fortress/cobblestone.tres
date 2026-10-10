@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0cac5"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/fibrin_bastion.tres" id="2_ghkyi"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/clotting_snare.tres" id="3_x3mxl"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/regrowing_cobblestone.tres" id="2_ghkyi"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sticky_cobblestone.tres" id="3_x3mxl"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/cobblestone.png" id="4_mbfea"]
 
 [resource]

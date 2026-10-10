@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wgihn"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/eosinophil_barrage.tres" id="2_cng1u"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/major_basic_protein.tres" id="3_k1xx8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/multi_target_heavy_rail_cannon.tres" id="2_cng1u"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/terminator_heavy_rail_cannon.tres" id="3_k1xx8"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/heavy_rail_cannon.png" id="4_kuxoa"]
 
 [resource]

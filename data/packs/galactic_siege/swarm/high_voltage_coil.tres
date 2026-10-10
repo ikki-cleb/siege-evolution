@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t04tk"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/histamine_burst.tres" id="2_mo6cc"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/shredding_basophil.tres" id="3_mivn2"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/plasma_fire_high_voltage_coil.tres" id="2_mo6cc"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/phase_shred_high_voltage_coil.tres" id="3_mivn2"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/high_voltage_coil.png" id="4_hfkdd"]
 
 [resource]

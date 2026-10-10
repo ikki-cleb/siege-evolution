@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_a71g2"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/sniper_monocyte.tres" id="2_b1lyd"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/signal_monocyte.tres" id="3_654p0"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/railgun_sentry_aa_gunner.tres" id="2_b1lyd"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/rallying_sentry_aa_gunner.tres" id="3_654p0"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/swarm/sentry_aa_gunner.png" id="4_j5lxq"]
 
 [resource]

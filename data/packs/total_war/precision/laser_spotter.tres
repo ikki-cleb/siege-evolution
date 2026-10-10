@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h0qkm"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/complement_tagger.tres" id="2_nsgdl"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/chain_tagger.tres" id="3_npcwg"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/armor_piercing_laser_spotter.tres" id="2_nsgdl"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/relay_laser_spotter.tres" id="3_npcwg"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/precision/laser_spotter.png" id="4_jmocp"]
 
 [resource]

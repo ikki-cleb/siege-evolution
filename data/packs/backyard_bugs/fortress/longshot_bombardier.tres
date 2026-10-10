@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7xr0o"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sentinel_dendrite.tres" id="2_3hybd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/harvesting_dendrite.tres" id="3_ebd0n"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/lancing_long_shot_bombardier.tres" id="2_3hybd"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/foraging_long_shot_bombardier.tres" id="3_ebd0n"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/longshot_bombardier.png" id="4_bfysl"]
 
 [resource]

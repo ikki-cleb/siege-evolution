@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1nau5"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/spike_trap_plate.tres" id="2_8puew"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/hooked_plate.tres" id="3_c7yxr"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/bursting_chestnut_burr.tres" id="2_8puew"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/sticky_chestnut_burr.tres" id="3_c7yxr"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/chestnut_burr.png" id="4_egfbh"]
 
 [resource]

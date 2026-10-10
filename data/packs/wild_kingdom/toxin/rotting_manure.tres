@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1x6s3"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/dissolving_pool.tres" id="2_fvtty"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/boiling_pool.tres" id="3_lnbaq"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/tusked_rotting_manure.tres" id="2_fvtty"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/stinging_rotting_manure.tres" id="3_lnbaq"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/rotting_manure.png" id="4_hftu8"]
 
 [resource]

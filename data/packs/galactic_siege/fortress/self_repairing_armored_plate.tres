@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_b0b1y"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/self_repairing_armored_plate.png" id="2_t2iro"]
+
+[resource]
+script = ExtResource("1_b0b1y")
+id = "self_repairing_armored_plate"
+display_name = "Self-Repairing Armored Plate"
+cost = 34
+max_hp = 260
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("2_t2iro")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Rebuilds itself once per wave at full HP."

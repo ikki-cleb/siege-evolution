@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ge10o"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/popping_cheese_grater.png" id="2_acllr"]
+
+[resource]
+script = ExtResource("1_ge10o")
+id = "popping_cheese_grater"
+display_name = "Popping Cheese Grater"
+cost = 22
+max_hp = 35
+reflect = 0.5
+tier = 2
+explode_damage = 35.0
+can_place_on_water = true
+texture = ExtResource("2_acllr")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Blasts nearby invaders when it breaks."

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7til1"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/sentinel_dendrite.tres" id="2_fuk02"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/harvesting_dendrite.tres" id="3_ub58o"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/laser_long_confetti_cannon.tres" id="2_fuk02"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/prize_long_confetti_cannon.tres" id="3_ub58o"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/long_confetti_cannon.png" id="4_dvyrg"]
 
 [resource]

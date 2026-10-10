@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ah4o2"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/tractor_armored_plate.png" id="2_sf0sy"]
+
+[resource]
+script = ExtResource("1_ah4o2")
+id = "tractor_armored_plate"
+display_name = "Tractor Armored Plate"
+cost = 34
+max_hp = 220
+tier = 2
+grab_stun = 1.2
+can_place_on_water = true
+texture = ExtResource("2_sf0sy")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Smashers that bite it get stuck for 1.2s."

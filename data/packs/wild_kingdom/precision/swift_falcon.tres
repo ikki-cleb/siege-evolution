@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xggh7"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/bounty_lance.tres" id="2_axw7b"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/ricochet_lance.tres" id="3_pxkwj"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/market_swift_falcon.tres" id="2_axw7b"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/herding_swift_falcon.tres" id="3_pxkwj"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/swift_falcon.png" id="4_u2u2y"]
 
 [resource]

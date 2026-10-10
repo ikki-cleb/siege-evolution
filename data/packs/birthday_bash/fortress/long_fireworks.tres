@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uu6b1"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/eosinophil_spear.tres" id="2_6xvej"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/eosinophil_shredder.tres" id="3_yjusw"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/laser_long_fireworks.tres" id="2_6xvej"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/unwrapping_long_fireworks.tres" id="3_yjusw"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/long_fireworks.png" id="4_2d0bc"]
 
 [resource]

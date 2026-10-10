@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uccol"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/pandemic_lancer.tres" id="2_8e4jw"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/plague_executioner.tres" id="3_qeu3y"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/relay_venom_drone.tres" id="2_8e4jw"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/commando_venom_drone.tres" id="3_qeu3y"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/toxin/venom_drone.png" id="4_asovm"]
 
 [resource]

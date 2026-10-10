@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_eww01"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/flurry_clydesdale.png" id="2_w2drq"]
+
+[resource]
+script = ExtResource("1_eww01")
+id = "flurry_clydesdale"
+display_name = "Flurry Clydesdale"
+role = 1
+cost = 84
+max_hp = 40
+damage = 52.0
+attack_range = 2.0
+attack_interval = 2.6
+hits_air = true
+pierce = true
+tier = 2
+multishot = 2
+texture = ExtResource("2_w2drq")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Blasts 2 targets at once."

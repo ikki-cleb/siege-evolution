@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t5e03"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/mucus_plug.tres" id="2_vup6o"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/grasping_mucus.tres" id="3_38vic"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/field_repaired_thick_barricade.tres" id="2_vup6o"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/barbed_thick_barricade.tres" id="3_38vic"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/control/thick_barricade.png" id="4_j6bsp"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/control/thick_barricade_water.png" id="5_u4kht"]
 

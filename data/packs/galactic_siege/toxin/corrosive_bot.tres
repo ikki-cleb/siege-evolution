@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_epxao"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/necrotizing_t.tres" id="2_njulv"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/twin_venom_t.tres" id="3_s2rp4"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/terminator_corrosive_bot.tres" id="2_njulv"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/multi_target_corrosive_bot.tres" id="3_s2rp4"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/corrosive_bot.png" id="4_n2qcr"]
 
 [resource]

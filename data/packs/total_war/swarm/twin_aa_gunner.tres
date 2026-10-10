@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_itlt1"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/barrage_monocyte.tres" id="2_ocrqq"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/piercing_monocyte.tres" id="3_v6t85"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/super_twin_aa_gunner.tres" id="2_ocrqq"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/armor_piercing_twin_aa_gunner.tres" id="3_v6t85"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/swarm/twin_aa_gunner.png" id="4_kchha"]
 
 [resource]

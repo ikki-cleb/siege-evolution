@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5kxap"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/glue_mucus.tres" id="2_cjdsu"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bursting_mucus.tres" id="3_6w5yh"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/slushie_extra_wobbly_jelly.tres" id="2_cjdsu"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/surprise_extra_wobbly_jelly.tres" id="3_6w5yh"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/extra_wobbly_jelly.png" id="4_jlssb"]
 
 [resource]

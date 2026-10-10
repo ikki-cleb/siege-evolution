@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6ek6t"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/wipe_clean_sugar_lump.png" id="2_n5p66"]
+
+[resource]
+script = ExtResource("1_6ek6t")
+id = "wipe_clean_sugar_lump"
+display_name = "Wipe-Clean Sugar Lump"
+cost = 14
+max_hp = 40
+tier = 2
+aura_speed = 0.1
+aura_cleanse = true
+can_place_on_water = true
+texture = ExtResource("2_n5p66")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Neighbors attack 10% faster and ignore goo."

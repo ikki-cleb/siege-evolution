@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_un3y8"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/multi_tagger.tres" id="2_om48x"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/coordinator_tagger.tres" id="3_tp17w"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/many_legged_signal_firefly.tres" id="2_om48x"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/buzzing_signal_firefly.tres" id="3_tp17w"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/signal_firefly.png" id="4_inwpg"]
 
 [resource]

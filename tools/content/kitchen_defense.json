@@ -365,6 +365,486 @@
     "virulent_bloom": [
       "fuzzy_mold_loaf",
       "Fuzzy Mold Loaf"
+    ],
+    "fibrin_bastion": [
+      "self_stacking_stacked_cans",
+      "Self-Stacking Stacked Cans"
+    ],
+    "clotting_snare": [
+      "sticky_stacked_cans",
+      "Sticky Stacked Cans"
+    ],
+    "thrombus_mine": [
+      "popping_jagged_can",
+      "Popping Jagged Can"
+    ],
+    "barbed_thrombus": [
+      "sticky_jagged_can",
+      "Sticky Jagged Can"
+    ],
+    "devouring_macrophage": [
+      "chopping_marble_rolling_pin",
+      "Chopping Marble Rolling Pin"
+    ],
+    "titan_macrophage": [
+      "swatting_marble_rolling_pin",
+      "Swatting Marble Rolling Pin"
+    ],
+    "engulfing_foam": [
+      "peeling_wide_rolling_pin",
+      "Peeling Wide Rolling Pin"
+    ],
+    "foam_eruption": [
+      "sizzling_wide_rolling_pin",
+      "Sizzling Wide Rolling Pin"
+    ],
+    "presenting_dendrite": [
+      "splattering_champagne_popper",
+      "Splattering Champagne Popper"
+    ],
+    "dendrite_volley": [
+      "two_handed_champagne_popper",
+      "Two-Handed Champagne Popper"
+    ],
+    "sentinel_dendrite": [
+      "skewering_long_cork_popper",
+      "Skewering Long Cork Popper"
+    ],
+    "harvesting_dendrite": [
+      "tip_jar_long_cork_popper",
+      "Tip-Jar Long Cork Popper"
+    ],
+    "keloid_wall": [
+      "self_stacking_dense_sponge",
+      "Self-Stacking Dense Sponge"
+    ],
+    "scar_lattice": [
+      "oven_mitt_dense_sponge",
+      "Oven-Mitt Dense Sponge"
+    ],
+    "signaling_fibroblast": [
+      "espresso_soaked_sponge",
+      "Espresso Soaked Sponge"
+    ],
+    "granulation_tissue": [
+      "sticky_soaked_sponge",
+      "Sticky Soaked Sponge"
+    ],
+    "eosinophil_barrage": [
+      "two_handed_big_pressure_cooker",
+      "Two-Handed Big Pressure Cooker"
+    ],
+    "major_basic_protein": [
+      "chopping_big_pressure_cooker",
+      "Chopping Big Pressure Cooker"
+    ],
+    "eosinophil_spear": [
+      "skewering_steam_jet_cooker",
+      "Skewering Steam Jet Cooker"
+    ],
+    "eosinophil_shredder": [
+      "peeling_steam_jet_cooker",
+      "Peeling Steam Jet Cooker"
+    ],
+    "fortress_granuloma": [
+      "wipe_clean_seasoned_pan",
+      "Wipe-Clean Seasoned Pan"
+    ],
+    "bone_granuloma": [
+      "self_stacking_seasoned_pan",
+      "Self-Stacking Seasoned Pan"
+    ],
+    "bursting_granuloma": [
+      "popping_spiked_grill_pan",
+      "Popping Spiked Grill Pan"
+    ],
+    "grasping_granuloma": [
+      "sticky_spiked_grill_pan",
+      "Sticky Spiked Grill Pan"
+    ],
+    "cornified_layer": [
+      "self_stacking_sugar_lump",
+      "Self-Stacking Sugar Lump"
+    ],
+    "mucosal_barrier": [
+      "wipe_clean_sugar_lump",
+      "Wipe-Clean Sugar Lump"
+    ],
+    "cilia_trap": [
+      "sticky_rock_candy",
+      "Sticky Rock Candy"
+    ],
+    "bursting_cell": [
+      "popping_rock_candy",
+      "Popping Rock Candy"
+    ],
+    "frenzied_horde": [
+      "two_handed_sharp_fork",
+      "Two-Handed Sharp Fork"
+    ],
+    "killer_neutrophil": [
+      "chopping_sharp_fork",
+      "Chopping Sharp Fork"
+    ],
+    "net_neutrophil": [
+      "splattering_long_fork",
+      "Splattering Long Fork"
+    ],
+    "scavenger_neutrophil": [
+      "tip_jar_long_fork",
+      "Tip-Jar Long Fork"
+    ],
+    "barrage_monocyte": [
+      "two_handed_twin_spray",
+      "Two-Handed Twin Spray"
+    ],
+    "piercing_monocyte": [
+      "peeling_twin_spray",
+      "Peeling Twin Spray"
+    ],
+    "sniper_monocyte": [
+      "skewering_jet_spray",
+      "Skewering Jet Spray"
+    ],
+    "signal_monocyte": [
+      "espresso_jet_spray",
+      "Espresso Jet Spray"
+    ],
+    "histamine_burst": [
+      "sizzling_power_beater",
+      "Sizzling Power Beater"
+    ],
+    "shredding_basophil": [
+      "peeling_power_beater",
+      "Peeling Power Beater"
+    ],
+    "shockwave_basophil": [
+      "swatting_wide_whisk",
+      "Swatting Wide Whisk"
+    ],
+    "rallying_basophil": [
+      "espresso_wide_whisk",
+      "Espresso Wide Whisk"
+    ],
+    "executioner_nk": [
+      "chopping_sharp_pizza_cutter",
+      "Chopping Sharp Pizza Cutter"
+    ],
+    "chain_nk": [
+      "splattering_sharp_pizza_cutter",
+      "Splattering Sharp Pizza Cutter"
+    ],
+    "stalker_nk": [
+      "tip_jar_rolling_pizza_cutter",
+      "Tip-Jar Rolling Pizza Cutter"
+    ],
+    "whirling_nk": [
+      "two_handed_rolling_pizza_cutter",
+      "Two-Handed Rolling Pizza Cutter"
+    ],
+    "snaring_net": [
+      "sticky_double_wrap",
+      "Sticky Double Wrap"
+    ],
+    "regrowing_net": [
+      "self_stacking_double_wrap",
+      "Self-Stacking Double Wrap"
+    ],
+    "freezing_net": [
+      "frozen_wide_wrap",
+      "Frozen Wide Wrap"
+    ],
+    "bursting_net": [
+      "popping_wide_wrap",
+      "Popping Wide Wrap"
+    ],
+    "armored_keratin": [
+      "oven_mitt_butcher_block",
+      "Oven-Mitt Butcher Block"
+    ],
+    "rebuilt_plate": [
+      "self_stacking_butcher_block",
+      "Self-Stacking Butcher Block"
+    ],
+    "spike_trap_plate": [
+      "popping_cheese_grater",
+      "Popping Cheese Grater"
+    ],
+    "hooked_plate": [
+      "sticky_cheese_grater",
+      "Sticky Cheese Grater"
+    ],
+    "antibody_storm": [
+      "two_handed_ghost_pepper_grinder",
+      "Two-Handed Ghost Pepper Grinder"
+    ],
+    "neutralizing_plasma": [
+      "chopping_ghost_pepper_grinder",
+      "Chopping Ghost Pepper Grinder"
+    ],
+    "memory_lance": [
+      "skewering_tall_pepper_grinder",
+      "Skewering Tall Pepper Grinder"
+    ],
+    "long_lived_b_cell": [
+      "tip_jar_tall_pepper_grinder",
+      "Tip-Jar Tall Pepper Grinder"
+    ],
+    "complement_tagger": [
+      "peeling_heavy_sifter",
+      "Peeling Heavy Sifter"
+    ],
+    "chain_tagger": [
+      "splattering_heavy_sifter",
+      "Splattering Heavy Sifter"
+    ],
+    "multi_tagger": [
+      "two_handed_long_sifter",
+      "Two-Handed Long Sifter"
+    ],
+    "coordinator_tagger": [
+      "espresso_long_sifter",
+      "Espresso Long Sifter"
+    ],
+    "executioner_t": [
+      "chopping_rat_trap",
+      "Chopping Rat Trap"
+    ],
+    "hammer_t": [
+      "swatting_rat_trap",
+      "Swatting Rat Trap"
+    ],
+    "hunter_t": [
+      "splattering_swatter_trap",
+      "Splattering Swatter Trap"
+    ],
+    "twin_patrol_t": [
+      "two_handed_swatter_trap",
+      "Two-Handed Swatter Trap"
+    ],
+    "railgun_lance": [
+      "skewering_four_slice_toaster",
+      "Skewering Four-Slice Toaster"
+    ],
+    "finishing_lance": [
+      "chopping_four_slice_toaster",
+      "Chopping Four-Slice Toaster"
+    ],
+    "bounty_lance": [
+      "tip_jar_turbo_toaster",
+      "Tip-Jar Turbo Toaster"
+    ],
+    "ricochet_lance": [
+      "splattering_turbo_toaster",
+      "Splattering Turbo Toaster"
+    ],
+    "interferon_storm": [
+      "peeling_bright_lamp",
+      "Peeling Bright Lamp"
+    ],
+    "rallying_beacon": [
+      "espresso_bright_lamp",
+      "Espresso Bright Lamp"
+    ],
+    "shield_beacon": [
+      "wipe_clean_tall_lamp",
+      "Wipe-Clean Tall Lamp"
+    ],
+    "pulse_beacon": [
+      "swatting_tall_lamp",
+      "Swatting Tall Lamp"
+    ],
+    "mucus_plug": [
+      "self_stacking_thick_flypaper",
+      "Self-Stacking Thick Flypaper"
+    ],
+    "grasping_mucus": [
+      "sticky_thick_flypaper",
+      "Sticky Thick Flypaper"
+    ],
+    "glue_mucus": [
+      "frozen_extra_sticky_flypaper",
+      "Frozen Extra-Sticky Flypaper"
+    ],
+    "bursting_mucus": [
+      "popping_extra_sticky_flypaper",
+      "Popping Extra-Sticky Flypaper"
+    ],
+    "shredding_mast_cell": [
+      "peeling_frosty_ice_tray",
+      "Peeling Frosty Ice Tray"
+    ],
+    "degranulation_burst": [
+      "sizzling_frosty_ice_tray",
+      "Sizzling Frosty Ice Tray"
+    ],
+    "shoving_mast_cell": [
+      "swatting_wide_ice_tray",
+      "Swatting Wide Ice Tray"
+    ],
+    "alarm_mast_cell": [
+      "espresso_wide_ice_tray",
+      "Espresso Wide Ice Tray"
+    ],
+    "corrosive_spitter": [
+      "peeling_hot_sauce_squirter",
+      "Peeling Hot Sauce Squirter"
+    ],
+    "burning_spitter": [
+      "sizzling_hot_sauce_squirter",
+      "Sizzling Hot Sauce Squirter"
+    ],
+    "twin_spitter": [
+      "two_handed_long_squirter",
+      "Two-Handed Long Squirter"
+    ],
+    "bouncing_spitter": [
+      "splattering_long_squirter",
+      "Splattering Long Squirter"
+    ],
+    "inferno_node": [
+      "sizzling_high_flame_burner",
+      "Sizzling High Flame Burner"
+    ],
+    "heatstroke_node": [
+      "chopping_high_flame_burner",
+      "Chopping High Flame Burner"
+    ],
+    "heatwave_node": [
+      "swatting_wide_burner",
+      "Swatting Wide Burner"
+    ],
+    "warming_node": [
+      "espresso_wide_burner",
+      "Espresso Wide Burner"
+    ],
+    "chain_storm": [
+      "splattering_mega_zapper",
+      "Splattering Mega Zapper"
+    ],
+    "storm_volley": [
+      "two_handed_mega_zapper",
+      "Two-Handed Mega Zapper"
+    ],
+    "shockwave_storm": [
+      "swatting_chain_zapper",
+      "Swatting Chain Zapper"
+    ],
+    "freezing_storm": [
+      "frozen_chain_zapper",
+      "Frozen Chain Zapper"
+    ],
+    "scorched_zone": [
+      "peeling_searing_griddle",
+      "Peeling Searing Griddle"
+    ],
+    "sepsis_zone": [
+      "chopping_searing_griddle",
+      "Chopping Searing Griddle"
+    ],
+    "edema_zone": [
+      "swatting_big_griddle",
+      "Swatting Big Griddle"
+    ],
+    "fevered_zone": [
+      "tip_jar_big_griddle",
+      "Tip-Jar Big Griddle"
+    ],
+    "regrowing_membrane": [
+      "self_stacking_big_soap_bar",
+      "Self-Stacking Big Soap Bar"
+    ],
+    "sticky_membrane": [
+      "sticky_big_soap_bar",
+      "Sticky Big Soap Bar"
+    ],
+    "toxic_burst_membrane": [
+      "popping_lye_soap",
+      "Popping Lye Soap"
+    ],
+    "antitoxin_membrane": [
+      "wipe_clean_lye_soap",
+      "Wipe-Clean Lye Soap"
+    ],
+    "necrotizing_t": [
+      "chopping_extra_strength_spray",
+      "Chopping Extra-Strength Spray"
+    ],
+    "twin_venom_t": [
+      "two_handed_extra_strength_spray",
+      "Two-Handed Extra-Strength Spray"
+    ],
+    "chain_venom_t": [
+      "splattering_long_spray",
+      "Splattering Long Spray"
+    ],
+    "venom_sniper_t": [
+      "skewering_long_spray",
+      "Skewering Long Spray"
+    ],
+    "corroding_sprayer": [
+      "peeling_caustic_mister",
+      "Peeling Caustic Mister"
+    ],
+    "toxic_cloud_sprayer": [
+      "bleach_caustic_mister",
+      "Bleach Caustic Mister"
+    ],
+    "fanning_sprayer": [
+      "two_handed_fine_mister",
+      "Two-Handed Fine Mister"
+    ],
+    "harvest_sprayer": [
+      "tip_jar_fine_mister",
+      "Tip-Jar Fine Mister"
+    ],
+    "dissolving_pool": [
+      "peeling_pickling_bowl",
+      "Peeling Pickling Bowl"
+    ],
+    "boiling_pool": [
+      "bleach_pickling_bowl",
+      "Bleach Pickling Bowl"
+    ],
+    "flooding_pool": [
+      "swatting_overflowing_bowl",
+      "Swatting Overflowing Bowl"
+    ],
+    "rich_pool": [
+      "tip_jar_overflowing_bowl",
+      "Tip-Jar Overflowing Bowl"
+    ],
+    "pandemic_lancer": [
+      "splattering_super_bait_station",
+      "Splattering Super Bait Station"
+    ],
+    "plague_executioner": [
+      "chopping_super_bait_station",
+      "Chopping Super Bait Station"
+    ],
+    "plague_volley": [
+      "two_handed_long_bait_station",
+      "Two-Handed Long Bait Station"
+    ],
+    "plague_spear": [
+      "skewering_long_bait_station",
+      "Skewering Long Bait Station"
+    ],
+    "undying_bloom": [
+      "self_stacking_stale_moldy_bread",
+      "Self-Stacking Stale Moldy Bread"
+    ],
+    "choking_bloom": [
+      "sticky_stale_moldy_bread",
+      "Sticky Stale Moldy Bread"
+    ],
+    "spore_burst_bloom": [
+      "popping_fuzzy_mold_loaf",
+      "Popping Fuzzy Mold Loaf"
+    ],
+    "blight_field": [
+      "bleach_fuzzy_mold_loaf",
+      "Bleach Fuzzy Mold Loaf"
     ]
   },
   "art_style": "kitchen",

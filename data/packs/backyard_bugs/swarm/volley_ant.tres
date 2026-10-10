@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dorab"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/barrage_monocyte.tres" id="2_2fddi"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/piercing_monocyte.tres" id="3_h2u5e"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/many_legged_volley_ant.tres" id="2_2fddi"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/shell_cracking_volley_ant.tres" id="3_h2u5e"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/volley_ant.png" id="4_pgguc"]
 
 [resource]

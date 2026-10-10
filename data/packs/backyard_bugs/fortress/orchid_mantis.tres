@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dq5x5"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/eosinophil_spear.tres" id="2_iu3qy"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/eosinophil_shredder.tres" id="3_lr8rt"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/lancing_orchid_mantis.tres" id="2_iu3qy"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/shell_cracking_orchid_mantis.tres" id="3_lr8rt"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/orchid_mantis.png" id="4_0nm6o"]
 
 [resource]

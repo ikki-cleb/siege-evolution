@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3evgb"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/self_stacking_stacked_cans.png" id="2_ycs3u"]
+
+[resource]
+script = ExtResource("1_3evgb")
+id = "self_stacking_stacked_cans"
+display_name = "Self-Stacking Stacked Cans"
+cost = 34
+max_hp = 260
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("2_ycs3u")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Rebuilds itself once per wave at full HP."

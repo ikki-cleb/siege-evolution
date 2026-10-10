@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tt7qu"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/necrotizing_t.tres" id="2_6fsiw"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/twin_venom_t.tres" id="3_riesd"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/hunting_diamondback.tres" id="2_6fsiw"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/flurry_diamondback.tres" id="3_riesd"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/diamondback.png" id="4_f7n61"]
 
 [resource]

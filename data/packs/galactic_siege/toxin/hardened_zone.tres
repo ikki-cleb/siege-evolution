@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kpkdh"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/undying_bloom.tres" id="2_d3dff"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/choking_bloom.tres" id="3_o0e07"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/self_repairing_hardened_zone.tres" id="2_d3dff"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/tractor_hardened_zone.tres" id="3_o0e07"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/hardened_zone.png" id="4_5uq62"]
 
 [resource]

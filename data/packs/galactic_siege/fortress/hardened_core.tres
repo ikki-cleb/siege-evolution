@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7lwbn"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/fortress_granuloma.tres" id="2_e0pea"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/bone_granuloma.tres" id="3_2jpuh"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/sealed_hardened_core.tres" id="2_e0pea"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/self_repairing_hardened_core.tres" id="3_2jpuh"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/hardened_core.png" id="4_p3km4"]
 
 [resource]

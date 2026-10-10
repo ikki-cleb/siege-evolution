@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4uwkb"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/spike_trap_plate.tres" id="2_ljsrv"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/hooked_plate.tres" id="3_rbyaw"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/popping_cheese_grater.tres" id="2_ljsrv"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/sticky_cheese_grater.tres" id="3_rbyaw"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/cheese_grater.png" id="4_erh8x"]
 
 [resource]

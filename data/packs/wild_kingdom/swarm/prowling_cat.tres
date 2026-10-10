@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t3cgg"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/stalker_nk.tres" id="2_w6nc7"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/whirling_nk.tres" id="3_aeoxy"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/market_prowling_cat.tres" id="2_w6nc7"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/flurry_prowling_cat.tres" id="3_aeoxy"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/prowling_cat.png" id="4_6lg07"]
 
 [resource]

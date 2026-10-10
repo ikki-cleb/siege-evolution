@@ -99,8 +99,12 @@ Each capstone keeps its tier-1 stats and adds a **new mechanic**:
 | Rebuild once | Comes back at full HP once per wave after being destroyed |
 | Aura | The 8 neighbors attack faster, take less damage, or shrug off spill goo |
 
-**Rollout:** stage 1 (now) has every capstone named for World 1; other
-worlds show those names until stage 2 gives each world themed names.
+**Names:** every world names its capstones by adding a themed word for the
+capstone's mechanic to that world's tier-1 name, so families stay obvious.
+For example, Kitchen's "Stacked Cans" becomes "Self-Stacking Stacked Cans"
+(rebuild) or "Sticky Stacked Cans" (grab); Total War's "Reinforced Sandbags"
+becomes "Field-Repaired..." or "Barbed...". Names live in each world's
+"renames" and can be edited freely.
 
 ## Economy and refunds
 

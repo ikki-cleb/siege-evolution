@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_um48i"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/eosinophil_spear.tres" id="2_fau0i"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/eosinophil_shredder.tres" id="3_a0dr7"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/skewering_steam_jet_cooker.tres" id="2_fau0i"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/peeling_steam_jet_cooker.tres" id="3_a0dr7"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/steam_jet_cooker.png" id="4_ysfwc"]
 
 [resource]

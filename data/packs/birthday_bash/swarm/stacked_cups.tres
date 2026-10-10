@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gt0b4"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/cornified_layer.tres" id="2_lq4bg"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/mucosal_barrier.tres" id="3_txii8"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/re_inflating_stacked_cups.tres" id="2_lq4bg"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/party_proof_stacked_cups.tres" id="3_txii8"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/stacked_cups.png" id="4_nkynw"]
 
 [resource]

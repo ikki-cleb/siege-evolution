@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dsf4i"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/terminator_razor_bot.png" id="2_0lhpw"]
+
+[resource]
+script = ExtResource("1_dsf4i")
+id = "terminator_razor_bot"
+display_name = "Terminator Razor Bot"
+role = 1
+cost = 52
+max_hp = 25
+damage = 7.0
+attack_interval = 0.45
+pierce = true
+adjacency_bonus = 0.15
+tier = 2
+execute_below = 0.25
+texture = ExtResource("2_0lhpw")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Finishes off invaders below 25% HP."

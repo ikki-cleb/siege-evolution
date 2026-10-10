@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xfe5p"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/scorched_zone.tres" id="2_tc175"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/sepsis_zone.tres" id="3_182jg"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/tusked_thick_smoke.tres" id="2_tc175"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/hunting_thick_smoke.tres" id="3_182jg"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/thick_smoke.png" id="4_vuxh3"]
 
 [resource]

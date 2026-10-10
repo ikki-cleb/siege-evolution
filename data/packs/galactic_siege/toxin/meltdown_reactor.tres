@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0p73y"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/dissolving_pool.tres" id="2_4g68e"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/boiling_pool.tres" id="3_hump2"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/phase_shred_meltdown_reactor.tres" id="2_4g68e"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/radioactive_meltdown_reactor.tres" id="3_hump2"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/meltdown_reactor.png" id="4_nej0p"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0b21n"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/shockwave_basophil.tres" id="2_pciuu"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/rallying_basophil.tres" id="3_gmceg"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/repulsor_wide_tesla_coil.tres" id="2_pciuu"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/overclocked_wide_tesla_coil.tres" id="3_gmceg"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/wide_tesla_coil.png" id="4_mierd"]
 
 [resource]

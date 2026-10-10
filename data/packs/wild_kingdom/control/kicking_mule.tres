@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_17sg6"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/shockwave_storm.tres" id="2_gymko"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/freezing_storm.tres" id="3_wthxl"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bucking_kicking_mule.tres" id="2_gymko"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/frosty_kicking_mule.tres" id="3_wthxl"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/kicking_mule.png" id="4_fd3g4"]
 
 [resource]

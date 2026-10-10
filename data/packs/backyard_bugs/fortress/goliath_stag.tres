@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gdh3b"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/devouring_macrophage.tres" id="2_gl0qo"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/titan_macrophage.tres" id="3_nkthj"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/predator_goliath_stag.tres" id="2_gl0qo"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/charging_goliath_stag.tres" id="3_nkthj"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/goliath_stag.png" id="4_doc0i"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6e1x6"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/flooding_pool.tres" id="2_s2qc7"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/rich_pool.tres" id="3_fyav1"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/repulsor_leaking_reactor.tres" id="2_s2qc7"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/salvage_leaking_reactor.tres" id="3_fyav1"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/leaking_reactor.png" id="4_1wbv7"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_usv16"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/bounty_lance.tres" id="2_cbqj0"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/ricochet_lance.tres" id="3_ecklg"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/loot_rapid_long_tom.tres" id="2_cbqj0"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/relay_rapid_long_tom.tres" id="3_ecklg"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/precision/rapid_long_tom.png" id="4_50rym"]
 
 [resource]

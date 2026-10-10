@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_a2cx1"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/multi_tagger.tres" id="2_kxrd7"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/coordinator_tagger.tres" id="3_38g55"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/two_handed_long_sifter.tres" id="2_kxrd7"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/espresso_long_sifter.tres" id="3_38g55"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/long_sifter.png" id="4_q5h4l"]
 
 [resource]

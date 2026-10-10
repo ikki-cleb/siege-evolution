@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tjjhk"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/fanning_sprayer.tres" id="2_8whao"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/harvest_sprayer.tres" id="3_xhf6h"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/two_handed_fine_mister.tres" id="2_8whao"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/tip_jar_fine_mister.tres" id="3_xhf6h"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/fine_mister.png" id="4_t3bl1"]
 
 [resource]

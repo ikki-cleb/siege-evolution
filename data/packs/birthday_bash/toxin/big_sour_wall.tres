@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_08obm"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/regrowing_membrane.tres" id="2_lfua0"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/sticky_membrane.tres" id="3_3nom5"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/re_inflating_big_sour_wall.tres" id="2_lfua0"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/gooey_big_sour_wall.tres" id="3_3nom5"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/big_sour_wall.png" id="4_n3kra"]
 
 [resource]

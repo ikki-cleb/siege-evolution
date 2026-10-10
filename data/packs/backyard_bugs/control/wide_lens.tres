@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_j1cfd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/heatwave_node.tres" id="2_eveyx"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/warming_node.tres" id="3_3flm2"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/charging_wide_lens.tres" id="2_eveyx"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/buzzing_wide_lens.tres" id="3_3flm2"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wide_lens.png" id="4_8g6u5"]
 
 [resource]

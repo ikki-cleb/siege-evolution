@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x6j7t"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/heatwave_node.tres" id="2_5i2n5"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/warming_node.tres" id="3_axk5w"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/recoil_wide_flame_turret.tres" id="2_5i2n5"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/rallying_wide_flame_turret.tres" id="3_axk5w"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/control/wide_flame_turret.png" id="4_6hg2q"]
 
 [resource]

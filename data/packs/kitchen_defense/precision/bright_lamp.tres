@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1fils"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/interferon_storm.tres" id="2_xltb7"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/rallying_beacon.tres" id="3_84kru"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/peeling_bright_lamp.tres" id="2_xltb7"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/espresso_bright_lamp.tres" id="3_84kru"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/bright_lamp.png" id="4_64c2w"]
 
 [resource]

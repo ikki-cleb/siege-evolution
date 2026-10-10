@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7xp3m"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/armored_keratin.tres" id="2_jvbjm"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/rebuilt_plate.tres" id="3_2pxb7"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/deflector_reinforced_barrier.tres" id="2_jvbjm"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/self_repairing_reinforced_barrier.tres" id="3_2pxb7"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/reinforced_barrier.png" id="4_jjyuu"]
 
 [resource]

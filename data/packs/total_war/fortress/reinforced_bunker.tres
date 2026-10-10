@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jhv6k"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/fortress_granuloma.tres" id="2_usoqm"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/bone_granuloma.tres" id="3_xcfj3"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/waterproof_reinforced_bunker.tres" id="2_usoqm"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/field_repaired_reinforced_bunker.tres" id="3_xcfj3"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_bunker.png" id="4_h0eb4"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_w0sg1"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/cilia_trap.tres" id="2_0fv2i"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/bursting_cell.tres" id="3_8qoh8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/tractor_spiked_scrap.tres" id="2_0fv2i"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/overload_spiked_scrap.tres" id="3_8qoh8"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/spiked_scrap.png" id="4_two78"]
 
 [resource]

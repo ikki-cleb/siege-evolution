@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qpkdj"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/chain_venom_t.tres" id="2_u1or8"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/venom_sniper_t.tres" id="3_0yhmc"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/herding_long_rattler.tres" id="2_u1or8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/goring_long_rattler.tres" id="3_0yhmc"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/long_rattler.png" id="4_hnskc"]
 
 [resource]

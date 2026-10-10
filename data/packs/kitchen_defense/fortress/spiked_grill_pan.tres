@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3ss3n"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/bursting_granuloma.tres" id="2_6ridr"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/grasping_granuloma.tres" id="3_cxwm1"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/popping_spiked_grill_pan.tres" id="2_6ridr"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sticky_spiked_grill_pan.tres" id="3_cxwm1"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/spiked_grill_pan.png" id="4_b0mea"]
 
 [resource]

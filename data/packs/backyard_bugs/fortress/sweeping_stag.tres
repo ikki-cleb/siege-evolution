@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8vot0"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/engulfing_foam.tres" id="2_y2ji6"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/foam_eruption.tres" id="3_p4dlx"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/shell_cracking_sweeping_stag.tres" id="2_y2ji6"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/smoldering_sweeping_stag.tres" id="3_p4dlx"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/sweeping_stag.png" id="4_onh6n"]
 
 [resource]

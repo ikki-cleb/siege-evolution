@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xnftq"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/shoving_mast_cell.tres" id="2_wml7t"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/alarm_mast_cell.tres" id="3_5vfho"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/repulsor_wide_cryo_emitter.tres" id="2_wml7t"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/overclocked_wide_cryo_emitter.tres" id="3_5vfho"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/wide_cryo_emitter.png" id="4_c0qux"]
 
 [resource]

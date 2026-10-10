@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_aosl3"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/mucus_plug.tres" id="2_crd8r"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/grasping_mucus.tres" id="3_egnh2"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/self_repairing_thick_force_field.tres" id="2_crd8r"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/tractor_thick_force_field.tres" id="3_egnh2"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/thick_force_field.png" id="4_crvpu"]
 
 [resource]

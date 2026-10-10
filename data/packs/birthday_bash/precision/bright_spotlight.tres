@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dylbp"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/complement_tagger.tres" id="2_88jlq"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/chain_tagger.tres" id="3_drmkx"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/unwrapping_bright_spotlight.tres" id="2_88jlq"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bouncing_bright_spotlight.tres" id="3_drmkx"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/bright_spotlight.png" id="4_6uxy8"]
 
 [resource]

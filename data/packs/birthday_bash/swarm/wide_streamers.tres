@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qsy13"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/freezing_net.tres" id="2_sajuq"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/bursting_net.tres" id="3_8aj3n"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/slushie_wide_streamers.tres" id="2_sajuq"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/surprise_wide_streamers.tres" id="3_8aj3n"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/wide_streamers.png" id="4_dnls1"]
 
 [resource]

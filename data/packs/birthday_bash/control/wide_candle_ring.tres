@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lrer5"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/heatwave_node.tres" id="2_ep7bw"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/warming_node.tres" id="3_wwpl7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bumper_wide_candle_ring.tres" id="2_ep7bw"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/sugar_rush_wide_candle_ring.tres" id="3_wwpl7"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/wide_candle_ring.png" id="4_0x2uy"]
 
 [resource]

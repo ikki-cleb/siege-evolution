@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_otv7m"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/histamine_burst.tres" id="2_rv6yb"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/shredding_basophil.tres" id="3_ch63g"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/smoldering_angry_bee.tres" id="2_rv6yb"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/shell_cracking_angry_bee.tres" id="3_ch63g"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/angry_bee.png" id="4_y1u6e"]
 
 [resource]

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_p4x75"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/hunting_diamondback.png" id="2_dysjc"]
+
+[resource]
+script = ExtResource("1_p4x75")
+id = "hunting_diamondback"
+display_name = "Hunting Diamondback"
+role = 1
+cost = 48
+damage = 1.0
+attack_range = 2.0
+attack_interval = 0.9
+poison_dps = 6.0
+poison_duration = 4.0
+tier = 2
+execute_below = 0.2
+texture = ExtResource("2_dysjc")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Finishes off invaders below 20% HP."

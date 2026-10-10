@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ln11u"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/fortress_granuloma.tres" id="2_fe3em"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/bone_granuloma.tres" id="3_obroj"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/scrubbed_reinforced_silo.tres" id="2_fe3em"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/mended_reinforced_silo.tres" id="3_obroj"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/reinforced_silo.png" id="4_wdk27"]
 
 [resource]

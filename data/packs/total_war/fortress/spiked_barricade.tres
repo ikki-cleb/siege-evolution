@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_snc24"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/thrombus_mine.tres" id="2_2pvq4"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/barbed_thrombus.tres" id="3_0tjhj"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/booby_trapped_spiked_barricade.tres" id="2_2pvq4"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/barbed_spiked_barricade.tres" id="3_0tjhj"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/fortress/spiked_barricade.png" id="4_cbprg"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/fortress/spiked_barricade_water.png" id="5_w4c7w"]
 

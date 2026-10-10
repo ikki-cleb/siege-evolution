@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m075x"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/executioner_t.tres" id="2_6pydd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/hammer_t.tres" id="3_42ab0"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/predator_masked_hunter.tres" id="2_6pydd"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/charging_masked_hunter.tres" id="3_42ab0"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/masked_hunter.png" id="4_iyv2v"]
 
 [resource]

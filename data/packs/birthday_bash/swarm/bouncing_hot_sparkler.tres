@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m0oun"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/bouncing_hot_sparkler.png" id="2_0h4x2"]
+
+[resource]
+script = ExtResource("1_m0oun")
+id = "bouncing_hot_sparkler"
+display_name = "Bouncing Hot Sparkler"
+role = 1
+cost = 52
+max_hp = 25
+damage = 7.0
+attack_interval = 0.45
+pierce = true
+adjacency_bonus = 0.15
+tier = 2
+chain_count = 2
+texture = ExtResource("2_0h4x2")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Strikes chain to 2 more invaders."

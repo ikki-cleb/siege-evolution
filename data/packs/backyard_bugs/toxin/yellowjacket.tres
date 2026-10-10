@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6qxht"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/necrotizing_t.tres" id="2_ku4q7"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/twin_venom_t.tres" id="3_rubw1"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/predator_yellowjacket.tres" id="2_ku4q7"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/many_legged_yellowjacket.tres" id="3_rubw1"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/yellowjacket.png" id="4_ten3s"]
 
 [resource]

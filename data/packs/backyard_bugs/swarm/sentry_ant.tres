@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_a7iri"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/sniper_monocyte.tres" id="2_ti4ke"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/signal_monocyte.tres" id="3_rtrhq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/lancing_sentry_ant.tres" id="2_ti4ke"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/buzzing_sentry_ant.tres" id="3_rtrhq"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/sentry_ant.png" id="4_35aye"]
 
 [resource]

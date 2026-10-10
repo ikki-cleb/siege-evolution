@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1sy6y"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/fortress_granuloma.tres" id="2_0kahg"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/bone_granuloma.tres" id="3_k07hj"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/party_proof_frozen_cake.tres" id="2_0kahg"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/re_inflating_frozen_cake.tres" id="3_k07hj"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/frozen_cake.png" id="4_2syp7"]
 
 [resource]

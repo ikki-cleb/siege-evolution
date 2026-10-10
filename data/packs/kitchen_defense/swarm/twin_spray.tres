@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_axtdw"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/barrage_monocyte.tres" id="2_0ok1k"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/piercing_monocyte.tres" id="3_qbsob"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/two_handed_twin_spray.tres" id="2_0ok1k"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/peeling_twin_spray.tres" id="3_qbsob"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/twin_spray.png" id="4_fwqrk"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dhn1o"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/dissolving_pool.tres" id="2_hhj8o"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/boiling_pool.tres" id="3_hmabd"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/unwrapping_sour_punch_bowl.tres" id="2_hhj8o"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/stinky_sour_punch_bowl.tres" id="3_hmabd"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/sour_punch_bowl.png" id="4_laeu4"]
 
 [resource]

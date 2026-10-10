@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_c27rn"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/flooding_pool.tres" id="2_foj5g"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/rich_pool.tres" id="3_devgs"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/bucking_spreading_manure.tres" id="2_foj5g"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/market_spreading_manure.tres" id="3_devgs"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/spreading_manure.png" id="4_62soj"]
 
 [resource]

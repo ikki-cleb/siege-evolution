@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_senw4"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/spore_burst_bloom.tres" id="2_pthwq"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/blight_field.tres" id="3_j6b0l"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/overload_virulent_zone.tres" id="2_pthwq"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/radioactive_virulent_zone.tres" id="3_j6b0l"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/virulent_zone.png" id="4_7pu65"]
 
 [resource]

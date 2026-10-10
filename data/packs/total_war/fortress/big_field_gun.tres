@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_s2tyb"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/presenting_dendrite.tres" id="2_rof70"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/dendrite_volley.tres" id="3_hns4i"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/relay_big_field_gun.tres" id="2_rof70"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/twin_barrel_big_field_gun.tres" id="3_hns4i"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/fortress/big_field_gun.png" id="4_6xrn0"]
 
 [resource]

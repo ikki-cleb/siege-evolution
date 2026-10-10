@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kkx1t"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/undying_bloom.tres" id="2_c8jfm"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/choking_bloom.tres" id="3_2yufg"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/re_inflating_stale_moldy_cake.tres" id="2_c8jfm"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/gooey_stale_moldy_cake.tres" id="3_2yufg"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/stale_moldy_cake.png" id="4_0kjuq"]
 
 [resource]

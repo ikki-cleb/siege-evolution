@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ma0mw"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/freezing_net.tres" id="2_rm5h0"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/bursting_net.tres" id="3_jvuev"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/frosty_wide_mud.tres" id="2_rm5h0"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/exploding_wide_mud.tres" id="3_jvuev"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/wide_mud.png" id="4_j55w1"]
 
 [resource]

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_14nj0"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/railgun_long_howitzer.png" id="2_fnorp"]
+
+[resource]
+script = ExtResource("1_14nj0")
+id = "railgun_long_howitzer"
+display_name = "Railgun Long Howitzer"
+role = 1
+cost = 84
+max_hp = 40
+damage = 30.0
+attack_range = 3.2
+attack_interval = 2.6
+hits_air = true
+pierce = true
+tier = 2
+line_pierce = true
+texture = ExtResource("2_fnorp")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Blasts pierce every invader in a line."

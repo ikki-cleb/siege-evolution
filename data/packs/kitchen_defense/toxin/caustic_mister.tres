@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qxko0"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/corroding_sprayer.tres" id="2_07pob"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/toxic_cloud_sprayer.tres" id="3_md7ux"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/peeling_caustic_mister.tres" id="2_07pob"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/bleach_caustic_mister.tres" id="3_md7ux"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/caustic_mister.png" id="4_fi54r"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m3kj8"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/corrosive_spitter.tres" id="2_4aqwj"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/burning_spitter.tres" id="3_he1wm"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shell_cracking_froth_spittlebug.tres" id="2_4aqwj"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/smoldering_froth_spittlebug.tres" id="3_he1wm"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/froth_spittlebug.png" id="4_b8l5h"]
 
 [resource]

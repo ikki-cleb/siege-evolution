@@ -34,8 +34,8 @@ Bash** (piñatas with seeded "surprise" contents, the Clown). 49 levels,
 5 packs, evolutions, saves, a test-mode store, the "Siege Pixel" font
 (clear digits + coin icon), coins as currency, a Cancel button, sound,
 music and victory screens. **Capstones** (a second evolution tier, 2 per
-tier-1 evolution, 120 total, 12 new mechanics) are in stage 1: every world
-still shows World 1's capstone names.
+tier-1 evolution, 120 total, 12 new mechanics, themed names in every world)
+plus a two-tap upgrade preview and drag-to-scroll menus.
 `DESIGN.md` has every design decision; read it before changing gameplay.
 
 **Playtest links.** The private Claude artifact for this game is
@@ -83,10 +83,8 @@ budget. `tools/tune.py <id> key=value` edits stats.
 Precision struggle most in both); any more v0.8 playtest notes; how the sounds
 and music feel; Blinker frequency.
 
-**Next steps (user's call):** capstones stage 2 (themed capstone names for
-worlds 2-7 via each world's "renames", plus a balance pass once the user has
-played them; with capstones the bot still wins ~100% of World 1 and 87% of
-Kitchen); playtest feedback on the bonus worlds;
+**Next steps (user's call):** capstone tuning once the user has played
+them (prices, strongest mechanics); playtest feedback on the bonus worlds;
 cosmetic unlocks; real billing (Apple StoreKit and
 Google Play Billing plugins, see the TODOs in `scripts/store.gd`); native
 iOS/Android builds and TestFlight / Play internal testing.

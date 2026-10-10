@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2orgw"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/signaling_fibroblast.tres" id="2_47k16"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/granulation_tissue.tres" id="3_qhmfo"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/sugar_rush_self_inflating_arch.tres" id="2_47k16"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/gooey_self_inflating_arch.tres" id="3_qhmfo"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/self_inflating_arch.png" id="4_lkm6f"]
 
 [resource]

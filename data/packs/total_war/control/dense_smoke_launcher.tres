@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ith5c"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/shredding_mast_cell.tres" id="2_dlfml"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/degranulation_burst.tres" id="3_alu2q"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/armor_piercing_dense_smoke_launcher.tres" id="2_dlfml"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/flaming_dense_smoke_launcher.tres" id="3_alu2q"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/control/dense_smoke_launcher.png" id="4_7wgik"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ajiy1"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/shoving_mast_cell.tres" id="2_7twwj"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/alarm_mast_cell.tres" id="3_7b32v"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bumper_wide_bubble_machine.tres" id="2_7twwj"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/sugar_rush_wide_bubble_machine.tres" id="3_7b32v"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/wide_bubble_machine.png" id="4_68l4e"]
 
 [resource]

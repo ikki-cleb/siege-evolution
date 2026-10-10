@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n3j33"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/re_inflating_stacked_cups.png" id="2_axvh2"]
+
+[resource]
+script = ExtResource("1_n3j33")
+id = "re_inflating_stacked_cups"
+display_name = "Re-Inflating Stacked Cups"
+cost = 14
+max_hp = 40
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("2_axvh2")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Rebuilds itself once per wave."

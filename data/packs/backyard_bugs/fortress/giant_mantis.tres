@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kg43f"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/eosinophil_barrage.tres" id="2_7gcqf"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/major_basic_protein.tres" id="3_6qk2w"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/many_legged_giant_mantis.tres" id="2_7gcqf"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/predator_giant_mantis.tres" id="3_6qk2w"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/giant_mantis.png" id="4_1n1ck"]
 
 [resource]

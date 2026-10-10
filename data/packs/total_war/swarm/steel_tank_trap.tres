@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xaivp"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/snaring_net.tres" id="2_u5aju"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/regrowing_net.tres" id="3_pok66"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/barbed_steel_tank_trap.tres" id="2_u5aju"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/field_repaired_steel_tank_trap.tres" id="3_pok66"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/swarm/steel_tank_trap.png" id="4_3ywb6"]
 
 [resource]

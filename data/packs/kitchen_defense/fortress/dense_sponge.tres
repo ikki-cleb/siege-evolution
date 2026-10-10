@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2263b"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/keloid_wall.tres" id="2_i4f60"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/scar_lattice.tres" id="3_7h3rw"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/self_stacking_dense_sponge.tres" id="2_i4f60"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/oven_mitt_dense_sponge.tres" id="3_7h3rw"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/dense_sponge.png" id="4_64tqg"]
 
 [resource]

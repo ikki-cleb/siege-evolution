@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tjmjl"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/popping_lye_soap.png" id="2_mgau4"]
+
+[resource]
+script = ExtResource("1_tjmjl")
+id = "popping_lye_soap"
+display_name = "Popping Lye Soap"
+cost = 22
+max_hp = 25
+reflect = 0.8
+tier = 2
+zone_kind = "toxic"
+zone_power = 3.0
+explode_damage = 30.0
+can_place_on_water = true
+texture = ExtResource("2_mgau4")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Bursts into a toxic cloud when it breaks."

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_evq5y"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/presenting_dendrite.tres" id="2_jmp8y"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/dendrite_volley.tres" id="3_ug6l6"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/bouncing_mega_confetti_cannon.tres" id="2_jmp8y"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/double_mega_confetti_cannon.tres" id="3_ug6l6"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/mega_confetti_cannon.png" id="4_0a1j2"]
 
 [resource]

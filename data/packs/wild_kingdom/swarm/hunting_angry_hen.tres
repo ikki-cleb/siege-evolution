@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ewl30"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/hunting_angry_hen.png" id="2_dhlvl"]
+
+[resource]
+script = ExtResource("1_ewl30")
+id = "hunting_angry_hen"
+display_name = "Hunting Angry Hen"
+role = 1
+cost = 32
+damage = 3.5
+attack_interval = 0.45
+adjacency_bonus = 0.15
+tier = 2
+execute_below = 0.2
+texture = ExtResource("2_dhlvl")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Finishes off invaders below 20% HP."

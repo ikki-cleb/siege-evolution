@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7dyvd"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/hunter_t.tres" id="2_snyir"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/twin_patrol_t.tres" id="3_5wpyu"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/splattering_swatter_trap.tres" id="2_snyir"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/two_handed_swatter_trap.tres" id="3_5wpyu"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/swatter_trap.png" id="4_ejrm6"]
 
 [resource]

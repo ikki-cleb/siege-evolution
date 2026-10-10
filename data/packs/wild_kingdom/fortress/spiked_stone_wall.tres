@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xwkyr"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/thrombus_mine.tres" id="2_4fffy"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/barbed_thrombus.tres" id="3_fvfur"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/exploding_spiked_stone_wall.tres" id="2_4fffy"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hooked_spiked_stone_wall.tres" id="3_fvfur"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/spiked_stone_wall.png" id="4_kt60b"]
 
 [resource]

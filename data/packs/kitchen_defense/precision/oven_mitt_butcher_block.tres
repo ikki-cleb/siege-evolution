@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_j5mxd"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/oven_mitt_butcher_block.png" id="2_66f84"]
+
+[resource]
+script = ExtResource("1_j5mxd")
+id = "oven_mitt_butcher_block"
+display_name = "Oven-Mitt Butcher Block"
+cost = 22
+max_hp = 70
+tier = 2
+aura_shield = 0.25
+can_place_on_water = true
+texture = ExtResource("2_66f84")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Neighbors take 25% less damage."

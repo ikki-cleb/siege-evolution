@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iehhn"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/devouring_macrophage.tres" id="2_erpts"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/titan_macrophage.tres" id="3_2kqdm"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/terminator_heavy_mech.tres" id="2_erpts"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/repulsor_heavy_mech.tres" id="3_2kqdm"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/heavy_mech.png" id="4_eljwb"]
 
 [resource]

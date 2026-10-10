@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7qg4j"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/fibrin_bastion.tres" id="2_duv7r"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/clotting_snare.tres" id="3_driog"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/self_repairing_armored_plate.tres" id="2_duv7r"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/tractor_armored_plate.tres" id="3_driog"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/armored_plate.png" id="4_e8kda"]
 
 [resource]

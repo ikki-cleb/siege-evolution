@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ytyoa"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/sentinel_dendrite.tres" id="2_ovwrn"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/harvesting_dendrite.tres" id="3_neryd"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/beam_long_plasma_cannon.tres" id="2_ovwrn"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/salvage_long_plasma_cannon.tres" id="3_neryd"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/long_plasma_cannon.png" id="4_sy0bv"]
 
 [resource]

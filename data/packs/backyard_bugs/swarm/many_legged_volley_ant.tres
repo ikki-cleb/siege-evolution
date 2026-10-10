@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vcu34"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/many_legged_volley_ant.png" id="2_o3ypw"]
+
+[resource]
+script = ExtResource("1_vcu34")
+id = "many_legged_volley_ant"
+display_name = "Many-Legged Volley Ant"
+role = 1
+cost = 36
+max_hp = 12
+damage = 4.2
+attack_range = 2.5
+attack_interval = 0.7
+hits_air = true
+adjacency_bonus = 0.15
+tier = 2
+multishot = 3
+texture = ExtResource("2_o3ypw")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Pokes 3 targets at once."

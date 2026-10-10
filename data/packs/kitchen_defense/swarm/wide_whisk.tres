@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wg57c"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/shockwave_basophil.tres" id="2_1p2nw"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/rallying_basophil.tres" id="3_x5hec"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/swatting_wide_whisk.tres" id="2_1p2nw"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/espresso_wide_whisk.tres" id="3_x5hec"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/wide_whisk.png" id="4_13337"]
 
 [resource]

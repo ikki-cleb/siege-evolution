@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_thuov"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/fanning_sprayer.tres" id="2_dxykq"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/harvest_sprayer.tres" id="3_mxp11"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/flurry_spitting_toad.tres" id="2_dxykq"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/market_spitting_toad.tres" id="3_mxp11"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/spitting_toad.png" id="4_7arya"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7m2n1"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/edema_zone.tres" id="2_fp54y"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/fevered_zone.tres" id="3_3mp7x"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/charging_wide_sprinkler.tres" id="2_fp54y"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/foraging_wide_sprinkler.tres" id="3_3mp7x"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wide_sprinkler.png" id="4_n00ia"]
 
 [resource]

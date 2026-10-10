@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_67pu0"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/multi_tagger.tres" id="2_8pxn8"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/coordinator_tagger.tres" id="3_uggnc"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/twin_barrel_long_range_spotter.tres" id="2_8pxn8"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/rallying_long_range_spotter.tres" id="3_uggnc"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/precision/long_range_spotter.png" id="4_spti4"]
 
 [resource]

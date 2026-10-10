@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pfmur"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/spike_trap_plate.tres" id="2_2of2m"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/hooked_plate.tres" id="3_1pewt"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/surprise_spiky_chair.tres" id="2_2of2m"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/gooey_spiky_chair.tres" id="3_1pewt"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/spiky_chair.png" id="4_3eld0"]
 
 [resource]

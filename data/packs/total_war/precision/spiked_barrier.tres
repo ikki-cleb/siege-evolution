@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ewv5k"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/spike_trap_plate.tres" id="2_b48qs"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/hooked_plate.tres" id="3_qedgv"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/booby_trapped_spiked_barrier.tres" id="2_b48qs"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/barbed_spiked_barrier.tres" id="3_qedgv"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/precision/spiked_barrier.png" id="4_nciv7"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/precision/spiked_barrier_water.png" id="5_xff2m"]
 

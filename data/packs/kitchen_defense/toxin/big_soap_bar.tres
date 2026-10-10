@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ruxa0"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/regrowing_membrane.tres" id="2_6ujwn"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/sticky_membrane.tres" id="3_b58dr"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/self_stacking_big_soap_bar.tres" id="2_6ujwn"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/sticky_big_soap_bar.tres" id="3_b58dr"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/big_soap_bar.png" id="4_q5fn8"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jxfur"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/pandemic_lancer.tres" id="2_n4q3x"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/plague_executioner.tres" id="3_16gk8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/arc_plague_swarm.tres" id="2_n4q3x"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/terminator_plague_swarm.tres" id="3_16gk8"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/plague_swarm.png" id="4_78qaj"]
 
 [resource]

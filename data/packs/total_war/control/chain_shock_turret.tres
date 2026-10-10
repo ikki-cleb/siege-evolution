@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gx4lc"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/shockwave_storm.tres" id="2_yd7g6"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/freezing_storm.tres" id="3_8dr28"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/recoil_chain_shock_turret.tres" id="2_yd7g6"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/frost_chain_shock_turret.tres" id="3_8dr28"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/control/chain_shock_turret.png" id="4_iuv4v"]
 
 [resource]

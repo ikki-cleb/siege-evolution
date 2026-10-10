@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_50r0s"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/hunter_t.tres" id="2_4y6fg"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/twin_patrol_t.tres" id="3_drmvb"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/relay_roaming_bazooka.tres" id="2_4y6fg"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/twin_barrel_roaming_bazooka.tres" id="3_drmvb"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/precision/roaming_bazooka.png" id="4_xuqim"]
 
 [resource]

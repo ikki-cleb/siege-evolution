@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bxk4d"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/antibody_storm.tres" id="2_ej3kw"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/neutralizing_plasma.tres" id="3_50hro"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/double_heavy_dart_blaster.tres" id="2_ej3kw"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/grand_finale_heavy_dart_blaster.tres" id="3_50hro"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/heavy_dart_blaster.png" id="4_im1jm"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_33lph"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/railgun_lance.tres" id="2_q5mcv"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/finishing_lance.tres" id="3_77mo5"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/beam_heavy_orbital_lance.tres" id="2_q5mcv"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/terminator_heavy_orbital_lance.tres" id="3_77mo5"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/heavy_orbital_lance.png" id="4_lad75"]
 
 [resource]

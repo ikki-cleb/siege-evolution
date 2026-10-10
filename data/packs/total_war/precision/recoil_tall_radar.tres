@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xtil2"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/recoil_tall_radar.png" id="2_qf62y"]
+
+[resource]
+script = ExtResource("1_xtil2")
+id = "recoil_tall_radar"
+display_name = "Recoil Tall Radar"
+role = 2
+cost = 52
+max_hp = 35
+attack_mode = 1
+attack_range = 3.5
+hits_air = true
+mark_bonus = 0.25
+mark_duration = 1.5
+tier = 2
+knockback = 1
+texture = ExtResource("2_qf62y")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Pulses shove invaders back."

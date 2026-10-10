@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_idp3t"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/edema_zone.tres" id="2_2hyrm"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/fevered_zone.tres" id="3_fqhqn"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bucking_wide_smoke.tres" id="2_2hyrm"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/market_wide_smoke.tres" id="3_fqhqn"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/wide_smoke.png" id="4_ykd2c"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_83i17"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/sniper_monocyte.tres" id="2_204o1"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/signal_monocyte.tres" id="3_3dplq"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/goring_sentry_swallow.tres" id="2_204o1"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/roosters_sentry_swallow.tres" id="3_3dplq"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/sentry_swallow.png" id="4_tbsa3"]
 
 [resource]

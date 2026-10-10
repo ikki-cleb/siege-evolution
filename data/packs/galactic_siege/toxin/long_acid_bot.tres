@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_edxqn"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/chain_venom_t.tres" id="2_8ru7l"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/venom_sniper_t.tres" id="3_ny7tm"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/arc_long_acid_bot.tres" id="2_8ru7l"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/beam_long_acid_bot.tres" id="3_ny7tm"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_acid_bot.png" id="4_pkhd4"]
 
 [resource]

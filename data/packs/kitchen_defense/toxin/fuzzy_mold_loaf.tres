@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wvdwl"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/spore_burst_bloom.tres" id="2_l715p"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/blight_field.tres" id="3_or2e6"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/popping_fuzzy_mold_loaf.tres" id="2_l715p"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/bleach_fuzzy_mold_loaf.tres" id="3_or2e6"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/fuzzy_mold_loaf.png" id="4_w2h0w"]
 
 [resource]

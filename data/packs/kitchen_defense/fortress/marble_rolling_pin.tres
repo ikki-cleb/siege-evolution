@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_45ray"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/devouring_macrophage.tres" id="2_srm1r"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/titan_macrophage.tres" id="3_jtnud"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/chopping_marble_rolling_pin.tres" id="2_srm1r"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/swatting_marble_rolling_pin.tres" id="3_jtnud"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/marble_rolling_pin.png" id="4_rchq0"]
 
 [resource]

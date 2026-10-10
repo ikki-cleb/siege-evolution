@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mry1t"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/self_repairing_welded_scrap.png" id="2_lr44t"]
+
+[resource]
+script = ExtResource("1_mry1t")
+id = "self_repairing_welded_scrap"
+display_name = "Self-Repairing Welded Scrap"
+cost = 14
+max_hp = 40
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("2_lr44t")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Rebuilds itself once per wave."

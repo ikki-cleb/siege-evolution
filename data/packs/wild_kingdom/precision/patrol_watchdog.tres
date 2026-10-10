@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vqfqr"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/multi_tagger.tres" id="2_l05n2"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/coordinator_tagger.tres" id="3_i58cc"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/flurry_patrol_watchdog.tres" id="2_l05n2"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/roosters_patrol_watchdog.tres" id="3_i58cc"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/patrol_watchdog.png" id="4_juvl7"]
 
 [resource]

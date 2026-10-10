@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mb5yu"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/toxic_burst_membrane.tres" id="2_m41f0"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/antitoxin_membrane.tres" id="3_k2e18"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/exploding_poison_brambles.tres" id="2_m41f0"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/scrubbed_poison_brambles.tres" id="3_k2e18"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/poison_brambles.png" id="4_jwudc"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kvptm"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/plague_volley.tres" id="2_cwdbj"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/plague_spear.tres" id="3_mm8s7"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/multi_target_long_plague_drone.tres" id="2_cwdbj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/beam_long_plague_drone.tres" id="3_mm8s7"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_plague_drone.png" id="4_8o4xe"]
 
 [resource]

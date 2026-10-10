@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kh12p"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/sniper_monocyte.tres" id="2_edihm"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/signal_monocyte.tres" id="3_t4fod"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/skewering_jet_spray.tres" id="2_edihm"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/espresso_jet_spray.tres" id="3_t4fod"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/jet_spray.png" id="4_c07pc"]
 
 [resource]

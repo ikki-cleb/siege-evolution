@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3rdgf"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/thrombus_mine.tres" id="2_ewrm2"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/barbed_thrombus.tres" id="3_on64v"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/bursting_thorned_pebble.tres" id="2_ewrm2"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sticky_thorned_pebble.tres" id="3_on64v"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorned_pebble.png" id="4_3vssl"]
 
 [resource]

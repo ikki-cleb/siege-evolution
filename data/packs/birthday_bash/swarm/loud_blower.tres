@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_27bqi"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/frenzied_horde.tres" id="2_kmdj5"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/killer_neutrophil.tres" id="3_k8xbo"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/double_loud_blower.tres" id="2_kmdj5"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/grand_finale_loud_blower.tres" id="3_k8xbo"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/loud_blower.png" id="4_c4smr"]
 
 [resource]

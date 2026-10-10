@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ruyb2"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/signaling_fibroblast.tres" id="2_tyek0"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/granulation_tissue.tres" id="3_rmtik"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/roosters_growing_hedge.tres" id="2_tyek0"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hooked_growing_hedge.tres" id="3_rmtik"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/growing_hedge.png" id="4_8m7fd"]
 
 [resource]

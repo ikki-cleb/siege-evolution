@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_56l6t"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/tip_jar_rolling_pizza_cutter.png" id="2_uiuid"]
+
+[resource]
+script = ExtResource("1_56l6t")
+id = "tip_jar_rolling_pizza_cutter"
+display_name = "Tip-Jar Rolling Pizza Cutter"
+role = 1
+cost = 52
+max_hp = 25
+damage = 4.0
+attack_range = 2.3
+attack_interval = 0.45
+hits_air = true
+pierce = true
+adjacency_bonus = 0.15
+tier = 2
+bounty = 1
+texture = ExtResource("2_uiuid")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Its kills drop an extra coin."

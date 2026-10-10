@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wjsg4"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/shield_beacon.tres" id="2_ltjyw"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/pulse_beacon.tres" id="3_dafmn"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/rain_washed_tall_lantern.tres" id="2_ltjyw"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/charging_tall_lantern.tres" id="3_dafmn"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/tall_lantern.png" id="4_2mty2"]
 
 [resource]

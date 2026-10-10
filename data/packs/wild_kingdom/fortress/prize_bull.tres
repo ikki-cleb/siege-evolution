@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_otlgh"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/devouring_macrophage.tres" id="2_mrfyd"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/titan_macrophage.tres" id="3_bgekl"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hunting_prize_bull.tres" id="2_mrfyd"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/bucking_prize_bull.tres" id="3_bgekl"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/prize_bull.png" id="4_ngg4y"]
 
 [resource]

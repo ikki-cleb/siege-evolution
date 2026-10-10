@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_k5aqk"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/plague_volley.tres" id="2_vttts"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/plague_spear.tres" id="3_4gl5j"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/two_handed_long_bait_station.tres" id="2_vttts"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/skewering_long_bait_station.tres" id="3_4gl5j"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/long_bait_station.png" id="4_kpei3"]
 
 [resource]

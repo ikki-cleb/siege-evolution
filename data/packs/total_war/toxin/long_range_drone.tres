@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e3hoe"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/plague_volley.tres" id="2_k8a3a"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/plague_spear.tres" id="3_wpgol"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/twin_barrel_long_range_drone.tres" id="2_k8a3a"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/railgun_long_range_drone.tres" id="3_wpgol"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/toxin/long_range_drone.png" id="4_21byr"]
 
 [resource]

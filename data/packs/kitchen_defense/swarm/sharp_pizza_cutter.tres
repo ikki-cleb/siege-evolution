@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tnwot"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/executioner_nk.tres" id="2_4cjik"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/chain_nk.tres" id="3_jw26i"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/chopping_sharp_pizza_cutter.tres" id="2_4cjik"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/splattering_sharp_pizza_cutter.tres" id="3_jw26i"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sharp_pizza_cutter.png" id="4_f3c1i"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iufhd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/mucus_plug.tres" id="2_glmqb"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/grasping_mucus.tres" id="3_vfn71"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/regrowing_thick_web.tres" id="2_glmqb"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/sticky_thick_web.tres" id="3_vfn71"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/thick_web.png" id="4_i18qc"]
 
 [resource]

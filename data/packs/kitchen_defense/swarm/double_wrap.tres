@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_sud0a"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/snaring_net.tres" id="2_umeow"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/regrowing_net.tres" id="3_2u6cd"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/sticky_double_wrap.tres" id="2_umeow"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/self_stacking_double_wrap.tres" id="3_2u6cd"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/double_wrap.png" id="4_rahe7"]
 
 [resource]

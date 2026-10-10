@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pa6sr"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/fortress_granuloma.tres" id="2_aiujx"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/bone_granuloma.tres" id="3_1u7iv"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/wipe_clean_seasoned_pan.tres" id="2_aiujx"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/self_stacking_seasoned_pan.tres" id="3_1u7iv"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/seasoned_pan.png" id="4_0ltdi"]
 
 [resource]

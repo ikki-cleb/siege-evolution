@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ms6dx"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/regrowing_membrane.tres" id="2_wjqd2"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/sticky_membrane.tres" id="3_n2mgb"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/mended_thick_brambles.tres" id="2_wjqd2"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/hooked_thick_brambles.tres" id="3_n2mgb"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/thick_brambles.png" id="4_dnpve"]
 
 [resource]

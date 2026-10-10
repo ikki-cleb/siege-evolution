@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_80ofj"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/chain_storm.tres" id="2_2dr8h"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/storm_volley.tres" id="3_k33d7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bouncing_air_horn.tres" id="2_2dr8h"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/double_air_horn.tres" id="3_k33d7"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/air_horn.png" id="4_wprhb"]
 
 [resource]

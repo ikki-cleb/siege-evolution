@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4ke85"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/twin_spitter.tres" id="2_sxwrr"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bouncing_spitter.tres" id="3_q42n5"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/flurry_loud_goose.tres" id="2_sxwrr"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/herding_loud_goose.tres" id="3_q42n5"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/loud_goose.png" id="4_a1130"]
 
 [resource]

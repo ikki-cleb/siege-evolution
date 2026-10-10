@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mbku8"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/shockwave_basophil.tres" id="2_n7oa5"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/rallying_basophil.tres" id="3_veyf2"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/charging_buzzing_bee.tres" id="2_n7oa5"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/super_buzzing_bee.tres" id="3_veyf2"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/buzzing_bee.png" id="4_a67kd"]
 
 [resource]

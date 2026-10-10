@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rnabf"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/surprise_spiky_chair.png" id="2_dgqjm"]
+
+[resource]
+script = ExtResource("1_rnabf")
+id = "surprise_spiky_chair"
+display_name = "Surprise Spiky Chair"
+cost = 22
+max_hp = 35
+reflect = 0.5
+tier = 2
+explode_damage = 35.0
+can_place_on_water = true
+texture = ExtResource("2_dgqjm")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Blasts nearby invaders when it breaks."

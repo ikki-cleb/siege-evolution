@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_404po"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/stalker_nk.tres" id="2_l157b"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/whirling_nk.tres" id="3_0vmx5"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/foraging_hunting_ant.tres" id="2_l157b"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/many_legged_hunting_ant.tres" id="3_0vmx5"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/hunting_ant.png" id="4_074pd"]
 
 [resource]

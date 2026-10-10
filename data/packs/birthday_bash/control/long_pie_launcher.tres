@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yw6lv"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/twin_spitter.tres" id="2_gi12k"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bouncing_spitter.tres" id="3_envdv"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/double_long_pie_launcher.tres" id="2_gi12k"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bouncing_long_pie_launcher.tres" id="3_envdv"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/long_pie_launcher.png" id="4_to0ki"]
 
 [resource]

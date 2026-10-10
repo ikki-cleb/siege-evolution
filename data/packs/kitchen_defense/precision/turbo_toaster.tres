@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dgki6"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/bounty_lance.tres" id="2_x4t3a"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/ricochet_lance.tres" id="3_n5om5"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/tip_jar_turbo_toaster.tres" id="2_x4t3a"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/splattering_turbo_toaster.tres" id="3_n5om5"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/turbo_toaster.png" id="4_l7fkr"]
 
 [resource]

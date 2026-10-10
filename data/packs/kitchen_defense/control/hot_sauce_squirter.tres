@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qk1f6"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/corrosive_spitter.tres" id="2_oat4h"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/burning_spitter.tres" id="3_te5sn"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/peeling_hot_sauce_squirter.tres" id="2_oat4h"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/sizzling_hot_sauce_squirter.tres" id="3_te5sn"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/hot_sauce_squirter.png" id="4_avc82"]
 
 [resource]

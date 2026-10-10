@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uwl2j"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/armored_keratin.tres" id="2_6m2gd"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/rebuilt_plate.tres" id="3_w3j1l"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/cushioned_stacked_chairs.tres" id="2_6m2gd"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/re_inflating_stacked_chairs.tres" id="3_w3j1l"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/stacked_chairs.png" id="4_567en"]
 
 [resource]

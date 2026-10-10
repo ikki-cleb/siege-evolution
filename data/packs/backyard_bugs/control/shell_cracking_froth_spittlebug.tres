@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_60l28"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/shell_cracking_froth_spittlebug.png" id="2_jdn64"]
+
+[resource]
+script = ExtResource("1_60l28")
+id = "shell_cracking_froth_spittlebug"
+display_name = "Shell-Cracking Froth Spittlebug"
+role = 1
+cost = 50
+max_hp = 15
+damage = 6.0
+attack_range = 3.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+tier = 2
+armor_shred = 1
+texture = ExtResource("2_jdn64")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Splashes strip 1 armor."

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h8ici"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/peeling_power_beater.png" id="2_50470"]
+
+[resource]
+script = ExtResource("1_h8ici")
+id = "peeling_power_beater"
+display_name = "Peeling Power Beater"
+role = 1
+cost = 36
+max_hp = 15
+attack_mode = 1
+damage = 2.2
+attack_interval = 0.6
+adjacency_bonus = 0.15
+tier = 2
+armor_shred = 1
+texture = ExtResource("2_50470")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Each pulse strips 1 armor."

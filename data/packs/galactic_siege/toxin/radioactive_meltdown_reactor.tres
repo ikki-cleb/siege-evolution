@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pgvw8"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/radioactive_meltdown_reactor.png" id="2_op1u5"]
+
+[resource]
+script = ExtResource("1_pgvw8")
+id = "radioactive_meltdown_reactor"
+display_name = "Radioactive Meltdown Reactor"
+role = 1
+cost = 54
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 4.5
+poison_duration = 3.0
+tier = 2
+zone_kind = "toxic"
+zone_power = 3.0
+texture = ExtResource("2_op1u5")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Leaves a toxic patch around itself."

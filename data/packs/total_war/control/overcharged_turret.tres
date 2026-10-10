@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8wegq"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/chain_storm.tres" id="2_jv1hs"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/storm_volley.tres" id="3_mgkch"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/relay_overcharged_turret.tres" id="2_jv1hs"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/twin_barrel_overcharged_turret.tres" id="3_mgkch"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/control/overcharged_turret.png" id="4_t313n"]
 
 [resource]

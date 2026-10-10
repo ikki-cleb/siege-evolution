@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3yt5a"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/toxic_burst_membrane.tres" id="2_oyd2b"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/antitoxin_membrane.tres" id="3_t2mxs"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/surprise_super_sour_wall.tres" id="2_oyd2b"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/party_proof_super_sour_wall.tres" id="3_t2mxs"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/super_sour_wall.png" id="4_uit6a"]
 
 [resource]

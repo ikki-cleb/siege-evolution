@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_klc0i"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/snaring_net.tres" id="2_ue0wg"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/regrowing_net.tres" id="3_hult1"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/hooked_deep_mud.tres" id="2_ue0wg"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/mended_deep_mud.tres" id="3_hult1"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/deep_mud.png" id="4_jop5a"]
 
 [resource]

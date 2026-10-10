@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kikac"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/toxic_burst_membrane.tres" id="2_nrr8p"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/antitoxin_membrane.tres" id="3_ljnhe"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/popping_lye_soap.tres" id="2_nrr8p"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/wipe_clean_lye_soap.tres" id="3_ljnhe"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/lye_soap.png" id="4_nf82t"]
 
 [resource]

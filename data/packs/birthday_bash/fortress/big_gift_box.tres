@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u54nb"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/fibrin_bastion.tres" id="2_kjffg"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/clotting_snare.tres" id="3_e1m7a"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/re_inflating_big_gift_box.tres" id="2_kjffg"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/gooey_big_gift_box.tres" id="3_e1m7a"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/big_gift_box.png" id="4_wspbt"]
 
 [resource]

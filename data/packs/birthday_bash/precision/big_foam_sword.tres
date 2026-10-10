@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gg604"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/executioner_t.tres" id="2_2yfw7"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/hammer_t.tres" id="3_6qeux"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/grand_finale_big_foam_sword.tres" id="2_2yfw7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bumper_big_foam_sword.tres" id="3_6qeux"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/big_foam_sword.png" id="4_i180t"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vxm2l"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/hunter_t.tres" id="2_acyop"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/twin_patrol_t.tres" id="3_acsjq"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/arc_patrol_ion_cannon.tres" id="2_acyop"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/multi_target_patrol_ion_cannon.tres" id="3_acsjq"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/patrol_ion_cannon.png" id="4_etfs3"]
 
 [resource]

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6p57q"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/self_repairing_shielded_rad_plate.png" id="2_sbbye"]
+
+[resource]
+script = ExtResource("1_6p57q")
+id = "self_repairing_shielded_rad_plate"
+display_name = "Self-Repairing Shielded Rad Plate"
+cost = 22
+max_hp = 60
+reflect = 0.3
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("2_sbbye")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Rebuilds itself once per wave."

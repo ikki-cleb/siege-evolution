@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_auwue"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sticky_rock_candy.png" id="2_mhyrp"]
+
+[resource]
+script = ExtResource("1_auwue")
+id = "sticky_rock_candy"
+display_name = "Sticky Rock Candy"
+cost = 14
+max_hp = 22
+reflect = 0.4
+tier = 2
+grab_stun = 0.6
+can_place_on_water = true
+texture = ExtResource("2_mhyrp")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Smashers that bite it get stuck."

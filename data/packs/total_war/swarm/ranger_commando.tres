@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ol4qd"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/stalker_nk.tres" id="2_6q32r"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/whirling_nk.tres" id="3_tpndi"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/loot_ranger_commando.tres" id="2_6q32r"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/twin_barrel_ranger_commando.tres" id="3_tpndi"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/swarm/ranger_commando.png" id="4_rocao"]
 
 [resource]

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ijw4a"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/armor_piercing_heavy_mortar.png" id="2_ossxl"]
+
+[resource]
+script = ExtResource("1_ijw4a")
+id = "armor_piercing_heavy_mortar"
+display_name = "Armor-Piercing Heavy Mortar"
+role = 1
+cost = 50
+max_hp = 15
+damage = 6.0
+attack_range = 3.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+tier = 2
+armor_shred = 1
+texture = ExtResource("2_ossxl")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Splashes strip 1 armor."

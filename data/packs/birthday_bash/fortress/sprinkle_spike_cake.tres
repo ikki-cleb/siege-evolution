@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_opaiw"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/bursting_granuloma.tres" id="2_1w7i2"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/grasping_granuloma.tres" id="3_xyb2q"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/surprise_sprinkle_spike_cake.tres" id="2_1w7i2"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/gooey_sprinkle_spike_cake.tres" id="3_xyb2q"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/sprinkle_spike_cake.png" id="4_3pa23"]
 
 [resource]

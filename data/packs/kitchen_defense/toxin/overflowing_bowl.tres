@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xvmsc"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/flooding_pool.tres" id="2_0wmwi"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/rich_pool.tres" id="3_gpl4k"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/swatting_overflowing_bowl.tres" id="2_0wmwi"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/tip_jar_overflowing_bowl.tres" id="3_gpl4k"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/overflowing_bowl.png" id="4_075cn"]
 
 [resource]

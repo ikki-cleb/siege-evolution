@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1cpo0"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/self_repairing_reinforced_barrier.png" id="2_u1fec"]
+
+[resource]
+script = ExtResource("1_1cpo0")
+id = "self_repairing_reinforced_barrier"
+display_name = "Self-Repairing Reinforced Barrier"
+cost = 22
+max_hp = 70
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("2_u1fec")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Rebuilds itself once per wave."

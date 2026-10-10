@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ws0r7"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/corroding_sprayer.tres" id="2_yn3x7"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/toxic_cloud_sprayer.tres" id="3_8mk5a"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/unwrapping_sticky_silly_string.tres" id="2_yn3x7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/stinky_sticky_silly_string.tres" id="3_8mk5a"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/sticky_silly_string.png" id="4_av77g"]
 
 [resource]

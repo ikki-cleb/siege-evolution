@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_74c6s"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/fibrin_bastion.tres" id="2_wot1q"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/clotting_snare.tres" id="3_j6823"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/field_repaired_reinforced_sandbags.tres" id="2_wot1q"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/barbed_reinforced_sandbags.tres" id="3_j6823"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags.png" id="4_dppmc"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags_water.png" id="5_6j6tp"]
 

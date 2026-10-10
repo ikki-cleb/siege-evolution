@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ufhm4"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/chain_storm.tres" id="2_v8kqj"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/storm_volley.tres" id="3_p7twy"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/herding_stubborn_mule.tres" id="2_v8kqj"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/flurry_stubborn_mule.tres" id="3_p7twy"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/stubborn_mule.png" id="4_ilmol"]
 
 [resource]

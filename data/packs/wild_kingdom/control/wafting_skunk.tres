@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_do667"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/shoving_mast_cell.tres" id="2_r841s"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/alarm_mast_cell.tres" id="3_ocegn"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bucking_wafting_skunk.tres" id="2_r841s"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/roosters_wafting_skunk.tres" id="3_ocegn"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/wafting_skunk.png" id="4_6yyx8"]
 
 [resource]

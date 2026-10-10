@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_becye"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/sentinel_dendrite.tres" id="2_ctd67"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/harvesting_dendrite.tres" id="3_g8pmr"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/goring_long_spit_llama.tres" id="2_ctd67"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/market_long_spit_llama.tres" id="3_g8pmr"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/long_spit_llama.png" id="4_1t2vf"]
 
 [resource]

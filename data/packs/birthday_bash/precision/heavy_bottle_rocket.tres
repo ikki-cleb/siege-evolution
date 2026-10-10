@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0ylhq"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/railgun_lance.tres" id="2_67cyq"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/finishing_lance.tres" id="3_nbltw"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/laser_heavy_bottle_rocket.tres" id="2_67cyq"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/grand_finale_heavy_bottle_rocket.tres" id="3_nbltw"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/heavy_bottle_rocket.png" id="4_i1u3i"]
 
 [resource]

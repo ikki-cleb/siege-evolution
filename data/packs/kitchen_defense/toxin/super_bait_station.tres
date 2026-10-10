@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_geumu"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/pandemic_lancer.tres" id="2_jbrt2"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/plague_executioner.tres" id="3_amwyh"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/splattering_super_bait_station.tres" id="2_jbrt2"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/chopping_super_bait_station.tres" id="3_amwyh"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/super_bait_station.png" id="4_qvyl2"]
 
 [resource]

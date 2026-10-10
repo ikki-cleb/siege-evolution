@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lw41k"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/mucus_plug.tres" id="2_fut8g"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/grasping_mucus.tres" id="3_yv03w"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/self_stacking_thick_flypaper.tres" id="2_fut8g"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/sticky_thick_flypaper.tres" id="3_yv03w"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/thick_flypaper.png" id="4_c7xht"]
 
 [resource]

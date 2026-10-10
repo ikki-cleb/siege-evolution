@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rsepq"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/histamine_burst.tres" id="2_8j63r"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/shredding_basophil.tres" id="3_ib76l"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/sizzling_power_beater.tres" id="2_8j63r"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/peeling_power_beater.tres" id="3_ib76l"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/power_beater.png" id="4_py78b"]
 
 [resource]

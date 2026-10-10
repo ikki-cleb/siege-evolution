@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_00355"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/chain_venom_t.tres" id="2_j586m"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/venom_sniper_t.tres" id="3_6fvmy"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/relay_long_chem_trooper.tres" id="2_j586m"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/railgun_long_chem_trooper.tres" id="3_6fvmy"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/toxin/long_chem_trooper.png" id="4_ojigs"]
 
 [resource]

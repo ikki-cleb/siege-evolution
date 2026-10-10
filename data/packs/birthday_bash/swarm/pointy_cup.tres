@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8pjbx"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/cilia_trap.tres" id="2_f71ke"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/bursting_cell.tres" id="3_bqeso"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/gooey_pointy_cup.tres" id="2_f71ke"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/surprise_pointy_cup.tres" id="3_bqeso"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/pointy_cup.png" id="4_bisqx"]
 
 [resource]

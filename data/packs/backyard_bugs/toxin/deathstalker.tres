@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_71pk4"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/pandemic_lancer.tres" id="2_s046m"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/plague_executioner.tres" id="3_e7ep8"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/swarming_deathstalker.tres" id="2_s046m"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/predator_deathstalker.tres" id="3_e7ep8"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/deathstalker.png" id="4_gqd4x"]
 
 [resource]

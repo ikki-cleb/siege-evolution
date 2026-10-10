@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_husor"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/shredding_mast_cell.tres" id="2_c5ir3"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/degranulation_burst.tres" id="3_dtxgn"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/phase_shred_deep_cryo_emitter.tres" id="2_c5ir3"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/plasma_fire_deep_cryo_emitter.tres" id="3_dtxgn"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/deep_cryo_emitter.png" id="4_3eajx"]
 
 [resource]

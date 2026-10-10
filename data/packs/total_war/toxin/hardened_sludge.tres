@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_56fxb"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/undying_bloom.tres" id="2_jp786"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/choking_bloom.tres" id="3_gui2r"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/field_repaired_hardened_sludge.tres" id="2_jp786"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/barbed_hardened_sludge.tres" id="3_gui2r"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/toxin/hardened_sludge.png" id="4_nafvu"]
 
 [resource]

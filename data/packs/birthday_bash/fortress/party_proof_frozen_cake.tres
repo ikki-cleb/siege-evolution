@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5007i"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/party_proof_frozen_cake.png" id="2_kvjxh"]
+
+[resource]
+script = ExtResource("1_5007i")
+id = "party_proof_frozen_cake"
+display_name = "Party-Proof Frozen Cake"
+cost = 68
+max_hp = 480
+attack_mode = 1
+damage = 3.0
+tier = 2
+aura_shield = 0.3
+aura_cleanse = true
+texture = ExtResource("2_kvjxh")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Neighbors take 30% less damage and ignore goo."

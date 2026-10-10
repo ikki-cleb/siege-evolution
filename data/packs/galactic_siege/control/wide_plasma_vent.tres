@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_csruo"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/heatwave_node.tres" id="2_xdkti"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/warming_node.tres" id="3_fgjqj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/repulsor_wide_plasma_vent.tres" id="2_xdkti"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/overclocked_wide_plasma_vent.tres" id="3_fgjqj"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/wide_plasma_vent.png" id="4_btnq7"]
 
 [resource]

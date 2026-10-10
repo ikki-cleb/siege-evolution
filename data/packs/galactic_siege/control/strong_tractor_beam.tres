@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_nthcp"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/scorched_zone.tres" id="2_lkidj"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/sepsis_zone.tres" id="3_2sumk"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/phase_shred_strong_tractor_beam.tres" id="2_lkidj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/terminator_strong_tractor_beam.tres" id="3_2sumk"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/strong_tractor_beam.png" id="4_qjup8"]
 
 [resource]

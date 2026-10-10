@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_aekyq"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/complement_tagger.tres" id="2_58ubp"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/chain_tagger.tres" id="3_xh0vw"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/phase_shred_lock_on_beacon.tres" id="2_58ubp"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/arc_lock_on_beacon.tres" id="3_xh0vw"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/lock_on_beacon.png" id="4_vr8wd"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fne23"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/fortress_granuloma.tres" id="2_s4utb"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/bone_granuloma.tres" id="3_gxm8r"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/rain_washed_petrified_stump.tres" id="2_s4utb"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/regrowing_petrified_stump.tres" id="3_gxm8r"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/petrified_stump.png" id="4_eghfo"]
 
 [resource]

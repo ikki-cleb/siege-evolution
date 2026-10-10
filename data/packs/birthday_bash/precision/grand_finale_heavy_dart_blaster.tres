@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pfgv2"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/grand_finale_heavy_dart_blaster.png" id="2_i15o6"]
+
+[resource]
+script = ExtResource("1_pfgv2")
+id = "grand_finale_heavy_dart_blaster"
+display_name = "Grand-Finale Heavy Dart Blaster"
+role = 1
+cost = 56
+max_hp = 15
+damage = 8.0
+attack_range = 3.0
+hits_air = true
+tier = 2
+execute_below = 0.2
+texture = ExtResource("2_i15o6")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Finishes off invaders below 20% HP."

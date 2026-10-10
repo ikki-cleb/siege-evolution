@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_y0v36"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/eosinophil_barrage.tres" id="2_2pv62"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/major_basic_protein.tres" id="3_817bj"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/double_big_fireworks.tres" id="2_2pv62"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/grand_finale_big_fireworks.tres" id="3_817bj"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/big_fireworks.png" id="4_8mml1"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ow3eu"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/executioner_t.tres" id="2_h2sn4"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/hammer_t.tres" id="3_7ajv4"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/chopping_rat_trap.tres" id="2_h2sn4"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/swatting_rat_trap.tres" id="3_7ajv4"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/rat_trap.png" id="4_j0ej1"]
 
 [resource]

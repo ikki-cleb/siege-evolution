@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2wbsf"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/lancing_long_shot_bombardier.png" id="2_olv4f"]
+
+[resource]
+script = ExtResource("1_2wbsf")
+id = "lancing_long_shot_bombardier"
+display_name = "Lancing Long-Shot Bombardier"
+role = 1
+cost = 56
+max_hp = 30
+damage = 8.0
+attack_range = 3.6
+attack_interval = 1.4
+hits_air = true
+tier = 2
+line_pierce = true
+texture = ExtResource("2_olv4f")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Shots pierce every invader in a line."

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m45i1"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/necrotizing_t.tres" id="2_dnwd1"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/twin_venom_t.tres" id="3_3gylv"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/commando_hazard_trooper.tres" id="2_dnwd1"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/twin_barrel_hazard_trooper.tres" id="3_3gylv"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/toxin/hazard_trooper.png" id="4_t3kcd"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lv133"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/signaling_fibroblast.tres" id="2_50wk8"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/granulation_tissue.tres" id="3_182qt"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/espresso_soaked_sponge.tres" id="2_50wk8"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sticky_soaked_sponge.tres" id="3_182qt"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/soaked_sponge.png" id="4_sskuj"]
 
 [resource]

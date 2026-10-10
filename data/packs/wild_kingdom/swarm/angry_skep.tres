@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u0x2d"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/histamine_burst.tres" id="2_hfq5w"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/shredding_basophil.tres" id="3_mqeec"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/bonfire_angry_skep.tres" id="2_hfq5w"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/tusked_angry_skep.tres" id="3_mqeec"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/angry_skep.png" id="4_aiiyi"]
 
 [resource]

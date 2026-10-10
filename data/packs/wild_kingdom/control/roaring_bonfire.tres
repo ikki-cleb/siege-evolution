@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jy7jr"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/inferno_node.tres" id="2_ddug8"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/heatstroke_node.tres" id="3_wqie0"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/super_roaring_bonfire.tres" id="2_ddug8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/hunting_roaring_bonfire.tres" id="3_wqie0"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/roaring_bonfire.png" id="4_jfxi6"]
 
 [resource]

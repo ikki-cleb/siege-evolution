@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h13rs"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/interferon_storm.tres" id="2_eg8vk"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/rallying_beacon.tres" id="3_xl0bu"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/shell_cracking_blazing_lantern.tres" id="2_eg8vk"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/buzzing_blazing_lantern.tres" id="3_xl0bu"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/blazing_lantern.png" id="4_vhfaj"]
 
 [resource]

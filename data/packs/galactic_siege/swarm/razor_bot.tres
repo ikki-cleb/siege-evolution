@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hgjt8"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/executioner_nk.tres" id="2_c6xy4"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/chain_nk.tres" id="3_18hyi"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/terminator_razor_bot.tres" id="2_c6xy4"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/arc_razor_bot.tres" id="3_18hyi"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/razor_bot.png" id="4_usc3c"]
 
 [resource]

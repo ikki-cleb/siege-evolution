@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vsrjb"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/edema_zone.tres" id="2_vk2k0"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/fevered_zone.tres" id="3_y283p"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/swatting_big_griddle.tres" id="2_vk2k0"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/tip_jar_big_griddle.tres" id="3_y283p"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/big_griddle.png" id="4_syejt"]
 
 [resource]

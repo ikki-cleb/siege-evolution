@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0oj1r"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/stalker_nk.tres" id="2_p1h3y"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/whirling_nk.tres" id="3_7nbaf"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/prize_long_sparkler.tres" id="2_p1h3y"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/double_long_sparkler.tres" id="3_7nbaf"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/long_sparkler.png" id="4_fgx7a"]
 
 [resource]

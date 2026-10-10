@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yuc0u"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/double_long_silly_string.png" id="2_gnix3"]
+
+[resource]
+script = ExtResource("1_yuc0u")
+id = "double_long_silly_string"
+display_name = "Double Long Silly String"
+role = 1
+cost = 54
+max_hp = 15
+damage = 1.0
+attack_range = 3.5
+attack_interval = 1.2
+hits_air = true
+splash_radius = 1.0
+poison_dps = 2.5
+poison_duration = 3.0
+tier = 2
+multishot = 2
+texture = ExtResource("2_gnix3")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Sprays 2 targets at once."

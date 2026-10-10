@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_p8srg"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/bursting_granuloma.tres" id="2_sbvt6"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/grasping_granuloma.tres" id="3_ut5m3"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/exploding_thorned_silo.tres" id="2_sbvt6"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hooked_thorned_silo.tres" id="3_ut5m3"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thorned_silo.png" id="4_xxabe"]
 
 [resource]

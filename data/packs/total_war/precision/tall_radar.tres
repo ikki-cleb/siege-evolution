@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_d2t0u"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/shield_beacon.tres" id="2_la8u5"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/pulse_beacon.tres" id="3_und6t"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/waterproof_tall_radar.tres" id="2_la8u5"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/recoil_tall_radar.tres" id="3_und6t"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/precision/tall_radar.png" id="4_w0136"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mxgy6"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shockwave_storm.tres" id="2_dy7kj"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/freezing_storm.tres" id="3_q1kjh"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/charging_shockwave_click_beetle.tres" id="2_dy7kj"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/dewy_shockwave_click_beetle.tres" id="3_q1kjh"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/shockwave_click_beetle.png" id="4_mmc2i"]
 
 [resource]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n8pwn"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/keloid_wall.tres" id="2_alriq"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/scar_lattice.tres" id="3_jibr2"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/mended_thick_hedge.tres" id="2_alriq"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/sheltering_thick_hedge.tres" id="3_jibr2"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thick_hedge.png" id="4_lj0i8"]
 
 [resource]

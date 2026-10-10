@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0ekrd"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/thrombus_mine.tres" id="2_8qtt2"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/barbed_thrombus.tres" id="3_k0j2v"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/popping_jagged_can.tres" id="2_8qtt2"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sticky_jagged_can.tres" id="3_k0j2v"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/jagged_can.png" id="4_1mfv0"]
 
 [resource]

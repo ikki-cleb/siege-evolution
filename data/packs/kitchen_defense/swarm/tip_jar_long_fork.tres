@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cgnsk"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/tip_jar_long_fork.png" id="2_medm0"]
+
+[resource]
+script = ExtResource("1_cgnsk")
+id = "tip_jar_long_fork"
+display_name = "Tip-Jar Long Fork"
+role = 1
+cost = 32
+damage = 2.3
+attack_range = 2.3
+attack_interval = 0.45
+adjacency_bonus = 0.15
+tier = 2
+bounty = 1
+texture = ExtResource("2_medm0")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Its kills drop an extra coin."

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hsm1q"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/overload_stasis_field.png" id="2_ju5vi"]
+
+[resource]
+script = ExtResource("1_hsm1q")
+id = "overload_stasis_field"
+display_name = "Overload Stasis Field"
+cost = 22
+max_hp = 25
+attack_mode = 1
+attack_range = 1.2
+attack_interval = 0.5
+slow = 0.5
+slow_duration = 1.0
+tier = 2
+explode_damage = 30.0
+can_place_on_water = true
+texture = ExtResource("2_ju5vi")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Bursts when it breaks, hurting nearby invaders."

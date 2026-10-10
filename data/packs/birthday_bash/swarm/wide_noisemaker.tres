@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jfcj0"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/shockwave_basophil.tres" id="2_y0j1o"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/rallying_basophil.tres" id="3_1qok4"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/bumper_wide_noisemaker.tres" id="2_y0j1o"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/sugar_rush_wide_noisemaker.tres" id="3_1qok4"]
 [ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/wide_noisemaker.png" id="4_xeufm"]
 
 [resource]

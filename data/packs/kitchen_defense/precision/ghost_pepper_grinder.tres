@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3yhc6"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/antibody_storm.tres" id="2_q4nv0"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/neutralizing_plasma.tres" id="3_p2847"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/two_handed_ghost_pepper_grinder.tres" id="2_q4nv0"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/chopping_ghost_pepper_grinder.tres" id="3_p2847"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/ghost_pepper_grinder.png" id="4_fgvdm"]
 
 [resource]

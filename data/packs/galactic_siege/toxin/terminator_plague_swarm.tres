@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_sw4or"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/terminator_plague_swarm.png" id="2_mj6en"]
+
+[resource]
+script = ExtResource("1_sw4or")
+id = "terminator_plague_swarm"
+display_name = "Terminator Plague Swarm"
+role = 1
+cost = 76
+damage = 2.0
+attack_range = 2.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 8.0
+poison_duration = 5.0
+poison_spreads = true
+tier = 2
+execute_below = 0.2
+texture = ExtResource("2_mj6en")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Finishes off invaders below 20% HP."

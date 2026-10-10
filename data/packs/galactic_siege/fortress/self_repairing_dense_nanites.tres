@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_a4dcg"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/self_repairing_dense_nanites.png" id="2_wg57h"]
+
+[resource]
+script = ExtResource("1_a4dcg")
+id = "self_repairing_dense_nanites"
+display_name = "Self-Repairing Dense Nanites"
+cost = 40
+max_hp = 200
+regen = 6.0
+tier = 2
+rebuild = true
+texture = ExtResource("2_wg57h")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Rebuilds itself once per wave."

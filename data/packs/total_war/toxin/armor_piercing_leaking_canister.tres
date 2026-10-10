@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qljdi"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/armor_piercing_leaking_canister.png" id="2_0ywfa"]
+
+[resource]
+script = ExtResource("1_qljdi")
+id = "armor_piercing_leaking_canister"
+display_name = "Armor-Piercing Leaking Canister"
+role = 1
+cost = 54
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 4.5
+poison_duration = 3.0
+tier = 2
+armor_shred = 1
+texture = ExtResource("2_0ywfa")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Pulses strip 1 armor."

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qu7wd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/armored_keratin.tres" id="2_jexso"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/rebuilt_plate.tres" id="3_61del"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/sheltering_walnut_shell.tres" id="2_jexso"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/regrowing_walnut_shell.tres" id="3_61del"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/walnut_shell.png" id="4_ry7vw"]
 
 [resource]

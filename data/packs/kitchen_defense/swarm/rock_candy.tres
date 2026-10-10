@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qh0sc"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/cilia_trap.tres" id="2_4d5w6"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/bursting_cell.tres" id="3_bstpg"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/sticky_rock_candy.tres" id="2_4d5w6"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/popping_rock_candy.tres" id="3_bstpg"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/rock_candy.png" id="4_61hjm"]
 
 [resource]

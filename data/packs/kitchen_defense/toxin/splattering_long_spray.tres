@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_48xg1"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/splattering_long_spray.png" id="2_d4s20"]
+
+[resource]
+script = ExtResource("1_48xg1")
+id = "splattering_long_spray"
+display_name = "Splattering Long Spray"
+role = 1
+cost = 48
+damage = 1.0
+attack_range = 3.0
+attack_interval = 0.9
+poison_dps = 3.5
+poison_duration = 4.0
+tier = 2
+chain_count = 2
+texture = ExtResource("2_d4s20")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poison chains to 2 more invaders."

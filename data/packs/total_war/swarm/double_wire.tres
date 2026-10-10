@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vvyot"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/cornified_layer.tres" id="2_k0utm"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/mucosal_barrier.tres" id="3_qs221"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/field_repaired_double_wire.tres" id="2_k0utm"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/waterproof_double_wire.tres" id="3_qs221"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire.png" id="4_te7ow"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire_water.png" id="5_75jrx"]
 

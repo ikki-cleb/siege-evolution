@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_nnbv1"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/presenting_dendrite.tres" id="2_hgrxc"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/dendrite_volley.tres" id="3_yku8k"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/swarming_blast_bombardier.tres" id="2_hgrxc"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/many_legged_blast_bombardier.tres" id="3_yku8k"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/blast_bombardier.png" id="4_tlxp7"]
 
 [resource]

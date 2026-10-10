@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_slueh"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/spore_burst_bloom.tres" id="2_w380m"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/blight_field.tres" id="3_ookpl"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/bursting_virulent_ivy.tres" id="2_w380m"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/venomous_virulent_ivy.tres" id="3_ookpl"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/virulent_ivy.png" id="4_ae1vc"]
 
 [resource]

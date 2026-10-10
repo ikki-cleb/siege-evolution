@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h04hc"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/spike_trap_plate.tres" id="2_jouma"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/hooked_plate.tres" id="3_egsw5"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/exploding_barbed_fence.tres" id="2_jouma"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/hooked_barbed_fence.tres" id="3_egsw5"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/barbed_fence.png" id="4_5eg7s"]
 
 [resource]

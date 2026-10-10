@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wca0s"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/shockwave_storm.tres" id="2_hw755"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/freezing_storm.tres" id="3_nds68"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/swatting_chain_zapper.tres" id="2_hw755"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/frozen_chain_zapper.tres" id="3_nds68"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/chain_zapper.png" id="4_1r1fd"]
 
 [resource]

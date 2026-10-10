@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3ab33"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/keloid_wall.tres" id="2_qcorj"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/scar_lattice.tres" id="3_w52b8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/self_repairing_dense_nanites.tres" id="2_qcorj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/deflector_dense_nanites.tres" id="3_w52b8"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/dense_nanites.png" id="4_rv2fm"]
 
 [resource]

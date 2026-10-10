@@ -365,6 +365,486 @@
     "virulent_bloom": [
       "virulent_ivy",
       "Virulent Ivy"
+    ],
+    "fibrin_bastion": [
+      "regrowing_cobblestone",
+      "Regrowing Cobblestone"
+    ],
+    "clotting_snare": [
+      "sticky_cobblestone",
+      "Sticky Cobblestone"
+    ],
+    "thrombus_mine": [
+      "bursting_thorned_pebble",
+      "Bursting Thorned Pebble"
+    ],
+    "barbed_thrombus": [
+      "sticky_thorned_pebble",
+      "Sticky Thorned Pebble"
+    ],
+    "devouring_macrophage": [
+      "predator_goliath_stag",
+      "Predator Goliath Stag"
+    ],
+    "titan_macrophage": [
+      "charging_goliath_stag",
+      "Charging Goliath Stag"
+    ],
+    "engulfing_foam": [
+      "shell_cracking_sweeping_stag",
+      "Shell-Cracking Sweeping Stag"
+    ],
+    "foam_eruption": [
+      "smoldering_sweeping_stag",
+      "Smoldering Sweeping Stag"
+    ],
+    "presenting_dendrite": [
+      "swarming_blast_bombardier",
+      "Swarming Blast Bombardier"
+    ],
+    "dendrite_volley": [
+      "many_legged_blast_bombardier",
+      "Many-Legged Blast Bombardier"
+    ],
+    "sentinel_dendrite": [
+      "lancing_long_shot_bombardier",
+      "Lancing Long-Shot Bombardier"
+    ],
+    "harvesting_dendrite": [
+      "foraging_long_shot_bombardier",
+      "Foraging Long-Shot Bombardier"
+    ],
+    "keloid_wall": [
+      "regrowing_dense_moss",
+      "Regrowing Dense Moss"
+    ],
+    "scar_lattice": [
+      "sheltering_dense_moss",
+      "Sheltering Dense Moss"
+    ],
+    "signaling_fibroblast": [
+      "buzzing_lush_moss",
+      "Buzzing Lush Moss"
+    ],
+    "granulation_tissue": [
+      "sticky_lush_moss",
+      "Sticky Lush Moss"
+    ],
+    "eosinophil_barrage": [
+      "many_legged_giant_mantis",
+      "Many-Legged Giant Mantis"
+    ],
+    "major_basic_protein": [
+      "predator_giant_mantis",
+      "Predator Giant Mantis"
+    ],
+    "eosinophil_spear": [
+      "lancing_orchid_mantis",
+      "Lancing Orchid Mantis"
+    ],
+    "eosinophil_shredder": [
+      "shell_cracking_orchid_mantis",
+      "Shell-Cracking Orchid Mantis"
+    ],
+    "fortress_granuloma": [
+      "rain_washed_petrified_stump",
+      "Rain-Washed Petrified Stump"
+    ],
+    "bone_granuloma": [
+      "regrowing_petrified_stump",
+      "Regrowing Petrified Stump"
+    ],
+    "bursting_granuloma": [
+      "bursting_thorny_stump",
+      "Bursting Thorny Stump"
+    ],
+    "grasping_granuloma": [
+      "sticky_thorny_stump",
+      "Sticky Thorny Stump"
+    ],
+    "cornified_layer": [
+      "regrowing_twig_bundle",
+      "Regrowing Twig Bundle"
+    ],
+    "mucosal_barrier": [
+      "rain_washed_twig_bundle",
+      "Rain-Washed Twig Bundle"
+    ],
+    "cilia_trap": [
+      "sticky_bramble_twig",
+      "Sticky Bramble Twig"
+    ],
+    "bursting_cell": [
+      "bursting_bramble_twig",
+      "Bursting Bramble Twig"
+    ],
+    "frenzied_horde": [
+      "many_legged_fire_ant",
+      "Many-Legged Fire Ant"
+    ],
+    "killer_neutrophil": [
+      "predator_fire_ant",
+      "Predator Fire Ant"
+    ],
+    "net_neutrophil": [
+      "swarming_scout_ant",
+      "Swarming Scout Ant"
+    ],
+    "scavenger_neutrophil": [
+      "foraging_scout_ant",
+      "Foraging Scout Ant"
+    ],
+    "barrage_monocyte": [
+      "many_legged_volley_ant",
+      "Many-Legged Volley Ant"
+    ],
+    "piercing_monocyte": [
+      "shell_cracking_volley_ant",
+      "Shell-Cracking Volley Ant"
+    ],
+    "sniper_monocyte": [
+      "lancing_sentry_ant",
+      "Lancing Sentry Ant"
+    ],
+    "signal_monocyte": [
+      "buzzing_sentry_ant",
+      "Buzzing Sentry Ant"
+    ],
+    "histamine_burst": [
+      "smoldering_angry_bee",
+      "Smoldering Angry Bee"
+    ],
+    "shredding_basophil": [
+      "shell_cracking_angry_bee",
+      "Shell-Cracking Angry Bee"
+    ],
+    "shockwave_basophil": [
+      "charging_buzzing_bee",
+      "Charging Buzzing Bee"
+    ],
+    "rallying_basophil": [
+      "super_buzzing_bee",
+      "Super Buzzing Bee"
+    ],
+    "executioner_nk": [
+      "predator_bullet_ant_major",
+      "Predator Bullet Ant Major"
+    ],
+    "chain_nk": [
+      "swarming_bullet_ant_major",
+      "Swarming Bullet Ant Major"
+    ],
+    "stalker_nk": [
+      "foraging_hunting_ant",
+      "Foraging Hunting Ant"
+    ],
+    "whirling_nk": [
+      "many_legged_hunting_ant",
+      "Many-Legged Hunting Ant"
+    ],
+    "snaring_net": [
+      "sticky_thick_sap",
+      "Sticky Thick Sap"
+    ],
+    "regrowing_net": [
+      "regrowing_thick_sap",
+      "Regrowing Thick Sap"
+    ],
+    "freezing_net": [
+      "dewy_spreading_sap",
+      "Dewy Spreading Sap"
+    ],
+    "bursting_net": [
+      "bursting_spreading_sap",
+      "Bursting Spreading Sap"
+    ],
+    "armored_keratin": [
+      "sheltering_walnut_shell",
+      "Sheltering Walnut Shell"
+    ],
+    "rebuilt_plate": [
+      "regrowing_walnut_shell",
+      "Regrowing Walnut Shell"
+    ],
+    "spike_trap_plate": [
+      "bursting_chestnut_burr",
+      "Bursting Chestnut Burr"
+    ],
+    "hooked_plate": [
+      "sticky_chestnut_burr",
+      "Sticky Chestnut Burr"
+    ],
+    "antibody_storm": [
+      "many_legged_venom_spitter",
+      "Many-Legged Venom Spitter"
+    ],
+    "neutralizing_plasma": [
+      "predator_venom_spitter",
+      "Predator Venom Spitter"
+    ],
+    "memory_lance": [
+      "lancing_sharpshooter_spider",
+      "Lancing Sharpshooter Spider"
+    ],
+    "long_lived_b_cell": [
+      "foraging_sharpshooter_spider",
+      "Foraging Sharpshooter Spider"
+    ],
+    "complement_tagger": [
+      "shell_cracking_bright_firefly",
+      "Shell-Cracking Bright Firefly"
+    ],
+    "chain_tagger": [
+      "swarming_bright_firefly",
+      "Swarming Bright Firefly"
+    ],
+    "multi_tagger": [
+      "many_legged_signal_firefly",
+      "Many-Legged Signal Firefly"
+    ],
+    "coordinator_tagger": [
+      "buzzing_signal_firefly",
+      "Buzzing Signal Firefly"
+    ],
+    "executioner_t": [
+      "predator_masked_hunter",
+      "Predator Masked Hunter"
+    ],
+    "hammer_t": [
+      "charging_masked_hunter",
+      "Charging Masked Hunter"
+    ],
+    "hunter_t": [
+      "swarming_patrol_assassin",
+      "Swarming Patrol Assassin"
+    ],
+    "twin_patrol_t": [
+      "many_legged_patrol_assassin",
+      "Many-Legged Patrol Assassin"
+    ],
+    "railgun_lance": [
+      "lancing_heavy_jumper",
+      "Lancing Heavy Jumper"
+    ],
+    "finishing_lance": [
+      "predator_heavy_jumper",
+      "Predator Heavy Jumper"
+    ],
+    "bounty_lance": [
+      "foraging_quick_jumper",
+      "Foraging Quick Jumper"
+    ],
+    "ricochet_lance": [
+      "swarming_quick_jumper",
+      "Swarming Quick Jumper"
+    ],
+    "interferon_storm": [
+      "shell_cracking_blazing_lantern",
+      "Shell-Cracking Blazing Lantern"
+    ],
+    "rallying_beacon": [
+      "buzzing_blazing_lantern",
+      "Buzzing Blazing Lantern"
+    ],
+    "shield_beacon": [
+      "rain_washed_tall_lantern",
+      "Rain-Washed Tall Lantern"
+    ],
+    "pulse_beacon": [
+      "charging_tall_lantern",
+      "Charging Tall Lantern"
+    ],
+    "mucus_plug": [
+      "regrowing_thick_web",
+      "Regrowing Thick Web"
+    ],
+    "grasping_mucus": [
+      "sticky_thick_web",
+      "Sticky Thick Web"
+    ],
+    "glue_mucus": [
+      "dewy_sticky_web",
+      "Dewy Sticky Web"
+    ],
+    "bursting_mucus": [
+      "bursting_sticky_web",
+      "Bursting Sticky Web"
+    ],
+    "shredding_mast_cell": [
+      "shell_cracking_pungent_stink_bug",
+      "Shell-Cracking Pungent Stink Bug"
+    ],
+    "degranulation_burst": [
+      "smoldering_pungent_stink_bug",
+      "Smoldering Pungent Stink Bug"
+    ],
+    "shoving_mast_cell": [
+      "charging_wafting_stink_bug",
+      "Charging Wafting Stink Bug"
+    ],
+    "alarm_mast_cell": [
+      "buzzing_wafting_stink_bug",
+      "Buzzing Wafting Stink Bug"
+    ],
+    "corrosive_spitter": [
+      "shell_cracking_froth_spittlebug",
+      "Shell-Cracking Froth Spittlebug"
+    ],
+    "burning_spitter": [
+      "smoldering_froth_spittlebug",
+      "Smoldering Froth Spittlebug"
+    ],
+    "twin_spitter": [
+      "many_legged_long_spittlebug",
+      "Many-Legged Long Spittlebug"
+    ],
+    "bouncing_spitter": [
+      "swarming_long_spittlebug",
+      "Swarming Long Spittlebug"
+    ],
+    "inferno_node": [
+      "smoldering_focused_lens",
+      "Smoldering Focused Lens"
+    ],
+    "heatstroke_node": [
+      "predator_focused_lens",
+      "Predator Focused Lens"
+    ],
+    "heatwave_node": [
+      "charging_wide_lens",
+      "Charging Wide Lens"
+    ],
+    "warming_node": [
+      "buzzing_wide_lens",
+      "Buzzing Wide Lens"
+    ],
+    "chain_storm": [
+      "swarming_thunder_click_beetle",
+      "Swarming Thunder Click Beetle"
+    ],
+    "storm_volley": [
+      "many_legged_thunder_click_beetle",
+      "Many-Legged Thunder Click Beetle"
+    ],
+    "shockwave_storm": [
+      "charging_shockwave_click_beetle",
+      "Charging Shockwave Click Beetle"
+    ],
+    "freezing_storm": [
+      "dewy_shockwave_click_beetle",
+      "Dewy Shockwave Click Beetle"
+    ],
+    "scorched_zone": [
+      "shell_cracking_power_sprinkler",
+      "Shell-Cracking Power Sprinkler"
+    ],
+    "sepsis_zone": [
+      "predator_power_sprinkler",
+      "Predator Power Sprinkler"
+    ],
+    "edema_zone": [
+      "charging_wide_sprinkler",
+      "Charging Wide Sprinkler"
+    ],
+    "fevered_zone": [
+      "foraging_wide_sprinkler",
+      "Foraging Wide Sprinkler"
+    ],
+    "regrowing_membrane": [
+      "regrowing_dense_nettles",
+      "Regrowing Dense Nettles"
+    ],
+    "sticky_membrane": [
+      "sticky_dense_nettles",
+      "Sticky Dense Nettles"
+    ],
+    "toxic_burst_membrane": [
+      "bursting_stinging_nettles",
+      "Bursting Stinging Nettles"
+    ],
+    "antitoxin_membrane": [
+      "rain_washed_stinging_nettles",
+      "Rain-Washed Stinging Nettles"
+    ],
+    "necrotizing_t": [
+      "predator_yellowjacket",
+      "Predator Yellowjacket"
+    ],
+    "twin_venom_t": [
+      "many_legged_yellowjacket",
+      "Many-Legged Yellowjacket"
+    ],
+    "chain_venom_t": [
+      "swarming_long_sting_wasp",
+      "Swarming Long-Sting Wasp"
+    ],
+    "venom_sniper_t": [
+      "lancing_long_sting_wasp",
+      "Lancing Long-Sting Wasp"
+    ],
+    "corroding_sprayer": [
+      "shell_cracking_caustic_blister_beetle",
+      "Shell-Cracking Caustic Blister Beetle"
+    ],
+    "toxic_cloud_sprayer": [
+      "venomous_caustic_blister_beetle",
+      "Venomous Caustic Blister Beetle"
+    ],
+    "fanning_sprayer": [
+      "many_legged_misting_blister_beetle",
+      "Many-Legged Misting Blister Beetle"
+    ],
+    "harvest_sprayer": [
+      "foraging_misting_blister_beetle",
+      "Foraging Misting Blister Beetle"
+    ],
+    "dissolving_pool": [
+      "shell_cracking_deathcap",
+      "Shell-Cracking Deathcap"
+    ],
+    "boiling_pool": [
+      "venomous_deathcap",
+      "Venomous Deathcap"
+    ],
+    "flooding_pool": [
+      "charging_spore_puff",
+      "Charging Spore Puff"
+    ],
+    "rich_pool": [
+      "foraging_spore_puff",
+      "Foraging Spore Puff"
+    ],
+    "pandemic_lancer": [
+      "swarming_deathstalker",
+      "Swarming Deathstalker"
+    ],
+    "plague_executioner": [
+      "predator_deathstalker",
+      "Predator Deathstalker"
+    ],
+    "plague_volley": [
+      "many_legged_long_tail_scorpion",
+      "Many-Legged Long-Tail Scorpion"
+    ],
+    "plague_spear": [
+      "lancing_long_tail_scorpion",
+      "Lancing Long-Tail Scorpion"
+    ],
+    "undying_bloom": [
+      "regrowing_woody_ivy",
+      "Regrowing Woody Ivy"
+    ],
+    "choking_bloom": [
+      "sticky_woody_ivy",
+      "Sticky Woody Ivy"
+    ],
+    "spore_burst_bloom": [
+      "bursting_virulent_ivy",
+      "Bursting Virulent Ivy"
+    ],
+    "blight_field": [
+      "venomous_virulent_ivy",
+      "Venomous Virulent Ivy"
     ]
   },
   "art_style": "bugs",

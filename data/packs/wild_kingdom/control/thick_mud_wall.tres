@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5j6db"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/mucus_plug.tres" id="2_2wmwx"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/grasping_mucus.tres" id="3_pd5uk"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/mended_thick_mud_wall.tres" id="2_2wmwx"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/hooked_thick_mud_wall.tres" id="3_pd5uk"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/thick_mud_wall.png" id="4_ptqps"]
 
 [resource]

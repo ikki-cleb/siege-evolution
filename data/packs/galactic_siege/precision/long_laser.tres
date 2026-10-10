@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0ovcs"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/memory_lance.tres" id="2_t2pls"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/long_lived_b_cell.tres" id="3_amlc1"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/beam_long_laser.tres" id="2_t2pls"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/salvage_long_laser.tres" id="3_amlc1"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/long_laser.png" id="4_g5or5"]
 
 [resource]

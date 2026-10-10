@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_i2wag"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/snaring_net.tres" id="2_772gf"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/regrowing_net.tres" id="3_gyk51"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/sticky_thick_sap.tres" id="2_772gf"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/regrowing_thick_sap.tres" id="3_gyk51"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/thick_sap.png" id="4_p5h0i"]
 
 [resource]

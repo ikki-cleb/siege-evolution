@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_b68hv"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/peeling_steam_jet_cooker.png" id="2_k2snj"]
+
+[resource]
+script = ExtResource("1_b68hv")
+id = "peeling_steam_jet_cooker"
+display_name = "Peeling Steam Jet Cooker"
+role = 1
+cost = 84
+max_hp = 40
+damage = 30.0
+attack_range = 3.2
+attack_interval = 2.6
+hits_air = true
+pierce = true
+tier = 2
+knockback = 1
+armor_shred = 2
+texture = ExtResource("2_k2snj")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Strips 2 armor and shoves back."

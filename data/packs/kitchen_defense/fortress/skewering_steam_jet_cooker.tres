@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2osm2"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/skewering_steam_jet_cooker.png" id="2_ofiac"]
+
+[resource]
+script = ExtResource("1_2osm2")
+id = "skewering_steam_jet_cooker"
+display_name = "Skewering Steam Jet Cooker"
+role = 1
+cost = 84
+max_hp = 40
+damage = 30.0
+attack_range = 3.2
+attack_interval = 2.6
+hits_air = true
+pierce = true
+tier = 2
+line_pierce = true
+texture = ExtResource("2_ofiac")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Blasts pierce every invader in a line."

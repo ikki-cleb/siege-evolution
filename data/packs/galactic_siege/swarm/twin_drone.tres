@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ied0p"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/barrage_monocyte.tres" id="2_7e4rx"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/piercing_monocyte.tres" id="3_lg6lk"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/multi_target_twin_drone.tres" id="2_7e4rx"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/phase_shred_twin_drone.tres" id="3_lg6lk"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/twin_drone.png" id="4_5hlmq"]
 
 [resource]

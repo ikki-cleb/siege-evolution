@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wfeaf"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/executioner_nk.tres" id="2_44648"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/chain_nk.tres" id="3_sgd40"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/predator_bullet_ant_major.tres" id="2_44648"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/swarming_bullet_ant_major.tres" id="3_sgd40"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/bullet_ant_major.png" id="4_oow46"]
 
 [resource]

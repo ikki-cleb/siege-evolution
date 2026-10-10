@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_q78h8"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/spore_burst_bloom.tres" id="2_qfn46"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/blight_field.tres" id="3_oxxwn"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/booby_trapped_virulent_sludge.tres" id="2_qfn46"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/gas_virulent_sludge.tres" id="3_oxxwn"]
 [ext_resource type="Texture2D" path="res://art/units/total_war/toxin/virulent_sludge.png" id="4_gt707"]
 
 [resource]

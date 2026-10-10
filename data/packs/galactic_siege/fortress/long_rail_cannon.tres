@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jqdv0"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/eosinophil_spear.tres" id="2_jyylc"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/eosinophil_shredder.tres" id="3_clhrs"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/beam_long_rail_cannon.tres" id="2_jyylc"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/phase_shred_long_rail_cannon.tres" id="3_clhrs"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/long_rail_cannon.png" id="4_by4oe"]
 
 [resource]

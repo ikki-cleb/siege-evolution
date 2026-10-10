@@ -365,6 +365,486 @@
     "virulent_bloom": [
       "fuzzy_moldy_cake",
       "Fuzzy Moldy Cake"
+    ],
+    "fibrin_bastion": [
+      "re_inflating_big_gift_box",
+      "Re-Inflating Big Gift Box"
+    ],
+    "clotting_snare": [
+      "gooey_big_gift_box",
+      "Gooey Big Gift Box"
+    ],
+    "thrombus_mine": [
+      "surprise_prickly_present",
+      "Surprise Prickly Present"
+    ],
+    "barbed_thrombus": [
+      "gooey_prickly_present",
+      "Gooey Prickly Present"
+    ],
+    "devouring_macrophage": [
+      "grand_finale_giant_mallet",
+      "Grand-Finale Giant Mallet"
+    ],
+    "titan_macrophage": [
+      "bumper_giant_mallet",
+      "Bumper Giant Mallet"
+    ],
+    "engulfing_foam": [
+      "unwrapping_wide_mallet",
+      "Unwrapping Wide Mallet"
+    ],
+    "foam_eruption": [
+      "fiery_wide_mallet",
+      "Fiery Wide Mallet"
+    ],
+    "presenting_dendrite": [
+      "bouncing_mega_confetti_cannon",
+      "Bouncing Mega Confetti Cannon"
+    ],
+    "dendrite_volley": [
+      "double_mega_confetti_cannon",
+      "Double Mega Confetti Cannon"
+    ],
+    "sentinel_dendrite": [
+      "laser_long_confetti_cannon",
+      "Laser Long Confetti Cannon"
+    ],
+    "harvesting_dendrite": [
+      "prize_long_confetti_cannon",
+      "Prize Long Confetti Cannon"
+    ],
+    "keloid_wall": [
+      "re_inflating_thick_balloon_arch",
+      "Re-Inflating Thick Balloon Arch"
+    ],
+    "scar_lattice": [
+      "cushioned_thick_balloon_arch",
+      "Cushioned Thick Balloon Arch"
+    ],
+    "signaling_fibroblast": [
+      "sugar_rush_self_inflating_arch",
+      "Sugar-Rush Self-Inflating Arch"
+    ],
+    "granulation_tissue": [
+      "gooey_self_inflating_arch",
+      "Gooey Self-Inflating Arch"
+    ],
+    "eosinophil_barrage": [
+      "double_big_fireworks",
+      "Double Big Fireworks"
+    ],
+    "major_basic_protein": [
+      "grand_finale_big_fireworks",
+      "Grand-Finale Big Fireworks"
+    ],
+    "eosinophil_spear": [
+      "laser_long_fireworks",
+      "Laser Long Fireworks"
+    ],
+    "eosinophil_shredder": [
+      "unwrapping_long_fireworks",
+      "Unwrapping Long Fireworks"
+    ],
+    "fortress_granuloma": [
+      "party_proof_frozen_cake",
+      "Party-Proof Frozen Cake"
+    ],
+    "bone_granuloma": [
+      "re_inflating_frozen_cake",
+      "Re-Inflating Frozen Cake"
+    ],
+    "bursting_granuloma": [
+      "surprise_sprinkle_spike_cake",
+      "Surprise Sprinkle Spike Cake"
+    ],
+    "grasping_granuloma": [
+      "gooey_sprinkle_spike_cake",
+      "Gooey Sprinkle Spike Cake"
+    ],
+    "cornified_layer": [
+      "re_inflating_stacked_cups",
+      "Re-Inflating Stacked Cups"
+    ],
+    "mucosal_barrier": [
+      "party_proof_stacked_cups",
+      "Party-Proof Stacked Cups"
+    ],
+    "cilia_trap": [
+      "gooey_pointy_cup",
+      "Gooey Pointy Cup"
+    ],
+    "bursting_cell": [
+      "surprise_pointy_cup",
+      "Surprise Pointy Cup"
+    ],
+    "frenzied_horde": [
+      "double_loud_blower",
+      "Double Loud Blower"
+    ],
+    "killer_neutrophil": [
+      "grand_finale_loud_blower",
+      "Grand-Finale Loud Blower"
+    ],
+    "net_neutrophil": [
+      "bouncing_long_blower",
+      "Bouncing Long Blower"
+    ],
+    "scavenger_neutrophil": [
+      "prize_long_blower",
+      "Prize Long Blower"
+    ],
+    "barrage_monocyte": [
+      "double_twin_water_pistol",
+      "Double Twin Water Pistol"
+    ],
+    "piercing_monocyte": [
+      "unwrapping_twin_water_pistol",
+      "Unwrapping Twin Water Pistol"
+    ],
+    "sniper_monocyte": [
+      "laser_super_soaker",
+      "Laser Super Soaker"
+    ],
+    "signal_monocyte": [
+      "sugar_rush_super_soaker",
+      "Sugar-Rush Super Soaker"
+    ],
+    "histamine_burst": [
+      "fiery_loud_noisemaker",
+      "Fiery Loud Noisemaker"
+    ],
+    "shredding_basophil": [
+      "unwrapping_loud_noisemaker",
+      "Unwrapping Loud Noisemaker"
+    ],
+    "shockwave_basophil": [
+      "bumper_wide_noisemaker",
+      "Bumper Wide Noisemaker"
+    ],
+    "rallying_basophil": [
+      "sugar_rush_wide_noisemaker",
+      "Sugar-Rush Wide Noisemaker"
+    ],
+    "executioner_nk": [
+      "grand_finale_hot_sparkler",
+      "Grand-Finale Hot Sparkler"
+    ],
+    "chain_nk": [
+      "bouncing_hot_sparkler",
+      "Bouncing Hot Sparkler"
+    ],
+    "stalker_nk": [
+      "prize_long_sparkler",
+      "Prize Long Sparkler"
+    ],
+    "whirling_nk": [
+      "double_long_sparkler",
+      "Double Long Sparkler"
+    ],
+    "snaring_net": [
+      "gooey_thick_streamers",
+      "Gooey Thick Streamers"
+    ],
+    "regrowing_net": [
+      "super_thick_streamers",
+      "Super Thick Streamers"
+    ],
+    "freezing_net": [
+      "slushie_wide_streamers",
+      "Slushie Wide Streamers"
+    ],
+    "bursting_net": [
+      "surprise_wide_streamers",
+      "Surprise Wide Streamers"
+    ],
+    "armored_keratin": [
+      "cushioned_stacked_chairs",
+      "Cushioned Stacked Chairs"
+    ],
+    "rebuilt_plate": [
+      "re_inflating_stacked_chairs",
+      "Re-Inflating Stacked Chairs"
+    ],
+    "spike_trap_plate": [
+      "surprise_spiky_chair",
+      "Surprise Spiky Chair"
+    ],
+    "hooked_plate": [
+      "gooey_spiky_chair",
+      "Gooey Spiky Chair"
+    ],
+    "antibody_storm": [
+      "double_heavy_dart_blaster",
+      "Double Heavy Dart Blaster"
+    ],
+    "neutralizing_plasma": [
+      "grand_finale_heavy_dart_blaster",
+      "Grand-Finale Heavy Dart Blaster"
+    ],
+    "memory_lance": [
+      "laser_long_dart_blaster",
+      "Laser Long Dart Blaster"
+    ],
+    "long_lived_b_cell": [
+      "prize_long_dart_blaster",
+      "Prize Long Dart Blaster"
+    ],
+    "complement_tagger": [
+      "unwrapping_bright_spotlight",
+      "Unwrapping Bright Spotlight"
+    ],
+    "chain_tagger": [
+      "bouncing_bright_spotlight",
+      "Bouncing Bright Spotlight"
+    ],
+    "multi_tagger": [
+      "double_long_spotlight",
+      "Double Long Spotlight"
+    ],
+    "coordinator_tagger": [
+      "sugar_rush_long_spotlight",
+      "Sugar-Rush Long Spotlight"
+    ],
+    "executioner_t": [
+      "grand_finale_big_foam_sword",
+      "Grand-Finale Big Foam Sword"
+    ],
+    "hammer_t": [
+      "bumper_big_foam_sword",
+      "Bumper Big Foam Sword"
+    ],
+    "hunter_t": [
+      "bouncing_long_foam_sword",
+      "Bouncing Long Foam Sword"
+    ],
+    "twin_patrol_t": [
+      "double_long_foam_sword",
+      "Double Long Foam Sword"
+    ],
+    "railgun_lance": [
+      "laser_heavy_bottle_rocket",
+      "Laser Heavy Bottle Rocket"
+    ],
+    "finishing_lance": [
+      "grand_finale_heavy_bottle_rocket",
+      "Grand-Finale Heavy Bottle Rocket"
+    ],
+    "bounty_lance": [
+      "prize_rapid_bottle_rocket",
+      "Prize Rapid Bottle Rocket"
+    ],
+    "ricochet_lance": [
+      "bouncing_rapid_bottle_rocket",
+      "Bouncing Rapid Bottle Rocket"
+    ],
+    "interferon_storm": [
+      "unwrapping_bright_disco_ball",
+      "Unwrapping Bright Disco Ball"
+    ],
+    "rallying_beacon": [
+      "sugar_rush_bright_disco_ball",
+      "Sugar-Rush Bright Disco Ball"
+    ],
+    "shield_beacon": [
+      "party_proof_tall_disco_ball",
+      "Party-Proof Tall Disco Ball"
+    ],
+    "pulse_beacon": [
+      "bumper_tall_disco_ball",
+      "Bumper Tall Disco Ball"
+    ],
+    "mucus_plug": [
+      "re_inflating_thick_jelly",
+      "Re-Inflating Thick Jelly"
+    ],
+    "grasping_mucus": [
+      "gooey_thick_jelly",
+      "Gooey Thick Jelly"
+    ],
+    "glue_mucus": [
+      "slushie_extra_wobbly_jelly",
+      "Slushie Extra-Wobbly Jelly"
+    ],
+    "bursting_mucus": [
+      "surprise_extra_wobbly_jelly",
+      "Surprise Extra-Wobbly Jelly"
+    ],
+    "shredding_mast_cell": [
+      "unwrapping_fast_bubble_machine",
+      "Unwrapping Fast Bubble Machine"
+    ],
+    "degranulation_burst": [
+      "fiery_fast_bubble_machine",
+      "Fiery Fast Bubble Machine"
+    ],
+    "shoving_mast_cell": [
+      "bumper_wide_bubble_machine",
+      "Bumper Wide Bubble Machine"
+    ],
+    "alarm_mast_cell": [
+      "sugar_rush_wide_bubble_machine",
+      "Sugar-Rush Wide Bubble Machine"
+    ],
+    "corrosive_spitter": [
+      "unwrapping_cream_pie_launcher",
+      "Unwrapping Cream Pie Launcher"
+    ],
+    "burning_spitter": [
+      "fiery_cream_pie_launcher",
+      "Fiery Cream Pie Launcher"
+    ],
+    "twin_spitter": [
+      "double_long_pie_launcher",
+      "Double Long Pie Launcher"
+    ],
+    "bouncing_spitter": [
+      "bouncing_long_pie_launcher",
+      "Bouncing Long Pie Launcher"
+    ],
+    "inferno_node": [
+      "fiery_tall_flame_candles",
+      "Fiery Tall Flame Candles"
+    ],
+    "heatstroke_node": [
+      "grand_finale_tall_flame_candles",
+      "Grand-Finale Tall Flame Candles"
+    ],
+    "heatwave_node": [
+      "bumper_wide_candle_ring",
+      "Bumper Wide Candle Ring"
+    ],
+    "warming_node": [
+      "sugar_rush_wide_candle_ring",
+      "Sugar-Rush Wide Candle Ring"
+    ],
+    "chain_storm": [
+      "bouncing_air_horn",
+      "Bouncing Air Horn"
+    ],
+    "storm_volley": [
+      "double_air_horn",
+      "Double Air Horn"
+    ],
+    "shockwave_storm": [
+      "bumper_chain_horns",
+      "Bumper Chain Horns"
+    ],
+    "freezing_storm": [
+      "slushie_chain_horns",
+      "Slushie Chain Horns"
+    ],
+    "scorched_zone": [
+      "unwrapping_hot_foam_machine",
+      "Unwrapping Hot Foam Machine"
+    ],
+    "sepsis_zone": [
+      "grand_finale_hot_foam_machine",
+      "Grand-Finale Hot Foam Machine"
+    ],
+    "edema_zone": [
+      "bumper_big_foam_machine",
+      "Bumper Big Foam Machine"
+    ],
+    "fevered_zone": [
+      "prize_big_foam_machine",
+      "Prize Big Foam Machine"
+    ],
+    "regrowing_membrane": [
+      "re_inflating_big_sour_wall",
+      "Re-Inflating Big Sour Wall"
+    ],
+    "sticky_membrane": [
+      "gooey_big_sour_wall",
+      "Gooey Big Sour Wall"
+    ],
+    "toxic_burst_membrane": [
+      "surprise_super_sour_wall",
+      "Surprise Super Sour Wall"
+    ],
+    "antitoxin_membrane": [
+      "party_proof_super_sour_wall",
+      "Party-Proof Super Sour Wall"
+    ],
+    "necrotizing_t": [
+      "grand_finale_extra_sour_squirter",
+      "Grand-Finale Extra-Sour Squirter"
+    ],
+    "twin_venom_t": [
+      "double_extra_sour_squirter",
+      "Double Extra-Sour Squirter"
+    ],
+    "chain_venom_t": [
+      "bouncing_long_lemon_squirter",
+      "Bouncing Long Lemon Squirter"
+    ],
+    "venom_sniper_t": [
+      "laser_long_lemon_squirter",
+      "Laser Long Lemon Squirter"
+    ],
+    "corroding_sprayer": [
+      "unwrapping_sticky_silly_string",
+      "Unwrapping Sticky Silly String"
+    ],
+    "toxic_cloud_sprayer": [
+      "stinky_sticky_silly_string",
+      "Stinky Sticky Silly String"
+    ],
+    "fanning_sprayer": [
+      "double_long_silly_string",
+      "Double Long Silly String"
+    ],
+    "harvest_sprayer": [
+      "prize_long_silly_string",
+      "Prize Long Silly String"
+    ],
+    "dissolving_pool": [
+      "unwrapping_sour_punch_bowl",
+      "Unwrapping Sour Punch Bowl"
+    ],
+    "boiling_pool": [
+      "stinky_sour_punch_bowl",
+      "Stinky Sour Punch Bowl"
+    ],
+    "flooding_pool": [
+      "bumper_overflowing_punch_bowl",
+      "Bumper Overflowing Punch Bowl"
+    ],
+    "rich_pool": [
+      "prize_overflowing_punch_bowl",
+      "Prize Overflowing Punch Bowl"
+    ],
+    "pandemic_lancer": [
+      "bouncing_super_stink_bomb",
+      "Bouncing Super Stink Bomb"
+    ],
+    "plague_executioner": [
+      "grand_finale_super_stink_bomb",
+      "Grand-Finale Super Stink Bomb"
+    ],
+    "plague_volley": [
+      "double_long_stink_bomb",
+      "Double Long Stink Bomb"
+    ],
+    "plague_spear": [
+      "laser_long_stink_bomb",
+      "Laser Long Stink Bomb"
+    ],
+    "undying_bloom": [
+      "re_inflating_stale_moldy_cake",
+      "Re-Inflating Stale Moldy Cake"
+    ],
+    "choking_bloom": [
+      "gooey_stale_moldy_cake",
+      "Gooey Stale Moldy Cake"
+    ],
+    "spore_burst_bloom": [
+      "surprise_fuzzy_moldy_cake",
+      "Surprise Fuzzy Moldy Cake"
+    ],
+    "blight_field": [
+      "stinky_fuzzy_moldy_cake",
+      "Stinky Fuzzy Moldy Cake"
     ]
   },
   "art_style": "party",

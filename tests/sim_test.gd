@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 81
+const MIN_RULE_CHECKS := 82
 var progress: Node
 
 
@@ -627,6 +627,27 @@ func _test_capstones(biome: BiomeData) -> void:
 		"Capstones refund fully the round they're bought")
 	_check(unit.total_cost() == base.cost + tier1.cost + capstone.cost, "Bombers see a capstone's full value")
 	await _stop(game)
+
+	# Every world gives its capstones their own themed names.
+	var world1_names := {}
+	for name in _capstone_names(biome):
+		world1_names[name] = true
+	var reused := 0
+	for index in range(1, progress.WORLDS.size()):
+		for name in _capstone_names(progress.load_biome(index)):
+			if world1_names.has(name):
+				reused += 1
+	_check(reused == 0, "Every world has its own capstone names (%d reused from World 1)" % reused)
+
+
+func _capstone_names(world: BiomeData) -> Array[String]:
+	var names: Array[String] = []
+	for pack in world.packs:
+		for unit in pack.units:
+			for tier1 in unit.evolutions:
+				for capstone in tier1.evolutions:
+					names.append(capstone.display_name)
+	return names
 
 
 # --- Upgrade preview and menu scrolling ----------------------------------------

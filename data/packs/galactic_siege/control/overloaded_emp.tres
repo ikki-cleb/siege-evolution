@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_68cvm"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/chain_storm.tres" id="2_wvydq"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/storm_volley.tres" id="3_5kwho"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/arc_overloaded_emp.tres" id="2_wvydq"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/multi_target_overloaded_emp.tres" id="3_5kwho"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/overloaded_emp.png" id="4_csuio"]
 
 [resource]

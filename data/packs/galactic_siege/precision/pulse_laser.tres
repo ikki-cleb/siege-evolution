@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gild1"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/antibody_storm.tres" id="2_8k10r"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/neutralizing_plasma.tres" id="3_n64be"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/multi_target_pulse_laser.tres" id="2_8k10r"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/terminator_pulse_laser.tres" id="3_n64be"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/pulse_laser.png" id="4_drkpn"]
 
 [resource]

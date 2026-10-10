@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_noqoj"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/regrowing_membrane.tres" id="2_tyscg"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/sticky_membrane.tres" id="3_qny02"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/regrowing_dense_nettles.tres" id="2_tyscg"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/sticky_dense_nettles.tres" id="3_qny02"]
 [ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/dense_nettles.png" id="4_qs8xq"]
 
 [resource]

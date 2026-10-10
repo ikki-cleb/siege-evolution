@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_agofm"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/engulfing_foam.tres" id="2_2vxc7"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/foam_eruption.tres" id="3_sc0rj"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/peeling_wide_rolling_pin.tres" id="2_2vxc7"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sizzling_wide_rolling_pin.tres" id="3_sc0rj"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/wide_rolling_pin.png" id="4_myvbs"]
 
 [resource]

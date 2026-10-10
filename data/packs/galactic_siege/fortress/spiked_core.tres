@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xi4kg"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/bursting_granuloma.tres" id="2_qkfli"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/grasping_granuloma.tres" id="3_glyna"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/overload_spiked_core.tres" id="2_qkfli"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/tractor_spiked_core.tres" id="3_glyna"]
 [ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/spiked_core.png" id="4_fab8k"]
 
 [resource]

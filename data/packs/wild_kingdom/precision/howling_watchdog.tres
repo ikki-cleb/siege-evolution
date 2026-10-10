@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ei653"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/complement_tagger.tres" id="2_v5b2q"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/chain_tagger.tres" id="3_a2hb1"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/tusked_howling_watchdog.tres" id="2_v5b2q"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/herding_howling_watchdog.tres" id="3_a2hb1"]
 [ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/howling_watchdog.png" id="4_waiqk"]
 
 [resource]

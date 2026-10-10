@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_sghme"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/complement_tagger.tres" id="2_16icx"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/chain_tagger.tres" id="3_c81x3"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/peeling_heavy_sifter.tres" id="2_16icx"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/splattering_heavy_sifter.tres" id="3_c81x3"]
 [ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/heavy_sifter.png" id="4_woeic"]
 
 [resource]
