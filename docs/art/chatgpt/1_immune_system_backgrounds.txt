@@ -1,0 +1,33 @@
+SIEGE EVOLUTION - LEVEL BACKGROUNDS - MICROSCOPIC
+
+You are making background images for a mobile tower-defense game. Follow these rules for EVERY image:
+- Portrait image, 1024x1536 (taller than wide).
+- Straight top-down view of the GROUND ONLY, flat, no perspective, no horizon.
+- Detailed pixel art with a crisp, visible pixel grid and a limited, harmonious palette.
+- No walls, rocks, buildings, furniture, characters, creatures, text, UI, frames or borders.
+- Evenly detailed across the whole image with no single focal point; detail runs to every edge.
+- Soft even lighting from the top-left. Slightly muted, low-to-medium contrast, so small game sprites stay readable on top.
+
+How we'll work: when I say "next" (or "start"), make the next image in the list below, one image per reply.
+After each image, tell me the exact file name to save it as.
+World setting: Inside the body. Hold back viruses, bacteria, parasites and spores before they reach the heart.
+
+IMAGE 1 of 5 - 1. First Infection
+Save as: immune_system_level_01.png
+Scene: soft pink body tissue seen under a microscope, faint cell outlines and tiny capillaries.
+
+IMAGE 2 of 5 - 2. Sinus Cavity
+Save as: immune_system_level_02.png
+Scene: moist pale-pink mucous lining with fine ridges and tiny droplets.
+
+IMAGE 3 of 5 - 3. Lymph Node
+Save as: immune_system_level_03.png
+Scene: dense lymph tissue, packed round cells in soft lavender and cream.
+
+IMAGE 4 of 5 - 4. Gut Lining
+Save as: immune_system_level_04.png
+Scene: rippled intestinal lining covered in tiny finger-like villi, warm peach tones.
+
+IMAGE 5 of 5 - 5. Bone Marrow
+Save as: immune_system_level_05.png
+Scene: spongy bone marrow, honeycomb mesh in deep red and bone-white.

@@ -1,0 +1,33 @@
+SIEGE EVOLUTION - LEVEL BACKGROUNDS - TOTAL WAR
+
+You are making background images for a mobile tower-defense game. Follow these rules for EVERY image:
+- Portrait image, 1024x1536 (taller than wide).
+- Straight top-down view of the GROUND ONLY, flat, no perspective, no horizon.
+- Detailed pixel art with a crisp, visible pixel grid and a limited, harmonious palette.
+- No walls, rocks, buildings, furniture, characters, creatures, text, UI, frames or borders.
+- Evenly detailed across the whole image with no single focal point; detail runs to every edge.
+- Soft even lighting from the top-left. Slightly muted, low-to-medium contrast, so small game sprites stay readable on top.
+
+How we'll work: when I say "next" (or "start"), make the next image in the list below, one image per reply.
+After each image, tell me the exact file name to save it as.
+World setting: A toy war across the playroom and the bathtub. Hold the toy HQ against tanks, boats and bombers.
+
+IMAGE 1 of 5 - 1. Sandbox
+Save as: total_war_level_01.png
+Scene: toy-scale sandbox sand with little ridges and toy tire tracks.
+
+IMAGE 2 of 5 - 2. Bathtub Beach
+Save as: total_war_level_02.png
+Scene: white bathtub enamel with soap suds and a wet sheen.
+
+IMAGE 3 of 5 - 3. Rubber Duck Harbor
+Save as: total_war_level_03.png
+Scene: blue bathroom floor tiles with grout lines and a few soap bubbles.
+
+IMAGE 4 of 5 - 4. Pool Party Landing
+Save as: total_war_level_04.png
+Scene: poolside deck tiles in light blue and white, with splash marks.
+
+IMAGE 5 of 5 - 5. Playroom Siege
+Save as: total_war_level_05.png
+Scene: playroom carpet with a printed toy road map pattern.

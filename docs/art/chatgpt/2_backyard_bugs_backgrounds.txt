@@ -1,0 +1,33 @@
+SIEGE EVOLUTION - LEVEL BACKGROUNDS - BACKYARD BUGS
+
+You are making background images for a mobile tower-defense game. Follow these rules for EVERY image:
+- Portrait image, 1024x1536 (taller than wide).
+- Straight top-down view of the GROUND ONLY, flat, no perspective, no horizon.
+- Detailed pixel art with a crisp, visible pixel grid and a limited, harmonious palette.
+- No walls, rocks, buildings, furniture, characters, creatures, text, UI, frames or borders.
+- Evenly detailed across the whole image with no single focal point; detail runs to every edge.
+- Soft even lighting from the top-left. Slightly muted, low-to-medium contrast, so small game sprites stay readable on top.
+
+How we'll work: when I say "next" (or "start"), make the next image in the list below, one image per reply.
+After each image, tell me the exact file name to save it as.
+World setting: Down in the grass. Protect the queen's anthill from termites, beetles, mosquitoes and burrowing mole crickets.
+
+IMAGE 1 of 5 - 1. Garden Path
+Save as: backyard_bugs_level_01.png
+Scene: bug's-eye view of a gravel garden path with sand grains and tiny pebbles.
+
+IMAGE 2 of 5 - 2. Flower Bed
+Save as: backyard_bugs_level_02.png
+Scene: dark garden soil scattered with fallen petals and seed husks.
+
+IMAGE 3 of 5 - 3. Compost Heap
+Save as: backyard_bugs_level_03.png
+Scene: rich brown compost with leaf scraps, eggshell flecks and moss.
+
+IMAGE 4 of 5 - 4. Picnic Blanket
+Save as: backyard_bugs_level_04.png
+Scene: close-up of a red-and-white checked picnic blanket's woven fabric with a few crumbs.
+
+IMAGE 5 of 5 - 5. Old Oak Roots
+Save as: backyard_bugs_level_05.png
+Scene: forest floor under an oak: leaf litter, acorn caps, bark chips and moss.

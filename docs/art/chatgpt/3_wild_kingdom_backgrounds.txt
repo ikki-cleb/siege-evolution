@@ -1,0 +1,33 @@
+SIEGE EVOLUTION - LEVEL BACKGROUNDS - WILD KINGDOM
+
+You are making background images for a mobile tower-defense game. Follow these rules for EVERY image:
+- Portrait image, 1024x1536 (taller than wide).
+- Straight top-down view of the GROUND ONLY, flat, no perspective, no horizon.
+- Detailed pixel art with a crisp, visible pixel grid and a limited, harmonious palette.
+- No walls, rocks, buildings, furniture, characters, creatures, text, UI, frames or borders.
+- Evenly detailed across the whole image with no single focal point; detail runs to every edge.
+- Soft even lighting from the top-left. Slightly muted, low-to-medium contrast, so small game sprites stay readable on top.
+
+How we'll work: when I say "next" (or "start"), make the next image in the list below, one image per reply.
+After each image, tell me the exact file name to save it as.
+World setting: Out on the farm. Keep foxes, wolves, boars, crows and leaping deer away from the farmhouse.
+
+IMAGE 1 of 5 - 1. Cornfield
+Save as: wild_kingdom_level_01.png
+Scene: farm field between corn rows, dry earth with stalk stubble and corn husks.
+
+IMAGE 2 of 5 - 2. Chicken Coop
+Save as: wild_kingdom_level_02.png
+Scene: chicken yard: packed dirt, straw, scattered feed and feathers.
+
+IMAGE 3 of 5 - 3. Pig Pen
+Save as: wild_kingdom_level_03.png
+Scene: muddy pig pen ground with hoof prints and patches of straw.
+
+IMAGE 4 of 5 - 4. Hay Barn
+Save as: wild_kingdom_level_04.png
+Scene: barn floor of worn wooden planks covered in loose hay.
+
+IMAGE 5 of 5 - 5. Bear Woods
+Save as: wild_kingdom_level_05.png
+Scene: dark pine forest floor with needles, ferns and moss.
