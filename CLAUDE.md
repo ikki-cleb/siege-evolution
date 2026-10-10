@@ -28,11 +28,12 @@ for the full game design — keep it updated whenever a design decision changes.
 
 ## Handoff: where the project stands (keep this section up to date)
 
-**Status (v0.9):** all 5 main worlds plus the **Kitchen Defense** bonus world
-(post-game, new "spiller" invaders, Rat King boss) are built and balanced
-against the auto-player (42 levels), with 5 packs, evolutions, saves, a
-test-mode store, a polished pixel-font UI, sound effects, music, and victory
-screens.
+**Status (v1.0 content-complete):** all 5 main worlds plus both bonus
+worlds are built: **Kitchen Defense** (spillers, Rat King) and **Birthday
+Bash** (piñatas with seeded "surprise" contents, the Clown). 49 levels,
+5 packs, evolutions, saves, a test-mode store, the "Siege Pixel" font
+(clear digits + coin icon), coins as currency, a Cancel button, sound,
+music and victory screens.
 `DESIGN.md` has every design decision; read it before changing gameplay.
 
 **Playtest links.** The private Claude artifact for this game is
@@ -46,7 +47,7 @@ them; they upload it themselves.
 `godot` plus the web export templates in cloud sessions. Commands:
 - Rebuild content after editing `tools/content/*.json`: `godot --headless --script tools/build_content.gd`
 - Rules tests (about 1 minute): `godot --headless --fixed-fps 60 --script tests/sim_test.gd -- rules`
-- Balance for one world (about 10 minutes; run in the background): `... tests/sim_test.gd -- world=4` (0-based; 5 = Kitchen Defense)
+- Balance for one world (about 10 minutes; run in the background): `... tests/sim_test.gd -- world=4` (0-based; 5 = Kitchen, 6 = Birthday)
 - After adding new PNGs, run `godot --headless --import` before the content build, or it can't load them
 - Full suite, all worlds (about 50 minutes): `... tests/sim_test.gd`
 - Replay one level with layouts and leaks: `... tests/debug_level.gd -- <world> <pack> <level> [seed]`
@@ -75,13 +76,12 @@ budget. `tools/tune.py <id> key=value` edits stats.
   placements by the route after placing. It's a decent but imperfect player.
 - Commit and push after every piece of work (a stop hook enforces it).
 
-**Open questions for the user:** their v0.8 playtest notes (they have some;
-handle them next); how Kitchen Defense feels (bot wins 85% of levels 2-7,
-pack spread is wide: Fortress/Precision struggle, Swarm/Control/Toxin cruise);
-how the sounds and music feel; Blinker frequency.
+**Open questions for the user:** how the bonus worlds feel in real play
+(Kitchen: bot wins 85% of levels 2-7; Fortress/Precision struggle while
+Swarm/Control/Toxin cruise); any more v0.8 playtest notes; how the sounds
+and music feel; Blinker frequency.
 
-**Next steps (user's call):** the v0.8 playtest notes; Birthday Bash (sold
-in the store but not built yet; give it its own new invader type and the
-same post-game warning, see Kitchen Defense in DESIGN.md); cosmetic unlocks; real billing (Apple StoreKit and
+**Next steps (user's call):** playtest feedback on the bonus worlds;
+cosmetic unlocks; real billing (Apple StoreKit and
 Google Play Billing plugins, see the TODOs in `scripts/store.gd`); native
 iOS/Android builds and TestFlight / Play internal testing.
