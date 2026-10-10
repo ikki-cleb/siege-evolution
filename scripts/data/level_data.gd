@@ -16,15 +16,15 @@ extends Resource
 
 @export var base_hp: int = 20
 
-## Free units in the starting hand, given as an ATP value per pack slot:
+## Free units in the starting hand, given as a coin value per pack slot:
 ## [wall, attacker 1, attacker 2, level-2 unit, level-4 unit, level-6 unit].
 ## The value is turned into copies of that pack's unit (e.g. 24 = three
-## 8-ATP walls or eight 3-ATP walls), so every pack gets a fair hand.
+## 8-coin walls or eight 3-coin walls), so every pack gets a fair hand.
 @export var hand_value: PackedInt32Array = [0, 0, 0, 0, 0, 0]
-@export var starting_atp: int = 0
-## Bonus ATP for clearing a wave without anything reaching the base.
-## (Most ATP comes from invaders dropping it when they die.)
-@export var atp_per_wave: int = 5
+@export var starting_coins: int = 0
+## Bonus coins for clearing a wave without anything reaching the base.
+## (Most coins come from invaders dropping them when they die.)
+@export var coins_per_wave: int = 5
 
 ## Show the invaders' predicted route (first level of each biome only).
 @export var show_path_preview: bool = false

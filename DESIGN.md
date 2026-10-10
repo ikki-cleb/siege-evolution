@@ -19,7 +19,7 @@ inside the body, and each world's final boss zooms you out to a bigger world.
 | Platforms | iOS + Android (iOS builds need a Mac with Xcode). A web build is used for playtesting. |
 | Orientation | Portrait only |
 | Art | 16×16 pixel tiles, integer-scaled. Placeholders for now; the user draws the final art. |
-| Menus | Clean dark style with the Pixelify Sans pixel font (SIL OFL) and an accent color per world (`scripts/look.gd`, `scripts/palette.gd`). |
+| Menus | Clean dark style with the "Siege Pixel" font (Pixelify Sans, SIL OFL, with redrawn digits because its 2 looked like an 8, plus the coin icon; built by `tools/make_font.py`) and an accent color per world (`scripts/look.gd`, `scripts/palette.gd`). |
 | Business model | Free, no ads. Optional $1 purchases (see Monetization). |
 
 ## Structure
@@ -38,7 +38,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
 - **Bonus worlds** (bought separately, playable as soon as they're bought):
   **Kitchen Defense** and **Birthday Bash** (a kid's birthday party).
   They are **post-game**: harder than World 5, through mechanics, tighter
-  layouts, nastier wave mixes and less starting ATP (invader stats stay
+  layouts, nastier wave mixes and less starting coins (invader stats stay
   comparable to the main worlds). The store card warns about this before
   purchase. Each bonus world adds its own new invader type.
   - **Kitchen Defense**: built (see its section below).
@@ -55,7 +55,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
 - Introduces every invader type in the world, about one idea per wave.
 - Shows a tip in a footnote under the board before each wave (never a pop-up).
 - Is the only level with the **path preview**, and a footnote says so.
-- Gives extra ATP so players can try an evolution.
+- Gives extra coins so players can try an evolution.
 
 ## Core loop
 
@@ -72,19 +72,30 @@ A wave where nothing reaches the base earns a small **clean-wave bonus**.
 
 ## Economy and refunds
 
-- **ATP** is the currency: a starting amount, plus **drops from every kill**
-  (shown as an orb flying to the ATP counter), plus the clean-wave bonus.
-  ATP can only be spent between waves. Boss minions drop nothing.
-- **Starting hand:** each level grants free units as an *ATP value per pack
-  slot*, converted into copies of that pack's unit (24 ATP = three 8-ATP walls
-  or eight 3-ATP walls), so every pack gets a fair hand. Hands are kept
+- **Coins** are the in-game currency (earned only by playing, never sold;
+  formerly "coins"). Shown as a small gold coin icon next to the number, with
+  no word. The icon is a character in the game font (`Palette.COIN`, drawn in
+  `tools/make_font.py`), so it can sit inside any text. Coins come from a
+  starting amount, plus **drops from every kill** (shown as an orb flying to
+  the coin counter), plus the clean-wave bonus. Coins can only be spent
+  between waves. Boss minions drop nothing.
+- **Starting hand:** each level grants free units as an *coin value per pack
+  slot*, converted into copies of that pack's unit (24 coins = three 8-coin walls
+  or eight 3-coin walls), so every pack gets a fair hand. Hands are kept
   small (about half of v0.2) so drops matter.
 - **Removing a unit:**
   - Placed (or evolved) **this build phase**: 100% refund. Free units go back
     to the hand.
-  - Placed in an **earlier round**: 50% of its ATP cost (unit + evolution),
+  - Placed in an **earlier round**: 50% of its coins cost (unit + evolution),
     including units that were free.
 - No Undo button. Same-round removal does the same job.
+
+## Controls
+
+- Tap a unit in the bar, then tap tiles to place it. Tap a placed unit to
+  evolve or remove it.
+- While a unit type or a placed unit is selected, a **Cancel** button
+  appears next to Start Wave; tapping it (or the same unit again) deselects.
 
 ## Grid & pathing
 
@@ -97,7 +108,7 @@ A wave where nothing reaches the base earns a small **clean-wave bonus**.
 
 Every unit blocks its tile. Each pack has **6 units**: slots 0–2 at level 1,
 then one new unit on **levels 2, 4 and 6**. Each unit **evolves once**, into
-one of **two branches**, for ATP during a build phase, but only after it has
+one of **two branches**, for coins during a build phase, but only after it has
 **survived a wave** (it can't evolve the round it's placed). Attackers usually get
 a damage branch and a range branch; walls get an HP branch and a
 reflect/utility branch. Evolutions are shown with a corner badge: red arrow
@@ -173,7 +184,7 @@ New behavior: **jumpers.** They plan their route as if they can hop over any
 single unit tile (not rocks, not walls two tiles thick), pausing briefly
 before each hop. On the tutorial level their route shows in orange. Burrowers
 return from World 2. World 3 is noticeably harder: invaders are tougher for
-the ATP they drop, though drops stay generous enough to keep building.
+the coins they drop, though drops stay generous enough to keep building.
 
 | Invader | Type | Notes |
 |---|---|---|
@@ -272,7 +283,7 @@ swatters, spray bottles, mousetraps, pepper grinders, toasters).
 **Post-game difficulty:** the store card carries a red "POST-GAME: HARD"
 tag and "Harder than Galactic Siege. Best after finishing the main game."
 Difficulty comes from mechanics, tighter layouts, nastier wave mixes and less
-starting ATP, not inflated invader stats. Waves also grow faster (45% of
+starting coins, not inflated invader stats. Waves also grow faster (45% of
 wave 1 per wave, vs 32% in main worlds), so early waves are fair and the
 finish is brutal. Target was about 70% bot wins; tuning stopped at **85% on
 levels 2-7** (level 1 is the easy teaching level) because more global

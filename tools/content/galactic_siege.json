@@ -823,7 +823,7 @@
       ]
     ],
     "tips": [
-      "The final frontier! Your pack plays exactly the same out here. Alien grubs crawl around your units; every kill drops ATP.",
+      "The final frontier! Your pack plays exactly the same out here. Alien grubs crawl around your units; every kill drops coins.",
       "Units that survived a wave can evolve. Anything placed this round refunds in full.",
       "NEW: Blinkers teleport 3 tiles forward along their route every few seconds. Spread your attackers along the whole route, not one kill zone.",
       "Brood Pods burst into three spawnlings.",
@@ -847,7 +847,7 @@
         0,
         0
       ],
-      "atp": 40,
+      "coins": 40,
       "income": 5,
       "layout": [
         "....S....",
@@ -877,7 +877,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "budget": 20,
       "layout": [
@@ -908,7 +908,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "budget": 23,
       "layout": [
@@ -938,7 +938,7 @@
         10,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 6,
       "budget": 24.0,
       "layout": [
@@ -969,7 +969,7 @@
         10,
         0
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 28,
       "layout": [
@@ -1000,7 +1000,7 @@
         10,
         7
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 29.0,
       "layout": [
@@ -1030,7 +1030,7 @@
         10,
         7
       ],
-      "atp": 30,
+      "coins": 30,
       "income": 7,
       "budget": 34.0,
       "boss": "mothership",

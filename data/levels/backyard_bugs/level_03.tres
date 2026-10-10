@@ -286,6 +286,6 @@ script = ExtResource("1_q7ut3")
 display_name = "3. Under the Porch"
 layout = PackedStringArray("S.......S", ".........", "#.#...#.#", ".........", ".........", "..#...#..", ".........", ".........", "#.......#", ".........", "...#.#...", ".........", ".........", "....B....")
 hand_value = PackedInt32Array(12, 8, 7, 5, 0, 0)
-starting_atp = 20
+starting_coins = 20
 wave_tips = PackedStringArray()
 waves = Array[ExtResource("2_ci35p")]([SubResource("Resource_g1lov"), SubResource("Resource_2do4o"), SubResource("Resource_u21o5"), SubResource("Resource_35244"), SubResource("Resource_rtusf"), SubResource("Resource_jtiwo"), SubResource("Resource_er5bk"), SubResource("Resource_tf2r6"), SubResource("Resource_543xb"), SubResource("Resource_6qtc7")])

@@ -11,8 +11,8 @@ var data: InvaderData
 var board: Board
 var hp: float
 var alive := true
-## False for boss minions, so bosses can't be farmed for ATP.
-var drops_atp := true
+## False for boss minions, so bosses can't be farmed for coins.
+var drops_coins := true
 ## The tiles this invader will walk through, ending at the base.
 var path: Array[Vector2i] = []
 ## Which tile in `path` it is currently heading toward.

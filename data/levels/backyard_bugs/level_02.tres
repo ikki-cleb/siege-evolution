@@ -263,6 +263,6 @@ script = ExtResource("1_0o373")
 display_name = "2. Flower Bed"
 layout = PackedStringArray("S........", ".........", "..##.....", ".........", ".....##..", ".........", ".........", "..#......", "..#...#..", "......#..", ".........", ".##......", ".........", "........B")
 hand_value = PackedInt32Array(12, 8, 7, 5, 0, 0)
-starting_atp = 15
+starting_coins = 15
 wave_tips = PackedStringArray()
 waves = Array[ExtResource("2_2cpfx")]([SubResource("Resource_srfsp"), SubResource("Resource_dopcc"), SubResource("Resource_g8sgl"), SubResource("Resource_86587"), SubResource("Resource_o6f6w"), SubResource("Resource_kokn7"), SubResource("Resource_3bh7m"), SubResource("Resource_io0uy"), SubResource("Resource_1bdth"), SubResource("Resource_w3fwg")])

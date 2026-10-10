@@ -18,7 +18,7 @@ enum AttackMode {
 @export var id: String = ""
 @export var display_name: String = ""
 @export var role: Role = Role.WALL
-## ATP to buy this unit. For an evolution, the ATP to evolve into it.
+## Coins to buy this unit. For an evolution, the coins to evolve into it.
 @export var cost: int = 5
 @export var max_hp: int = 20
 ## HP regained per second during waves (pauses for 2s after being hit).

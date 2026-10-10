@@ -287,6 +287,6 @@ script = ExtResource("1_otypt")
 display_name = "2. Chicken Coop"
 layout = PackedStringArray("........S", ".........", ".....##..", ".........", ".##......", ".........", "......#..", "......#..", ".........", "..#......", "..#...##.", ".........", ".........", "B........")
 hand_value = PackedInt32Array(12, 8, 7, 5, 0, 0)
-starting_atp = 15
+starting_coins = 15
 wave_tips = PackedStringArray()
 waves = Array[ExtResource("2_ih2gf")]([SubResource("Resource_njjq3"), SubResource("Resource_7bhet"), SubResource("Resource_7bdo8"), SubResource("Resource_yx2pe"), SubResource("Resource_f84rn"), SubResource("Resource_kfer3"), SubResource("Resource_jjxvh"), SubResource("Resource_rj0ka"), SubResource("Resource_mend4"), SubResource("Resource_0yjrw")])

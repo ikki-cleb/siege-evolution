@@ -9,5 +9,5 @@ id = "bear_cub"
 display_name = "Bear Cub"
 max_hp = 14
 speed = 1.3
-atp_drop = 0
+coin_drop = 0
 texture = ExtResource("2_s1era")

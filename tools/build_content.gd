@@ -86,8 +86,8 @@ static func _apply_rename(row: Dictionary, renames: Dictionary) -> void:
 
 # --- Levels -----------------------------------------------------------------
 # Each level row in the JSON:
-#   hand: ATP value of free units per pack slot (see LevelData.hand_value)
-#   atp: starting ATP. income: bonus ATP for a wave where nothing leaks
+#   hand: coin value of free units per pack slot (see LevelData.hand_value)
+#   coins: starting coins. income: bonus coins for a wave where nothing leaks
 #   budget: threat of wave 1 (levels 2-7); later waves grow by growth_per_wave
 #   boss: invader id that arrives on wave 10 (optional)
 # Level 1 uses the handwritten "tutorial" waves and tips instead.
@@ -98,8 +98,8 @@ func _level(biome_id: String, number: int, table: Dictionary, content: Dictionar
 	level.layout = PackedStringArray(table.layout)
 	level.base_hp = 20
 	level.hand_value = PackedInt32Array(table.hand)
-	level.starting_atp = int(table.atp)
-	level.atp_per_wave = int(table.income)
+	level.starting_coins = int(table.coins)
+	level.coins_per_wave = int(table.income)
 	level.show_path_preview = table.get("preview", false)
 	if table.has("tips"):
 		level.wave_tips = PackedStringArray(table.tips)
@@ -237,7 +237,7 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 	invader.speed = row.speed
 	invader.base_damage = int(row.base_damage)
 	invader.smash_damage = row.get("smash", 0.0)
-	invader.atp_drop = int(row.get("drop", 1))
+	invader.coin_drop = int(row.get("drop", 1))
 	invader.burrow_after = int(row.get("burrow_after", 0))
 	invader.jumps = row.get("jumps", false)
 	invader.naval = row.get("naval", false)

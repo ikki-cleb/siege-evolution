@@ -5,7 +5,7 @@ extends RefCounted
 ##   - walls go where they lengthen the invaders' route the most,
 ##   - attackers go where they cover the most route (plus smasher lanes and
 ##     flier lines when those invaders appear in the level),
-##   - leftover ATP goes into evolutions.
+##   - leftover coins go into evolutions.
 ## It doesn't plan ahead like a person would, so a level it beats with every
 ## pack should be fair; a level it loses badly may be too hard.
 
@@ -45,7 +45,7 @@ func _init(p_game, seed_value := 1) -> void:
 			_flier_points.append(from.lerp(to, float(i) / steps))
 
 
-## Spends ATP and free units until nothing more is worth doing.
+## Spends coins and free units until nothing more is worth doing.
 func build_phase() -> void:
 	for i in 80:
 		if not _take_action():
@@ -73,7 +73,7 @@ func _take_action() -> bool:
 
 
 func _affordable(type: UnitData) -> bool:
-	return game.hand.get(type.id, 0) > 0 or game.atp >= type.cost
+	return game.hand.get(type.id, 0) > 0 or game.coins >= type.cost
 
 
 ## Free units first, then whichever affordable type we've spent least on.
@@ -227,7 +227,7 @@ func _evolve() -> bool:
 	if best == null:
 		return false
 	var into: UnitData = best.base_data.evolutions[rng.randi() % best.base_data.evolutions.size()]
-	if game.atp < into.cost:
+	if game.coins < into.cost:
 		return false
 	game._select_cell(best.cell)
 	game.evolve_selected(into)

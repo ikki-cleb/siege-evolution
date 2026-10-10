@@ -745,7 +745,7 @@
       ]
     ],
     "tips": [
-      "New world, new scale! Your pack plays exactly the same here. Termites walk around your units; every kill drops ATP.",
+      "New world, new scale! Your pack plays exactly the same here. Termites walk around your units; every kill drops coins.",
       "Units that survived a wave can evolve. Anything placed this round refunds in full.",
       "NEW: Mole Crickets walk 3 tiles, then tunnel under the next 6 tiles of the route and pop up further along. Defend deep, not just the entrance.",
       "Aphid Clusters burst into three aphids when killed.",
@@ -769,7 +769,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "layout": [
         "....S....",
@@ -798,7 +798,7 @@
         0,
         0
       ],
-      "atp": 15,
+      "coins": 15,
       "income": 5,
       "budget": 16,
       "layout": [
@@ -828,7 +828,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "budget": 20,
       "layout": [
@@ -858,7 +858,7 @@
         10,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 6,
       "budget": 26,
       "layout": [
@@ -888,7 +888,7 @@
         10,
         0
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 28,
       "layout": [
@@ -918,7 +918,7 @@
         10,
         7
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 30,
       "layout": [
@@ -948,7 +948,7 @@
         10,
         7
       ],
-      "atp": 30,
+      "coins": 30,
       "income": 7,
       "budget": 38,
       "boss": "giant_centipede",

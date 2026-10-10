@@ -12,6 +12,6 @@ max_hp = 55
 speed = 0.75
 base_damage = 3
 smash_damage = 7.0
-atp_drop = 3
+coin_drop = 3
 texture = ExtResource("2_k5peq")
 description = "Ignores the maze and charges through units."

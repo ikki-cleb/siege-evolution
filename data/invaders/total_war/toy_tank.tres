@@ -12,6 +12,6 @@ max_hp = 55
 speed = 0.7
 base_damage = 3
 smash_damage = 8.0
-atp_drop = 3
+coin_drop = 3
 texture = ExtResource("2_kitp1")
 description = "Rolls straight through units."

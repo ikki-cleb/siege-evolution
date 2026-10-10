@@ -282,6 +282,6 @@ script = ExtResource("1_gg04s")
 display_name = "2. Bathtub Beach"
 layout = PackedStringArray("S...N...S", "....~....", "..#.~~.#.", "....~~...", "....~....", ".#..~..#.", "...~~....", "...~~....", "....~....", "..#.~.#..", "....~~...", "....~~...", "....~....", "....B....")
 hand_value = PackedInt32Array(12, 8, 7, 5, 0, 0)
-starting_atp = 20
+starting_coins = 20
 wave_tips = PackedStringArray("NEW: water lanes! Boats sail the blue water to your HQ, while landing troops march the land. Build your maze on land.", "Only your basic wall can go on water. There it becomes a net, or a mine if evolved for reflect. Nets push boats into the other lane but can never seal it.", "Cover the water lanes and the land route at the same time. Units can shoot boats from the shore.", "", "", "", "", "", "", "")
 waves = Array[ExtResource("2_n4x5t")]([SubResource("Resource_cxg03"), SubResource("Resource_mkexd"), SubResource("Resource_g0gdi"), SubResource("Resource_yk55m"), SubResource("Resource_stblv"), SubResource("Resource_844ox"), SubResource("Resource_0fv36"), SubResource("Resource_sxwox"), SubResource("Resource_gvfpu"), SubResource("Resource_tfo3i")])

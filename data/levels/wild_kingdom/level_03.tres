@@ -329,6 +329,6 @@ script = ExtResource("1_4jb1e")
 display_name = "3. Orchard"
 layout = PackedStringArray("S.......S", ".........", ".#..#..#.", ".........", ".........", "..#...#..", ".........", ".#..#..#.", ".........", ".........", "..#...#..", ".........", ".........", "....B....")
 hand_value = PackedInt32Array(12, 8, 7, 5, 0, 0)
-starting_atp = 20
+starting_coins = 20
 wave_tips = PackedStringArray()
 waves = Array[ExtResource("2_5fewr")]([SubResource("Resource_gvsov"), SubResource("Resource_k10dm"), SubResource("Resource_yw3bo"), SubResource("Resource_ihmxd"), SubResource("Resource_6j8i4"), SubResource("Resource_cyswf"), SubResource("Resource_isak8"), SubResource("Resource_v7n8v"), SubResource("Resource_4mbxr"), SubResource("Resource_iidx6")])

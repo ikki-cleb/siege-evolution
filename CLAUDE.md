@@ -51,6 +51,7 @@ them; they upload it themselves.
 - Full suite, all worlds (about 50 minutes): `... tests/sim_test.gd`
 - Replay one level with layouts and leaks: `... tests/debug_level.gd -- <world> <pack> <level> [seed]`
 - Placeholder art and audio: `python3 tools/make_placeholder_art.py --only-missing`, `python3 tools/make_audio.py --only-missing`
+- Game font (Pixelify Sans + clearer digits + coin icon U+E000): `pip install fonttools && python3 tools/make_font.py`
 
 **How content works.** Pack stats live once in `tools/content/immune_system.json`.
 Every other world reuses them via `"packs_from"` + `"renames"`, so packs play

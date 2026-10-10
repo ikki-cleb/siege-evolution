@@ -9,5 +9,5 @@ id = "aphid"
 display_name = "Aphid"
 max_hp = 4
 speed = 1.3
-atp_drop = 0
+coin_drop = 0
 texture = ExtResource("2_and1a")

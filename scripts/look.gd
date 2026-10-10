@@ -5,7 +5,7 @@ extends Node
 ##   Look.accent("galactic_siege")    -> that world's accent color
 ##   Look.panel(color)                -> a rounded panel style
 
-const FONT := preload("res://assets/fonts/PixelifySans.ttf")
+const FONT := preload("res://assets/fonts/SiegePixel.ttf")
 
 # Colors live in Palette (scripts/palette.gd) so every script can use them.
 const BG := Palette.BG

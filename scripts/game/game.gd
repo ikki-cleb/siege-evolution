@@ -2,7 +2,7 @@ extends Node2D
 ## Runs one level from start to finish:
 ##   build phase -> wave -> build phase -> wave ... -> level cleared (or lost)
 ##
-## The game owns the "rules" (ATP, the player's hand, selling, evolving,
+## The game owns the "rules" (coins, the player's hand, selling, evolving,
 ## waves). The Board owns the battlefield itself. Which biome, pack, and level
 ## to play comes from Progress (set by the menu).
 
@@ -27,7 +27,7 @@ var phase := Phase.BUILD
 ## build phase this is also the "round" number used for refunds.
 var wave_number := 0
 var base_hp := 0
-var atp := 0
+var coins := 0
 ## Free units left in the player's hand: unit id -> count.
 var hand := {}
 ## Every unit type shown in the bottom bar.
@@ -62,12 +62,12 @@ func _ready() -> void:
 	board.setup(level, Progress.biome)
 	board.cell_tapped.connect(_on_cell_tapped)
 	board.base_hit.connect(_on_base_hit)
-	board.atp_dropped.connect(_on_atp_dropped)
+	board.coins_dropped.connect(_on_coins_dropped)
 	board.shake_requested.connect(shake)
 	Audio.play_music(Progress.biome.id)
 
 	base_hp = level.base_hp
-	atp = level.starting_atp
+	coins = level.starting_coins
 	unit_types = pack.units_for_level(level_number)
 	for slot in unit_types.size():
 		if slot < level.hand_value.size() and level.hand_value[slot] > 0:
@@ -118,6 +118,19 @@ func select_type(type: UnitData) -> void:
 	hud.refresh()
 
 
+## The Cancel button: drops the unit type being placed and any tapped unit.
+func cancel_selection() -> void:
+	selected_type = null
+	_select_cell(Board.NO_CELL)
+	hud.show_message("")
+	hud.refresh()
+
+
+## True while something is selected (so the HUD shows the Cancel button).
+func has_selection() -> bool:
+	return phase == Phase.BUILD and (selected_type != null or selected_cell != Board.NO_CELL)
+
+
 func _on_cell_tapped(cell: Vector2i) -> void:
 	if phase == Phase.WON or phase == Phase.LOST:
 		return
@@ -132,7 +145,7 @@ func _on_cell_tapped(cell: Vector2i) -> void:
 	hud.refresh()
 
 
-## Places a unit, paying from the hand if possible, otherwise with ATP.
+## Places a unit, paying from the hand if possible, otherwise with coins.
 ## Returns true if it was placed.
 func try_place(type: UnitData, cell: Vector2i) -> bool:
 	_select_cell(Board.NO_CELL)
@@ -147,10 +160,10 @@ func try_place(type: UnitData, cell: Vector2i) -> bool:
 		hud.show_message("Only your basic wall can go on water (as a net or mine).")
 		return false
 	var from_hand: bool = hand.get(type.id, 0) > 0
-	if not from_hand and atp < type.cost:
+	if not from_hand and coins < type.cost:
 		board.flash(cell)
 		Audio.play("deny")
-		hud.show_message("Not enough ATP.")
+		hud.show_message("Not enough coins.")
 		return false
 	if not board.can_place_unit(type, cell):
 		board.flash(cell)
@@ -161,7 +174,7 @@ func try_place(type: UnitData, cell: Vector2i) -> bool:
 	if from_hand:
 		hand[type.id] -= 1
 	else:
-		atp -= type.cost
+		coins -= type.cost
 	var unit := board.place_unit(type, cell)
 	Audio.play("place")
 	unit.placed_round = wave_number
@@ -174,22 +187,22 @@ func selected_unit() -> Unit:
 
 
 ## Units bought or evolved during this build phase refund fully (free units
-## go back to the hand). Anything older refunds half its ATP cost.
-## Returns {"atp": int, "to_hand": bool}.
+## go back to the hand). Anything older refunds half its coin cost.
+## Returns {"coins": int, "to_hand": bool}.
 func sell_value(unit: Unit) -> Dictionary:
-	var result := {"atp": 0, "to_hand": false}
+	var result := {"coins": 0, "to_hand": false}
 	if unit.placed_round == wave_number:
 		if unit.from_hand:
 			result.to_hand = true
 		else:
-			result.atp += unit.base_data.cost
+			result.coins += unit.base_data.cost
 	else:
-		result.atp += int(unit.base_data.cost * OLD_UNIT_REFUND)
+		result.coins += int(unit.base_data.cost * OLD_UNIT_REFUND)
 	if unit.is_evolved():
 		if unit.evolved_round == wave_number:
-			result.atp += unit.data.cost
+			result.coins += unit.data.cost
 		else:
-			result.atp += int(unit.data.cost * OLD_UNIT_REFUND)
+			result.coins += int(unit.data.cost * OLD_UNIT_REFUND)
 	return result
 
 
@@ -202,7 +215,7 @@ func sell_selected() -> void:
 		return
 	var unit := selected_unit()
 	var value := sell_value(unit)
-	atp += value.atp
+	coins += value.coins
 	if value.to_hand:
 		hand[unit.base_data.id] = hand.get(unit.base_data.id, 0) + 1
 	var unit_name := unit.data.display_name
@@ -212,7 +225,7 @@ func sell_selected() -> void:
 	if value.to_hand:
 		hud.show_message("%s returned to your hand." % unit_name)
 	else:
-		hud.show_message("Removed %s for %d ATP." % [unit_name, value.atp])
+		hud.show_message("Removed %s for %s %d." % [unit_name, Palette.COIN, value.coins])
 	hud.refresh()
 
 
@@ -224,14 +237,14 @@ func is_veteran(unit: Unit) -> bool:
 func can_evolve(into: UnitData) -> bool:
 	var unit := selected_unit()
 	return (phase == Phase.BUILD and unit != null and not unit.is_evolved()
-		and is_veteran(unit) and atp >= into.cost)
+		and is_veteran(unit) and coins >= into.cost)
 
 
 func evolve_selected(into: UnitData) -> void:
 	if not can_evolve(into):
 		return
 	var unit := selected_unit()
-	atp -= into.cost
+	coins -= into.cost
 	unit.evolve(into)
 	Audio.play("evolve", 0.0)
 	unit.evolved_round = wave_number
@@ -296,14 +309,14 @@ func _end_wave() -> void:
 	if _leaked:
 		hud.show_message("Wave cleared. Units repaired. (No bonus: something got through.)")
 	else:
-		atp += level.atp_per_wave
+		coins += level.coins_per_wave
 		Audio.play("wave_clear", 0.0)
-		hud.show_message("Clean wave! +%d ATP bonus. Units repaired." % level.atp_per_wave)
+		hud.show_message("Clean wave! +%s %d bonus. Units repaired." % [Palette.COIN, level.coins_per_wave])
 	_enter_build_phase()
 
 
-func _on_atp_dropped(amount: int, where: Vector2) -> void:
-	atp += amount
+func _on_coins_dropped(amount: int, where: Vector2) -> void:
+	coins += amount
 	hud.spawn_orb(where, amount)
 
 

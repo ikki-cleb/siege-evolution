@@ -12,6 +12,6 @@ max_hp = 40
 speed = 0.7
 base_damage = 3
 smash_damage = 6.0
-atp_drop = 2
+coin_drop = 2
 texture = ExtResource("2_m3aii")
 description = "Ignores the maze and chews through units."

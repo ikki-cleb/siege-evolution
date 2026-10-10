@@ -282,6 +282,6 @@ script = ExtResource("1_7cs73")
 display_name = "3. Bloodstream"
 layout = PackedStringArray("S.......S", ".........", ".........", "...###...", ".........", ".........", "#.......#", ".........", ".........", "...#.#...", ".........", ".........", ".........", "....B....")
 hand_value = PackedInt32Array(12, 8, 7, 5, 0, 0)
-starting_atp = 20
+starting_coins = 20
 wave_tips = PackedStringArray()
 waves = Array[ExtResource("2_d3d7w")]([SubResource("Resource_mjdio"), SubResource("Resource_toa8s"), SubResource("Resource_k2xgn"), SubResource("Resource_xli02"), SubResource("Resource_gasdp"), SubResource("Resource_f73lm"), SubResource("Resource_klgyo"), SubResource("Resource_ah2pa"), SubResource("Resource_xbpx6"), SubResource("Resource_i4745")])

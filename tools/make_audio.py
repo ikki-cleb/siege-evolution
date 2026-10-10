@@ -112,7 +112,7 @@ def sfx():
         "sell": join(tone(495, 0.05, r, 0.3, duty=0.25), tone(330, 0.08, r, 0.3, duty=0.25)),
         "evolve": join(*[tone(note(n), 0.06, r, 0.28, duty=0.25) for n in ("C5", "E5", "G5", "C6")],
                        tone(note("E6"), 0.18, r, 0.25, duty=0.125, vibrato=0.02)),
-        "atp": join(tone(note("E6"), 0.04, r, 0.2, duty=0.25), tone(note("B6"), 0.08, r, 0.2, duty=0.25)),
+        "coins": join(tone(note("E6"), 0.04, r, 0.2, duty=0.25), tone(note("B6"), 0.08, r, 0.2, duty=0.25)),
         "wave_start": join(tone(note("G4"), 0.12, r, 0.3), silence(0.03, r), tone(note("C5"), 0.25, r, 0.3)),
         "wave_clear": join(*[tone(note(n), 0.09, r, 0.28, duty=0.25) for n in ("C5", "E5", "G5")],
                            tone(note("C6"), 0.25, r, 0.28, duty=0.25)),

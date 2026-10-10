@@ -806,7 +806,7 @@
       ]
     ],
     "tips": [
-      "Welcome to the farm! Your pack plays exactly the same at this scale. Rats walk around your units; every kill drops ATP.",
+      "Welcome to the farm! Your pack plays exactly the same at this scale. Rats walk around your units; every kill drops coins.",
       "Units that survived a wave can evolve. Anything placed this round refunds in full.",
       "NEW: Deer leap over any single unit tile (orange line). Build walls two tiles thick where you don't want them jumping.",
       "Coyote Packs scatter into three coyotes when killed.",
@@ -830,7 +830,7 @@
         0,
         0
       ],
-      "atp": 26,
+      "coins": 26,
       "income": 5,
       "layout": [
         "....S....",
@@ -859,7 +859,7 @@
         0,
         0
       ],
-      "atp": 15,
+      "coins": 15,
       "income": 5,
       "budget": 14.5,
       "layout": [
@@ -889,7 +889,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "budget": 16,
       "layout": [
@@ -919,7 +919,7 @@
         10,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 6,
       "budget": 23.5,
       "layout": [
@@ -949,7 +949,7 @@
         10,
         0
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 25,
       "layout": [
@@ -979,7 +979,7 @@
         10,
         7
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 27,
       "layout": [
@@ -1009,7 +1009,7 @@
         10,
         7
       ],
-      "atp": 30,
+      "coins": 30,
       "income": 7,
       "budget": 34,
       "boss": "grizzly",

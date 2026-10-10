@@ -779,7 +779,7 @@
       ]
     ],
     "tips": [
-      "Bonus world! This kitchen is post-game: tighter maps and nastier waves. Sugar ants march around your units; every kill drops ATP.",
+      "Bonus world! This kitchen is post-game: tighter maps and nastier waves. Sugar ants march around your units; every kill drops coins.",
       "NEW: Slugs are spillers. Every couple of tiles they slime the units right beside their route, and sticky units attack 40% slower until the wave ends.",
       "Spill counter: ranged attackers can fight from two tiles back and stay clean. Walls don't mind being sticky.",
       "Mouse Nests burst into three mice.",
@@ -803,7 +803,7 @@
         0,
         0
       ],
-      "atp": 35,
+      "coins": 35,
       "income": 5,
       "layout": [
         "....S....",
@@ -834,7 +834,7 @@
         0,
         0
       ],
-      "atp": 12,
+      "coins": 12,
       "income": 5,
       "layout": [
         "S.......S",
@@ -865,7 +865,7 @@
         0,
         0
       ],
-      "atp": 12,
+      "coins": 12,
       "income": 5,
       "layout": [
         "S...S....",
@@ -895,7 +895,7 @@
         8,
         0
       ],
-      "atp": 12,
+      "coins": 12,
       "income": 5,
       "layout": [
         "S...S...S",
@@ -926,7 +926,7 @@
         8,
         0
       ],
-      "atp": 16,
+      "coins": 16,
       "income": 6,
       "layout": [
         "S.......S",
@@ -957,7 +957,7 @@
         8,
         6
       ],
-      "atp": 16,
+      "coins": 16,
       "income": 6,
       "layout": [
         "S...S...S",
@@ -988,7 +988,7 @@
         8,
         6
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 6,
       "layout": [
         "S...S...S",

@@ -12,6 +12,10 @@ const GOLD := Color("#ffd23c")
 const HEART := Color("#ff4d6d")
 const GOOD := Color("#7fe08a")
 
+## The in-game currency's icon: a coin drawn into the game font (see
+## tools/make_font.py), so it can sit right inside any text: "%s 25" % Palette.COIN
+const COIN := "\uE000"
+
 ## One accent color per world, used for titles and highlights.
 const ACCENTS := {
 	"immune_system": Color("#ff5a7a"),

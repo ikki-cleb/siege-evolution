@@ -243,6 +243,6 @@ script = ExtResource("1_4fhtr")
 display_name = "2. Sinus Cavity"
 layout = PackedStringArray("S........", ".........", "...#.....", "...#.....", ".........", "......#..", "......#..", ".........", ".##......", ".........", ".....#...", ".....#...", ".........", "........B")
 hand_value = PackedInt32Array(12, 8, 7, 5, 0, 0)
-starting_atp = 15
+starting_coins = 15
 wave_tips = PackedStringArray()
 waves = Array[ExtResource("2_p81cg")]([SubResource("Resource_rdnvl"), SubResource("Resource_i4dqf"), SubResource("Resource_g0dey"), SubResource("Resource_11p7t"), SubResource("Resource_rbg82"), SubResource("Resource_ggxfg"), SubResource("Resource_jcskq"), SubResource("Resource_r4h64"), SubResource("Resource_gwa0a"), SubResource("Resource_fmgao")])

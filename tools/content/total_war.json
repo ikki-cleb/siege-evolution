@@ -905,7 +905,7 @@
       ]
     ],
     "tips": [
-      "Welcome to the toy war! Your pack plays exactly the same here. Toy soldiers march around your units; every kill drops ATP.",
+      "Welcome to the toy war! Your pack plays exactly the same here. Toy soldiers march around your units; every kill drops coins.",
       "Units that survived a wave can evolve. Anything placed this round refunds in full.",
       "Troop Trucks unload three recruits when destroyed.",
       "Toy Tanks ignore your maze and roll through any unit in their way (red line).",
@@ -929,7 +929,7 @@
         0,
         0
       ],
-      "atp": 40,
+      "coins": 40,
       "income": 5,
       "layout": [
         "....S....",
@@ -959,7 +959,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "budget": 9.5,
       "layout": [
@@ -1001,7 +1001,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "budget": 15,
       "layout": [
@@ -1032,7 +1032,7 @@
         10,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 6,
       "budget": 21,
       "layout": [
@@ -1074,7 +1074,7 @@
         10,
         0
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 21,
       "layout": [
@@ -1105,7 +1105,7 @@
         10,
         7
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 25,
       "layout": [
@@ -1135,7 +1135,7 @@
         10,
         7
       ],
-      "atp": 30,
+      "coins": 30,
       "income": 7,
       "budget": 29,
       "boss": "mega_tank",

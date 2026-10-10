@@ -9,8 +9,8 @@ extends Node2D
 signal cell_tapped(cell: Vector2i)
 ## Emitted when an invader reaches the base.
 signal base_hit(invader: InvaderData)
-## Emitted when a killed invader drops ATP. `where` is in screen coordinates.
-signal atp_dropped(amount: int, where: Vector2)
+## Emitted when a killed invader drops coins. `where` is in screen coordinates.
+signal coins_dropped(amount: int, where: Vector2)
 ## Asks the game to shake the screen (bombs, base hits).
 signal shake_requested(strength: float)
 
@@ -362,7 +362,7 @@ func spawn_invader(data: InvaderData, spawn_index: int) -> void:
 
 ## Adds invaders at another invader's position, following its route
 ## (used for splitting and for boss minions).
-func spawn_from(parent: Invader, data: InvaderData, count: int, drops_atp := true) -> void:
+func spawn_from(parent: Invader, data: InvaderData, count: int, drops_coins := true) -> void:
 	for i in count:
 		# Nudge them apart a little so they don't overlap exactly.
 		var nudge := Vector2(randf_range(-3, 3), randf_range(-3, 3))
@@ -380,7 +380,7 @@ func spawn_from(parent: Invader, data: InvaderData, count: int, drops_atp := tru
 			path = parent.path.duplicate()
 			index = parent.path_index
 		var invader := _add_invader(data, parent.position + nudge, path, index)
-		invader.drops_atp = drops_atp
+		invader.drops_coins = drops_coins
 
 
 func _add_invader(data: InvaderData, pos: Vector2, path: Array[Vector2i], path_index: int) -> Invader:
@@ -395,8 +395,8 @@ func on_invader_killed(invader: Invader) -> void:
 	invaders.erase(invader)
 	fx.add_puff(invader.position, Color(1, 1, 1, 0.9))
 	Sfx.play("kill")
-	if invader.drops_atp and invader.data.atp_drop > 0:
-		atp_dropped.emit(invader.data.atp_drop, to_global(invader.position))
+	if invader.drops_coins and invader.data.coin_drop > 0:
+		coins_dropped.emit(invader.data.coin_drop, to_global(invader.position))
 	if invader.data.split_into:
 		spawn_from(invader, invader.data.split_into, invader.data.split_count)
 	# Spreading poison jumps to everyone nearby when its carrier dies.

@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 48
+const MIN_RULE_CHECKS := 51
 var progress: Node
 
 
@@ -29,6 +29,7 @@ func _run() -> void:
 	await _test_sea_and_bombs(progress.load_biome(3))
 	await _test_space(progress.load_biome(4))
 	await _test_kitchen(progress.load_biome(5))
+	await _test_selection(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index; 5 = Kitchen).
 		var worlds := [0, 1, 2, 3, 4, 5]
@@ -205,7 +206,7 @@ func _test_sea_and_bombs(biome: BiomeData) -> void:
 	var board: Board = game.board
 	var wall: UnitData = game.unit_types[0]
 	var fighter: UnitData = game.unit_types[1]
-	game.atp = 999
+	game.coins = 999
 	_check(not game.try_place(fighter, Vector2i(4, 4)), "Attackers can't be placed on water")
 	_check(game.try_place(wall, Vector2i(5, 2)), "The basic wall can be placed on water (as a net)")
 	_check(not game.try_place(wall, Vector2i(4, 2)), "A net can't seal a water lane")
@@ -304,6 +305,19 @@ func _test_space(biome: BiomeData) -> void:
 	store.reset_test_purchases()
 
 
+# --- Selection and the coin font --------------------------------------------
+
+func _test_selection(biome: BiomeData) -> void:
+	var game := await _start(biome, 0, 0)
+	var cancel: Button = game.hud._cancel_button
+	_check(not cancel.visible, "No Cancel button when nothing is selected")
+	game.select_type(game.unit_types[0])
+	_check(cancel.visible, "Selecting a unit type shows the Cancel button")
+	cancel.pressed.emit()
+	_check(game.selected_type == null and not cancel.visible, "Cancel deselects the unit type")
+	await _stop(game)
+
+
 # --- Kitchen Defense: spillers and the bonus world-cleared screen -------------
 
 func _test_kitchen(biome: BiomeData) -> void:
@@ -392,10 +406,10 @@ func _test_rules(biome: BiomeData) -> void:
 	_check(game.unit_types.size() == 3, "Level 1 offers the pack's first 3 units")
 	var expected_walls := maxi(1, roundi(float(game.level.hand_value[0]) / wall.cost))
 	_check(game.hand.get(wall.id, 0) == expected_walls,
-		"Starting hand converts ATP value into copies (%d ATP of %d-ATP walls = %d)" % [game.level.hand_value[0], wall.cost, expected_walls])
+		"Starting hand converts coin value into copies (%d coins of %d-coin walls = %d)" % [game.level.hand_value[0], wall.cost, expected_walls])
 
 	# Sealing the path must be refused. Row 1 is fully open, 9 tiles wide.
-	game.atp = 999
+	game.coins = 999
 	for x in 8:
 		game.try_place(wall, Vector2i(x, 1))
 	_check(not game.try_place(wall, Vector2i(8, 1)) and not board.walker_path(board.spawn_cells[0]).is_empty(),
@@ -405,10 +419,10 @@ func _test_rules(biome: BiomeData) -> void:
 	game._select_cell(Vector2i(0, 1))  # first wall came from the hand
 	game.sell_selected()
 	_check(game.hand[wall.id] == 1, "Removing a free unit placed this round returns it to the hand")
-	var atp_before: int = game.atp
-	game._select_cell(Vector2i(7, 1))  # bought with ATP
+	var coins_before: int = game.coins
+	game._select_cell(Vector2i(7, 1))  # bought with coins
 	game.sell_selected()
-	_check(game.atp == atp_before + wall.cost, "Removing a bought unit placed this round refunds 100%")
+	_check(game.coins == coins_before + wall.cost, "Removing a bought unit placed this round refunds 100%")
 
 	# A unit can't evolve in the round it was placed.
 	game.try_place(fighter, Vector2i(4, 5))
@@ -424,33 +438,33 @@ func _test_rules(biome: BiomeData) -> void:
 	broken.take_damage(9999)
 	_check(broken.destroyed, "A unit can be destroyed")
 	var drops := [0]
-	board.atp_dropped.connect(func(amount, _where): drops[0] += amount)
+	board.coins_dropped.connect(func(amount, _where): drops[0] += amount)
 	var leaks := [0]
 	board.base_hit.connect(func(_inv): leaks[0] += 1)
-	atp_before = game.atp
+	coins_before = game.coins
 	game.start_wave()
 	while game.phase == game.Phase.WAVE:
 		await process_frame
 	_check(not broken.destroyed and broken.hp == broken.data.max_hp and damaged.hp == damaged.data.max_hp,
 		"Units are fully repaired between waves")
-	var bonus: int = game.level.atp_per_wave if leaks[0] == 0 else 0
-	_check(drops[0] > 0 and game.atp == atp_before + drops[0] + bonus,
-		"Kills drop ATP (%d dropped, %d leaks, bonus %d)" % [drops[0], leaks[0], bonus])
+	var bonus: int = game.level.coins_per_wave if leaks[0] == 0 else 0
+	_check(drops[0] > 0 and game.coins == coins_before + drops[0] + bonus,
+		"Kills drop coins (%d dropped, %d leaks, bonus %d)" % [drops[0], leaks[0], bonus])
 
-	# After surviving a wave it can evolve, which costs ATP.
-	game.atp = 999
+	# After surviving a wave it can evolve, which costs coins.
+	game.coins = 999
 	game._select_cell(Vector2i(4, 5))
 	game.evolve_selected(evo)
-	_check(unit.data == evo and game.atp == 999 - evo.cost, "A veteran unit evolves, costing ATP")
+	_check(unit.data == evo and game.coins == 999 - evo.cost, "A veteran unit evolves, costing coins")
 	_check(not game.can_evolve(fighter.evolutions[1]), "An evolved unit can't evolve again")
 
 	# Older unit refunds 50%; the evolution bought this round refunds 100%.
 	var value: Dictionary = game.sell_value(unit)
-	_check(value.atp == int(fighter.cost * 0.5) + evo.cost and not value.to_hand,
+	_check(value.coins == int(fighter.cost * 0.5) + evo.cost and not value.to_hand,
 		"Old unit refunds 50%, plus 100% of an evolution bought this round")
 	value = game.sell_value(board.units[Vector2i(1, 1)])
-	_check(value.atp == int(wall.cost * 0.5) and not value.to_hand,
-		"Free units from earlier rounds refund 50% of their cost in ATP")
+	_check(value.coins == int(wall.cost * 0.5) and not value.to_hand,
+		"Free units from earlier rounds refund 50% of their cost in coins")
 	await _stop(game)
 
 	# Store gating.

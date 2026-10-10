@@ -1383,7 +1383,7 @@
       ]
     ],
     "tips": [
-      "Rhinoviruses walk around your units. Use walls to make their route longer, and put attackers beside it. Every kill drops ATP.",
+      "Rhinoviruses walk around your units. Use walls to make their route longer, and put attackers beside it. Every kill drops coins.",
       "Units that survived a wave can evolve: tap one and pick a branch. Anything placed this round refunds in full.",
       "Bacteria split into two halves when killed.",
       "Units from earlier rounds only refund 50% if you remove them, so plan ahead.",
@@ -1407,7 +1407,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "layout": [
         "....S....",
@@ -1436,7 +1436,7 @@
         0,
         0
       ],
-      "atp": 15,
+      "coins": 15,
       "income": 5,
       "budget": 14,
       "layout": [
@@ -1466,7 +1466,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "budget": 17,
       "layout": [
@@ -1496,7 +1496,7 @@
         10,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 6,
       "budget": 22,
       "layout": [
@@ -1526,7 +1526,7 @@
         10,
         0
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 23,
       "layout": [
@@ -1556,7 +1556,7 @@
         10,
         7
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
       "budget": 28,
       "layout": [
@@ -1586,7 +1586,7 @@
         10,
         7
       ],
-      "atp": 30,
+      "coins": 30,
       "income": 7,
       "budget": 32,
       "boss": "superbug",

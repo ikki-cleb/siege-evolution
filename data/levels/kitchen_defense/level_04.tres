@@ -349,6 +349,6 @@ script = ExtResource("1_qpr1j")
 display_name = "4. Top Shelf"
 layout = PackedStringArray("S...S...S", ".........", "###.#.###", ".........", ".........", ".#.#.#.#.", ".........", ".........", ".#.#.#.#.", ".........", ".........", "###.#.###", ".........", "....B....")
 hand_value = PackedInt32Array(12, 8, 7, 5, 8, 0)
-starting_atp = 12
+starting_coins = 12
 wave_tips = PackedStringArray()
 waves = Array[ExtResource("2_unvmd")]([SubResource("Resource_hqx47"), SubResource("Resource_on487"), SubResource("Resource_th0l8"), SubResource("Resource_rndet"), SubResource("Resource_fhotc"), SubResource("Resource_mw0ek"), SubResource("Resource_6q5yx"), SubResource("Resource_rttxr"), SubResource("Resource_lrsf2"), SubResource("Resource_1clac")])

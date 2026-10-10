@@ -10,12 +10,12 @@ const FOOTNOTE_TOP := 531
 const BOTTOM_TOP := 578
 const SMALL_FONT := 11
 const FONT := 14
-const ATP_COLOR := Palette.GOLD
+const COIN_COLOR := Palette.GOLD
 const FINAL_WORLD := "galactic_siege"
 const ORB_FLIGHT_TIME := 0.6
 
 
-## A small glowing ATP orb that flies from a kill to the ATP counter.
+## A small glowing coin orb that flies from a kill to the coin counter.
 class Orb extends Node2D:
 	func _draw() -> void:
 		draw_circle(Vector2.ZERO, 8.0, Color(1, 0.85, 0.3, 0.3))
@@ -27,7 +27,7 @@ var game  # The Game node (game.gd)
 var _level_label: Label
 var _wave_label: Label
 var _hp_label: Label
-var _atp_label: Label
+var _coins_label: Label
 var _next_label: Label
 var _footnote_label: Label
 var _message_label: Label
@@ -37,11 +37,13 @@ var _selection_row: HBoxContainer
 var _evolve_buttons: Array[Button] = []
 var _sell_button: Button
 var _speed_button: Button
+## Shown while a unit is selected, so it's obvious how to deselect it.
+var _cancel_button: Button
 var _start_button: Button
 ## Parent of every HUD control (carries the theme).
 var _root: Control
-## ATP still flying toward the counter (already added to the game's total).
-var _orb_atp := 0
+## Coins still flying toward the counter (already added to the game's total).
+var _orb_coins := 0
 
 
 func setup(p_game) -> void:
@@ -61,7 +63,7 @@ func refresh() -> void:
 	_level_label.text = "%s · %s" % [game.level.display_name, game.pack.display_name]
 	_wave_label.text = "Wave %d/%d" % [game.wave_number, game.level.waves.size()]
 	_hp_label.text = "Base %d/%d" % [game.base_hp, game.level.base_hp]
-	_atp_label.text = "ATP %d" % (game.atp - _orb_atp)
+	_coins_label.text = "%s %d" % [Palette.COIN, game.coins - _orb_coins]
 	_next_label.text = game.next_wave_summary()
 	_footnote_label.text = game.footnote()
 
@@ -69,7 +71,7 @@ func refresh() -> void:
 	for type in _unit_buttons:
 		var button: Button = _unit_buttons[type]
 		var free_left: int = game.hand.get(type.id, 0)
-		button.text = "x%d free" % free_left if free_left > 0 else "%d ATP" % type.cost
+		button.text = "x%d free" % free_left if free_left > 0 else "%s %d" % [Palette.COIN, type.cost]
 		button.disabled = not building
 		button.set_pressed_no_signal(game.selected_type == type)
 
@@ -91,12 +93,13 @@ func refresh() -> void:
 				button.icon = evolutions[i].texture
 				button.disabled = true
 			else:
-				button.text = "%s\n%d ATP" % [evolutions[i].display_name, evolutions[i].cost]
+				button.text = "%s\n%s %d" % [evolutions[i].display_name, Palette.COIN, evolutions[i].cost]
 				button.icon = evolutions[i].texture
 				button.disabled = not game.can_evolve(evolutions[i])
 		var value: Dictionary = game.sell_value(unit)
-		_sell_button.text = "Remove\nto hand" if value.to_hand else "Remove\n+%d ATP" % value.atp
+		_sell_button.text = "Remove\nto hand" if value.to_hand else "Remove\n+%s %d" % [Palette.COIN, value.coins]
 
+	_cancel_button.visible = game.has_selection()
 	_speed_button.text = "%dx" % game.speed
 	_start_button.disabled = not building
 	_start_button.text = "Start Wave" if building else "Wave %d..." % game.wave_number
@@ -106,23 +109,23 @@ func show_message(text: String) -> void:
 	_message_label.text = text
 
 
-## Launches an ATP orb from a screen position to the ATP counter. The counter
+## Launches a coin orb from a screen position to the coin counter. The counter
 ## only counts it once it lands.
 func spawn_orb(from: Vector2, amount: int) -> void:
-	_orb_atp += amount
+	_orb_coins += amount
 	var orb := Orb.new()
 	orb.position = from
 	_root.add_child(orb)
-	var target := _atp_label.position + Vector2(_atp_label.size.x - 24, _atp_label.size.y / 2)
+	var target := _coins_label.position + Vector2(_coins_label.size.x - 24, _coins_label.size.y / 2)
 	var tween := create_tween()
 	tween.tween_property(orb, "position", target, ORB_FLIGHT_TIME) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	tween.tween_callback(func():
 		orb.queue_free()
-		_orb_atp -= amount
-		_atp_label.modulate = Color.WHITE
-		create_tween().tween_property(_atp_label, "modulate", ATP_COLOR, 0.25)
-		Sfx.play("atp")
+		_orb_coins -= amount
+		_coins_label.modulate = Color.WHITE
+		create_tween().tween_property(_coins_label, "modulate", COIN_COLOR, 0.25)
+		Sfx.play("coins")
 		refresh())
 
 
@@ -294,11 +297,11 @@ func _build_top_bar() -> void:
 	_root.add_child(menu)
 	_hp_label = _make_label(Vector2(12, 34), Vector2(110, 20), FONT)
 	_wave_label = _make_label(Vector2(125, 34), Vector2(110, 20), FONT, HORIZONTAL_ALIGNMENT_CENTER)
-	_atp_label = _make_label(Vector2(238, 34), Vector2(110, 20), FONT, HORIZONTAL_ALIGNMENT_RIGHT)
+	_coins_label = _make_label(Vector2(238, 34), Vector2(110, 20), FONT, HORIZONTAL_ALIGNMENT_RIGHT)
 	_next_label = _make_label(Vector2(12, 57), Vector2(336, 20), SMALL_FONT)
 	_level_label.modulate = _accent()
 	_hp_label.modulate = Palette.HEART
-	_atp_label.modulate = ATP_COLOR
+	_coins_label.modulate = COIN_COLOR
 	_next_label.modulate = Palette.TEXT_DIM
 
 
@@ -353,9 +356,12 @@ func _build_bottom_bar() -> void:
 	control_row.add_theme_constant_override("separation", 6)
 	_root.add_child(control_row)
 	_speed_button = _make_button("1x", game.cycle_speed)
+	_cancel_button = _make_button("X  Cancel", game.cancel_selection)
+	_cancel_button.modulate = Palette.HEART.lightened(0.3)
+	_cancel_button.visible = false
 	_start_button = _make_button("Start Wave", game.start_wave)
 	_start_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	for button in [_speed_button, _start_button]:
+	for button in [_speed_button, _cancel_button, _start_button]:
 		button.custom_minimum_size.y = 40
 		control_row.add_child(button)
 

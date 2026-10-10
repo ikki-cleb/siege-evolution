@@ -22,8 +22,8 @@ enum Movement {
 @export var base_damage: int = 1
 ## Damage per second dealt to units blocking its way (smashers only).
 @export var smash_damage: float = 0.0
-## ATP dropped when killed (boss minions never drop any).
-@export var atp_drop: int = 1
+## Coins dropped when killed (boss minions never drop any).
+@export var coin_drop: int = 1
 ## Elite and boss invaders are drawn larger.
 @export var is_elite: bool = false
 @export var is_boss: bool = false

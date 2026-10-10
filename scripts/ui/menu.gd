@@ -83,7 +83,7 @@ func _show_title() -> void:
 	for button in [sound, music]:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_spacer(80)
-	_label("Font: Pixelify Sans (SIL Open Font License)", 10, Color(Look.TEXT_DIM, 0.6), HORIZONTAL_ALIGNMENT_CENTER)
+	_label("Font: based on Pixelify Sans (SIL Open Font License)", 10, Color(Look.TEXT_DIM, 0.6), HORIZONTAL_ALIGNMENT_CENTER)
 
 
 func _show_biomes() -> void:
