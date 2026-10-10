@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iawwb"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/furious_goose.tres" id="2_h4ok0"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/loud_goose.tres" id="3_hxvdi"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/honking_goose.png" id="4_726xi"]
+
+[resource]
+script = ExtResource("1_iawwb")
+id = "honking_goose"
+display_name = "Honking Goose"
+role = 1
+cost = 13
+max_hp = 15
+damage = 3.5
+attack_range = 3.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+evolutions = Array[ExtResource("1_iawwb")]([ExtResource("2_h4ok0"), ExtResource("3_hxvdi")])
+texture = ExtResource("4_726xi")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Ranged splash shots. Hits fliers."

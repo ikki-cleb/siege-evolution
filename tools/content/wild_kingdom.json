@@ -1,0 +1,1034 @@
+{
+  "biome": {
+    "id": "wild_kingdom",
+    "name": "Wild Kingdom",
+    "description": "Out on the farm. Keep foxes, wolves, boars, crows and leaping deer away from the farmhouse."
+  },
+  "packs_from": "immune_system",
+  "renames": {
+    "platelet_clot": [
+      "stone_wall",
+      "Stone Wall"
+    ],
+    "fibrin_mesh": [
+      "fieldstone_wall",
+      "Fieldstone Wall"
+    ],
+    "thrombus_spike": [
+      "spiked_stone_wall",
+      "Spiked Stone Wall"
+    ],
+    "macrophage": [
+      "bull",
+      "Bull"
+    ],
+    "giant_macrophage": [
+      "prize_bull",
+      "Prize Bull"
+    ],
+    "foam_macrophage": [
+      "stampeding_bull",
+      "Stampeding Bull"
+    ],
+    "dendritic_cell": [
+      "llama",
+      "Llama"
+    ],
+    "mature_dendrite": [
+      "alpha_llama",
+      "Alpha Llama"
+    ],
+    "roaming_dendrite": [
+      "long_spit_llama",
+      "Long-Spit Llama"
+    ],
+    "fibroblast": [
+      "hedge",
+      "Hedge"
+    ],
+    "scar_fibroblast": [
+      "thick_hedge",
+      "Thick Hedge"
+    ],
+    "healing_fibroblast": [
+      "growing_hedge",
+      "Growing Hedge"
+    ],
+    "eosinophil": [
+      "draft_horse",
+      "Draft Horse"
+    ],
+    "eosinophil_burst": [
+      "clydesdale",
+      "Clydesdale"
+    ],
+    "eosinophil_lancer": [
+      "rearing_horse",
+      "Rearing Horse"
+    ],
+    "granuloma": [
+      "stone_silo",
+      "Stone Silo"
+    ],
+    "calcified_granuloma": [
+      "reinforced_silo",
+      "Reinforced Silo"
+    ],
+    "caseous_granuloma": [
+      "thorned_silo",
+      "Thorned Silo"
+    ],
+    "epithelial_cell": [
+      "hay_bale",
+      "Hay Bale"
+    ],
+    "keratinized_cell": [
+      "packed_hay",
+      "Packed Hay"
+    ],
+    "ciliated_cell": [
+      "thistle_hay",
+      "Thistle Hay"
+    ],
+    "neutrophil": [
+      "hen",
+      "Hen"
+    ],
+    "frenzied_neutrophil": [
+      "angry_hen",
+      "Angry Hen"
+    ],
+    "scout_neutrophil": [
+      "scout_hen",
+      "Scout Hen"
+    ],
+    "monocyte": [
+      "barn_swallow",
+      "Barn Swallow"
+    ],
+    "volley_monocyte": [
+      "diving_swallow",
+      "Diving Swallow"
+    ],
+    "lookout_monocyte": [
+      "sentry_swallow",
+      "Sentry Swallow"
+    ],
+    "basophil": [
+      "bee_skep",
+      "Bee Skep"
+    ],
+    "degranulating_basophil": [
+      "angry_skep",
+      "Angry Skep"
+    ],
+    "wide_basophil": [
+      "buzzing_skep",
+      "Buzzing Skep"
+    ],
+    "nk_cell": [
+      "barn_cat",
+      "Barn Cat"
+    ],
+    "killer_nk_cell": [
+      "tomcat",
+      "Tomcat"
+    ],
+    "hunting_nk_cell": [
+      "prowling_cat",
+      "Prowling Cat"
+    ],
+    "net_trap": [
+      "muddy_pen",
+      "Muddy Pen"
+    ],
+    "dense_net": [
+      "deep_mud",
+      "Deep Mud"
+    ],
+    "wide_net": [
+      "wide_mud",
+      "Wide Mud"
+    ],
+    "keratin_plate": [
+      "wooden_fence",
+      "Wooden Fence"
+    ],
+    "layered_plate": [
+      "picket_fence",
+      "Picket Fence"
+    ],
+    "spined_plate": [
+      "barbed_fence",
+      "Barbed Fence"
+    ],
+    "b_cell": [
+      "barn_owl",
+      "Barn Owl"
+    ],
+    "plasma_cell": [
+      "great_horned_owl",
+      "Great Horned Owl"
+    ],
+    "memory_b_cell": [
+      "far_sighted_owl",
+      "Far-Sighted Owl"
+    ],
+    "antibody_tagger": [
+      "watchdog",
+      "Watchdog"
+    ],
+    "opsonizer": [
+      "howling_watchdog",
+      "Howling Watchdog"
+    ],
+    "long_tagger": [
+      "patrol_watchdog",
+      "Patrol Watchdog"
+    ],
+    "cytotoxic_t": [
+      "ferret",
+      "Ferret"
+    ],
+    "effector_t": [
+      "fierce_ferret",
+      "Fierce Ferret"
+    ],
+    "patrol_t": [
+      "roaming_ferret",
+      "Roaming Ferret"
+    ],
+    "opsonin_lance": [
+      "falcon",
+      "Falcon"
+    ],
+    "heavy_lance": [
+      "peregrine_falcon",
+      "Peregrine Falcon"
+    ],
+    "rapid_lance": [
+      "swift_falcon",
+      "Swift Falcon"
+    ],
+    "interferon_beacon": [
+      "scarecrow",
+      "Scarecrow"
+    ],
+    "alarm_beacon": [
+      "spooky_scarecrow",
+      "Spooky Scarecrow"
+    ],
+    "tall_beacon": [
+      "tall_scarecrow",
+      "Tall Scarecrow"
+    ],
+    "mucus_wall": [
+      "mud_wall",
+      "Mud Wall"
+    ],
+    "thick_mucus": [
+      "thick_mud_wall",
+      "Thick Mud Wall"
+    ],
+    "sticky_mucus": [
+      "sludge_wall",
+      "Sludge Wall"
+    ],
+    "mast_cell": [
+      "skunk",
+      "Skunk"
+    ],
+    "reactive_mast_cell": [
+      "pungent_skunk",
+      "Pungent Skunk"
+    ],
+    "spreading_mast_cell": [
+      "wafting_skunk",
+      "Wafting Skunk"
+    ],
+    "histamine_spitter": [
+      "honking_goose",
+      "Honking Goose"
+    ],
+    "acid_spitter": [
+      "furious_goose",
+      "Furious Goose"
+    ],
+    "far_spitter": [
+      "loud_goose",
+      "Loud Goose"
+    ],
+    "fever_node": [
+      "bonfire",
+      "Bonfire"
+    ],
+    "high_fever": [
+      "roaring_bonfire",
+      "Roaring Bonfire"
+    ],
+    "wide_fever": [
+      "wide_bonfire",
+      "Wide Bonfire"
+    ],
+    "cytokine_storm": [
+      "mule",
+      "Mule"
+    ],
+    "paralyzing_storm": [
+      "stubborn_mule",
+      "Stubborn Mule"
+    ],
+    "rolling_storm": [
+      "kicking_mule",
+      "Kicking Mule"
+    ],
+    "inflammation_zone": [
+      "smoke_pot",
+      "Smoke Pot"
+    ],
+    "searing_zone": [
+      "thick_smoke",
+      "Thick Smoke"
+    ],
+    "swollen_zone": [
+      "wide_smoke",
+      "Wide Smoke"
+    ],
+    "toxic_membrane": [
+      "bramble_fence",
+      "Bramble Fence"
+    ],
+    "thick_membrane": [
+      "thick_brambles",
+      "Thick Brambles"
+    ],
+    "venom_membrane": [
+      "poison_brambles",
+      "Poison Brambles"
+    ],
+    "killer_t": [
+      "rattlesnake",
+      "Rattlesnake"
+    ],
+    "venomous_t": [
+      "diamondback",
+      "Diamondback"
+    ],
+    "reaching_t": [
+      "long_rattler",
+      "Long Rattler"
+    ],
+    "complement_sprayer": [
+      "toad",
+      "Toad"
+    ],
+    "caustic_sprayer": [
+      "cane_toad",
+      "Cane Toad"
+    ],
+    "misting_sprayer": [
+      "spitting_toad",
+      "Spitting Toad"
+    ],
+    "lysozyme_pool": [
+      "manure_pile",
+      "Manure Pile"
+    ],
+    "acid_pool": [
+      "rotting_manure",
+      "Rotting Manure"
+    ],
+    "spilling_pool": [
+      "spreading_manure",
+      "Spreading Manure"
+    ],
+    "perforin_lancer": [
+      "gila_monster",
+      "Gila Monster"
+    ],
+    "plague_lancer": [
+      "venomous_gila",
+      "Venomous Gila"
+    ],
+    "long_lancer": [
+      "long_gila",
+      "Long Gila"
+    ],
+    "necrosis_bloom": [
+      "hemlock_patch",
+      "Hemlock Patch"
+    ],
+    "hardened_bloom": [
+      "woody_hemlock",
+      "Woody Hemlock"
+    ],
+    "virulent_bloom": [
+      "virulent_hemlock",
+      "Virulent Hemlock"
+    ]
+  },
+  "art_style": "animals",
+  "invaders": [
+    {
+      "id": "coyote",
+      "name": "Coyote",
+      "movement": "pather",
+      "hp": 6,
+      "speed": 1.5,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "coyote"
+    },
+    {
+      "id": "wolf",
+      "name": "Wolf",
+      "movement": "pather",
+      "hp": 9,
+      "armor": 1,
+      "speed": 1.6,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "wolf"
+    },
+    {
+      "id": "bear_cub",
+      "name": "Bear Cub",
+      "movement": "pather",
+      "hp": 14,
+      "speed": 1.3,
+      "base_damage": 1,
+      "drop": 0,
+      "art": "bear_cub"
+    },
+    {
+      "id": "rat",
+      "name": "Rat",
+      "movement": "pather",
+      "hp": 9,
+      "speed": 1.6,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "rat",
+      "desc": "Fast farm pests that come in swarms."
+    },
+    {
+      "id": "weasel",
+      "name": "Weasel",
+      "movement": "pather",
+      "hp": 15,
+      "armor": 1,
+      "speed": 2.0,
+      "base_damage": 1,
+      "elite": true,
+      "drop": 2,
+      "art": "weasel",
+      "desc": "Elite: a very fast, armored pest."
+    },
+    {
+      "id": "coyote_pack",
+      "name": "Coyote Pack",
+      "movement": "pather",
+      "hp": 18,
+      "speed": 1.1,
+      "base_damage": 2,
+      "split_into": "coyote",
+      "split_count": 3,
+      "drop": 1,
+      "art": "coyote_pack",
+      "desc": "Scatters into three coyotes when hit hard enough."
+    },
+    {
+      "id": "wolf_pack",
+      "name": "Wolf Pack",
+      "movement": "pather",
+      "hp": 30,
+      "armor": 2,
+      "speed": 1.0,
+      "base_damage": 2,
+      "split_into": "wolf",
+      "split_count": 3,
+      "elite": true,
+      "drop": 2,
+      "art": "wolf_pack",
+      "desc": "Elite: an armored pack that scatters into wolves."
+    },
+    {
+      "id": "deer",
+      "name": "Deer",
+      "movement": "pather",
+      "hp": 22,
+      "speed": 1.25,
+      "base_damage": 2,
+      "jumps": true,
+      "drop": 2,
+      "art": "deer",
+      "desc": "Leaps over any single unit tile. Walls two tiles thick stop it."
+    },
+    {
+      "id": "red_stag",
+      "name": "Red Stag",
+      "movement": "pather",
+      "hp": 36,
+      "armor": 1,
+      "speed": 1.3,
+      "base_damage": 3,
+      "jumps": true,
+      "elite": true,
+      "drop": 3,
+      "art": "red_stag",
+      "desc": "Elite: a big armored jumper."
+    },
+    {
+      "id": "gopher",
+      "name": "Gopher",
+      "movement": "pather",
+      "hp": 20,
+      "speed": 1.0,
+      "base_damage": 2,
+      "burrow_after": 3,
+      "burrow_length": 6,
+      "drop": 2,
+      "art": "gopher",
+      "desc": "Walks 3 tiles, then tunnels under the next 6."
+    },
+    {
+      "id": "wild_boar",
+      "name": "Wild Boar",
+      "movement": "smasher",
+      "hp": 55,
+      "speed": 0.75,
+      "base_damage": 3,
+      "smash": 7,
+      "drop": 3,
+      "art": "wild_boar",
+      "desc": "Ignores the maze and charges through units."
+    },
+    {
+      "id": "moose",
+      "name": "Moose",
+      "movement": "smasher",
+      "hp": 95,
+      "armor": 2,
+      "speed": 0.7,
+      "base_damage": 4,
+      "smash": 10,
+      "elite": true,
+      "drop": 5,
+      "art": "moose",
+      "desc": "Elite: a huge armored rammer."
+    },
+    {
+      "id": "crow",
+      "name": "Crow",
+      "movement": "flier",
+      "hp": 9,
+      "speed": 1.2,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "crow",
+      "desc": "Flies straight over everything."
+    },
+    {
+      "id": "hawk",
+      "name": "Hawk",
+      "movement": "flier",
+      "hp": 24,
+      "armor": 1,
+      "speed": 1.1,
+      "base_damage": 2,
+      "elite": true,
+      "drop": 2,
+      "art": "hawk",
+      "desc": "Elite: a tough armored flier."
+    },
+    {
+      "id": "grizzly",
+      "name": "Grizzly Bear",
+      "movement": "smasher",
+      "hp": 800,
+      "armor": 2,
+      "speed": 0.4,
+      "base_damage": 10,
+      "smash": 18,
+      "boss": true,
+      "minion": "bear_cub",
+      "minion_count": 1,
+      "minion_interval": 4.0,
+      "drop": 20,
+      "art": "grizzly",
+      "desc": "Boss: smashes through anything and brings her cubs."
+    }
+  ],
+  "waves": {
+    "threat": {
+      "rat": 1.3,
+      "weasel": 2.2,
+      "coyote_pack": 3.4,
+      "wolf_pack": 5.5,
+      "wild_boar": 6.0,
+      "moose": 10.5,
+      "crow": 1.6,
+      "hawk": 3.8,
+      "gopher": 2.8,
+      "deer": 2.6,
+      "red_stag": 4.2
+    },
+    "categories": {
+      "swarm": {
+        "normal": "rat",
+        "elite": "weasel",
+        "elite_level": 2
+      },
+      "jump": {
+        "normal": "deer",
+        "elite": "red_stag",
+        "elite_level": 3
+      },
+      "split": {
+        "normal": "coyote_pack",
+        "elite": "wolf_pack",
+        "elite_level": 4
+      },
+      "smash": {
+        "normal": "wild_boar",
+        "elite": "moose",
+        "elite_level": 5
+      },
+      "fly": {
+        "normal": "crow",
+        "elite": "hawk",
+        "elite_level": 6
+      },
+      "burrow": {
+        "normal": "gopher"
+      }
+    },
+    "mix": [
+      {
+        "swarm": 0.6,
+        "jump": 0.4
+      },
+      {
+        "swarm": 0.5,
+        "split": 0.5
+      },
+      {
+        "jump": 0.5,
+        "fly": 0.5
+      },
+      {
+        "swarm": 0.4,
+        "smash": 0.3,
+        "burrow": 0.3
+      },
+      {
+        "split": 0.4,
+        "jump": 0.3,
+        "fly": 0.3
+      },
+      {
+        "jump": 0.5,
+        "smash": 0.5
+      },
+      {
+        "swarm": 0.5,
+        "fly": 0.25,
+        "burrow": 0.25
+      },
+      {
+        "smash": 0.35,
+        "split": 0.3,
+        "jump": 0.35
+      },
+      {
+        "swarm": 0.4,
+        "jump": 0.3,
+        "burrow": 0.3
+      },
+      {
+        "swarm": 0.2,
+        "split": 0.2,
+        "smash": 0.2,
+        "fly": 0.15,
+        "jump": 0.15,
+        "burrow": 0.1
+      }
+    ],
+    "growth_per_wave": 0.32
+  },
+  "tutorial": {
+    "waves": [
+      [
+        [
+          "rat",
+          7,
+          1.1,
+          0
+        ]
+      ],
+      [
+        [
+          "rat",
+          10,
+          0.9,
+          0
+        ]
+      ],
+      [
+        [
+          "deer",
+          2,
+          3.5,
+          0
+        ],
+        [
+          "rat",
+          6,
+          1.0,
+          2
+        ]
+      ],
+      [
+        [
+          "coyote_pack",
+          4,
+          2.2,
+          0
+        ],
+        [
+          "rat",
+          6,
+          1.0,
+          3
+        ]
+      ],
+      [
+        [
+          "wild_boar",
+          2,
+          6.0,
+          0
+        ],
+        [
+          "rat",
+          6,
+          1.0,
+          2
+        ]
+      ],
+      [
+        [
+          "crow",
+          7,
+          1.3,
+          0
+        ],
+        [
+          "rat",
+          8,
+          0.8,
+          1
+        ]
+      ],
+      [
+        [
+          "gopher",
+          4,
+          2.5,
+          0
+        ],
+        [
+          "deer",
+          3,
+          2.5,
+          3
+        ]
+      ],
+      [
+        [
+          "wild_boar",
+          3,
+          5.0,
+          0
+        ],
+        [
+          "crow",
+          6,
+          1.2,
+          3
+        ]
+      ],
+      [
+        [
+          "rat",
+          20,
+          0.45,
+          0
+        ],
+        [
+          "deer",
+          5,
+          2.0,
+          4
+        ]
+      ],
+      [
+        [
+          "wild_boar",
+          3,
+          4.0,
+          0
+        ],
+        [
+          "coyote_pack",
+          4,
+          1.8,
+          2
+        ],
+        [
+          "deer",
+          4,
+          2.0,
+          5
+        ],
+        [
+          "crow",
+          6,
+          1.2,
+          8
+        ],
+        [
+          "gopher",
+          3,
+          2.0,
+          9
+        ]
+      ]
+    ],
+    "tips": [
+      "Welcome to the farm! Your pack plays exactly the same at this scale. Rats walk around your units; every kill drops ATP.",
+      "Units that survived a wave can evolve. Anything placed this round refunds in full.",
+      "NEW: Deer leap over any single unit tile (orange line). Build walls two tiles thick where you don't want them jumping.",
+      "Coyote Packs scatter into three coyotes when killed.",
+      "Wild Boars ignore your maze and charge through any unit in their way (red line).",
+      "Crows fly straight to the farmhouse (blue dashes). Only some units can hit fliers.",
+      "Gophers tunnel under part of the route, like the mole crickets. Guard the end of the route too.",
+      "Chargers and fliers together: cover the red line and the blue dashes.",
+      "Rat swarm with deer mixed in. Thick walls keep the deer on the long route.",
+      "Final wave! Later levels bring elite versions, and the boss brings her cubs."
+    ]
+  },
+  "levels": [
+    {
+      "name": "1. Cornfield",
+      "preview": true,
+      "hand": [
+        12,
+        15,
+        7,
+        0,
+        0,
+        0
+      ],
+      "atp": 26,
+      "income": 5,
+      "layout": [
+        "....S....",
+        ".........",
+        "..#...#..",
+        ".........",
+        ".........",
+        "#...#...#",
+        ".........",
+        ".........",
+        "..#...#..",
+        ".........",
+        ".........",
+        "#.......#",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "2. Chicken Coop",
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 15,
+      "income": 5,
+      "budget": 14.5,
+      "layout": [
+        "........S",
+        ".........",
+        ".....##..",
+        ".........",
+        ".##......",
+        ".........",
+        "......#..",
+        "......#..",
+        ".........",
+        "..#......",
+        "..#...##.",
+        ".........",
+        ".........",
+        "B........"
+      ]
+    },
+    {
+      "name": "3. Orchard",
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 20,
+      "income": 5,
+      "budget": 16,
+      "layout": [
+        "S.......S",
+        ".........",
+        ".#..#..#.",
+        ".........",
+        ".........",
+        "..#...#..",
+        ".........",
+        ".#..#..#.",
+        ".........",
+        ".........",
+        "..#...#..",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "4. Pig Pen",
+      "hand": [
+        14,
+        8,
+        7,
+        5,
+        10,
+        0
+      ],
+      "atp": 20,
+      "income": 6,
+      "budget": 23.5,
+      "layout": [
+        "....S....",
+        ".........",
+        ".........",
+        "##.....##",
+        ".........",
+        "...#.#...",
+        "...#.#...",
+        ".........",
+        ".........",
+        "##.....##",
+        ".........",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "5. Duck Pond",
+      "hand": [
+        16,
+        12,
+        7,
+        5,
+        10,
+        0
+      ],
+      "atp": 25,
+      "income": 6,
+      "budget": 25,
+      "layout": [
+        "S........",
+        ".........",
+        ".........",
+        "...###...",
+        "...###...",
+        ".........",
+        "S........",
+        ".........",
+        "......##.",
+        "......##.",
+        ".........",
+        "..#......",
+        ".........",
+        "........B"
+      ]
+    },
+    {
+      "name": "6. Hay Barn",
+      "hand": [
+        16,
+        12,
+        7,
+        10,
+        10,
+        7
+      ],
+      "atp": 25,
+      "income": 6,
+      "budget": 27,
+      "layout": [
+        "S...S...S",
+        ".........",
+        ".........",
+        "..#...#..",
+        ".........",
+        "#.......#",
+        ".........",
+        "...#.#...",
+        ".........",
+        "#.......#",
+        ".........",
+        "..#...#..",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "7. Bear Woods",
+      "hand": [
+        20,
+        12,
+        15,
+        10,
+        10,
+        7
+      ],
+      "atp": 30,
+      "income": 7,
+      "budget": 34,
+      "boss": "grizzly",
+      "layout": [
+        "S...S...S",
+        ".........",
+        "#.#...#.#",
+        ".........",
+        "...#.#...",
+        ".........",
+        ".#.....#.",
+        ".........",
+        "...#.#...",
+        ".........",
+        "#.#...#.#",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    }
+  ]
+}

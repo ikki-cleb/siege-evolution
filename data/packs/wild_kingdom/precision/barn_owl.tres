@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yct75"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/great_horned_owl.tres" id="2_qjiu4"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/far_sighted_owl.tres" id="3_1fxej"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/barn_owl.png" id="4_hgb1k"]
+
+[resource]
+script = ExtResource("1_yct75")
+id = "barn_owl"
+display_name = "Barn Owl"
+role = 1
+cost = 15
+max_hp = 15
+damage = 4.5
+attack_range = 3.0
+hits_air = true
+evolutions = Array[ExtResource("1_yct75")]([ExtResource("2_qjiu4"), ExtResource("3_1fxej")])
+texture = ExtResource("4_hgb1k")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Long-range antibodies. Hits fliers."

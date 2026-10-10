@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_0g1fb"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/moose.png" id="2_bvwvp"]
+
+[resource]
+script = ExtResource("1_0g1fb")
+id = "moose"
+display_name = "Moose"
+movement = 1
+max_hp = 95
+armor = 2
+speed = 0.7
+base_damage = 4
+smash_damage = 10.0
+atp_drop = 5
+is_elite = true
+texture = ExtResource("2_bvwvp")
+description = "Elite: a huge armored rammer."

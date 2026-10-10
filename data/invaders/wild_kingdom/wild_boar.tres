@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_w5b5p"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/wild_boar.png" id="2_k5peq"]
+
+[resource]
+script = ExtResource("1_w5b5p")
+id = "wild_boar"
+display_name = "Wild Boar"
+movement = 1
+max_hp = 55
+speed = 0.75
+base_damage = 3
+smash_damage = 7.0
+atp_drop = 3
+texture = ExtResource("2_k5peq")
+description = "Ignores the maze and charges through units."

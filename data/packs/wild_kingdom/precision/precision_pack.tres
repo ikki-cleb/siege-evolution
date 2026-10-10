@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_lajke"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_0t6eo"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/wooden_fence.tres" id="3_8iwdu"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/barn_owl.tres" id="4_mjmui"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/watchdog.tres" id="5_egsnu"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/ferret.tres" id="6_u8dp7"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/falcon.tres" id="7_3emgn"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/scarecrow.tres" id="8_lkl5u"]
+
+[resource]
+script = ExtResource("1_lajke")
+id = "precision"
+display_name = "Precision"
+description = "Long range and big single hits. Marks targets so everything hits harder."
+color = Color(0.30588236, 0.65882355, 0.87058824, 1)
+units = Array[ExtResource("2_0t6eo")]([ExtResource("3_8iwdu"), ExtResource("4_mjmui"), ExtResource("5_egsnu"), ExtResource("6_u8dp7"), ExtResource("7_3emgn"), ExtResource("8_lkl5u")])

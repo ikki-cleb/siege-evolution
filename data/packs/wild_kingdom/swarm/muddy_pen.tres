@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5v06k"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/deep_mud.tres" id="2_g5gvs"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/wide_mud.tres" id="3_kv5rt"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/muddy_pen.png" id="4_uxprx"]
+
+[resource]
+script = ExtResource("1_5v06k")
+id = "muddy_pen"
+display_name = "Muddy Pen"
+cost = 6
+max_hp = 25
+attack_mode = 1
+damage = 0.5
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+evolutions = Array[ExtResource("1_5v06k")]([ExtResource("2_g5gvs"), ExtResource("3_kv5rt")])
+texture = ExtResource("4_uxprx")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Sticky wall that slows anything next to it."

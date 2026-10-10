@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8ffaq"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/stubborn_mule.png" id="2_u805m"]
+
+[resource]
+script = ExtResource("1_8ffaq")
+id = "stubborn_mule"
+display_name = "Stubborn Mule"
+role = 1
+cost = 16
+damage = 4.0
+attack_range = 2.5
+attack_interval = 1.6
+hits_air = true
+stun_duration = 1.1
+texture = ExtResource("2_u805m")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Longer stun."

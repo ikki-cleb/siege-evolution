@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_g80yo"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/gopher.png" id="2_i3hus"]
+
+[resource]
+script = ExtResource("1_g80yo")
+id = "gopher"
+display_name = "Gopher"
+max_hp = 20
+base_damage = 2
+atp_drop = 2
+burrow_after = 3
+burrow_length = 6
+texture = ExtResource("2_i3hus")
+description = "Walks 3 tiles, then tunnels under the next 6."

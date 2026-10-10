@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_eqctg"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/growing_hedge.png" id="2_6gcsp"]
+
+[resource]
+script = ExtResource("1_eqctg")
+id = "growing_hedge"
+display_name = "Growing Hedge"
+cost = 10
+max_hp = 70
+regen = 16.0
+texture = ExtResource("2_6gcsp")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Heals much faster."

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iosf5"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/rearing_horse.png" id="2_vxm1c"]
+
+[resource]
+script = ExtResource("1_iosf5")
+id = "rearing_horse"
+display_name = "Rearing Horse"
+role = 1
+cost = 20
+max_hp = 40
+damage = 30.0
+attack_range = 3.2
+attack_interval = 2.6
+hits_air = true
+pierce = true
+texture = ExtResource("2_vxm1c")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Much more range."

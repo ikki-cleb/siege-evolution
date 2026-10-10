@@ -22,6 +22,11 @@ var underground := false
 var _has_burrowed := false
 var _start_index := 0
 var _emerge_index := 0
+## Jumpers crouch for this long before each hop.
+const HOP_PAUSE := 0.45
+var _hopping := false
+var _hop_wait := 0.0
+var _hop_length := 0.0
 
 # Active effects. Each has a strength and the seconds it has left.
 var slow_amount := 0.0
@@ -115,7 +120,7 @@ func apply_mark(bonus: float, duration: float) -> void:
 func repath() -> void:
 	if data.movement != InvaderData.Movement.PATHER or path_index >= path.size() or underground:
 		return
-	var new_path := board.walker_path(path[path_index])
+	var new_path := board.route_for(data, path[path_index])
 	if not new_path.is_empty():
 		path = new_path
 		path_index = 0
@@ -193,12 +198,31 @@ func _walk(tiles: float, delta: float) -> void:
 				return
 		var target := board.cell_center(next_cell)
 		var distance := position.distance_to(target)
+		# A waypoint 2 tiles away is a hop: crouch, then leap in an arc.
+		if data.jumps and not _hopping and distance > Board.TILE * 1.5:
+			_hopping = true
+			_hop_wait = HOP_PAUSE
+			_hop_length = distance
+		if _hopping and _hop_wait > 0.0:
+			_hop_wait -= delta
+			return
 		if distance > step:
 			position = position.move_toward(target, step)
+			_update_hop_arc(target)
 			return
 		position = target
 		step -= distance
 		path_index += 1
+		if _hopping:
+			_hopping = false
+			_sprite.position.y = 0.0
+
+
+func _update_hop_arc(target: Vector2) -> void:
+	if not _hopping:
+		return
+	var progress := 1.0 - position.distance_to(target) / _hop_length
+	_sprite.position.y = -sin(progress * PI) * 6.0
 
 
 func _should_burrow() -> bool:

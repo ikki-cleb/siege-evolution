@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_n6wx8"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/hawk.png" id="2_pe4eh"]
+
+[resource]
+script = ExtResource("1_n6wx8")
+id = "hawk"
+display_name = "Hawk"
+movement = 2
+max_hp = 24
+armor = 1
+speed = 1.1
+base_damage = 2
+atp_drop = 2
+is_elite = true
+texture = ExtResource("2_pe4eh")
+description = "Elite: a tough armored flier."

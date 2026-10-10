@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_re40l"]
+[ext_resource type="Resource" path="res://data/invaders/wild_kingdom/coyote.tres" id="2_k7802"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/coyote_pack.png" id="3_8ue67"]
+
+[resource]
+script = ExtResource("1_re40l")
+id = "coyote_pack"
+display_name = "Coyote Pack"
+max_hp = 18
+speed = 1.1
+base_damage = 2
+split_into = ExtResource("2_k7802")
+split_count = 3
+texture = ExtResource("3_8ue67")
+description = "Scatters into three coyotes when hit hard enough."

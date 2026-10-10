@@ -216,6 +216,8 @@ def unit_sprite(unit, pack_color, art_style="cells"):
     color = hexc(pack_color)
     if art_style == "bugs":
         return garden_wall(color, style) if kind == "block" else bug_unit(color, style)
+    if art_style == "animals":
+        return farm_wall(color, style) if kind == "block" else animal_unit(color, style)
     return block_unit(color, style) if kind == "block" else cell_unit(color, style)
 
 
@@ -388,6 +390,159 @@ def scale_colony():
     return img
 
 
+# --- Farm world -------------------------------------------------------------
+
+def pasture():
+    img = Image.new("RGBA", (16, 16), hexc("#6fa04a"))
+    speckle(img, [hexc("#7cae55"), hexc("#64943f"), hexc("#88b85e")], 45, 21)
+    px(img, [(4, 5), (11, 11), (7, 2)], hexc("#e8e070"))  # little flowers
+    rect(img, 0, 0, 15, 0, hexc("#5f8f3f"))
+    rect(img, 0, 0, 0, 15, hexc("#5f8f3f"))
+    return img
+
+
+def boulder():
+    img = pasture()
+    disc(img, 8, 9, 6.8, hexc("#7a756c"))
+    disc(img, 6, 6.5, 3.5, hexc("#968f84"))
+    ring(img, 8, 9, 6.8, hexc("#4f4b45"))
+    px(img, [(9, 12), (11, 10)], hexc("#5f5a52"))
+    return img
+
+
+def forest_edge():
+    img = Image.new("RGBA", (16, 16), hexc("#2f4a24"))
+    for cx, cy in [(4, 5), (11, 4), (8, 10), (3, 12), (13, 12)]:
+        disc(img, cx, cy, 3.5, hexc("#3f6a2e"))
+        px(img, [(cx - 1, cy - 1)], hexc("#5a8a42"))
+    disc(img, 8, 9, 2.5, hexc("#141f10"))
+    return img
+
+
+def farmhouse():
+    img = pasture()
+    rect(img, 3, 7, 12, 14, hexc("#b8402e"))   # walls
+    for x in range(2, 14):                        # roof
+        top = 7 - min(x - 2, 13 - x) // 2
+        rect(img, x, max(1, top), x, 7, hexc("#5a3020"))
+    rect(img, 7, 10, 8, 14, hexc("#3a1a10"))     # door
+    rect(img, 4, 9, 5, 10, hexc("#f0e0a0"))      # windows
+    rect(img, 10, 9, 11, 10, hexc("#f0e0a0"))
+    return img
+
+
+def animal_unit(color, style):
+    """An attacker drawn as a side-on animal or bird, tinted with the pack color."""
+    img = new()
+    body, dark, light = shade(color, 0.05), shade(color, -0.3), shade(color, 0.3)
+    kind = style % 4
+    if kind == 3:  # bird
+        disc(img, 7, 9, 4.5, body)
+        disc(img, 10.5, 5.5, 2.6, body)
+        px(img, [(13, 5), (14, 6)], hexc("#f0a020"))  # beak
+        px(img, [(11, 5)], hexc("#141414"))           # eye
+        rect(img, 4, 8, 7, 9, dark)                   # wing
+        px(img, [(6, 13), (8, 13), (6, 14), (8, 14)], hexc("#f0a020"))  # feet
+        return img
+    # four-legged animal
+    rect(img, 3, 7, 11, 11, body)
+    disc(img, 12, 6, 2.8, body)
+    px(img, [(13, 5)], hexc("#141414"))
+    for x in (4, 6, 9, 11):
+        rect(img, x, 12, x, 14, dark)
+    px(img, [(2, 7), (1, 6)], dark)  # tail
+    if kind == 0:   # horns
+        px(img, [(11, 2), (11, 3), (14, 2), (13, 3)], light)
+    elif kind == 1:  # long ears
+        px(img, [(11, 2), (11, 3), (12, 3)], dark)
+    else:            # spots
+        for x, y in [(5, 8), (8, 9), (10, 8)]:
+            px(img, [(x, y)], dark)
+    if style >= 6:
+        rect(img, 3, 7, 11, 7, light)  # highlight on later units
+    return img
+
+
+def farm_wall(color, style):
+    """A wall drawn as farm material, tinted with the pack color."""
+    img = new()
+    base, dark, light = shade(color, -0.1), shade(color, -0.35), shade(color, 0.2)
+    kind = style % 5
+    if kind == 0:  # stone wall
+        rect(img, 1, 3, 14, 14, base)
+        for y in (6, 10):
+            rect(img, 1, y, 14, y, dark)
+        px(img, [(5, y) for y in range(3, 6)] + [(10, y) for y in range(7, 10)] + [(6, y) for y in range(11, 14)], dark)
+    elif kind == 1:  # hedge
+        for cx, cy in [(5, 7), (10, 7), (8, 11), (4, 11), (12, 11)]:
+            disc(img, cx, cy, 3.4, base)
+            px(img, [(cx - 1, cy - 1)], light)
+    elif kind == 2:  # silo / barrel
+        rect(img, 3, 2, 12, 14, base)
+        for y in (5, 9, 13):
+            rect(img, 3, y, 12, y, dark)
+        rect(img, 3, 2, 12, 2, light)
+    elif kind == 3:  # hay bale / fence slats
+        rect(img, 1, 4, 14, 13, base)
+        for x in range(2, 14, 3):
+            rect(img, x, 4, x, 13, dark)
+        rect(img, 1, 4, 14, 4, light)
+    else:  # wooden fence posts
+        for x in (2, 7, 12):
+            rect(img, x, 2, x + 1, 14, base)
+            px(img, [(x, 2)], light)
+        rect(img, 1, 5, 14, 6, dark)
+        rect(img, 1, 10, 14, 11, dark)
+    return img
+
+
+def beast(body, head, size=1.0, horns=None, ears=False, flier=False, tail=True, pack=0):
+    img = new()
+    if flier:
+        disc(img, 8, 9, 3.5 * size, hexc(body))
+        rect(img, 1, 7, 15, 8, hexc(head))  # spread wings
+        disc(img, 8, 5, 2 * size, hexc(head))
+        px(img, [(8, 3)], hexc("#f0a020"))
+        return img
+    count = pack if pack else 1
+    for i in range(count):
+        ox = (i - (count - 1) / 2) * 4 if count > 1 else 0
+        oy = (i % 2) * 3 - (1 if count > 1 else 0)
+        s = size * (0.6 if count > 1 else 1.0)
+        x0, x1 = int(8 + ox - 5 * s), int(8 + ox + 3 * s)
+        y0, y1 = int(9 + oy - 2 * s), int(9 + oy + 2 * s)
+        rect(img, x0, y0, x1, y1, hexc(body))
+        disc(img, x1 + 1.5 * s, y0 - 0.5, 2.3 * s, hexc(head))
+        for x in (x0 + 1, x1 - 1):
+            rect(img, x, y1 + 1, x, min(15, y1 + int(3 * s)), hexc("#2a1a10"))
+        if tail:
+            px(img, [(x0 - 1, y0)], hexc(body))
+        if ears:
+            px(img, [(x1 + 1, y0 - 3), (x1 + 2, y0 - 3)], hexc(head))
+        if horns:
+            px(img, [(x1, y0 - 3), (x1 - 1, y0 - 4), (x1 + 3, y0 - 3), (x1 + 4, y0 - 4)], hexc(horns))
+    return img
+
+
+FARM_INVADER_ART = {
+    "coyote": lambda: beast("#b8925a", "#a07a48", size=0.7, ears=True),
+    "wolf": lambda: beast("#8a8a8a", "#6a6a6a", size=0.75, ears=True),
+    "bear_cub": lambda: beast("#7a5030", "#6a4026", size=0.7, tail=False),
+    "rat": lambda: beast("#8a7a70", "#6a5a50", size=0.6),
+    "weasel": lambda: beast("#c08040", "#f0e0c0", size=0.65),
+    "coyote_pack": lambda: beast("#b8925a", "#a07a48", ears=True, pack=3),
+    "wolf_pack": lambda: beast("#8a8a8a", "#5a5a5a", ears=True, pack=3),
+    "deer": lambda: beast("#b07840", "#c08850", size=0.9, ears=True),
+    "red_stag": lambda: beast("#a05a30", "#b06a3a", size=1.0, horns="#e8d8b0"),
+    "gopher": lambda: beast("#a07a50", "#8a6440", size=0.7, tail=False),
+    "wild_boar": lambda: beast("#4a3a30", "#3a2a22", size=1.0, horns="#f0f0e0"),
+    "moose": lambda: beast("#5a4030", "#4a3022", size=1.15, horns="#d8c8a0"),
+    "crow": lambda: beast("#202024", "#38383e", flier=True, size=0.8),
+    "hawk": lambda: beast("#8a5a30", "#c8a070", flier=True, size=0.95),
+    "grizzly": lambda: beast("#6a4428", "#5a3820", size=1.3, ears=True, tail=False),
+}
+
+
 BACKYARD_INVADER_ART = {
     "aphid": lambda: bug_invader("#9fd44a", "#7ab030", legs=False, size=0.6),
     "termite": lambda: bug_invader("#e8d2a8", "#b07a3a", size=0.8),
@@ -509,6 +664,8 @@ if __name__ == "__main__":
         save(fn(), f"tiles/immune_system/{name}.png")
     for name, fn in {"floor": grass, "rock": stone, "spawn": dirt_hole, "base": anthill}.items():
         save(fn(), f"tiles/backyard_bugs/{name}.png")
+    for name, fn in {"floor": pasture, "rock": boulder, "spawn": forest_edge, "base": farmhouse}.items():
+        save(fn(), f"tiles/wild_kingdom/{name}.png")
 
     all_content = {}
     for content_file in sorted((PROJECT / "tools" / "content").glob("*.json")):
@@ -523,6 +680,7 @@ if __name__ == "__main__":
                 for branch, evo in enumerate(unit["evolutions"]):
                     save(add_badge(sprite.copy(), branch), f"units/{biome_id}/{pack['id']}/{evo['id']}.png")
         for invader in content["invaders"]:
-            art = INVADER_ART.get(invader["art"]) or BACKYARD_INVADER_ART[invader["art"]]
+            art = (INVADER_ART.get(invader["art"]) or BACKYARD_INVADER_ART.get(invader["art"])
+                   or FARM_INVADER_ART[invader["art"]])
             save(art(), f"invaders/{biome_id}/{invader['id']}.png")
     print("Placeholder art written to", ROOT)

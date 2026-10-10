@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xlxcm"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/stubborn_mule.tres" id="2_27ua8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/kicking_mule.tres" id="3_lfvr3"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/mule.png" id="4_4img2"]
+
+[resource]
+script = ExtResource("1_xlxcm")
+id = "mule"
+display_name = "Mule"
+role = 1
+cost = 18
+damage = 4.0
+attack_range = 2.5
+attack_interval = 1.6
+hits_air = true
+stun_duration = 0.6
+evolutions = Array[ExtResource("1_xlxcm")]([ExtResource("2_27ua8"), ExtResource("3_lfvr3")])
+texture = ExtResource("4_4img2")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Stuns its target in place."

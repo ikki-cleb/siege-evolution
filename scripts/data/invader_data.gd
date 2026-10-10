@@ -28,6 +28,10 @@ enum Movement {
 @export var is_elite: bool = false
 @export var is_boss: bool = false
 
+## Jumpers can hop over any single unit tile (not rocks, and not walls two
+## tiles thick). Each hop costs them a short pause.
+@export var jumps: bool = false
+
 @export_group("Burrowing")
 ## Tiles walked before digging underground (0 = never burrows).
 @export var burrow_after: int = 0

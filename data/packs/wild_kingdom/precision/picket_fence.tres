@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qyuq4"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/picket_fence.png" id="2_w5gd7"]
+
+[resource]
+script = ExtResource("1_qyuq4")
+id = "picket_fence"
+display_name = "Picket Fence"
+cost = 6
+max_hp = 70
+texture = ExtResource("2_w5gd7")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "More HP."

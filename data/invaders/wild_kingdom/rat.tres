@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_iojw5"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/rat.png" id="2_22uv0"]
+
+[resource]
+script = ExtResource("1_iojw5")
+id = "rat"
+display_name = "Rat"
+max_hp = 9
+speed = 1.6
+texture = ExtResource("2_22uv0")
+description = "Fast farm pests that come in swarms."

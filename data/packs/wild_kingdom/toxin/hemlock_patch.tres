@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_g5fsu"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/woody_hemlock.tres" id="2_wycuu"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/virulent_hemlock.tres" id="3_kp3vq"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/hemlock_patch.png" id="4_5n3ea"]
+
+[resource]
+script = ExtResource("1_g5fsu")
+id = "hemlock_patch"
+display_name = "Hemlock Patch"
+cost = 14
+max_hp = 40
+attack_mode = 1
+poison_dps = 3.0
+poison_duration = 2.0
+poison_spreads = true
+evolutions = Array[ExtResource("1_g5fsu")]([ExtResource("2_wycuu"), ExtResource("3_kp3vq")])
+texture = ExtResource("4_5n3ea")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that poisons everything next to it. The poison spreads."

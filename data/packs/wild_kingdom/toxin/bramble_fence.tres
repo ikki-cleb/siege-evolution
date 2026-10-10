@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_newpp"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/thick_brambles.tres" id="2_ifr12"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/poison_brambles.tres" id="3_rjgkf"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/bramble_fence.png" id="4_oruum"]
+
+[resource]
+script = ExtResource("1_newpp")
+id = "bramble_fence"
+display_name = "Bramble Fence"
+max_hp = 25
+reflect = 0.3
+evolutions = Array[ExtResource("1_newpp")]([ExtResource("2_ifr12"), ExtResource("3_rjgkf")])
+texture = ExtResource("4_oruum")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that hurts smashers biting it."

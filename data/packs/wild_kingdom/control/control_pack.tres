@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_v1uo7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_na428"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/mud_wall.tres" id="3_58mxt"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/skunk.tres" id="4_of5y4"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/honking_goose.tres" id="5_uargr"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bonfire.tres" id="6_xyjfr"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/mule.tres" id="7_8rhk8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/smoke_pot.tres" id="8_c0w7d"]
+
+[resource]
+script = ExtResource("1_v1uo7")
+id = "control"
+display_name = "Control"
+description = "Slows, stuns and area damage. Weak alone, deadly inside a long maze."
+color = Color(0.6156863, 0.4745098, 0.8392157, 1)
+product_id = "pack_control"
+units = Array[ExtResource("2_na428")]([ExtResource("3_58mxt"), ExtResource("4_of5y4"), ExtResource("5_uargr"), ExtResource("6_xyjfr"), ExtResource("7_8rhk8"), ExtResource("8_c0w7d")])

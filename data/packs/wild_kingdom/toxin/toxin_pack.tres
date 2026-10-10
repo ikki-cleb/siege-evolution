@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_xxgyr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_lxg00"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/bramble_fence.tres" id="3_uydse"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/rattlesnake.tres" id="4_6pa7g"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/toad.tres" id="5_jdoop"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/manure_pile.tres" id="6_qe4ln"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/gila_monster.tres" id="7_4hbmr"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/hemlock_patch.tres" id="8_vldw2"]
+
+[resource]
+script = ExtResource("1_xxgyr")
+id = "toxin"
+display_name = "Toxin"
+description = "Poison that ignores armor and spreads between invaders. Slow to start, brutal on crowds."
+color = Color(0.42352942, 0.77254903, 0.31764707, 1)
+product_id = "pack_toxin"
+units = Array[ExtResource("2_lxg00")]([ExtResource("3_uydse"), ExtResource("4_6pa7g"), ExtResource("5_jdoop"), ExtResource("6_qe4ln"), ExtResource("7_4hbmr"), ExtResource("8_vldw2")])

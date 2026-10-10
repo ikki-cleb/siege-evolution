@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yaypa"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/fierce_ferret.png" id="2_xjgvs"]
+
+[resource]
+script = ExtResource("1_yaypa")
+id = "fierce_ferret"
+display_name = "Fierce Ferret"
+role = 1
+cost = 16
+max_hp = 25
+damage = 21.0
+attack_range = 2.5
+attack_interval = 1.6
+pierce = true
+texture = ExtResource("2_xjgvs")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "More damage."

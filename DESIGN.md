@@ -1,6 +1,6 @@
 # Siege Evolution: Game Design Document
 
-Status: **v0.4, Worlds 1–2 playable** (14 levels, 5 packs, evolutions,
+Status: **v0.5, Worlds 1–3 playable** (21 levels, 5 packs, evolutions,
 saved progress, store in test mode). Balance is tuned against an automated player, not real play yet.
 
 ## Pitch
@@ -32,7 +32,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
   unlocks the next, larger-scale world. The five main worlds, in order:
   1. **Microscopic** (the immune system), built
   2. **Backyard Bugs** (defend the queen's anthill), built
-  3. **Wild Kingdom** (human and animal scale)
+  3. **Wild Kingdom** (human and animal scale: defend the farmhouse), built
   4. **Total War** (ships, tanks, bombs)
   5. **Galactic Siege** (planets, starships, alien invaders)
 - **Bonus worlds** (bought separately, playable as soon as they're bought):
@@ -122,7 +122,10 @@ Each pack plays exactly the same in every world: same stats, same unlock
 order, same evolutions. A world only renames the units and gives them new art
 (`"packs_from"` and `"renames"` in its JSON). In Backyard Bugs, walls are
 garden objects (pebbles, twigs, acorn shells, spiderwebs, nettles) and
-attackers are bugs (stag beetles, ants, spiders, stink bugs, wasps).
+attackers are bugs (stag beetles, ants, spiders, stink bugs, wasps). In Wild
+Kingdom, walls are farm materials (stone walls, hay bales, fences, mud,
+brambles) and attackers are farm animals (bulls, hens, owls, skunks,
+rattlesnakes).
 
 ## Invaders (World 1)
 
@@ -158,6 +161,29 @@ further along. That rewards defense in depth over a single choke point.
 | Mosquito | Flier | |
 | Hornet | Flier (elite, level 5+) | Armor 1, tougher |
 | **Giant Centipede** | Boss smasher (level 7, wave 10) | Tunnels once, releases termites |
+
+## Invaders (World 3: Wild Kingdom)
+
+New behavior: **jumpers.** They plan their route as if they can hop over any
+single unit tile (not rocks, not walls two tiles thick), pausing briefly
+before each hop. On the tutorial level their route shows in orange. Burrowers
+return from World 2. World 3 is noticeably harder: invaders are tougher for
+the ATP they drop, though drops stay generous enough to keep building.
+
+| Invader | Type | Notes |
+|---|---|---|
+| Rat | Walker | Fast swarms |
+| Weasel | Walker (elite, level 2+) | Very fast, armor 1 |
+| Deer | **Jumper** | Hops single unit tiles |
+| Red Stag | Jumper (elite, level 3+) | Armor 1 |
+| Coyote Pack | Walker | Scatters into 3 coyotes |
+| Wolf Pack | Walker (elite, level 4+) | Armor 2, scatters into wolves |
+| Wild Boar | Smasher | Charges through units |
+| Moose | Smasher (elite, level 5+) | Armor 2 |
+| Crow | Flier | |
+| Hawk | Flier (elite, level 6+) | Armor 1 |
+| Gopher | Burrower | Tunnels under 6 tiles |
+| **Grizzly Bear** | Boss smasher (level 7, wave 10) | Armor 2, brings bear cubs |
 
 ## Monetization
 
@@ -207,7 +233,8 @@ comes next.
 
 - World 2 theme and scale (e.g. backyard bugs?), and how packs reskin there
 - Cosmetic unlocks (palettes, skins, menu themes): what and when
-- Content for worlds 3–5 and the two bonus worlds
+- Content for worlds 4–5 and the two bonus worlds
+- Orchard (World 3, level 3) is the hardest level for the bot, especially with Toxin
 - Overall difficulty after human playtesting (the bot finds most levels easy)
 - Sound and music direction
 - Sleek menu visual design

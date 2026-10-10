@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0sqe5"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/thistle_hay.png" id="2_nssfo"]
+
+[resource]
+script = ExtResource("1_0sqe5")
+id = "thistle_hay"
+display_name = "Thistle Hay"
+cost = 4
+max_hp = 22
+reflect = 0.4
+texture = ExtResource("2_nssfo")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Reflects 40% of smasher damage."

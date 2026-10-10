@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_noufg"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/howling_watchdog.tres" id="2_utnv6"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/patrol_watchdog.tres" id="3_ds4xc"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/watchdog.png" id="4_r2y7f"]
+
+[resource]
+script = ExtResource("1_noufg")
+id = "watchdog"
+display_name = "Watchdog"
+role = 2
+cost = 12
+max_hp = 15
+damage = 1.0
+attack_range = 3.0
+hits_air = true
+mark_bonus = 0.3
+mark_duration = 3.0
+evolutions = Array[ExtResource("1_noufg")]([ExtResource("2_utnv6"), ExtResource("3_ds4xc")])
+texture = ExtResource("4_r2y7f")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Marks targets: they take 40% more damage from everything."

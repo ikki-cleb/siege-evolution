@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_62f1t"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/angry_hen.tres" id="2_flya7"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/scout_hen.tres" id="3_moskq"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/hen.png" id="4_0rqpj"]
+
+[resource]
+script = ExtResource("1_62f1t")
+id = "hen"
+display_name = "Hen"
+role = 1
+cost = 8
+damage = 2.3
+attack_interval = 0.45
+adjacency_bonus = 0.15
+evolutions = Array[ExtResource("1_62f1t")]([ExtResource("2_flya7"), ExtResource("3_moskq")])
+texture = ExtResource("4_0rqpj")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Fast melee jabs, faster in groups."

@@ -22,8 +22,14 @@ func _run() -> void:
 	var biome: BiomeData = progress.load_biome(0)
 	await _test_rules(biome)
 	await _test_burrowing(progress.load_biome(1))
+	await _test_jumping(progress.load_biome(2))
 	if not OS.get_cmdline_user_args().has("rules"):
-		for index in [0, 1]:
+		# "-- world=2" balances just one world (0-based index).
+		var worlds := [0, 1, 2]
+		for arg in OS.get_cmdline_user_args():
+			if arg.begins_with("world="):
+				worlds = [int(arg.split("=")[1])]
+		for index in worlds:
 			await _test_balance(progress.load_biome(index))
 	progress.reset()
 	print("\n%s" % ("ALL TESTS PASSED" if failures == 0 else "%d TEST(S) FAILED" % failures))
@@ -133,6 +139,50 @@ func _test_burrowing(biome: BiomeData) -> void:
 	_check(max_index >= data.burrow_after + data.burrow_length,
 		"Burrowers resurface further along their route (tile %d)" % max_index)
 	await _stop(game)
+
+
+# --- Jumping ----------------------------------------------------------------
+
+func _test_jumping(biome: BiomeData) -> void:
+	var game := await _start(biome, 0, 0)  # Cornfield: spawn (4,0), base (4,13)
+	var board: Board = game.board
+	var wall: UnitData = game.unit_types[0]
+	# A one-tile-thick wall across row 3, with a gap at the far left edge.
+	for x in range(1, 9):
+		board.place_unit(wall, Vector2i(x, 3))
+	var route := board.jumper_path(board.spawn_cells[0])
+	_check(_has_hop(route) and route.size() < board.walker_path(board.spawn_cells[0]).size(),
+		"Jumpers hop a one-tile wall instead of walking around it")
+	# Make it two tiles thick: no more hopping.
+	for x in range(1, 9):
+		board.place_unit(wall, Vector2i(x, 4))
+	route = board.jumper_path(board.spawn_cells[0])
+	_check(not _has_hop(route), "Walls two tiles thick stop jumpers")
+	for x in range(1, 9):
+		board.remove_unit(Vector2i(x, 4))
+
+	# A real deer actually makes the hop and keeps going.
+	board.wave_active = true
+	var deer_data: InvaderData = load("res://data/invaders/wild_kingdom/deer.tres")
+	board.spawn_invader(deer_data, 0)
+	var deer: Invader = board.invaders[0]
+	var crossed := false
+	for i in 60 * 20:
+		await process_frame
+		if not is_instance_valid(deer) or not deer.alive:
+			break
+		if deer.position.y > board.cell_center(Vector2i(4, 4)).y - 1 and deer.position.x > 20:
+			crossed = true
+			break
+	_check(crossed, "A deer hops the wall and continues toward the base")
+	await _stop(game)
+
+
+func _has_hop(route: Array[Vector2i]) -> bool:
+	for i in range(1, route.size()):
+		if (route[i] - route[i - 1]).length() > 1.5:
+			return true
+	return false
 
 
 # --- Rules ------------------------------------------------------------------

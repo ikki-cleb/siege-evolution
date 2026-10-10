@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cttic"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/packed_hay.png" id="2_1067q"]
+
+[resource]
+script = ExtResource("1_cttic")
+id = "packed_hay"
+display_name = "Packed Hay"
+cost = 4
+max_hp = 40
+texture = ExtResource("2_1067q")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "More HP."

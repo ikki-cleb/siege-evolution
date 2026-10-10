@@ -16,11 +16,16 @@ const TILE := 16
 const NO_CELL := Vector2i(-1, -1)
 ## How far (in tiles) poison jumps when a poisoned invader dies.
 const POISON_SPREAD_RANGE := 1.5
+## Route-planning cost of one hop (a normal step costs 1, and a hop covers 2
+## tiles), so jumpers only hop when it saves them at least a step.
+const HOP_COST := 3
+const DIRECTIONS: Array[Vector2i] = [Vector2i(0, 1), Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, -1)]
 
 
 const PATH_COLOR := Color(1, 1, 1, 0.55)
 const SMASHER_PATH_COLOR := Color(1, 0.35, 0.25, 0.7)
 const FLIER_PATH_COLOR := Color(0.5, 0.85, 1, 0.7)
+const JUMPER_PATH_COLOR := Color(1, 0.65, 0.2, 0.75)
 
 var grid_size := Vector2i.ZERO
 var rocks := {}  # Vector2i -> true
@@ -42,7 +47,11 @@ var _smash_grid := AStarGrid2D.new()
 var show_path_preview := false
 var preview_smashers := false
 var preview_fliers := false
+var preview_jumpers := false
 var selected_cell := NO_CELL
+
+## A tile treated as blocked while testing "what if a unit stood here?".
+var _pretend_unit := NO_CELL
 
 var _flash_cell := NO_CELL
 var _flash_time := 0.0
@@ -145,6 +154,79 @@ func smasher_path(from_cell: Vector2i) -> Array[Vector2i]:
 	return _smash_grid.get_id_path(from_cell, base_cell)
 
 
+## The route a jumper takes: like a walker's, but it may hop over a single
+## unit tile to the open tile beyond. Consecutive tiles in the result that
+## are 2 apart are hops. (A small Dijkstra search; the grid is tiny.)
+func jumper_path(from_cell: Vector2i) -> Array[Vector2i]:
+	var cost_so_far := {from_cell: 0}
+	var came_from := {}
+	var frontier: Array = [[0, from_cell]]
+	while not frontier.is_empty():
+		var best := 0
+		for i in frontier.size():
+			if frontier[i][0] < frontier[best][0]:
+				best = i
+		var item: Array = frontier.pop_at(best)
+		var cell: Vector2i = item[1]
+		if item[0] > cost_so_far[cell]:
+			continue
+		if cell == base_cell:
+			break
+		for direction in DIRECTIONS:
+			var next: Vector2i = cell + direction
+			var step_cost := 1
+			if not _is_open(next):
+				# Hop: over exactly one unit, onto an open tile.
+				if _is_unit_tile(next) and _is_open(next + direction):
+					next += direction
+					step_cost = HOP_COST
+				else:
+					continue
+			var new_cost: int = cost_so_far[cell] + step_cost
+			if new_cost < cost_so_far.get(next, 1 << 30):
+				cost_so_far[next] = new_cost
+				came_from[next] = cell
+				frontier.append([new_cost, next])
+	var path: Array[Vector2i] = []
+	if not cost_so_far.has(base_cell):
+		return path
+	var cell := base_cell
+	while cell != from_cell:
+		path.push_front(cell)
+		cell = came_from[cell]
+	path.push_front(from_cell)
+	return path
+
+
+## Open for walking: inside the grid, no rock, no intact unit.
+func _is_open(cell: Vector2i) -> bool:
+	return is_inside(cell) and not rocks.has(cell) and not _is_unit_tile(cell)
+
+
+func _is_unit_tile(cell: Vector2i) -> bool:
+	return cell == _pretend_unit or intact_unit_at(cell) != null
+
+
+## Every spawn's jumper route if a unit stood on this tile (NO_CELL = as is).
+func jumper_paths_if_blocked(cell: Vector2i) -> Array:
+	_pretend_unit = cell
+	var paths := []
+	for spawn in spawn_cells:
+		paths.append(jumper_path(spawn))
+	_pretend_unit = NO_CELL
+	return paths
+
+
+## The route an invader of this kind would take from a tile.
+func route_for(data: InvaderData, from_cell: Vector2i) -> Array[Vector2i]:
+	match data.movement:
+		InvaderData.Movement.SMASHER:
+			return smasher_path(from_cell)
+		InvaderData.Movement.PATHER:
+			return jumper_path(from_cell) if data.jumps else walker_path(from_cell)
+	return []
+
+
 ## The unit standing on a tile, if it's still in one piece; otherwise null.
 func intact_unit_at(cell: Vector2i) -> Unit:
 	var unit: Unit = units.get(cell)
@@ -204,13 +286,7 @@ func restore_units() -> void:
 
 func spawn_invader(data: InvaderData, spawn_index: int) -> void:
 	var start := spawn_cells[spawn_index % spawn_cells.size()]
-	var path: Array[Vector2i] = []
-	match data.movement:
-		InvaderData.Movement.PATHER:
-			path = walker_path(start)
-		InvaderData.Movement.SMASHER:
-			path = smasher_path(start)
-	_add_invader(data, cell_center(start), path, 0)
+	_add_invader(data, cell_center(start), route_for(data, start), 0)
 
 
 ## Adds invaders at another invader's position, following its route
@@ -222,8 +298,8 @@ func spawn_from(parent: Invader, data: InvaderData, count: int, drops_atp := tru
 		var path: Array[Vector2i] = []
 		var index := 0
 		if data.movement == InvaderData.Movement.PATHER and parent.path_index < parent.path.size():
-			# Walkers need a walker route, even if the parent was a smasher.
-			path = walker_path(parent.path[parent.path_index])
+			# Walkers need their own kind of route, even if the parent was a smasher.
+			path = route_for(data, parent.path[parent.path_index])
 		elif data.movement != InvaderData.Movement.FLIER:
 			path = parent.path.duplicate()
 			index = parent.path_index
@@ -304,6 +380,8 @@ func _draw() -> void:
 				draw_dashed_line(cell_center(spawn), cell_center(base_cell), FLIER_PATH_COLOR, 1.0, 3.0)
 			if preview_smashers:
 				_draw_path(smasher_path(spawn), SMASHER_PATH_COLOR)
+			if preview_jumpers:
+				_draw_path(jumper_path(spawn), JUMPER_PATH_COLOR)
 			_draw_path(walker_path(spawn), PATH_COLOR)
 
 	if selected_cell != NO_CELL:

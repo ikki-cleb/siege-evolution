@@ -14,6 +14,7 @@ var board: Board
 var rng := RandomNumberGenerator.new()
 var _has_smashers := false
 var _has_fliers := false
+var _has_jumpers := false
 var _flier_points: Array[Vector2] = []
 
 
@@ -25,6 +26,7 @@ func _init(p_game, seed_value := 1) -> void:
 		for entry in wave.entries:
 			_has_smashers = _has_smashers or entry.invader.movement == InvaderData.Movement.SMASHER
 			_has_fliers = _has_fliers or entry.invader.movement == InvaderData.Movement.FLIER
+			_has_jumpers = _has_jumpers or entry.invader.jumps
 	for spawn in board.spawn_cells:
 		var from := board.cell_center(spawn)
 		var to := board.cell_center(board.base_cell)
@@ -105,7 +107,7 @@ func _place_wall() -> bool:
 	var type := _choose_type(_types(true))
 	if type == null:
 		return false
-	var current_paths := board.walker_paths_if_blocked(Board.NO_CELL)
+	var current_paths := _routes_if_blocked(Board.NO_CELL)
 	var current_length := _total_length(current_paths)
 	var current_cover := _path_cover(current_paths)
 	var on_path := _walker_cells()
@@ -116,7 +118,7 @@ func _place_wall() -> bool:
 			var cell := Vector2i(x, y)
 			if not board.is_buildable(cell):
 				continue
-			var paths := board.walker_paths_if_blocked(cell)
+			var paths := _routes_if_blocked(cell)
 			if paths.is_empty():
 				continue
 			var gain := _total_length(paths) - current_length
@@ -136,6 +138,16 @@ func _place_wall() -> bool:
 	return best != Board.NO_CELL and game.try_place(type, best)
 
 
+## Walker routes if a unit stood here, plus jumper routes when the level has
+## jumpers (so thin walls that deer just hop over don't look useful).
+func _routes_if_blocked(cell: Vector2i) -> Array:
+	var paths := board.walker_paths_if_blocked(cell)
+	if paths.is_empty() or not _has_jumpers:
+		return paths
+	return paths + board.jumper_paths_if_blocked(cell)
+
+
+## Route length in steps (a hop counts as two tiles).
 func _total_length(paths: Array) -> int:
 	var total := 0
 	for path in paths:
@@ -164,7 +176,7 @@ func _place_fighter() -> bool:
 	var type := _choose_type(_types(false))
 	if type == null:
 		return false
-	var current_cover := _path_cover(board.walker_paths_if_blocked(Board.NO_CELL))
+	var current_cover := _path_cover(_routes_if_blocked(Board.NO_CELL))
 	var best := Board.NO_CELL
 	var best_score := 0.0
 	for y in board.grid_size.y:
@@ -173,7 +185,7 @@ func _place_fighter() -> bool:
 			if not board.is_buildable(cell):
 				continue
 			# The unit blocks its own tile, so judge it by the route AFTER placing it.
-			var paths := board.walker_paths_if_blocked(cell)
+			var paths := _routes_if_blocked(cell)
 			if paths.is_empty():
 				continue
 			var walker := {}

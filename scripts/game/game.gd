@@ -91,6 +91,7 @@ func _enter_build_phase() -> void:
 	var next_wave := level.waves[wave_number]
 	board.preview_smashers = _wave_has(next_wave, InvaderData.Movement.SMASHER)
 	board.preview_fliers = _wave_has(next_wave, InvaderData.Movement.FLIER)
+	board.preview_jumpers = next_wave.entries.any(func(entry): return entry.invader.jumps)
 	board.queue_redraw()
 	hud.refresh()
 

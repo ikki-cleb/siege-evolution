@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_ylif2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_0m8mx"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/stone_wall.tres" id="3_tqdv8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/bull.tres" id="4_o0a06"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/llama.tres" id="5_lsyt7"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hedge.tres" id="6_iiuw7"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/draft_horse.tres" id="7_b20u8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/stone_silo.tres" id="8_xqjp1"]
+
+[resource]
+script = ExtResource("1_ylif2")
+id = "fortress"
+display_name = "Fortress"
+description = "Massive walls and slow, heavy hitters. Holds the line and outlasts smashers."
+color = Color(0.81960785, 0.3764706, 0.23921569, 1)
+units = Array[ExtResource("2_0m8mx")]([ExtResource("3_tqdv8"), ExtResource("4_o0a06"), ExtResource("5_lsyt7"), ExtResource("6_iiuw7"), ExtResource("7_b20u8"), ExtResource("8_xqjp1")])
