@@ -11,7 +11,6 @@ const OLD_UNIT_REFUND := 0.5
 const BOARD_POSITION := Vector2(36, 82)
 const BOARD_SCALE := 2.0
 const MENU_SCENE := "res://scenes/menu.tscn"
-const PREVIEW_FOOTNOTE := "Path preview is only shown in the first level of each biome."
 
 enum Phase { BUILD, WAVE, WON, LOST }
 
@@ -89,7 +88,7 @@ func _ready() -> void:
 func _enter_build_phase() -> void:
 	phase = Phase.BUILD
 	board.wave_active = false
-	board.show_path_preview = level.show_path_preview
+	board.show_path_preview = Progress.show_paths()
 	var next_wave := level.waves[wave_number]
 	board.preview_smashers = _wave_has(next_wave, InvaderData.Movement.SMASHER)
 	board.preview_fliers = _wave_has(next_wave, InvaderData.Movement.FLIER)
@@ -98,14 +97,19 @@ func _enter_build_phase() -> void:
 	hud.refresh()
 
 
-## Footnote under the board: tutorial tips and the path preview note.
+## Footnote under the board: tutorial tips.
 func footnote() -> String:
-	var lines: Array[String] = []
-	if phase == Phase.BUILD and wave_number < level.wave_tips.size() and level.wave_tips[wave_number] != "":
-		lines.append(level.wave_tips[wave_number])
-	if level.show_path_preview:
-		lines.append(PREVIEW_FOOTNOTE)
-	return "\n".join(lines)
+	if phase == Phase.BUILD and wave_number < level.wave_tips.size():
+		return level.wave_tips[wave_number]
+	return ""
+
+
+## The "Paths" button: shows or hides the invaders' routes (saved).
+func toggle_paths() -> void:
+	Progress.set_show_paths(not Progress.show_paths())
+	board.show_path_preview = phase == Phase.BUILD and Progress.show_paths()
+	board.queue_redraw()
+	hud.refresh()
 
 
 func select_type(type: UnitData) -> void:

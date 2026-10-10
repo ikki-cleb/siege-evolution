@@ -109,7 +109,6 @@ func _level(biome_id: String, number: int, table: Dictionary, content: Dictionar
 	level.hand_value = PackedInt32Array(table.hand)
 	level.starting_coins = int(table.coins)
 	level.coins_per_wave = int(table.income)
-	level.show_path_preview = table.get("preview", false)
 	if table.has("tips"):
 		level.wave_tips = PackedStringArray(table.tips)
 	if table.has("tiles"):

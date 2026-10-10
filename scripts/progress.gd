@@ -60,6 +60,17 @@ func is_bonus(index: int) -> bool:
 	return WORLDS[index].get("bonus", false)
 
 
+## Path preview (the invaders' routes, shown during the build phase).
+## On by default; the "Paths" button in a level turns it off. Saved.
+func show_paths() -> bool:
+	return _data.get("show_paths", true)
+
+
+func set_show_paths(on: bool) -> void:
+	_data["show_paths"] = on
+	_save()
+
+
 ## True if this biome id belongs to a bonus world.
 func is_bonus_biome(biome_id: String) -> bool:
 	for index in WORLDS.size():
@@ -155,5 +166,5 @@ func unlock_all_for_testing() -> void:
 
 ## Wipes all progress (used by tests).
 func reset() -> void:
-	_data = {"biomes": {}, "version": SAVE_VERSION}
+	_data = {"biomes": {}, "version": SAVE_VERSION, "show_paths": true}
 	_save()

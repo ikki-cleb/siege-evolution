@@ -60,7 +60,6 @@ Title → World select → Pack select → Level select (5 levels) → Level (8 
 
 - Introduces every invader type in the world, about one idea per wave.
 - Shows a tip in a footnote under the board before each wave (never a pop-up).
-- Is the only level with the **path preview**, and a footnote says so.
 - Gives extra coins so players can try an evolution.
 
 ## Core loop
@@ -137,6 +136,10 @@ becomes "Field-Repaired..." or "Barbed...". Names live in each world's
   evolve or remove it.
 - While a unit type or a placed unit is selected, a **Cancel** button
   appears next to Start Wave; tapping it (or the same unit again) deselects.
+- **Path preview** shows the next wave's routes during every build phase:
+  the walker route, plus smasher (red), flier (blue) and jumper (orange)
+  lines when the next wave has them. A "Paths" button next to the speed
+  button turns it off; the choice is saved.
 - **Upgrades take two taps.** The first tap previews an option: its
   description in the message line, before → after numbers and new mechanics
   in the footnote, its new range as a gold circle on the board, and the

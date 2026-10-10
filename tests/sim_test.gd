@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 86
+const MIN_RULE_CHECKS := 89
 var progress: Node
 
 
@@ -35,6 +35,7 @@ func _run() -> void:
 	await _test_upgrade_preview(biome)
 	await _test_menu_scrolling()
 	_test_level_counts()
+	await _test_path_toggle(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index; 5 = Kitchen, 6 = Birthday).
 		var worlds := [0, 1, 2, 3, 4, 5, 6]
@@ -650,6 +651,22 @@ func _capstone_names(world: BiomeData) -> Array[String]:
 				for capstone in tier1.evolutions:
 					names.append(capstone.display_name)
 	return names
+
+
+# --- Path preview on every level ------------------------------------------------
+
+func _test_path_toggle(biome: BiomeData) -> void:
+	progress.reset()
+	var game := await _start(biome, 0, 2)  # level 3: not a teaching level
+	_check(game.board.show_path_preview, "Paths show on every level by default")
+	game.toggle_paths()
+	_check(not game.board.show_path_preview and game.hud._paths_button.text == "Paths: Off",
+		"The Paths button hides the routes")
+	await _stop(game)
+	game = await _start(biome, 0, 1)
+	_check(not game.board.show_path_preview, "The Paths choice is remembered")
+	await _stop(game)
+	progress.reset()
 
 
 # --- Five levels of eight waves ------------------------------------------------

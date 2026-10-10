@@ -26,8 +26,6 @@ extends Resource
 ## (Most coins come from invaders dropping them when they die.)
 @export var coins_per_wave: int = 5
 
-## Show the invaders' predicted route (first level of each biome only).
-@export var show_path_preview: bool = false
 ## Optional footnote shown before each wave (tutorial hints). Index 0 = wave 1.
 @export var wave_tips: PackedStringArray = []
 

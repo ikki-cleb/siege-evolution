@@ -43,6 +43,8 @@ var _sell_button: Button
 var _speed_button: Button
 ## Shown while a unit is selected, so it's obvious how to deselect it.
 var _cancel_button: Button
+## Turns the invaders' route preview on or off.
+var _paths_button: Button
 var _start_button: Button
 ## Parent of every HUD control (carries the theme).
 var _root: Control
@@ -121,6 +123,7 @@ func refresh() -> void:
 
 	_cancel_button.visible = game.has_selection()
 	_speed_button.text = "%dx" % game.speed
+	_paths_button.text = "Paths: %s" % ("On" if _progress().show_paths() else "Off")
 	_start_button.disabled = not building
 	_start_button.text = "Start Wave" if building else "Wave %d..." % game.wave_number
 
@@ -378,12 +381,14 @@ func _build_bottom_bar() -> void:
 	control_row.add_theme_constant_override("separation", 6)
 	_root.add_child(control_row)
 	_speed_button = _make_button("1x", game.cycle_speed)
+	_paths_button = _make_button("Paths: On", game.toggle_paths)
+	_paths_button.add_theme_font_size_override("font_size", SMALL_FONT)
 	_cancel_button = _make_button("X  Cancel", game.cancel_selection)
 	_cancel_button.modulate = Palette.HEART.lightened(0.3)
 	_cancel_button.visible = false
 	_start_button = _make_button("Start Wave", game.start_wave)
 	_start_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	for button in [_speed_button, _cancel_button, _start_button]:
+	for button in [_speed_button, _paths_button, _cancel_button, _start_button]:
 		button.custom_minimum_size.y = 40
 		control_row.add_child(button)
 
