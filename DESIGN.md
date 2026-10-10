@@ -41,10 +41,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
   layouts, nastier wave mixes and less starting ATP (invader stats stay
   comparable to the main worlds). The store card warns about this before
   purchase. Each bonus world adds its own new invader type.
-  - **Kitchen Defense** (built first): pantry-pest scale (ants, cockroaches,
-    mice, fruit flies) raiding the pantry; you defend the cookie jar.
-    New behavior: **spillers**, which leave a sticky/greasy trail that slows
-    the attacks of units standing in it until the next wave.
+  - **Kitchen Defense** (built first, see its section below).
 - **Each world has its own invader roster.** All behavior types appear in
   that world's level 1, and levels 2–7 add **elite variants** of them.
 - **Starter pack:** picked when entering a world and kept for all 7 levels.
@@ -263,6 +260,41 @@ hit it, and every pack has at least one.
 | UFO Bomber | Bomber |
 | **Mothership** | Flying boss: repeated bombs, drops blinkers |
 
+## Bonus World: Kitchen Defense (post-game)
+
+Pantry-pest scale: ants, cockroaches, mice and flies raid the kitchen; you
+defend the **cookie jar**. Levels rotate three areas with their own tiles and
+obstacles: **pantry shelves**, **counter top** and **kitchen floor** (jars,
+cans, chair legs). Walls are kitchen objects (sugar cubes, sponges, tin cans,
+cheese graters, cling wrap); attackers are kitchen tools and traps (fly
+swatters, spray bottles, mousetraps, pepper grinders, toasters).
+
+**Post-game difficulty:** the store card carries a red "POST-GAME: HARD"
+tag and "Harder than Galactic Siege. Best after finishing the main game."
+Difficulty comes from mechanics, tighter layouts, nastier wave mixes and less
+starting ATP, not inflated invader stats. Target: the auto-player wins about
+70% of level/pack runs, and every pack beats at least 5 of 7 levels.
+
+**New behavior: spillers.** Every few tiles a spiller splashes the units
+right beside its route. A sticky unit attacks 40% slower until the free
+repair after the wave. Long mazes lined with attackers get gummed up, so
+players must choose where to fight.
+
+Returning behaviors: walker swarms, splitters, smashers and fliers.
+
+| Invader | Type |
+|---|---|
+| Sugar Ant / Fire Ant (elite) | Walker swarm |
+| Slug | **Spiller**: slow, tanky, long slime trail |
+| Honey Ant | Spiller (elite): faster, sticky |
+| Mouse Nest / Rat Nest (elite) | Walker, bursts into mice |
+| Cockroach / Giant Roach (elite) | Smasher |
+| Fruit Fly / Housefly (elite) | Flier |
+| **Rat King** | Boss smasher (level 7): sheds rats, leaves a grease trail |
+
+Beating the Rat King shows a **world-cleared screen** (confetti,
+"Kitchen Defense cleared!", and a nudge toward Birthday Bash if not owned).
+
 ## Polish (v0.8)
 
 - **Look:** one theme for menus and the in-level screen. Each world has an
@@ -324,7 +356,8 @@ comes next.
 ## Open questions
 
 - Cosmetic unlocks (palettes, skins, menu themes): what and when
-- Content for the two bonus worlds (sold in the store but not built yet)
+- Birthday Bash content (sold in the store but not built yet)
+- User's v0.8 playtest notes (to handle after Kitchen Defense)
 - Orchard (World 3, level 3) is the hardest level for the bot, especially with Toxin
 - Overall difficulty after human playtesting (the bot finds most levels easy)
 - How the sound, music and new look feel in real play; Blinker frequency
