@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bv1pn"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/hardened_sludge.tres" id="2_lcgen"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/virulent_sludge.tres" id="3_l6jof"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/sludge_pit.png" id="4_d5mwk"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/sludge_pit_attack.png" id="1_l6jof"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/sludge_pit_idle.png" id="2_d5mwk"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_j8gx0"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/hardened_sludge.tres" id="4_jwl6x"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/virulent_sludge.tres" id="5_fjtre"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/sludge_pit.png" id="6_h36cv"]
 
 [resource]
-script = ExtResource("1_bv1pn")
+script = ExtResource("3_j8gx0")
 id = "sludge_pit"
 display_name = "Sludge Pit"
 cost = 14
@@ -15,7 +17,9 @@ attack_mode = 1
 poison_dps = 3.0
 poison_duration = 2.0
 poison_spreads = true
-evolutions = Array[ExtResource("1_bv1pn")]([ExtResource("2_lcgen"), ExtResource("3_l6jof")])
-texture = ExtResource("4_d5mwk")
+evolutions = Array[ExtResource("3_j8gx0")]([ExtResource("4_jwl6x"), ExtResource("5_fjtre")])
+texture = ExtResource("6_h36cv")
+anim_idle = ExtResource("2_d5mwk")
+anim_attack = ExtResource("1_l6jof")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Wall that poisons everything next to it. The poison spreads."

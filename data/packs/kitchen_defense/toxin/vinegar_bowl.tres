@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bngoj"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/pickling_bowl.tres" id="2_8f0tb"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/overflowing_bowl.tres" id="3_anfkw"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/vinegar_bowl.png" id="4_6dddr"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/vinegar_bowl_attack.png" id="1_anfkw"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/vinegar_bowl_idle.png" id="2_6dddr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_08iof"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/pickling_bowl.tres" id="4_kep27"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/overflowing_bowl.tres" id="5_0flkm"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/vinegar_bowl.png" id="6_1g7np"]
 
 [resource]
-script = ExtResource("1_bngoj")
+script = ExtResource("3_08iof")
 id = "vinegar_bowl"
 display_name = "Vinegar Bowl"
 role = 1
@@ -15,7 +17,9 @@ attack_mode = 1
 attack_range = 1.6
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_bngoj")]([ExtResource("2_8f0tb"), ExtResource("3_anfkw")])
-texture = ExtResource("4_6dddr")
+evolutions = Array[ExtResource("3_08iof")]([ExtResource("4_kep27"), ExtResource("5_0flkm")])
+texture = ExtResource("6_1g7np")
+anim_idle = ExtResource("2_6dddr")
+anim_attack = ExtResource("1_anfkw")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poisons everything around it."

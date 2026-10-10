@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qq2eb"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/recoil_heavy_bazooka.png" id="2_qdvou"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/heavy_bazooka_attack.png" id="1_rm1wp"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/heavy_bazooka_idle.png" id="2_adgom"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_g5co8"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/recoil_heavy_bazooka.png" id="4_l1u66"]
 
 [resource]
-script = ExtResource("1_qq2eb")
+script = ExtResource("3_g5co8")
 id = "recoil_heavy_bazooka"
 display_name = "Recoil Heavy Bazooka"
 role = 1
@@ -16,6 +18,8 @@ attack_interval = 1.6
 pierce = true
 tier = 2
 knockback = 1
-texture = ExtResource("2_qdvou")
+texture = ExtResource("4_l1u66")
+anim_idle = ExtResource("2_adgom")
+anim_attack = ExtResource("1_rm1wp")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Strikes shove invaders back."

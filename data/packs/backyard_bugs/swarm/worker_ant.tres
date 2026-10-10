@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n8rce"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/fire_ant.tres" id="2_swo7b"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/scout_ant.tres" id="3_b2dmp"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/worker_ant.png" id="4_v6hf0"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/worker_ant_attack.png" id="1_b2dmp"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/worker_ant_idle.png" id="2_v6hf0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_xfeml"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/fire_ant.tres" id="4_bipnu"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/scout_ant.tres" id="5_tird0"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/worker_ant.png" id="6_b1ou7"]
 
 [resource]
-script = ExtResource("1_n8rce")
+script = ExtResource("3_xfeml")
 id = "worker_ant"
 display_name = "Worker Ant"
 role = 1
@@ -14,7 +16,9 @@ cost = 8
 damage = 2.3
 attack_interval = 0.45
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_n8rce")]([ExtResource("2_swo7b"), ExtResource("3_b2dmp")])
-texture = ExtResource("4_v6hf0")
+evolutions = Array[ExtResource("3_xfeml")]([ExtResource("4_bipnu"), ExtResource("5_tird0")])
+texture = ExtResource("6_b1ou7")
+anim_idle = ExtResource("2_v6hf0")
+anim_attack = ExtResource("1_b2dmp")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Fast melee jabs, faster in groups."

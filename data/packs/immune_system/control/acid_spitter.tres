@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_v8dt6"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/control/corrosive_spitter.tres" id="2_v27no"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/control/burning_spitter.tres" id="3_gw08a"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/acid_spitter.png" id="4_ek636"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/acid_spitter_attack.png" id="1_gw08a"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/acid_spitter_idle.png" id="2_ek636"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_a0dwf"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/corrosive_spitter.tres" id="4_cra6i"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/burning_spitter.tres" id="5_id25i"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/acid_spitter.png" id="6_4wqbv"]
 
 [resource]
-script = ExtResource("1_v8dt6")
+script = ExtResource("3_a0dwf")
 id = "acid_spitter"
 display_name = "Big Sneeze Blaster"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_v8dt6")]([ExtResource("2_v27no"), ExtResource("3_gw08a")])
-texture = ExtResource("4_ek636")
+evolutions = Array[ExtResource("3_a0dwf")]([ExtResource("4_cra6i"), ExtResource("5_id25i")])
+texture = ExtResource("6_4wqbv")
+anim_idle = ExtResource("2_ek636")
+anim_attack = ExtResource("1_gw08a")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_t116c"]
-[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/housefly.png" id="2_or61k"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/housefly_death.png" id="1_8bda4"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/housefly_move.png" id="2_0ckf6"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_0h2s4"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/housefly.png" id="4_1qtd8"]
 
 [resource]
-script = ExtResource("1_t116c")
+script = ExtResource("3_0h2s4")
 id = "housefly"
 display_name = "Housefly"
 movement = 2
@@ -14,5 +16,7 @@ speed = 1.6
 base_damage = 2
 coin_drop = 2
 is_elite = true
-texture = ExtResource("2_or61k")
+texture = ExtResource("4_1qtd8")
+anim_move = ExtResource("2_0ckf6")
+anim_death = ExtResource("1_8bda4")
 description = "Elite: a fast armored flier."

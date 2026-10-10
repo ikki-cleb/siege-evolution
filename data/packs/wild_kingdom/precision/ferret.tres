@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_56jh5"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/fierce_ferret.tres" id="2_k5syf"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/roaming_ferret.tres" id="3_3u0oh"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/ferret.png" id="4_pikcy"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/ferret_attack.png" id="1_3u0oh"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/ferret_idle.png" id="2_pikcy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_junmx"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/fierce_ferret.tres" id="4_0cu3w"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/roaming_ferret.tres" id="5_0yjih"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/ferret.png" id="6_nbe6w"]
 
 [resource]
-script = ExtResource("1_56jh5")
+script = ExtResource("3_junmx")
 id = "ferret"
 display_name = "Ferret"
 role = 1
@@ -16,7 +18,9 @@ damage = 12.0
 attack_range = 2.5
 attack_interval = 1.6
 pierce = true
-evolutions = Array[ExtResource("1_56jh5")]([ExtResource("2_k5syf"), ExtResource("3_3u0oh")])
-texture = ExtResource("4_pikcy")
+evolutions = Array[ExtResource("3_junmx")]([ExtResource("4_0cu3w"), ExtResource("5_0yjih")])
+texture = ExtResource("6_nbe6w")
+anim_idle = ExtResource("2_pikcy")
+anim_attack = ExtResource("1_3u0oh")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Armor-piercing strikes. Ground only."

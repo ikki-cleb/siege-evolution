@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_v6c1w"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/frozen_wide_wrap.tres" id="2_gpbgn"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/popping_wide_wrap.tres" id="3_glw28"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/wide_wrap.png" id="4_q2rrl"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/wide_wrap_attack.png" id="1_glw28"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/wide_wrap_idle.png" id="2_q2rrl"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_h1vca"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/frozen_wide_wrap.tres" id="4_yt6og"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/popping_wide_wrap.tres" id="5_okwb6"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/wide_wrap.png" id="6_o8jrk"]
 
 [resource]
-script = ExtResource("1_v6c1w")
+script = ExtResource("3_h1vca")
 id = "wide_wrap"
 display_name = "Wide Wrap"
 cost = 6
@@ -18,7 +20,9 @@ attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_v6c1w")]([ExtResource("2_gpbgn"), ExtResource("3_glw28")])
-texture = ExtResource("4_q2rrl")
+evolutions = Array[ExtResource("3_h1vca")]([ExtResource("4_yt6og"), ExtResource("5_okwb6")])
+texture = ExtResource("6_o8jrk")
+anim_idle = ExtResource("2_q2rrl")
+anim_attack = ExtResource("1_glw28")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Stronger, wider slow."

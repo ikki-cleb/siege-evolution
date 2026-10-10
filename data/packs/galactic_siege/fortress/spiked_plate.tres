@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gy8xi"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/overload_spiked_plate.tres" id="2_pxqu5"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/tractor_spiked_plate.tres" id="3_qj0p0"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/spiked_plate.png" id="4_evr3j"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/spiked_plate_idle.png" id="1_pxqu5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_qj0p0"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/overload_spiked_plate.tres" id="3_evr3j"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/tractor_spiked_plate.tres" id="4_rmkmq"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/spiked_plate.png" id="5_jhdvj"]
 
 [resource]
-script = ExtResource("1_gy8xi")
+script = ExtResource("2_qj0p0")
 id = "spiked_plate"
 display_name = "Spiked Plate"
 cost = 10
 max_hp = 120
 reflect = 0.6
 tier = 1
-evolutions = Array[ExtResource("1_gy8xi")]([ExtResource("2_pxqu5"), ExtResource("3_qj0p0")])
+evolutions = Array[ExtResource("2_qj0p0")]([ExtResource("3_evr3j"), ExtResource("4_rmkmq")])
 can_place_on_water = true
-texture = ExtResource("4_evr3j")
+texture = ExtResource("5_jhdvj")
+anim_idle = ExtResource("1_pxqu5")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 60% of smasher damage."

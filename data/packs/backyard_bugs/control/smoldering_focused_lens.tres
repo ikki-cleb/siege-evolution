@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8w0nx"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/smoldering_focused_lens.png" id="2_psnvi"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/focused_lens_attack.png" id="1_4c0ni"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/focused_lens_idle.png" id="2_v1k6a"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_66acc"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/smoldering_focused_lens.png" id="4_mp2kp"]
 
 [resource]
-script = ExtResource("1_8w0nx")
+script = ExtResource("3_66acc")
 id = "smoldering_focused_lens"
 display_name = "Smoldering Focused Lens"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 tier = 2
 zone_kind = "burn"
 zone_power = 5.0
-texture = ExtResource("2_psnvi")
+texture = ExtResource("4_mp2kp")
+anim_idle = ExtResource("2_v1k6a")
+anim_attack = ExtResource("1_4c0ni")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Leaves a burning patch around itself."

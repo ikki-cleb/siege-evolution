@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ln11u"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/scrubbed_reinforced_silo.tres" id="2_fe3em"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/mended_reinforced_silo.tres" id="3_obroj"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/reinforced_silo.png" id="4_wdk27"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/reinforced_silo_attack.png" id="1_obroj"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/reinforced_silo_idle.png" id="2_wdk27"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_552fh"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/scrubbed_reinforced_silo.tres" id="4_pssms"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/mended_reinforced_silo.tres" id="5_kl80u"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/reinforced_silo.png" id="6_diyqo"]
 
 [resource]
-script = ExtResource("1_ln11u")
+script = ExtResource("3_552fh")
 id = "reinforced_silo"
 display_name = "Reinforced Silo"
 cost = 16
@@ -14,7 +16,9 @@ max_hp = 480
 attack_mode = 1
 damage = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_ln11u")]([ExtResource("2_fe3em"), ExtResource("3_obroj")])
-texture = ExtResource("4_wdk27")
+evolutions = Array[ExtResource("3_552fh")]([ExtResource("4_pssms"), ExtResource("5_kl80u")])
+texture = ExtResource("6_diyqo")
+anim_idle = ExtResource("2_wdk27")
+anim_attack = ExtResource("1_obroj")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Nearly unbreakable."

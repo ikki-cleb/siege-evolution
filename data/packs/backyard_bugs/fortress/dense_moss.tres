@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_piyrf"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/regrowing_dense_moss.tres" id="2_170bm"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sheltering_dense_moss.tres" id="3_4up4j"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/dense_moss.png" id="4_37vdm"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/dense_moss_idle.png" id="1_170bm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_4up4j"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/regrowing_dense_moss.tres" id="3_37vdm"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sheltering_dense_moss.tres" id="4_swx7x"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/dense_moss.png" id="5_jr2fk"]
 
 [resource]
-script = ExtResource("1_piyrf")
+script = ExtResource("2_4up4j")
 id = "dense_moss"
 display_name = "Dense Moss"
 cost = 10
 max_hp = 150
 regen = 6.0
 tier = 1
-evolutions = Array[ExtResource("1_piyrf")]([ExtResource("2_170bm"), ExtResource("3_4up4j")])
-texture = ExtResource("4_37vdm")
+evolutions = Array[ExtResource("2_4up4j")]([ExtResource("3_37vdm"), ExtResource("4_swx7x")])
+texture = ExtResource("5_jr2fk")
+anim_idle = ExtResource("1_170bm")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tjjhk"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/two_handed_fine_mister.tres" id="2_8whao"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/tip_jar_fine_mister.tres" id="3_xhf6h"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/fine_mister.png" id="4_t3bl1"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/fine_mister_attack.png" id="1_xhf6h"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/fine_mister_idle.png" id="2_t3bl1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_eaduq"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/two_handed_fine_mister.tres" id="4_7jp1h"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/tip_jar_fine_mister.tres" id="5_p4r5n"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/fine_mister.png" id="6_85fr8"]
 
 [resource]
-script = ExtResource("1_tjjhk")
+script = ExtResource("3_eaduq")
 id = "fine_mister"
 display_name = "Fine Mister"
 role = 1
@@ -20,7 +22,9 @@ splash_radius = 1.0
 poison_dps = 2.5
 poison_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_tjjhk")]([ExtResource("2_8whao"), ExtResource("3_xhf6h")])
-texture = ExtResource("4_t3bl1")
+evolutions = Array[ExtResource("3_eaduq")]([ExtResource("4_7jp1h"), ExtResource("5_p4r5n")])
+texture = ExtResource("6_85fr8")
+anim_idle = ExtResource("2_t3bl1")
+anim_attack = ExtResource("1_xhf6h")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hhrpc"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/sticky_lush_moss.png" id="2_vpnys"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/lush_moss_idle.png" id="1_vpnys"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_bu6pm"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/sticky_lush_moss.png" id="3_o108o"]
 
 [resource]
-script = ExtResource("1_hhrpc")
+script = ExtResource("2_bu6pm")
 id = "sticky_lush_moss"
 display_name = "Sticky Lush Moss"
 cost = 40
@@ -12,6 +13,7 @@ max_hp = 70
 regen = 16.0
 tier = 2
 grab_stun = 1.0
-texture = ExtResource("2_vpnys")
+texture = ExtResource("3_o108o")
+anim_idle = ExtResource("1_vpnys")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Smashers that bite it get stuck."

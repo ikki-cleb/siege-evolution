@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_lr4pa"]
-[ext_resource type="Texture2D" path="res://art/invaders/immune_system/rhinovirus.png" id="2_v0efr"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/rhinovirus_death.png" id="1_uv7v5"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/rhinovirus_move.png" id="2_qvusv"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_cuijp"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/rhinovirus.png" id="4_yolsj"]
 
 [resource]
-script = ExtResource("1_lr4pa")
+script = ExtResource("3_cuijp")
 id = "rhinovirus"
 display_name = "Rhinovirus"
 max_hp = 6
 speed = 1.6
-texture = ExtResource("2_v0efr")
+texture = ExtResource("4_yolsj")
+anim_move = ExtResource("2_qvusv")
+anim_death = ExtResource("1_uv7v5")
 description = "Fast, weak, comes in swarms."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_56fxb"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/field_repaired_hardened_sludge.tres" id="2_jp786"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/barbed_hardened_sludge.tres" id="3_gui2r"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/hardened_sludge.png" id="4_nafvu"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/hardened_sludge_attack.png" id="1_gui2r"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/hardened_sludge_idle.png" id="2_nafvu"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_f7jyt"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/field_repaired_hardened_sludge.tres" id="4_g213g"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/barbed_hardened_sludge.tres" id="5_s1anb"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/hardened_sludge.png" id="6_s27y3"]
 
 [resource]
-script = ExtResource("1_56fxb")
+script = ExtResource("3_f7jyt")
 id = "hardened_sludge"
 display_name = "Hardened Sludge"
 cost = 12
@@ -16,7 +18,9 @@ poison_dps = 3.0
 poison_duration = 2.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_56fxb")]([ExtResource("2_jp786"), ExtResource("3_gui2r")])
-texture = ExtResource("4_nafvu")
+evolutions = Array[ExtResource("3_f7jyt")]([ExtResource("4_g213g"), ExtResource("5_s1anb")])
+texture = ExtResource("6_s27y3")
+anim_idle = ExtResource("2_nafvu")
+anim_attack = ExtResource("1_gui2r")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

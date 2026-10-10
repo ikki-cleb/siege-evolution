@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bxk4d"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/double_heavy_dart_blaster.tres" id="2_ej3kw"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/grand_finale_heavy_dart_blaster.tres" id="3_50hro"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/heavy_dart_blaster.png" id="4_im1jm"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/heavy_dart_blaster_attack.png" id="1_50hro"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/heavy_dart_blaster_idle.png" id="2_im1jm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6u28c"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/double_heavy_dart_blaster.tres" id="4_kgpih"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/grand_finale_heavy_dart_blaster.tres" id="5_mfd74"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/heavy_dart_blaster.png" id="6_50drw"]
 
 [resource]
-script = ExtResource("1_bxk4d")
+script = ExtResource("3_6u28c")
 id = "heavy_dart_blaster"
 display_name = "Heavy Dart Blaster"
 role = 1
@@ -16,7 +18,9 @@ damage = 8.0
 attack_range = 3.0
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_bxk4d")]([ExtResource("2_ej3kw"), ExtResource("3_50hro")])
-texture = ExtResource("4_im1jm")
+evolutions = Array[ExtResource("3_6u28c")]([ExtResource("4_kgpih"), ExtResource("5_mfd74")])
+texture = ExtResource("6_50drw")
+anim_idle = ExtResource("2_im1jm")
+anim_attack = ExtResource("1_50hro")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

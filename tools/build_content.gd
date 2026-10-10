@@ -188,22 +188,39 @@ func _pack(biome_id: String, row: Dictionary) -> PackData:
 	var dir := "res://data/packs/%s/%s" % [biome_id, row.id]
 	DirAccess.make_dir_recursive_absolute(dir)
 	var art_dir := "res://art/units/%s/%s" % [biome_id, row.id]
+	var anim_dir := "res://art/anim/%s/units/%s" % [biome_id, row.id]
 	for unit_row in row.units:
 		var unit := _unit(unit_row, {}, art_dir, pack.color)
+		_unit_anims(unit, anim_dir, unit_row.id)
 		for evo_row in unit_row.evolutions:
 			# Evolutions start as a copy of the base unit, then apply changes.
 			var evolution := _unit(evo_row, unit_row, art_dir, pack.color)
+			_unit_anims(evolution, anim_dir, evo_row.id)
 			evolution.tier = 1
 			# Capstones start as a copy of the tier-1 evolution.
 			var tier1: Dictionary = unit_row.duplicate()
 			tier1.merge(evo_row, true)
 			for cap_row in evo_row.get("evolutions", []):
 				var capstone := _unit(cap_row, tier1, art_dir, pack.color)
+				# Capstones reuse their tier-1 animations (the game adds a star).
+				capstone.anim_idle = evolution.anim_idle
+				capstone.anim_attack = evolution.anim_attack
 				capstone.tier = 2
 				evolution.evolutions.append(_save(capstone, "%s/%s.tres" % [dir, cap_row.id]))
 			unit.evolutions.append(_save(evolution, "%s/%s.tres" % [dir, evo_row.id]))
 		pack.units.append(_save(unit, "%s/%s.tres" % [dir, unit_row.id]))
 	return _save(pack, "%s/%s_pack.tres" % [dir, row.id])
+
+
+## Animation strips, if they exist: <unit id>_idle.png and <unit id>_attack.png.
+func _unit_anims(unit: UnitData, anim_dir: String, id: String) -> void:
+	unit.anim_idle = _strip("%s/%s_idle.png" % [anim_dir, id])
+	unit.anim_attack = _strip("%s/%s_attack.png" % [anim_dir, id])
+
+
+## Loads an animation strip if it's there (null otherwise).
+func _strip(path: String) -> Texture2D:
+	return load(path) if ResourceLoader.exists(path) else null
 
 
 func _unit(row: Dictionary, base: Dictionary, art_dir: String, pack_color: Color) -> UnitData:
@@ -302,6 +319,9 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 		invader.pinata_max = int(row.pinata_max)
 	invader.description = row.get("desc", "")
 	invader.texture = load("res://art/invaders/%s/%s.png" % [biome_id, row.id])
+	var anim_dir := "res://art/anim/%s/invaders" % biome_id
+	invader.anim_move = _strip("%s/%s_move.png" % [anim_dir, row.id])
+	invader.anim_death = _strip("%s/%s_death.png" % [anim_dir, row.id])
 	invaders[row.id] = _save(invader, "res://data/invaders/%s/%s.tres" % [biome_id, row.id])
 
 

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mhw8n"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/many_legged_fire_ant.tres" id="2_ugd4e"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/predator_fire_ant.tres" id="3_cji2c"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/fire_ant.png" id="4_buotv"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/fire_ant_attack.png" id="1_cji2c"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/fire_ant_idle.png" id="2_buotv"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_4gpd6"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/many_legged_fire_ant.tres" id="4_2ux0f"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/predator_fire_ant.tres" id="5_7h8km"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/fire_ant.png" id="6_koaum"]
 
 [resource]
-script = ExtResource("1_mhw8n")
+script = ExtResource("3_4gpd6")
 id = "fire_ant"
 display_name = "Fire Ant"
 role = 1
@@ -15,7 +17,9 @@ damage = 3.5
 attack_interval = 0.45
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_mhw8n")]([ExtResource("2_ugd4e"), ExtResource("3_cji2c")])
-texture = ExtResource("4_buotv")
+evolutions = Array[ExtResource("3_4gpd6")]([ExtResource("4_2ux0f"), ExtResource("5_7h8km")])
+texture = ExtResource("6_koaum")
+anim_idle = ExtResource("2_buotv")
+anim_attack = ExtResource("1_cji2c")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

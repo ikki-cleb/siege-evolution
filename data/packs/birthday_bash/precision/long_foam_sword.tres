@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e6ci1"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bouncing_long_foam_sword.tres" id="2_1ahu3"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/double_long_foam_sword.tres" id="3_lvk32"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/long_foam_sword.png" id="4_dhe5k"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_foam_sword_attack.png" id="1_lvk32"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_foam_sword_idle.png" id="2_dhe5k"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lnybm"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bouncing_long_foam_sword.tres" id="4_gr72l"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/double_long_foam_sword.tres" id="5_x7udt"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/long_foam_sword.png" id="6_qm158"]
 
 [resource]
-script = ExtResource("1_e6ci1")
+script = ExtResource("3_lnybm")
 id = "long_foam_sword"
 display_name = "Long Foam Sword"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 1.6
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_e6ci1")]([ExtResource("2_1ahu3"), ExtResource("3_lvk32")])
-texture = ExtResource("4_dhe5k")
+evolutions = Array[ExtResource("3_lnybm")]([ExtResource("4_gr72l"), ExtResource("5_x7udt")])
+texture = ExtResource("6_qm158")
+anim_idle = ExtResource("2_dhe5k")
+anim_attack = ExtResource("1_lvk32")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More range, hits fliers."

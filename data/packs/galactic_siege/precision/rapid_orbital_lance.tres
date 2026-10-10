@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3ylcj"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/salvage_rapid_orbital_lance.tres" id="2_1qswc"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/arc_rapid_orbital_lance.tres" id="3_o5dux"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/rapid_orbital_lance.png" id="4_ncbys"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/rapid_orbital_lance_attack.png" id="1_o5dux"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/rapid_orbital_lance_idle.png" id="2_ncbys"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_04pkq"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/salvage_rapid_orbital_lance.tres" id="4_nq0f5"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/arc_rapid_orbital_lance.tres" id="5_2svll"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/rapid_orbital_lance.png" id="6_yiscj"]
 
 [resource]
-script = ExtResource("1_3ylcj")
+script = ExtResource("3_04pkq")
 id = "rapid_orbital_lance"
 display_name = "Rapid Orbital Lance"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 1.9
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_3ylcj")]([ExtResource("2_1qswc"), ExtResource("3_o5dux")])
-texture = ExtResource("4_ncbys")
+evolutions = Array[ExtResource("3_04pkq")]([ExtResource("4_nq0f5"), ExtResource("5_2svll")])
+texture = ExtResource("6_yiscj")
+anim_idle = ExtResource("2_ncbys")
+anim_attack = ExtResource("1_o5dux")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Fires much faster."

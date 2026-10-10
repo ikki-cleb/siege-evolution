@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_p8srg"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/exploding_thorned_silo.tres" id="2_sbvt6"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hooked_thorned_silo.tres" id="3_ut5m3"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thorned_silo.png" id="4_xxabe"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/thorned_silo_attack.png" id="1_ut5m3"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/thorned_silo_idle.png" id="2_xxabe"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vbq00"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/exploding_thorned_silo.tres" id="4_dolij"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hooked_thorned_silo.tres" id="5_e4ay8"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thorned_silo.png" id="6_6gj5w"]
 
 [resource]
-script = ExtResource("1_p8srg")
+script = ExtResource("3_vbq00")
 id = "thorned_silo"
 display_name = "Thorned Silo"
 cost = 16
@@ -15,7 +17,9 @@ reflect = 0.8
 attack_mode = 1
 damage = 5.0
 tier = 1
-evolutions = Array[ExtResource("1_p8srg")]([ExtResource("2_sbvt6"), ExtResource("3_ut5m3")])
-texture = ExtResource("4_xxabe")
+evolutions = Array[ExtResource("3_vbq00")]([ExtResource("4_dolij"), ExtResource("5_e4ay8")])
+texture = ExtResource("6_6gj5w")
+anim_idle = ExtResource("2_xxabe")
+anim_attack = ExtResource("1_ut5m3")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 80% of smasher damage."

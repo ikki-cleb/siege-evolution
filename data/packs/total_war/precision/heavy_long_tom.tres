@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_q83dd"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/railgun_heavy_long_tom.tres" id="2_3q1w8"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/commando_heavy_long_tom.tres" id="3_l6k0o"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/heavy_long_tom.png" id="4_c3wi8"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/heavy_long_tom_attack.png" id="1_l6k0o"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/heavy_long_tom_idle.png" id="2_c3wi8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6oy7r"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/railgun_heavy_long_tom.tres" id="4_scqbw"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/commando_heavy_long_tom.tres" id="5_6sdgw"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/heavy_long_tom.png" id="6_yohgt"]
 
 [resource]
-script = ExtResource("1_q83dd")
+script = ExtResource("3_6oy7r")
 id = "heavy_long_tom"
 display_name = "Heavy Long Tom"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 3.0
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_q83dd")]([ExtResource("2_3q1w8"), ExtResource("3_l6k0o")])
-texture = ExtResource("4_c3wi8")
+evolutions = Array[ExtResource("3_6oy7r")]([ExtResource("4_scqbw"), ExtResource("5_6sdgw")])
+texture = ExtResource("6_yohgt")
+anim_idle = ExtResource("2_c3wi8")
+anim_attack = ExtResource("1_l6k0o")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more damage."

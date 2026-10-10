@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ehjah"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/foraging_quick_jumper.png" id="2_8dpeh"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/quick_jumper_attack.png" id="1_nxpp4"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/quick_jumper_idle.png" id="2_vi52j"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_43npv"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/foraging_quick_jumper.png" id="4_pxnud"]
 
 [resource]
-script = ExtResource("1_ehjah")
+script = ExtResource("3_43npv")
 id = "foraging_quick_jumper"
 display_name = "Foraging Quick Jumper"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 pierce = true
 tier = 2
 bounty = 2
-texture = ExtResource("2_8dpeh")
+texture = ExtResource("4_pxnud")
+anim_idle = ExtResource("2_vi52j")
+anim_attack = ExtResource("1_nxpp4")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Its kills drop 2 extra coins."

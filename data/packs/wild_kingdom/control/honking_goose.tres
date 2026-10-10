@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iawwb"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/furious_goose.tres" id="2_h4ok0"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/loud_goose.tres" id="3_hxvdi"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/honking_goose.png" id="4_726xi"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/honking_goose_attack.png" id="1_hxvdi"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/honking_goose_idle.png" id="2_726xi"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_opids"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/furious_goose.tres" id="4_hdb3x"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/loud_goose.tres" id="5_kvg2a"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/honking_goose.png" id="6_64qno"]
 
 [resource]
-script = ExtResource("1_iawwb")
+script = ExtResource("3_opids")
 id = "honking_goose"
 display_name = "Honking Goose"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 3.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-evolutions = Array[ExtResource("1_iawwb")]([ExtResource("2_h4ok0"), ExtResource("3_hxvdi")])
-texture = ExtResource("4_726xi")
+evolutions = Array[ExtResource("3_opids")]([ExtResource("4_hdb3x"), ExtResource("5_kvg2a")])
+texture = ExtResource("6_64qno")
+anim_idle = ExtResource("2_726xi")
+anim_attack = ExtResource("1_hxvdi")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Ranged splash shots. Hits fliers."

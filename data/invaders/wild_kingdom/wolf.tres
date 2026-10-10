@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_2b6a6"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/wolf.png" id="2_5og5k"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/wolf_death.png" id="1_j6frs"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/wolf_move.png" id="2_wj5bu"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_yry2b"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/wolf.png" id="4_pf4f5"]
 
 [resource]
-script = ExtResource("1_2b6a6")
+script = ExtResource("3_yry2b")
 id = "wolf"
 display_name = "Wolf"
 max_hp = 9
 armor = 1
 speed = 1.6
-texture = ExtResource("2_5og5k")
+texture = ExtResource("4_pf4f5")
+anim_move = ExtResource("2_wj5bu")
+anim_death = ExtResource("1_j6frs")

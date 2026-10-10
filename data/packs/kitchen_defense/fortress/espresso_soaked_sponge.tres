@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ei4k5"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/espresso_soaked_sponge.png" id="2_elfc6"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/soaked_sponge_idle.png" id="1_elfc6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_xjc1w"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/espresso_soaked_sponge.png" id="3_phh4d"]
 
 [resource]
-script = ExtResource("1_ei4k5")
+script = ExtResource("2_xjc1w")
 id = "espresso_soaked_sponge"
 display_name = "Espresso Soaked Sponge"
 cost = 40
@@ -12,6 +13,7 @@ max_hp = 70
 regen = 16.0
 tier = 2
 aura_speed = 0.25
-texture = ExtResource("2_elfc6")
+texture = ExtResource("3_phh4d")
+anim_idle = ExtResource("1_elfc6")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Neighbors attack 25% faster."

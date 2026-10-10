@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_li5ud"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/surprise_fuzzy_moldy_cake.tres" id="2_qstxx"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/stinky_fuzzy_moldy_cake.tres" id="3_p8eqv"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/fuzzy_moldy_cake.png" id="4_w21p2"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/fuzzy_moldy_cake_attack.png" id="1_p8eqv"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/fuzzy_moldy_cake_idle.png" id="2_w21p2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_dpfwm"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/surprise_fuzzy_moldy_cake.tres" id="4_ovuv6"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/stinky_fuzzy_moldy_cake.tres" id="5_fcvw6"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/fuzzy_moldy_cake.png" id="6_7p1lp"]
 
 [resource]
-script = ExtResource("1_li5ud")
+script = ExtResource("3_dpfwm")
 id = "fuzzy_moldy_cake"
 display_name = "Fuzzy Moldy Cake"
 cost = 12
@@ -16,7 +18,9 @@ poison_dps = 6.0
 poison_duration = 2.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_li5ud")]([ExtResource("2_qstxx"), ExtResource("3_p8eqv")])
-texture = ExtResource("4_w21p2")
+evolutions = Array[ExtResource("3_dpfwm")]([ExtResource("4_ovuv6"), ExtResource("5_fcvw6")])
+texture = ExtResource("6_7p1lp")
+anim_idle = ExtResource("2_w21p2")
+anim_attack = ExtResource("1_p8eqv")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

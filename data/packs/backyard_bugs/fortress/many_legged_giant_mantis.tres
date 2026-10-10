@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qvsuy"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/many_legged_giant_mantis.png" id="2_t6eay"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/giant_mantis_attack.png" id="1_mfkw4"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/giant_mantis_idle.png" id="2_3mfup"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qcwpf"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/many_legged_giant_mantis.png" id="4_2s0ep"]
 
 [resource]
-script = ExtResource("1_qvsuy")
+script = ExtResource("3_qcwpf")
 id = "many_legged_giant_mantis"
 display_name = "Many-Legged Giant Mantis"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 pierce = true
 tier = 2
 multishot = 2
-texture = ExtResource("2_t6eay")
+texture = ExtResource("4_2s0ep")
+anim_idle = ExtResource("2_3mfup")
+anim_attack = ExtResource("1_mfkw4")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Blasts 2 targets at once."

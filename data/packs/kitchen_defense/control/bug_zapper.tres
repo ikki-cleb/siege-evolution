@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jh2ia"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/mega_zapper.tres" id="2_2mkkl"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/chain_zapper.tres" id="3_rwca7"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/bug_zapper.png" id="4_sqd7i"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/bug_zapper_attack.png" id="1_rwca7"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/bug_zapper_idle.png" id="2_sqd7i"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_uiqta"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/mega_zapper.tres" id="4_eo2pd"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/chain_zapper.tres" id="5_es4u5"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/bug_zapper.png" id="6_2rhy0"]
 
 [resource]
-script = ExtResource("1_jh2ia")
+script = ExtResource("3_uiqta")
 id = "bug_zapper"
 display_name = "Bug Zapper"
 role = 1
@@ -16,7 +18,9 @@ attack_range = 2.5
 attack_interval = 1.6
 hits_air = true
 stun_duration = 0.6
-evolutions = Array[ExtResource("1_jh2ia")]([ExtResource("2_2mkkl"), ExtResource("3_rwca7")])
-texture = ExtResource("4_sqd7i")
+evolutions = Array[ExtResource("3_uiqta")]([ExtResource("4_eo2pd"), ExtResource("5_es4u5")])
+texture = ExtResource("6_2rhy0")
+anim_idle = ExtResource("2_sqd7i")
+anim_attack = ExtResource("1_rwca7")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns its target in place."

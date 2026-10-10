@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n3j33"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/re_inflating_stacked_cups.png" id="2_axvh2"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/stacked_cups_idle.png" id="1_axvh2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_sx7ni"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/re_inflating_stacked_cups.png" id="3_yli8v"]
 
 [resource]
-script = ExtResource("1_n3j33")
+script = ExtResource("2_sx7ni")
 id = "re_inflating_stacked_cups"
 display_name = "Re-Inflating Stacked Cups"
 cost = 14
@@ -12,6 +13,7 @@ max_hp = 40
 tier = 2
 rebuild = true
 can_place_on_water = true
-texture = ExtResource("2_axvh2")
+texture = ExtResource("3_yli8v")
+anim_idle = ExtResource("1_axvh2")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Rebuilds itself once per wave."

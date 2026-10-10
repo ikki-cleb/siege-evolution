@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m5ng3"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/cryo_stasis_field.tres" id="2_n3i76"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/overload_stasis_field.tres" id="3_efyfc"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/stasis_field.png" id="4_bji4e"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/stasis_field_attack.png" id="1_efyfc"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/stasis_field_idle.png" id="2_bji4e"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_phpv5"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/cryo_stasis_field.tres" id="4_q57xl"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/overload_stasis_field.tres" id="5_k3c8t"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/stasis_field.png" id="6_y22d5"]
 
 [resource]
-script = ExtResource("1_m5ng3")
+script = ExtResource("3_phpv5")
 id = "stasis_field"
 display_name = "Stasis Field"
 cost = 6
@@ -17,8 +19,10 @@ attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_m5ng3")]([ExtResource("2_n3i76"), ExtResource("3_efyfc")])
+evolutions = Array[ExtResource("3_phpv5")]([ExtResource("4_q57xl"), ExtResource("5_k3c8t")])
 can_place_on_water = true
-texture = ExtResource("4_bji4e")
+texture = ExtResource("6_y22d5")
+anim_idle = ExtResource("2_bji4e")
+anim_attack = ExtResource("1_efyfc")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stronger slow."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kg43f"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/many_legged_giant_mantis.tres" id="2_7gcqf"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/predator_giant_mantis.tres" id="3_6qk2w"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/giant_mantis.png" id="4_1n1ck"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/giant_mantis_attack.png" id="1_6qk2w"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/giant_mantis_idle.png" id="2_1n1ck"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_4a0nt"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/many_legged_giant_mantis.tres" id="4_do1ie"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/predator_giant_mantis.tres" id="5_o783v"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/giant_mantis.png" id="6_d4a8k"]
 
 [resource]
-script = ExtResource("1_kg43f")
+script = ExtResource("3_4a0nt")
 id = "giant_mantis"
 display_name = "Giant Mantis"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 2.6
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_kg43f")]([ExtResource("2_7gcqf"), ExtResource("3_6qk2w")])
-texture = ExtResource("4_1n1ck")
+evolutions = Array[ExtResource("3_4a0nt")]([ExtResource("4_do1ie"), ExtResource("5_o783v")])
+texture = ExtResource("6_d4a8k")
+anim_idle = ExtResource("2_1n1ck")
+anim_attack = ExtResource("1_6qk2w")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Even bigger blasts."

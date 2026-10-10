@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tdoah"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/dense_nanites.tres" id="2_aq440"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/rapid_nanites.tres" id="3_og7b1"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/nanite_wall.png" id="4_pbqlk"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/nanite_wall_idle.png" id="1_aq440"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_og7b1"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/dense_nanites.tres" id="3_pbqlk"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/rapid_nanites.tres" id="4_3evta"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/nanite_wall.png" id="5_yhwvy"]
 
 [resource]
-script = ExtResource("1_tdoah")
+script = ExtResource("2_og7b1")
 id = "nanite_wall"
 display_name = "Nanite Wall"
 cost = 10
 max_hp = 70
 regen = 6.0
-evolutions = Array[ExtResource("1_tdoah")]([ExtResource("2_aq440"), ExtResource("3_og7b1")])
-texture = ExtResource("4_pbqlk")
+evolutions = Array[ExtResource("2_og7b1")]([ExtResource("3_pbqlk"), ExtResource("4_3evta")])
+texture = ExtResource("5_yhwvy")
+anim_idle = ExtResource("1_aq440")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Wall that heals itself when not under attack."

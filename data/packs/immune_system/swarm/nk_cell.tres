@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_751vp"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/killer_nk_cell.tres" id="2_1i8xq"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/hunting_nk_cell.tres" id="3_mqw62"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/nk_cell.png" id="4_ko052"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/nk_cell_attack.png" id="1_mqw62"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/nk_cell_idle.png" id="2_ko052"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_57lvt"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/killer_nk_cell.tres" id="4_o6pwu"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/hunting_nk_cell.tres" id="5_0iudu"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/nk_cell.png" id="6_j2ybj"]
 
 [resource]
-script = ExtResource("1_751vp")
+script = ExtResource("3_57lvt")
 id = "nk_cell"
 display_name = "Killer Cell"
 role = 1
@@ -16,7 +18,9 @@ damage = 4.0
 attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_751vp")]([ExtResource("2_1i8xq"), ExtResource("3_mqw62")])
-texture = ExtResource("4_ko052")
+evolutions = Array[ExtResource("3_57lvt")]([ExtResource("4_o6pwu"), ExtResource("5_0iudu")])
+texture = ExtResource("6_j2ybj")
+anim_idle = ExtResource("2_ko052")
+anim_attack = ExtResource("1_mqw62")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Armor-piercing melee flurries."

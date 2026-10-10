@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_clkcq"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/cornified_layer.tres" id="2_8ap8d"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/mucosal_barrier.tres" id="3_7e5nc"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/keratinized_cell.png" id="4_7f086"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/keratinized_cell_idle.png" id="1_8ap8d"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_7e5nc"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/cornified_layer.tres" id="3_7f086"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/mucosal_barrier.tres" id="4_84sk2"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/keratinized_cell.png" id="5_luuqi"]
 
 [resource]
-script = ExtResource("1_clkcq")
+script = ExtResource("2_7e5nc")
 id = "keratinized_cell"
 display_name = "Tough Skin Cell"
 cost = 4
 max_hp = 40
 tier = 1
-evolutions = Array[ExtResource("1_clkcq")]([ExtResource("2_8ap8d"), ExtResource("3_7e5nc")])
+evolutions = Array[ExtResource("2_7e5nc")]([ExtResource("3_7f086"), ExtResource("4_84sk2")])
 can_place_on_water = true
-texture = ExtResource("4_7f086")
+texture = ExtResource("5_luuqi")
+anim_idle = ExtResource("1_8ap8d")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

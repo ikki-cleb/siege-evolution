@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mb3a6"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/twin_barrel_veteran_sniper.tres" id="2_vehf2"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/commando_veteran_sniper.tres" id="3_r0jhb"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/veteran_sniper.png" id="4_g10ij"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/veteran_sniper_attack.png" id="1_r0jhb"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/veteran_sniper_idle.png" id="2_g10ij"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_rgqil"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/twin_barrel_veteran_sniper.tres" id="4_u3kcf"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/commando_veteran_sniper.tres" id="5_hj0jo"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/veteran_sniper.png" id="6_brym0"]
 
 [resource]
-script = ExtResource("1_mb3a6")
+script = ExtResource("3_rgqil")
 id = "veteran_sniper"
 display_name = "Veteran Sniper"
 role = 1
@@ -16,7 +18,9 @@ damage = 8.0
 attack_range = 3.0
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_mb3a6")]([ExtResource("2_vehf2"), ExtResource("3_r0jhb")])
-texture = ExtResource("4_g10ij")
+evolutions = Array[ExtResource("3_rgqil")]([ExtResource("4_u3kcf"), ExtResource("5_hj0jo")])
+texture = ExtResource("6_brym0")
+anim_idle = ExtResource("2_g10ij")
+anim_attack = ExtResource("1_r0jhb")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

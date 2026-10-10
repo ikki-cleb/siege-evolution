@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dclwn"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/hooked_woody_hemlock.png" id="2_eh71u"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/woody_hemlock_attack.png" id="1_xg5c2"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/woody_hemlock_idle.png" id="2_tndiq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_yscvy"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/hooked_woody_hemlock.png" id="4_i4p0a"]
 
 [resource]
-script = ExtResource("1_dclwn")
+script = ExtResource("3_yscvy")
 id = "hooked_woody_hemlock"
 display_name = "Hooked Woody Hemlock"
 cost = 52
@@ -15,6 +17,8 @@ poison_duration = 2.0
 poison_spreads = true
 tier = 2
 grab_stun = 1.0
-texture = ExtResource("2_eh71u")
+texture = ExtResource("4_i4p0a")
+anim_idle = ExtResource("2_tndiq")
+anim_attack = ExtResource("1_xg5c2")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Smashers that bite it get stuck."

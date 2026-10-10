@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_usv16"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/loot_rapid_long_tom.tres" id="2_cbqj0"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/relay_rapid_long_tom.tres" id="3_ecklg"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/rapid_long_tom.png" id="4_50rym"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/rapid_long_tom_attack.png" id="1_ecklg"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/rapid_long_tom_idle.png" id="2_50rym"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_inv4j"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/loot_rapid_long_tom.tres" id="4_s5806"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/relay_rapid_long_tom.tres" id="5_vwc2c"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/rapid_long_tom.png" id="6_3hgf2"]
 
 [resource]
-script = ExtResource("1_usv16")
+script = ExtResource("3_inv4j")
 id = "rapid_long_tom"
 display_name = "Rapid Long Tom"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 1.9
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_usv16")]([ExtResource("2_cbqj0"), ExtResource("3_ecklg")])
-texture = ExtResource("4_50rym")
+evolutions = Array[ExtResource("3_inv4j")]([ExtResource("4_s5806"), ExtResource("5_vwc2c")])
+texture = ExtResource("6_3hgf2")
+anim_idle = ExtResource("2_50rym")
+anim_attack = ExtResource("1_ecklg")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Fires much faster."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ldb7p"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/giant_mantis.tres" id="2_sykbn"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/orchid_mantis.tres" id="3_7qr46"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/praying_mantis.png" id="4_v544a"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/praying_mantis_attack.png" id="1_7qr46"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/praying_mantis_idle.png" id="2_v544a"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_muecd"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/giant_mantis.tres" id="4_l3hu8"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/orchid_mantis.tres" id="5_iu17v"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/praying_mantis.png" id="6_cak00"]
 
 [resource]
-script = ExtResource("1_ldb7p")
+script = ExtResource("3_muecd")
 id = "praying_mantis"
 display_name = "Praying Mantis"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 2.0
 attack_interval = 2.6
 hits_air = true
 pierce = true
-evolutions = Array[ExtResource("1_ldb7p")]([ExtResource("2_sykbn"), ExtResource("3_7qr46")])
-texture = ExtResource("4_v544a")
+evolutions = Array[ExtResource("3_muecd")]([ExtResource("4_l3hu8"), ExtResource("5_iu17v")])
+texture = ExtResource("6_cak00")
+anim_idle = ExtResource("2_v544a")
+anim_attack = ExtResource("1_7qr46")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Huge armor-piercing blasts."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_c711n"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/flaming_dense_smoke_launcher.png" id="2_hjdds"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/dense_smoke_launcher_attack.png" id="1_6jxx8"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/dense_smoke_launcher_idle.png" id="2_mtv6p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_12h4y"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/flaming_dense_smoke_launcher.png" id="4_54x45"]
 
 [resource]
-script = ExtResource("1_c711n")
+script = ExtResource("3_12h4y")
 id = "flaming_dense_smoke_launcher"
 display_name = "Flaming Dense Smoke Launcher"
 role = 1
@@ -18,6 +20,8 @@ slow_duration = 1.2
 tier = 2
 zone_kind = "burn"
 zone_power = 4.0
-texture = ExtResource("2_hjdds")
+texture = ExtResource("4_54x45")
+anim_idle = ExtResource("2_mtv6p")
+anim_attack = ExtResource("1_6jxx8")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Leaves a burning patch around itself."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rkspx"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/degranulating_basophil.tres" id="2_cd0xl"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/wide_basophil.tres" id="3_kngq2"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/basophil.png" id="4_4pfkh"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/basophil_attack.png" id="1_kngq2"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/basophil_idle.png" id="2_4pfkh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_rarvf"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/degranulating_basophil.tres" id="4_mp6th"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/wide_basophil.tres" id="5_uq2ja"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/basophil.png" id="6_xgi7f"]
 
 [resource]
-script = ExtResource("1_rkspx")
+script = ExtResource("3_rarvf")
 id = "basophil"
 display_name = "Itch Cell"
 role = 1
@@ -16,7 +18,9 @@ attack_mode = 1
 damage = 1.2
 attack_interval = 0.6
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_rkspx")]([ExtResource("2_cd0xl"), ExtResource("3_kngq2")])
-texture = ExtResource("4_4pfkh")
+evolutions = Array[ExtResource("3_rarvf")]([ExtResource("4_mp6th"), ExtResource("5_uq2ja")])
+texture = ExtResource("6_xgi7f")
+anim_idle = ExtResource("2_4pfkh")
+anim_attack = ExtResource("1_kngq2")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Damages everything around it."

@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_fhpsh"]
-[ext_resource type="Resource" path="res://data/invaders/birthday_bash/gumdrop.tres" id="2_2874n"]
-[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/party_bag.png" id="3_jha4j"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/party_bag_death.png" id="1_jha4j"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/party_bag_move.png" id="2_yrn5l"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_pqkkf"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/gumdrop.tres" id="4_yphjf"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/party_bag.png" id="5_tho8a"]
 
 [resource]
-script = ExtResource("1_fhpsh")
+script = ExtResource("3_pqkkf")
 id = "party_bag"
 display_name = "Party Bag"
 max_hp = 18
 base_damage = 2
-split_into = ExtResource("2_2874n")
+split_into = ExtResource("4_yphjf")
 split_count = 3
-texture = ExtResource("3_jha4j")
+texture = ExtResource("5_tho8a")
+anim_move = ExtResource("2_yrn5l")
+anim_death = ExtResource("1_jha4j")
 description = "Bursts into three gumdrops."

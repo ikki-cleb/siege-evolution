@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0dl7s"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/unwrapping_wide_mallet.tres" id="2_3gcxb"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/fiery_wide_mallet.tres" id="3_fw06f"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/wide_mallet.png" id="4_4xa31"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/wide_mallet_attack.png" id="1_fw06f"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/wide_mallet_idle.png" id="2_4xa31"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_f14ue"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/unwrapping_wide_mallet.tres" id="4_to68s"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/fiery_wide_mallet.tres" id="5_sh2di"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/wide_mallet.png" id="6_l01we"]
 
 [resource]
-script = ExtResource("1_0dl7s")
+script = ExtResource("3_f14ue")
 id = "wide_mallet"
 display_name = "Wide Mallet"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 1.8
 attack_interval = 1.1
 splash_radius = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_0dl7s")]([ExtResource("2_3gcxb"), ExtResource("3_fw06f")])
-texture = ExtResource("4_4xa31")
+evolutions = Array[ExtResource("3_f14ue")]([ExtResource("4_to68s"), ExtResource("5_sh2di")])
+texture = ExtResource("6_l01we")
+anim_idle = ExtResource("2_4xa31")
+anim_attack = ExtResource("1_fw06f")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Longer reach and hits splash."

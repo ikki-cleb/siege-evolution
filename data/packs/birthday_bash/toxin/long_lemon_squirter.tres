@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3a541"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/bouncing_long_lemon_squirter.tres" id="2_lfye4"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/laser_long_lemon_squirter.tres" id="3_qa36j"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/long_lemon_squirter.png" id="4_bjnf4"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/long_lemon_squirter_attack.png" id="1_qa36j"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/long_lemon_squirter_idle.png" id="2_bjnf4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_4dnhl"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/bouncing_long_lemon_squirter.tres" id="4_yg8rh"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/laser_long_lemon_squirter.tres" id="5_hune2"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/long_lemon_squirter.png" id="6_fmctt"]
 
 [resource]
-script = ExtResource("1_3a541")
+script = ExtResource("3_4dnhl")
 id = "long_lemon_squirter"
 display_name = "Long Lemon Squirter"
 role = 1
@@ -17,7 +19,9 @@ attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
 tier = 1
-evolutions = Array[ExtResource("1_3a541")]([ExtResource("2_lfye4"), ExtResource("3_qa36j")])
-texture = ExtResource("4_bjnf4")
+evolutions = Array[ExtResource("3_4dnhl")]([ExtResource("4_yg8rh"), ExtResource("5_hune2")])
+texture = ExtResource("6_fmctt")
+anim_idle = ExtResource("2_bjnf4")
+anim_attack = ExtResource("1_qa36j")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

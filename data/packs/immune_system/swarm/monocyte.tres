@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e3wiu"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/volley_monocyte.tres" id="2_30slf"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/lookout_monocyte.tres" id="3_3yui8"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/monocyte.png" id="4_203ol"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/monocyte_attack.png" id="1_3yui8"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/monocyte_idle.png" id="2_203ol"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_bvxn3"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/volley_monocyte.tres" id="4_0am8p"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/lookout_monocyte.tres" id="5_762ye"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/monocyte.png" id="6_itt42"]
 
 [resource]
-script = ExtResource("1_e3wiu")
+script = ExtResource("3_bvxn3")
 id = "monocyte"
 display_name = "Spike Shooter"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 2.5
 attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_e3wiu")]([ExtResource("2_30slf"), ExtResource("3_3yui8")])
-texture = ExtResource("4_203ol")
+evolutions = Array[ExtResource("3_bvxn3")]([ExtResource("4_0am8p"), ExtResource("5_762ye")])
+texture = ExtResource("6_itt42")
+anim_idle = ExtResource("2_203ol")
+anim_attack = ExtResource("1_3yui8")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Rapid ranged pokes. Hits fliers."

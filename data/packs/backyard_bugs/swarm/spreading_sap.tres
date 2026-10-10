@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dw1vq"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/dewy_spreading_sap.tres" id="2_mjbus"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/bursting_spreading_sap.tres" id="3_4x2xu"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/spreading_sap.png" id="4_e5uhj"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/spreading_sap_attack.png" id="1_4x2xu"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/spreading_sap_idle.png" id="2_e5uhj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_p57at"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/dewy_spreading_sap.tres" id="4_avhi0"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/bursting_spreading_sap.tres" id="5_l1dd5"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/spreading_sap.png" id="6_pvows"]
 
 [resource]
-script = ExtResource("1_dw1vq")
+script = ExtResource("3_p57at")
 id = "spreading_sap"
 display_name = "Spreading Sap"
 cost = 6
@@ -18,7 +20,9 @@ attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_dw1vq")]([ExtResource("2_mjbus"), ExtResource("3_4x2xu")])
-texture = ExtResource("4_e5uhj")
+evolutions = Array[ExtResource("3_p57at")]([ExtResource("4_avhi0"), ExtResource("5_l1dd5")])
+texture = ExtResource("6_pvows")
+anim_idle = ExtResource("2_e5uhj")
+anim_attack = ExtResource("1_4x2xu")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Stronger, wider slow."

@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_i0sms"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/tractor_spiked_scrap.png" id="2_ugqhj"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/spiked_scrap_idle.png" id="1_ugqhj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_vt6u0"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/tractor_spiked_scrap.png" id="3_nayko"]
 
 [resource]
-script = ExtResource("1_i0sms")
+script = ExtResource("2_vt6u0")
 id = "tractor_spiked_scrap"
 display_name = "Tractor Spiked Scrap"
 cost = 14
@@ -13,6 +14,7 @@ reflect = 0.4
 tier = 2
 grab_stun = 0.6
 can_place_on_water = true
-texture = ExtResource("2_ugqhj")
+texture = ExtResource("3_nayko")
+anim_idle = ExtResource("1_ugqhj")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Smashers that bite it get stuck."

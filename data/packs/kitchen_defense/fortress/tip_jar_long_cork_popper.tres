@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2qkly"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/tip_jar_long_cork_popper.png" id="2_su5dh"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/long_cork_popper_attack.png" id="1_rlgjm"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/long_cork_popper_idle.png" id="2_d7dlm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_63qpc"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/tip_jar_long_cork_popper.png" id="4_gvcfg"]
 
 [resource]
-script = ExtResource("1_2qkly")
+script = ExtResource("3_63qpc")
 id = "tip_jar_long_cork_popper"
 display_name = "Tip-Jar Long Cork Popper"
 role = 1
@@ -16,6 +18,8 @@ attack_interval = 1.4
 hits_air = true
 tier = 2
 bounty = 2
-texture = ExtResource("2_su5dh")
+texture = ExtResource("4_gvcfg")
+anim_idle = ExtResource("2_d7dlm")
+anim_attack = ExtResource("1_rlgjm")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Its kills drop 2 extra coins."

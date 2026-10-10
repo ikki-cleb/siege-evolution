@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h45n1"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/deathcap.tres" id="2_nhsek"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/spore_puff.tres" id="3_io57g"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/toxic_mushroom.png" id="4_l38qm"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/toxic_mushroom_attack.png" id="1_io57g"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/toxic_mushroom_idle.png" id="2_l38qm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gjbsd"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/deathcap.tres" id="4_s167s"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/spore_puff.tres" id="5_7vr0k"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/toxic_mushroom.png" id="6_gu7kq"]
 
 [resource]
-script = ExtResource("1_h45n1")
+script = ExtResource("3_gjbsd")
 id = "toxic_mushroom"
 display_name = "Toxic Mushroom"
 role = 1
@@ -15,7 +17,9 @@ attack_mode = 1
 attack_range = 1.6
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_h45n1")]([ExtResource("2_nhsek"), ExtResource("3_io57g")])
-texture = ExtResource("4_l38qm")
+evolutions = Array[ExtResource("3_gjbsd")]([ExtResource("4_s167s"), ExtResource("5_7vr0k")])
+texture = ExtResource("6_gu7kq")
+anim_idle = ExtResource("2_l38qm")
+anim_attack = ExtResource("1_io57g")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poisons everything around it."

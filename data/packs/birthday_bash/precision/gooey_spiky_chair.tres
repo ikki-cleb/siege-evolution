@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n4t0x"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/gooey_spiky_chair.png" id="2_m0gvc"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/spiky_chair_idle.png" id="1_m0gvc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_4621w"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/gooey_spiky_chair.png" id="3_m7itn"]
 
 [resource]
-script = ExtResource("1_n4t0x")
+script = ExtResource("2_4621w")
 id = "gooey_spiky_chair"
 display_name = "Gooey Spiky Chair"
 cost = 22
@@ -13,6 +14,7 @@ reflect = 0.5
 tier = 2
 grab_stun = 0.8
 can_place_on_water = true
-texture = ExtResource("2_m0gvc")
+texture = ExtResource("3_m7itn")
+anim_idle = ExtResource("1_m0gvc")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Smashers that bite it get stuck."

@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_nr6mc"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/regrowing_membrane.tres" id="2_ahmpm"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/sticky_membrane.tres" id="3_w1ntj"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/thick_membrane.png" id="4_nst0r"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/thick_membrane_idle.png" id="1_ahmpm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_w1ntj"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/regrowing_membrane.tres" id="3_nst0r"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/sticky_membrane.tres" id="4_x3hrc"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/thick_membrane.png" id="5_pedcb"]
 
 [resource]
-script = ExtResource("1_nr6mc")
+script = ExtResource("2_w1ntj")
 id = "thick_membrane"
 display_name = "Thick Toxic Skin"
 cost = 6
 max_hp = 60
 reflect = 0.3
 tier = 1
-evolutions = Array[ExtResource("1_nr6mc")]([ExtResource("2_ahmpm"), ExtResource("3_w1ntj")])
+evolutions = Array[ExtResource("2_w1ntj")]([ExtResource("3_nst0r"), ExtResource("4_x3hrc")])
 can_place_on_water = true
-texture = ExtResource("4_nst0r")
+texture = ExtResource("5_pedcb")
+anim_idle = ExtResource("1_ahmpm")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

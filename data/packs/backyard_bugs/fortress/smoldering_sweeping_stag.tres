@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jlws5"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/smoldering_sweeping_stag.png" id="2_6xt56"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/sweeping_stag_attack.png" id="1_0alo7"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/sweeping_stag_idle.png" id="2_cqyre"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_plitu"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/smoldering_sweeping_stag.png" id="4_lw2pd"]
 
 [resource]
-script = ExtResource("1_jlws5")
+script = ExtResource("3_plitu")
 id = "smoldering_sweeping_stag"
 display_name = "Smoldering Sweeping Stag"
 role = 1
@@ -17,6 +19,8 @@ splash_radius = 1.0
 tier = 2
 zone_kind = "burn"
 zone_power = 5.0
-texture = ExtResource("2_6xt56")
+texture = ExtResource("4_lw2pd")
+anim_idle = ExtResource("2_cqyre")
+anim_attack = ExtResource("1_0alo7")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Hits leave a burning patch."

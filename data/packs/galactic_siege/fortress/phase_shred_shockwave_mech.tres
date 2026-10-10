@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_o5v61"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/phase_shred_shockwave_mech.png" id="2_q70t2"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/shockwave_mech_attack.png" id="1_stmno"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/shockwave_mech_idle.png" id="2_ebmfg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ugqvv"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/phase_shred_shockwave_mech.png" id="4_a5pby"]
 
 [resource]
-script = ExtResource("1_o5v61")
+script = ExtResource("3_ugqvv")
 id = "phase_shred_shockwave_mech"
 display_name = "Phase-Shred Shockwave Mech"
 role = 1
@@ -16,6 +18,8 @@ attack_interval = 1.1
 splash_radius = 1.5
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_q70t2")
+texture = ExtResource("4_a5pby")
+anim_idle = ExtResource("2_ebmfg")
+anim_attack = ExtResource("1_stmno")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Wide splash that strips armor."

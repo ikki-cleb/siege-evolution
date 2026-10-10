@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_osnkq"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/scrubbed_tall_scarecrow.tres" id="2_ssuya"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/bucking_tall_scarecrow.tres" id="3_psfe5"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/tall_scarecrow.png" id="4_px1vv"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/tall_scarecrow_attack.png" id="1_psfe5"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/tall_scarecrow_idle.png" id="2_px1vv"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_u21qa"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/scrubbed_tall_scarecrow.tres" id="4_kmdrp"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/bucking_tall_scarecrow.tres" id="5_i6wml"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/tall_scarecrow.png" id="6_bcos2"]
 
 [resource]
-script = ExtResource("1_osnkq")
+script = ExtResource("3_u21qa")
 id = "tall_scarecrow"
 display_name = "Tall Scarecrow"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.25
 mark_duration = 1.5
 tier = 1
-evolutions = Array[ExtResource("1_osnkq")]([ExtResource("2_ssuya"), ExtResource("3_psfe5")])
-texture = ExtResource("4_px1vv")
+evolutions = Array[ExtResource("3_u21qa")]([ExtResource("4_kmdrp"), ExtResource("5_i6wml")])
+texture = ExtResource("6_bcos2")
+anim_idle = ExtResource("2_px1vv")
+anim_attack = ExtResource("1_psfe5")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

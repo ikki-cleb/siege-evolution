@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_30aoo"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/recoil_heavy_turret.png" id="2_86m8a"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/heavy_turret_attack.png" id="1_27d7k"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/heavy_turret_idle.png" id="2_ejkk1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_t4qpa"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/recoil_heavy_turret.png" id="4_1wdxi"]
 
 [resource]
-script = ExtResource("1_30aoo")
+script = ExtResource("3_t4qpa")
 id = "recoil_heavy_turret"
 display_name = "Recoil Heavy Turret"
 role = 1
@@ -14,6 +16,8 @@ damage = 24.0
 attack_interval = 1.1
 tier = 2
 knockback = 1
-texture = ExtResource("2_86m8a")
+texture = ExtResource("4_1wdxi")
+anim_idle = ExtResource("2_ejkk1")
+anim_attack = ExtResource("1_27d7k")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Crushing hits shove invaders back."

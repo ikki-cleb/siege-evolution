@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_newpp"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/thick_brambles.tres" id="2_ifr12"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/poison_brambles.tres" id="3_rjgkf"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/bramble_fence.png" id="4_oruum"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/bramble_fence_idle.png" id="1_ifr12"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_rjgkf"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/thick_brambles.tres" id="3_oruum"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/poison_brambles.tres" id="4_l8kmw"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/bramble_fence.png" id="5_d04et"]
 
 [resource]
-script = ExtResource("1_newpp")
+script = ExtResource("2_rjgkf")
 id = "bramble_fence"
 display_name = "Bramble Fence"
 max_hp = 25
 reflect = 0.3
-evolutions = Array[ExtResource("1_newpp")]([ExtResource("2_ifr12"), ExtResource("3_rjgkf")])
+evolutions = Array[ExtResource("2_rjgkf")]([ExtResource("3_oruum"), ExtResource("4_l8kmw")])
 can_place_on_water = true
-texture = ExtResource("4_oruum")
+texture = ExtResource("5_d04et")
+anim_idle = ExtResource("1_ifr12")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Wall that hurts smashers biting it."

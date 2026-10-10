@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_o52qk"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/scorched_zone.png" id="2_xbgly"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/searing_zone_attack.png" id="1_nty3u"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/searing_zone_idle.png" id="2_yutqu"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_44fgx"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/scorched_zone.png" id="4_76vlf"]
 
 [resource]
-script = ExtResource("1_o52qk")
+script = ExtResource("3_44fgx")
 id = "scorched_zone"
 display_name = "Armor-Eating Hot Swelling"
 role = 1
@@ -19,6 +21,8 @@ slow = 0.5
 slow_duration = 1.0
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_xbgly")
+texture = ExtResource("4_76vlf")
+anim_idle = ExtResource("2_yutqu")
+anim_attack = ExtResource("1_nty3u")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Pulses strip 1 armor."

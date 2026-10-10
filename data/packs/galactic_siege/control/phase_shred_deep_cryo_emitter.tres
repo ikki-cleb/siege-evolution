@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_q0jii"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/phase_shred_deep_cryo_emitter.png" id="2_nmxrl"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/deep_cryo_emitter_attack.png" id="1_l1yx1"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/deep_cryo_emitter_idle.png" id="2_kbq2s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_jvyed"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/phase_shred_deep_cryo_emitter.png" id="4_rh3pb"]
 
 [resource]
-script = ExtResource("1_q0jii")
+script = ExtResource("3_jvyed")
 id = "phase_shred_deep_cryo_emitter"
 display_name = "Phase-Shred Deep Cryo Emitter"
 role = 1
@@ -17,6 +19,8 @@ slow = 0.35
 slow_duration = 1.2
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_nmxrl")
+texture = ExtResource("4_rh3pb")
+anim_idle = ExtResource("2_kbq2s")
+anim_attack = ExtResource("1_l1yx1")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Pulses strip 1 armor."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_g1sia"]
-[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/bouncy_ball.png" id="2_tjq2b"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/bouncy_ball_death.png" id="1_0id0o"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/bouncy_ball_move.png" id="2_t8uxj"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_jqf5u"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/bouncy_ball.png" id="4_kgsc5"]
 
 [resource]
-script = ExtResource("1_g1sia")
+script = ExtResource("3_jqf5u")
 id = "bouncy_ball"
 display_name = "Bouncy Ball"
 max_hp = 18
@@ -12,5 +14,7 @@ speed = 1.4
 base_damage = 2
 coin_drop = 2
 jumps = true
-texture = ExtResource("2_tjq2b")
+texture = ExtResource("4_kgsc5")
+anim_move = ExtResource("2_t8uxj")
+anim_death = ExtResource("1_0id0o")
 description = "Bounces over any single unit tile."

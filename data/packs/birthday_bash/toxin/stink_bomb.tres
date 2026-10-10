@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xtbss"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/super_stink_bomb.tres" id="2_oju6b"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/long_stink_bomb.tres" id="3_baeb4"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/stink_bomb.png" id="4_y07uo"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/stink_bomb_attack.png" id="1_baeb4"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/stink_bomb_idle.png" id="2_y07uo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_c6hi2"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/super_stink_bomb.tres" id="4_b2kin"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/long_stink_bomb.tres" id="5_xgbal"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/stink_bomb.png" id="6_nl8a3"]
 
 [resource]
-script = ExtResource("1_xtbss")
+script = ExtResource("3_c6hi2")
 id = "stink_bomb"
 display_name = "Stink Bomb"
 role = 1
@@ -18,7 +20,9 @@ hits_air = true
 poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
-evolutions = Array[ExtResource("1_xtbss")]([ExtResource("2_oju6b"), ExtResource("3_baeb4")])
-texture = ExtResource("4_y07uo")
+evolutions = Array[ExtResource("3_c6hi2")]([ExtResource("4_b2kin"), ExtResource("5_xgbal")])
+texture = ExtResource("6_nl8a3")
+anim_idle = ExtResource("2_y07uo")
+anim_attack = ExtResource("1_baeb4")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison that jumps to nearby invaders when its victim dies."

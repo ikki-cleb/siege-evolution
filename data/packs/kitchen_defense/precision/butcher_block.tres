@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rq6s3"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/oven_mitt_butcher_block.tres" id="2_b8yv1"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/self_stacking_butcher_block.tres" id="3_txsv3"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/butcher_block.png" id="4_b0bfu"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/butcher_block_idle.png" id="1_b8yv1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_txsv3"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/oven_mitt_butcher_block.tres" id="3_b0bfu"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/self_stacking_butcher_block.tres" id="4_6xnev"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/butcher_block.png" id="5_ppwwv"]
 
 [resource]
-script = ExtResource("1_rq6s3")
+script = ExtResource("2_txsv3")
 id = "butcher_block"
 display_name = "Butcher Block"
 cost = 6
 max_hp = 70
 tier = 1
-evolutions = Array[ExtResource("1_rq6s3")]([ExtResource("2_b8yv1"), ExtResource("3_txsv3")])
+evolutions = Array[ExtResource("2_txsv3")]([ExtResource("3_b0bfu"), ExtResource("4_6xnev")])
 can_place_on_water = true
-texture = ExtResource("4_b0bfu")
+texture = ExtResource("5_ppwwv")
+anim_idle = ExtResource("1_b8yv1")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

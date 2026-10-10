@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7lenq"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/angry_bee.tres" id="2_3kdf2"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/buzzing_bee.tres" id="3_v2bom"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/honeybee.png" id="4_u0rrn"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/honeybee_attack.png" id="1_v2bom"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/honeybee_idle.png" id="2_u0rrn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vwuwe"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/angry_bee.tres" id="4_r63eo"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/buzzing_bee.tres" id="5_x5w77"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/honeybee.png" id="6_gmeef"]
 
 [resource]
-script = ExtResource("1_7lenq")
+script = ExtResource("3_vwuwe")
 id = "honeybee"
 display_name = "Honeybee"
 role = 1
@@ -16,7 +18,9 @@ attack_mode = 1
 damage = 1.2
 attack_interval = 0.6
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_7lenq")]([ExtResource("2_3kdf2"), ExtResource("3_v2bom")])
-texture = ExtResource("4_u0rrn")
+evolutions = Array[ExtResource("3_vwuwe")]([ExtResource("4_r63eo"), ExtResource("5_x5w77")])
+texture = ExtResource("6_gmeef")
+anim_idle = ExtResource("2_u0rrn")
+anim_attack = ExtResource("1_v2bom")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Damages everything around it."

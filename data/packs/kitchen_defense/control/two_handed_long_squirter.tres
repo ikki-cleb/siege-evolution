@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_g7egq"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/two_handed_long_squirter.png" id="2_7kaxv"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/long_squirter_attack.png" id="1_k1lhd"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/long_squirter_idle.png" id="2_5v2eb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_w8dot"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/two_handed_long_squirter.png" id="4_82207"]
 
 [resource]
-script = ExtResource("1_g7egq")
+script = ExtResource("3_w8dot")
 id = "two_handed_long_squirter"
 display_name = "Two-Handed Long Squirter"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 splash_radius = 1.0
 tier = 2
 multishot = 2
-texture = ExtResource("2_7kaxv")
+texture = ExtResource("4_82207")
+anim_idle = ExtResource("2_5v2eb")
+anim_attack = ExtResource("1_k1lhd")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Spits at 2 targets at once."

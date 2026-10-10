@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ro632"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/super_bait_station.tres" id="2_asmpb"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/long_bait_station.tres" id="3_rkc6q"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/ant_bait_station.png" id="4_bcu1h"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/ant_bait_station_attack.png" id="1_rkc6q"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/ant_bait_station_idle.png" id="2_bcu1h"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lyrwe"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/super_bait_station.tres" id="4_meq44"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/long_bait_station.tres" id="5_po22c"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/ant_bait_station.png" id="6_kne3f"]
 
 [resource]
-script = ExtResource("1_ro632")
+script = ExtResource("3_lyrwe")
 id = "ant_bait_station"
 display_name = "Ant Bait Station"
 role = 1
@@ -18,7 +20,9 @@ hits_air = true
 poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
-evolutions = Array[ExtResource("1_ro632")]([ExtResource("2_asmpb"), ExtResource("3_rkc6q")])
-texture = ExtResource("4_bcu1h")
+evolutions = Array[ExtResource("3_lyrwe")]([ExtResource("4_meq44"), ExtResource("5_po22c")])
+texture = ExtResource("6_kne3f")
+anim_idle = ExtResource("2_bcu1h")
+anim_attack = ExtResource("1_rkc6q")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison that jumps to nearby invaders when its victim dies."

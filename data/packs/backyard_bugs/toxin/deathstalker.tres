@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_71pk4"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/swarming_deathstalker.tres" id="2_s046m"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/predator_deathstalker.tres" id="3_e7ep8"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/deathstalker.png" id="4_gqd4x"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/deathstalker_attack.png" id="1_e7ep8"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/deathstalker_idle.png" id="2_gqd4x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_cvc6d"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/swarming_deathstalker.tres" id="4_ufsq3"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/predator_deathstalker.tres" id="5_n552d"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/deathstalker.png" id="6_uujt2"]
 
 [resource]
-script = ExtResource("1_71pk4")
+script = ExtResource("3_cvc6d")
 id = "deathstalker"
 display_name = "Deathstalker"
 role = 1
@@ -19,7 +21,9 @@ poison_dps = 8.0
 poison_duration = 5.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_71pk4")]([ExtResource("2_s046m"), ExtResource("3_e7ep8")])
-texture = ExtResource("4_gqd4x")
+evolutions = Array[ExtResource("3_cvc6d")]([ExtResource("4_ufsq3"), ExtResource("5_n552d")])
+texture = ExtResource("6_uujt2")
+anim_idle = ExtResource("2_gqd4x")
+anim_attack = ExtResource("1_e7ep8")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

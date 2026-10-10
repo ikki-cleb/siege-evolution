@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_onjrh"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/acid_pool.tres" id="2_focfe"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/spilling_pool.tres" id="3_1ql6r"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/lysozyme_pool.png" id="4_4s77u"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/lysozyme_pool_attack.png" id="1_1ql6r"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/lysozyme_pool_idle.png" id="2_4s77u"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_u7chr"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/acid_pool.tres" id="4_ob2j6"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/spilling_pool.tres" id="5_cqxqr"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/lysozyme_pool.png" id="6_7yo1l"]
 
 [resource]
-script = ExtResource("1_onjrh")
+script = ExtResource("3_u7chr")
 id = "lysozyme_pool"
 display_name = "Acid Puddle"
 role = 1
@@ -15,7 +17,9 @@ attack_mode = 1
 attack_range = 1.6
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_onjrh")]([ExtResource("2_focfe"), ExtResource("3_1ql6r")])
-texture = ExtResource("4_4s77u")
+evolutions = Array[ExtResource("3_u7chr")]([ExtResource("4_ob2j6"), ExtResource("5_cqxqr")])
+texture = ExtResource("6_7yo1l")
+anim_idle = ExtResource("2_4s77u")
+anim_attack = ExtResource("1_1ql6r")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poisons everything around it."

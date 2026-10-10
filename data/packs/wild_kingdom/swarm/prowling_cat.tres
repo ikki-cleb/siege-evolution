@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t3cgg"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/market_prowling_cat.tres" id="2_w6nc7"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/flurry_prowling_cat.tres" id="3_aeoxy"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/prowling_cat.png" id="4_6lg07"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/prowling_cat_attack.png" id="1_aeoxy"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/prowling_cat_idle.png" id="2_6lg07"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5ntda"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/market_prowling_cat.tres" id="4_58np7"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/flurry_prowling_cat.tres" id="5_yywk3"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/prowling_cat.png" id="6_p326g"]
 
 [resource]
-script = ExtResource("1_t3cgg")
+script = ExtResource("3_5ntda")
 id = "prowling_cat"
 display_name = "Prowling Cat"
 role = 1
@@ -19,7 +21,9 @@ hits_air = true
 pierce = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_t3cgg")]([ExtResource("2_w6nc7"), ExtResource("3_aeoxy")])
-texture = ExtResource("4_6lg07")
+evolutions = Array[ExtResource("3_5ntda")]([ExtResource("4_58np7"), ExtResource("5_yywk3")])
+texture = ExtResource("6_p326g")
+anim_idle = ExtResource("2_6lg07")
+anim_attack = ExtResource("1_aeoxy")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

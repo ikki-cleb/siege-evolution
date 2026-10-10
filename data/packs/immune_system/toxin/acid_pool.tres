@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kmycq"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/dissolving_pool.tres" id="2_s7jxo"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/boiling_pool.tres" id="3_6uhqj"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/acid_pool.png" id="4_0ee5u"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/acid_pool_attack.png" id="1_6uhqj"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/acid_pool_idle.png" id="2_0ee5u"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_fj5jf"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/dissolving_pool.tres" id="4_yij2k"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/boiling_pool.tres" id="5_k814r"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/acid_pool.png" id="6_lq7h4"]
 
 [resource]
-script = ExtResource("1_kmycq")
+script = ExtResource("3_fj5jf")
 id = "acid_pool"
 display_name = "Strong Acid Puddle"
 role = 1
@@ -16,7 +18,9 @@ attack_range = 1.6
 poison_dps = 4.5
 poison_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_kmycq")]([ExtResource("2_s7jxo"), ExtResource("3_6uhqj")])
-texture = ExtResource("4_0ee5u")
+evolutions = Array[ExtResource("3_fj5jf")]([ExtResource("4_yij2k"), ExtResource("5_k814r")])
+texture = ExtResource("6_lq7h4")
+anim_idle = ExtResource("2_0ee5u")
+anim_attack = ExtResource("1_6uhqj")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

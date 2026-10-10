@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_evp6d"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/bursting_spreading_sap.png" id="2_wp4fc"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/spreading_sap_attack.png" id="1_4y2f8"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/spreading_sap_idle.png" id="2_0atba"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_317a0"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/bursting_spreading_sap.png" id="4_c86hx"]
 
 [resource]
-script = ExtResource("1_evp6d")
+script = ExtResource("3_317a0")
 id = "bursting_spreading_sap"
 display_name = "Bursting Spreading Sap"
 cost = 24
@@ -17,6 +19,8 @@ slow = 0.5
 slow_duration = 1.0
 tier = 2
 explode_damage = 30.0
-texture = ExtResource("2_wp4fc")
+texture = ExtResource("4_c86hx")
+anim_idle = ExtResource("2_0atba")
+anim_attack = ExtResource("1_4y2f8")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Bursts when it breaks, hurting nearby invaders."

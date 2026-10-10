@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qh4v8"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/roosters_buzzing_skep.png" id="2_f8sgv"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/buzzing_skep_attack.png" id="1_wu6be"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/buzzing_skep_idle.png" id="2_5omyb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lnruq"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/roosters_buzzing_skep.png" id="4_ed5hx"]
 
 [resource]
-script = ExtResource("1_qh4v8")
+script = ExtResource("3_lnruq")
 id = "roosters_buzzing_skep"
 display_name = "Rooster's Buzzing Skep"
 role = 1
@@ -18,6 +20,8 @@ hits_air = true
 adjacency_bonus = 0.15
 tier = 2
 aura_speed = 0.2
-texture = ExtResource("2_f8sgv")
+texture = ExtResource("4_ed5hx")
+anim_idle = ExtResource("2_5omyb")
+anim_attack = ExtResource("1_wu6be")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Neighbors attack 20% faster."

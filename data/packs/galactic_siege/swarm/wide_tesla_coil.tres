@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0b21n"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/repulsor_wide_tesla_coil.tres" id="2_pciuu"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/overclocked_wide_tesla_coil.tres" id="3_gmceg"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/wide_tesla_coil.png" id="4_mierd"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/wide_tesla_coil_attack.png" id="1_gmceg"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/wide_tesla_coil_idle.png" id="2_mierd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_c1okg"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/repulsor_wide_tesla_coil.tres" id="4_aeuor"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/overclocked_wide_tesla_coil.tres" id="5_cdapg"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/wide_tesla_coil.png" id="6_emytf"]
 
 [resource]
-script = ExtResource("1_0b21n")
+script = ExtResource("3_c1okg")
 id = "wide_tesla_coil"
 display_name = "Wide Tesla Coil"
 role = 1
@@ -19,7 +21,9 @@ attack_interval = 0.6
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_0b21n")]([ExtResource("2_pciuu"), ExtResource("3_gmceg")])
-texture = ExtResource("4_mierd")
+evolutions = Array[ExtResource("3_c1okg")]([ExtResource("4_aeuor"), ExtResource("5_cdapg")])
+texture = ExtResource("6_emytf")
+anim_idle = ExtResource("2_mierd")
+anim_attack = ExtResource("1_gmceg")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

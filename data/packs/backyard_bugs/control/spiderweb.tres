@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fu7s3"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/thick_web.tres" id="2_ed6pa"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/sticky_web.tres" id="3_ceois"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/spiderweb.png" id="4_8y3fr"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/spiderweb_attack.png" id="1_ceois"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/spiderweb_idle.png" id="2_8y3fr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ermnu"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/thick_web.tres" id="4_rx741"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/sticky_web.tres" id="5_sg3u2"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/spiderweb.png" id="6_oi58u"]
 
 [resource]
-script = ExtResource("1_fu7s3")
+script = ExtResource("3_ermnu")
 id = "spiderweb"
 display_name = "Spiderweb"
 max_hp = 25
@@ -15,8 +17,10 @@ attack_range = 1.2
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_fu7s3")]([ExtResource("2_ed6pa"), ExtResource("3_ceois")])
+evolutions = Array[ExtResource("3_ermnu")]([ExtResource("4_rx741"), ExtResource("5_sg3u2")])
 can_place_on_water = true
-texture = ExtResource("4_8y3fr")
+texture = ExtResource("6_oi58u")
+anim_idle = ExtResource("2_8y3fr")
+anim_attack = ExtResource("1_ceois")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Wall that slows invaders walking past it."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jy7jr"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/super_roaring_bonfire.tres" id="2_ddug8"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/hunting_roaring_bonfire.tres" id="3_wqie0"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/roaring_bonfire.png" id="4_jfxi6"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/roaring_bonfire_attack.png" id="1_wqie0"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/roaring_bonfire_idle.png" id="2_jfxi6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_evium"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/super_roaring_bonfire.tres" id="4_827la"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/hunting_roaring_bonfire.tres" id="5_yj5k4"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/roaring_bonfire.png" id="6_mjopw"]
 
 [resource]
-script = ExtResource("1_jy7jr")
+script = ExtResource("3_evium")
 id = "roaring_bonfire"
 display_name = "Roaring Bonfire"
 role = 1
@@ -17,7 +19,9 @@ damage = 6.0
 attack_range = 2.0
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_jy7jr")]([ExtResource("2_ddug8"), ExtResource("3_wqie0")])
-texture = ExtResource("4_jfxi6")
+evolutions = Array[ExtResource("3_evium")]([ExtResource("4_827la"), ExtResource("5_yj5k4")])
+texture = ExtResource("6_mjopw")
+anim_idle = ExtResource("2_jfxi6")
+anim_attack = ExtResource("1_wqie0")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

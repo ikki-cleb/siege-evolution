@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m45i1"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/commando_hazard_trooper.tres" id="2_dnwd1"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/twin_barrel_hazard_trooper.tres" id="3_3gylv"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/hazard_trooper.png" id="4_t3kcd"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/hazard_trooper_attack.png" id="1_3gylv"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/hazard_trooper_idle.png" id="2_t3kcd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_so55a"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/commando_hazard_trooper.tres" id="4_k0tkv"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/twin_barrel_hazard_trooper.tres" id="5_863sm"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/hazard_trooper.png" id="6_f31pw"]
 
 [resource]
-script = ExtResource("1_m45i1")
+script = ExtResource("3_so55a")
 id = "hazard_trooper"
 display_name = "Hazard Trooper"
 role = 1
@@ -17,7 +19,9 @@ attack_interval = 0.9
 poison_dps = 6.0
 poison_duration = 4.0
 tier = 1
-evolutions = Array[ExtResource("1_m45i1")]([ExtResource("2_dnwd1"), ExtResource("3_3gylv")])
-texture = ExtResource("4_t3kcd")
+evolutions = Array[ExtResource("3_so55a")]([ExtResource("4_k0tkv"), ExtResource("5_863sm")])
+texture = ExtResource("6_f31pw")
+anim_idle = ExtResource("2_t3kcd")
+anim_attack = ExtResource("1_3gylv")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

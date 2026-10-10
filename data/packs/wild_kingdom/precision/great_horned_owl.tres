@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ikouo"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/flurry_great_horned_owl.tres" id="2_j63qg"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/hunting_great_horned_owl.tres" id="3_ktxys"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/great_horned_owl.png" id="4_f0y0o"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/great_horned_owl_attack.png" id="1_ktxys"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/great_horned_owl_idle.png" id="2_f0y0o"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_mx38f"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/flurry_great_horned_owl.tres" id="4_17uvc"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/hunting_great_horned_owl.tres" id="5_b6kb6"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/great_horned_owl.png" id="6_28qqk"]
 
 [resource]
-script = ExtResource("1_ikouo")
+script = ExtResource("3_mx38f")
 id = "great_horned_owl"
 display_name = "Great Horned Owl"
 role = 1
@@ -16,7 +18,9 @@ damage = 8.0
 attack_range = 3.0
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_ikouo")]([ExtResource("2_j63qg"), ExtResource("3_ktxys")])
-texture = ExtResource("4_f0y0o")
+evolutions = Array[ExtResource("3_mx38f")]([ExtResource("4_17uvc"), ExtResource("5_b6kb6")])
+texture = ExtResource("6_28qqk")
+anim_idle = ExtResource("2_f0y0o")
+anim_attack = ExtResource("1_ktxys")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

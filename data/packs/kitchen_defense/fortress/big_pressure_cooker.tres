@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hcj51"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/two_handed_big_pressure_cooker.tres" id="2_7ab6a"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/chopping_big_pressure_cooker.tres" id="3_tw4ca"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/big_pressure_cooker.png" id="4_m8ot3"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/big_pressure_cooker_attack.png" id="1_tw4ca"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/big_pressure_cooker_idle.png" id="2_m8ot3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_xhw4a"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/two_handed_big_pressure_cooker.tres" id="4_bef52"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/chopping_big_pressure_cooker.tres" id="5_65qv4"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/big_pressure_cooker.png" id="6_lwqtw"]
 
 [resource]
-script = ExtResource("1_hcj51")
+script = ExtResource("3_xhw4a")
 id = "big_pressure_cooker"
 display_name = "Big Pressure Cooker"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 2.6
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_hcj51")]([ExtResource("2_7ab6a"), ExtResource("3_tw4ca")])
-texture = ExtResource("4_m8ot3")
+evolutions = Array[ExtResource("3_xhw4a")]([ExtResource("4_bef52"), ExtResource("5_65qv4")])
+texture = ExtResource("6_lwqtw")
+anim_idle = ExtResource("2_m8ot3")
+anim_attack = ExtResource("1_tw4ca")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Even bigger blasts."

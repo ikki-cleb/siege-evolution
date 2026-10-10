@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fv37t"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/splattering_mega_zapper.png" id="2_fccfe"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/mega_zapper_attack.png" id="1_qnpvf"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/mega_zapper_idle.png" id="2_vq2ls"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_7me7u"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/splattering_mega_zapper.png" id="4_whhow"]
 
 [resource]
-script = ExtResource("1_fv37t")
+script = ExtResource("3_7me7u")
 id = "splattering_mega_zapper"
 display_name = "Splattering Mega Zapper"
 role = 1
@@ -16,6 +18,8 @@ hits_air = true
 stun_duration = 1.1
 tier = 2
 chain_count = 3
-texture = ExtResource("2_fccfe")
+texture = ExtResource("4_whhow")
+anim_idle = ExtResource("2_vq2ls")
+anim_attack = ExtResource("1_qnpvf")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns chain to 3 more invaders."

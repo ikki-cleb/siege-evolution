@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3tmmr"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/frost_wide_tank_trap.png" id="2_ldpr1"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/wide_tank_trap_attack.png" id="1_73d6k"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/wide_tank_trap_idle.png" id="2_k4ohy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0kipt"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/frost_wide_tank_trap.png" id="4_1chxy"]
 
 [resource]
-script = ExtResource("1_3tmmr")
+script = ExtResource("3_0kipt")
 id = "frost_wide_tank_trap"
 display_name = "Frost Wide Tank Trap"
 cost = 24
@@ -18,6 +20,8 @@ slow_duration = 1.0
 tier = 2
 zone_kind = "freeze"
 zone_power = 0.5
-texture = ExtResource("2_ldpr1")
+texture = ExtResource("4_1chxy")
+anim_idle = ExtResource("2_k4ohy")
+anim_attack = ExtResource("1_73d6k")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Leaves a freezing patch around itself."

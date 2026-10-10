@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_63r1r"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/pungent_stink_bug.tres" id="2_igguc"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/wafting_stink_bug.tres" id="3_lap7t"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/stink_bug.png" id="4_nb81g"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/stink_bug_attack.png" id="1_lap7t"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/stink_bug_idle.png" id="2_nb81g"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_43jab"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/pungent_stink_bug.tres" id="4_xcjwg"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/wafting_stink_bug.tres" id="5_wvnc0"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/stink_bug.png" id="6_eqi8e"]
 
 [resource]
-script = ExtResource("1_63r1r")
+script = ExtResource("3_43jab")
 id = "stink_bug"
 display_name = "Stink Bug"
 role = 1
@@ -17,7 +19,9 @@ damage = 2.0
 attack_range = 1.8
 slow = 0.35
 slow_duration = 1.2
-evolutions = Array[ExtResource("1_63r1r")]([ExtResource("2_igguc"), ExtResource("3_lap7t")])
-texture = ExtResource("4_nb81g")
+evolutions = Array[ExtResource("3_43jab")]([ExtResource("4_xcjwg"), ExtResource("5_wvnc0")])
+texture = ExtResource("6_eqi8e")
+anim_idle = ExtResource("2_nb81g")
+anim_attack = ExtResource("1_lap7t")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Damages and slows everything around it."

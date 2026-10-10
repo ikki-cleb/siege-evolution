@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iu3gt"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/grand_finale_heavy_bottle_rocket.png" id="2_0n2hu"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/heavy_bottle_rocket_attack.png" id="1_pvypo"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/heavy_bottle_rocket_idle.png" id="2_3upuc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lpocv"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/grand_finale_heavy_bottle_rocket.png" id="4_q7nl8"]
 
 [resource]
-script = ExtResource("1_iu3gt")
+script = ExtResource("3_lpocv")
 id = "grand_finale_heavy_bottle_rocket"
 display_name = "Grand-Finale Heavy Bottle Rocket"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 pierce = true
 tier = 2
 execute_below = 0.35
-texture = ExtResource("2_0n2hu")
+texture = ExtResource("4_q7nl8")
+anim_idle = ExtResource("2_3upuc")
+anim_attack = ExtResource("1_pvypo")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Finishes off invaders below 35% HP."

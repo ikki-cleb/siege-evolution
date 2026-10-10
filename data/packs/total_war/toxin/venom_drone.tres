@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uccol"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/relay_venom_drone.tres" id="2_8e4jw"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/commando_venom_drone.tres" id="3_qeu3y"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/venom_drone.png" id="4_asovm"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/venom_drone_attack.png" id="1_qeu3y"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/venom_drone_idle.png" id="2_asovm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_kihkq"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/relay_venom_drone.tres" id="4_wsyt8"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/commando_venom_drone.tres" id="5_t8w61"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/venom_drone.png" id="6_gcur8"]
 
 [resource]
-script = ExtResource("1_uccol")
+script = ExtResource("3_kihkq")
 id = "venom_drone"
 display_name = "Venom Drone"
 role = 1
@@ -19,7 +21,9 @@ poison_dps = 8.0
 poison_duration = 5.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_uccol")]([ExtResource("2_8e4jw"), ExtResource("3_qeu3y")])
-texture = ExtResource("4_asovm")
+evolutions = Array[ExtResource("3_kihkq")]([ExtResource("4_wsyt8"), ExtResource("5_t8w61")])
+texture = ExtResource("6_gcur8")
+anim_idle = ExtResource("2_asovm")
+anim_attack = ExtResource("1_qeu3y")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

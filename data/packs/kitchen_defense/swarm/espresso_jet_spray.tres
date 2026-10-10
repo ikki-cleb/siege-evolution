@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_f0bis"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/espresso_jet_spray.png" id="2_t7l2g"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/jet_spray_attack.png" id="1_wx4qg"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/jet_spray_idle.png" id="2_vcmt3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_h3pvn"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/espresso_jet_spray.png" id="4_tw3ab"]
 
 [resource]
-script = ExtResource("1_f0bis")
+script = ExtResource("3_h3pvn")
 id = "espresso_jet_spray"
 display_name = "Espresso Jet Spray"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 adjacency_bonus = 0.15
 tier = 2
 aura_speed = 0.15
-texture = ExtResource("2_t7l2g")
+texture = ExtResource("4_tw3ab")
+anim_idle = ExtResource("2_vcmt3")
+anim_attack = ExtResource("1_wx4qg")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Neighbors attack 15% faster."

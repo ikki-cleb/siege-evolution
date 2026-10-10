@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_0t5gq"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/heavy_tank.png" id="2_vga1a"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/heavy_tank_death.png" id="1_728g7"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/heavy_tank_move.png" id="2_un3f6"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_si0vh"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/heavy_tank.png" id="4_sjsr7"]
 
 [resource]
-script = ExtResource("1_0t5gq")
+script = ExtResource("3_si0vh")
 id = "heavy_tank"
 display_name = "Heavy Tank"
 movement = 1
@@ -15,5 +17,7 @@ base_damage = 4
 smash_damage = 12.0
 coin_drop = 5
 is_elite = true
-texture = ExtResource("2_vga1a")
+texture = ExtResource("4_sjsr7")
+anim_move = ExtResource("2_un3f6")
+anim_death = ExtResource("1_728g7")
 description = "Elite: very heavily armored."

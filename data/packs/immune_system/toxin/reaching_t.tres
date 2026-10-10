@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m1i1c"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/chain_venom_t.tres" id="2_s5x2f"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/venom_sniper_t.tres" id="3_0obab"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/reaching_t.png" id="4_qe2rs"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/reaching_t_attack.png" id="1_0obab"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/reaching_t_idle.png" id="2_qe2rs"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_b7a65"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/chain_venom_t.tres" id="4_wqatq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/venom_sniper_t.tres" id="5_5acgw"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/reaching_t.png" id="6_kjt1b"]
 
 [resource]
-script = ExtResource("1_m1i1c")
+script = ExtResource("3_b7a65")
 id = "reaching_t"
 display_name = "Long Poison Cell"
 role = 1
@@ -17,7 +19,9 @@ attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
 tier = 1
-evolutions = Array[ExtResource("1_m1i1c")]([ExtResource("2_s5x2f"), ExtResource("3_0obab")])
-texture = ExtResource("4_qe2rs")
+evolutions = Array[ExtResource("3_b7a65")]([ExtResource("4_wqatq"), ExtResource("5_5acgw")])
+texture = ExtResource("6_kjt1b")
+anim_idle = ExtResource("2_qe2rs")
+anim_attack = ExtResource("1_0obab")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

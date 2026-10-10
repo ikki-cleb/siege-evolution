@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qxko0"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/peeling_caustic_mister.tres" id="2_07pob"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/bleach_caustic_mister.tres" id="3_md7ux"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/caustic_mister.png" id="4_fi54r"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/caustic_mister_attack.png" id="1_md7ux"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/caustic_mister_idle.png" id="2_fi54r"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pw0vh"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/peeling_caustic_mister.tres" id="4_laury"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/bleach_caustic_mister.tres" id="5_0ttns"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/caustic_mister.png" id="6_322uo"]
 
 [resource]
-script = ExtResource("1_qxko0")
+script = ExtResource("3_pw0vh")
 id = "caustic_mister"
 display_name = "Caustic Mister"
 role = 1
@@ -20,7 +22,9 @@ splash_radius = 1.0
 poison_dps = 4.5
 poison_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_qxko0")]([ExtResource("2_07pob"), ExtResource("3_md7ux")])
-texture = ExtResource("4_fi54r")
+evolutions = Array[ExtResource("3_pw0vh")]([ExtResource("4_laury"), ExtResource("5_0ttns")])
+texture = ExtResource("6_322uo")
+anim_idle = ExtResource("2_fi54r")
+anim_attack = ExtResource("1_md7ux")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

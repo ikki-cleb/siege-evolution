@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cu3k8"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/self_repairing_welded_scrap.tres" id="2_fs2kc"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/sealed_welded_scrap.tres" id="3_7p6ye"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/welded_scrap.png" id="4_w81yx"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/welded_scrap_idle.png" id="1_fs2kc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_7p6ye"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/self_repairing_welded_scrap.tres" id="3_w81yx"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/sealed_welded_scrap.tres" id="4_3t1ow"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/welded_scrap.png" id="5_i4xyi"]
 
 [resource]
-script = ExtResource("1_cu3k8")
+script = ExtResource("2_7p6ye")
 id = "welded_scrap"
 display_name = "Welded Scrap"
 cost = 4
 max_hp = 40
 tier = 1
-evolutions = Array[ExtResource("1_cu3k8")]([ExtResource("2_fs2kc"), ExtResource("3_7p6ye")])
+evolutions = Array[ExtResource("2_7p6ye")]([ExtResource("3_w81yx"), ExtResource("4_3t1ow")])
 can_place_on_water = true
-texture = ExtResource("4_w81yx")
+texture = ExtResource("5_i4xyi")
+anim_idle = ExtResource("1_fs2kc")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

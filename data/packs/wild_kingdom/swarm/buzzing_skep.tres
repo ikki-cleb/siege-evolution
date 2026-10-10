@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yucp4"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/bucking_buzzing_skep.tres" id="2_u72n4"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/roosters_buzzing_skep.tres" id="3_iyydl"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/buzzing_skep.png" id="4_njnah"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/buzzing_skep_attack.png" id="1_iyydl"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/buzzing_skep_idle.png" id="2_njnah"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_aog8h"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/bucking_buzzing_skep.tres" id="4_l0eog"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/roosters_buzzing_skep.tres" id="5_8ob82"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/buzzing_skep.png" id="6_m6dq1"]
 
 [resource]
-script = ExtResource("1_yucp4")
+script = ExtResource("3_aog8h")
 id = "buzzing_skep"
 display_name = "Buzzing Skep"
 role = 1
@@ -19,7 +21,9 @@ attack_interval = 0.6
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_yucp4")]([ExtResource("2_u72n4"), ExtResource("3_iyydl")])
-texture = ExtResource("4_njnah")
+evolutions = Array[ExtResource("3_aog8h")]([ExtResource("4_l0eog"), ExtResource("5_8ob82")])
+texture = ExtResource("6_m6dq1")
+anim_idle = ExtResource("2_njnah")
+anim_attack = ExtResource("1_iyydl")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

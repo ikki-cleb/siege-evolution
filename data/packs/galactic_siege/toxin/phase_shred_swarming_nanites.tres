@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qjepc"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/phase_shred_swarming_nanites.png" id="2_56km5"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/swarming_nanites_attack.png" id="1_tk8kx"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/swarming_nanites_idle.png" id="2_ypkqx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lbn61"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/phase_shred_swarming_nanites.png" id="4_ett36"]
 
 [resource]
-script = ExtResource("1_qjepc")
+script = ExtResource("3_lbn61")
 id = "phase_shred_swarming_nanites"
 display_name = "Phase-Shred Swarming Nanites"
 role = 1
@@ -19,6 +21,8 @@ poison_dps = 4.5
 poison_duration = 3.0
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_56km5")
+texture = ExtResource("4_ett36")
+anim_idle = ExtResource("2_ypkqx")
+anim_attack = ExtResource("1_tk8kx")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Spray strips 1 armor."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fx3eo"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/foam_eruption.png" id="2_bxi5d"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/foam_macrophage_attack.png" id="1_rd1w1"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/foam_macrophage_idle.png" id="2_cdmxq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_k6u8m"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/foam_eruption.png" id="4_bg8et"]
 
 [resource]
-script = ExtResource("1_fx3eo")
+script = ExtResource("3_k6u8m")
 id = "foam_eruption"
 display_name = "Burning Wide Germ Eater"
 role = 1
@@ -17,6 +19,8 @@ splash_radius = 1.0
 tier = 2
 zone_kind = "burn"
 zone_power = 5.0
-texture = ExtResource("2_bxi5d")
+texture = ExtResource("4_bg8et")
+anim_idle = ExtResource("2_cdmxq")
+anim_attack = ExtResource("1_rd1w1")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Hits leave a burning patch."

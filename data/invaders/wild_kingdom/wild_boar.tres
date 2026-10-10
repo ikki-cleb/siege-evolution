@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_w5b5p"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/wild_boar.png" id="2_k5peq"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/wild_boar_death.png" id="1_hga1p"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/wild_boar_move.png" id="2_tjg6y"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_b6ado"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/wild_boar.png" id="4_bsttn"]
 
 [resource]
-script = ExtResource("1_w5b5p")
+script = ExtResource("3_b6ado")
 id = "wild_boar"
 display_name = "Wild Boar"
 movement = 1
@@ -13,5 +15,7 @@ speed = 0.75
 base_damage = 3
 smash_damage = 7.0
 coin_drop = 3
-texture = ExtResource("2_k5peq")
+texture = ExtResource("4_bsttn")
+anim_move = ExtResource("2_tjg6y")
+anim_death = ExtResource("1_hga1p")
 description = "Ignores the maze and charges through units."

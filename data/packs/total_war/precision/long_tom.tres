@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iwhwd"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/heavy_long_tom.tres" id="2_uqagy"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/rapid_long_tom.tres" id="3_rf25v"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/long_tom.png" id="4_bktxr"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/long_tom_attack.png" id="1_rf25v"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/long_tom_idle.png" id="2_bktxr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_84i8j"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/heavy_long_tom.tres" id="4_ixrv7"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/rapid_long_tom.tres" id="5_8r7ly"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/long_tom.png" id="6_x5v8s"]
 
 [resource]
-script = ExtResource("1_iwhwd")
+script = ExtResource("3_84i8j")
 id = "long_tom"
 display_name = "Long Tom Cannon"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-evolutions = Array[ExtResource("1_iwhwd")]([ExtResource("2_uqagy"), ExtResource("3_rf25v")])
-texture = ExtResource("4_bktxr")
+evolutions = Array[ExtResource("3_84i8j")]([ExtResource("4_ixrv7"), ExtResource("5_8r7ly")])
+texture = ExtResource("6_x5v8s")
+anim_idle = ExtResource("2_bktxr")
+anim_attack = ExtResource("1_rf25v")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sniper. Huge piercing shots across the map."

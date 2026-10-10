@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_h814o"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/mosquito.png" id="2_tho0q"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/mosquito_death.png" id="1_123qg"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/mosquito_move.png" id="2_cq3de"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_i0hgv"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/mosquito.png" id="4_gqkvn"]
 
 [resource]
-script = ExtResource("1_h814o")
+script = ExtResource("3_i0hgv")
 id = "mosquito"
 display_name = "Mosquito"
 movement = 2
 max_hp = 7
 speed = 1.2
-texture = ExtResource("2_tho0q")
+texture = ExtResource("4_gqkvn")
+anim_move = ExtResource("2_cq3de")
+anim_death = ExtResource("1_123qg")
 description = "Flies straight over everything."

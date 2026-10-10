@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_w0fx5"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/histamine_burst.tres" id="2_b6vhn"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/shredding_basophil.tres" id="3_pm3cj"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/degranulating_basophil.png" id="4_ibgj7"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/degranulating_basophil_attack.png" id="1_pm3cj"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/degranulating_basophil_idle.png" id="2_ibgj7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_tt2ek"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/histamine_burst.tres" id="4_vsihu"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/shredding_basophil.tres" id="5_b7e2p"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/degranulating_basophil.png" id="6_oyakx"]
 
 [resource]
-script = ExtResource("1_w0fx5")
+script = ExtResource("3_tt2ek")
 id = "degranulating_basophil"
 display_name = "Extra-Itchy Cell"
 role = 1
@@ -17,7 +19,9 @@ damage = 2.2
 attack_interval = 0.6
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_w0fx5")]([ExtResource("2_b6vhn"), ExtResource("3_pm3cj")])
-texture = ExtResource("4_ibgj7")
+evolutions = Array[ExtResource("3_tt2ek")]([ExtResource("4_vsihu"), ExtResource("5_b7e2p")])
+texture = ExtResource("6_oyakx")
+anim_idle = ExtResource("2_ibgj7")
+anim_attack = ExtResource("1_pm3cj")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

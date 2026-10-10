@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mbk65"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/regrowing_petrified_stump.png" id="2_5wtoo"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/petrified_stump_attack.png" id="1_0bfry"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/petrified_stump_idle.png" id="2_78h47"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_yljbe"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/regrowing_petrified_stump.png" id="4_r4cdi"]
 
 [resource]
-script = ExtResource("1_mbk65")
+script = ExtResource("3_yljbe")
 id = "regrowing_petrified_stump"
 display_name = "Regrowing Petrified Stump"
 cost = 68
@@ -13,6 +15,8 @@ attack_mode = 1
 damage = 3.0
 tier = 2
 rebuild = true
-texture = ExtResource("2_5wtoo")
+texture = ExtResource("4_r4cdi")
+anim_idle = ExtResource("2_78h47")
+anim_attack = ExtResource("1_0bfry")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Rebuilds itself once per wave."

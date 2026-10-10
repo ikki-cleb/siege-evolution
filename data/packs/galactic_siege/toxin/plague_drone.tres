@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m8hn7"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/plague_swarm.tres" id="2_fohvp"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/long_plague_drone.tres" id="3_hy6pg"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/plague_drone.png" id="4_6d1i2"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/plague_drone_attack.png" id="1_hy6pg"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/plague_drone_idle.png" id="2_6d1i2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ucqac"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/plague_swarm.tres" id="4_3gyk3"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/long_plague_drone.tres" id="5_6hnvu"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/plague_drone.png" id="6_hx031"]
 
 [resource]
-script = ExtResource("1_m8hn7")
+script = ExtResource("3_ucqac")
 id = "plague_drone"
 display_name = "Plague Drone"
 role = 1
@@ -18,7 +20,9 @@ hits_air = true
 poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
-evolutions = Array[ExtResource("1_m8hn7")]([ExtResource("2_fohvp"), ExtResource("3_hy6pg")])
-texture = ExtResource("4_6d1i2")
+evolutions = Array[ExtResource("3_ucqac")]([ExtResource("4_3gyk3"), ExtResource("5_6hnvu")])
+texture = ExtResource("6_hx031")
+anim_idle = ExtResource("2_6d1i2")
+anim_attack = ExtResource("1_hy6pg")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison that jumps to nearby invaders when its victim dies."

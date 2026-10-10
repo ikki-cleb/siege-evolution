@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_an7ht"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/tusked_pungent_skunk.tres" id="2_7q0ti"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bonfire_pungent_skunk.tres" id="3_0hpbv"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/pungent_skunk.png" id="4_26lll"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/pungent_skunk_attack.png" id="1_0hpbv"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/pungent_skunk_idle.png" id="2_26lll"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6tgab"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/tusked_pungent_skunk.tres" id="4_7hjsw"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bonfire_pungent_skunk.tres" id="5_plkdt"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/pungent_skunk.png" id="6_oq8pj"]
 
 [resource]
-script = ExtResource("1_an7ht")
+script = ExtResource("3_6tgab")
 id = "pungent_skunk"
 display_name = "Pungent Skunk"
 role = 1
@@ -18,7 +20,9 @@ attack_range = 1.8
 slow = 0.35
 slow_duration = 1.2
 tier = 1
-evolutions = Array[ExtResource("1_an7ht")]([ExtResource("2_7q0ti"), ExtResource("3_0hpbv")])
-texture = ExtResource("4_26lll")
+evolutions = Array[ExtResource("3_6tgab")]([ExtResource("4_7hjsw"), ExtResource("5_plkdt")])
+texture = ExtResource("6_oq8pj")
+anim_idle = ExtResource("2_26lll")
+anim_attack = ExtResource("1_0hpbv")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

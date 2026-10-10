@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ure4l"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/self_repairing_shielded_rad_plate.tres" id="2_m6nac"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/tractor_shielded_rad_plate.tres" id="3_vouml"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/shielded_rad_plate.png" id="4_21k2x"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/shielded_rad_plate_idle.png" id="1_m6nac"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_vouml"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/self_repairing_shielded_rad_plate.tres" id="3_21k2x"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/tractor_shielded_rad_plate.tres" id="4_w1bt4"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/shielded_rad_plate.png" id="5_h34cx"]
 
 [resource]
-script = ExtResource("1_ure4l")
+script = ExtResource("2_vouml")
 id = "shielded_rad_plate"
 display_name = "Shielded Rad Plate"
 cost = 6
 max_hp = 60
 reflect = 0.3
 tier = 1
-evolutions = Array[ExtResource("1_ure4l")]([ExtResource("2_m6nac"), ExtResource("3_vouml")])
+evolutions = Array[ExtResource("2_vouml")]([ExtResource("3_21k2x"), ExtResource("4_w1bt4")])
 can_place_on_water = true
-texture = ExtResource("4_21k2x")
+texture = ExtResource("5_h34cx")
+anim_idle = ExtResource("1_m6nac")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

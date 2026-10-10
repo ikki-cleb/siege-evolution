@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rda3u"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/self_repairing_hardened_zone.png" id="2_1q3ym"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/hardened_zone_attack.png" id="1_q5gun"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/hardened_zone_idle.png" id="2_pg042"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ylu1x"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/self_repairing_hardened_zone.png" id="4_bb7s0"]
 
 [resource]
-script = ExtResource("1_rda3u")
+script = ExtResource("3_ylu1x")
 id = "self_repairing_hardened_zone"
 display_name = "Self-Repairing Hardened Zone"
 cost = 52
@@ -15,6 +17,8 @@ poison_duration = 2.0
 poison_spreads = true
 tier = 2
 rebuild = true
-texture = ExtResource("2_1q3ym")
+texture = ExtResource("4_bb7s0")
+anim_idle = ExtResource("2_pg042")
+anim_attack = ExtResource("1_q5gun")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Rebuilds itself once per wave."

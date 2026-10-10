@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_1lq1d"]
-[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/water_balloon.png" id="2_u4lax"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/water_balloon_death.png" id="1_koqbj"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/water_balloon_move.png" id="2_4xm2o"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_pvxow"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/water_balloon.png" id="4_x7i1p"]
 
 [resource]
-script = ExtResource("1_1lq1d")
+script = ExtResource("3_pvxow")
 id = "water_balloon"
 display_name = "Water Balloon"
 movement = 2
@@ -14,5 +16,7 @@ speed = 0.8
 base_damage = 2
 coin_drop = 2
 bomb_damage = 35.0
-texture = ExtResource("2_u4lax")
+texture = ExtResource("4_x7i1p")
+anim_move = ExtResource("2_4xm2o")
+anim_death = ExtResource("1_koqbj")
 description = "Splashes your most valuable unit near its flight line, and the tiles around it."

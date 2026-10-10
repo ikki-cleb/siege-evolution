@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4jidt"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/sugar_rush_wide_noisemaker.png" id="2_owq5u"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/wide_noisemaker_attack.png" id="1_r5rvo"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/wide_noisemaker_idle.png" id="2_u5guj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_h5vp4"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/sugar_rush_wide_noisemaker.png" id="4_o6wox"]
 
 [resource]
-script = ExtResource("1_4jidt")
+script = ExtResource("3_h5vp4")
 id = "sugar_rush_wide_noisemaker"
 display_name = "Sugar-Rush Wide Noisemaker"
 role = 1
@@ -18,6 +20,8 @@ hits_air = true
 adjacency_bonus = 0.15
 tier = 2
 aura_speed = 0.2
-texture = ExtResource("2_owq5u")
+texture = ExtResource("4_o6wox")
+anim_idle = ExtResource("2_u5guj")
+anim_attack = ExtResource("1_r5rvo")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Neighbors attack 20% faster."

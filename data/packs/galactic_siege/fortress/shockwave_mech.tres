@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_axftn"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/phase_shred_shockwave_mech.tres" id="2_hprpm"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/plasma_fire_shockwave_mech.tres" id="3_mm4uk"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/shockwave_mech.png" id="4_mlj76"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/shockwave_mech_attack.png" id="1_mm4uk"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/shockwave_mech_idle.png" id="2_mlj76"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_w0tpw"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/phase_shred_shockwave_mech.tres" id="4_v6336"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/plasma_fire_shockwave_mech.tres" id="5_lwsxs"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/shockwave_mech.png" id="6_taseb"]
 
 [resource]
-script = ExtResource("1_axftn")
+script = ExtResource("3_w0tpw")
 id = "shockwave_mech"
 display_name = "Shockwave Mech"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 1.8
 attack_interval = 1.1
 splash_radius = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_axftn")]([ExtResource("2_hprpm"), ExtResource("3_mm4uk")])
-texture = ExtResource("4_mlj76")
+evolutions = Array[ExtResource("3_w0tpw")]([ExtResource("4_v6336"), ExtResource("5_lwsxs")])
+texture = ExtResource("6_taseb")
+anim_idle = ExtResource("2_mlj76")
+anim_attack = ExtResource("1_mm4uk")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Longer reach and hits splash."

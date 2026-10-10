@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rprq1"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/flurry_long_gila.tres" id="2_srk0l"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/goring_long_gila.tres" id="3_2unxl"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/long_gila.png" id="4_wpa5c"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/long_gila_attack.png" id="1_2unxl"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/long_gila_idle.png" id="2_wpa5c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qcxq5"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/flurry_long_gila.tres" id="4_wfrnx"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/goring_long_gila.tres" id="5_pefyl"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/long_gila.png" id="6_kwlwx"]
 
 [resource]
-script = ExtResource("1_rprq1")
+script = ExtResource("3_qcxq5")
 id = "long_gila"
 display_name = "Long Gila"
 role = 1
@@ -19,7 +21,9 @@ poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_rprq1")]([ExtResource("2_srk0l"), ExtResource("3_2unxl")])
-texture = ExtResource("4_wpa5c")
+evolutions = Array[ExtResource("3_qcxq5")]([ExtResource("4_wfrnx"), ExtResource("5_pefyl")])
+texture = ExtResource("6_kwlwx")
+anim_idle = ExtResource("2_wpa5c")
+anim_attack = ExtResource("1_2unxl")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

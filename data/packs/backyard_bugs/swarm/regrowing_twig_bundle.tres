@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vk23q"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/regrowing_twig_bundle.png" id="2_gofx3"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/twig_bundle_idle.png" id="1_gofx3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_ojprl"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/regrowing_twig_bundle.png" id="3_dieto"]
 
 [resource]
-script = ExtResource("1_vk23q")
+script = ExtResource("2_ojprl")
 id = "regrowing_twig_bundle"
 display_name = "Regrowing Twig Bundle"
 cost = 14
@@ -12,6 +13,7 @@ max_hp = 40
 tier = 2
 rebuild = true
 can_place_on_water = true
-texture = ExtResource("2_gofx3")
+texture = ExtResource("3_dieto")
+anim_idle = ExtResource("1_gofx3")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Rebuilds itself once per wave."

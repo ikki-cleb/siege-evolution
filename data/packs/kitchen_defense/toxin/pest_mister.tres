@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n6kld"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/caustic_mister.tres" id="2_0rmcb"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/fine_mister.tres" id="3_dacp5"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/pest_mister.png" id="4_4pnkm"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/pest_mister_attack.png" id="1_dacp5"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/pest_mister_idle.png" id="2_4pnkm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6shj5"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/caustic_mister.tres" id="4_qypee"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/fine_mister.tres" id="5_4doqo"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/pest_mister.png" id="6_xbo1o"]
 
 [resource]
-script = ExtResource("1_n6kld")
+script = ExtResource("3_6shj5")
 id = "pest_mister"
 display_name = "Pest Mister"
 role = 1
@@ -19,7 +21,9 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_n6kld")]([ExtResource("2_0rmcb"), ExtResource("3_dacp5")])
-texture = ExtResource("4_4pnkm")
+evolutions = Array[ExtResource("3_6shj5")]([ExtResource("4_qypee"), ExtResource("5_4doqo")])
+texture = ExtResource("6_xbo1o")
+anim_idle = ExtResource("2_4pnkm")
+anim_attack = ExtResource("1_dacp5")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison splash. Hits fliers."

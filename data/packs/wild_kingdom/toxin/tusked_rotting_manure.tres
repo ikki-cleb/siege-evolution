@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pai22"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/tusked_rotting_manure.png" id="2_6ky3v"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/rotting_manure_attack.png" id="1_2f24c"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/rotting_manure_idle.png" id="2_ubnpp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6lf0f"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/tusked_rotting_manure.png" id="4_jh6mc"]
 
 [resource]
-script = ExtResource("1_pai22")
+script = ExtResource("3_6lf0f")
 id = "tusked_rotting_manure"
 display_name = "Tusked Rotting Manure"
 role = 1
@@ -15,6 +17,8 @@ poison_dps = 4.5
 poison_duration = 3.0
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_6ky3v")
+texture = ExtResource("4_jh6mc")
+anim_idle = ExtResource("2_ubnpp")
+anim_attack = ExtResource("1_2f24c")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Pulses strip 1 armor."

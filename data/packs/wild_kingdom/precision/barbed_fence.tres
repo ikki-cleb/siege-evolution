@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h04hc"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/exploding_barbed_fence.tres" id="2_jouma"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/hooked_barbed_fence.tres" id="3_egsw5"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/barbed_fence.png" id="4_5eg7s"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/barbed_fence_idle.png" id="1_jouma"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_egsw5"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/exploding_barbed_fence.tres" id="3_5eg7s"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/hooked_barbed_fence.tres" id="4_h4y35"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/barbed_fence.png" id="5_xjods"]
 
 [resource]
-script = ExtResource("1_h04hc")
+script = ExtResource("2_egsw5")
 id = "barbed_fence"
 display_name = "Barbed Fence"
 cost = 6
 max_hp = 35
 reflect = 0.5
 tier = 1
-evolutions = Array[ExtResource("1_h04hc")]([ExtResource("2_jouma"), ExtResource("3_egsw5")])
+evolutions = Array[ExtResource("2_egsw5")]([ExtResource("3_5eg7s"), ExtResource("4_h4y35")])
 can_place_on_water = true
-texture = ExtResource("4_5eg7s")
+texture = ExtResource("5_xjods")
+anim_idle = ExtResource("1_jouma")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Reflects 50% of smasher damage."

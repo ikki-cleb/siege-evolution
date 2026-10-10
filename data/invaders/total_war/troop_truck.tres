@@ -1,17 +1,21 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_j07tu"]
-[ext_resource type="Resource" path="res://data/invaders/total_war/toy_recruit.tres" id="2_y6hje"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/troop_truck.png" id="3_drjno"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/troop_truck_death.png" id="1_drjno"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/troop_truck_move.png" id="2_ry8mo"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_y5u41"]
+[ext_resource type="Resource" path="res://data/invaders/total_war/toy_recruit.tres" id="4_sdd2h"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/troop_truck.png" id="5_yi6xw"]
 
 [resource]
-script = ExtResource("1_j07tu")
+script = ExtResource("3_y5u41")
 id = "troop_truck"
 display_name = "Troop Truck"
 max_hp = 18
 speed = 1.1
 base_damage = 2
-split_into = ExtResource("2_y6hje")
+split_into = ExtResource("4_sdd2h")
 split_count = 3
-texture = ExtResource("3_drjno")
+texture = ExtResource("5_yi6xw")
+anim_move = ExtResource("2_ry8mo")
+anim_death = ExtResource("1_drjno")
 description = "Unloads three recruits when destroyed."

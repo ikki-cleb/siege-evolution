@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jkk5h"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/swatting_wide_burner.png" id="2_hu4lu"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/wide_burner_attack.png" id="1_oy3ot"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/wide_burner_idle.png" id="2_be3ir"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1krhh"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/swatting_wide_burner.png" id="4_ckorp"]
 
 [resource]
-script = ExtResource("1_jkk5h")
+script = ExtResource("3_1krhh")
 id = "swatting_wide_burner"
 display_name = "Swatting Wide Burner"
 role = 1
@@ -16,6 +18,8 @@ attack_range = 3.0
 hits_air = true
 tier = 2
 knockback = 1
-texture = ExtResource("2_hu4lu")
+texture = ExtResource("4_ckorp")
+anim_idle = ExtResource("2_be3ir")
+anim_attack = ExtResource("1_oy3ot")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Pulses shove invaders back."

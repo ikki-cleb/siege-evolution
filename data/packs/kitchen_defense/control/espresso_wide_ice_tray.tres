@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t08oi"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/espresso_wide_ice_tray.png" id="2_g0g5t"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/wide_ice_tray_attack.png" id="1_61gsd"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/wide_ice_tray_idle.png" id="2_llbxc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ot2hc"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/espresso_wide_ice_tray.png" id="4_42kl7"]
 
 [resource]
-script = ExtResource("1_t08oi")
+script = ExtResource("3_ot2hc")
 id = "espresso_wide_ice_tray"
 display_name = "Espresso Wide Ice Tray"
 role = 1
@@ -17,6 +19,8 @@ slow = 0.35
 slow_duration = 1.2
 tier = 2
 aura_speed = 0.2
-texture = ExtResource("2_g0g5t")
+texture = ExtResource("4_42kl7")
+anim_idle = ExtResource("2_llbxc")
+anim_attack = ExtResource("1_61gsd")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Neighbors attack 20% faster."

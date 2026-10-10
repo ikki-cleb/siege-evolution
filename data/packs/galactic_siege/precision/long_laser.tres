@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0ovcs"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/beam_long_laser.tres" id="2_t2pls"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/salvage_long_laser.tres" id="3_amlc1"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/long_laser.png" id="4_g5or5"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/long_laser_attack.png" id="1_amlc1"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/long_laser_idle.png" id="2_g5or5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ul3fw"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/beam_long_laser.tres" id="4_1fl2s"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/salvage_long_laser.tres" id="5_u4w05"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/long_laser.png" id="6_yjp1v"]
 
 [resource]
-script = ExtResource("1_0ovcs")
+script = ExtResource("3_ul3fw")
 id = "long_laser"
 display_name = "Long Laser"
 role = 1
@@ -16,7 +18,9 @@ damage = 4.5
 attack_range = 4.5
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_0ovcs")]([ExtResource("2_t2pls"), ExtResource("3_amlc1")])
-texture = ExtResource("4_g5or5")
+evolutions = Array[ExtResource("3_ul3fw")]([ExtResource("4_1fl2s"), ExtResource("5_u4w05")])
+texture = ExtResource("6_yjp1v")
+anim_idle = ExtResource("2_g5or5")
+anim_attack = ExtResource("1_amlc1")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

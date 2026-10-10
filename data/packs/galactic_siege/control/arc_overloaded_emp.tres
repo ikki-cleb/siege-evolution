@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_el3hp"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/arc_overloaded_emp.png" id="2_c2kd2"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/overloaded_emp_attack.png" id="1_om11t"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/overloaded_emp_idle.png" id="2_pe3m3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_735ys"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/arc_overloaded_emp.png" id="4_rojoq"]
 
 [resource]
-script = ExtResource("1_el3hp")
+script = ExtResource("3_735ys")
 id = "arc_overloaded_emp"
 display_name = "Arc Overloaded EMP"
 role = 1
@@ -16,6 +18,8 @@ hits_air = true
 stun_duration = 1.1
 tier = 2
 chain_count = 3
-texture = ExtResource("2_c2kd2")
+texture = ExtResource("4_rojoq")
+anim_idle = ExtResource("2_pe3m3")
+anim_attack = ExtResource("1_om11t")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns chain to 3 more invaders."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7til1"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/laser_long_confetti_cannon.tres" id="2_fuk02"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/prize_long_confetti_cannon.tres" id="3_ub58o"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/long_confetti_cannon.png" id="4_dvyrg"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/long_confetti_cannon_attack.png" id="1_ub58o"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/long_confetti_cannon_idle.png" id="2_dvyrg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_dkv0r"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/laser_long_confetti_cannon.tres" id="4_26nua"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/prize_long_confetti_cannon.tres" id="5_6dxf5"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/long_confetti_cannon.png" id="6_6j5oo"]
 
 [resource]
-script = ExtResource("1_7til1")
+script = ExtResource("3_dkv0r")
 id = "long_confetti_cannon"
 display_name = "Long Confetti Cannon"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 3.6
 attack_interval = 1.4
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_7til1")]([ExtResource("2_fuk02"), ExtResource("3_ub58o")])
-texture = ExtResource("4_dvyrg")
+evolutions = Array[ExtResource("3_dkv0r")]([ExtResource("4_26nua"), ExtResource("5_6dxf5")])
+texture = ExtResource("6_6j5oo")
+anim_idle = ExtResource("2_dvyrg")
+anim_attack = ExtResource("1_ub58o")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

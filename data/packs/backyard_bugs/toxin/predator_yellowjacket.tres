@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uuj46"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/predator_yellowjacket.png" id="2_l11eg"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/yellowjacket_attack.png" id="1_7mk3a"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/yellowjacket_idle.png" id="2_fw1mo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_f0rbq"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/predator_yellowjacket.png" id="4_aacfw"]
 
 [resource]
-script = ExtResource("1_uuj46")
+script = ExtResource("3_f0rbq")
 id = "predator_yellowjacket"
 display_name = "Predator Yellowjacket"
 role = 1
@@ -16,6 +18,8 @@ poison_dps = 6.0
 poison_duration = 4.0
 tier = 2
 execute_below = 0.2
-texture = ExtResource("2_l11eg")
+texture = ExtResource("4_aacfw")
+anim_idle = ExtResource("2_fw1mo")
+anim_attack = ExtResource("1_7mk3a")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Finishes off invaders below 20% HP."

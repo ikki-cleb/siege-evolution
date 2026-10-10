@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vh7ol"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/sticky_thick_sap.png" id="2_u63ks"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/thick_sap_attack.png" id="1_h3f4r"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/thick_sap_idle.png" id="2_au6in"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_r1t5k"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/sticky_thick_sap.png" id="4_20ynt"]
 
 [resource]
-script = ExtResource("1_vh7ol")
+script = ExtResource("3_r1t5k")
 id = "sticky_thick_sap"
 display_name = "Sticky Thick Sap"
 cost = 24
@@ -16,6 +18,8 @@ slow = 0.3
 slow_duration = 1.0
 tier = 2
 grab_stun = 0.8
-texture = ExtResource("2_u63ks")
+texture = ExtResource("4_20ynt")
+anim_idle = ExtResource("2_au6in")
+anim_attack = ExtResource("1_h3f4r")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Smashers that bite it get stuck."

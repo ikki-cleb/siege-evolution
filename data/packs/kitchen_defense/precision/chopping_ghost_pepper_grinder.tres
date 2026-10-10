@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_sqch2"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/chopping_ghost_pepper_grinder.png" id="2_7jhvj"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/ghost_pepper_grinder_attack.png" id="1_dku4r"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/ghost_pepper_grinder_idle.png" id="2_2iwx2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_yglud"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/chopping_ghost_pepper_grinder.png" id="4_lpi63"]
 
 [resource]
-script = ExtResource("1_sqch2")
+script = ExtResource("3_yglud")
 id = "chopping_ghost_pepper_grinder"
 display_name = "Chopping Ghost Pepper Grinder"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.0
 hits_air = true
 tier = 2
 execute_below = 0.2
-texture = ExtResource("2_7jhvj")
+texture = ExtResource("4_lpi63")
+anim_idle = ExtResource("2_2iwx2")
+anim_attack = ExtResource("1_dku4r")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Finishes off invaders below 20% HP."

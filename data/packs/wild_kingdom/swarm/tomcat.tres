@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8h8u1"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/hunting_tomcat.tres" id="2_0lkdh"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/herding_tomcat.tres" id="3_onxrn"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/tomcat.png" id="4_f6tnw"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/tomcat_attack.png" id="1_onxrn"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/tomcat_idle.png" id="2_f6tnw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_njec6"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/hunting_tomcat.tres" id="4_00mk4"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/herding_tomcat.tres" id="5_6re0l"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/tomcat.png" id="6_4ow5v"]
 
 [resource]
-script = ExtResource("1_8h8u1")
+script = ExtResource("3_njec6")
 id = "tomcat"
 display_name = "Tomcat"
 role = 1
@@ -17,7 +19,9 @@ attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_8h8u1")]([ExtResource("2_0lkdh"), ExtResource("3_onxrn")])
-texture = ExtResource("4_f6tnw")
+evolutions = Array[ExtResource("3_njec6")]([ExtResource("4_00mk4"), ExtResource("5_6re0l")])
+texture = ExtResource("6_4ow5v")
+anim_idle = ExtResource("2_f6tnw")
+anim_attack = ExtResource("1_onxrn")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

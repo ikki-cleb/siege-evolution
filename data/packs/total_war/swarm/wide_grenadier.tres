@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5s52h"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/recoil_wide_grenadier.tres" id="2_wn53i"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/rallying_wide_grenadier.tres" id="3_ldqak"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/wide_grenadier.png" id="4_mj6yo"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/wide_grenadier_attack.png" id="1_ldqak"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/wide_grenadier_idle.png" id="2_mj6yo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_x3h8s"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/recoil_wide_grenadier.tres" id="4_4thjr"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/rallying_wide_grenadier.tres" id="5_gab4e"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/wide_grenadier.png" id="6_4lme7"]
 
 [resource]
-script = ExtResource("1_5s52h")
+script = ExtResource("3_x3h8s")
 id = "wide_grenadier"
 display_name = "Wide Grenadier"
 role = 1
@@ -19,7 +21,9 @@ attack_interval = 0.6
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_5s52h")]([ExtResource("2_wn53i"), ExtResource("3_ldqak")])
-texture = ExtResource("4_mj6yo")
+evolutions = Array[ExtResource("3_x3h8s")]([ExtResource("4_4thjr"), ExtResource("5_gab4e")])
+texture = ExtResource("6_4lme7")
+anim_idle = ExtResource("2_mj6yo")
+anim_attack = ExtResource("1_ldqak")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

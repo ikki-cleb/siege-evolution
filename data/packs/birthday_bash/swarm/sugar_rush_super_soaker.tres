@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0ts7d"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/sugar_rush_super_soaker.png" id="2_evc64"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/super_soaker_attack.png" id="1_rau7v"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/super_soaker_idle.png" id="2_jcj0x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vktvj"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/sugar_rush_super_soaker.png" id="4_g2c8x"]
 
 [resource]
-script = ExtResource("1_0ts7d")
+script = ExtResource("3_vktvj")
 id = "sugar_rush_super_soaker"
 display_name = "Sugar-Rush Super Soaker"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 adjacency_bonus = 0.15
 tier = 2
 aura_speed = 0.15
-texture = ExtResource("2_evc64")
+texture = ExtResource("4_g2c8x")
+anim_idle = ExtResource("2_jcj0x")
+anim_attack = ExtResource("1_rau7v")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Neighbors attack 15% faster."

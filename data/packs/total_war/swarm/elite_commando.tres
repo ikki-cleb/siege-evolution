@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n3axp"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/super_elite_commando.tres" id="2_yhf2h"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/relay_elite_commando.tres" id="3_ebsjg"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/elite_commando.png" id="4_ofo5w"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/elite_commando_attack.png" id="1_ebsjg"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/elite_commando_idle.png" id="2_ofo5w"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_p7e6a"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/super_elite_commando.tres" id="4_bdfj3"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/relay_elite_commando.tres" id="5_dh5xb"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/elite_commando.png" id="6_q0681"]
 
 [resource]
-script = ExtResource("1_n3axp")
+script = ExtResource("3_p7e6a")
 id = "elite_commando"
 display_name = "Elite Commando"
 role = 1
@@ -17,7 +19,9 @@ attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_n3axp")]([ExtResource("2_yhf2h"), ExtResource("3_ebsjg")])
-texture = ExtResource("4_ofo5w")
+evolutions = Array[ExtResource("3_p7e6a")]([ExtResource("4_bdfj3"), ExtResource("5_dh5xb")])
+texture = ExtResource("6_q0681")
+anim_idle = ExtResource("2_ofo5w")
+anim_attack = ExtResource("1_ebsjg")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

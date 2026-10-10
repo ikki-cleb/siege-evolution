@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3cx1g"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/hot_foam_machine.tres" id="2_on5fc"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/big_foam_machine.tres" id="3_pex04"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/foam_machine.png" id="4_8yer4"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/foam_machine_attack.png" id="1_pex04"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/foam_machine_idle.png" id="2_8yer4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_n77ey"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/hot_foam_machine.tres" id="4_vm4j4"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/big_foam_machine.tres" id="5_edq7x"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/foam_machine.png" id="6_ef1sl"]
 
 [resource]
-script = ExtResource("1_3cx1g")
+script = ExtResource("3_n77ey")
 id = "foam_machine"
 display_name = "Foam Machine"
 role = 1
@@ -19,7 +21,9 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_3cx1g")]([ExtResource("2_on5fc"), ExtResource("3_pex04")])
-texture = ExtResource("4_8yer4")
+evolutions = Array[ExtResource("3_n77ey")]([ExtResource("4_vm4j4"), ExtResource("5_edq7x")])
+texture = ExtResource("6_ef1sl")
+anim_idle = ExtResource("2_8yer4")
+anim_attack = ExtResource("1_pex04")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Heavily slows and burns a wide area."

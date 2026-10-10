@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dnrnx"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/peeling_searing_griddle.tres" id="2_wv683"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/chopping_searing_griddle.tres" id="3_4ljk6"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/searing_griddle.png" id="4_kxpai"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/searing_griddle_attack.png" id="1_4ljk6"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/searing_griddle_idle.png" id="2_kxpai"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_fwx7h"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/peeling_searing_griddle.tres" id="4_av6w7"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/chopping_searing_griddle.tres" id="5_y74o2"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/searing_griddle.png" id="6_8a56u"]
 
 [resource]
-script = ExtResource("1_dnrnx")
+script = ExtResource("3_fwx7h")
 id = "searing_griddle"
 display_name = "Searing Griddle"
 role = 1
@@ -20,7 +22,9 @@ hits_air = true
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_dnrnx")]([ExtResource("2_wv683"), ExtResource("3_4ljk6")])
-texture = ExtResource("4_kxpai")
+evolutions = Array[ExtResource("3_fwx7h")]([ExtResource("4_av6w7"), ExtResource("5_y74o2")])
+texture = ExtResource("6_8a56u")
+anim_idle = ExtResource("2_kxpai")
+anim_attack = ExtResource("1_4ljk6")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

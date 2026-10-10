@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_3kq60"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/interceptor.png" id="2_2wevc"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/interceptor_death.png" id="1_lapdw"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/interceptor_move.png" id="2_4s3no"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_wh60q"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/interceptor.png" id="4_glwu0"]
 
 [resource]
-script = ExtResource("1_3kq60")
+script = ExtResource("3_wh60q")
 id = "interceptor"
 display_name = "Interceptor"
 movement = 2
@@ -14,5 +16,7 @@ speed = 1.6
 base_damage = 2
 coin_drop = 2
 is_elite = true
-texture = ExtResource("2_2wevc")
+texture = ExtResource("4_glwu0")
+anim_move = ExtResource("2_4s3no")
+anim_death = ExtResource("1_lapdw")
 description = "Elite: a fast armored flier."

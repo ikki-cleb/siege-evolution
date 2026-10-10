@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_o2ilr"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/tunneler.png" id="2_ajd2d"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/tunneler_death.png" id="1_8hwfe"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/tunneler_move.png" id="2_tul23"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_in2a8"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/tunneler.png" id="4_1284i"]
 
 [resource]
-script = ExtResource("1_o2ilr")
+script = ExtResource("3_in2a8")
 id = "tunneler"
 display_name = "Tunneler"
 max_hp = 20
@@ -12,5 +14,7 @@ base_damage = 2
 coin_drop = 2
 burrow_after = 3
 burrow_length = 6
-texture = ExtResource("2_ajd2d")
+texture = ExtResource("4_1284i")
+anim_move = ExtResource("2_tul23")
+anim_death = ExtResource("1_8hwfe")
 description = "Tunnels under 6 tiles of its route."

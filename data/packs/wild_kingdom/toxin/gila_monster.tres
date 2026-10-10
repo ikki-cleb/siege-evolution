@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8qx8j"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/venomous_gila.tres" id="2_rolys"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/long_gila.tres" id="3_46dlb"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/gila_monster.png" id="4_hwidx"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/gila_monster_attack.png" id="1_46dlb"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/gila_monster_idle.png" id="2_hwidx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_dplph"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/venomous_gila.tres" id="4_4mwye"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/long_gila.tres" id="5_faujs"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/gila_monster.png" id="6_wt5fe"]
 
 [resource]
-script = ExtResource("1_8qx8j")
+script = ExtResource("3_dplph")
 id = "gila_monster"
 display_name = "Gila Monster"
 role = 1
@@ -18,7 +20,9 @@ hits_air = true
 poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
-evolutions = Array[ExtResource("1_8qx8j")]([ExtResource("2_rolys"), ExtResource("3_46dlb")])
-texture = ExtResource("4_hwidx")
+evolutions = Array[ExtResource("3_dplph")]([ExtResource("4_4mwye"), ExtResource("5_faujs")])
+texture = ExtResource("6_wt5fe")
+anim_idle = ExtResource("2_hwidx")
+anim_attack = ExtResource("1_46dlb")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison that jumps to nearby invaders when its victim dies."

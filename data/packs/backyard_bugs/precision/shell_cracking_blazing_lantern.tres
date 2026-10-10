@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iaw0g"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/shell_cracking_blazing_lantern.png" id="2_nineq"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/blazing_lantern_attack.png" id="1_6onhj"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/blazing_lantern_idle.png" id="2_xtyyf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_sdba6"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/shell_cracking_blazing_lantern.png" id="4_4fjp6"]
 
 [resource]
-script = ExtResource("1_iaw0g")
+script = ExtResource("3_sdba6")
 id = "shell_cracking_blazing_lantern"
 display_name = "Shell-Cracking Blazing Lantern"
 role = 2
@@ -17,6 +19,8 @@ mark_bonus = 0.45
 mark_duration = 1.5
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_nineq")
+texture = ExtResource("4_4fjp6")
+anim_idle = ExtResource("2_xtyyf")
+anim_attack = ExtResource("1_6onhj")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Pulses strip 1 armor."

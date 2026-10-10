@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ilowx"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/field_repaired_reinforced_sandbags.png" id="2_1dx8s"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/field_repaired_reinforced_sandbags_water.png" id="3_yjib0"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/reinforced_sandbags_idle.png" id="1_1dx8s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_yjib0"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/field_repaired_reinforced_sandbags.png" id="3_1a4bh"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/field_repaired_reinforced_sandbags_water.png" id="4_5248e"]
 
 [resource]
-script = ExtResource("1_ilowx")
+script = ExtResource("2_yjib0")
 id = "field_repaired_reinforced_sandbags"
 display_name = "Field-Repaired Reinforced Sandbags"
 cost = 34
@@ -13,7 +14,8 @@ max_hp = 260
 tier = 2
 rebuild = true
 can_place_on_water = true
-water_texture = ExtResource("3_yjib0")
-texture = ExtResource("2_1dx8s")
+water_texture = ExtResource("4_5248e")
+texture = ExtResource("3_1a4bh")
+anim_idle = ExtResource("1_1dx8s")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Rebuilds itself once per wave at full HP."

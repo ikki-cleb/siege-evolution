@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_ufdo7"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/patrol_boat.png" id="2_pkmjt"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/patrol_boat_death.png" id="1_c40k3"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/patrol_boat_move.png" id="2_5oxf5"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_bau4q"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/patrol_boat.png" id="4_le0m8"]
 
 [resource]
-script = ExtResource("1_ufdo7")
+script = ExtResource("3_bau4q")
 id = "patrol_boat"
 display_name = "Patrol Boat"
 speed = 1.4
 naval = true
-texture = ExtResource("2_pkmjt")
+texture = ExtResource("4_le0m8")
+anim_move = ExtResource("2_5oxf5")
+anim_death = ExtResource("1_c40k3")
 description = "Sails the water lanes."

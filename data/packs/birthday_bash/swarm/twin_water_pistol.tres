@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uq5wu"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/double_twin_water_pistol.tres" id="2_tppd7"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/unwrapping_twin_water_pistol.tres" id="3_prcir"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/twin_water_pistol.png" id="4_2cpoo"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/twin_water_pistol_attack.png" id="1_prcir"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/twin_water_pistol_idle.png" id="2_2cpoo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1r3h0"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/double_twin_water_pistol.tres" id="4_j2typ"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/unwrapping_twin_water_pistol.tres" id="5_bmumi"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/twin_water_pistol.png" id="6_mavgo"]
 
 [resource]
-script = ExtResource("1_uq5wu")
+script = ExtResource("3_1r3h0")
 id = "twin_water_pistol"
 display_name = "Twin Water Pistol"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_uq5wu")]([ExtResource("2_tppd7"), ExtResource("3_prcir")])
-texture = ExtResource("4_2cpoo")
+evolutions = Array[ExtResource("3_1r3h0")]([ExtResource("4_j2typ"), ExtResource("5_bmumi")])
+texture = ExtResource("6_mavgo")
+anim_idle = ExtResource("2_2cpoo")
+anim_attack = ExtResource("1_prcir")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

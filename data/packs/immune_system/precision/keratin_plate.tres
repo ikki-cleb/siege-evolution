@@ -1,17 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_aersl"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/layered_plate.tres" id="2_yi41c"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/spined_plate.tres" id="3_6mv04"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/keratin_plate.png" id="4_2e6fr"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/keratin_plate_idle.png" id="1_yi41c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_6mv04"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/layered_plate.tres" id="3_2e6fr"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/spined_plate.tres" id="4_lnrf6"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/keratin_plate.png" id="5_0h7df"]
 
 [resource]
-script = ExtResource("1_aersl")
+script = ExtResource("2_6mv04")
 id = "keratin_plate"
 display_name = "Nail Plate"
 max_hp = 30
-evolutions = Array[ExtResource("1_aersl")]([ExtResource("2_yi41c"), ExtResource("3_6mv04")])
+evolutions = Array[ExtResource("2_6mv04")]([ExtResource("3_2e6fr"), ExtResource("4_lnrf6")])
 can_place_on_water = true
-texture = ExtResource("4_2e6fr")
+texture = ExtResource("5_0h7df")
+anim_idle = ExtResource("1_yi41c")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sturdy wall."

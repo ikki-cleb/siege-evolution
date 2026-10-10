@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ks515"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/many_legged_fire_ant.png" id="2_he0ju"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/fire_ant_attack.png" id="1_jnbg8"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/fire_ant_idle.png" id="2_5fd2m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_rimh8"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/many_legged_fire_ant.png" id="4_vw353"]
 
 [resource]
-script = ExtResource("1_ks515")
+script = ExtResource("3_rimh8")
 id = "many_legged_fire_ant"
 display_name = "Many-Legged Fire Ant"
 role = 1
@@ -14,6 +16,8 @@ attack_interval = 0.45
 adjacency_bonus = 0.15
 tier = 2
 multishot = 2
-texture = ExtResource("2_he0ju")
+texture = ExtResource("4_vw353")
+anim_idle = ExtResource("2_5fd2m")
+anim_attack = ExtResource("1_jnbg8")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Jabs 2 targets at once."

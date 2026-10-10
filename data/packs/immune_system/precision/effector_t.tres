@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rt1n8"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/executioner_t.tres" id="2_q2q2x"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/hammer_t.tres" id="3_hfpwt"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/effector_t.png" id="4_hctcq"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/effector_t_attack.png" id="1_hfpwt"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/effector_t_idle.png" id="2_hctcq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_kcj6m"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/executioner_t.tres" id="4_4mwxl"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/hammer_t.tres" id="5_8461m"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/effector_t.png" id="6_82q6f"]
 
 [resource]
-script = ExtResource("1_rt1n8")
+script = ExtResource("3_kcj6m")
 id = "effector_t"
 display_name = "Strong Germ Stabber"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 2.5
 attack_interval = 1.6
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_rt1n8")]([ExtResource("2_q2q2x"), ExtResource("3_hfpwt")])
-texture = ExtResource("4_hctcq")
+evolutions = Array[ExtResource("3_kcj6m")]([ExtResource("4_4mwxl"), ExtResource("5_8461m")])
+texture = ExtResource("6_82q6f")
+anim_idle = ExtResource("2_hctcq")
+anim_attack = ExtResource("1_hfpwt")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

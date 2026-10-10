@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ms6dx"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/mended_thick_brambles.tres" id="2_wjqd2"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/hooked_thick_brambles.tres" id="3_n2mgb"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/thick_brambles.png" id="4_dnpve"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/thick_brambles_idle.png" id="1_wjqd2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_n2mgb"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/mended_thick_brambles.tres" id="3_dnpve"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/hooked_thick_brambles.tres" id="4_nk17p"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/thick_brambles.png" id="5_4dc6o"]
 
 [resource]
-script = ExtResource("1_ms6dx")
+script = ExtResource("2_n2mgb")
 id = "thick_brambles"
 display_name = "Thick Brambles"
 cost = 6
 max_hp = 60
 reflect = 0.3
 tier = 1
-evolutions = Array[ExtResource("1_ms6dx")]([ExtResource("2_wjqd2"), ExtResource("3_n2mgb")])
+evolutions = Array[ExtResource("2_n2mgb")]([ExtResource("3_dnpve"), ExtResource("4_nk17p")])
 can_place_on_water = true
-texture = ExtResource("4_dnpve")
+texture = ExtResource("5_4dc6o")
+anim_idle = ExtResource("1_wjqd2")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

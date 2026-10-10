@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_wj1ta"]
-[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/sugar_ant.png" id="2_36656"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/sugar_ant_death.png" id="1_57d4e"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/sugar_ant_move.png" id="2_y31eq"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_khcln"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/sugar_ant.png" id="4_x51w0"]
 
 [resource]
-script = ExtResource("1_wj1ta")
+script = ExtResource("3_khcln")
 id = "sugar_ant"
 display_name = "Sugar Ant"
 max_hp = 8
 speed = 1.6
-texture = ExtResource("2_36656")
+texture = ExtResource("4_x51w0")
+anim_move = ExtResource("2_y31eq")
+anim_death = ExtResource("1_57d4e")
 description = "Marches in swarms."

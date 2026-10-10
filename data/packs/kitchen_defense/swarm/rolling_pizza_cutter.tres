@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5hduc"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/tip_jar_rolling_pizza_cutter.tres" id="2_5gn5t"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/two_handed_rolling_pizza_cutter.tres" id="3_ja7f0"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/rolling_pizza_cutter.png" id="4_g3b2p"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/rolling_pizza_cutter_attack.png" id="1_ja7f0"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/rolling_pizza_cutter_idle.png" id="2_g3b2p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_g2iot"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/tip_jar_rolling_pizza_cutter.tres" id="4_y6j04"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/two_handed_rolling_pizza_cutter.tres" id="5_aehb1"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/rolling_pizza_cutter.png" id="6_r6yqp"]
 
 [resource]
-script = ExtResource("1_5hduc")
+script = ExtResource("3_g2iot")
 id = "rolling_pizza_cutter"
 display_name = "Rolling Pizza Cutter"
 role = 1
@@ -19,7 +21,9 @@ hits_air = true
 pierce = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_5hduc")]([ExtResource("2_5gn5t"), ExtResource("3_ja7f0")])
-texture = ExtResource("4_g3b2p")
+evolutions = Array[ExtResource("3_g2iot")]([ExtResource("4_y6j04"), ExtResource("5_aehb1")])
+texture = ExtResource("6_r6yqp")
+anim_idle = ExtResource("2_g3b2p")
+anim_attack = ExtResource("1_ja7f0")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

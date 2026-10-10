@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_l6a7m"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/bursting_sticky_web.png" id="2_ij1uu"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/sticky_web_attack.png" id="1_hr04h"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/sticky_web_idle.png" id="2_xoci5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vrk0e"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/bursting_sticky_web.png" id="4_qg7ap"]
 
 [resource]
-script = ExtResource("1_l6a7m")
+script = ExtResource("3_vrk0e")
 id = "bursting_sticky_web"
 display_name = "Bursting Sticky Web"
 cost = 22
@@ -17,6 +19,8 @@ slow_duration = 1.0
 tier = 2
 explode_damage = 30.0
 can_place_on_water = true
-texture = ExtResource("2_ij1uu")
+texture = ExtResource("4_qg7ap")
+anim_idle = ExtResource("2_xoci5")
+anim_attack = ExtResource("1_hr04h")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Bursts when it breaks, hurting nearby invaders."

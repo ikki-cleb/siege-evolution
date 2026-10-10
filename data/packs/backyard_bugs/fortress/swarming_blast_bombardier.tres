@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fodom"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/swarming_blast_bombardier.png" id="2_abeq8"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/blast_bombardier_attack.png" id="1_qief8"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/blast_bombardier_idle.png" id="2_6evs6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6smwa"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/swarming_blast_bombardier.png" id="4_i2jl3"]
 
 [resource]
-script = ExtResource("1_fodom")
+script = ExtResource("3_6smwa")
 id = "swarming_blast_bombardier"
 display_name = "Swarming Blast Bombardier"
 role = 1
@@ -16,6 +18,8 @@ attack_interval = 1.4
 hits_air = true
 tier = 2
 chain_count = 2
-texture = ExtResource("2_abeq8")
+texture = ExtResource("4_i2jl3")
+anim_idle = ExtResource("2_6evs6")
+anim_attack = ExtResource("1_qief8")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Shots chain to 2 more invaders."

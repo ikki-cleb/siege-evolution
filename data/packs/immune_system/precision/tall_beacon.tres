@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fotl4"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/shield_beacon.tres" id="2_y20au"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/pulse_beacon.tres" id="3_fnfkh"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/tall_beacon.png" id="4_i512o"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/tall_beacon_attack.png" id="1_fnfkh"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/tall_beacon_idle.png" id="2_i512o"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_u6qfq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/shield_beacon.tres" id="4_m77me"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/pulse_beacon.tres" id="5_xxove"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/tall_beacon.png" id="6_lrrrg"]
 
 [resource]
-script = ExtResource("1_fotl4")
+script = ExtResource("3_u6qfq")
 id = "tall_beacon"
 display_name = "Tall Alarm Signal"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.25
 mark_duration = 1.5
 tier = 1
-evolutions = Array[ExtResource("1_fotl4")]([ExtResource("2_y20au"), ExtResource("3_fnfkh")])
-texture = ExtResource("4_i512o")
+evolutions = Array[ExtResource("3_u6qfq")]([ExtResource("4_m77me"), ExtResource("5_xxove")])
+texture = ExtResource("6_lrrrg")
+anim_idle = ExtResource("2_i512o")
+anim_attack = ExtResource("1_fnfkh")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

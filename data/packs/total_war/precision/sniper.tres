@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yr8gi"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/veteran_sniper.tres" id="2_6l2ll"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/marksman.tres" id="3_kqb5j"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/sniper.png" id="4_jvb72"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/sniper_attack.png" id="1_kqb5j"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/sniper_idle.png" id="2_jvb72"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pxcrd"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/veteran_sniper.tres" id="4_pdass"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/marksman.tres" id="5_qtr0d"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/sniper.png" id="6_7byy1"]
 
 [resource]
-script = ExtResource("1_yr8gi")
+script = ExtResource("3_pxcrd")
 id = "sniper"
 display_name = "Sniper"
 role = 1
@@ -15,7 +17,9 @@ max_hp = 15
 damage = 4.5
 attack_range = 3.0
 hits_air = true
-evolutions = Array[ExtResource("1_yr8gi")]([ExtResource("2_6l2ll"), ExtResource("3_kqb5j")])
-texture = ExtResource("4_jvb72")
+evolutions = Array[ExtResource("3_pxcrd")]([ExtResource("4_pdass"), ExtResource("5_qtr0d")])
+texture = ExtResource("6_7byy1")
+anim_idle = ExtResource("2_jvb72")
+anim_attack = ExtResource("1_kqb5j")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Long-range antibodies. Hits fliers."

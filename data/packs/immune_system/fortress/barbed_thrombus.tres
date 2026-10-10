@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iiwv2"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/barbed_thrombus.png" id="2_qqiqq"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/thrombus_spike_idle.png" id="1_qqiqq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_8xvbh"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/barbed_thrombus.png" id="3_rwahb"]
 
 [resource]
-script = ExtResource("1_iiwv2")
+script = ExtResource("2_8xvbh")
 id = "barbed_thrombus"
 display_name = "Grabbing Spiky Scab"
 cost = 34
@@ -13,6 +14,7 @@ reflect = 0.9
 tier = 2
 grab_stun = 0.6
 can_place_on_water = true
-texture = ExtResource("2_qqiqq")
+texture = ExtResource("3_rwahb")
+anim_idle = ExtResource("1_qqiqq")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 90% and snags smashers."

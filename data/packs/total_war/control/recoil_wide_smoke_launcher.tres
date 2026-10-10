@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ga1mk"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/recoil_wide_smoke_launcher.png" id="2_50wsx"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/wide_smoke_launcher_attack.png" id="1_dsvoi"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/wide_smoke_launcher_idle.png" id="2_0kl2j"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0wy8x"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/recoil_wide_smoke_launcher.png" id="4_b077g"]
 
 [resource]
-script = ExtResource("1_ga1mk")
+script = ExtResource("3_0wy8x")
 id = "recoil_wide_smoke_launcher"
 display_name = "Recoil Wide Smoke Launcher"
 role = 1
@@ -17,6 +19,8 @@ slow = 0.35
 slow_duration = 1.2
 tier = 2
 knockback = 1
-texture = ExtResource("2_50wsx")
+texture = ExtResource("4_b077g")
+anim_idle = ExtResource("2_0kl2j")
+anim_attack = ExtResource("1_dsvoi")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Pulses shove invaders back."

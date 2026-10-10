@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_geumu"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/splattering_super_bait_station.tres" id="2_jbrt2"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/chopping_super_bait_station.tres" id="3_amwyh"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/super_bait_station.png" id="4_qvyl2"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/super_bait_station_attack.png" id="1_amwyh"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/super_bait_station_idle.png" id="2_qvyl2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_og4jq"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/splattering_super_bait_station.tres" id="4_um14a"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/chopping_super_bait_station.tres" id="5_l1nw0"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/super_bait_station.png" id="6_xpapj"]
 
 [resource]
-script = ExtResource("1_geumu")
+script = ExtResource("3_og4jq")
 id = "super_bait_station"
 display_name = "Super Bait Station"
 role = 1
@@ -19,7 +21,9 @@ poison_dps = 8.0
 poison_duration = 5.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_geumu")]([ExtResource("2_jbrt2"), ExtResource("3_amwyh")])
-texture = ExtResource("4_qvyl2")
+evolutions = Array[ExtResource("3_og4jq")]([ExtResource("4_um14a"), ExtResource("5_l1nw0")])
+texture = ExtResource("6_xpapj")
+anim_idle = ExtResource("2_qvyl2")
+anim_attack = ExtResource("1_amwyh")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

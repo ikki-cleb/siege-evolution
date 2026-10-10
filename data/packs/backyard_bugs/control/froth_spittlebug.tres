@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m3kj8"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shell_cracking_froth_spittlebug.tres" id="2_4aqwj"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/smoldering_froth_spittlebug.tres" id="3_he1wm"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/froth_spittlebug.png" id="4_b8l5h"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/froth_spittlebug_attack.png" id="1_he1wm"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/froth_spittlebug_idle.png" id="2_b8l5h"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_a3008"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shell_cracking_froth_spittlebug.tres" id="4_ss3h7"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/smoldering_froth_spittlebug.tres" id="5_o43n4"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/froth_spittlebug.png" id="6_5b306"]
 
 [resource]
-script = ExtResource("1_m3kj8")
+script = ExtResource("3_a3008")
 id = "froth_spittlebug"
 display_name = "Froth Spittlebug"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_m3kj8")]([ExtResource("2_4aqwj"), ExtResource("3_he1wm")])
-texture = ExtResource("4_b8l5h")
+evolutions = Array[ExtResource("3_a3008")]([ExtResource("4_ss3h7"), ExtResource("5_o43n4")])
+texture = ExtResource("6_5b306")
+anim_idle = ExtResource("2_b8l5h")
+anim_attack = ExtResource("1_he1wm")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

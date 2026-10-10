@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ac6r0"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/flaming_heavy_grenadier.png" id="2_k2h0k"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/heavy_grenadier_attack.png" id="1_vls3g"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/heavy_grenadier_idle.png" id="2_c1r7x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1kr4m"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/flaming_heavy_grenadier.png" id="4_dyoh2"]
 
 [resource]
-script = ExtResource("1_ac6r0")
+script = ExtResource("3_1kr4m")
 id = "flaming_heavy_grenadier"
 display_name = "Flaming Heavy Grenadier"
 role = 1
@@ -17,6 +19,8 @@ adjacency_bonus = 0.15
 tier = 2
 zone_kind = "burn"
 zone_power = 3.0
-texture = ExtResource("2_k2h0k")
+texture = ExtResource("4_dyoh2")
+anim_idle = ExtResource("2_c1r7x")
+anim_attack = ExtResource("1_vls3g")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Leaves a burning patch around itself."

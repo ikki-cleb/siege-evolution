@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kvkaq"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/armor_piercing_heavy_grenadier.png" id="2_fujjg"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/heavy_grenadier_attack.png" id="1_7mmta"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/heavy_grenadier_idle.png" id="2_3s1r0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0rgai"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/armor_piercing_heavy_grenadier.png" id="4_25f5j"]
 
 [resource]
-script = ExtResource("1_kvkaq")
+script = ExtResource("3_0rgai")
 id = "armor_piercing_heavy_grenadier"
 display_name = "Armor-Piercing Heavy Grenadier"
 role = 1
@@ -16,6 +18,8 @@ attack_interval = 0.6
 adjacency_bonus = 0.15
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_fujjg")
+texture = ExtResource("4_25f5j")
+anim_idle = ExtResource("2_3s1r0")
+anim_attack = ExtResource("1_7mmta")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Each pulse strips 1 armor."

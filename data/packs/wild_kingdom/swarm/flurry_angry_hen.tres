@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mn57t"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/flurry_angry_hen.png" id="2_fpluu"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/angry_hen_attack.png" id="1_2v30b"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/angry_hen_idle.png" id="2_il60u"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gv7sr"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/flurry_angry_hen.png" id="4_mc51r"]
 
 [resource]
-script = ExtResource("1_mn57t")
+script = ExtResource("3_gv7sr")
 id = "flurry_angry_hen"
 display_name = "Flurry Angry Hen"
 role = 1
@@ -14,6 +16,8 @@ attack_interval = 0.45
 adjacency_bonus = 0.15
 tier = 2
 multishot = 2
-texture = ExtResource("2_fpluu")
+texture = ExtResource("4_mc51r")
+anim_idle = ExtResource("2_il60u")
+anim_attack = ExtResource("1_2v30b")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Jabs 2 targets at once."

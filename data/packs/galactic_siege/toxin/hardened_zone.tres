@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kpkdh"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/self_repairing_hardened_zone.tres" id="2_d3dff"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/tractor_hardened_zone.tres" id="3_o0e07"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/hardened_zone.png" id="4_5uq62"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/hardened_zone_attack.png" id="1_o0e07"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/hardened_zone_idle.png" id="2_5uq62"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_hvv16"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/self_repairing_hardened_zone.tres" id="4_gayen"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/tractor_hardened_zone.tres" id="5_835qe"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/hardened_zone.png" id="6_yaeee"]
 
 [resource]
-script = ExtResource("1_kpkdh")
+script = ExtResource("3_hvv16")
 id = "hardened_zone"
 display_name = "Hardened Zone"
 cost = 12
@@ -16,7 +18,9 @@ poison_dps = 3.0
 poison_duration = 2.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_kpkdh")]([ExtResource("2_d3dff"), ExtResource("3_o0e07")])
-texture = ExtResource("4_5uq62")
+evolutions = Array[ExtResource("3_hvv16")]([ExtResource("4_gayen"), ExtResource("5_835qe")])
+texture = ExtResource("6_yaeee")
+anim_idle = ExtResource("2_5uq62")
+anim_attack = ExtResource("1_o0e07")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

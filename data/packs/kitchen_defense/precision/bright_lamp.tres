@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1fils"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/peeling_bright_lamp.tres" id="2_xltb7"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/espresso_bright_lamp.tres" id="3_84kru"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/bright_lamp.png" id="4_64c2w"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/bright_lamp_attack.png" id="1_84kru"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/bright_lamp_idle.png" id="2_64c2w"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_s86yl"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/peeling_bright_lamp.tres" id="4_3sfqr"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/espresso_bright_lamp.tres" id="5_qnhty"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/bright_lamp.png" id="6_km28u"]
 
 [resource]
-script = ExtResource("1_1fils")
+script = ExtResource("3_s86yl")
 id = "bright_lamp"
 display_name = "Bright Lamp"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
 tier = 1
-evolutions = Array[ExtResource("1_1fils")]([ExtResource("2_xltb7"), ExtResource("3_84kru")])
-texture = ExtResource("4_64c2w")
+evolutions = Array[ExtResource("3_s86yl")]([ExtResource("4_3sfqr"), ExtResource("5_qnhty")])
+texture = ExtResource("6_km28u")
+anim_idle = ExtResource("2_64c2w")
+anim_attack = ExtResource("1_84kru")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gik31"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/charging_wafting_stink_bug.tres" id="2_s188r"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/buzzing_wafting_stink_bug.tres" id="3_xmmyo"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wafting_stink_bug.png" id="4_q8sda"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/wafting_stink_bug_attack.png" id="1_xmmyo"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/wafting_stink_bug_idle.png" id="2_q8sda"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_epa8g"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/charging_wafting_stink_bug.tres" id="4_xygyh"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/buzzing_wafting_stink_bug.tres" id="5_ij20u"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wafting_stink_bug.png" id="6_jf2k3"]
 
 [resource]
-script = ExtResource("1_gik31")
+script = ExtResource("3_epa8g")
 id = "wafting_stink_bug"
 display_name = "Wafting Stink Bug"
 role = 1
@@ -18,7 +20,9 @@ attack_range = 2.6
 slow = 0.35
 slow_duration = 1.2
 tier = 1
-evolutions = Array[ExtResource("1_gik31")]([ExtResource("2_s188r"), ExtResource("3_xmmyo")])
-texture = ExtResource("4_q8sda")
+evolutions = Array[ExtResource("3_epa8g")]([ExtResource("4_xygyh"), ExtResource("5_ij20u")])
+texture = ExtResource("6_jf2k3")
+anim_idle = ExtResource("2_q8sda")
+anim_attack = ExtResource("1_xmmyo")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

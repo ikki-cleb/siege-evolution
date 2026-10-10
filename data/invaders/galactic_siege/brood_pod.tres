@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_rdwgw"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/spawnling.tres" id="2_6uevd"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/brood_pod.png" id="3_yrivc"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/brood_pod_death.png" id="1_yrivc"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/brood_pod_move.png" id="2_knov8"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_r7e7o"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/spawnling.tres" id="4_d3ivd"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/brood_pod.png" id="5_q351w"]
 
 [resource]
-script = ExtResource("1_rdwgw")
+script = ExtResource("3_r7e7o")
 id = "brood_pod"
 display_name = "Brood Pod"
 max_hp = 18
 base_damage = 2
-split_into = ExtResource("2_6uevd")
+split_into = ExtResource("4_d3ivd")
 split_count = 3
-texture = ExtResource("3_yrivc")
+texture = ExtResource("5_q351w")
+anim_move = ExtResource("2_knov8")
+anim_death = ExtResource("1_yrivc")
 description = "Bursts into three spawnlings."

@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u54nb"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/re_inflating_big_gift_box.tres" id="2_kjffg"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/gooey_big_gift_box.tres" id="3_e1m7a"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/big_gift_box.png" id="4_wspbt"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/big_gift_box_idle.png" id="1_kjffg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_e1m7a"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/re_inflating_big_gift_box.tres" id="3_wspbt"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/gooey_big_gift_box.tres" id="4_roqje"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/big_gift_box.png" id="5_pm2bq"]
 
 [resource]
-script = ExtResource("1_u54nb")
+script = ExtResource("2_e1m7a")
 id = "big_gift_box"
 display_name = "Big Gift Box"
 cost = 10
 max_hp = 220
 tier = 1
-evolutions = Array[ExtResource("1_u54nb")]([ExtResource("2_kjffg"), ExtResource("3_e1m7a")])
+evolutions = Array[ExtResource("2_e1m7a")]([ExtResource("3_wspbt"), ExtResource("4_roqje")])
 can_place_on_water = true
-texture = ExtResource("4_wspbt")
+texture = ExtResource("5_pm2bq")
+anim_idle = ExtResource("1_kjffg")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

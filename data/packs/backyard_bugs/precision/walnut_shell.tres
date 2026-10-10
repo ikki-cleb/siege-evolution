@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qu7wd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/sheltering_walnut_shell.tres" id="2_jexso"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/regrowing_walnut_shell.tres" id="3_61del"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/walnut_shell.png" id="4_ry7vw"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/walnut_shell_idle.png" id="1_jexso"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_61del"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/sheltering_walnut_shell.tres" id="3_ry7vw"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/regrowing_walnut_shell.tres" id="4_lvkr0"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/walnut_shell.png" id="5_hdt4d"]
 
 [resource]
-script = ExtResource("1_qu7wd")
+script = ExtResource("2_61del")
 id = "walnut_shell"
 display_name = "Walnut Shell"
 cost = 6
 max_hp = 70
 tier = 1
-evolutions = Array[ExtResource("1_qu7wd")]([ExtResource("2_jexso"), ExtResource("3_61del")])
+evolutions = Array[ExtResource("2_61del")]([ExtResource("3_ry7vw"), ExtResource("4_lvkr0")])
 can_place_on_water = true
-texture = ExtResource("4_ry7vw")
+texture = ExtResource("5_hdt4d")
+anim_idle = ExtResource("1_jexso")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

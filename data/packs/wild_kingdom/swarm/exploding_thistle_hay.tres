@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ncvdy"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/exploding_thistle_hay.png" id="2_qyx3m"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/thistle_hay_idle.png" id="1_qyx3m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_a2ro4"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/exploding_thistle_hay.png" id="3_dvmq6"]
 
 [resource]
-script = ExtResource("1_ncvdy")
+script = ExtResource("2_a2ro4")
 id = "exploding_thistle_hay"
 display_name = "Exploding Thistle Hay"
 cost = 14
@@ -13,6 +14,7 @@ reflect = 0.4
 tier = 2
 explode_damage = 25.0
 can_place_on_water = true
-texture = ExtResource("2_qyx3m")
+texture = ExtResource("3_dvmq6")
+anim_idle = ExtResource("1_qyx3m")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Pops when it breaks, hurting nearby invaders."

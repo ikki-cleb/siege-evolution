@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dgtt0"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/multi_target_frenzy_bot.tres" id="2_1ll7w"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/terminator_frenzy_bot.tres" id="3_1ro0f"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/frenzy_bot.png" id="4_foapt"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/frenzy_bot_attack.png" id="1_1ro0f"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/frenzy_bot_idle.png" id="2_foapt"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_mpvey"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/multi_target_frenzy_bot.tres" id="4_ud8jw"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/terminator_frenzy_bot.tres" id="5_ls81h"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/frenzy_bot.png" id="6_5m0yt"]
 
 [resource]
-script = ExtResource("1_dgtt0")
+script = ExtResource("3_mpvey")
 id = "frenzy_bot"
 display_name = "Frenzy Bot"
 role = 1
@@ -15,7 +17,9 @@ damage = 3.5
 attack_interval = 0.45
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_dgtt0")]([ExtResource("2_1ll7w"), ExtResource("3_1ro0f")])
-texture = ExtResource("4_foapt")
+evolutions = Array[ExtResource("3_mpvey")]([ExtResource("4_ud8jw"), ExtResource("5_ls81h")])
+texture = ExtResource("6_5m0yt")
+anim_idle = ExtResource("2_foapt")
+anim_attack = ExtResource("1_1ro0f")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fufhr"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/roosters_wide_bonfire.png" id="2_4ro3f"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/wide_bonfire_attack.png" id="1_p7otl"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/wide_bonfire_idle.png" id="2_gbkt6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_mbm52"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/roosters_wide_bonfire.png" id="4_cn4lv"]
 
 [resource]
-script = ExtResource("1_fufhr")
+script = ExtResource("3_mbm52")
 id = "roosters_wide_bonfire"
 display_name = "Rooster's Wide Bonfire"
 role = 1
@@ -16,6 +18,8 @@ attack_range = 3.0
 hits_air = true
 tier = 2
 aura_speed = 0.2
-texture = ExtResource("2_4ro3f")
+texture = ExtResource("4_cn4lv")
+anim_idle = ExtResource("2_gbkt6")
+anim_attack = ExtResource("1_p7otl")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Neighbors attack 20% faster."

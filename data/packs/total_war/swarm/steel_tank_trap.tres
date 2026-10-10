@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xaivp"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/barbed_steel_tank_trap.tres" id="2_u5aju"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/field_repaired_steel_tank_trap.tres" id="3_pok66"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/steel_tank_trap.png" id="4_3ywb6"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/steel_tank_trap_attack.png" id="1_pok66"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/steel_tank_trap_idle.png" id="2_3ywb6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pau0t"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/barbed_steel_tank_trap.tres" id="4_0vhrv"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/field_repaired_steel_tank_trap.tres" id="5_t5nrt"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/steel_tank_trap.png" id="6_y454m"]
 
 [resource]
-script = ExtResource("1_xaivp")
+script = ExtResource("3_pau0t")
 id = "steel_tank_trap"
 display_name = "Steel Tank Trap"
 cost = 6
@@ -17,7 +19,9 @@ attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_xaivp")]([ExtResource("2_u5aju"), ExtResource("3_pok66")])
-texture = ExtResource("4_3ywb6")
+evolutions = Array[ExtResource("3_pau0t")]([ExtResource("4_0vhrv"), ExtResource("5_t5nrt")])
+texture = ExtResource("6_y454m")
+anim_idle = ExtResource("2_3ywb6")
+anim_attack = ExtResource("1_pok66")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

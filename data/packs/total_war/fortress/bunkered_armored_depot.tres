@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uwp8g"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/bunkered_armored_depot.png" id="2_4rhe6"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/armored_depot_idle.png" id="1_4rhe6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_svww5"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/bunkered_armored_depot.png" id="3_sl16h"]
 
 [resource]
-script = ExtResource("1_uwp8g")
+script = ExtResource("2_svww5")
 id = "bunkered_armored_depot"
 display_name = "Bunkered Armored Depot"
 cost = 40
@@ -12,6 +13,7 @@ max_hp = 150
 regen = 6.0
 tier = 2
 aura_shield = 0.3
-texture = ExtResource("2_4rhe6")
+texture = ExtResource("3_sl16h")
+anim_idle = ExtResource("1_4rhe6")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Neighbors take 30% less damage."

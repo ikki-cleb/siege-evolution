@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rhxxq"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bumper_chain_horns.tres" id="2_b2oxk"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/slushie_chain_horns.tres" id="3_s1nnu"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/chain_horns.png" id="4_fkh65"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/chain_horns_attack.png" id="1_s1nnu"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/chain_horns_idle.png" id="2_fkh65"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_p68ew"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bumper_chain_horns.tres" id="4_kk0of"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/slushie_chain_horns.tres" id="5_aq6wp"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/chain_horns.png" id="6_i7lqi"]
 
 [resource]
-script = ExtResource("1_rhxxq")
+script = ExtResource("3_p68ew")
 id = "chain_horns"
 display_name = "Chain Horns"
 role = 1
@@ -18,7 +20,9 @@ hits_air = true
 splash_radius = 1.2
 stun_duration = 0.6
 tier = 1
-evolutions = Array[ExtResource("1_rhxxq")]([ExtResource("2_b2oxk"), ExtResource("3_s1nnu")])
-texture = ExtResource("4_fkh65")
+evolutions = Array[ExtResource("3_p68ew")]([ExtResource("4_kk0of"), ExtResource("5_aq6wp")])
+texture = ExtResource("6_i7lqi")
+anim_idle = ExtResource("2_fkh65")
+anim_attack = ExtResource("1_s1nnu")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns a whole area."

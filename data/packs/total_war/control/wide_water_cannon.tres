@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_d73mm"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/recoil_wide_water_cannon.tres" id="2_4xj0p"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/loot_wide_water_cannon.tres" id="3_4pond"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/wide_water_cannon.png" id="4_rxkju"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/wide_water_cannon_attack.png" id="1_4pond"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/wide_water_cannon_idle.png" id="2_rxkju"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_brc68"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/recoil_wide_water_cannon.tres" id="4_4cjia"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/loot_wide_water_cannon.tres" id="5_u24pg"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/wide_water_cannon.png" id="6_0t717"]
 
 [resource]
-script = ExtResource("1_d73mm")
+script = ExtResource("3_brc68")
 id = "wide_water_cannon"
 display_name = "Wide Water Cannon"
 role = 1
@@ -20,7 +22,9 @@ hits_air = true
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_d73mm")]([ExtResource("2_4xj0p"), ExtResource("3_4pond")])
-texture = ExtResource("4_rxkju")
+evolutions = Array[ExtResource("3_brc68")]([ExtResource("4_4cjia"), ExtResource("5_u24pg")])
+texture = ExtResource("6_0t717")
+anim_idle = ExtResource("2_rxkju")
+anim_attack = ExtResource("1_4pond")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

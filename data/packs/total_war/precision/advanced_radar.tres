@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jrn54"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/armor_piercing_advanced_radar.tres" id="2_7hleq"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/rallying_advanced_radar.tres" id="3_7dnut"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/advanced_radar.png" id="4_qiopp"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/advanced_radar_attack.png" id="1_7dnut"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/advanced_radar_idle.png" id="2_qiopp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_70cw2"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/armor_piercing_advanced_radar.tres" id="4_mk1ug"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/rallying_advanced_radar.tres" id="5_od4vn"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/advanced_radar.png" id="6_tgfdq"]
 
 [resource]
-script = ExtResource("1_jrn54")
+script = ExtResource("3_70cw2")
 id = "advanced_radar"
 display_name = "Advanced Radar"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
 tier = 1
-evolutions = Array[ExtResource("1_jrn54")]([ExtResource("2_7hleq"), ExtResource("3_7dnut")])
-texture = ExtResource("4_qiopp")
+evolutions = Array[ExtResource("3_70cw2")]([ExtResource("4_mk1ug"), ExtResource("5_od4vn")])
+texture = ExtResource("6_tgfdq")
+anim_idle = ExtResource("2_qiopp")
+anim_attack = ExtResource("1_7dnut")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

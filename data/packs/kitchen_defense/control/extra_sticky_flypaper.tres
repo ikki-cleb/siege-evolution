@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_k1wyc"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/frozen_extra_sticky_flypaper.tres" id="2_be5j7"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/popping_extra_sticky_flypaper.tres" id="3_ndqan"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/extra_sticky_flypaper.png" id="4_716lm"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/extra_sticky_flypaper_attack.png" id="1_ndqan"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/extra_sticky_flypaper_idle.png" id="2_716lm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_41fhi"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/frozen_extra_sticky_flypaper.tres" id="4_2teev"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/popping_extra_sticky_flypaper.tres" id="5_oiek6"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/extra_sticky_flypaper.png" id="6_tgolf"]
 
 [resource]
-script = ExtResource("1_k1wyc")
+script = ExtResource("3_41fhi")
 id = "extra_sticky_flypaper"
 display_name = "Extra-Sticky Flypaper"
 cost = 6
@@ -17,8 +19,10 @@ attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_k1wyc")]([ExtResource("2_be5j7"), ExtResource("3_ndqan")])
+evolutions = Array[ExtResource("3_41fhi")]([ExtResource("4_2teev"), ExtResource("5_oiek6")])
 can_place_on_water = true
-texture = ExtResource("4_716lm")
+texture = ExtResource("6_tgolf")
+anim_idle = ExtResource("2_716lm")
+anim_attack = ExtResource("1_ndqan")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stronger slow."

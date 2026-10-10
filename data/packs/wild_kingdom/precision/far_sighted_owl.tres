@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gxuak"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/goring_far_sighted_owl.tres" id="2_p4cam"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/market_far_sighted_owl.tres" id="3_4lb1g"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/far_sighted_owl.png" id="4_5rucn"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/far_sighted_owl_attack.png" id="1_4lb1g"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/far_sighted_owl_idle.png" id="2_5rucn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qeryy"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/goring_far_sighted_owl.tres" id="4_pddqp"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/market_far_sighted_owl.tres" id="5_pqkuv"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/far_sighted_owl.png" id="6_0uw02"]
 
 [resource]
-script = ExtResource("1_gxuak")
+script = ExtResource("3_qeryy")
 id = "far_sighted_owl"
 display_name = "Far-Sighted Owl"
 role = 1
@@ -16,7 +18,9 @@ damage = 4.5
 attack_range = 4.5
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_gxuak")]([ExtResource("2_p4cam"), ExtResource("3_4lb1g")])
-texture = ExtResource("4_5rucn")
+evolutions = Array[ExtResource("3_qeryy")]([ExtResource("4_pddqp"), ExtResource("5_pqkuv")])
+texture = ExtResource("6_0uw02")
+anim_idle = ExtResource("2_5rucn")
+anim_attack = ExtResource("1_4lb1g")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

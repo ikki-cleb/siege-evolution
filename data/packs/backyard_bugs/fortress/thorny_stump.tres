@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ktl18"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/bursting_thorny_stump.tres" id="2_a22ct"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sticky_thorny_stump.tres" id="3_f1p2j"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorny_stump.png" id="4_s6guw"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/thorny_stump_attack.png" id="1_f1p2j"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/thorny_stump_idle.png" id="2_s6guw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_svo3j"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/bursting_thorny_stump.tres" id="4_kxxrs"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sticky_thorny_stump.tres" id="5_aw0x2"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorny_stump.png" id="6_8kg5p"]
 
 [resource]
-script = ExtResource("1_ktl18")
+script = ExtResource("3_svo3j")
 id = "thorny_stump"
 display_name = "Thorny Stump"
 cost = 16
@@ -15,7 +17,9 @@ reflect = 0.8
 attack_mode = 1
 damage = 5.0
 tier = 1
-evolutions = Array[ExtResource("1_ktl18")]([ExtResource("2_a22ct"), ExtResource("3_f1p2j")])
-texture = ExtResource("4_s6guw")
+evolutions = Array[ExtResource("3_svo3j")]([ExtResource("4_kxxrs"), ExtResource("5_aw0x2")])
+texture = ExtResource("6_8kg5p")
+anim_idle = ExtResource("2_s6guw")
+anim_attack = ExtResource("1_f1p2j")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 80% of smasher damage."

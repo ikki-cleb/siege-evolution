@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lrq3u"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/giant_mallet.tres" id="2_2hg1v"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/wide_mallet.tres" id="3_2bxg8"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/party_mallet.png" id="4_0ex0f"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/party_mallet_attack.png" id="1_2bxg8"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/party_mallet_idle.png" id="2_0ex0f"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_tg0vd"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/giant_mallet.tres" id="4_36oa1"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/wide_mallet.tres" id="5_7t738"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/party_mallet.png" id="6_fm362"]
 
 [resource]
-script = ExtResource("1_lrq3u")
+script = ExtResource("3_tg0vd")
 id = "party_mallet"
 display_name = "Party Mallet"
 role = 1
@@ -14,7 +16,9 @@ cost = 14
 max_hp = 60
 damage = 9.0
 attack_interval = 1.1
-evolutions = Array[ExtResource("1_lrq3u")]([ExtResource("2_2hg1v"), ExtResource("3_2bxg8")])
-texture = ExtResource("4_0ex0f")
+evolutions = Array[ExtResource("3_tg0vd")]([ExtResource("4_36oa1"), ExtResource("5_7t738")])
+texture = ExtResource("6_fm362")
+anim_idle = ExtResource("2_0ex0f")
+anim_attack = ExtResource("1_2bxg8")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Slow, crushing melee hits."

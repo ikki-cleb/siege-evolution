@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kikac"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/popping_lye_soap.tres" id="2_nrr8p"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/wipe_clean_lye_soap.tres" id="3_ljnhe"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/lye_soap.png" id="4_nf82t"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/lye_soap_idle.png" id="1_nrr8p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_ljnhe"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/popping_lye_soap.tres" id="3_nf82t"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/wipe_clean_lye_soap.tres" id="4_mlt1p"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/lye_soap.png" id="5_7o62e"]
 
 [resource]
-script = ExtResource("1_kikac")
+script = ExtResource("2_ljnhe")
 id = "lye_soap"
 display_name = "Lye Soap"
 cost = 6
 max_hp = 25
 reflect = 0.8
 tier = 1
-evolutions = Array[ExtResource("1_kikac")]([ExtResource("2_nrr8p"), ExtResource("3_ljnhe")])
+evolutions = Array[ExtResource("2_ljnhe")]([ExtResource("3_nf82t"), ExtResource("4_mlt1p")])
 can_place_on_water = true
-texture = ExtResource("4_nf82t")
+texture = ExtResource("5_7o62e")
+anim_idle = ExtResource("1_nrr8p")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

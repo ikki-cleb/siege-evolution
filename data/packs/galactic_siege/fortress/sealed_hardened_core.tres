@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qhatf"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/sealed_hardened_core.png" id="2_s266d"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/hardened_core_attack.png" id="1_5iy3w"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/hardened_core_idle.png" id="2_2oibc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_b5bw6"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/sealed_hardened_core.png" id="4_xslo4"]
 
 [resource]
-script = ExtResource("1_qhatf")
+script = ExtResource("3_b5bw6")
 id = "sealed_hardened_core"
 display_name = "Sealed Hardened Core"
 cost = 68
@@ -14,6 +16,8 @@ damage = 3.0
 tier = 2
 aura_shield = 0.3
 aura_cleanse = true
-texture = ExtResource("2_s266d")
+texture = ExtResource("4_xslo4")
+anim_idle = ExtResource("2_2oibc")
+anim_attack = ExtResource("1_5iy3w")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Neighbors take 30% less damage and ignore goo."

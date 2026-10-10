@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8vot0"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/shell_cracking_sweeping_stag.tres" id="2_y2ji6"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/smoldering_sweeping_stag.tres" id="3_p4dlx"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/sweeping_stag.png" id="4_onh6n"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/sweeping_stag_attack.png" id="1_p4dlx"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/sweeping_stag_idle.png" id="2_onh6n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_8eb0a"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/shell_cracking_sweeping_stag.tres" id="4_40d5w"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/smoldering_sweeping_stag.tres" id="5_fs0yh"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/sweeping_stag.png" id="6_3fc4q"]
 
 [resource]
-script = ExtResource("1_8vot0")
+script = ExtResource("3_8eb0a")
 id = "sweeping_stag"
 display_name = "Sweeping Stag"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 1.8
 attack_interval = 1.1
 splash_radius = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_8vot0")]([ExtResource("2_y2ji6"), ExtResource("3_p4dlx")])
-texture = ExtResource("4_onh6n")
+evolutions = Array[ExtResource("3_8eb0a")]([ExtResource("4_40d5w"), ExtResource("5_fs0yh")])
+texture = ExtResource("6_3fc4q")
+anim_idle = ExtResource("2_onh6n")
+anim_attack = ExtResource("1_p4dlx")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Longer reach and hits splash."

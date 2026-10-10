@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_csruo"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/repulsor_wide_plasma_vent.tres" id="2_xdkti"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/overclocked_wide_plasma_vent.tres" id="3_fgjqj"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/wide_plasma_vent.png" id="4_btnq7"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/wide_plasma_vent_attack.png" id="1_fgjqj"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/wide_plasma_vent_idle.png" id="2_btnq7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_23jfk"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/repulsor_wide_plasma_vent.tres" id="4_bms8o"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/overclocked_wide_plasma_vent.tres" id="5_6us54"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/wide_plasma_vent.png" id="6_48xo5"]
 
 [resource]
-script = ExtResource("1_csruo")
+script = ExtResource("3_23jfk")
 id = "wide_plasma_vent"
 display_name = "Wide Plasma Vent"
 role = 1
@@ -17,7 +19,9 @@ damage = 3.5
 attack_range = 3.0
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_csruo")]([ExtResource("2_xdkti"), ExtResource("3_fgjqj")])
-texture = ExtResource("4_btnq7")
+evolutions = Array[ExtResource("3_23jfk")]([ExtResource("4_bms8o"), ExtResource("5_6us54")])
+texture = ExtResource("6_48xo5")
+anim_idle = ExtResource("2_btnq7")
+anim_attack = ExtResource("1_fgjqj")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

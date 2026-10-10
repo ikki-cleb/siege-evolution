@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_egqjj"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/four_slice_toaster.tres" id="2_oawoq"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/turbo_toaster.tres" id="3_hhotu"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/toaster.png" id="4_sjguy"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/toaster_attack.png" id="1_hhotu"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/toaster_idle.png" id="2_sjguy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_efalw"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/four_slice_toaster.tres" id="4_5vlla"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/turbo_toaster.tres" id="5_13bx0"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/toaster.png" id="6_o3ei6"]
 
 [resource]
-script = ExtResource("1_egqjj")
+script = ExtResource("3_efalw")
 id = "toaster"
 display_name = "Toaster"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-evolutions = Array[ExtResource("1_egqjj")]([ExtResource("2_oawoq"), ExtResource("3_hhotu")])
-texture = ExtResource("4_sjguy")
+evolutions = Array[ExtResource("3_efalw")]([ExtResource("4_5vlla"), ExtResource("5_13bx0")])
+texture = ExtResource("6_o3ei6")
+anim_idle = ExtResource("2_sjguy")
+anim_attack = ExtResource("1_hhotu")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sniper. Huge piercing shots across the map."

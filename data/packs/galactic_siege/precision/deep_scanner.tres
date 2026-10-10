@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e231h"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/phase_shred_deep_scanner.tres" id="2_bd4q3"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/overclocked_deep_scanner.tres" id="3_wueux"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/deep_scanner.png" id="4_sguly"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/deep_scanner_attack.png" id="1_wueux"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/deep_scanner_idle.png" id="2_sguly"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_grc4b"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/phase_shred_deep_scanner.tres" id="4_v11ch"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/overclocked_deep_scanner.tres" id="5_yudeb"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/deep_scanner.png" id="6_crm4g"]
 
 [resource]
-script = ExtResource("1_e231h")
+script = ExtResource("3_grc4b")
 id = "deep_scanner"
 display_name = "Deep Scanner"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
 tier = 1
-evolutions = Array[ExtResource("1_e231h")]([ExtResource("2_bd4q3"), ExtResource("3_wueux")])
-texture = ExtResource("4_sguly")
+evolutions = Array[ExtResource("3_grc4b")]([ExtResource("4_v11ch"), ExtResource("5_yudeb")])
+texture = ExtResource("6_crm4g")
+anim_idle = ExtResource("2_sguly")
+anim_attack = ExtResource("1_wueux")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

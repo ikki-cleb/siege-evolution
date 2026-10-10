@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0n7wk"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/recoil_chain_shock_turret.png" id="2_es25l"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/chain_shock_turret_attack.png" id="1_psb6c"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/chain_shock_turret_idle.png" id="2_o012k"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_dmr43"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/recoil_chain_shock_turret.png" id="4_ya3lj"]
 
 [resource]
-script = ExtResource("1_0n7wk")
+script = ExtResource("3_dmr43")
 id = "recoil_chain_shock_turret"
 display_name = "Recoil Chain Shock Turret"
 role = 1
@@ -17,6 +19,8 @@ splash_radius = 1.2
 stun_duration = 0.6
 tier = 2
 knockback = 2
-texture = ExtResource("2_es25l")
+texture = ExtResource("4_ya3lj")
+anim_idle = ExtResource("2_o012k")
+anim_attack = ExtResource("1_psb6c")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Hits shove invaders 2 tiles back."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4o5aq"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/frenzied_horde.tres" id="2_i8o4y"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/killer_neutrophil.tres" id="3_ea8oa"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/frenzied_neutrophil.png" id="4_hml1n"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/frenzied_neutrophil_attack.png" id="1_ea8oa"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/frenzied_neutrophil_idle.png" id="2_hml1n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0p7br"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/frenzied_horde.tres" id="4_vs2hw"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/killer_neutrophil.tres" id="5_501i7"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/frenzied_neutrophil.png" id="6_atu6i"]
 
 [resource]
-script = ExtResource("1_4o5aq")
+script = ExtResource("3_0p7br")
 id = "frenzied_neutrophil"
 display_name = "Angry White Cell"
 role = 1
@@ -15,7 +17,9 @@ damage = 3.5
 attack_interval = 0.45
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_4o5aq")]([ExtResource("2_i8o4y"), ExtResource("3_ea8oa")])
-texture = ExtResource("4_hml1n")
+evolutions = Array[ExtResource("3_0p7br")]([ExtResource("4_vs2hw"), ExtResource("5_501i7")])
+texture = ExtResource("6_atu6i")
+anim_idle = ExtResource("2_hml1n")
+anim_attack = ExtResource("1_ea8oa")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

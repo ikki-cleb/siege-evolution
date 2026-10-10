@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4d3s7"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/grand_finale_extra_sour_squirter.tres" id="2_uqamh"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/double_extra_sour_squirter.tres" id="3_ef1yn"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/extra_sour_squirter.png" id="4_8quqx"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/extra_sour_squirter_attack.png" id="1_ef1yn"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/extra_sour_squirter_idle.png" id="2_8quqx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ryyrm"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/grand_finale_extra_sour_squirter.tres" id="4_go5vd"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/double_extra_sour_squirter.tres" id="5_o5oki"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/extra_sour_squirter.png" id="6_85wdy"]
 
 [resource]
-script = ExtResource("1_4d3s7")
+script = ExtResource("3_ryyrm")
 id = "extra_sour_squirter"
 display_name = "Extra-Sour Squirter"
 role = 1
@@ -17,7 +19,9 @@ attack_interval = 0.9
 poison_dps = 6.0
 poison_duration = 4.0
 tier = 1
-evolutions = Array[ExtResource("1_4d3s7")]([ExtResource("2_uqamh"), ExtResource("3_ef1yn")])
-texture = ExtResource("4_8quqx")
+evolutions = Array[ExtResource("3_ryyrm")]([ExtResource("4_go5vd"), ExtResource("5_o5oki")])
+texture = ExtResource("6_85wdy")
+anim_idle = ExtResource("2_8quqx")
+anim_attack = ExtResource("1_ef1yn")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

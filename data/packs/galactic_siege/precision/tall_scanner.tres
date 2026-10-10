@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x2wq8"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/sealed_tall_scanner.tres" id="2_fol53"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/repulsor_tall_scanner.tres" id="3_3dibi"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/tall_scanner.png" id="4_dgxf8"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/tall_scanner_attack.png" id="1_3dibi"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/tall_scanner_idle.png" id="2_dgxf8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_x4bn8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/sealed_tall_scanner.tres" id="4_vjfkq"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/repulsor_tall_scanner.tres" id="5_6f808"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/tall_scanner.png" id="6_7acp4"]
 
 [resource]
-script = ExtResource("1_x2wq8")
+script = ExtResource("3_x4bn8")
 id = "tall_scanner"
 display_name = "Tall Scanner"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.25
 mark_duration = 1.5
 tier = 1
-evolutions = Array[ExtResource("1_x2wq8")]([ExtResource("2_fol53"), ExtResource("3_3dibi")])
-texture = ExtResource("4_dgxf8")
+evolutions = Array[ExtResource("3_x4bn8")]([ExtResource("4_vjfkq"), ExtResource("5_6f808")])
+texture = ExtResource("6_7acp4")
+anim_idle = ExtResource("2_dgxf8")
+anim_attack = ExtResource("1_3dibi")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

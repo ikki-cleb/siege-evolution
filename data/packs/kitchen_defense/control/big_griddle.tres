@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vsrjb"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/swatting_big_griddle.tres" id="2_vk2k0"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/tip_jar_big_griddle.tres" id="3_y283p"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/big_griddle.png" id="4_syejt"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/big_griddle_attack.png" id="1_y283p"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/big_griddle_idle.png" id="2_syejt"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vkkjp"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/swatting_big_griddle.tres" id="4_tjebh"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/tip_jar_big_griddle.tres" id="5_nltgv"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/big_griddle.png" id="6_g1fcx"]
 
 [resource]
-script = ExtResource("1_vsrjb")
+script = ExtResource("3_vkkjp")
 id = "big_griddle"
 display_name = "Big Griddle"
 role = 1
@@ -20,7 +22,9 @@ hits_air = true
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_vsrjb")]([ExtResource("2_vk2k0"), ExtResource("3_y283p")])
-texture = ExtResource("4_syejt")
+evolutions = Array[ExtResource("3_vkkjp")]([ExtResource("4_tjebh"), ExtResource("5_nltgv")])
+texture = ExtResource("6_g1fcx")
+anim_idle = ExtResource("2_syejt")
+anim_attack = ExtResource("1_y283p")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

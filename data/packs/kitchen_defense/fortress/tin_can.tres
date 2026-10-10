@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lew6l"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/stacked_cans.tres" id="2_g24ug"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/jagged_can.tres" id="3_4wll0"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/tin_can.png" id="4_sj6i0"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/tin_can_idle.png" id="1_g24ug"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_4wll0"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/stacked_cans.tres" id="3_sj6i0"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/jagged_can.tres" id="4_fhswg"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/tin_can.png" id="5_y84cu"]
 
 [resource]
-script = ExtResource("1_lew6l")
+script = ExtResource("2_4wll0")
 id = "tin_can"
 display_name = "Tin Can"
 cost = 7
 max_hp = 90
-evolutions = Array[ExtResource("1_lew6l")]([ExtResource("2_g24ug"), ExtResource("3_4wll0")])
+evolutions = Array[ExtResource("2_4wll0")]([ExtResource("3_sj6i0"), ExtResource("4_fhswg")])
 can_place_on_water = true
-texture = ExtResource("4_sj6i0")
+texture = ExtResource("5_y84cu")
+anim_idle = ExtResource("1_g24ug")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Very tough wall."

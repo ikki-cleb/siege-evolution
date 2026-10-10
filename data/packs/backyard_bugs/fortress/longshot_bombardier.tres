@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7xr0o"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/lancing_long_shot_bombardier.tres" id="2_3hybd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/foraging_long_shot_bombardier.tres" id="3_ebd0n"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/longshot_bombardier.png" id="4_bfysl"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/longshot_bombardier_attack.png" id="1_ebd0n"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/longshot_bombardier_idle.png" id="2_bfysl"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_i1t4i"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/lancing_long_shot_bombardier.tres" id="4_gj8aq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/foraging_long_shot_bombardier.tres" id="5_uk03j"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/longshot_bombardier.png" id="6_jd5ih"]
 
 [resource]
-script = ExtResource("1_7xr0o")
+script = ExtResource("3_i1t4i")
 id = "longshot_bombardier"
 display_name = "Long-Shot Bombardier"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 3.6
 attack_interval = 1.4
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_7xr0o")]([ExtResource("2_3hybd"), ExtResource("3_ebd0n")])
-texture = ExtResource("4_bfysl")
+evolutions = Array[ExtResource("3_i1t4i")]([ExtResource("4_gj8aq"), ExtResource("5_uk03j")])
+texture = ExtResource("6_jd5ih")
+anim_idle = ExtResource("2_bfysl")
+anim_attack = ExtResource("1_ebd0n")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

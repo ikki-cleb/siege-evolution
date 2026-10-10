@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_72tgm"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/sepsis_zone.png" id="2_aib1y"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/searing_zone_attack.png" id="1_ubq2c"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/searing_zone_idle.png" id="2_5ib16"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_p58ti"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/sepsis_zone.png" id="4_k2ihi"]
 
 [resource]
-script = ExtResource("1_72tgm")
+script = ExtResource("3_p58ti")
 id = "sepsis_zone"
 display_name = "Finishing Hot Swelling"
 role = 1
@@ -19,6 +21,8 @@ slow = 0.5
 slow_duration = 1.0
 tier = 2
 execute_below = 0.15
-texture = ExtResource("2_aib1y")
+texture = ExtResource("4_k2ihi")
+anim_idle = ExtResource("2_5ib16")
+anim_attack = ExtResource("1_ubq2c")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Finishes off invaders below 15% HP."

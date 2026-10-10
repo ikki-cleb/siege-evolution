@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7t57f"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/surprise_prickly_present.tres" id="2_acsdy"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/gooey_prickly_present.tres" id="3_4tv34"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/prickly_present.png" id="4_1kgad"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/prickly_present_idle.png" id="1_acsdy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_4tv34"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/surprise_prickly_present.tres" id="3_1kgad"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/gooey_prickly_present.tres" id="4_q5wr2"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/prickly_present.png" id="5_05k10"]
 
 [resource]
-script = ExtResource("1_7t57f")
+script = ExtResource("2_4tv34")
 id = "prickly_present"
 display_name = "Prickly Present"
 cost = 10
 max_hp = 120
 reflect = 0.6
 tier = 1
-evolutions = Array[ExtResource("1_7t57f")]([ExtResource("2_acsdy"), ExtResource("3_4tv34")])
+evolutions = Array[ExtResource("2_4tv34")]([ExtResource("3_1kgad"), ExtResource("4_q5wr2")])
 can_place_on_water = true
-texture = ExtResource("4_1kgad")
+texture = ExtResource("5_05k10")
+anim_idle = ExtResource("1_acsdy")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 60% of smasher damage."

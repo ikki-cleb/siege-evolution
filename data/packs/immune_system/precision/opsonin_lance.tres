@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8kgtv"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/heavy_lance.tres" id="2_aitu5"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/rapid_lance.tres" id="3_tecv6"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/opsonin_lance.png" id="4_uxard"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/opsonin_lance_attack.png" id="1_tecv6"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/opsonin_lance_idle.png" id="2_uxard"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_sojur"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/heavy_lance.tres" id="4_tos61"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/rapid_lance.tres" id="5_o6rm0"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/opsonin_lance.png" id="6_m0mbl"]
 
 [resource]
-script = ExtResource("1_8kgtv")
+script = ExtResource("3_sojur")
 id = "opsonin_lance"
 display_name = "Antibody Sniper"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-evolutions = Array[ExtResource("1_8kgtv")]([ExtResource("2_aitu5"), ExtResource("3_tecv6")])
-texture = ExtResource("4_uxard")
+evolutions = Array[ExtResource("3_sojur")]([ExtResource("4_tos61"), ExtResource("5_o6rm0")])
+texture = ExtResource("6_m0mbl")
+anim_idle = ExtResource("2_uxard")
+anim_attack = ExtResource("1_tecv6")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sniper. Huge piercing shots across the map."

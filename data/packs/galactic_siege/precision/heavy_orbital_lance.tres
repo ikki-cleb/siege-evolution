@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_33lph"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/beam_heavy_orbital_lance.tres" id="2_q5mcv"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/terminator_heavy_orbital_lance.tres" id="3_77mo5"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/heavy_orbital_lance.png" id="4_lad75"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/heavy_orbital_lance_attack.png" id="1_77mo5"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/heavy_orbital_lance_idle.png" id="2_lad75"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6q8hv"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/beam_heavy_orbital_lance.tres" id="4_cyro2"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/terminator_heavy_orbital_lance.tres" id="5_d3d5r"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/heavy_orbital_lance.png" id="6_ybf48"]
 
 [resource]
-script = ExtResource("1_33lph")
+script = ExtResource("3_6q8hv")
 id = "heavy_orbital_lance"
 display_name = "Heavy Orbital Lance"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 3.0
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_33lph")]([ExtResource("2_q5mcv"), ExtResource("3_77mo5")])
-texture = ExtResource("4_lad75")
+evolutions = Array[ExtResource("3_6q8hv")]([ExtResource("4_cyro2"), ExtResource("5_d3d5r")])
+texture = ExtResource("6_ybf48")
+anim_idle = ExtResource("2_lad75")
+anim_attack = ExtResource("1_77mo5")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more damage."

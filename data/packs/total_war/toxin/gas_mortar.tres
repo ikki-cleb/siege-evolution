@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pe5qp"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/caustic_mortar.tres" id="2_csxcc"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/misting_mortar.tres" id="3_hosni"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/gas_mortar.png" id="4_7w71v"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/gas_mortar_attack.png" id="1_hosni"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/gas_mortar_idle.png" id="2_7w71v"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_kaw3x"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/caustic_mortar.tres" id="4_04jln"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/misting_mortar.tres" id="5_osql5"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/gas_mortar.png" id="6_k1d52"]
 
 [resource]
-script = ExtResource("1_pe5qp")
+script = ExtResource("3_kaw3x")
 id = "gas_mortar"
 display_name = "Gas Mortar"
 role = 1
@@ -19,7 +21,9 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_pe5qp")]([ExtResource("2_csxcc"), ExtResource("3_hosni")])
-texture = ExtResource("4_7w71v")
+evolutions = Array[ExtResource("3_kaw3x")]([ExtResource("4_04jln"), ExtResource("5_osql5")])
+texture = ExtResource("6_k1d52")
+anim_idle = ExtResource("2_7w71v")
+anim_attack = ExtResource("1_hosni")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison splash. Hits fliers."

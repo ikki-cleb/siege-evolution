@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_riebv"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/dense_net.tres" id="2_y6v04"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/wide_net.tres" id="3_rtkfw"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/net_trap.png" id="4_86ru5"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/net_trap_attack.png" id="1_rtkfw"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/net_trap_idle.png" id="2_86ru5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5fqmc"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/dense_net.tres" id="4_t1k2j"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/wide_net.tres" id="5_tn8u8"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/net_trap.png" id="6_02i7v"]
 
 [resource]
-script = ExtResource("1_riebv")
+script = ExtResource("3_5fqmc")
 id = "net_trap"
 display_name = "Sticky Net"
 cost = 6
@@ -16,7 +18,9 @@ damage = 0.5
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_riebv")]([ExtResource("2_y6v04"), ExtResource("3_rtkfw")])
-texture = ExtResource("4_86ru5")
+evolutions = Array[ExtResource("3_5fqmc")]([ExtResource("4_t1k2j"), ExtResource("5_tn8u8")])
+texture = ExtResource("6_02i7v")
+anim_idle = ExtResource("2_86ru5")
+anim_attack = ExtResource("1_rtkfw")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Sticky wall that slows anything next to it."

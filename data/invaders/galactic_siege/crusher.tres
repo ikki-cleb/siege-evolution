@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_4t47a"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/crusher.png" id="2_ejuu7"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/crusher_death.png" id="1_go6rw"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/crusher_move.png" id="2_gi46c"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_k4wh4"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/crusher.png" id="4_vbqdm"]
 
 [resource]
-script = ExtResource("1_4t47a")
+script = ExtResource("3_k4wh4")
 id = "crusher"
 display_name = "Crusher Mech"
 movement = 1
@@ -13,5 +15,7 @@ speed = 0.7
 base_damage = 3
 smash_damage = 8.0
 coin_drop = 3
-texture = ExtResource("2_ejuu7")
+texture = ExtResource("4_vbqdm")
+anim_move = ExtResource("2_gi46c")
+anim_death = ExtResource("1_go6rw")
 description = "Stomps straight through units."

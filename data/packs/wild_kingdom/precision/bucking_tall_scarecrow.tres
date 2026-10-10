@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_agnqv"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/bucking_tall_scarecrow.png" id="2_ihgux"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/tall_scarecrow_attack.png" id="1_3eadt"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/tall_scarecrow_idle.png" id="2_ojr47"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_4ung3"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/bucking_tall_scarecrow.png" id="4_e0x53"]
 
 [resource]
-script = ExtResource("1_agnqv")
+script = ExtResource("3_4ung3")
 id = "bucking_tall_scarecrow"
 display_name = "Bucking Tall Scarecrow"
 role = 2
@@ -17,6 +19,8 @@ mark_bonus = 0.25
 mark_duration = 1.5
 tier = 2
 knockback = 1
-texture = ExtResource("2_ihgux")
+texture = ExtResource("4_e0x53")
+anim_idle = ExtResource("2_ojr47")
+anim_attack = ExtResource("1_3eadt")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Pulses shove invaders back."

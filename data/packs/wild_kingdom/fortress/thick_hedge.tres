@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n8pwn"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/mended_thick_hedge.tres" id="2_alriq"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/sheltering_thick_hedge.tres" id="3_jibr2"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thick_hedge.png" id="4_lj0i8"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/thick_hedge_idle.png" id="1_alriq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_jibr2"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/mended_thick_hedge.tres" id="3_lj0i8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/sheltering_thick_hedge.tres" id="4_8r2js"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thick_hedge.png" id="5_a5riy"]
 
 [resource]
-script = ExtResource("1_n8pwn")
+script = ExtResource("2_jibr2")
 id = "thick_hedge"
 display_name = "Thick Hedge"
 cost = 10
 max_hp = 150
 regen = 6.0
 tier = 1
-evolutions = Array[ExtResource("1_n8pwn")]([ExtResource("2_alriq"), ExtResource("3_jibr2")])
-texture = ExtResource("4_lj0i8")
+evolutions = Array[ExtResource("2_jibr2")]([ExtResource("3_lj0i8"), ExtResource("4_8r2js")])
+texture = ExtResource("5_a5riy")
+anim_idle = ExtResource("1_alriq")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

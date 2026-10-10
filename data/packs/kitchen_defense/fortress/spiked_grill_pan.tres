@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3ss3n"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/popping_spiked_grill_pan.tres" id="2_6ridr"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sticky_spiked_grill_pan.tres" id="3_cxwm1"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/spiked_grill_pan.png" id="4_b0mea"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/spiked_grill_pan_attack.png" id="1_cxwm1"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/spiked_grill_pan_idle.png" id="2_b0mea"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_bv5nx"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/popping_spiked_grill_pan.tres" id="4_djsvg"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sticky_spiked_grill_pan.tres" id="5_fcjx2"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/spiked_grill_pan.png" id="6_hoirj"]
 
 [resource]
-script = ExtResource("1_3ss3n")
+script = ExtResource("3_bv5nx")
 id = "spiked_grill_pan"
 display_name = "Spiked Grill Pan"
 cost = 16
@@ -15,7 +17,9 @@ reflect = 0.8
 attack_mode = 1
 damage = 5.0
 tier = 1
-evolutions = Array[ExtResource("1_3ss3n")]([ExtResource("2_6ridr"), ExtResource("3_cxwm1")])
-texture = ExtResource("4_b0mea")
+evolutions = Array[ExtResource("3_bv5nx")]([ExtResource("4_djsvg"), ExtResource("5_fcjx2")])
+texture = ExtResource("6_hoirj")
+anim_idle = ExtResource("2_b0mea")
+anim_attack = ExtResource("1_cxwm1")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 80% of smasher damage."

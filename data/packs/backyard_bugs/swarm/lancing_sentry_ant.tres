@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u08il"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/lancing_sentry_ant.png" id="2_5t10f"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/sentry_ant_attack.png" id="1_s15w4"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/sentry_ant_idle.png" id="2_x6eiw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gkpnd"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/lancing_sentry_ant.png" id="4_iiebf"]
 
 [resource]
-script = ExtResource("1_u08il")
+script = ExtResource("3_gkpnd")
 id = "lancing_sentry_ant"
 display_name = "Lancing Sentry Ant"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 adjacency_bonus = 0.15
 tier = 2
 line_pierce = true
-texture = ExtResource("2_5t10f")
+texture = ExtResource("4_iiebf")
+anim_idle = ExtResource("2_x6eiw")
+anim_attack = ExtResource("1_s15w4")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Pokes pierce every invader in a line."

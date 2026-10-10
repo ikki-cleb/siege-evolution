@@ -89,4 +89,8 @@ enum Movement {
 
 @export_group("Looks")
 @export var texture: Texture2D
+## Optional animations: horizontal strips of square frames. Move loops while
+## it walks or flies; death plays once where it was killed.
+@export var anim_move: Texture2D
+@export var anim_death: Texture2D
 @export_multiline var description: String = ""

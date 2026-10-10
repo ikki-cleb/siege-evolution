@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0oj1r"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/prize_long_sparkler.tres" id="2_p1h3y"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/double_long_sparkler.tres" id="3_7nbaf"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/long_sparkler.png" id="4_fgx7a"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/long_sparkler_attack.png" id="1_7nbaf"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/long_sparkler_idle.png" id="2_fgx7a"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ab7l4"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/prize_long_sparkler.tres" id="4_5oy12"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/double_long_sparkler.tres" id="5_o5ul7"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/long_sparkler.png" id="6_100py"]
 
 [resource]
-script = ExtResource("1_0oj1r")
+script = ExtResource("3_ab7l4")
 id = "long_sparkler"
 display_name = "Long Sparkler"
 role = 1
@@ -19,7 +21,9 @@ hits_air = true
 pierce = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_0oj1r")]([ExtResource("2_p1h3y"), ExtResource("3_7nbaf")])
-texture = ExtResource("4_fgx7a")
+evolutions = Array[ExtResource("3_ab7l4")]([ExtResource("4_5oy12"), ExtResource("5_o5ul7")])
+texture = ExtResource("6_100py")
+anim_idle = ExtResource("2_fgx7a")
+anim_attack = ExtResource("1_7nbaf")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

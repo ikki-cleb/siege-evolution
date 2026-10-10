@@ -32,6 +32,12 @@ const REGEN_PAUSE := 2.0
 var _cooldown := 0.0
 var _regen_pause := 0.0
 var _sprite: Sprite2D
+## Plays animation strips when the unit has them (see StripPlayer).
+var _strips := StripPlayer.new()
+## Strips are drawn at 64x64 per frame; this shrinks them to the 16x16 tile.
+var _art_scale := 1.0
+## Draws the capstone star over animated art (still art has it built in).
+var _star: CapstoneStar
 ## Capstone mechanics: grab cooldown, and whether "rebuild once" was used.
 const GRAB_COOLDOWN := 3.0
 var _grab_cooldown := 0.0
@@ -50,21 +56,36 @@ func setup(p_data: UnitData, p_cell: Vector2i, p_board: Board) -> void:
 	position = board.cell_center(cell)
 	_sprite = Sprite2D.new()
 	add_child(_sprite)
+	add_child(_strips)
+	_star = CapstoneStar.new()
+	add_child(_star)
 	_update_sprite()
 	_pop()
 
 
 ## A quick bounce when the unit appears or evolves.
 func _pop() -> void:
-	_sprite.scale = Vector2(0.4, 0.4)
-	create_tween().tween_property(_sprite, "scale", Vector2.ONE, 0.25) \
+	_sprite.scale = Vector2.ONE * 0.4 * _art_scale
+	create_tween().tween_property(_sprite, "scale", Vector2.ONE * _art_scale, 0.25) \
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
-## Units on water use their water look (nets and mines).
+## Units on water use their water look (nets and mines); others play their
+## idle animation if they have one, else show their still sprite.
 func _update_sprite() -> void:
 	var on_water := board.water.has(cell) and data.water_texture != null
-	_sprite.texture = data.water_texture if on_water else data.texture
+	var animated := data.anim_idle != null and not on_water
+	if animated:
+		_strips.start_loop(_sprite, data.anim_idle)
+		_art_scale = float(Board.TILE) / data.anim_idle.get_height()
+	else:
+		_strips.start_loop(_sprite, null)
+		_sprite.texture = data.water_texture if on_water else data.texture
+		_sprite.hframes = 1
+		_sprite.frame = 0
+		_art_scale = 1.0
+	_sprite.scale = Vector2.ONE * _art_scale
+	_star.visible = animated and is_capstone()
 
 
 func is_evolved() -> bool:
@@ -167,6 +188,7 @@ func _process(delta: float) -> void:
 	if _cooldown > 0.0:
 		return
 	if _attack():
+		_play_attack()
 		# Swarm units attack faster for every unit packed around them.
 		var speed_up := 1.0 + data.adjacency_bonus * board.neighbor_count(cell)
 		# A neighbor's speed aura (capstones) helps too.
@@ -174,6 +196,15 @@ func _process(delta: float) -> void:
 		# Goo slows it down (0.4 sticky = attacks at 60% of normal speed).
 		speed_up *= 1.0 - sticky
 		_cooldown = data.attack_interval / speed_up
+
+
+## Plays the attack strip once, fast enough to finish before the next shot.
+func _play_attack() -> void:
+	if data.anim_attack == null or (board.water.has(cell) and data.water_texture != null):
+		return
+	var frames := StripPlayer.frames_in(data.anim_attack)
+	var fps := maxf(StripPlayer.ACTION_FPS, frames / (data.attack_interval * 0.9))
+	_strips.play_once(_sprite, data.anim_attack, fps)
 
 
 ## Attacks if anything is in range. Returns false if there was nothing to hit.
@@ -304,3 +335,15 @@ func _draw() -> void:
 	if hp < data.max_hp:
 		draw_rect(Rect2(-7, -9, 14, 2), Color(0.1, 0.1, 0.1))
 		draw_rect(Rect2(-7, -9, 14.0 * hp / data.max_hp, 2), Color(0.3, 1, 0.4))
+
+
+## A small gold star in the bottom-left corner, for capstones whose animated
+## art doesn't have one drawn in.
+class CapstoneStar extends Node2D:
+	func _draw() -> void:
+		var points := PackedVector2Array()
+		for i in 10:
+			var radius := 3.2 if i % 2 == 0 else 1.4
+			var angle := -PI / 2 + i * PI / 5
+			points.append(Vector2(-5, 5) + Vector2(cos(angle), sin(angle)) * radius)
+		draw_colored_polygon(points, Palette.GOLD)

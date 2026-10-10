@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hj4n6"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/scar_fibroblast.tres" id="2_valr2"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/healing_fibroblast.tres" id="3_3iurd"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/fibroblast.png" id="4_441ph"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/fibroblast_idle.png" id="1_valr2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_3iurd"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/scar_fibroblast.tres" id="3_441ph"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/healing_fibroblast.tres" id="4_dn8gh"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/fibroblast.png" id="5_3qnlk"]
 
 [resource]
-script = ExtResource("1_hj4n6")
+script = ExtResource("2_3iurd")
 id = "fibroblast"
 display_name = "Scar Tissue"
 cost = 10
 max_hp = 70
 regen = 6.0
-evolutions = Array[ExtResource("1_hj4n6")]([ExtResource("2_valr2"), ExtResource("3_3iurd")])
-texture = ExtResource("4_441ph")
+evolutions = Array[ExtResource("2_3iurd")]([ExtResource("3_441ph"), ExtResource("4_dn8gh")])
+texture = ExtResource("5_3qnlk")
+anim_idle = ExtResource("1_valr2")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Wall that heals itself when not under attack."

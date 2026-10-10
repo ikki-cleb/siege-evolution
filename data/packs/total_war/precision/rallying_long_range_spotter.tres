@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_b5w5i"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/rallying_long_range_spotter.png" id="2_wvu1t"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/long_range_spotter_attack.png" id="1_urqnu"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/long_range_spotter_idle.png" id="2_uq4mm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_epb6g"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/rallying_long_range_spotter.png" id="4_vu0fw"]
 
 [resource]
-script = ExtResource("1_b5w5i")
+script = ExtResource("3_epb6g")
 id = "rallying_long_range_spotter"
 display_name = "Rallying Long-Range Spotter"
 role = 2
@@ -17,6 +19,8 @@ mark_bonus = 0.3
 mark_duration = 3.0
 tier = 2
 aura_speed = 0.2
-texture = ExtResource("2_wvu1t")
+texture = ExtResource("4_vu0fw")
+anim_idle = ExtResource("2_uq4mm")
+anim_attack = ExtResource("1_urqnu")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Neighbors attack 20% faster."

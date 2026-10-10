@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_50r0s"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/relay_roaming_bazooka.tres" id="2_4y6fg"]
-[ext_resource type="Resource" path="res://data/packs/total_war/precision/twin_barrel_roaming_bazooka.tres" id="3_drmvb"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/roaming_bazooka.png" id="4_xuqim"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/roaming_bazooka_attack.png" id="1_drmvb"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/roaming_bazooka_idle.png" id="2_xuqim"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_oixnq"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/relay_roaming_bazooka.tres" id="4_koxfk"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/twin_barrel_roaming_bazooka.tres" id="5_jjkw3"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/roaming_bazooka.png" id="6_48s2b"]
 
 [resource]
-script = ExtResource("1_50r0s")
+script = ExtResource("3_oixnq")
 id = "roaming_bazooka"
 display_name = "Roaming Bazooka"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 1.6
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_50r0s")]([ExtResource("2_4y6fg"), ExtResource("3_drmvb")])
-texture = ExtResource("4_xuqim")
+evolutions = Array[ExtResource("3_oixnq")]([ExtResource("4_koxfk"), ExtResource("5_jjkw3")])
+texture = ExtResource("6_48s2b")
+anim_idle = ExtResource("2_xuqim")
+anim_attack = ExtResource("1_drmvb")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More range, hits fliers."

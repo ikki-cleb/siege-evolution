@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_grneb"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/booby_trapped_virulent_sludge.png" id="2_2bt1y"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/virulent_sludge_attack.png" id="1_od1jw"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/virulent_sludge_idle.png" id="2_6y3mc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_457aq"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/booby_trapped_virulent_sludge.png" id="4_6tf4n"]
 
 [resource]
-script = ExtResource("1_grneb")
+script = ExtResource("3_457aq")
 id = "booby_trapped_virulent_sludge"
 display_name = "Booby-Trapped Virulent Sludge"
 cost = 52
@@ -17,6 +19,8 @@ tier = 2
 zone_kind = "toxic"
 zone_power = 4.0
 explode_damage = 60.0
-texture = ExtResource("2_2bt1y")
+texture = ExtResource("4_6tf4n")
+anim_idle = ExtResource("2_6y3mc")
+anim_attack = ExtResource("1_od1jw")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Bursts into a toxic cloud when it breaks."

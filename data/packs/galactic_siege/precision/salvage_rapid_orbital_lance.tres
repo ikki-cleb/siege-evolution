@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4calo"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/salvage_rapid_orbital_lance.png" id="2_ugrnc"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/rapid_orbital_lance_attack.png" id="1_lk78x"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/rapid_orbital_lance_idle.png" id="2_emhdi"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0xqcf"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/salvage_rapid_orbital_lance.png" id="4_dc66o"]
 
 [resource]
-script = ExtResource("1_4calo")
+script = ExtResource("3_0xqcf")
 id = "salvage_rapid_orbital_lance"
 display_name = "Salvage Rapid Orbital Lance"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 pierce = true
 tier = 2
 bounty = 2
-texture = ExtResource("2_ugrnc")
+texture = ExtResource("4_dc66o")
+anim_idle = ExtResource("2_emhdi")
+anim_attack = ExtResource("1_lk78x")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Its kills drop 2 extra coins."

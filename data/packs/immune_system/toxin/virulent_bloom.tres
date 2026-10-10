@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2ccyt"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/spore_burst_bloom.tres" id="2_4tr6q"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/blight_field.tres" id="3_2wbeo"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/virulent_bloom.png" id="4_ia2sy"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/virulent_bloom_attack.png" id="1_2wbeo"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/virulent_bloom_idle.png" id="2_ia2sy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1ibgu"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/spore_burst_bloom.tres" id="4_7csyk"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/blight_field.tres" id="5_hwtju"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/virulent_bloom.png" id="6_i55ka"]
 
 [resource]
-script = ExtResource("1_2ccyt")
+script = ExtResource("3_1ibgu")
 id = "virulent_bloom"
 display_name = "Nasty Rot Patch"
 cost = 12
@@ -16,7 +18,9 @@ poison_dps = 6.0
 poison_duration = 2.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_2ccyt")]([ExtResource("2_4tr6q"), ExtResource("3_2wbeo")])
-texture = ExtResource("4_ia2sy")
+evolutions = Array[ExtResource("3_1ibgu")]([ExtResource("4_7csyk"), ExtResource("5_hwtju")])
+texture = ExtResource("6_i55ka")
+anim_idle = ExtResource("2_ia2sy")
+anim_attack = ExtResource("1_2wbeo")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

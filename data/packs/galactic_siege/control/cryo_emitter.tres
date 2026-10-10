@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hdlso"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/deep_cryo_emitter.tres" id="2_wqjjo"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/wide_cryo_emitter.tres" id="3_2n2s8"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/cryo_emitter.png" id="4_48e6u"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/cryo_emitter_attack.png" id="1_2n2s8"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/cryo_emitter_idle.png" id="2_48e6u"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_oxvsa"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/deep_cryo_emitter.tres" id="4_1cms8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/wide_cryo_emitter.tres" id="5_w2fcp"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/cryo_emitter.png" id="6_db2ot"]
 
 [resource]
-script = ExtResource("1_hdlso")
+script = ExtResource("3_oxvsa")
 id = "cryo_emitter"
 display_name = "Cryo Emitter"
 role = 1
@@ -17,7 +19,9 @@ damage = 2.0
 attack_range = 1.8
 slow = 0.35
 slow_duration = 1.2
-evolutions = Array[ExtResource("1_hdlso")]([ExtResource("2_wqjjo"), ExtResource("3_2n2s8")])
-texture = ExtResource("4_48e6u")
+evolutions = Array[ExtResource("3_oxvsa")]([ExtResource("4_1cms8"), ExtResource("5_w2fcp")])
+texture = ExtResource("6_db2ot")
+anim_idle = ExtResource("2_48e6u")
+anim_attack = ExtResource("1_2n2s8")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Damages and slows everything around it."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5ndjc"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/multi_target_hunter_bot.png" id="2_30h4k"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/hunter_bot_attack.png" id="1_i1mly"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/hunter_bot_idle.png" id="2_dyxfg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_v3ha7"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/multi_target_hunter_bot.png" id="4_wlc43"]
 
 [resource]
-script = ExtResource("1_5ndjc")
+script = ExtResource("3_v3ha7")
 id = "multi_target_hunter_bot"
 display_name = "Multi-Target Hunter Bot"
 role = 1
@@ -18,6 +20,8 @@ pierce = true
 adjacency_bonus = 0.15
 tier = 2
 multishot = 3
-texture = ExtResource("2_30h4k")
+texture = ExtResource("4_wlc43")
+anim_idle = ExtResource("2_dyxfg")
+anim_attack = ExtResource("1_i1mly")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Strikes 3 targets at once."

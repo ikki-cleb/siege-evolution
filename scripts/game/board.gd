@@ -537,7 +537,10 @@ func _add_invader(data: InvaderData, pos: Vector2, path: Array[Vector2i], path_i
 func on_invader_killed(invader: Invader) -> void:
 	invaders.erase(invader)
 	invader_killed.emit(invader)
-	fx.add_puff(invader.position, Color(1, 1, 1, 0.9))
+	if invader.data.anim_death:
+		_play_death(invader)
+	else:
+		fx.add_puff(invader.position, Color(1, 1, 1, 0.9))
 	Sfx.play("kill")
 	if invader.drops_coins and invader.data.coin_drop > 0:
 		coins_dropped.emit(invader.data.coin_drop, to_global(invader.position))
@@ -555,6 +558,22 @@ func on_invader_killed(invader: Invader) -> void:
 			if other.position.distance_to(invader.position) <= POISON_SPREAD_RANGE * TILE:
 				other.apply_poison(invader.poison_dps, invader.poison_time, true)
 	invader.queue_free()
+
+
+## An invader's death animation, played once where it died (the invader
+## itself is removed right away).
+func _play_death(invader: Invader) -> void:
+	var strip := invader.data.anim_death
+	var sprite := Sprite2D.new()
+	sprite.position = invader.position
+	sprite.z_index = 4
+	var size := (1.75 if invader.data.is_boss else 1.0) * TILE / strip.get_height()
+	sprite.scale = Vector2(size, size)
+	var player := StripPlayer.new()
+	sprite.add_child(player)
+	add_child(sprite)
+	player.finished.connect(sprite.queue_free)
+	player.play_once(sprite, strip)
 
 
 ## A bomber's payload: full damage on the target tile, half on the 8 around.

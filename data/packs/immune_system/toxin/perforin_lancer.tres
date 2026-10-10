@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_a3stm"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/plague_lancer.tres" id="2_csbqc"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/long_lancer.tres" id="3_3g8os"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/perforin_lancer.png" id="4_h0tyx"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/perforin_lancer_attack.png" id="1_3g8os"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/perforin_lancer_idle.png" id="2_h0tyx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_xe6c7"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/plague_lancer.tres" id="4_2n5fv"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/long_lancer.tres" id="5_gdnh8"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/perforin_lancer.png" id="6_hy8ph"]
 
 [resource]
-script = ExtResource("1_a3stm")
+script = ExtResource("3_xe6c7")
 id = "perforin_lancer"
 display_name = "Plague Cell"
 role = 1
@@ -18,7 +20,9 @@ hits_air = true
 poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
-evolutions = Array[ExtResource("1_a3stm")]([ExtResource("2_csbqc"), ExtResource("3_3g8os")])
-texture = ExtResource("4_h0tyx")
+evolutions = Array[ExtResource("3_xe6c7")]([ExtResource("4_2n5fv"), ExtResource("5_gdnh8")])
+texture = ExtResource("6_hy8ph")
+anim_idle = ExtResource("2_h0tyx")
+anim_attack = ExtResource("1_3g8os")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison that jumps to nearby invaders when its victim dies."

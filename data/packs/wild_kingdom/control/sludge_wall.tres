@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1jw3l"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/frosty_sludge_wall.tres" id="2_hksow"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/exploding_sludge_wall.tres" id="3_n8w5q"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/sludge_wall.png" id="4_bf7nd"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/sludge_wall_attack.png" id="1_n8w5q"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/sludge_wall_idle.png" id="2_bf7nd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6pksg"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/frosty_sludge_wall.tres" id="4_6movs"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/exploding_sludge_wall.tres" id="5_0hjkr"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/sludge_wall.png" id="6_04121"]
 
 [resource]
-script = ExtResource("1_1jw3l")
+script = ExtResource("3_6pksg")
 id = "sludge_wall"
 display_name = "Sludge Wall"
 cost = 6
@@ -17,8 +19,10 @@ attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_1jw3l")]([ExtResource("2_hksow"), ExtResource("3_n8w5q")])
+evolutions = Array[ExtResource("3_6pksg")]([ExtResource("4_6movs"), ExtResource("5_0hjkr")])
 can_place_on_water = true
-texture = ExtResource("4_bf7nd")
+texture = ExtResource("6_04121")
+anim_idle = ExtResource("2_bf7nd")
+anim_attack = ExtResource("1_n8w5q")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stronger slow."

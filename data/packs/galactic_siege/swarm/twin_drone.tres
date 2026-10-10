@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ied0p"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/multi_target_twin_drone.tres" id="2_7e4rx"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/phase_shred_twin_drone.tres" id="3_lg6lk"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/twin_drone.png" id="4_5hlmq"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/twin_drone_attack.png" id="1_lg6lk"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/twin_drone_idle.png" id="2_5hlmq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_fd6ka"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/multi_target_twin_drone.tres" id="4_y1csf"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/phase_shred_twin_drone.tres" id="5_kc7tu"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/twin_drone.png" id="6_0d87i"]
 
 [resource]
-script = ExtResource("1_ied0p")
+script = ExtResource("3_fd6ka")
 id = "twin_drone"
 display_name = "Twin Drone"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_ied0p")]([ExtResource("2_7e4rx"), ExtResource("3_lg6lk")])
-texture = ExtResource("4_5hlmq")
+evolutions = Array[ExtResource("3_fd6ka")]([ExtResource("4_y1csf"), ExtResource("5_kc7tu")])
+texture = ExtResource("6_0d87i")
+anim_idle = ExtResource("2_5hlmq")
+anim_attack = ExtResource("1_lg6lk")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

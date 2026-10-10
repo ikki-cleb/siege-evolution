@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_f57r1"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/many_legged_long_tail_scorpion.tres" id="2_pqoe7"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/lancing_long_tail_scorpion.tres" id="3_8j3rl"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/long_tail_scorpion.png" id="4_l47nm"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/long_tail_scorpion_attack.png" id="1_8j3rl"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/long_tail_scorpion_idle.png" id="2_l47nm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_tlbxs"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/many_legged_long_tail_scorpion.tres" id="4_a87nq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/lancing_long_tail_scorpion.tres" id="5_hnw5r"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/long_tail_scorpion.png" id="6_4ai1a"]
 
 [resource]
-script = ExtResource("1_f57r1")
+script = ExtResource("3_tlbxs")
 id = "long_tail_scorpion"
 display_name = "Long-Tail Scorpion"
 role = 1
@@ -19,7 +21,9 @@ poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_f57r1")]([ExtResource("2_pqoe7"), ExtResource("3_8j3rl")])
-texture = ExtResource("4_l47nm")
+evolutions = Array[ExtResource("3_tlbxs")]([ExtResource("4_a87nq"), ExtResource("5_hnw5r")])
+texture = ExtResource("6_4ai1a")
+anim_idle = ExtResource("2_l47nm")
+anim_attack = ExtResource("1_8j3rl")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

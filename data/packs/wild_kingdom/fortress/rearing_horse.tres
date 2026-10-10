@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_aq730"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/goring_rearing_horse.tres" id="2_5i3td"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/tusked_rearing_horse.tres" id="3_hr7mu"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/rearing_horse.png" id="4_01blm"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/rearing_horse_attack.png" id="1_hr7mu"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/rearing_horse_idle.png" id="2_01blm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6js6p"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/goring_rearing_horse.tres" id="4_wj532"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/tusked_rearing_horse.tres" id="5_xqaaa"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/rearing_horse.png" id="6_yplp6"]
 
 [resource]
-script = ExtResource("1_aq730")
+script = ExtResource("3_6js6p")
 id = "rearing_horse"
 display_name = "Rearing Horse"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 2.6
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_aq730")]([ExtResource("2_5i3td"), ExtResource("3_hr7mu")])
-texture = ExtResource("4_01blm")
+evolutions = Array[ExtResource("3_6js6p")]([ExtResource("4_wj532"), ExtResource("5_xqaaa")])
+texture = ExtResource("6_yplp6")
+anim_idle = ExtResource("2_01blm")
+anim_attack = ExtResource("1_hr7mu")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

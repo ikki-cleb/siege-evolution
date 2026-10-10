@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6x72x"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/control/glue_mucus.tres" id="2_vbpin"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/control/bursting_mucus.tres" id="3_hhig7"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/sticky_mucus.png" id="4_dkum7"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/sticky_mucus_attack.png" id="1_hhig7"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/sticky_mucus_idle.png" id="2_dkum7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_k78vq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/glue_mucus.tres" id="4_tlnum"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/bursting_mucus.tres" id="5_l0etj"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/sticky_mucus.png" id="6_rn2he"]
 
 [resource]
-script = ExtResource("1_6x72x")
+script = ExtResource("3_k78vq")
 id = "sticky_mucus"
 display_name = "Sticky Mucus"
 cost = 6
@@ -17,8 +19,10 @@ attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_6x72x")]([ExtResource("2_vbpin"), ExtResource("3_hhig7")])
+evolutions = Array[ExtResource("3_k78vq")]([ExtResource("4_tlnum"), ExtResource("5_l0etj")])
 can_place_on_water = true
-texture = ExtResource("4_dkum7")
+texture = ExtResource("6_rn2he")
+anim_idle = ExtResource("2_dkum7")
+anim_attack = ExtResource("1_hhig7")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stronger slow."

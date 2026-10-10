@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_r7ko2"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/buzzing_signal_firefly.png" id="2_bvnh1"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/signal_firefly_attack.png" id="1_er4gi"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/signal_firefly_idle.png" id="2_cjfa7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_cywk7"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/buzzing_signal_firefly.png" id="4_5iirn"]
 
 [resource]
-script = ExtResource("1_r7ko2")
+script = ExtResource("3_cywk7")
 id = "buzzing_signal_firefly"
 display_name = "Buzzing Signal Firefly"
 role = 2
@@ -17,6 +19,8 @@ mark_bonus = 0.3
 mark_duration = 3.0
 tier = 2
 aura_speed = 0.2
-texture = ExtResource("2_bvnh1")
+texture = ExtResource("4_5iirn")
+anim_idle = ExtResource("2_cjfa7")
+anim_attack = ExtResource("1_er4gi")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Neighbors attack 20% faster."

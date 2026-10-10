@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kjsus"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/dense_sponge.tres" id="2_h74n5"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/soaked_sponge.tres" id="3_j2gyy"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/sponge.png" id="4_xqmdr"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/sponge_idle.png" id="1_h74n5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_j2gyy"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/dense_sponge.tres" id="3_xqmdr"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/soaked_sponge.tres" id="4_iatbw"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/sponge.png" id="5_yc5h1"]
 
 [resource]
-script = ExtResource("1_kjsus")
+script = ExtResource("2_j2gyy")
 id = "sponge"
 display_name = "Sponge"
 cost = 10
 max_hp = 70
 regen = 6.0
-evolutions = Array[ExtResource("1_kjsus")]([ExtResource("2_h74n5"), ExtResource("3_j2gyy")])
-texture = ExtResource("4_xqmdr")
+evolutions = Array[ExtResource("2_j2gyy")]([ExtResource("3_xqmdr"), ExtResource("4_iatbw")])
+texture = ExtResource("5_yc5h1")
+anim_idle = ExtResource("1_h74n5")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Wall that heals itself when not under attack."

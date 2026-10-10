@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 102
+const MIN_RULE_CHECKS := 107
 var progress: Node
 
 
@@ -39,6 +39,7 @@ func _run() -> void:
 	await _test_pack_swapping(biome)
 	await _test_achievements(biome)
 	await _test_background(biome)
+	await _test_animations(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index; 5 = Kitchen, 6 = Birthday).
 		var worlds := [0, 1, 2, 3, 4, 5, 6]
@@ -655,6 +656,33 @@ func _capstone_names(world: BiomeData) -> Array[String]:
 				for capstone in tier1.evolutions:
 					names.append(capstone.display_name)
 	return names
+
+
+# --- Animated sprites ------------------------------------------------------------
+
+func _test_animations(biome: BiomeData) -> void:
+	var game := await _start(biome, 0, 0)
+	var board: Board = game.board
+	board.wave_active = true
+	var attacker: UnitData = load(PACKS + "fortress/macrophage.tres")
+	var unit: Unit = board.place_unit(attacker, Vector2i(1, 8))
+	_check(attacker.anim_idle != null and unit._sprite.hframes == StripPlayer.frames_in(attacker.anim_idle)
+		and is_equal_approx(unit._art_scale * attacker.anim_idle.get_height(), Board.TILE),
+		"Units play their idle strip, shrunk to fit the tile")
+	unit._play_attack()
+	_check(unit._sprite.texture == attacker.anim_attack, "Firing plays the attack strip")
+	for i in 60:
+		await process_frame
+	_check(unit._sprite.texture == attacker.anim_idle, "...then returns to idle")
+	var capstone: Unit = board.place_unit(load(PACKS + "fortress/presenting_dendrite.tres"), Vector2i(3, 8))
+	_check(capstone._star.visible and capstone.data.anim_idle == load(PACKS + "fortress/mature_dendrite.tres").anim_idle,
+		"Capstones reuse their tier-1 animation, with a gold star")
+	var walker := _dummy(board, "rhinovirus", Vector2i(2, 10), 1.0)
+	var sprites_before := board.get_children().filter(func(c): return c is Sprite2D).size()
+	walker.take_damage(5.0, true)
+	_check(walker._sprite.hframes > 1 and board.get_children().filter(func(c): return c is Sprite2D).size() == sprites_before + 1,
+		"Invaders walk with their move strip and play a death animation")
+	await _stop(game)
 
 
 # --- Painted level backgrounds ---------------------------------------------------

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_1v0x0"]
-[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/honey_ant.png" id="2_dn5ie"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/honey_ant_death.png" id="1_jgxgh"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/honey_ant_move.png" id="2_wp4l1"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_cveim"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/honey_ant.png" id="4_btfe6"]
 
 [resource]
-script = ExtResource("1_1v0x0")
+script = ExtResource("3_cveim")
 id = "honey_ant"
 display_name = "Honey Ant"
 max_hp = 26
@@ -14,5 +16,7 @@ coin_drop = 3
 is_elite = true
 spill_every = 2
 spill_slow = 0.4
-texture = ExtResource("2_dn5ie")
+texture = ExtResource("4_btfe6")
+anim_move = ExtResource("2_wp4l1")
+anim_death = ExtResource("1_jgxgh")
 description = "Elite spiller: faster and armored, drips honey on units beside its route."

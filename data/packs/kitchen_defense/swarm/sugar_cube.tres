@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3ir7k"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/sugar_lump.tres" id="2_mhu80"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/rock_candy.tres" id="3_kcnvn"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sugar_cube.png" id="4_owjp7"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/sugar_cube_idle.png" id="1_mhu80"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_kcnvn"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/sugar_lump.tres" id="3_owjp7"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/rock_candy.tres" id="4_ox1fn"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sugar_cube.png" id="5_d7mfr"]
 
 [resource]
-script = ExtResource("1_3ir7k")
+script = ExtResource("2_kcnvn")
 id = "sugar_cube"
 display_name = "Sugar Cube"
 cost = 3
 max_hp = 18
-evolutions = Array[ExtResource("1_3ir7k")]([ExtResource("2_mhu80"), ExtResource("3_kcnvn")])
+evolutions = Array[ExtResource("2_kcnvn")]([ExtResource("3_owjp7"), ExtResource("4_ox1fn")])
 can_place_on_water = true
-texture = ExtResource("4_owjp7")
+texture = ExtResource("5_d7mfr")
+anim_idle = ExtResource("1_mhu80")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Dirt-cheap wall."

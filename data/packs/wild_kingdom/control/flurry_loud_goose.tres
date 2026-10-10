@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_b6w4l"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/flurry_loud_goose.png" id="2_vh3bs"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/loud_goose_attack.png" id="1_ostgf"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/loud_goose_idle.png" id="2_obgtc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_uxq1s"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/flurry_loud_goose.png" id="4_fawm5"]
 
 [resource]
-script = ExtResource("1_b6w4l")
+script = ExtResource("3_uxq1s")
 id = "flurry_loud_goose"
 display_name = "Flurry Loud Goose"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 splash_radius = 1.0
 tier = 2
 multishot = 2
-texture = ExtResource("2_vh3bs")
+texture = ExtResource("4_fawm5")
+anim_idle = ExtResource("2_obgtc")
+anim_attack = ExtResource("1_ostgf")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Spits at 2 targets at once."

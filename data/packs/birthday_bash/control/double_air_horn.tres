@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qoshx"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/double_air_horn.png" id="2_2gd44"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/air_horn_attack.png" id="1_v0pry"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/air_horn_idle.png" id="2_17kyf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_uyqdj"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/double_air_horn.png" id="4_k7te6"]
 
 [resource]
-script = ExtResource("1_qoshx")
+script = ExtResource("3_uyqdj")
 id = "double_air_horn"
 display_name = "Double Air Horn"
 role = 1
@@ -16,6 +18,8 @@ hits_air = true
 stun_duration = 1.1
 tier = 2
 multishot = 2
-texture = ExtResource("2_2gd44")
+texture = ExtResource("4_k7te6")
+anim_idle = ExtResource("2_17kyf")
+anim_attack = ExtResource("1_v0pry")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns 2 targets at once."

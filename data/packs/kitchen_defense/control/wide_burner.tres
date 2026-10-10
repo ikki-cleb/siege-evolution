@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m3vot"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/swatting_wide_burner.tres" id="2_50uj4"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/espresso_wide_burner.tres" id="3_p1fac"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/wide_burner.png" id="4_4xmld"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/wide_burner_attack.png" id="1_p1fac"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/wide_burner_idle.png" id="2_4xmld"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ft8wl"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/swatting_wide_burner.tres" id="4_xm1pg"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/espresso_wide_burner.tres" id="5_dl3tu"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/wide_burner.png" id="6_6xdut"]
 
 [resource]
-script = ExtResource("1_m3vot")
+script = ExtResource("3_ft8wl")
 id = "wide_burner"
 display_name = "Wide Burner"
 role = 1
@@ -17,7 +19,9 @@ damage = 3.5
 attack_range = 3.0
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_m3vot")]([ExtResource("2_50uj4"), ExtResource("3_p1fac")])
-texture = ExtResource("4_4xmld")
+evolutions = Array[ExtResource("3_ft8wl")]([ExtResource("4_xm1pg"), ExtResource("5_dl3tu")])
+texture = ExtResource("6_6xdut")
+anim_idle = ExtResource("2_4xmld")
+anim_attack = ExtResource("1_p1fac")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

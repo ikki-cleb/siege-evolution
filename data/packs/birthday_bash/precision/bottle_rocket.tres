@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_k5lrk"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/heavy_bottle_rocket.tres" id="2_8mavi"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/rapid_bottle_rocket.tres" id="3_gi75k"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/bottle_rocket.png" id="4_ud6bd"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/bottle_rocket_attack.png" id="1_gi75k"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/bottle_rocket_idle.png" id="2_ud6bd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_2dfv6"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/heavy_bottle_rocket.tres" id="4_b5unu"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/rapid_bottle_rocket.tres" id="5_lro51"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/bottle_rocket.png" id="6_djnc4"]
 
 [resource]
-script = ExtResource("1_k5lrk")
+script = ExtResource("3_2dfv6")
 id = "bottle_rocket"
 display_name = "Bottle Rocket"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-evolutions = Array[ExtResource("1_k5lrk")]([ExtResource("2_8mavi"), ExtResource("3_gi75k")])
-texture = ExtResource("4_ud6bd")
+evolutions = Array[ExtResource("3_2dfv6")]([ExtResource("4_b5unu"), ExtResource("5_lro51")])
+texture = ExtResource("6_djnc4")
+anim_idle = ExtResource("2_ud6bd")
+anim_attack = ExtResource("1_gi75k")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sniper. Huge piercing shots across the map."

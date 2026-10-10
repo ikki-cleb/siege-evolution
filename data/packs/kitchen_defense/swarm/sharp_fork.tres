@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7oucx"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/two_handed_sharp_fork.tres" id="2_1bx6o"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/chopping_sharp_fork.tres" id="3_8ciot"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sharp_fork.png" id="4_p81q1"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/sharp_fork_attack.png" id="1_8ciot"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/sharp_fork_idle.png" id="2_p81q1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_4ulw0"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/two_handed_sharp_fork.tres" id="4_idqtn"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/chopping_sharp_fork.tres" id="5_vko4j"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sharp_fork.png" id="6_o2y71"]
 
 [resource]
-script = ExtResource("1_7oucx")
+script = ExtResource("3_4ulw0")
 id = "sharp_fork"
 display_name = "Sharp Fork"
 role = 1
@@ -15,7 +17,9 @@ damage = 3.5
 attack_interval = 0.45
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_7oucx")]([ExtResource("2_1bx6o"), ExtResource("3_8ciot")])
-texture = ExtResource("4_p81q1")
+evolutions = Array[ExtResource("3_4ulw0")]([ExtResource("4_idqtn"), ExtResource("5_vko4j")])
+texture = ExtResource("6_o2y71")
+anim_idle = ExtResource("2_p81q1")
+anim_attack = ExtResource("1_8ciot")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

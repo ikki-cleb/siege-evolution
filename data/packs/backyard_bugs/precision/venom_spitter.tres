@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h5b5j"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/many_legged_venom_spitter.tres" id="2_33ijq"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/predator_venom_spitter.tres" id="3_ftqol"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/venom_spitter.png" id="4_1g0oh"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/venom_spitter_attack.png" id="1_ftqol"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/venom_spitter_idle.png" id="2_1g0oh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_cpwk1"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/many_legged_venom_spitter.tres" id="4_11pej"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/predator_venom_spitter.tres" id="5_ce4d4"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/venom_spitter.png" id="6_t3jwg"]
 
 [resource]
-script = ExtResource("1_h5b5j")
+script = ExtResource("3_cpwk1")
 id = "venom_spitter"
 display_name = "Venom Spitter"
 role = 1
@@ -16,7 +18,9 @@ damage = 8.0
 attack_range = 3.0
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_h5b5j")]([ExtResource("2_33ijq"), ExtResource("3_ftqol")])
-texture = ExtResource("4_1g0oh")
+evolutions = Array[ExtResource("3_cpwk1")]([ExtResource("4_11pej"), ExtResource("5_ce4d4")])
+texture = ExtResource("6_t3jwg")
+anim_idle = ExtResource("2_1g0oh")
+anim_attack = ExtResource("1_ftqol")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_illxe"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/peregrine_falcon.tres" id="2_if45t"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/swift_falcon.tres" id="3_4g4w2"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/falcon.png" id="4_87el2"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/falcon_attack.png" id="1_4g4w2"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/falcon_idle.png" id="2_87el2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pqujo"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/peregrine_falcon.tres" id="4_7osgl"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/swift_falcon.tres" id="5_7wf20"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/falcon.png" id="6_matpe"]
 
 [resource]
-script = ExtResource("1_illxe")
+script = ExtResource("3_pqujo")
 id = "falcon"
 display_name = "Falcon"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-evolutions = Array[ExtResource("1_illxe")]([ExtResource("2_if45t"), ExtResource("3_4g4w2")])
-texture = ExtResource("4_87el2")
+evolutions = Array[ExtResource("3_pqujo")]([ExtResource("4_7osgl"), ExtResource("5_7wf20")])
+texture = ExtResource("6_matpe")
+anim_idle = ExtResource("2_87el2")
+anim_attack = ExtResource("1_4g4w2")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sniper. Huge piercing shots across the map."

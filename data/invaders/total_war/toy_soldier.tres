@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_8yj7v"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/toy_soldier.png" id="2_jsfey"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/toy_soldier_death.png" id="1_ynamc"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/toy_soldier_move.png" id="2_1x0yr"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_wlwwq"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/toy_soldier.png" id="4_1ifrw"]
 
 [resource]
-script = ExtResource("1_8yj7v")
+script = ExtResource("3_wlwwq")
 id = "toy_soldier"
 display_name = "Toy Soldier"
 max_hp = 8
 speed = 1.5
-texture = ExtResource("2_jsfey")
+texture = ExtResource("4_1ifrw")
+anim_move = ExtResource("2_1x0yr")
+anim_death = ExtResource("1_ynamc")
 description = "Marches in swarms."

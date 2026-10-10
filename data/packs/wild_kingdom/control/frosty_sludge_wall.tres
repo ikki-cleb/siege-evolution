@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_i871q"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/frosty_sludge_wall.png" id="2_qbuqa"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/sludge_wall_attack.png" id="1_qo2hl"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/sludge_wall_idle.png" id="2_cshhw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_fad7i"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/frosty_sludge_wall.png" id="4_yt82v"]
 
 [resource]
-script = ExtResource("1_i871q")
+script = ExtResource("3_fad7i")
 id = "frosty_sludge_wall"
 display_name = "Frosty Sludge Wall"
 cost = 22
@@ -18,6 +20,8 @@ tier = 2
 zone_kind = "freeze"
 zone_power = 0.6
 can_place_on_water = true
-texture = ExtResource("2_qbuqa")
+texture = ExtResource("4_yt82v")
+anim_idle = ExtResource("2_cshhw")
+anim_attack = ExtResource("1_qo2hl")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Leaves a freezing patch around itself."

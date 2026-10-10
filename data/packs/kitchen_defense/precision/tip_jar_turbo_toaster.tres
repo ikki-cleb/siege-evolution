@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_aaej8"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/tip_jar_turbo_toaster.png" id="2_4c88x"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/turbo_toaster_attack.png" id="1_b7gba"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/turbo_toaster_idle.png" id="2_foifo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qq14l"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/tip_jar_turbo_toaster.png" id="4_o0knf"]
 
 [resource]
-script = ExtResource("1_aaej8")
+script = ExtResource("3_qq14l")
 id = "tip_jar_turbo_toaster"
 display_name = "Tip-Jar Turbo Toaster"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 pierce = true
 tier = 2
 bounty = 2
-texture = ExtResource("2_4c88x")
+texture = ExtResource("4_o0knf")
+anim_idle = ExtResource("2_foifo")
+anim_attack = ExtResource("1_b7gba")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Its kills drop 2 extra coins."

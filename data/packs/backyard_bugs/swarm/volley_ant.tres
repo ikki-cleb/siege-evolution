@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dorab"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/many_legged_volley_ant.tres" id="2_2fddi"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/shell_cracking_volley_ant.tres" id="3_h2u5e"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/volley_ant.png" id="4_pgguc"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/volley_ant_attack.png" id="1_h2u5e"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/volley_ant_idle.png" id="2_pgguc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_d3pap"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/many_legged_volley_ant.tres" id="4_14my5"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/shell_cracking_volley_ant.tres" id="5_c2p3u"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/volley_ant.png" id="6_exnnm"]
 
 [resource]
-script = ExtResource("1_dorab")
+script = ExtResource("3_d3pap")
 id = "volley_ant"
 display_name = "Volley Ant"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_dorab")]([ExtResource("2_2fddi"), ExtResource("3_h2u5e")])
-texture = ExtResource("4_pgguc")
+evolutions = Array[ExtResource("3_d3pap")]([ExtResource("4_14my5"), ExtResource("5_c2p3u")])
+texture = ExtResource("6_exnnm")
+anim_idle = ExtResource("2_pgguc")
+anim_attack = ExtResource("1_h2u5e")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

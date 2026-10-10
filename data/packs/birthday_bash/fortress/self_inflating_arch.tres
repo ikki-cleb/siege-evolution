@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2orgw"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/sugar_rush_self_inflating_arch.tres" id="2_47k16"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/gooey_self_inflating_arch.tres" id="3_qhmfo"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/self_inflating_arch.png" id="4_lkm6f"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/self_inflating_arch_idle.png" id="1_47k16"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_qhmfo"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/sugar_rush_self_inflating_arch.tres" id="3_lkm6f"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/gooey_self_inflating_arch.tres" id="4_ysvnh"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/self_inflating_arch.png" id="5_a4h1b"]
 
 [resource]
-script = ExtResource("1_2orgw")
+script = ExtResource("2_qhmfo")
 id = "self_inflating_arch"
 display_name = "Self-Inflating Arch"
 cost = 10
 max_hp = 70
 regen = 16.0
 tier = 1
-evolutions = Array[ExtResource("1_2orgw")]([ExtResource("2_47k16"), ExtResource("3_qhmfo")])
-texture = ExtResource("4_lkm6f")
+evolutions = Array[ExtResource("2_qhmfo")]([ExtResource("3_lkm6f"), ExtResource("4_ysvnh")])
+texture = ExtResource("5_a4h1b")
+anim_idle = ExtResource("1_47k16")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

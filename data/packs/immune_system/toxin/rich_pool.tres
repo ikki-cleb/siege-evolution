@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_nv8rv"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/rich_pool.png" id="2_0qncx"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/spilling_pool_attack.png" id="1_2jeyo"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/spilling_pool_idle.png" id="2_0p4kp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_mp7gm"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/rich_pool.png" id="4_l56db"]
 
 [resource]
-script = ExtResource("1_nv8rv")
+script = ExtResource("3_mp7gm")
 id = "rich_pool"
 display_name = "Lucky Spilling Acid Puddle"
 role = 1
@@ -16,6 +18,8 @@ poison_dps = 2.5
 poison_duration = 3.0
 tier = 2
 bounty = 1
-texture = ExtResource("2_0qncx")
+texture = ExtResource("4_l56db")
+anim_idle = ExtResource("2_0p4kp")
+anim_attack = ExtResource("1_2jeyo")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Its kills drop an extra coin."

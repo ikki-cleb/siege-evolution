@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ckieg"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/self_stacking_stacked_cans.tres" id="2_ct2b0"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sticky_stacked_cans.tres" id="3_vbpfn"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/stacked_cans.png" id="4_3folf"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/stacked_cans_idle.png" id="1_ct2b0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_vbpfn"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/self_stacking_stacked_cans.tres" id="3_3folf"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sticky_stacked_cans.tres" id="4_n032j"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/stacked_cans.png" id="5_n7rwi"]
 
 [resource]
-script = ExtResource("1_ckieg")
+script = ExtResource("2_vbpfn")
 id = "stacked_cans"
 display_name = "Stacked Cans"
 cost = 10
 max_hp = 220
 tier = 1
-evolutions = Array[ExtResource("1_ckieg")]([ExtResource("2_ct2b0"), ExtResource("3_vbpfn")])
+evolutions = Array[ExtResource("2_vbpfn")]([ExtResource("3_3folf"), ExtResource("4_n032j")])
 can_place_on_water = true
-texture = ExtResource("4_3folf")
+texture = ExtResource("5_n7rwi")
+anim_idle = ExtResource("1_ct2b0")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_11nuf"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/choking_bloom.png" id="2_l3k2x"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/hardened_bloom_attack.png" id="1_3pels"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/hardened_bloom_idle.png" id="2_710uh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_8f4e3"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/choking_bloom.png" id="4_tj4xh"]
 
 [resource]
-script = ExtResource("1_11nuf")
+script = ExtResource("3_8f4e3")
 id = "choking_bloom"
 display_name = "Grabbing Hard Rot Patch"
 cost = 52
@@ -15,6 +17,8 @@ poison_duration = 2.0
 poison_spreads = true
 tier = 2
 grab_stun = 1.0
-texture = ExtResource("2_l3k2x")
+texture = ExtResource("4_tj4xh")
+anim_idle = ExtResource("2_710uh")
+anim_attack = ExtResource("1_3pels")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Smashers that bite it get stuck."

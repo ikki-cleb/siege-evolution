@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_i5vwc"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/sizzling_hot_sauce_squirter.png" id="2_a2qgb"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/hot_sauce_squirter_attack.png" id="1_t418w"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/hot_sauce_squirter_idle.png" id="2_5kyvo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_8om15"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/sizzling_hot_sauce_squirter.png" id="4_lmmpk"]
 
 [resource]
-script = ExtResource("1_i5vwc")
+script = ExtResource("3_8om15")
 id = "sizzling_hot_sauce_squirter"
 display_name = "Sizzling Hot Sauce Squirter"
 role = 1
@@ -18,6 +20,8 @@ splash_radius = 1.0
 tier = 2
 zone_kind = "burn"
 zone_power = 4.0
-texture = ExtResource("2_a2qgb")
+texture = ExtResource("4_lmmpk")
+anim_idle = ExtResource("2_5kyvo")
+anim_attack = ExtResource("1_t418w")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Shots leave a burning patch."

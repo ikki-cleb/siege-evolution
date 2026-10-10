@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4ikmo"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/tomcat.tres" id="2_eyk6i"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/prowling_cat.tres" id="3_vnm1x"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/barn_cat.png" id="4_k0ei7"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/barn_cat_attack.png" id="1_vnm1x"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/barn_cat_idle.png" id="2_k0ei7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_q6usa"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/tomcat.tres" id="4_m2krn"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/prowling_cat.tres" id="5_0rv0m"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/barn_cat.png" id="6_ax8ce"]
 
 [resource]
-script = ExtResource("1_4ikmo")
+script = ExtResource("3_q6usa")
 id = "barn_cat"
 display_name = "Barn Cat"
 role = 1
@@ -16,7 +18,9 @@ damage = 4.0
 attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_4ikmo")]([ExtResource("2_eyk6i"), ExtResource("3_vnm1x")])
-texture = ExtResource("4_k0ei7")
+evolutions = Array[ExtResource("3_q6usa")]([ExtResource("4_m2krn"), ExtResource("5_0rv0m")])
+texture = ExtResource("6_ax8ce")
+anim_idle = ExtResource("2_k0ei7")
+anim_attack = ExtResource("1_vnm1x")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Armor-piercing melee flurries."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6epq2"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/mended_woody_hemlock.png" id="2_wum0h"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/woody_hemlock_attack.png" id="1_gn46s"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/woody_hemlock_idle.png" id="2_8lpto"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_o6d8y"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/mended_woody_hemlock.png" id="4_idahf"]
 
 [resource]
-script = ExtResource("1_6epq2")
+script = ExtResource("3_o6d8y")
 id = "mended_woody_hemlock"
 display_name = "Mended Woody Hemlock"
 cost = 52
@@ -15,6 +17,8 @@ poison_duration = 2.0
 poison_spreads = true
 tier = 2
 rebuild = true
-texture = ExtResource("2_wum0h")
+texture = ExtResource("4_idahf")
+anim_idle = ExtResource("2_8lpto")
+anim_attack = ExtResource("1_gn46s")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Rebuilds itself once per wave."

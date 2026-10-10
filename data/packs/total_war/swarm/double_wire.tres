@@ -1,21 +1,23 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vvyot"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/field_repaired_double_wire.tres" id="2_k0utm"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/waterproof_double_wire.tres" id="3_qs221"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire.png" id="4_te7ow"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire_water.png" id="5_75jrx"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/double_wire_idle.png" id="1_k0utm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_qs221"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/field_repaired_double_wire.tres" id="3_te7ow"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/waterproof_double_wire.tres" id="4_75jrx"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire.png" id="5_tkov7"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire_water.png" id="6_3uw3f"]
 
 [resource]
-script = ExtResource("1_vvyot")
+script = ExtResource("2_qs221")
 id = "double_wire"
 display_name = "Double Wire"
 cost = 4
 max_hp = 40
 tier = 1
-evolutions = Array[ExtResource("1_vvyot")]([ExtResource("2_k0utm"), ExtResource("3_qs221")])
+evolutions = Array[ExtResource("2_qs221")]([ExtResource("3_te7ow"), ExtResource("4_75jrx")])
 can_place_on_water = true
-water_texture = ExtResource("5_75jrx")
-texture = ExtResource("4_te7ow")
+water_texture = ExtResource("6_3uw3f")
+texture = ExtResource("5_tkov7")
+anim_idle = ExtResource("1_k0utm")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

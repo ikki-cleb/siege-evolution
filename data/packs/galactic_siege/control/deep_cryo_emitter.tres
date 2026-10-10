@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_husor"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/phase_shred_deep_cryo_emitter.tres" id="2_c5ir3"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/plasma_fire_deep_cryo_emitter.tres" id="3_dtxgn"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/deep_cryo_emitter.png" id="4_3eajx"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/deep_cryo_emitter_attack.png" id="1_dtxgn"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/deep_cryo_emitter_idle.png" id="2_3eajx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_e7tb4"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/phase_shred_deep_cryo_emitter.tres" id="4_472n8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/plasma_fire_deep_cryo_emitter.tres" id="5_ar360"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/deep_cryo_emitter.png" id="6_n4n80"]
 
 [resource]
-script = ExtResource("1_husor")
+script = ExtResource("3_e7tb4")
 id = "deep_cryo_emitter"
 display_name = "Deep Cryo Emitter"
 role = 1
@@ -18,7 +20,9 @@ attack_range = 1.8
 slow = 0.35
 slow_duration = 1.2
 tier = 1
-evolutions = Array[ExtResource("1_husor")]([ExtResource("2_c5ir3"), ExtResource("3_dtxgn")])
-texture = ExtResource("4_3eajx")
+evolutions = Array[ExtResource("3_e7tb4")]([ExtResource("4_472n8"), ExtResource("5_ar360")])
+texture = ExtResource("6_n4n80")
+anim_idle = ExtResource("2_3eajx")
+anim_attack = ExtResource("1_dtxgn")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

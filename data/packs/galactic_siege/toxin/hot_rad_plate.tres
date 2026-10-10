@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_17vgj"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/overload_hot_rad_plate.tres" id="2_7t6qb"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/sealed_hot_rad_plate.tres" id="3_2a4bp"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/hot_rad_plate.png" id="4_2srxh"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/hot_rad_plate_idle.png" id="1_7t6qb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_2a4bp"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/overload_hot_rad_plate.tres" id="3_2srxh"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/sealed_hot_rad_plate.tres" id="4_knpt6"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/hot_rad_plate.png" id="5_a3vdc"]
 
 [resource]
-script = ExtResource("1_17vgj")
+script = ExtResource("2_2a4bp")
 id = "hot_rad_plate"
 display_name = "Hot Rad Plate"
 cost = 6
 max_hp = 25
 reflect = 0.8
 tier = 1
-evolutions = Array[ExtResource("1_17vgj")]([ExtResource("2_7t6qb"), ExtResource("3_2a4bp")])
+evolutions = Array[ExtResource("2_2a4bp")]([ExtResource("3_2srxh"), ExtResource("4_knpt6")])
 can_place_on_water = true
-texture = ExtResource("4_2srxh")
+texture = ExtResource("5_a3vdc")
+anim_idle = ExtResource("1_7t6qb")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

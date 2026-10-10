@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_d4oef"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sticky_double_wrap.png" id="2_hrw2t"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/double_wrap_attack.png" id="1_s65vb"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/double_wrap_idle.png" id="2_wlte5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_nd27t"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sticky_double_wrap.png" id="4_7uwck"]
 
 [resource]
-script = ExtResource("1_d4oef")
+script = ExtResource("3_nd27t")
 id = "sticky_double_wrap"
 display_name = "Sticky Double Wrap"
 cost = 24
@@ -16,6 +18,8 @@ slow = 0.3
 slow_duration = 1.0
 tier = 2
 grab_stun = 0.8
-texture = ExtResource("2_hrw2t")
+texture = ExtResource("4_7uwck")
+anim_idle = ExtResource("2_wlte5")
+anim_attack = ExtResource("1_s65vb")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Smashers that bite it get stuck."

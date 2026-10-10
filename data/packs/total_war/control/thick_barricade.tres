@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t5e03"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/field_repaired_thick_barricade.tres" id="2_vup6o"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/barbed_thick_barricade.tres" id="3_38vic"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/thick_barricade.png" id="4_j6bsp"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/thick_barricade_water.png" id="5_u4kht"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/thick_barricade_attack.png" id="1_38vic"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/thick_barricade_idle.png" id="2_j6bsp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_u4kht"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/field_repaired_thick_barricade.tres" id="4_s3ote"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/barbed_thick_barricade.tres" id="5_6a8nr"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/thick_barricade.png" id="6_526qo"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/thick_barricade_water.png" id="7_hpq2v"]
 
 [resource]
-script = ExtResource("1_t5e03")
+script = ExtResource("3_u4kht")
 id = "thick_barricade"
 display_name = "Thick Barricade"
 cost = 6
@@ -18,9 +20,11 @@ attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_t5e03")]([ExtResource("2_vup6o"), ExtResource("3_38vic")])
+evolutions = Array[ExtResource("3_u4kht")]([ExtResource("4_s3ote"), ExtResource("5_6a8nr")])
 can_place_on_water = true
-water_texture = ExtResource("5_u4kht")
-texture = ExtResource("4_j6bsp")
+water_texture = ExtResource("7_hpq2v")
+texture = ExtResource("6_526qo")
+anim_idle = ExtResource("2_j6bsp")
+anim_attack = ExtResource("1_38vic")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More HP."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_g80yo"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/gopher.png" id="2_i3hus"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/gopher_death.png" id="1_sxph8"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/gopher_move.png" id="2_or8sj"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_77yvf"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/gopher.png" id="4_phc8t"]
 
 [resource]
-script = ExtResource("1_g80yo")
+script = ExtResource("3_77yvf")
 id = "gopher"
 display_name = "Gopher"
 max_hp = 20
@@ -12,5 +14,7 @@ base_damage = 2
 coin_drop = 2
 burrow_after = 3
 burrow_length = 6
-texture = ExtResource("2_i3hus")
+texture = ExtResource("4_phc8t")
+anim_move = ExtResource("2_or8sj")
+anim_death = ExtResource("1_sxph8")
 description = "Walks 3 tiles, then tunnels under the next 6."

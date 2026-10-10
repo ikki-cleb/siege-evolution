@@ -62,6 +62,8 @@ const POISON_STACK_LIMIT := 2.5
 
 var _minion_timer := 0.0
 var _sprite: Sprite2D
+## Plays the move animation when the invader has one (see StripPlayer).
+var _strips := StripPlayer.new()
 ## Seconds left on the white "just got hit" flash.
 var _hit_flash := 0.0
 ## Each invader bobs at its own rhythm while walking.
@@ -81,8 +83,13 @@ func setup(p_data: InvaderData, p_board: Board, start: Vector2, p_path: Array[Ve
 	_blink_timer = data.blink_interval
 	_sprite = Sprite2D.new()
 	_sprite.texture = data.texture
-	if data.is_boss:
-		_sprite.scale = Vector2(1.75, 1.75)
+	var size := 1.75 if data.is_boss else 1.0
+	if data.anim_move:
+		# Strips are drawn at 64x64 per frame; shrink them to the 16x16 tile.
+		add_child(_strips)
+		_strips.start_loop(_sprite, data.anim_move, StripPlayer.ACTION_FPS)
+		size *= float(Board.TILE) / data.anim_move.get_height()
+	_sprite.scale = Vector2(size, size)
 	add_child(_sprite)
 	# Fliers are drawn above everything else on the board.
 	z_index = 5 if is_flying() else 1

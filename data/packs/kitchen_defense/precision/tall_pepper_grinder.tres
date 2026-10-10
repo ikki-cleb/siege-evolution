@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kcv0v"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/skewering_tall_pepper_grinder.tres" id="2_2xfof"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/tip_jar_tall_pepper_grinder.tres" id="3_i4dpx"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/tall_pepper_grinder.png" id="4_874vr"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/tall_pepper_grinder_attack.png" id="1_i4dpx"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/tall_pepper_grinder_idle.png" id="2_874vr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_wtief"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/skewering_tall_pepper_grinder.tres" id="4_kb7xa"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/tip_jar_tall_pepper_grinder.tres" id="5_6d7ik"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/tall_pepper_grinder.png" id="6_5sig3"]
 
 [resource]
-script = ExtResource("1_kcv0v")
+script = ExtResource("3_wtief")
 id = "tall_pepper_grinder"
 display_name = "Tall Pepper Grinder"
 role = 1
@@ -16,7 +18,9 @@ damage = 4.5
 attack_range = 4.5
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_kcv0v")]([ExtResource("2_2xfof"), ExtResource("3_i4dpx")])
-texture = ExtResource("4_874vr")
+evolutions = Array[ExtResource("3_wtief")]([ExtResource("4_kb7xa"), ExtResource("5_6d7ik")])
+texture = ExtResource("6_5sig3")
+anim_idle = ExtResource("2_874vr")
+anim_attack = ExtResource("1_i4dpx")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

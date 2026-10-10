@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3pkuq"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/beam_long_acid_bot.png" id="2_dhbpo"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/long_acid_bot_attack.png" id="1_0nbkj"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/long_acid_bot_idle.png" id="2_ogvne"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_26lp4"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/beam_long_acid_bot.png" id="4_7en22"]
 
 [resource]
-script = ExtResource("1_3pkuq")
+script = ExtResource("3_26lp4")
 id = "beam_long_acid_bot"
 display_name = "Beam Long Acid Bot"
 role = 1
@@ -16,6 +18,8 @@ poison_dps = 3.5
 poison_duration = 4.0
 tier = 2
 line_pierce = true
-texture = ExtResource("2_dhbpo")
+texture = ExtResource("4_7en22")
+anim_idle = ExtResource("2_ogvne")
+anim_attack = ExtResource("1_0nbkj")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison pierces every invader in a line."

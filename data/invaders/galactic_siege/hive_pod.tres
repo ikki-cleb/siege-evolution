@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_w0f7i"]
-[ext_resource type="Resource" path="res://data/invaders/galactic_siege/spawnling.tres" id="2_ohlyq"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/hive_pod.png" id="3_mk54k"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/hive_pod_death.png" id="1_mk54k"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/hive_pod_move.png" id="2_kw8f4"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_lf5ck"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/spawnling.tres" id="4_2vy0u"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/hive_pod.png" id="5_4la2c"]
 
 [resource]
-script = ExtResource("1_w0f7i")
+script = ExtResource("3_lf5ck")
 id = "hive_pod"
 display_name = "Hive Pod"
 max_hp = 30
@@ -14,7 +16,9 @@ speed = 0.9
 base_damage = 2
 coin_drop = 2
 is_elite = true
-split_into = ExtResource("2_ohlyq")
+split_into = ExtResource("4_2vy0u")
 split_count = 3
-texture = ExtResource("3_mk54k")
+texture = ExtResource("5_4la2c")
+anim_move = ExtResource("2_kw8f4")
+anim_death = ExtResource("1_mk54k")
 description = "Elite: an armored brood pod."

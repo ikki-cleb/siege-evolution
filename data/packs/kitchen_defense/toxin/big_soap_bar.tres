@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ruxa0"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/self_stacking_big_soap_bar.tres" id="2_6ujwn"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/sticky_big_soap_bar.tres" id="3_b58dr"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/big_soap_bar.png" id="4_q5fn8"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/big_soap_bar_idle.png" id="1_6ujwn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_b58dr"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/self_stacking_big_soap_bar.tres" id="3_q5fn8"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/sticky_big_soap_bar.tres" id="4_ijncr"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/big_soap_bar.png" id="5_ak7x4"]
 
 [resource]
-script = ExtResource("1_ruxa0")
+script = ExtResource("2_b58dr")
 id = "big_soap_bar"
 display_name = "Big Soap Bar"
 cost = 6
 max_hp = 60
 reflect = 0.3
 tier = 1
-evolutions = Array[ExtResource("1_ruxa0")]([ExtResource("2_6ujwn"), ExtResource("3_b58dr")])
+evolutions = Array[ExtResource("2_b58dr")]([ExtResource("3_q5fn8"), ExtResource("4_ijncr")])
 can_place_on_water = true
-texture = ExtResource("4_q5fn8")
+texture = ExtResource("5_ak7x4")
+anim_idle = ExtResource("1_6ujwn")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

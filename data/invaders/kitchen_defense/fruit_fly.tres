@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_tvjer"]
-[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/fruit_fly.png" id="2_nvuqw"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/fruit_fly_death.png" id="1_ycewa"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/fruit_fly_move.png" id="2_k3xwr"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_k3hen"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/fruit_fly.png" id="4_lim3b"]
 
 [resource]
-script = ExtResource("1_tvjer")
+script = ExtResource("3_k3hen")
 id = "fruit_fly"
 display_name = "Fruit Fly"
 movement = 2
 max_hp = 9
 speed = 1.3
-texture = ExtResource("2_nvuqw")
+texture = ExtResource("4_lim3b")
+anim_move = ExtResource("2_k3xwr")
+anim_death = ExtResource("1_ycewa")
 description = "Flies straight over everything."

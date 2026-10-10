@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ma0mw"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/frosty_wide_mud.tres" id="2_rm5h0"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/exploding_wide_mud.tres" id="3_jvuev"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/wide_mud.png" id="4_j55w1"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/wide_mud_attack.png" id="1_jvuev"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/wide_mud_idle.png" id="2_j55w1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_3v2a8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/frosty_wide_mud.tres" id="4_jfs23"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/exploding_wide_mud.tres" id="5_butle"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/wide_mud.png" id="6_17ax3"]
 
 [resource]
-script = ExtResource("1_ma0mw")
+script = ExtResource("3_3v2a8")
 id = "wide_mud"
 display_name = "Wide Mud"
 cost = 6
@@ -18,7 +20,9 @@ attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_ma0mw")]([ExtResource("2_rm5h0"), ExtResource("3_jvuev")])
-texture = ExtResource("4_j55w1")
+evolutions = Array[ExtResource("3_3v2a8")]([ExtResource("4_jfs23"), ExtResource("5_butle")])
+texture = ExtResource("6_17ax3")
+anim_idle = ExtResource("2_j55w1")
+anim_attack = ExtResource("1_jvuev")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Stronger, wider slow."

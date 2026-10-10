@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kvptm"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/multi_target_long_plague_drone.tres" id="2_cwdbj"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/beam_long_plague_drone.tres" id="3_mm8s7"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_plague_drone.png" id="4_8o4xe"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/long_plague_drone_attack.png" id="1_mm8s7"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/long_plague_drone_idle.png" id="2_8o4xe"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_wx7at"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/multi_target_long_plague_drone.tres" id="4_qc7ut"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/beam_long_plague_drone.tres" id="5_nc0t3"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_plague_drone.png" id="6_oyiit"]
 
 [resource]
-script = ExtResource("1_kvptm")
+script = ExtResource("3_wx7at")
 id = "long_plague_drone"
 display_name = "Long Plague Drone"
 role = 1
@@ -19,7 +21,9 @@ poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_kvptm")]([ExtResource("2_cwdbj"), ExtResource("3_mm8s7")])
-texture = ExtResource("4_8o4xe")
+evolutions = Array[ExtResource("3_wx7at")]([ExtResource("4_qc7ut"), ExtResource("5_nc0t3")])
+texture = ExtResource("6_oyiit")
+anim_idle = ExtResource("2_8o4xe")
+anim_attack = ExtResource("1_mm8s7")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xwkyr"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/exploding_spiked_stone_wall.tres" id="2_4fffy"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hooked_spiked_stone_wall.tres" id="3_fvfur"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/spiked_stone_wall.png" id="4_kt60b"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/spiked_stone_wall_idle.png" id="1_4fffy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_fvfur"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/exploding_spiked_stone_wall.tres" id="3_kt60b"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hooked_spiked_stone_wall.tres" id="4_gfgq8"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/spiked_stone_wall.png" id="5_jnt60"]
 
 [resource]
-script = ExtResource("1_xwkyr")
+script = ExtResource("2_fvfur")
 id = "spiked_stone_wall"
 display_name = "Spiked Stone Wall"
 cost = 10
 max_hp = 120
 reflect = 0.6
 tier = 1
-evolutions = Array[ExtResource("1_xwkyr")]([ExtResource("2_4fffy"), ExtResource("3_fvfur")])
+evolutions = Array[ExtResource("2_fvfur")]([ExtResource("3_kt60b"), ExtResource("4_gfgq8")])
 can_place_on_water = true
-texture = ExtResource("4_kt60b")
+texture = ExtResource("5_jnt60")
+anim_idle = ExtResource("1_4fffy")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 60% of smasher damage."

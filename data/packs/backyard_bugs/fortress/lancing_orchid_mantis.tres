@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6rqlg"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/lancing_orchid_mantis.png" id="2_xfhfy"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/orchid_mantis_attack.png" id="1_rj3dk"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/orchid_mantis_idle.png" id="2_kqox8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_g5ml8"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/lancing_orchid_mantis.png" id="4_ogofs"]
 
 [resource]
-script = ExtResource("1_6rqlg")
+script = ExtResource("3_g5ml8")
 id = "lancing_orchid_mantis"
 display_name = "Lancing Orchid Mantis"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 pierce = true
 tier = 2
 line_pierce = true
-texture = ExtResource("2_xfhfy")
+texture = ExtResource("4_ogofs")
+anim_idle = ExtResource("2_kqox8")
+anim_attack = ExtResource("1_rj3dk")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Blasts pierce every invader in a line."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cf82y"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/searing_griddle.tres" id="2_odr13"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/big_griddle.tres" id="3_t3g5k"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/hot_griddle.png" id="4_lo0d2"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/hot_griddle_attack.png" id="1_t3g5k"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/hot_griddle_idle.png" id="2_lo0d2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gs4n0"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/searing_griddle.tres" id="4_it0kh"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/big_griddle.tres" id="5_srfk4"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/hot_griddle.png" id="6_pjbmk"]
 
 [resource]
-script = ExtResource("1_cf82y")
+script = ExtResource("3_gs4n0")
 id = "hot_griddle"
 display_name = "Hot Griddle"
 role = 1
@@ -19,7 +21,9 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_cf82y")]([ExtResource("2_odr13"), ExtResource("3_t3g5k")])
-texture = ExtResource("4_lo0d2")
+evolutions = Array[ExtResource("3_gs4n0")]([ExtResource("4_it0kh"), ExtResource("5_srfk4")])
+texture = ExtResource("6_pjbmk")
+anim_idle = ExtResource("2_lo0d2")
+anim_attack = ExtResource("1_t3g5k")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Heavily slows and burns a wide area."

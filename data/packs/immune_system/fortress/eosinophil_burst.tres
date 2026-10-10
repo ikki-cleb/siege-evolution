@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_s8e8y"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/eosinophil_barrage.tres" id="2_7fcfg"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/major_basic_protein.tres" id="3_htq15"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/eosinophil_burst.png" id="4_burv3"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/eosinophil_burst_attack.png" id="1_htq15"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/eosinophil_burst_idle.png" id="2_burv3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0w4ko"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/eosinophil_barrage.tres" id="4_cgyit"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/major_basic_protein.tres" id="5_y06sa"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/eosinophil_burst.png" id="6_6qlto"]
 
 [resource]
-script = ExtResource("1_s8e8y")
+script = ExtResource("3_0w4ko")
 id = "eosinophil_burst"
 display_name = "Big Blaster Cell"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 2.6
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_s8e8y")]([ExtResource("2_7fcfg"), ExtResource("3_htq15")])
-texture = ExtResource("4_burv3")
+evolutions = Array[ExtResource("3_0w4ko")]([ExtResource("4_cgyit"), ExtResource("5_y06sa")])
+texture = ExtResource("6_6qlto")
+anim_idle = ExtResource("2_burv3")
+anim_attack = ExtResource("1_htq15")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Even bigger blasts."

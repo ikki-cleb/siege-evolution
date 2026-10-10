@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jqf3y"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/interferon_storm.png" id="2_teucp"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/alarm_beacon_attack.png" id="1_c8end"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/alarm_beacon_idle.png" id="2_xyggt"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0crnl"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/interferon_storm.png" id="4_g2pb2"]
 
 [resource]
-script = ExtResource("1_jqf3y")
+script = ExtResource("3_0crnl")
 id = "interferon_storm"
 display_name = "Armor-Eating Loud Alarm Signal"
 role = 2
@@ -17,6 +19,8 @@ mark_bonus = 0.45
 mark_duration = 1.5
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_teucp")
+texture = ExtResource("4_g2pb2")
+anim_idle = ExtResource("2_xyggt")
+anim_attack = ExtResource("1_c8end")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Pulses strip 1 armor."

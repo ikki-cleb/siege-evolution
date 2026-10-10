@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dhn1o"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/unwrapping_sour_punch_bowl.tres" id="2_hhj8o"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/stinky_sour_punch_bowl.tres" id="3_hmabd"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/sour_punch_bowl.png" id="4_laeu4"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/sour_punch_bowl_attack.png" id="1_hmabd"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/sour_punch_bowl_idle.png" id="2_laeu4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_cepn4"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/unwrapping_sour_punch_bowl.tres" id="4_8o0vp"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/stinky_sour_punch_bowl.tres" id="5_dodwy"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/sour_punch_bowl.png" id="6_y4ubt"]
 
 [resource]
-script = ExtResource("1_dhn1o")
+script = ExtResource("3_cepn4")
 id = "sour_punch_bowl"
 display_name = "Sour Punch Bowl"
 role = 1
@@ -16,7 +18,9 @@ attack_range = 1.6
 poison_dps = 4.5
 poison_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_dhn1o")]([ExtResource("2_hhj8o"), ExtResource("3_hmabd")])
-texture = ExtResource("4_laeu4")
+evolutions = Array[ExtResource("3_cepn4")]([ExtResource("4_8o0vp"), ExtResource("5_dodwy")])
+texture = ExtResource("6_y4ubt")
+anim_idle = ExtResource("2_laeu4")
+anim_attack = ExtResource("1_hmabd")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

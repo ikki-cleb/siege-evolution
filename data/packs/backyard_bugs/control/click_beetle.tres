@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e38g2"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/thunder_click_beetle.tres" id="2_lv3pe"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shockwave_click_beetle.tres" id="3_hjm6m"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/click_beetle.png" id="4_hn2bs"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/click_beetle_attack.png" id="1_hjm6m"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/click_beetle_idle.png" id="2_hn2bs"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ia2p4"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/thunder_click_beetle.tres" id="4_os2bi"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shockwave_click_beetle.tres" id="5_uxr1t"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/click_beetle.png" id="6_4i4wa"]
 
 [resource]
-script = ExtResource("1_e38g2")
+script = ExtResource("3_ia2p4")
 id = "click_beetle"
 display_name = "Click Beetle"
 role = 1
@@ -16,7 +18,9 @@ attack_range = 2.5
 attack_interval = 1.6
 hits_air = true
 stun_duration = 0.6
-evolutions = Array[ExtResource("1_e38g2")]([ExtResource("2_lv3pe"), ExtResource("3_hjm6m")])
-texture = ExtResource("4_hn2bs")
+evolutions = Array[ExtResource("3_ia2p4")]([ExtResource("4_os2bi"), ExtResource("5_uxr1t")])
+texture = ExtResource("6_4i4wa")
+anim_idle = ExtResource("2_hn2bs")
+anim_attack = ExtResource("1_hjm6m")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns its target in place."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gild1"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/multi_target_pulse_laser.tres" id="2_8k10r"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/terminator_pulse_laser.tres" id="3_n64be"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/pulse_laser.png" id="4_drkpn"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/pulse_laser_attack.png" id="1_n64be"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/pulse_laser_idle.png" id="2_drkpn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_epox0"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/multi_target_pulse_laser.tres" id="4_hoyh6"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/terminator_pulse_laser.tres" id="5_cb5xb"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/pulse_laser.png" id="6_phhy4"]
 
 [resource]
-script = ExtResource("1_gild1")
+script = ExtResource("3_epox0")
 id = "pulse_laser"
 display_name = "Pulse Laser"
 role = 1
@@ -16,7 +18,9 @@ damage = 8.0
 attack_range = 3.0
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_gild1")]([ExtResource("2_8k10r"), ExtResource("3_n64be")])
-texture = ExtResource("4_drkpn")
+evolutions = Array[ExtResource("3_epox0")]([ExtResource("4_hoyh6"), ExtResource("5_cb5xb")])
+texture = ExtResource("6_phhy4")
+anim_idle = ExtResource("2_drkpn")
+anim_attack = ExtResource("1_n64be")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

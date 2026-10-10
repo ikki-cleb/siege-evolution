@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4q27p"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fibrin_mesh.tres" id="2_cxsaq"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/thrombus_spike.tres" id="3_ae8o2"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/platelet_clot.png" id="4_1tpab"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/platelet_clot_idle.png" id="1_cxsaq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_ae8o2"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fibrin_mesh.tres" id="3_1tpab"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/thrombus_spike.tres" id="4_1pxx6"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/platelet_clot.png" id="5_u5b2i"]
 
 [resource]
-script = ExtResource("1_4q27p")
+script = ExtResource("2_ae8o2")
 id = "platelet_clot"
 display_name = "Scab"
 cost = 7
 max_hp = 90
-evolutions = Array[ExtResource("1_4q27p")]([ExtResource("2_cxsaq"), ExtResource("3_ae8o2")])
+evolutions = Array[ExtResource("2_ae8o2")]([ExtResource("3_1tpab"), ExtResource("4_1pxx6")])
 can_place_on_water = true
-texture = ExtResource("4_1tpab")
+texture = ExtResource("5_u5b2i")
+anim_idle = ExtResource("1_cxsaq")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Very tough wall."

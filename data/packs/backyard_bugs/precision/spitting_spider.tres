@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2hihk"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/venom_spitter.tres" id="2_f2gab"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/sharpshooter_spider.tres" id="3_t58gw"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/spitting_spider.png" id="4_drroi"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/spitting_spider_attack.png" id="1_t58gw"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/spitting_spider_idle.png" id="2_drroi"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gbvyb"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/venom_spitter.tres" id="4_3m5yt"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/sharpshooter_spider.tres" id="5_e37s7"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/spitting_spider.png" id="6_hyru2"]
 
 [resource]
-script = ExtResource("1_2hihk")
+script = ExtResource("3_gbvyb")
 id = "spitting_spider"
 display_name = "Spitting Spider"
 role = 1
@@ -15,7 +17,9 @@ max_hp = 15
 damage = 4.5
 attack_range = 3.0
 hits_air = true
-evolutions = Array[ExtResource("1_2hihk")]([ExtResource("2_f2gab"), ExtResource("3_t58gw")])
-texture = ExtResource("4_drroi")
+evolutions = Array[ExtResource("3_gbvyb")]([ExtResource("4_3m5yt"), ExtResource("5_e37s7")])
+texture = ExtResource("6_hyru2")
+anim_idle = ExtResource("2_drroi")
+anim_attack = ExtResource("1_t58gw")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Long-range antibodies. Hits fliers."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_67tbc"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/unwrapping_bright_disco_ball.tres" id="2_6ddhk"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/sugar_rush_bright_disco_ball.tres" id="3_q7ir4"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/bright_disco_ball.png" id="4_3l85e"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/bright_disco_ball_attack.png" id="1_q7ir4"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/bright_disco_ball_idle.png" id="2_3l85e"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_e45hn"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/unwrapping_bright_disco_ball.tres" id="4_abac3"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/sugar_rush_bright_disco_ball.tres" id="5_m3yyc"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/bright_disco_ball.png" id="6_afsd5"]
 
 [resource]
-script = ExtResource("1_67tbc")
+script = ExtResource("3_e45hn")
 id = "bright_disco_ball"
 display_name = "Bright Disco Ball"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
 tier = 1
-evolutions = Array[ExtResource("1_67tbc")]([ExtResource("2_6ddhk"), ExtResource("3_q7ir4")])
-texture = ExtResource("4_3l85e")
+evolutions = Array[ExtResource("3_e45hn")]([ExtResource("4_abac3"), ExtResource("5_m3yyc")])
+texture = ExtResource("6_afsd5")
+anim_idle = ExtResource("2_3l85e")
+anim_attack = ExtResource("1_q7ir4")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

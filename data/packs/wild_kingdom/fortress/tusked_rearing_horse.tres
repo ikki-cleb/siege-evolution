@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_s5mwx"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/tusked_rearing_horse.png" id="2_8vxsw"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/rearing_horse_attack.png" id="1_2f0bq"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/rearing_horse_idle.png" id="2_tg4bw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pvc68"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/tusked_rearing_horse.png" id="4_ccqsw"]
 
 [resource]
-script = ExtResource("1_s5mwx")
+script = ExtResource("3_pvc68")
 id = "tusked_rearing_horse"
 display_name = "Tusked Rearing Horse"
 role = 1
@@ -18,6 +20,8 @@ pierce = true
 tier = 2
 knockback = 1
 armor_shred = 2
-texture = ExtResource("2_8vxsw")
+texture = ExtResource("4_ccqsw")
+anim_idle = ExtResource("2_tg4bw")
+anim_attack = ExtResource("1_2f0bq")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Strips 2 armor and shoves back."

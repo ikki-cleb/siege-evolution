@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lv133"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/espresso_soaked_sponge.tres" id="2_50wk8"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sticky_soaked_sponge.tres" id="3_182qt"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/soaked_sponge.png" id="4_sskuj"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/soaked_sponge_idle.png" id="1_50wk8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_182qt"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/espresso_soaked_sponge.tres" id="3_sskuj"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sticky_soaked_sponge.tres" id="4_at825"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/soaked_sponge.png" id="5_ws48x"]
 
 [resource]
-script = ExtResource("1_lv133")
+script = ExtResource("2_182qt")
 id = "soaked_sponge"
 display_name = "Soaked Sponge"
 cost = 10
 max_hp = 70
 regen = 16.0
 tier = 1
-evolutions = Array[ExtResource("1_lv133")]([ExtResource("2_50wk8"), ExtResource("3_182qt")])
-texture = ExtResource("4_sskuj")
+evolutions = Array[ExtResource("2_182qt")]([ExtResource("3_sskuj"), ExtResource("4_at825")])
+texture = ExtResource("5_ws48x")
+anim_idle = ExtResource("1_50wk8")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

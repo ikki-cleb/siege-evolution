@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_p4x75"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/hunting_diamondback.png" id="2_dysjc"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/diamondback_attack.png" id="1_g168f"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/diamondback_idle.png" id="2_03gng"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lilw5"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/hunting_diamondback.png" id="4_r3rvv"]
 
 [resource]
-script = ExtResource("1_p4x75")
+script = ExtResource("3_lilw5")
 id = "hunting_diamondback"
 display_name = "Hunting Diamondback"
 role = 1
@@ -16,6 +18,8 @@ poison_dps = 6.0
 poison_duration = 4.0
 tier = 2
 execute_below = 0.2
-texture = ExtResource("2_dysjc")
+texture = ExtResource("4_r3rvv")
+anim_idle = ExtResource("2_03gng")
+anim_attack = ExtResource("1_g168f")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Finishes off invaders below 20% HP."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_j4xhi"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/armor_piercing_leaking_canister.tres" id="2_hd2yl"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/gas_leaking_canister.tres" id="3_0eolv"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/leaking_canister.png" id="4_65c05"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/leaking_canister_attack.png" id="1_0eolv"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/leaking_canister_idle.png" id="2_65c05"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5fkph"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/armor_piercing_leaking_canister.tres" id="4_gjs7c"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/gas_leaking_canister.tres" id="5_02abq"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/leaking_canister.png" id="6_8wdu8"]
 
 [resource]
-script = ExtResource("1_j4xhi")
+script = ExtResource("3_5fkph")
 id = "leaking_canister"
 display_name = "Leaking Canister"
 role = 1
@@ -16,7 +18,9 @@ attack_range = 1.6
 poison_dps = 4.5
 poison_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_j4xhi")]([ExtResource("2_hd2yl"), ExtResource("3_0eolv")])
-texture = ExtResource("4_65c05")
+evolutions = Array[ExtResource("3_5fkph")]([ExtResource("4_gjs7c"), ExtResource("5_02abq")])
+texture = ExtResource("6_8wdu8")
+anim_idle = ExtResource("2_65c05")
+anim_attack = ExtResource("1_0eolv")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

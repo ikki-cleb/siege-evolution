@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lrvev"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/armored_keratin.tres" id="2_2e28l"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/rebuilt_plate.tres" id="3_2hx4a"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/layered_plate.png" id="4_el87b"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/layered_plate_idle.png" id="1_2e28l"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_2hx4a"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/armored_keratin.tres" id="3_el87b"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/rebuilt_plate.tres" id="4_jsh5t"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/layered_plate.png" id="5_u0kkr"]
 
 [resource]
-script = ExtResource("1_lrvev")
+script = ExtResource("2_2hx4a")
 id = "layered_plate"
 display_name = "Thick Nail Plate"
 cost = 6
 max_hp = 70
 tier = 1
-evolutions = Array[ExtResource("1_lrvev")]([ExtResource("2_2e28l"), ExtResource("3_2hx4a")])
+evolutions = Array[ExtResource("2_2hx4a")]([ExtResource("3_el87b"), ExtResource("4_jsh5t")])
 can_place_on_water = true
-texture = ExtResource("4_el87b")
+texture = ExtResource("5_u0kkr")
+anim_idle = ExtResource("1_2e28l")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

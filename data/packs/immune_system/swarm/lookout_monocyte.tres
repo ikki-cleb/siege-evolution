@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_i47o0"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/sniper_monocyte.tres" id="2_nk3fo"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/signal_monocyte.tres" id="3_saa3r"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/lookout_monocyte.png" id="4_pqbty"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/lookout_monocyte_attack.png" id="1_saa3r"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/lookout_monocyte_idle.png" id="2_pqbty"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gl26a"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/sniper_monocyte.tres" id="4_k3suq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/signal_monocyte.tres" id="5_kl3sa"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/lookout_monocyte.png" id="6_2n1ot"]
 
 [resource]
-script = ExtResource("1_i47o0")
+script = ExtResource("3_gl26a")
 id = "lookout_monocyte"
 display_name = "Long Spike Shooter"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_i47o0")]([ExtResource("2_nk3fo"), ExtResource("3_saa3r")])
-texture = ExtResource("4_pqbty")
+evolutions = Array[ExtResource("3_gl26a")]([ExtResource("4_k3suq"), ExtResource("5_kl3sa")])
+texture = ExtResource("6_2n1ot")
+anim_idle = ExtResource("2_pqbty")
+anim_attack = ExtResource("1_saa3r")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range."

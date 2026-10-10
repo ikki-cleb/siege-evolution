@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uwiov"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/ghost_pepper_grinder.tres" id="2_rtgsv"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/tall_pepper_grinder.tres" id="3_53xy5"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/pepper_grinder.png" id="4_q410k"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/pepper_grinder_attack.png" id="1_53xy5"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/pepper_grinder_idle.png" id="2_q410k"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_7ioi7"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/ghost_pepper_grinder.tres" id="4_7iowo"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/tall_pepper_grinder.tres" id="5_2vks3"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/pepper_grinder.png" id="6_o8vxk"]
 
 [resource]
-script = ExtResource("1_uwiov")
+script = ExtResource("3_7ioi7")
 id = "pepper_grinder"
 display_name = "Pepper Grinder"
 role = 1
@@ -15,7 +17,9 @@ max_hp = 15
 damage = 4.5
 attack_range = 3.0
 hits_air = true
-evolutions = Array[ExtResource("1_uwiov")]([ExtResource("2_rtgsv"), ExtResource("3_53xy5")])
-texture = ExtResource("4_q410k")
+evolutions = Array[ExtResource("3_7ioi7")]([ExtResource("4_7iowo"), ExtResource("5_2vks3")])
+texture = ExtResource("6_o8vxk")
+anim_idle = ExtResource("2_q410k")
+anim_attack = ExtResource("1_53xy5")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Long-range antibodies. Hits fliers."

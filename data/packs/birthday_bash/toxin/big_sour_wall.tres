@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_08obm"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/re_inflating_big_sour_wall.tres" id="2_lfua0"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/gooey_big_sour_wall.tres" id="3_3nom5"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/big_sour_wall.png" id="4_n3kra"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/big_sour_wall_idle.png" id="1_lfua0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_3nom5"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/re_inflating_big_sour_wall.tres" id="3_n3kra"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/gooey_big_sour_wall.tres" id="4_msbq8"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/big_sour_wall.png" id="5_47q8m"]
 
 [resource]
-script = ExtResource("1_08obm")
+script = ExtResource("2_3nom5")
 id = "big_sour_wall"
 display_name = "Big Sour Wall"
 cost = 6
 max_hp = 60
 reflect = 0.3
 tier = 1
-evolutions = Array[ExtResource("1_08obm")]([ExtResource("2_lfua0"), ExtResource("3_3nom5")])
+evolutions = Array[ExtResource("2_3nom5")]([ExtResource("3_n3kra"), ExtResource("4_msbq8")])
 can_place_on_water = true
-texture = ExtResource("4_n3kra")
+texture = ExtResource("5_47q8m")
+anim_idle = ExtResource("1_lfua0")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

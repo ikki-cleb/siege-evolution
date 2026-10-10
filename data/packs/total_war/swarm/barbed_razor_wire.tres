@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x22qo"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/barbed_razor_wire.png" id="2_eld80"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/barbed_razor_wire_water.png" id="3_2cu1e"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/razor_wire_idle.png" id="1_eld80"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_2cu1e"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/barbed_razor_wire.png" id="3_nte5g"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/barbed_razor_wire_water.png" id="4_eofs5"]
 
 [resource]
-script = ExtResource("1_x22qo")
+script = ExtResource("2_2cu1e")
 id = "barbed_razor_wire"
 display_name = "Barbed Razor Wire"
 cost = 14
@@ -14,7 +15,8 @@ reflect = 0.4
 tier = 2
 grab_stun = 0.6
 can_place_on_water = true
-water_texture = ExtResource("3_2cu1e")
-texture = ExtResource("2_eld80")
+water_texture = ExtResource("4_eofs5")
+texture = ExtResource("3_nte5g")
+anim_idle = ExtResource("1_eld80")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Smashers that bite it get stuck."

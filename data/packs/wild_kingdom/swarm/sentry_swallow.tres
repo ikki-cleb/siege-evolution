@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_83i17"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/goring_sentry_swallow.tres" id="2_204o1"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/roosters_sentry_swallow.tres" id="3_3dplq"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/sentry_swallow.png" id="4_tbsa3"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/sentry_swallow_attack.png" id="1_3dplq"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/sentry_swallow_idle.png" id="2_tbsa3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_evql5"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/goring_sentry_swallow.tres" id="4_ca2j6"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/roosters_sentry_swallow.tres" id="5_78du3"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/sentry_swallow.png" id="6_5owjf"]
 
 [resource]
-script = ExtResource("1_83i17")
+script = ExtResource("3_evql5")
 id = "sentry_swallow"
 display_name = "Sentry Swallow"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_83i17")]([ExtResource("2_204o1"), ExtResource("3_3dplq")])
-texture = ExtResource("4_tbsa3")
+evolutions = Array[ExtResource("3_evql5")]([ExtResource("4_ca2j6"), ExtResource("5_78du3")])
+texture = ExtResource("6_5owjf")
+anim_idle = ExtResource("2_tbsa3")
+anim_attack = ExtResource("1_3dplq")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range."

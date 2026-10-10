@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_1rc7o"]
-[ext_resource type="Texture2D" path="res://art/invaders/immune_system/spore.png" id="2_o8as0"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/spore_death.png" id="1_u10tk"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/spore_move.png" id="2_auxac"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_jpy5c"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/spore.png" id="4_ug6hj"]
 
 [resource]
-script = ExtResource("1_1rc7o")
+script = ExtResource("3_jpy5c")
 id = "spore"
 display_name = "Spore"
 movement = 2
 max_hp = 8
-texture = ExtResource("2_o8as0")
+texture = ExtResource("4_ug6hj")
+anim_move = ExtResource("2_auxac")
+anim_death = ExtResource("1_u10tk")
 description = "Flies straight over everything."

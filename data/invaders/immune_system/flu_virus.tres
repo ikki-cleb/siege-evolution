@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_lqw2k"]
-[ext_resource type="Texture2D" path="res://art/invaders/immune_system/flu_virus.png" id="2_k3ty6"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/flu_virus_death.png" id="1_fmg7e"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/flu_virus_move.png" id="2_pmbxk"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_h0n2a"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/flu_virus.png" id="4_gsxja"]
 
 [resource]
-script = ExtResource("1_lqw2k")
+script = ExtResource("3_h0n2a")
 id = "flu_virus"
 display_name = "Flu Virus"
 speed = 2.2
 is_elite = true
-texture = ExtResource("2_k3ty6")
+texture = ExtResource("4_gsxja")
+anim_move = ExtResource("2_pmbxk")
+anim_death = ExtResource("1_fmg7e")
 description = "Elite: a much faster virus."

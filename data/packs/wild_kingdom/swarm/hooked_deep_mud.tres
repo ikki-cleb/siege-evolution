@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hleg8"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/hooked_deep_mud.png" id="2_x4ygy"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/deep_mud_attack.png" id="1_xay0c"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/deep_mud_idle.png" id="2_rbu5o"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_elyy2"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/hooked_deep_mud.png" id="4_to45q"]
 
 [resource]
-script = ExtResource("1_hleg8")
+script = ExtResource("3_elyy2")
 id = "hooked_deep_mud"
 display_name = "Hooked Deep Mud"
 cost = 24
@@ -16,6 +18,8 @@ slow = 0.3
 slow_duration = 1.0
 tier = 2
 grab_stun = 0.8
-texture = ExtResource("2_x4ygy")
+texture = ExtResource("4_to45q")
+anim_idle = ExtResource("2_rbu5o")
+anim_attack = ExtResource("1_xay0c")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Smashers that bite it get stuck."

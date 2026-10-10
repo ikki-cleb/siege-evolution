@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_aly74"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/bucking_spreading_manure.png" id="2_24w73"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/spreading_manure_attack.png" id="1_0llu1"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/spreading_manure_idle.png" id="2_dc0iy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_mbwt3"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/bucking_spreading_manure.png" id="4_nmmc4"]
 
 [resource]
-script = ExtResource("1_aly74")
+script = ExtResource("3_mbwt3")
 id = "bucking_spreading_manure"
 display_name = "Bucking Spreading Manure"
 role = 1
@@ -16,6 +18,8 @@ poison_dps = 2.5
 poison_duration = 3.0
 tier = 2
 knockback = 1
-texture = ExtResource("2_24w73")
+texture = ExtResource("4_nmmc4")
+anim_idle = ExtResource("2_dc0iy")
+anim_attack = ExtResource("1_0llu1")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Pulses shove invaders back."

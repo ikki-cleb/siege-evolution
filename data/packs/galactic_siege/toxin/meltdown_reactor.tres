@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0p73y"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/phase_shred_meltdown_reactor.tres" id="2_4g68e"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/radioactive_meltdown_reactor.tres" id="3_hump2"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/meltdown_reactor.png" id="4_nej0p"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/meltdown_reactor_attack.png" id="1_hump2"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/meltdown_reactor_idle.png" id="2_nej0p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_sklul"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/phase_shred_meltdown_reactor.tres" id="4_p8x7h"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/radioactive_meltdown_reactor.tres" id="5_5t5mf"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/meltdown_reactor.png" id="6_o4gta"]
 
 [resource]
-script = ExtResource("1_0p73y")
+script = ExtResource("3_sklul")
 id = "meltdown_reactor"
 display_name = "Meltdown Reactor"
 role = 1
@@ -16,7 +18,9 @@ attack_range = 1.6
 poison_dps = 4.5
 poison_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_0p73y")]([ExtResource("2_4g68e"), ExtResource("3_hump2")])
-texture = ExtResource("4_nej0p")
+evolutions = Array[ExtResource("3_sklul")]([ExtResource("4_p8x7h"), ExtResource("5_5t5mf")])
+texture = ExtResource("6_o4gta")
+anim_idle = ExtResource("2_nej0p")
+anim_attack = ExtResource("1_hump2")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

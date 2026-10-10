@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2d2ui"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/exploding_virulent_hemlock.tres" id="2_4qj6k"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/stinging_virulent_hemlock.tres" id="3_7gg20"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/virulent_hemlock.png" id="4_5h3xs"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/virulent_hemlock_attack.png" id="1_7gg20"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/virulent_hemlock_idle.png" id="2_5h3xs"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ybxmx"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/exploding_virulent_hemlock.tres" id="4_io27x"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/stinging_virulent_hemlock.tres" id="5_ta4kp"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/virulent_hemlock.png" id="6_f5toj"]
 
 [resource]
-script = ExtResource("1_2d2ui")
+script = ExtResource("3_ybxmx")
 id = "virulent_hemlock"
 display_name = "Virulent Hemlock"
 cost = 12
@@ -16,7 +18,9 @@ poison_dps = 6.0
 poison_duration = 2.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_2d2ui")]([ExtResource("2_4qj6k"), ExtResource("3_7gg20")])
-texture = ExtResource("4_5h3xs")
+evolutions = Array[ExtResource("3_ybxmx")]([ExtResource("4_io27x"), ExtResource("5_ta4kp")])
+texture = ExtResource("6_f5toj")
+anim_idle = ExtResource("2_5h3xs")
+anim_attack = ExtResource("1_7gg20")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

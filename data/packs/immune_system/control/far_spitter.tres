@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_p1eq7"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/control/twin_spitter.tres" id="2_um5ux"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/control/bouncing_spitter.tres" id="3_4ivqi"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/far_spitter.png" id="4_dmo6n"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/far_spitter_attack.png" id="1_4ivqi"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/far_spitter_idle.png" id="2_dmo6n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_schwr"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/twin_spitter.tres" id="4_in68a"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/bouncing_spitter.tres" id="5_qj1cf"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/far_spitter.png" id="6_88vlu"]
 
 [resource]
-script = ExtResource("1_p1eq7")
+script = ExtResource("3_schwr")
 id = "far_spitter"
 display_name = "Far Sneeze Blaster"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_p1eq7")]([ExtResource("2_um5ux"), ExtResource("3_4ivqi")])
-texture = ExtResource("4_dmo6n")
+evolutions = Array[ExtResource("3_schwr")]([ExtResource("4_in68a"), ExtResource("5_qj1cf")])
+texture = ExtResource("6_88vlu")
+anim_idle = ExtResource("2_dmo6n")
+anim_attack = ExtResource("1_4ivqi")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

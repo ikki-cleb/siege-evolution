@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5gexo"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/self_repairing_hardened_core.png" id="2_qicvy"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/hardened_core_attack.png" id="1_bxyah"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/hardened_core_idle.png" id="2_kahpq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_rfw27"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/self_repairing_hardened_core.png" id="4_j14pj"]
 
 [resource]
-script = ExtResource("1_5gexo")
+script = ExtResource("3_rfw27")
 id = "self_repairing_hardened_core"
 display_name = "Self-Repairing Hardened Core"
 cost = 68
@@ -13,6 +15,8 @@ attack_mode = 1
 damage = 3.0
 tier = 2
 rebuild = true
-texture = ExtResource("2_qicvy")
+texture = ExtResource("4_j14pj")
+anim_idle = ExtResource("2_kahpq")
+anim_attack = ExtResource("1_bxyah")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Rebuilds itself once per wave."

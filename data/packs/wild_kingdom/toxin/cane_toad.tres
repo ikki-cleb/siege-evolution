@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x16bp"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/tusked_cane_toad.tres" id="2_alaay"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/stinging_cane_toad.tres" id="3_evjpu"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/cane_toad.png" id="4_a0t0m"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/cane_toad_attack.png" id="1_evjpu"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/cane_toad_idle.png" id="2_a0t0m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_r1ldv"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/tusked_cane_toad.tres" id="4_dak85"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/stinging_cane_toad.tres" id="5_qh12l"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/cane_toad.png" id="6_hdh7g"]
 
 [resource]
-script = ExtResource("1_x16bp")
+script = ExtResource("3_r1ldv")
 id = "cane_toad"
 display_name = "Cane Toad"
 role = 1
@@ -20,7 +22,9 @@ splash_radius = 1.0
 poison_dps = 4.5
 poison_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_x16bp")]([ExtResource("2_alaay"), ExtResource("3_evjpu")])
-texture = ExtResource("4_a0t0m")
+evolutions = Array[ExtResource("3_r1ldv")]([ExtResource("4_dak85"), ExtResource("5_qh12l")])
+texture = ExtResource("6_hdh7g")
+anim_idle = ExtResource("2_a0t0m")
+anim_attack = ExtResource("1_evjpu")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6k4jm"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/strong_tractor_beam.tres" id="2_lajwx"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/wide_tractor_beam.tres" id="3_ed6pv"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/tractor_beam.png" id="4_1jvlu"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/tractor_beam_attack.png" id="1_ed6pv"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/tractor_beam_idle.png" id="2_1jvlu"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0e8ya"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/strong_tractor_beam.tres" id="4_45iwl"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/wide_tractor_beam.tres" id="5_g71sj"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/tractor_beam.png" id="6_b3ssc"]
 
 [resource]
-script = ExtResource("1_6k4jm")
+script = ExtResource("3_0e8ya")
 id = "tractor_beam"
 display_name = "Tractor Beam"
 role = 1
@@ -19,7 +21,9 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_6k4jm")]([ExtResource("2_lajwx"), ExtResource("3_ed6pv")])
-texture = ExtResource("4_1jvlu")
+evolutions = Array[ExtResource("3_0e8ya")]([ExtResource("4_45iwl"), ExtResource("5_g71sj")])
+texture = ExtResource("6_b3ssc")
+anim_idle = ExtResource("2_1jvlu")
+anim_attack = ExtResource("1_ed6pv")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Heavily slows and burns a wide area."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_q78h8"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/booby_trapped_virulent_sludge.tres" id="2_qfn46"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/gas_virulent_sludge.tres" id="3_oxxwn"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/virulent_sludge.png" id="4_gt707"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/virulent_sludge_attack.png" id="1_oxxwn"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/virulent_sludge_idle.png" id="2_gt707"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_jaf0d"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/booby_trapped_virulent_sludge.tres" id="4_4lb88"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/gas_virulent_sludge.tres" id="5_7i0bo"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/virulent_sludge.png" id="6_lrwj3"]
 
 [resource]
-script = ExtResource("1_q78h8")
+script = ExtResource("3_jaf0d")
 id = "virulent_sludge"
 display_name = "Virulent Sludge"
 cost = 12
@@ -16,7 +18,9 @@ poison_dps = 6.0
 poison_duration = 2.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_q78h8")]([ExtResource("2_qfn46"), ExtResource("3_oxxwn")])
-texture = ExtResource("4_gt707")
+evolutions = Array[ExtResource("3_jaf0d")]([ExtResource("4_4lb88"), ExtResource("5_7i0bo")])
+texture = ExtResource("6_lrwj3")
+anim_idle = ExtResource("2_gt707")
+anim_attack = ExtResource("1_oxxwn")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

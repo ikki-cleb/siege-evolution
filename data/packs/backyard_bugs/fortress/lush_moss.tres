@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tppal"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/buzzing_lush_moss.tres" id="2_c337k"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sticky_lush_moss.tres" id="3_500r2"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/lush_moss.png" id="4_72um3"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/lush_moss_idle.png" id="1_c337k"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_500r2"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/buzzing_lush_moss.tres" id="3_72um3"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sticky_lush_moss.tres" id="4_ks3po"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/lush_moss.png" id="5_s7qsb"]
 
 [resource]
-script = ExtResource("1_tppal")
+script = ExtResource("2_500r2")
 id = "lush_moss"
 display_name = "Lush Moss"
 cost = 10
 max_hp = 70
 regen = 16.0
 tier = 1
-evolutions = Array[ExtResource("1_tppal")]([ExtResource("2_c337k"), ExtResource("3_500r2")])
-texture = ExtResource("4_72um3")
+evolutions = Array[ExtResource("2_500r2")]([ExtResource("3_72um3"), ExtResource("4_ks3po")])
+texture = ExtResource("5_s7qsb")
+anim_idle = ExtResource("1_c337k")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

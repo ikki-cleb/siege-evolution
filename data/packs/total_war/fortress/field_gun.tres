@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8wn5u"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/big_field_gun.tres" id="2_28b4v"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/long_field_gun.tres" id="3_tp7qw"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/field_gun.png" id="4_pjaft"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/field_gun_attack.png" id="1_tp7qw"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/field_gun_idle.png" id="2_pjaft"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pbvuj"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/big_field_gun.tres" id="4_5ffcw"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/long_field_gun.tres" id="5_h8viw"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/field_gun.png" id="6_rfc37"]
 
 [resource]
-script = ExtResource("1_8wn5u")
+script = ExtResource("3_pbvuj")
 id = "field_gun"
 display_name = "Field Gun"
 role = 1
@@ -16,7 +18,9 @@ damage = 8.0
 attack_range = 2.5
 attack_interval = 1.4
 hits_air = true
-evolutions = Array[ExtResource("1_8wn5u")]([ExtResource("2_28b4v"), ExtResource("3_tp7qw")])
-texture = ExtResource("4_pjaft")
+evolutions = Array[ExtResource("3_pbvuj")]([ExtResource("4_5ffcw"), ExtResource("5_h8viw")])
+texture = ExtResource("6_rfc37")
+anim_idle = ExtResource("2_pjaft")
+anim_attack = ExtResource("1_tp7qw")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heavy ranged shots. Hits fliers."

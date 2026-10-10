@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_idl8t"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/mature_dendrite.tres" id="2_jeb2t"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/roaming_dendrite.tres" id="3_3xrb0"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/dendritic_cell.png" id="4_pmvyv"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/dendritic_cell_attack.png" id="1_3xrb0"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/dendritic_cell_idle.png" id="2_pmvyv"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_kel3v"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/mature_dendrite.tres" id="4_h2tvk"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/roaming_dendrite.tres" id="5_uyds6"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/dendritic_cell.png" id="6_4yro8"]
 
 [resource]
-script = ExtResource("1_idl8t")
+script = ExtResource("3_kel3v")
 id = "dendritic_cell"
 display_name = "Scout Cell"
 role = 1
@@ -16,7 +18,9 @@ damage = 8.0
 attack_range = 2.5
 attack_interval = 1.4
 hits_air = true
-evolutions = Array[ExtResource("1_idl8t")]([ExtResource("2_jeb2t"), ExtResource("3_3xrb0")])
-texture = ExtResource("4_pmvyv")
+evolutions = Array[ExtResource("3_kel3v")]([ExtResource("4_h2tvk"), ExtResource("5_uyds6")])
+texture = ExtResource("6_4yro8")
+anim_idle = ExtResource("2_pmvyv")
+anim_attack = ExtResource("1_3xrb0")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heavy ranged shots. Hits fliers."

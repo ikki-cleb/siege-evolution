@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ei653"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/tusked_howling_watchdog.tres" id="2_v5b2q"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/herding_howling_watchdog.tres" id="3_a2hb1"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/howling_watchdog.png" id="4_waiqk"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/howling_watchdog_attack.png" id="1_a2hb1"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/howling_watchdog_idle.png" id="2_waiqk"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vyqay"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/tusked_howling_watchdog.tres" id="4_m0kpn"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/herding_howling_watchdog.tres" id="5_6t024"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/howling_watchdog.png" id="6_5ieuf"]
 
 [resource]
-script = ExtResource("1_ei653")
+script = ExtResource("3_vyqay")
 id = "howling_watchdog"
 display_name = "Howling Watchdog"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.7
 mark_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_ei653")]([ExtResource("2_v5b2q"), ExtResource("3_a2hb1")])
-texture = ExtResource("4_waiqk")
+evolutions = Array[ExtResource("3_vyqay")]([ExtResource("4_m0kpn"), ExtResource("5_6t024")])
+texture = ExtResource("6_5ieuf")
+anim_idle = ExtResource("2_waiqk")
+anim_attack = ExtResource("1_a2hb1")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +70% damage."

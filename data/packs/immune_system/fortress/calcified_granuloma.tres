@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iihtf"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fortress_granuloma.tres" id="2_lokb0"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/bone_granuloma.tres" id="3_lyj8a"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/calcified_granuloma.png" id="4_c87u7"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/calcified_granuloma_attack.png" id="1_lyj8a"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/calcified_granuloma_idle.png" id="2_c87u7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ftl2r"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fortress_granuloma.tres" id="4_1bq1j"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/bone_granuloma.tres" id="5_5w8av"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/calcified_granuloma.png" id="6_85tb3"]
 
 [resource]
-script = ExtResource("1_iihtf")
+script = ExtResource("3_ftl2r")
 id = "calcified_granuloma"
 display_name = "Rock-Hard Lump"
 cost = 16
@@ -14,7 +16,9 @@ max_hp = 480
 attack_mode = 1
 damage = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_iihtf")]([ExtResource("2_lokb0"), ExtResource("3_lyj8a")])
-texture = ExtResource("4_c87u7")
+evolutions = Array[ExtResource("3_ftl2r")]([ExtResource("4_1bq1j"), ExtResource("5_5w8av")])
+texture = ExtResource("6_85tb3")
+anim_idle = ExtResource("2_c87u7")
+anim_attack = ExtResource("1_lyj8a")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Nearly unbreakable."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vk6fc"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/twin_drone.tres" id="2_kw2so"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/sentry_drone.tres" id="3_sh725"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/gun_drone.png" id="4_qouv7"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/gun_drone_attack.png" id="1_sh725"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/gun_drone_idle.png" id="2_qouv7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_r80fn"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/twin_drone.tres" id="4_ua33n"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/sentry_drone.tres" id="5_s11lg"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/gun_drone.png" id="6_rqy3x"]
 
 [resource]
-script = ExtResource("1_vk6fc")
+script = ExtResource("3_r80fn")
 id = "gun_drone"
 display_name = "Gun Drone"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 2.5
 attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_vk6fc")]([ExtResource("2_kw2so"), ExtResource("3_sh725")])
-texture = ExtResource("4_qouv7")
+evolutions = Array[ExtResource("3_r80fn")]([ExtResource("4_ua33n"), ExtResource("5_s11lg")])
+texture = ExtResource("6_rqy3x")
+anim_idle = ExtResource("2_qouv7")
+anim_attack = ExtResource("1_sh725")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Rapid ranged pokes. Hits fliers."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_mje3u"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/submarine.png" id="2_7q7kh"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/submarine_death.png" id="1_b2qny"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/submarine_move.png" id="2_psh6t"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_par3r"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/submarine.png" id="4_4o14l"]
 
 [resource]
-script = ExtResource("1_mje3u")
+script = ExtResource("3_par3r")
 id = "submarine"
 display_name = "Submarine"
 max_hp = 22
@@ -13,5 +15,7 @@ coin_drop = 2
 naval = true
 burrow_after = 3
 burrow_length = 6
-texture = ExtResource("2_7q7kh")
+texture = ExtResource("4_4o14l")
+anim_move = ExtResource("2_psh6t")
+anim_death = ExtResource("1_b2qny")
 description = "Dives under 6 tiles of its lane."

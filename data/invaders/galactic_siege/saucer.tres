@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_sh7it"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/saucer.png" id="2_ycpgb"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/saucer_death.png" id="1_6xarg"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/saucer_move.png" id="2_2nkcp"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_o6i8k"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/saucer.png" id="4_sm61t"]
 
 [resource]
-script = ExtResource("1_sh7it")
+script = ExtResource("3_o6i8k")
 id = "saucer"
 display_name = "Saucer"
 movement = 2
 max_hp = 9
 speed = 1.3
-texture = ExtResource("2_ycpgb")
+texture = ExtResource("4_sm61t")
+anim_move = ExtResource("2_2nkcp")
+anim_death = ExtResource("1_6xarg")
 description = "Flies straight over everything."

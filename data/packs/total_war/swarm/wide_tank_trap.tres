@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_r32dd"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/frost_wide_tank_trap.tres" id="2_y55cl"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/booby_trapped_wide_tank_trap.tres" id="3_1jkxt"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/wide_tank_trap.png" id="4_h0omb"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/wide_tank_trap_attack.png" id="1_1jkxt"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/wide_tank_trap_idle.png" id="2_h0omb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_2a2jg"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/frost_wide_tank_trap.tres" id="4_ghn5n"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/booby_trapped_wide_tank_trap.tres" id="5_aq22i"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/wide_tank_trap.png" id="6_t7fhl"]
 
 [resource]
-script = ExtResource("1_r32dd")
+script = ExtResource("3_2a2jg")
 id = "wide_tank_trap"
 display_name = "Wide Tank Trap"
 cost = 6
@@ -18,7 +20,9 @@ attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_r32dd")]([ExtResource("2_y55cl"), ExtResource("3_1jkxt")])
-texture = ExtResource("4_h0omb")
+evolutions = Array[ExtResource("3_2a2jg")]([ExtResource("4_ghn5n"), ExtResource("5_aq22i")])
+texture = ExtResource("6_t7fhl")
+anim_idle = ExtResource("2_h0omb")
+anim_attack = ExtResource("1_1jkxt")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Stronger, wider slow."

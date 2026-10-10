@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_senw4"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/overload_virulent_zone.tres" id="2_pthwq"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/radioactive_virulent_zone.tres" id="3_j6b0l"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/virulent_zone.png" id="4_7pu65"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/virulent_zone_attack.png" id="1_j6b0l"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/virulent_zone_idle.png" id="2_7pu65"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_7nxn2"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/overload_virulent_zone.tres" id="4_6kdk1"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/radioactive_virulent_zone.tres" id="5_fovih"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/virulent_zone.png" id="6_xetn5"]
 
 [resource]
-script = ExtResource("1_senw4")
+script = ExtResource("3_7nxn2")
 id = "virulent_zone"
 display_name = "Virulent Zone"
 cost = 12
@@ -16,7 +18,9 @@ poison_dps = 6.0
 poison_duration = 2.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_senw4")]([ExtResource("2_pthwq"), ExtResource("3_j6b0l")])
-texture = ExtResource("4_7pu65")
+evolutions = Array[ExtResource("3_7nxn2")]([ExtResource("4_6kdk1"), ExtResource("5_fovih")])
+texture = ExtResource("6_xetn5")
+anim_idle = ExtResource("2_7pu65")
+anim_attack = ExtResource("1_j6b0l")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

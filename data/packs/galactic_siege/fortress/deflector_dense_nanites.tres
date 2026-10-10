@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_27oia"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/deflector_dense_nanites.png" id="2_g4ppn"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/dense_nanites_idle.png" id="1_g4ppn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_krxv1"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/deflector_dense_nanites.png" id="3_f3nvc"]
 
 [resource]
-script = ExtResource("1_27oia")
+script = ExtResource("2_krxv1")
 id = "deflector_dense_nanites"
 display_name = "Deflector Dense Nanites"
 cost = 40
@@ -12,6 +13,7 @@ max_hp = 150
 regen = 6.0
 tier = 2
 aura_shield = 0.3
-texture = ExtResource("2_g4ppn")
+texture = ExtResource("3_f3nvc")
+anim_idle = ExtResource("1_g4ppn")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Neighbors take 30% less damage."

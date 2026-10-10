@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_27q62"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/bumper_chain_horns.png" id="2_imwcr"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/chain_horns_attack.png" id="1_rf0hj"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/chain_horns_idle.png" id="2_ekrb3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_3yxfn"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/bumper_chain_horns.png" id="4_im55s"]
 
 [resource]
-script = ExtResource("1_27q62")
+script = ExtResource("3_3yxfn")
 id = "bumper_chain_horns"
 display_name = "Bumper Chain Horns"
 role = 1
@@ -17,6 +19,8 @@ splash_radius = 1.2
 stun_duration = 0.6
 tier = 2
 knockback = 2
-texture = ExtResource("2_imwcr")
+texture = ExtResource("4_im55s")
+anim_idle = ExtResource("2_ekrb3")
+anim_attack = ExtResource("1_rf0hj")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Hits shove invaders 2 tiles back."

@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_665ug"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/antitoxin_membrane.png" id="2_52p1g"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/venom_membrane_idle.png" id="1_52p1g"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_h578o"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/antitoxin_membrane.png" id="3_patuc"]
 
 [resource]
-script = ExtResource("1_665ug")
+script = ExtResource("2_h578o")
 id = "antitoxin_membrane"
 display_name = "Cleaning Venom Skin"
 cost = 22
@@ -14,6 +15,7 @@ tier = 2
 aura_shield = 0.2
 aura_cleanse = true
 can_place_on_water = true
-texture = ExtResource("2_52p1g")
+texture = ExtResource("3_patuc")
+anim_idle = ExtResource("1_52p1g")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Neighbors take 20% less damage and ignore goo."

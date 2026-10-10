@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rm80k"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/commando_heavy_turret.png" id="2_kfp4w"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/heavy_turret_attack.png" id="1_6kxyg"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/heavy_turret_idle.png" id="2_ftd1h"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_rbla5"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/commando_heavy_turret.png" id="4_gdrp6"]
 
 [resource]
-script = ExtResource("1_rm80k")
+script = ExtResource("3_rbla5")
 id = "commando_heavy_turret"
 display_name = "Commando Heavy Turret"
 role = 1
@@ -14,6 +16,8 @@ damage = 22.0
 attack_interval = 1.1
 tier = 2
 execute_below = 0.25
-texture = ExtResource("2_kfp4w")
+texture = ExtResource("4_gdrp6")
+anim_idle = ExtResource("2_ftd1h")
+anim_attack = ExtResource("1_6kxyg")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Swallows wounded invaders whole (below 25% HP)."

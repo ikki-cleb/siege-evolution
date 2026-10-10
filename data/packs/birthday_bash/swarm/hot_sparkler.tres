@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4uqb6"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/grand_finale_hot_sparkler.tres" id="2_ivx6q"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/bouncing_hot_sparkler.tres" id="3_lntkc"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/hot_sparkler.png" id="4_dao8n"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/hot_sparkler_attack.png" id="1_lntkc"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/hot_sparkler_idle.png" id="2_dao8n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_xym3s"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/grand_finale_hot_sparkler.tres" id="4_3kfeg"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/bouncing_hot_sparkler.tres" id="5_vlrse"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/hot_sparkler.png" id="6_0ydcq"]
 
 [resource]
-script = ExtResource("1_4uqb6")
+script = ExtResource("3_xym3s")
 id = "hot_sparkler"
 display_name = "Hot Sparkler"
 role = 1
@@ -17,7 +19,9 @@ attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_4uqb6")]([ExtResource("2_ivx6q"), ExtResource("3_lntkc")])
-texture = ExtResource("4_dao8n")
+evolutions = Array[ExtResource("3_xym3s")]([ExtResource("4_3kfeg"), ExtResource("5_vlrse")])
+texture = ExtResource("6_0ydcq")
+anim_idle = ExtResource("2_dao8n")
+anim_attack = ExtResource("1_lntkc")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

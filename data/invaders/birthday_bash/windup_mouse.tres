@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_ptd8e"]
-[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/windup_mouse.png" id="2_wtbjy"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/windup_mouse_death.png" id="1_o1j2t"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/windup_mouse_move.png" id="2_p40wy"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_7pksu"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/windup_mouse.png" id="4_jvqhu"]
 
 [resource]
-script = ExtResource("1_ptd8e")
+script = ExtResource("3_7pksu")
 id = "windup_mouse"
 display_name = "Wind-up Mouse"
 max_hp = 8
 speed = 1.6
-texture = ExtResource("2_wtbjy")
+texture = ExtResource("4_jvqhu")
+anim_move = ExtResource("2_p40wy")
+anim_death = ExtResource("1_o1j2t")
 description = "Scurries in swarms."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ywy45"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/herding_alpha_llama.png" id="2_2qyjc"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/alpha_llama_attack.png" id="1_sqqnj"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/alpha_llama_idle.png" id="2_dh51i"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ve1f0"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/herding_alpha_llama.png" id="4_bteug"]
 
 [resource]
-script = ExtResource("1_ywy45")
+script = ExtResource("3_ve1f0")
 id = "herding_alpha_llama"
 display_name = "Herding Alpha Llama"
 role = 1
@@ -16,6 +18,8 @@ attack_interval = 1.4
 hits_air = true
 tier = 2
 chain_count = 2
-texture = ExtResource("2_2qyjc")
+texture = ExtResource("4_bteug")
+anim_idle = ExtResource("2_dh51i")
+anim_attack = ExtResource("1_sqqnj")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Shots chain to 2 more invaders."

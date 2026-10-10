@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xorwg"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/rallying_advanced_radar.png" id="2_yfsih"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/advanced_radar_attack.png" id="1_gy764"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/advanced_radar_idle.png" id="2_vg63y"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5b5dm"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/rallying_advanced_radar.png" id="4_y53qo"]
 
 [resource]
-script = ExtResource("1_xorwg")
+script = ExtResource("3_5b5dm")
 id = "rallying_advanced_radar"
 display_name = "Rallying Advanced Radar"
 role = 2
@@ -17,6 +19,8 @@ mark_bonus = 0.45
 mark_duration = 1.5
 tier = 2
 aura_speed = 0.25
-texture = ExtResource("2_yfsih")
+texture = ExtResource("4_y53qo")
+anim_idle = ExtResource("2_vg63y")
+anim_attack = ExtResource("1_gy764")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Neighbors attack 25% faster."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jvuv4"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/armor_piercing_dense_smoke_launcher.png" id="2_wucdc"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/dense_smoke_launcher_attack.png" id="1_cxnfb"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/dense_smoke_launcher_idle.png" id="2_ktixb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5axrg"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/armor_piercing_dense_smoke_launcher.png" id="4_6nrua"]
 
 [resource]
-script = ExtResource("1_jvuv4")
+script = ExtResource("3_5axrg")
 id = "armor_piercing_dense_smoke_launcher"
 display_name = "Armor-Piercing Dense Smoke Launcher"
 role = 1
@@ -17,6 +19,8 @@ slow = 0.35
 slow_duration = 1.2
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_wucdc")
+texture = ExtResource("4_6nrua")
+anim_idle = ExtResource("2_ktixb")
+anim_attack = ExtResource("1_cxnfb")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Pulses strip 1 armor."

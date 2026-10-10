@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ngofn"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/arc_overcharged_cannon.tres" id="2_l57jw"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/multi_target_overcharged_cannon.tres" id="3_pgtju"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/overcharged_cannon.png" id="4_67lhp"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/overcharged_cannon_attack.png" id="1_pgtju"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/overcharged_cannon_idle.png" id="2_67lhp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_tdsb6"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/arc_overcharged_cannon.tres" id="4_wsdrb"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/multi_target_overcharged_cannon.tres" id="5_p763p"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/overcharged_cannon.png" id="6_qn7if"]
 
 [resource]
-script = ExtResource("1_ngofn")
+script = ExtResource("3_tdsb6")
 id = "overcharged_cannon"
 display_name = "Overcharged Cannon"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 2.5
 attack_interval = 1.4
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_ngofn")]([ExtResource("2_l57jw"), ExtResource("3_pgtju")])
-texture = ExtResource("4_67lhp")
+evolutions = Array[ExtResource("3_tdsb6")]([ExtResource("4_wsdrb"), ExtResource("5_p763p")])
+texture = ExtResource("6_qn7if")
+anim_idle = ExtResource("2_67lhp")
+anim_attack = ExtResource("1_pgtju")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more damage."

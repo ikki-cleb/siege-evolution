@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e32g5"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/phase_shred_long_rail_cannon.png" id="2_s7bxd"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/long_rail_cannon_attack.png" id="1_2tjrj"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/long_rail_cannon_idle.png" id="2_tl52c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_l6ql8"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/phase_shred_long_rail_cannon.png" id="4_p3xne"]
 
 [resource]
-script = ExtResource("1_e32g5")
+script = ExtResource("3_l6ql8")
 id = "phase_shred_long_rail_cannon"
 display_name = "Phase-Shred Long Rail Cannon"
 role = 1
@@ -18,6 +20,8 @@ pierce = true
 tier = 2
 knockback = 1
 armor_shred = 2
-texture = ExtResource("2_s7bxd")
+texture = ExtResource("4_p3xne")
+anim_idle = ExtResource("2_tl52c")
+anim_attack = ExtResource("1_2tjrj")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Strips 2 armor and shoves back."

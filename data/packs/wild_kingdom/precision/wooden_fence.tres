@@ -1,17 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ge2rr"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/picket_fence.tres" id="2_v4ean"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/barbed_fence.tres" id="3_8j1tp"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/wooden_fence.png" id="4_lvc4v"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/wooden_fence_idle.png" id="1_v4ean"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_8j1tp"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/picket_fence.tres" id="3_lvc4v"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/barbed_fence.tres" id="4_hcmju"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/wooden_fence.png" id="5_w2mrp"]
 
 [resource]
-script = ExtResource("1_ge2rr")
+script = ExtResource("2_8j1tp")
 id = "wooden_fence"
 display_name = "Wooden Fence"
 max_hp = 30
-evolutions = Array[ExtResource("1_ge2rr")]([ExtResource("2_v4ean"), ExtResource("3_8j1tp")])
+evolutions = Array[ExtResource("2_8j1tp")]([ExtResource("3_lvc4v"), ExtResource("4_hcmju")])
 can_place_on_water = true
-texture = ExtResource("4_lvc4v")
+texture = ExtResource("5_w2mrp")
+anim_idle = ExtResource("1_v4ean")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sturdy wall."

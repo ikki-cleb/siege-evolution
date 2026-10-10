@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wn345"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/hunter_t.png" id="2_ruqve"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/patrol_t_attack.png" id="1_2bmj8"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/patrol_t_idle.png" id="2_32wa4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_yangt"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/hunter_t.png" id="4_rruky"]
 
 [resource]
-script = ExtResource("1_wn345")
+script = ExtResource("3_yangt")
 id = "hunter_t"
 display_name = "Chain Patrol Germ Stabber"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 pierce = true
 tier = 2
 chain_count = 2
-texture = ExtResource("2_ruqve")
+texture = ExtResource("4_rruky")
+anim_idle = ExtResource("2_32wa4")
+anim_attack = ExtResource("1_2bmj8")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Strikes chain to 2 more invaders."

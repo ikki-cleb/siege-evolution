@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lwdol"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/double_big_fireworks.png" id="2_1v36c"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/big_fireworks_attack.png" id="1_t1boy"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/big_fireworks_idle.png" id="2_s7p48"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_wa2lu"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/double_big_fireworks.png" id="4_fjtb5"]
 
 [resource]
-script = ExtResource("1_lwdol")
+script = ExtResource("3_wa2lu")
 id = "double_big_fireworks"
 display_name = "Double Big Fireworks"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 pierce = true
 tier = 2
 multishot = 2
-texture = ExtResource("2_1v36c")
+texture = ExtResource("4_fjtb5")
+anim_idle = ExtResource("2_s7p48")
+anim_attack = ExtResource("1_t1boy")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Blasts 2 targets at once."

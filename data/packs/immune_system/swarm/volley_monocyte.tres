@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_y8twg"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/barrage_monocyte.tres" id="2_lomym"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/piercing_monocyte.tres" id="3_fxhl2"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/volley_monocyte.png" id="4_akjvj"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/volley_monocyte_attack.png" id="1_fxhl2"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/volley_monocyte_idle.png" id="2_akjvj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1a1wi"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/barrage_monocyte.tres" id="4_ew8on"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/piercing_monocyte.tres" id="5_igupq"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/volley_monocyte.png" id="6_tgnoo"]
 
 [resource]
-script = ExtResource("1_y8twg")
+script = ExtResource("3_1a1wi")
 id = "volley_monocyte"
 display_name = "Double Spike Shooter"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_y8twg")]([ExtResource("2_lomym"), ExtResource("3_fxhl2")])
-texture = ExtResource("4_akjvj")
+evolutions = Array[ExtResource("3_1a1wi")]([ExtResource("4_ew8on"), ExtResource("5_igupq")])
+texture = ExtResource("6_tgnoo")
+anim_idle = ExtResource("2_akjvj")
+anim_attack = ExtResource("1_fxhl2")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

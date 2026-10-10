@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ekk8r"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/thick_jelly.tres" id="2_sehth"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/extra_wobbly_jelly.tres" id="3_q37ph"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/jelly_wall.png" id="4_dpg81"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/jelly_wall_attack.png" id="1_q37ph"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/jelly_wall_idle.png" id="2_dpg81"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1uhgw"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/thick_jelly.tres" id="4_lup6e"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/extra_wobbly_jelly.tres" id="5_44joe"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/jelly_wall.png" id="6_55s64"]
 
 [resource]
-script = ExtResource("1_ekk8r")
+script = ExtResource("3_1uhgw")
 id = "jelly_wall"
 display_name = "Jelly Wall"
 max_hp = 25
@@ -15,8 +17,10 @@ attack_range = 1.2
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_ekk8r")]([ExtResource("2_sehth"), ExtResource("3_q37ph")])
+evolutions = Array[ExtResource("3_1uhgw")]([ExtResource("4_lup6e"), ExtResource("5_44joe")])
 can_place_on_water = true
-texture = ExtResource("4_dpg81")
+texture = ExtResource("6_55s64")
+anim_idle = ExtResource("2_dpg81")
+anim_attack = ExtResource("1_q37ph")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Wall that slows invaders walking past it."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_q2x4n"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/shell_cracking_caustic_blister_beetle.tres" id="2_1s6sh"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/venomous_caustic_blister_beetle.tres" id="3_ocqj0"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/caustic_blister_beetle.png" id="4_yujqn"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/caustic_blister_beetle_attack.png" id="1_ocqj0"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/caustic_blister_beetle_idle.png" id="2_yujqn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_n0ffs"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/shell_cracking_caustic_blister_beetle.tres" id="4_d18dh"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/venomous_caustic_blister_beetle.tres" id="5_m5ifq"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/caustic_blister_beetle.png" id="6_ixaqy"]
 
 [resource]
-script = ExtResource("1_q2x4n")
+script = ExtResource("3_n0ffs")
 id = "caustic_blister_beetle"
 display_name = "Caustic Blister Beetle"
 role = 1
@@ -20,7 +22,9 @@ splash_radius = 1.0
 poison_dps = 4.5
 poison_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_q2x4n")]([ExtResource("2_1s6sh"), ExtResource("3_ocqj0")])
-texture = ExtResource("4_yujqn")
+evolutions = Array[ExtResource("3_n0ffs")]([ExtResource("4_d18dh"), ExtResource("5_m5ifq")])
+texture = ExtResource("6_ixaqy")
+anim_idle = ExtResource("2_yujqn")
+anim_attack = ExtResource("1_ocqj0")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

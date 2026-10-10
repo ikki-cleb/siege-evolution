@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t3shu"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/self_stacking_sugar_lump.png" id="2_3hl7o"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/sugar_lump_idle.png" id="1_3hl7o"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_x5in3"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/self_stacking_sugar_lump.png" id="3_s08ne"]
 
 [resource]
-script = ExtResource("1_t3shu")
+script = ExtResource("2_x5in3")
 id = "self_stacking_sugar_lump"
 display_name = "Self-Stacking Sugar Lump"
 cost = 14
@@ -12,6 +13,7 @@ max_hp = 40
 tier = 2
 rebuild = true
 can_place_on_water = true
-texture = ExtResource("2_3hl7o")
+texture = ExtResource("3_s08ne")
+anim_idle = ExtResource("1_3hl7o")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Rebuilds itself once per wave."

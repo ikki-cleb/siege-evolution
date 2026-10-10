@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1sy6y"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/party_proof_frozen_cake.tres" id="2_0kahg"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/re_inflating_frozen_cake.tres" id="3_k07hj"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/frozen_cake.png" id="4_2syp7"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/frozen_cake_attack.png" id="1_k07hj"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/frozen_cake_idle.png" id="2_2syp7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pmbu1"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/party_proof_frozen_cake.tres" id="4_0h1on"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/re_inflating_frozen_cake.tres" id="5_fxn17"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/frozen_cake.png" id="6_nwecd"]
 
 [resource]
-script = ExtResource("1_1sy6y")
+script = ExtResource("3_pmbu1")
 id = "frozen_cake"
 display_name = "Frozen Cake"
 cost = 16
@@ -14,7 +16,9 @@ max_hp = 480
 attack_mode = 1
 damage = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_1sy6y")]([ExtResource("2_0kahg"), ExtResource("3_k07hj")])
-texture = ExtResource("4_2syp7")
+evolutions = Array[ExtResource("3_pmbu1")]([ExtResource("4_0h1on"), ExtResource("5_fxn17")])
+texture = ExtResource("6_nwecd")
+anim_idle = ExtResource("2_2syp7")
+anim_attack = ExtResource("1_k07hj")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Nearly unbreakable."

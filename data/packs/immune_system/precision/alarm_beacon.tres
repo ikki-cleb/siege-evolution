@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ggivq"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/interferon_storm.tres" id="2_bsh38"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/precision/rallying_beacon.tres" id="3_c3865"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/alarm_beacon.png" id="4_l6gm1"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/alarm_beacon_attack.png" id="1_c3865"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/alarm_beacon_idle.png" id="2_l6gm1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_uxu1a"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/interferon_storm.tres" id="4_6jjwv"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/rallying_beacon.tres" id="5_p4ibi"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/alarm_beacon.png" id="6_v7r7k"]
 
 [resource]
-script = ExtResource("1_ggivq")
+script = ExtResource("3_uxu1a")
 id = "alarm_beacon"
 display_name = "Loud Alarm Signal"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
 tier = 1
-evolutions = Array[ExtResource("1_ggivq")]([ExtResource("2_bsh38"), ExtResource("3_c3865")])
-texture = ExtResource("4_l6gm1")
+evolutions = Array[ExtResource("3_uxu1a")]([ExtResource("4_6jjwv"), ExtResource("5_p4ibi")])
+texture = ExtResource("6_v7r7k")
+anim_idle = ExtResource("2_l6gm1")
+anim_attack = ExtResource("1_c3865")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

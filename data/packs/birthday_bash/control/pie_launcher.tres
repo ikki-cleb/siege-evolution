@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_r1bab"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/cream_pie_launcher.tres" id="2_5r52j"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/long_pie_launcher.tres" id="3_v5wrs"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/pie_launcher.png" id="4_d0a87"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/pie_launcher_attack.png" id="1_v5wrs"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/pie_launcher_idle.png" id="2_d0a87"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_u8m6h"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/cream_pie_launcher.tres" id="4_6elwg"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/long_pie_launcher.tres" id="5_prbcs"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/pie_launcher.png" id="6_xojfs"]
 
 [resource]
-script = ExtResource("1_r1bab")
+script = ExtResource("3_u8m6h")
 id = "pie_launcher"
 display_name = "Pie Launcher"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 3.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-evolutions = Array[ExtResource("1_r1bab")]([ExtResource("2_5r52j"), ExtResource("3_v5wrs")])
-texture = ExtResource("4_d0a87")
+evolutions = Array[ExtResource("3_u8m6h")]([ExtResource("4_6elwg"), ExtResource("5_prbcs")])
+texture = ExtResource("6_xojfs")
+anim_idle = ExtResource("2_d0a87")
+anim_attack = ExtResource("1_v5wrs")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Ranged splash shots. Hits fliers."

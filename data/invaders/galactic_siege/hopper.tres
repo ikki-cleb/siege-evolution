@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_5h117"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/hopper.png" id="2_6gynl"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/hopper_death.png" id="1_14taw"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/hopper_move.png" id="2_bqgrl"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_0alyo"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/hopper.png" id="4_d6ryw"]
 
 [resource]
-script = ExtResource("1_5h117")
+script = ExtResource("3_0alyo")
 id = "hopper"
 display_name = "Hopper"
 max_hp = 18
@@ -12,5 +14,7 @@ speed = 1.3
 base_damage = 2
 coin_drop = 2
 jumps = true
-texture = ExtResource("2_6gynl")
+texture = ExtResource("4_d6ryw")
+anim_move = ExtResource("2_bqgrl")
+anim_death = ExtResource("1_14taw")
 description = "Leaps any single unit tile."

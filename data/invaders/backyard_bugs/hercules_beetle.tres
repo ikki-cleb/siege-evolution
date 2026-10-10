@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_m12cy"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/hercules_beetle.png" id="2_w8cxn"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/hercules_beetle_death.png" id="1_b5lfe"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/hercules_beetle_move.png" id="2_g0flc"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_n0cqh"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/hercules_beetle.png" id="4_a10u5"]
 
 [resource]
-script = ExtResource("1_m12cy")
+script = ExtResource("3_n0cqh")
 id = "hercules_beetle"
 display_name = "Hercules Beetle"
 movement = 1
@@ -15,5 +17,7 @@ base_damage = 4
 smash_damage = 9.0
 coin_drop = 3
 is_elite = true
-texture = ExtResource("2_w8cxn")
+texture = ExtResource("4_a10u5")
+anim_move = ExtResource("2_g0flc")
+anim_death = ExtResource("1_b5lfe")
 description = "Elite: a heavily armored rammer."

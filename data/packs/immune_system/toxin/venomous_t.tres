@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2kvpf"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/necrotizing_t.tres" id="2_m7j53"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/twin_venom_t.tres" id="3_wwv4l"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/venomous_t.png" id="4_yubui"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/venomous_t_attack.png" id="1_wwv4l"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/venomous_t_idle.png" id="2_yubui"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vepxn"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/necrotizing_t.tres" id="4_16xdo"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/twin_venom_t.tres" id="5_ulany"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/venomous_t.png" id="6_qq7cq"]
 
 [resource]
-script = ExtResource("1_2kvpf")
+script = ExtResource("3_vepxn")
 id = "venomous_t"
 display_name = "Strong Poison Cell"
 role = 1
@@ -17,7 +19,9 @@ attack_interval = 0.9
 poison_dps = 6.0
 poison_duration = 4.0
 tier = 1
-evolutions = Array[ExtResource("1_2kvpf")]([ExtResource("2_m7j53"), ExtResource("3_wwv4l")])
-texture = ExtResource("4_yubui")
+evolutions = Array[ExtResource("3_vepxn")]([ExtResource("4_16xdo"), ExtResource("5_ulany")])
+texture = ExtResource("6_qq7cq")
+anim_idle = ExtResource("2_yubui")
+anim_attack = ExtResource("1_wwv4l")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

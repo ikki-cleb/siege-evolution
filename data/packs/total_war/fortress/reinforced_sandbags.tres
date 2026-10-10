@@ -1,21 +1,23 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_74c6s"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/field_repaired_reinforced_sandbags.tres" id="2_wot1q"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/barbed_reinforced_sandbags.tres" id="3_j6823"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags.png" id="4_dppmc"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags_water.png" id="5_6j6tp"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/reinforced_sandbags_idle.png" id="1_wot1q"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_j6823"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/field_repaired_reinforced_sandbags.tres" id="3_dppmc"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/barbed_reinforced_sandbags.tres" id="4_6j6tp"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags.png" id="5_l2us1"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags_water.png" id="6_cix2u"]
 
 [resource]
-script = ExtResource("1_74c6s")
+script = ExtResource("2_j6823")
 id = "reinforced_sandbags"
 display_name = "Reinforced Sandbags"
 cost = 10
 max_hp = 220
 tier = 1
-evolutions = Array[ExtResource("1_74c6s")]([ExtResource("2_wot1q"), ExtResource("3_j6823")])
+evolutions = Array[ExtResource("2_j6823")]([ExtResource("3_dppmc"), ExtResource("4_6j6tp")])
 can_place_on_water = true
-water_texture = ExtResource("5_6j6tp")
-texture = ExtResource("4_dppmc")
+water_texture = ExtResource("6_cix2u")
+texture = ExtResource("5_l2us1")
+anim_idle = ExtResource("1_wot1q")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

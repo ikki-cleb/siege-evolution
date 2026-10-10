@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ywxxn"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/predator_giant_mantis.png" id="2_x5l7p"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/giant_mantis_attack.png" id="1_ppco4"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/giant_mantis_idle.png" id="2_b88cu"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_tqq7d"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/predator_giant_mantis.png" id="4_2gdjl"]
 
 [resource]
-script = ExtResource("1_ywxxn")
+script = ExtResource("3_tqq7d")
 id = "predator_giant_mantis"
 display_name = "Predator Giant Mantis"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 pierce = true
 tier = 2
 execute_below = 0.3
-texture = ExtResource("2_x5l7p")
+texture = ExtResource("4_2gdjl")
+anim_idle = ExtResource("2_b88cu")
+anim_attack = ExtResource("1_ppco4")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Finishes off invaders below 30% HP."

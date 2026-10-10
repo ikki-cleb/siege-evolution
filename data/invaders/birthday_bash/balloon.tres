@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_xb6q5"]
-[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/balloon.png" id="2_xpdhb"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/balloon_death.png" id="1_p3r28"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/balloon_move.png" id="2_p1t8r"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_3otoq"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/balloon.png" id="4_i23ua"]
 
 [resource]
-script = ExtResource("1_xb6q5")
+script = ExtResource("3_3otoq")
 id = "balloon"
 display_name = "Balloon"
 movement = 2
 max_hp = 9
 speed = 1.2
-texture = ExtResource("2_xpdhb")
+texture = ExtResource("4_i23ua")
+anim_move = ExtResource("2_p1t8r")
+anim_death = ExtResource("1_p3r28")
 description = "Floats straight over everything."

@@ -1,19 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dmpdn"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/keloid_wall.tres" id="2_ldc7a"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/scar_lattice.tres" id="3_ql2kf"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/scar_fibroblast.png" id="4_tbmf2"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/scar_fibroblast_idle.png" id="1_ldc7a"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_ql2kf"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/keloid_wall.tres" id="3_tbmf2"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/scar_lattice.tres" id="4_rrkiv"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/scar_fibroblast.png" id="5_83104"]
 
 [resource]
-script = ExtResource("1_dmpdn")
+script = ExtResource("2_ql2kf")
 id = "scar_fibroblast"
 display_name = "Tough Scar Tissue"
 cost = 10
 max_hp = 150
 regen = 6.0
 tier = 1
-evolutions = Array[ExtResource("1_dmpdn")]([ExtResource("2_ldc7a"), ExtResource("3_ql2kf")])
-texture = ExtResource("4_tbmf2")
+evolutions = Array[ExtResource("2_ql2kf")]([ExtResource("3_tbmf2"), ExtResource("4_rrkiv")])
+texture = ExtResource("5_83104")
+anim_idle = ExtResource("1_ldc7a")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

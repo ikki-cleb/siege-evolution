@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qfdmd"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/mended_thick_mud_wall.png" id="2_fu0lg"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/thick_mud_wall_attack.png" id="1_l3o41"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/thick_mud_wall_idle.png" id="2_rdgvg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1cgu4"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/mended_thick_mud_wall.png" id="4_8jol4"]
 
 [resource]
-script = ExtResource("1_qfdmd")
+script = ExtResource("3_1cgu4")
 id = "mended_thick_mud_wall"
 display_name = "Mended Thick Mud Wall"
 cost = 22
@@ -17,6 +19,8 @@ slow_duration = 1.0
 tier = 2
 rebuild = true
 can_place_on_water = true
-texture = ExtResource("2_fu0lg")
+texture = ExtResource("4_8jol4")
+anim_idle = ExtResource("2_rdgvg")
+anim_attack = ExtResource("1_l3o41")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Rebuilds itself once per wave."

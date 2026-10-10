@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cg5k6"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/peeling_caustic_mister.png" id="2_cceub"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/caustic_mister_attack.png" id="1_kjjb3"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/caustic_mister_idle.png" id="2_c1xsr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_dwlt3"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/peeling_caustic_mister.png" id="4_0ilin"]
 
 [resource]
-script = ExtResource("1_cg5k6")
+script = ExtResource("3_dwlt3")
 id = "peeling_caustic_mister"
 display_name = "Peeling Caustic Mister"
 role = 1
@@ -19,6 +21,8 @@ poison_dps = 4.5
 poison_duration = 3.0
 tier = 2
 armor_shred = 1
-texture = ExtResource("2_cceub")
+texture = ExtResource("4_0ilin")
+anim_idle = ExtResource("2_c1xsr")
+anim_attack = ExtResource("1_kjjb3")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Spray strips 1 armor."

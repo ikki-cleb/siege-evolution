@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wg57c"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/swatting_wide_whisk.tres" id="2_1p2nw"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/espresso_wide_whisk.tres" id="3_x5hec"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/wide_whisk.png" id="4_13337"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/wide_whisk_attack.png" id="1_x5hec"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/wide_whisk_idle.png" id="2_13337"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_n0rnd"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/swatting_wide_whisk.tres" id="4_11xst"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/espresso_wide_whisk.tres" id="5_w6wd0"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/wide_whisk.png" id="6_d5lwj"]
 
 [resource]
-script = ExtResource("1_wg57c")
+script = ExtResource("3_n0rnd")
 id = "wide_whisk"
 display_name = "Wide Whisk"
 role = 1
@@ -19,7 +21,9 @@ attack_interval = 0.6
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_wg57c")]([ExtResource("2_1p2nw"), ExtResource("3_x5hec")])
-texture = ExtResource("4_13337")
+evolutions = Array[ExtResource("3_n0rnd")]([ExtResource("4_11xst"), ExtResource("5_w6wd0")])
+texture = ExtResource("6_d5lwj")
+anim_idle = ExtResource("2_13337")
+anim_attack = ExtResource("1_x5hec")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

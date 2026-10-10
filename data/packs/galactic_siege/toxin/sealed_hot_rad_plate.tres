@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_c7g5j"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/sealed_hot_rad_plate.png" id="2_ajltb"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/hot_rad_plate_idle.png" id="1_ajltb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_f3q4w"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/sealed_hot_rad_plate.png" id="3_ttxk5"]
 
 [resource]
-script = ExtResource("1_c7g5j")
+script = ExtResource("2_f3q4w")
 id = "sealed_hot_rad_plate"
 display_name = "Sealed Hot Rad Plate"
 cost = 22
@@ -14,6 +15,7 @@ tier = 2
 aura_shield = 0.2
 aura_cleanse = true
 can_place_on_water = true
-texture = ExtResource("2_ajltb")
+texture = ExtResource("3_ttxk5")
+anim_idle = ExtResource("1_ajltb")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Neighbors take 20% less damage and ignore goo."

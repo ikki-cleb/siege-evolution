@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_dyr4v"]
-[ext_resource type="Texture2D" path="res://art/invaders/immune_system/worm.png" id="2_m3aii"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/worm_death.png" id="1_6fm20"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/worm_move.png" id="2_hunjh"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_8q7fm"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/worm.png" id="4_mynk7"]
 
 [resource]
-script = ExtResource("1_dyr4v")
+script = ExtResource("3_8q7fm")
 id = "worm"
 display_name = "Parasite Worm"
 movement = 1
@@ -13,5 +15,7 @@ speed = 0.7
 base_damage = 3
 smash_damage = 6.0
 coin_drop = 2
-texture = ExtResource("2_m3aii")
+texture = ExtResource("4_mynk7")
+anim_move = ExtResource("2_hunjh")
+anim_death = ExtResource("1_6fm20")
 description = "Ignores the maze and chews through units."

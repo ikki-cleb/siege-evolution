@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kh12p"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/skewering_jet_spray.tres" id="2_edihm"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/espresso_jet_spray.tres" id="3_t4fod"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/jet_spray.png" id="4_c07pc"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/jet_spray_attack.png" id="1_t4fod"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/jet_spray_idle.png" id="2_c07pc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5oyar"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/skewering_jet_spray.tres" id="4_u7c4f"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/espresso_jet_spray.tres" id="5_w4knu"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/jet_spray.png" id="6_uqh5b"]
 
 [resource]
-script = ExtResource("1_kh12p")
+script = ExtResource("3_5oyar")
 id = "jet_spray"
 display_name = "Jet Spray"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_kh12p")]([ExtResource("2_edihm"), ExtResource("3_t4fod")])
-texture = ExtResource("4_c07pc")
+evolutions = Array[ExtResource("3_5oyar")]([ExtResource("4_u7c4f"), ExtResource("5_w4knu")])
+texture = ExtResource("6_uqh5b")
+anim_idle = ExtResource("2_c07pc")
+anim_attack = ExtResource("1_t4fod")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range."

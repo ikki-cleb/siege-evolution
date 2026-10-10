@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bq5xb"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/two_handed_extra_strength_spray.png" id="2_0u6vu"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/extra_strength_spray_attack.png" id="1_tpijw"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/extra_strength_spray_idle.png" id="2_2lklq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_w52ec"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/two_handed_extra_strength_spray.png" id="4_qetga"]
 
 [resource]
-script = ExtResource("1_bq5xb")
+script = ExtResource("3_w52ec")
 id = "two_handed_extra_strength_spray"
 display_name = "Two-Handed Extra-Strength Spray"
 role = 1
@@ -16,6 +18,8 @@ poison_dps = 6.0
 poison_duration = 4.0
 tier = 2
 multishot = 2
-texture = ExtResource("2_0u6vu")
+texture = ExtResource("4_qetga")
+anim_idle = ExtResource("2_2lklq")
+anim_attack = ExtResource("1_tpijw")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poisons 2 targets at once."

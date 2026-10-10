@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qxfxs"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/mended_woody_hemlock.tres" id="2_rhoti"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/hooked_woody_hemlock.tres" id="3_4vbh3"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/woody_hemlock.png" id="4_pq7qj"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/woody_hemlock_attack.png" id="1_4vbh3"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/woody_hemlock_idle.png" id="2_pq7qj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_3gtn1"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/mended_woody_hemlock.tres" id="4_8fy82"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/hooked_woody_hemlock.tres" id="5_s7ajn"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/woody_hemlock.png" id="6_yat0m"]
 
 [resource]
-script = ExtResource("1_qxfxs")
+script = ExtResource("3_3gtn1")
 id = "woody_hemlock"
 display_name = "Woody Hemlock"
 cost = 12
@@ -16,7 +18,9 @@ poison_dps = 3.0
 poison_duration = 2.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_qxfxs")]([ExtResource("2_rhoti"), ExtResource("3_4vbh3")])
-texture = ExtResource("4_pq7qj")
+evolutions = Array[ExtResource("3_3gtn1")]([ExtResource("4_8fy82"), ExtResource("5_s7ajn")])
+texture = ExtResource("6_yat0m")
+anim_idle = ExtResource("2_pq7qj")
+anim_attack = ExtResource("1_4vbh3")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

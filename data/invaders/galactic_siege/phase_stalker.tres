@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_a2gnc"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/phase_stalker.png" id="2_7ot4r"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/phase_stalker_death.png" id="1_ak2qb"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/phase_stalker_move.png" id="2_iyjpn"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_h68th"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/phase_stalker.png" id="4_xtm6l"]
 
 [resource]
-script = ExtResource("1_a2gnc")
+script = ExtResource("3_h68th")
 id = "phase_stalker"
 display_name = "Phase Stalker"
 max_hp = 28
@@ -15,5 +17,7 @@ coin_drop = 3
 is_elite = true
 blink_interval = 2.0
 blink_distance = 3
-texture = ExtResource("2_7ot4r")
+texture = ExtResource("4_xtm6l")
+anim_move = ExtResource("2_iyjpn")
+anim_death = ExtResource("1_ak2qb")
 description = "Elite: blinks more often."

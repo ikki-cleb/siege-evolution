@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_k5aqk"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/two_handed_long_bait_station.tres" id="2_vttts"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/skewering_long_bait_station.tres" id="3_4gl5j"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/long_bait_station.png" id="4_kpei3"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/long_bait_station_attack.png" id="1_4gl5j"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/long_bait_station_idle.png" id="2_kpei3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_uoi86"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/two_handed_long_bait_station.tres" id="4_ybcge"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/skewering_long_bait_station.tres" id="5_e0ecg"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/long_bait_station.png" id="6_6yp8m"]
 
 [resource]
-script = ExtResource("1_k5aqk")
+script = ExtResource("3_uoi86")
 id = "long_bait_station"
 display_name = "Long Bait Station"
 role = 1
@@ -19,7 +21,9 @@ poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_k5aqk")]([ExtResource("2_vttts"), ExtResource("3_4gl5j")])
-texture = ExtResource("4_kpei3")
+evolutions = Array[ExtResource("3_uoi86")]([ExtResource("4_ybcge"), ExtResource("5_e0ecg")])
+texture = ExtResource("6_6yp8m")
+anim_idle = ExtResource("2_kpei3")
+anim_attack = ExtResource("1_4gl5j")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

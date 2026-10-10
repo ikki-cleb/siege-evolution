@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_otv7m"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/smoldering_angry_bee.tres" id="2_rv6yb"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/shell_cracking_angry_bee.tres" id="3_ch63g"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/angry_bee.png" id="4_y1u6e"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/angry_bee_attack.png" id="1_ch63g"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/angry_bee_idle.png" id="2_y1u6e"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_mg3pn"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/smoldering_angry_bee.tres" id="4_22p7b"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/shell_cracking_angry_bee.tres" id="5_0jxms"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/angry_bee.png" id="6_i8jmc"]
 
 [resource]
-script = ExtResource("1_otv7m")
+script = ExtResource("3_mg3pn")
 id = "angry_bee"
 display_name = "Angry Bee"
 role = 1
@@ -17,7 +19,9 @@ damage = 2.2
 attack_interval = 0.6
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_otv7m")]([ExtResource("2_rv6yb"), ExtResource("3_ch63g")])
-texture = ExtResource("4_y1u6e")
+evolutions = Array[ExtResource("3_mg3pn")]([ExtResource("4_22p7b"), ExtResource("5_0jxms")])
+texture = ExtResource("6_i8jmc")
+anim_idle = ExtResource("2_y1u6e")
+anim_attack = ExtResource("1_ch63g")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

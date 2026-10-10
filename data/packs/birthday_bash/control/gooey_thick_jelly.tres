@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dowtc"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/gooey_thick_jelly.png" id="2_7hp6j"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/thick_jelly_attack.png" id="1_3mrre"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/thick_jelly_idle.png" id="2_uxlep"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5hchb"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/gooey_thick_jelly.png" id="4_lpmtt"]
 
 [resource]
-script = ExtResource("1_dowtc")
+script = ExtResource("3_5hchb")
 id = "gooey_thick_jelly"
 display_name = "Gooey Thick Jelly"
 cost = 22
@@ -17,6 +19,8 @@ slow_duration = 1.0
 tier = 2
 grab_stun = 0.8
 can_place_on_water = true
-texture = ExtResource("2_7hp6j")
+texture = ExtResource("4_lpmtt")
+anim_idle = ExtResource("2_uxlep")
+anim_attack = ExtResource("1_3mrre")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Smashers that bite it get stuck."

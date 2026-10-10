@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_n6wx8"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/hawk.png" id="2_pe4eh"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/hawk_death.png" id="1_f407n"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/hawk_move.png" id="2_66304"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_cj5qm"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/hawk.png" id="4_18j03"]
 
 [resource]
-script = ExtResource("1_n6wx8")
+script = ExtResource("3_cj5qm")
 id = "hawk"
 display_name = "Hawk"
 movement = 2
@@ -14,5 +16,7 @@ speed = 1.1
 base_damage = 2
 coin_drop = 2
 is_elite = true
-texture = ExtResource("2_pe4eh")
+texture = ExtResource("4_18j03")
+anim_move = ExtResource("2_66304")
+anim_death = ExtResource("1_f407n")
 description = "Elite: a tough armored flier."

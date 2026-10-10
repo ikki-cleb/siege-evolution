@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tycw6"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/field_repaired_thick_barricade.png" id="2_orcby"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/field_repaired_thick_barricade_water.png" id="3_lhgn2"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/thick_barricade_attack.png" id="1_lhgn2"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/thick_barricade_idle.png" id="2_hrag4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_sctaq"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/field_repaired_thick_barricade.png" id="4_qyn11"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/field_repaired_thick_barricade_water.png" id="5_3a88e"]
 
 [resource]
-script = ExtResource("1_tycw6")
+script = ExtResource("3_sctaq")
 id = "field_repaired_thick_barricade"
 display_name = "Field-Repaired Thick Barricade"
 cost = 22
@@ -18,7 +20,9 @@ slow_duration = 1.0
 tier = 2
 rebuild = true
 can_place_on_water = true
-water_texture = ExtResource("3_lhgn2")
-texture = ExtResource("2_orcby")
+water_texture = ExtResource("5_3a88e")
+texture = ExtResource("4_qyn11")
+anim_idle = ExtResource("2_hrag4")
+anim_attack = ExtResource("1_lhgn2")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Rebuilds itself once per wave."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5kxap"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/slushie_extra_wobbly_jelly.tres" id="2_cjdsu"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/surprise_extra_wobbly_jelly.tres" id="3_6w5yh"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/extra_wobbly_jelly.png" id="4_jlssb"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/extra_wobbly_jelly_attack.png" id="1_6w5yh"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/extra_wobbly_jelly_idle.png" id="2_jlssb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_d6hsi"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/slushie_extra_wobbly_jelly.tres" id="4_82vkc"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/surprise_extra_wobbly_jelly.tres" id="5_vfymw"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/extra_wobbly_jelly.png" id="6_flpxb"]
 
 [resource]
-script = ExtResource("1_5kxap")
+script = ExtResource("3_d6hsi")
 id = "extra_wobbly_jelly"
 display_name = "Extra-Wobbly Jelly"
 cost = 6
@@ -17,8 +19,10 @@ attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
 tier = 1
-evolutions = Array[ExtResource("1_5kxap")]([ExtResource("2_cjdsu"), ExtResource("3_6w5yh")])
+evolutions = Array[ExtResource("3_d6hsi")]([ExtResource("4_82vkc"), ExtResource("5_vfymw")])
 can_place_on_water = true
-texture = ExtResource("4_jlssb")
+texture = ExtResource("6_flpxb")
+anim_idle = ExtResource("2_jlssb")
+anim_attack = ExtResource("1_6w5yh")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stronger slow."

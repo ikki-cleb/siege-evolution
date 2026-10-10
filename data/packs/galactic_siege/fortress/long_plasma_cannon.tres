@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ytyoa"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/beam_long_plasma_cannon.tres" id="2_ovwrn"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/salvage_long_plasma_cannon.tres" id="3_neryd"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/long_plasma_cannon.png" id="4_sy0bv"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/long_plasma_cannon_attack.png" id="1_neryd"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/long_plasma_cannon_idle.png" id="2_sy0bv"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ealtj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/beam_long_plasma_cannon.tres" id="4_uuh2i"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/salvage_long_plasma_cannon.tres" id="5_w1qd7"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/long_plasma_cannon.png" id="6_ebpy5"]
 
 [resource]
-script = ExtResource("1_ytyoa")
+script = ExtResource("3_ealtj")
 id = "long_plasma_cannon"
 display_name = "Long Plasma Cannon"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 3.6
 attack_interval = 1.4
 hits_air = true
 tier = 1
-evolutions = Array[ExtResource("1_ytyoa")]([ExtResource("2_ovwrn"), ExtResource("3_neryd")])
-texture = ExtResource("4_sy0bv")
+evolutions = Array[ExtResource("3_ealtj")]([ExtResource("4_uuh2i"), ExtResource("5_w1qd7")])
+texture = ExtResource("6_ebpy5")
+anim_idle = ExtResource("2_sy0bv")
+anim_attack = ExtResource("1_neryd")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

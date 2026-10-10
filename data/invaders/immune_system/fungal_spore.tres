@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_j1r27"]
-[ext_resource type="Texture2D" path="res://art/invaders/immune_system/fungal_spore.png" id="2_508oc"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/fungal_spore_death.png" id="1_5sydn"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/fungal_spore_move.png" id="2_ww5iv"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_qrfg3"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/fungal_spore.png" id="4_xl407"]
 
 [resource]
-script = ExtResource("1_j1r27")
+script = ExtResource("3_qrfg3")
 id = "fungal_spore"
 display_name = "Fungal Spore"
 movement = 2
@@ -13,5 +15,7 @@ armor = 1
 speed = 0.9
 base_damage = 2
 is_elite = true
-texture = ExtResource("2_508oc")
+texture = ExtResource("4_xl407")
+anim_move = ExtResource("2_ww5iv")
+anim_death = ExtResource("1_5sydn")
 description = "Elite: a tougher armored flier."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4qy8k"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/undying_bloom.tres" id="2_fv2f8"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/choking_bloom.tres" id="3_g6s03"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/hardened_bloom.png" id="4_rsbly"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/hardened_bloom_attack.png" id="1_g6s03"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/hardened_bloom_idle.png" id="2_rsbly"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_66gqv"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/undying_bloom.tres" id="4_vpldh"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/choking_bloom.tres" id="5_vd5m3"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/hardened_bloom.png" id="6_33nd8"]
 
 [resource]
-script = ExtResource("1_4qy8k")
+script = ExtResource("3_66gqv")
 id = "hardened_bloom"
 display_name = "Hard Rot Patch"
 cost = 12
@@ -16,7 +18,9 @@ poison_dps = 3.0
 poison_duration = 2.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_4qy8k")]([ExtResource("2_fv2f8"), ExtResource("3_g6s03")])
-texture = ExtResource("4_rsbly")
+evolutions = Array[ExtResource("3_66gqv")]([ExtResource("4_vpldh"), ExtResource("5_vd5m3")])
+texture = ExtResource("6_33nd8")
+anim_idle = ExtResource("2_rsbly")
+anim_attack = ExtResource("1_g6s03")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

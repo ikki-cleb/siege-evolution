@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_d0aam"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/overload_spiked_core.png" id="2_ywmm7"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/spiked_core_attack.png" id="1_ruygf"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/spiked_core_idle.png" id="2_88xoc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_xhyak"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/overload_spiked_core.png" id="4_rcx64"]
 
 [resource]
-script = ExtResource("1_d0aam")
+script = ExtResource("3_xhyak")
 id = "overload_spiked_core"
 display_name = "Overload Spiked Core"
 cost = 68
@@ -14,6 +16,8 @@ attack_mode = 1
 damage = 5.0
 tier = 2
 explode_damage = 120.0
-texture = ExtResource("2_ywmm7")
+texture = ExtResource("4_rcx64")
+anim_idle = ExtResource("2_88xoc")
+anim_attack = ExtResource("1_ruygf")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Erupts violently when it breaks."

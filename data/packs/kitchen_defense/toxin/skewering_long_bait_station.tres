@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mprnc"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/skewering_long_bait_station.png" id="2_2d1ks"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/long_bait_station_attack.png" id="1_1w8ts"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/long_bait_station_idle.png" id="2_hgrp4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_prtal"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/skewering_long_bait_station.png" id="4_kdv38"]
 
 [resource]
-script = ExtResource("1_mprnc")
+script = ExtResource("3_prtal")
 id = "skewering_long_bait_station"
 display_name = "Skewering Long Bait Station"
 role = 1
@@ -18,6 +20,8 @@ poison_duration = 5.0
 poison_spreads = true
 tier = 2
 line_pierce = true
-texture = ExtResource("2_2d1ks")
+texture = ExtResource("4_kdv38")
+anim_idle = ExtResource("2_hgrp4")
+anim_attack = ExtResource("1_1w8ts")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Plague pierces every invader in a line."

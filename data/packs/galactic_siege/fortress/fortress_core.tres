@@ -1,19 +1,23 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cnqov"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/hardened_core.tres" id="2_kl0up"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/spiked_core.tres" id="3_ycg2j"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/fortress_core.png" id="4_idso8"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/fortress_core_attack.png" id="1_ycg2j"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/fortress_core_idle.png" id="2_idso8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_kym1w"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/hardened_core.tres" id="4_jqsyo"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/spiked_core.tres" id="5_8vr04"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/fortress_core.png" id="6_nqmyx"]
 
 [resource]
-script = ExtResource("1_cnqov")
+script = ExtResource("3_kym1w")
 id = "fortress_core"
 display_name = "Fortress Core"
 cost = 18
 max_hp = 260
 attack_mode = 1
 damage = 3.0
-evolutions = Array[ExtResource("1_cnqov")]([ExtResource("2_kl0up"), ExtResource("3_ycg2j")])
-texture = ExtResource("4_idso8")
+evolutions = Array[ExtResource("3_kym1w")]([ExtResource("4_jqsyo"), ExtResource("5_8vr04")])
+texture = ExtResource("6_nqmyx")
+anim_idle = ExtResource("2_idso8")
+anim_attack = ExtResource("1_ycg2j")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Enormous wall that damages everything next to it."

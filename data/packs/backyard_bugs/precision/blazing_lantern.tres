@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h13rs"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/shell_cracking_blazing_lantern.tres" id="2_eg8vk"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/buzzing_blazing_lantern.tres" id="3_xl0bu"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/blazing_lantern.png" id="4_vhfaj"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/blazing_lantern_attack.png" id="1_xl0bu"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/blazing_lantern_idle.png" id="2_vhfaj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qkhwo"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/shell_cracking_blazing_lantern.tres" id="4_shxu5"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/buzzing_blazing_lantern.tres" id="5_j3dlk"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/blazing_lantern.png" id="6_jrnki"]
 
 [resource]
-script = ExtResource("1_h13rs")
+script = ExtResource("3_qkhwo")
 id = "blazing_lantern"
 display_name = "Blazing Lantern"
 role = 2
@@ -18,7 +20,9 @@ hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
 tier = 1
-evolutions = Array[ExtResource("1_h13rs")]([ExtResource("2_eg8vk"), ExtResource("3_xl0bu")])
-texture = ExtResource("4_vhfaj")
+evolutions = Array[ExtResource("3_qkhwo")]([ExtResource("4_shxu5"), ExtResource("5_j3dlk")])
+texture = ExtResource("6_jrnki")
+anim_idle = ExtResource("2_vhfaj")
+anim_attack = ExtResource("1_xl0bu")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

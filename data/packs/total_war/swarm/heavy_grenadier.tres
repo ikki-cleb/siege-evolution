@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6ib1o"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/flaming_heavy_grenadier.tres" id="2_atktj"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/armor_piercing_heavy_grenadier.tres" id="3_y25ch"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/heavy_grenadier.png" id="4_gx35k"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/heavy_grenadier_attack.png" id="1_y25ch"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/heavy_grenadier_idle.png" id="2_gx35k"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_684yh"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/flaming_heavy_grenadier.tres" id="4_nbrdt"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/armor_piercing_heavy_grenadier.tres" id="5_f4ndr"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/heavy_grenadier.png" id="6_rasde"]
 
 [resource]
-script = ExtResource("1_6ib1o")
+script = ExtResource("3_684yh")
 id = "heavy_grenadier"
 display_name = "Heavy Grenadier"
 role = 1
@@ -17,7 +19,9 @@ damage = 2.2
 attack_interval = 0.6
 adjacency_bonus = 0.15
 tier = 1
-evolutions = Array[ExtResource("1_6ib1o")]([ExtResource("2_atktj"), ExtResource("3_y25ch")])
-texture = ExtResource("4_gx35k")
+evolutions = Array[ExtResource("3_684yh")]([ExtResource("4_nbrdt"), ExtResource("5_f4ndr")])
+texture = ExtResource("6_rasde")
+anim_idle = ExtResource("2_gx35k")
+anim_attack = ExtResource("1_y25ch")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

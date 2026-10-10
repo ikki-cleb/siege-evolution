@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1r77e"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/thick_smoke.tres" id="2_dpl12"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/wide_smoke.tres" id="3_6fwdl"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/smoke_pot.png" id="4_5rvyo"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/smoke_pot_attack.png" id="1_6fwdl"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/smoke_pot_idle.png" id="2_5rvyo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_n54e5"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/thick_smoke.tres" id="4_eof6t"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/wide_smoke.tres" id="5_rubnw"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/smoke_pot.png" id="6_fueva"]
 
 [resource]
-script = ExtResource("1_1r77e")
+script = ExtResource("3_n54e5")
 id = "smoke_pot"
 display_name = "Smoke Pot"
 role = 1
@@ -19,7 +21,9 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_1r77e")]([ExtResource("2_dpl12"), ExtResource("3_6fwdl")])
-texture = ExtResource("4_5rvyo")
+evolutions = Array[ExtResource("3_n54e5")]([ExtResource("4_eof6t"), ExtResource("5_rubnw")])
+texture = ExtResource("6_fueva")
+anim_idle = ExtResource("2_5rvyo")
+anim_attack = ExtResource("1_6fwdl")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Heavily slows and burns a wide area."

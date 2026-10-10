@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ytr34"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/tractor_shielded_rad_plate.png" id="2_vfybe"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/shielded_rad_plate_idle.png" id="1_vfybe"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_woupw"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/tractor_shielded_rad_plate.png" id="3_tadmv"]
 
 [resource]
-script = ExtResource("1_ytr34")
+script = ExtResource("2_woupw")
 id = "tractor_shielded_rad_plate"
 display_name = "Tractor Shielded Rad Plate"
 cost = 22
@@ -13,6 +14,7 @@ reflect = 0.3
 tier = 2
 grab_stun = 0.8
 can_place_on_water = true
-texture = ExtResource("2_vfybe")
+texture = ExtResource("3_tadmv")
+anim_idle = ExtResource("1_vfybe")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Smashers that bite it get stuck."

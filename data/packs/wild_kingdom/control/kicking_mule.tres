@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_17sg6"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bucking_kicking_mule.tres" id="2_gymko"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/frosty_kicking_mule.tres" id="3_wthxl"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/kicking_mule.png" id="4_fd3g4"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/kicking_mule_attack.png" id="1_wthxl"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/kicking_mule_idle.png" id="2_fd3g4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_bvndd"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bucking_kicking_mule.tres" id="4_qjej8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/frosty_kicking_mule.tres" id="5_p0hus"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/kicking_mule.png" id="6_eosbw"]
 
 [resource]
-script = ExtResource("1_17sg6")
+script = ExtResource("3_bvndd")
 id = "kicking_mule"
 display_name = "Kicking Mule"
 role = 1
@@ -18,7 +20,9 @@ hits_air = true
 splash_radius = 1.2
 stun_duration = 0.6
 tier = 1
-evolutions = Array[ExtResource("1_17sg6")]([ExtResource("2_gymko"), ExtResource("3_wthxl")])
-texture = ExtResource("4_fd3g4")
+evolutions = Array[ExtResource("3_bvndd")]([ExtResource("4_qjej8"), ExtResource("5_p0hus")])
+texture = ExtResource("6_eosbw")
+anim_idle = ExtResource("2_fd3g4")
+anim_attack = ExtResource("1_wthxl")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns a whole area."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e44p7"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/stinky_sticky_silly_string.png" id="2_gh4uy"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/sticky_silly_string_attack.png" id="1_v2yg3"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/sticky_silly_string_idle.png" id="2_wole8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_h47c2"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/stinky_sticky_silly_string.png" id="4_6mt07"]
 
 [resource]
-script = ExtResource("1_e44p7")
+script = ExtResource("3_h47c2")
 id = "stinky_sticky_silly_string"
 display_name = "Stinky Sticky Silly String"
 role = 1
@@ -20,6 +22,8 @@ poison_duration = 3.0
 tier = 2
 zone_kind = "toxic"
 zone_power = 3.0
-texture = ExtResource("2_gh4uy")
+texture = ExtResource("4_6mt07")
+anim_idle = ExtResource("2_wole8")
+anim_attack = ExtResource("1_v2yg3")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Spray leaves a toxic cloud."

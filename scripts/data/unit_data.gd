@@ -102,6 +102,11 @@ enum AttackMode {
 
 @export_group("Looks")
 @export var texture: Texture2D
+## Optional animations: horizontal strips of square frames (e.g. 4 frames of
+## 64x64 = a 256x64 PNG). Idle loops; attack plays once per shot. Capstones
+## reuse their tier-1 strips. Without them the still `texture` is used.
+@export var anim_idle: Texture2D
+@export var anim_attack: Texture2D
 @export var shot_color: Color = Color.WHITE
 @export_multiline var description: String = ""
 

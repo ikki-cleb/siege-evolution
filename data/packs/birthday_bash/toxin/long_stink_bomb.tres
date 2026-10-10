@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gtyk1"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/double_long_stink_bomb.tres" id="2_enpjc"]
-[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/laser_long_stink_bomb.tres" id="3_muo0t"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/long_stink_bomb.png" id="4_bb1yp"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/long_stink_bomb_attack.png" id="1_muo0t"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/long_stink_bomb_idle.png" id="2_bb1yp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1yh46"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/double_long_stink_bomb.tres" id="4_lgrip"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/laser_long_stink_bomb.tres" id="5_ri4d5"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/long_stink_bomb.png" id="6_ray5t"]
 
 [resource]
-script = ExtResource("1_gtyk1")
+script = ExtResource("3_1yh46")
 id = "long_stink_bomb"
 display_name = "Long Stink Bomb"
 role = 1
@@ -19,7 +21,9 @@ poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
 tier = 1
-evolutions = Array[ExtResource("1_gtyk1")]([ExtResource("2_enpjc"), ExtResource("3_muo0t")])
-texture = ExtResource("4_bb1yp")
+evolutions = Array[ExtResource("3_1yh46")]([ExtResource("4_lgrip"), ExtResource("5_ri4d5")])
+texture = ExtResource("6_ray5t")
+anim_idle = ExtResource("2_bb1yp")
+anim_attack = ExtResource("1_muo0t")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

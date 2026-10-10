@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mb5yu"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/exploding_poison_brambles.tres" id="2_m41f0"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/scrubbed_poison_brambles.tres" id="3_k2e18"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/poison_brambles.png" id="4_jwudc"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/poison_brambles_idle.png" id="1_m41f0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_k2e18"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/exploding_poison_brambles.tres" id="3_jwudc"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/scrubbed_poison_brambles.tres" id="4_hl2vu"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/poison_brambles.png" id="5_n271r"]
 
 [resource]
-script = ExtResource("1_mb5yu")
+script = ExtResource("2_k2e18")
 id = "poison_brambles"
 display_name = "Poison Brambles"
 cost = 6
 max_hp = 25
 reflect = 0.8
 tier = 1
-evolutions = Array[ExtResource("1_mb5yu")]([ExtResource("2_m41f0"), ExtResource("3_k2e18")])
+evolutions = Array[ExtResource("2_k2e18")]([ExtResource("3_jwudc"), ExtResource("4_hl2vu")])
 can_place_on_water = true
-texture = ExtResource("4_jwudc")
+texture = ExtResource("5_n271r")
+anim_idle = ExtResource("1_m41f0")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

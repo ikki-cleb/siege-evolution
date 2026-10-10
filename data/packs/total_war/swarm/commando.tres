@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_g6r3o"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/elite_commando.tres" id="2_h6nt6"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/ranger_commando.tres" id="3_twpts"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/commando.png" id="4_ssfg6"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/commando_attack.png" id="1_twpts"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/commando_idle.png" id="2_ssfg6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_hicna"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/elite_commando.tres" id="4_bp84f"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/ranger_commando.tres" id="5_14624"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/commando.png" id="6_dqkta"]
 
 [resource]
-script = ExtResource("1_g6r3o")
+script = ExtResource("3_hicna")
 id = "commando"
 display_name = "Commando"
 role = 1
@@ -16,7 +18,9 @@ damage = 4.0
 attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_g6r3o")]([ExtResource("2_h6nt6"), ExtResource("3_twpts")])
-texture = ExtResource("4_ssfg6")
+evolutions = Array[ExtResource("3_hicna")]([ExtResource("4_bp84f"), ExtResource("5_14624")])
+texture = ExtResource("6_dqkta")
+anim_idle = ExtResource("2_ssfg6")
+anim_attack = ExtResource("1_twpts")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Armor-piercing melee flurries."

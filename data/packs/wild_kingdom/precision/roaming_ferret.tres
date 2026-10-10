@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hm614"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/herding_roaming_ferret.tres" id="2_bftx4"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/flurry_roaming_ferret.tres" id="3_akky7"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/roaming_ferret.png" id="4_d6h0w"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/roaming_ferret_attack.png" id="1_akky7"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/roaming_ferret_idle.png" id="2_d6h0w"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_u8wlc"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/herding_roaming_ferret.tres" id="4_ju3b3"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/flurry_roaming_ferret.tres" id="5_t0ye6"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/roaming_ferret.png" id="6_glcmo"]
 
 [resource]
-script = ExtResource("1_hm614")
+script = ExtResource("3_u8wlc")
 id = "roaming_ferret"
 display_name = "Roaming Ferret"
 role = 1
@@ -18,7 +20,9 @@ attack_interval = 1.6
 hits_air = true
 pierce = true
 tier = 1
-evolutions = Array[ExtResource("1_hm614")]([ExtResource("2_bftx4"), ExtResource("3_akky7")])
-texture = ExtResource("4_d6h0w")
+evolutions = Array[ExtResource("3_u8wlc")]([ExtResource("4_ju3b3"), ExtResource("5_t0ye6")])
+texture = ExtResource("6_glcmo")
+anim_idle = ExtResource("2_d6h0w")
+anim_attack = ExtResource("1_akky7")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More range, hits fliers."

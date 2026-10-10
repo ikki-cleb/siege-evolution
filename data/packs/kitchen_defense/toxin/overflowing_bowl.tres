@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xvmsc"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/swatting_overflowing_bowl.tres" id="2_0wmwi"]
-[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/tip_jar_overflowing_bowl.tres" id="3_gpl4k"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/overflowing_bowl.png" id="4_075cn"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/overflowing_bowl_attack.png" id="1_gpl4k"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/overflowing_bowl_idle.png" id="2_075cn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_nn317"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/swatting_overflowing_bowl.tres" id="4_e2hd2"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/tip_jar_overflowing_bowl.tres" id="5_fl3uj"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/overflowing_bowl.png" id="6_vavlt"]
 
 [resource]
-script = ExtResource("1_xvmsc")
+script = ExtResource("3_nn317")
 id = "overflowing_bowl"
 display_name = "Overflowing Bowl"
 role = 1
@@ -17,7 +19,9 @@ hits_air = true
 poison_dps = 2.5
 poison_duration = 3.0
 tier = 1
-evolutions = Array[ExtResource("1_xvmsc")]([ExtResource("2_0wmwi"), ExtResource("3_gpl4k")])
-texture = ExtResource("4_075cn")
+evolutions = Array[ExtResource("3_nn317")]([ExtResource("4_e2hd2"), ExtResource("5_fl3uj")])
+texture = ExtResource("6_vavlt")
+anim_idle = ExtResource("2_075cn")
+anim_attack = ExtResource("1_gpl4k")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range, hits fliers."

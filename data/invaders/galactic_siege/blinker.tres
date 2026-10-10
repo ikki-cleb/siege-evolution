@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_img4p"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/blinker.png" id="2_k8ge7"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/blinker_death.png" id="1_4k580"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/blinker_move.png" id="2_w66ny"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_171lw"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/blinker.png" id="4_5sdpu"]
 
 [resource]
-script = ExtResource("1_img4p")
+script = ExtResource("3_171lw")
 id = "blinker"
 display_name = "Blinker"
 max_hp = 16
@@ -13,5 +15,7 @@ base_damage = 2
 coin_drop = 2
 blink_interval = 2.5
 blink_distance = 3
-texture = ExtResource("2_k8ge7")
+texture = ExtResource("4_5sdpu")
+anim_move = ExtResource("2_w66ny")
+anim_death = ExtResource("1_4k580")
 description = "Teleports 3 tiles forward along its route every few seconds."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_sw4or"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/terminator_plague_swarm.png" id="2_mj6en"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/plague_swarm_attack.png" id="1_2dpw0"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/plague_swarm_idle.png" id="2_esb4p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_bfn0r"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/terminator_plague_swarm.png" id="4_3ci6n"]
 
 [resource]
-script = ExtResource("1_sw4or")
+script = ExtResource("3_bfn0r")
 id = "terminator_plague_swarm"
 display_name = "Terminator Plague Swarm"
 role = 1
@@ -18,6 +20,8 @@ poison_duration = 5.0
 poison_spreads = true
 tier = 2
 execute_below = 0.2
-texture = ExtResource("2_mj6en")
+texture = ExtResource("4_3ci6n")
+anim_idle = ExtResource("2_esb4p")
+anim_attack = ExtResource("1_2dpw0")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Finishes off invaders below 20% HP."

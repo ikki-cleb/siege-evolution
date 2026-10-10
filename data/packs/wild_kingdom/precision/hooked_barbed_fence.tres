@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5jkon"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/hooked_barbed_fence.png" id="2_4qaic"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/barbed_fence_idle.png" id="1_4qaic"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_47aoe"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/hooked_barbed_fence.png" id="3_cbjey"]
 
 [resource]
-script = ExtResource("1_5jkon")
+script = ExtResource("2_47aoe")
 id = "hooked_barbed_fence"
 display_name = "Hooked Barbed Fence"
 cost = 22
@@ -13,6 +14,7 @@ reflect = 0.5
 tier = 2
 grab_stun = 0.8
 can_place_on_water = true
-texture = ExtResource("2_4qaic")
+texture = ExtResource("3_cbjey")
+anim_idle = ExtResource("1_4qaic")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Smashers that bite it get stuck."
