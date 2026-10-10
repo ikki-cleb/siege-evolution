@@ -278,7 +278,7 @@
           "role": "attacker",
           "cost": 9,
           "hp": 12,
-          "damage": 2.3,
+          "damage": 2.8,
           "range": 2.5,
           "interval": 0.7,
           "air": true,
@@ -293,7 +293,7 @@
               "id": "volley_monocyte",
               "name": "Volley Monocyte",
               "cost": 9,
-              "damage": 3.5,
+              "damage": 4.2,
               "desc": "More damage."
             },
             {
