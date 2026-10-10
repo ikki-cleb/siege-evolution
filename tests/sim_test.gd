@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 107
+const MIN_RULE_CHECKS := 108
 var progress: Node
 
 
@@ -739,6 +739,12 @@ func _test_achievements(biome: BiomeData) -> void:
 	achievements.reset()
 	progress.reset()
 	_check(achievements.list.size() == 27, "There are 27 achievements")
+	# Winning a level used to freeze the game for ~10s while achievements
+	# reloaded every world. It must stay instant.
+	var started := Time.get_ticks_msec()
+	achievements.on_level_won({"base_hp": 5, "max_hp": 20, "boss_level": false, "evolutions": 1,
+		"paths_seen": true, "units": 20})
+	_check(Time.get_ticks_msec() - started < 100, "Checking achievements after a win is instant (%d ms)" % (Time.get_ticks_msec() - started))
 	achievements.on_level_won({"base_hp": 20, "max_hp": 20, "boss_level": true, "evolutions": 0,
 		"paths_seen": false, "units": 5})
 	_check(["flawless", "untouchable_boss", "back_to_basics", "blindfolded", "minimalist"].all(

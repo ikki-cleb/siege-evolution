@@ -132,8 +132,7 @@ func _show_biomes() -> void:
 
 func _world_card(index: int) -> void:
 	var world: Dictionary = Progress.WORLDS[index]
-	var world_biome := Progress.load_biome(index)
-	var edge := Look.accent(world_biome.id) if world_biome else Look.BORDER
+	var edge := Look.accent(Progress.world_id(index)) if Progress.has_content(index) else Look.BORDER
 	var card := _card(CARD_COLOR, edge)
 	var title: String = world.name
 	if not Progress.is_bonus(index):
@@ -152,9 +151,9 @@ func _world_card(index: int) -> void:
 		_label("Coming soon" + (" (owned)" if Progress.is_bonus(index) else ""), 12, GOLD,
 			HORIZONTAL_ALIGNMENT_LEFT, card)
 		return
-	var biome := Progress.load_biome(index)
-	if Progress.cleared(biome.id) > 0:
-		_label("%d/%d levels cleared" % [Progress.cleared(biome.id), biome.levels.size()],
+	var id := Progress.world_id(index)
+	if Progress.cleared(id) > 0:
+		_label("%d/%d levels cleared" % [Progress.cleared(id), Progress.LEVELS_PER_BIOME],
 			12, GOLD, HORIZONTAL_ALIGNMENT_LEFT, card)
 	var enter := _button("Enter" if unlocked else "Locked: beat World %d first" % index,
 		_open_biome.bind(index), card)

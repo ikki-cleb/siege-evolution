@@ -83,6 +83,9 @@ budget. `tools/tune.py <id> key=value` edits stats.
   Water lanes along map edges can't be defended, so run rivers through the land.
 - Placing a unit changes the route (units block), so the auto-player judges
   placements by the route after placing. It's a decent but imperfect player.
+- `Progress.load_biome()` loads a whole world (every unit, sprite, level) and is
+  slow, especially on the web. Code that only needs a world's id uses
+  `Progress.world_id(index)`; a win used to freeze ~10s from repeated loads.
 - Commit and push after every piece of work (a stop hook enforces it).
 
 **Open questions for the user:** how the bonus worlds feel in real play

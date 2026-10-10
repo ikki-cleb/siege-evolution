@@ -56,6 +56,13 @@ func load_biome(index: int) -> BiomeData:
 	return load(path) if path != "" else null
 
 
+## A world's id without loading it: "res://data/biomes/wild_kingdom.tres" ->
+## "wild_kingdom". Loading a whole world (every unit, sprite and level) takes
+## a while, so code that only needs the id uses this instead.
+func world_id(index: int) -> String:
+	return String(WORLDS[index].path).get_file().get_basename()
+
+
 func has_content(index: int) -> bool:
 	return WORLDS[index].path != ""
 
@@ -112,9 +119,8 @@ func packs_that_beat(biome_id: String, index: int) -> Array[String]:
 func main_levels_beaten(pack_id: String) -> int:
 	var total := 0
 	for index in WORLDS.size():
-		var world := load_biome(index)
-		if world and not is_bonus(index):
-			total += _run(world.id).get("beaten", {}).get(pack_id, []).size()
+		if has_content(index) and not is_bonus(index):
+			total += _run(world_id(index)).get("beaten", {}).get(pack_id, []).size()
 	return total
 
 
@@ -132,8 +138,7 @@ func is_biome_unlocked(index: int) -> bool:
 		return Store.owns(WORLDS[index].product)
 	if index == 0:
 		return true
-	var previous := load_biome(index - 1)
-	return previous != null and cleared(previous.id) >= LEVELS_PER_BIOME
+	return has_content(index - 1) and cleared(world_id(index - 1)) >= LEVELS_PER_BIOME
 
 
 ## Picks the pack for the next level. Packs can be swapped any time: world

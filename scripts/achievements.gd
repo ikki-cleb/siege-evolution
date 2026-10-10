@@ -179,8 +179,8 @@ func _main_worlds_beaten() -> int:
 	var progress := get_node("/root/Progress")
 	var count := 0
 	for index in progress.WORLDS.size():
-		var world: BiomeData = progress.load_biome(index)
-		if world and not progress.is_bonus(index) and progress.cleared(world.id) >= progress.LEVELS_PER_BIOME:
+		if progress.has_content(index) and not progress.is_bonus(index) \
+				and progress.cleared(progress.world_id(index)) >= progress.LEVELS_PER_BIOME:
 			count += 1
 	return count
 
