@@ -56,14 +56,14 @@ entries = Array[ExtResource("3_0ydnx")]([SubResource("Resource_0yo7p"), SubResou
 [sub_resource type="Resource" id="Resource_boenr"]
 script = ExtResource("3_0ydnx")
 invader = ExtResource("6_wy0g5")
-count = 4
-spacing = 2.2
+count = 3
+spacing = 2.4000000000000004
 
 [sub_resource type="Resource" id="Resource_hjnjb"]
 script = ExtResource("3_0ydnx")
 invader = ExtResource("7_n7klo")
-count = 3
-spacing = 2.5
+count = 2
+spacing = 3.0
 delay = 3.0
 
 [sub_resource type="Resource" id="Resource_liuoh"]
@@ -203,7 +203,7 @@ script = ExtResource("1_2mlio")
 display_name = "1. Party Time"
 layout = PackedStringArray("....S....", ".........", "..#...#..", ".........", "#...#...#", ".........", "..#...#..", ".........", "#...#...#", ".........", "..#...#..", ".........", ".........", "....B....")
 hand_value = PackedInt32Array(12, 12, 7, 0, 0, 0)
-starting_coins = 35
+starting_coins = 45
 show_path_preview = true
 wave_tips = PackedStringArray("Bonus world! This party is post-game: tight maps and wild waves. Wind-up mice scurry around your units; every kill drops coins.", "NEW: Piñatas burst into a surprise when broken. It looks random, but the same wave always hides the same surprise.", "Break piñatas early, far from the cake, so their surprise has a long way to go.", "Party Bags burst into gumdrops. Bouncy Balls hop single walls, so build them two thick.", "Toy Robots ignore your maze and stomp through units (red line).", "Balloons float straight in. Water Balloons splash your most valuable units.", "Soda Spills soak the units beside their route: sticky units attack slower until the wave ends.", "Robots on the ground, balloons in the air, balls bouncing over walls.", "Swarm and piñatas! Remember what was inside last time.", "Final wave! The Clown waits at the end of this world.")
 waves = Array[ExtResource("2_q558q")]([SubResource("Resource_b28xs"), SubResource("Resource_dpxmc"), SubResource("Resource_lhhpo"), SubResource("Resource_liuoh"), SubResource("Resource_odilk"), SubResource("Resource_q2vk7"), SubResource("Resource_qeyl7"), SubResource("Resource_732ft"), SubResource("Resource_q08o1"), SubResource("Resource_pecps")])

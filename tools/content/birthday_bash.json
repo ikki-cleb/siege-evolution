@@ -755,14 +755,14 @@
       [
         [
           "party_bag",
-          4,
-          2.2,
+          3,
+          2.4,
           0
         ],
         [
           "bouncy_ball",
-          3,
-          2.5,
+          2,
+          3.0,
           3
         ]
       ],
@@ -900,7 +900,7 @@
         0,
         0
       ],
-      "coins": 35,
+      "coins": 45,
       "income": 5,
       "layout": [
         "....S....",
@@ -922,7 +922,7 @@
     {
       "name": "2. Living Room",
       "tiles": "living",
-      "budget": 28,
+      "budget": 24,
       "hand": [
         10,
         8,
@@ -953,7 +953,7 @@
     {
       "name": "3. Bouncy Castle",
       "tiles": "bouncy",
-      "budget": 30,
+      "budget": 26,
       "hand": [
         10,
         8,
