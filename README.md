@@ -37,3 +37,5 @@ See `DESIGN.md` for the game design.
   `godot --headless --fixed-fps 60 --script tests/sim_test.gd`
   Add `-- rules` to skip the slower balance run.
 - **Build for the web:** `tools/export_web.sh path/to/godot`
+- **Build for itch.io:** `tools/export_itch.sh path/to/godot`, then upload
+  `build/siege-evolution-web.zip` as an HTML game played in the browser.

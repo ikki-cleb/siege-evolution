@@ -2,3 +2,4 @@
 .godot/
 # Exported builds
 build/
+playtest/
