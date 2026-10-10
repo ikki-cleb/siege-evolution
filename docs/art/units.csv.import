@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cplpxyrl7e8de"
+
+[deps]
+
+files=["res://docs/art/units.world.translation", "res://docs/art/units.pack.translation", "res://docs/art/units.unit.translation", "res://docs/art/units.tier.translation", "res://docs/art/units.file.translation", "res://docs/art/units.animations.translation", "res://docs/art/units.kind.translation", "res://docs/art/units.what.translation", "res://docs/art/units.setting.translation"]
+
+source_file="res://docs/art/units.csv"
+dest_files=["res://docs/art/units.world.translation", "res://docs/art/units.pack.translation", "res://docs/art/units.unit.translation", "res://docs/art/units.tier.translation", "res://docs/art/units.file.translation", "res://docs/art/units.animations.translation", "res://docs/art/units.kind.translation", "res://docs/art/units.what.translation", "res://docs/art/units.setting.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

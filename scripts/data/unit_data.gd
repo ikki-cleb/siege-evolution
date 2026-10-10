@@ -111,6 +111,17 @@ enum AttackMode {
 @export_multiline var description: String = ""
 
 
+## The picture for buttons and menus: the first frame of the idle animation
+## if there is one, else the still sprite.
+func icon() -> Texture2D:
+	if anim_idle == null:
+		return texture
+	var frame := AtlasTexture.new()
+	frame.atlas = anim_idle
+	frame.region = Rect2(0, 0, anim_idle.get_height(), anim_idle.get_height())
+	return frame
+
+
 ## True if this unit does anything to invaders on its own.
 func can_attack() -> bool:
 	return damage > 0.0 or slow > 0.0 or poison_dps > 0.0 or mark_bonus > 0.0 or stun_duration > 0.0

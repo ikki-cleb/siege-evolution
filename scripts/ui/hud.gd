@@ -101,22 +101,22 @@ func refresh() -> void:
 			if options.is_empty():
 				button.text = "Capstone\n(maxed)" if unit.is_capstone() else "-"
 				button.disabled = true
-				button.icon = unit.data.texture
+				button.icon = unit.data.icon()
 			elif i >= options.size():
 				button.text = "-"
 				button.disabled = true
 				button.icon = null
 			elif not game.is_ready_to_evolve(unit):
 				button.text = "%s\nafter 1 wave" % options[i].display_name
-				button.icon = options[i].texture
+				button.icon = options[i].icon()
 				button.disabled = true
 			elif i == _armed_option:
 				button.text = "Tap again\nto buy %s %d" % [Palette.COIN, options[i].cost]
-				button.icon = options[i].texture
+				button.icon = options[i].icon()
 				button.disabled = not game.can_evolve(options[i])
 			else:
 				button.text = "%s\n%s %d" % [options[i].display_name, Palette.COIN, options[i].cost]
-				button.icon = options[i].texture
+				button.icon = options[i].icon()
 				button.disabled = false  # tap to preview, even if it's too expensive yet
 		var value: Dictionary = game.sell_value(unit)
 		_sell_button.text = "Remove\nto hand" if value.to_hand else "Remove\n+%s %d" % [Palette.COIN, value.coins]
@@ -342,7 +342,7 @@ func _build_bottom_bar() -> void:
 	for type in game.unit_types:
 		var button := Button.new()
 		button.toggle_mode = true
-		button.icon = type.texture
+		button.icon = type.icon()
 		button.expand_icon = true
 		button.vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
 		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER

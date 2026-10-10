@@ -67,6 +67,9 @@ def split_strip(image):
 
 def main(folder):
     known, worlds = targets()
+    # Imported art is listed so tools/draw_sprites.py never draws over it.
+    record = PROJECT / "art" / "anim" / "imported.txt"
+    imported = set(record.read_text().split()) if record.exists() else set()
     groups = defaultdict(list)  # (world, id, anim) -> [(frame number, path)]
     for path in sorted(Path(folder).iterdir()):
         if path.suffix.lower() not in (".png", ".webp"):
@@ -92,7 +95,10 @@ def main(folder):
         out = known[key]
         out.parent.mkdir(parents=True, exist_ok=True)
         sheet.save(out)
+        imported.add(str(out.relative_to(PROJECT)))
         print(f"{key[0]} {key[1]} {key[2]}: {len(frames)} frames -> {out.relative_to(PROJECT)}")
+    record.parent.mkdir(parents=True, exist_ok=True)
+    record.write_text("\n".join(sorted(imported)) + "\n")
     print(len(groups), "animation(s) imported.")
 
 
