@@ -315,12 +315,9 @@ comes next.
 
 ## Open questions
 
-- World 2 theme and scale (e.g. backyard bugs?), and how packs reskin there
 - Cosmetic unlocks (palettes, skins, menu themes): what and when
-- Content for the two bonus worlds
-- After World 5's boss: credits / ending screen?
+- Content for the two bonus worlds (sold in the store but not built yet)
 - Orchard (World 3, level 3) is the hardest level for the bot, especially with Toxin
 - Overall difficulty after human playtesting (the bot finds most levels easy)
-- Sound and music direction
-- Cosmetic unlocks (deferred from the polish pass)
+- How the sound, music and new look feel in real play; Blinker frequency
 - Save sync (iCloud / Google Play) or local only
