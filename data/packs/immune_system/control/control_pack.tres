@@ -15,4 +15,5 @@ id = "control"
 display_name = "Control"
 description = "Slows, stuns and area damage. Weak alone, deadly inside a long maze."
 color = Color(0.6156863, 0.4745098, 0.8392157, 1)
+product_id = "pack_control"
 units = Array[ExtResource("2_f3xnn")]([ExtResource("3_7bran"), ExtResource("4_vfa76"), ExtResource("5_2edm3"), ExtResource("6_020lg"), ExtResource("7_hd7fh"), ExtResource("8_fk15f")])

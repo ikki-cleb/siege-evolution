@@ -109,7 +109,9 @@ func _test_rules(biome: BiomeData) -> void:
 	var fighter: UnitData = game.unit_types[1]
 
 	_check(game.unit_types.size() == 3, "Level 1 offers the pack's first 3 units")
-	_check(game.hand.get(wall.id, 0) == 3, "Starting hand converts ATP value into copies (24 ATP of 8-ATP walls = 3)")
+	var expected_walls := maxi(1, roundi(float(game.level.hand_value[0]) / wall.cost))
+	_check(game.hand.get(wall.id, 0) == expected_walls,
+		"Starting hand converts ATP value into copies (%d ATP of %d-ATP walls = %d)" % [game.level.hand_value[0], wall.cost, expected_walls])
 
 	# Sealing the path must be refused. Row 1 is fully open, 9 tiles wide.
 	game.atp = 999
@@ -127,15 +129,12 @@ func _test_rules(biome: BiomeData) -> void:
 	game.sell_selected()
 	_check(game.atp == atp_before + wall.cost, "Removing a bought unit placed this round refunds 100%")
 
-	# Evolving costs ATP and also refunds fully in the same round.
+	# A unit can't evolve in the round it was placed.
 	game.try_place(fighter, Vector2i(4, 5))
 	game._select_cell(Vector2i(4, 5))
 	var evo: UnitData = fighter.evolutions[0]
-	atp_before = game.atp
-	game.evolve_selected(evo)
+	_check(not game.can_evolve(evo), "A unit can't evolve in the round it was placed")
 	var unit: Unit = board.units[Vector2i(4, 5)]
-	_check(unit.data == evo and game.atp == atp_before - evo.cost, "Evolving swaps the unit and costs ATP")
-	_check(not game.can_evolve(fighter.evolutions[1]), "An evolved unit can't evolve again")
 
 	# Damage a wall and destroy another, then play a wave.
 	var damaged: Unit = board.units[Vector2i(1, 1)]
@@ -143,21 +142,56 @@ func _test_rules(biome: BiomeData) -> void:
 	var broken: Unit = board.units[Vector2i(2, 1)]
 	broken.take_damage(9999)
 	_check(broken.destroyed, "A unit can be destroyed")
+	var drops := [0]
+	board.atp_dropped.connect(func(amount, _where): drops[0] += amount)
+	var leaks := [0]
+	board.base_hit.connect(func(_inv): leaks[0] += 1)
+	atp_before = game.atp
 	game.start_wave()
 	while game.phase == game.Phase.WAVE:
 		await process_frame
 	_check(not broken.destroyed and broken.hp == broken.data.max_hp and damaged.hp == damaged.data.max_hp,
 		"Units are fully repaired between waves")
+	var bonus: int = game.level.atp_per_wave if leaks[0] == 0 else 0
+	_check(drops[0] > 0 and game.atp == atp_before + drops[0] + bonus,
+		"Kills drop ATP (%d dropped, %d leaks, bonus %d)" % [drops[0], leaks[0], bonus])
 
-	# Next round: older units refund 50%, including evolution cost.
+	# After surviving a wave it can evolve, which costs ATP.
+	game.atp = 999
 	game._select_cell(Vector2i(4, 5))
+	game.evolve_selected(evo)
+	_check(unit.data == evo and game.atp == 999 - evo.cost, "A veteran unit evolves, costing ATP")
+	_check(not game.can_evolve(fighter.evolutions[1]), "An evolved unit can't evolve again")
+
+	# Older unit refunds 50%; the evolution bought this round refunds 100%.
 	var value: Dictionary = game.sell_value(unit)
-	_check(value.atp == int(fighter.cost * 0.5) + int(evo.cost * 0.5) and not value.to_hand,
-		"Units from earlier rounds refund 50% of unit + evolution cost")
+	_check(value.atp == int(fighter.cost * 0.5) + evo.cost and not value.to_hand,
+		"Old unit refunds 50%, plus 100% of an evolution bought this round")
 	value = game.sell_value(board.units[Vector2i(1, 1)])
 	_check(value.atp == int(wall.cost * 0.5) and not value.to_hand,
 		"Free units from earlier rounds refund 50% of their cost in ATP")
 	await _stop(game)
+
+	# Store gating.
+	var store: Node = root.get_node("Store")
+	store.reset_test_purchases()
+	game = await _start(biome, 0, 0)
+	game.cycle_speed()
+	game.cycle_speed()
+	_check(game.speed == 1, "3x speed is skipped until it's bought")
+	store.buy(store.SPEED_3X)
+	game.cycle_speed()
+	game.cycle_speed()
+	_check(game.speed == 3, "3x speed works once bought")
+	game.cycle_speed()
+	await _stop(game)
+	var toxin: PackData = biome.find_pack("toxin")
+	_check(not store.owns(toxin.product_id) and store.owns(biome.find_pack("fortress").product_id),
+		"Toxin is locked and Fortress is free")
+	store.buy(store.BUNDLE_ALL)
+	_check(store.owns(toxin.product_id) and store.owns(store.WORLD_BIRTHDAY) and progress.is_biome_unlocked(6),
+		"The bundle unlocks every item, including bonus worlds")
+	store.reset_test_purchases()
 
 	# Unit effects, checked directly on a board.
 	game = await _start(biome, 2, 0)  # Precision

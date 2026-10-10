@@ -15,8 +15,8 @@
 [sub_resource type="Resource" id="Resource_ke0nx"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("4_t7bv0")
-count = 9
-spacing = 1.8
+count = 10
+spacing = 1.6
 
 [sub_resource type="Resource" id="Resource_2xgf8"]
 script = ExtResource("3_mssfw")
@@ -31,8 +31,8 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_ke0nx"), SubResou
 [sub_resource type="Resource" id="Resource_kcryq"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("4_t7bv0")
-count = 6
-spacing = 2.6500000000000004
+count = 7
+spacing = 2.3000000000000003
 
 [sub_resource type="Resource" id="Resource_xvoa2"]
 script = ExtResource("3_mssfw")
@@ -62,8 +62,7 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_kcryq"), SubResou
 [sub_resource type="Resource" id="Resource_h8onh"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("6_xjk4d")
-count = 4
-spacing = 4.0
+spacing = 3.2
 
 [sub_resource type="Resource" id="Resource_08vcd"]
 script = ExtResource("3_mssfw")
@@ -92,13 +91,14 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_h8onh"), SubResou
 [sub_resource type="Resource" id="Resource_hv0u0"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("4_t7bv0")
-count = 7
-spacing = 2.3000000000000003
+count = 8
+spacing = 2.0
 
 [sub_resource type="Resource" id="Resource_nunhq"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("5_fmqx3")
-spacing = 3.2
+count = 6
+spacing = 2.6500000000000004
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_j2u6k"]
@@ -122,8 +122,8 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_hv0u0"), SubResou
 [sub_resource type="Resource" id="Resource_4ow5e"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("8_usog2")
-count = 12
-spacing = 1.35
+count = 14
+spacing = 1.1500000000000001
 
 [sub_resource type="Resource" id="Resource_d1bhp"]
 script = ExtResource("3_mssfw")
@@ -142,7 +142,8 @@ delay = 5.0
 [sub_resource type="Resource" id="Resource_tyxxi"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("5_fmqx3")
-spacing = 3.2
+count = 6
+spacing = 2.6500000000000004
 delay = 7.5
 
 [sub_resource type="Resource" id="Resource_8e4u8"]
@@ -152,13 +153,12 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_4ow5e"), SubResou
 [sub_resource type="Resource" id="Resource_kh3bw"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("6_xjk4d")
-count = 4
-spacing = 4.0
+spacing = 3.2
 
 [sub_resource type="Resource" id="Resource_7yy0c"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("7_ffe1e")
-count = 2
+count = 3
 spacing = 5.0
 delay = 2.5
 
@@ -183,27 +183,26 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_kh3bw"), SubResou
 [sub_resource type="Resource" id="Resource_yc037"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("4_t7bv0")
-count = 14
-spacing = 1.1500000000000001
+count = 16
 
 [sub_resource type="Resource" id="Resource_odow8"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("5_fmqx3")
-count = 12
-spacing = 1.35
+count = 13
+spacing = 1.25
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_tqaa3"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("8_usog2")
-count = 7
-spacing = 2.3000000000000003
+count = 8
+spacing = 2.0
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_82onr"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("9_0bk84")
-count = 1
+count = 2
 spacing = 5.0
 delay = 7.5
 
@@ -214,7 +213,7 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_yc037"), SubResou
 [sub_resource type="Resource" id="Resource_dtyd4"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("10_dgbyk")
-count = 2
+count = 3
 spacing = 5.0
 
 [sub_resource type="Resource" id="Resource_xic5e"]
@@ -241,8 +240,8 @@ delay = 7.5
 [sub_resource type="Resource" id="Resource_ylsvx"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("8_usog2")
-count = 8
-spacing = 2.0
+count = 9
+spacing = 1.8
 delay = 10.0
 
 [sub_resource type="Resource" id="Resource_g4qd8"]
@@ -259,21 +258,20 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_dtyd4"), SubResou
 [sub_resource type="Resource" id="Resource_j2mp8"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("4_t7bv0")
-count = 15
-spacing = 1.05
+count = 17
+spacing = 0.9500000000000001
 
 [sub_resource type="Resource" id="Resource_pvreb"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("5_fmqx3")
-count = 12
-spacing = 1.35
+count = 14
+spacing = 1.1500000000000001
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_thnud"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("6_xjk4d")
-count = 4
-spacing = 4.0
+spacing = 3.2
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_6nuj8"]
@@ -290,14 +288,14 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_j2mp8"), SubResou
 [sub_resource type="Resource" id="Resource_o4xkx"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("4_t7bv0")
-count = 8
-spacing = 2.0
+count = 9
+spacing = 1.8
 
 [sub_resource type="Resource" id="Resource_4rw5r"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("5_fmqx3")
-count = 7
-spacing = 2.3000000000000003
+count = 8
+spacing = 2.0
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_rdihy"]
@@ -331,8 +329,8 @@ delay = 12.5
 [sub_resource type="Resource" id="Resource_42gtw"]
 script = ExtResource("3_mssfw")
 invader = ExtResource("8_usog2")
-count = 6
-spacing = 2.6500000000000004
+count = 7
+spacing = 2.3000000000000003
 delay = 15.0
 
 [sub_resource type="Resource" id="Resource_bk730"]
@@ -350,8 +348,8 @@ entries = Array[ExtResource("3_mssfw")]([SubResource("Resource_o4xkx"), SubResou
 script = ExtResource("1_0rf4b")
 display_name = "5. Lung Alveoli"
 layout = PackedStringArray("........S", ".........", ".##......", ".##...#..", "......#..", "S........", ".........", "....##...", "....##...", ".........", ".#.......", ".#....##.", ".........", "B........")
-hand_value = PackedInt32Array(32, 24, 15, 10, 20, 0)
+hand_value = PackedInt32Array(16, 12, 7, 5, 10, 0)
 starting_atp = 25
-atp_per_wave = 12
+atp_per_wave = 6
 wave_tips = PackedStringArray()
 waves = Array[ExtResource("2_wsxrw")]([SubResource("Resource_kirj8"), SubResource("Resource_hpr6n"), SubResource("Resource_6mnhq"), SubResource("Resource_h61b6"), SubResource("Resource_8e4u8"), SubResource("Resource_ucb0h"), SubResource("Resource_1kp1o"), SubResource("Resource_n5dt0"), SubResource("Resource_g33f2"), SubResource("Resource_ok1vc")])

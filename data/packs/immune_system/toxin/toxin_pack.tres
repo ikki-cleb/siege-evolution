@@ -15,4 +15,5 @@ id = "toxin"
 display_name = "Toxin"
 description = "Poison that ignores armor and spreads between invaders. Slow to start, brutal on crowds."
 color = Color(0.42352942, 0.77254903, 0.31764707, 1)
+product_id = "pack_toxin"
 units = Array[ExtResource("2_y38d1")]([ExtResource("3_8plqs"), ExtResource("4_pe4ij"), ExtResource("5_lvj26"), ExtResource("6_yaljr"), ExtResource("7_1010q"), ExtResource("8_2dhk5")])

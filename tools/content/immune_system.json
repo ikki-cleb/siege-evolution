@@ -1,7 +1,7 @@
 {
   "biome": {
     "id": "immune_system",
-    "name": "Immune System",
+    "name": "Microscopic",
     "description": "Inside the body. Hold back viruses, bacteria, parasites and spores before they reach the heart."
   },
   "packs": [
@@ -243,7 +243,7 @@
           "role": "attacker",
           "cost": 8,
           "hp": 20,
-          "damage": 2,
+          "damage": 2.3,
           "range": 1.5,
           "interval": 0.45,
           "adjacency": 0.15,
@@ -275,7 +275,7 @@
           "role": "attacker",
           "cost": 9,
           "hp": 12,
-          "damage": 2,
+          "damage": 2.3,
           "range": 2.5,
           "interval": 0.7,
           "air": true,
@@ -817,7 +817,8 @@
             }
           ]
         }
-      ]
+      ],
+      "product": "pack_control"
     },
     {
       "id": "toxin",
@@ -861,7 +862,7 @@
           "cost": 12,
           "hp": 20,
           "damage": 1,
-          "poison": 4,
+          "poison": 3.5,
           "poison_dur": 4,
           "range": 2.0,
           "interval": 0.9,
@@ -875,7 +876,7 @@
               "id": "venomous_t",
               "name": "Venomous T-Cell",
               "cost": 12,
-              "poison": 7,
+              "poison": 6,
               "desc": "Stronger poison."
             },
             {
@@ -895,7 +896,7 @@
           "hp": 15,
           "damage": 1,
           "splash": 1.0,
-          "poison": 3,
+          "poison": 2.5,
           "poison_dur": 3,
           "range": 2.5,
           "interval": 1.2,
@@ -910,7 +911,7 @@
               "id": "caustic_sprayer",
               "name": "Caustic Sprayer",
               "cost": 13,
-              "poison": 5,
+              "poison": 4.5,
               "desc": "Stronger poison."
             },
             {
@@ -929,7 +930,7 @@
           "cost": 14,
           "hp": 20,
           "mode": "pulse",
-          "poison": 3,
+          "poison": 2.5,
           "poison_dur": 3,
           "range": 1.6,
           "interval": 1.0,
@@ -943,7 +944,7 @@
               "id": "acid_pool",
               "name": "Acid Pool",
               "cost": 13,
-              "poison": 5,
+              "poison": 4.5,
               "desc": "Stronger poison."
             },
             {
@@ -963,7 +964,7 @@
           "cost": 20,
           "hp": 20,
           "damage": 2,
-          "poison": 5,
+          "poison": 4.5,
           "poison_dur": 5,
           "spreads": true,
           "range": 2.5,
@@ -979,7 +980,7 @@
               "id": "plague_lancer",
               "name": "Plague Lancer",
               "cost": 18,
-              "poison": 9,
+              "poison": 8,
               "desc": "Stronger poison."
             },
             {
@@ -1025,7 +1026,8 @@
             }
           ]
         }
-      ]
+      ],
+      "product": "pack_toxin"
     }
   ],
   "invaders": [
@@ -1036,7 +1038,8 @@
       "hp": 5,
       "speed": 1.2,
       "base_damage": 1,
-      "art": "bacterium_half"
+      "art": "bacterium_half",
+      "drop": 0
     },
     {
       "id": "rhinovirus",
@@ -1046,7 +1049,8 @@
       "speed": 1.6,
       "base_damage": 1,
       "art": "rhinovirus",
-      "desc": "Fast, weak, comes in swarms."
+      "desc": "Fast, weak, comes in swarms.",
+      "drop": 1
     },
     {
       "id": "flu_virus",
@@ -1057,7 +1061,8 @@
       "base_damage": 1,
       "elite": true,
       "art": "flu_virus",
-      "desc": "Elite: a much faster virus."
+      "desc": "Elite: a much faster virus.",
+      "drop": 1
     },
     {
       "id": "bacterium",
@@ -1069,7 +1074,8 @@
       "split_into": "bacterium_half",
       "split_count": 2,
       "art": "bacterium",
-      "desc": "Splits in two when killed."
+      "desc": "Splits in two when killed.",
+      "drop": 1
     },
     {
       "id": "biofilm",
@@ -1083,7 +1089,8 @@
       "split_count": 2,
       "elite": true,
       "art": "biofilm",
-      "desc": "Elite: armored bacteria. Armor reduces every hit by 2."
+      "desc": "Elite: armored bacteria. Armor reduces every hit by 2.",
+      "drop": 1
     },
     {
       "id": "worm",
@@ -1094,7 +1101,8 @@
       "base_damage": 3,
       "smash": 6,
       "art": "worm",
-      "desc": "Ignores the maze and chews through units."
+      "desc": "Ignores the maze and chews through units.",
+      "drop": 2
     },
     {
       "id": "hookworm",
@@ -1107,7 +1115,8 @@
       "smash": 9,
       "elite": true,
       "art": "hookworm",
-      "desc": "Elite: a regenerating worm."
+      "desc": "Elite: a regenerating worm.",
+      "drop": 3
     },
     {
       "id": "spore",
@@ -1117,7 +1126,8 @@
       "speed": 1.0,
       "base_damage": 1,
       "art": "spore",
-      "desc": "Flies straight over everything."
+      "desc": "Flies straight over everything.",
+      "drop": 1
     },
     {
       "id": "fungal_spore",
@@ -1129,7 +1139,8 @@
       "base_damage": 2,
       "elite": true,
       "art": "fungal_spore",
-      "desc": "Elite: a tougher armored flier."
+      "desc": "Elite: a tougher armored flier.",
+      "drop": 1
     },
     {
       "id": "superbug",
@@ -1145,7 +1156,8 @@
       "minion_count": 1,
       "minion_interval": 4.0,
       "art": "superbug",
-      "desc": "Boss: armored, smashes through units, and releases viruses as it goes."
+      "desc": "Boss: armored, smashes through units, and releases viruses as it goes.",
+      "drop": 15
     }
   ]
 }

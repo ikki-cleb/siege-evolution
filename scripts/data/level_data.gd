@@ -20,8 +20,9 @@ extends Resource
 ## 8-ATP walls or eight 3-ATP walls), so every pack gets a fair hand.
 @export var hand_value: PackedInt32Array = [0, 0, 0, 0, 0, 0]
 @export var starting_atp: int = 0
-## ATP earned after each wave is cleared.
-@export var atp_per_wave: int = 8
+## Bonus ATP for clearing a wave without anything reaching the base.
+## (Most ATP comes from invaders dropping it when they die.)
+@export var atp_per_wave: int = 5
 
 ## Show the invaders' predicted route (first level of each biome only).
 @export var show_path_preview: bool = false

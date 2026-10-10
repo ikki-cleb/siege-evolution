@@ -41,6 +41,8 @@ var speed := 1
 # Invaders still to appear this wave: {"time", "invader", "spawn"}, sorted by time.
 var _spawn_queue: Array[Dictionary] = []
 var _wave_time := 0.0
+## True once anything reaches the base this wave (no clean-wave bonus).
+var _leaked := false
 
 
 func _ready() -> void:
@@ -60,6 +62,7 @@ func _ready() -> void:
 	board.setup(level)
 	board.cell_tapped.connect(_on_cell_tapped)
 	board.base_hit.connect(_on_base_hit)
+	board.atp_dropped.connect(_on_atp_dropped)
 
 	base_hp = level.base_hp
 	atp = level.starting_atp
@@ -198,9 +201,15 @@ func sell_selected() -> void:
 	hud.refresh()
 
 
+## True once a unit has survived a wave (it can't evolve the round it's placed).
+func is_veteran(unit: Unit) -> bool:
+	return unit.placed_round < wave_number
+
+
 func can_evolve(into: UnitData) -> bool:
 	var unit := selected_unit()
-	return phase == Phase.BUILD and unit != null and not unit.is_evolved() and atp >= into.cost
+	return (phase == Phase.BUILD and unit != null and not unit.is_evolved()
+		and is_veteran(unit) and atp >= into.cost)
 
 
 func evolve_selected(into: UnitData) -> void:
@@ -244,6 +253,7 @@ func start_wave() -> void:
 			_spawn_queue.append({"time": entry.delay + i * entry.spacing, "invader": entry.invader, "spawn": spawn})
 	_spawn_queue.sort_custom(func(a, b): return a.time < b.time)
 	_wave_time = 0.0
+	_leaked = false
 	wave_number += 1
 	hud.show_message("")
 	hud.refresh()
@@ -266,12 +276,21 @@ func _end_wave() -> void:
 	if wave_number >= level.waves.size():
 		_finish(true)
 		return
-	atp += level.atp_per_wave
-	hud.show_message("Wave cleared! Units repaired, +%d ATP." % level.atp_per_wave)
+	if _leaked:
+		hud.show_message("Wave cleared. Units repaired. (No bonus: something got through.)")
+	else:
+		atp += level.atp_per_wave
+		hud.show_message("Clean wave! +%d ATP bonus. Units repaired." % level.atp_per_wave)
 	_enter_build_phase()
 
 
+func _on_atp_dropped(amount: int, where: Vector2) -> void:
+	atp += amount
+	hud.spawn_orb(where, amount)
+
+
 func _on_base_hit(invader: InvaderData) -> void:
+	_leaked = true
 	base_hp = max(0, base_hp - invader.base_damage)
 	hud.refresh()
 	if base_hp == 0 and phase == Phase.WAVE:
@@ -289,8 +308,12 @@ func _finish(won: bool) -> void:
 	hud.show_end_screen(won)
 
 
+## 1x -> 2x -> 3x (if bought in the Store) -> 1x.
 func cycle_speed() -> void:
 	speed = speed % 3 + 1
+	if speed == 3 and not Store.owns(Store.SPEED_3X):
+		speed = 1
+		hud.show_message("3x speed can be unlocked in the Store.")
 	Engine.time_scale = speed
 	hud.refresh()
 

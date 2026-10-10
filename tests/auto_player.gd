@@ -185,7 +185,7 @@ func _evolve() -> bool:
 	var best: Unit = null
 	for cell in board.units:
 		var unit: Unit = board.units[cell]
-		if unit.is_evolved() or unit.base_data.evolutions.is_empty():
+		if unit.is_evolved() or unit.base_data.evolutions.is_empty() or not game.is_veteran(unit):
 			continue
 		if unit.base_data.role == UnitData.Role.WALL and not _has_smashers:
 			continue
@@ -199,7 +199,7 @@ func _evolve() -> bool:
 	game._select_cell(best.cell)
 	game.evolve_selected(into)
 	game._select_cell(Board.NO_CELL)
-	return true
+	return best.is_evolved()
 
 
 func _coverage(cell: Vector2i, type: UnitData, walker: Dictionary, smasher: Dictionary) -> float:

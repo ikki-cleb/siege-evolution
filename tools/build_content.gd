@@ -66,11 +66,13 @@ func _initialize() -> void:
 
 # --- Levels -----------------------------------------------------------------
 # hand: ATP value of free units per pack slot (see LevelData.hand_value).
+# atp: starting ATP. income: bonus ATP for a wave where nothing leaks
+# (most ATP now comes from kills).
 # budget: threat of wave 1; each later wave grows by 32%.
 
 const LEVELS := [
 	{
-		"name": "1. First Infection", "preview": true, "hand": [24, 30, 15, 0, 0, 0], "atp": 20, "income": 10,
+		"name": "1. First Infection", "preview": true, "hand": [12, 15, 7, 0, 0, 0], "atp": 20, "income": 5,
 		"layout": [
 			"....S....",
 			".........",
@@ -89,7 +91,7 @@ const LEVELS := [
 		],
 	},
 	{
-		"name": "2. Sinus Cavity", "hand": [24, 16, 15, 10, 0, 0], "atp": 15, "income": 10, "budget": 10.0,
+		"name": "2. Sinus Cavity", "hand": [12, 8, 7, 5, 0, 0], "atp": 15, "income": 5, "budget": 11.5,
 		"layout": [
 			"S........",
 			".........",
@@ -108,7 +110,7 @@ const LEVELS := [
 		],
 	},
 	{
-		"name": "3. Bloodstream", "hand": [24, 16, 15, 10, 0, 0], "atp": 20, "income": 11, "budget": 12.0,
+		"name": "3. Bloodstream", "hand": [12, 8, 7, 5, 0, 0], "atp": 20, "income": 5, "budget": 13.8,
 		"layout": [
 			"S.......S",
 			".........",
@@ -127,7 +129,7 @@ const LEVELS := [
 		],
 	},
 	{
-		"name": "4. Lymph Node", "hand": [28, 16, 15, 10, 20, 0], "atp": 20, "income": 12, "budget": 16.0,
+		"name": "4. Lymph Node", "hand": [14, 8, 7, 5, 10, 0], "atp": 20, "income": 6, "budget": 18.4,
 		"layout": [
 			"....S....",
 			".........",
@@ -146,7 +148,7 @@ const LEVELS := [
 		],
 	},
 	{
-		"name": "5. Lung Alveoli", "hand": [32, 24, 15, 10, 20, 0], "atp": 25, "income": 12, "budget": 17.0,
+		"name": "5. Lung Alveoli", "hand": [16, 12, 7, 5, 10, 0], "atp": 25, "income": 6, "budget": 19.5,
 		"layout": [
 			"........S",
 			".........",
@@ -165,7 +167,7 @@ const LEVELS := [
 		],
 	},
 	{
-		"name": "6. Gut Lining", "hand": [32, 24, 15, 20, 20, 15], "atp": 25, "income": 13, "budget": 21.0,
+		"name": "6. Gut Lining", "hand": [16, 12, 7, 10, 10, 7], "atp": 25, "income": 6, "budget": 24.1,
 		"layout": [
 			"S...S...S",
 			".........",
@@ -184,7 +186,7 @@ const LEVELS := [
 		],
 	},
 	{
-		"name": "7. Bone Marrow", "hand": [40, 24, 30, 20, 20, 15], "atp": 30, "income": 14, "budget": 23.0,
+		"name": "7. Bone Marrow", "hand": [20, 12, 15, 10, 10, 7], "atp": 30, "income": 7, "budget": 26.4,
 		"boss": "superbug",
 		"layout": [
 			"S...S....",
@@ -220,13 +222,13 @@ const TUTORIAL_WAVES := [
 	[["worm", 3, 4.0, 0], ["bacterium", 5, 1.6, 2], ["rhinovirus", 12, 0.5, 6], ["spore", 6, 1.2, 8]],
 ]
 const TUTORIAL_TIPS := [
-	"Rhinoviruses walk around your units. Use walls to make their route longer, and put attackers beside it.",
-	"Tap a placed unit to evolve it (pick one of two branches) or remove it. Anything placed this round refunds in full.",
+	"Rhinoviruses walk around your units. Use walls to make their route longer, and put attackers beside it. Every kill drops ATP.",
+	"Units that survived a wave can evolve: tap one and pick a branch. Anything placed this round refunds in full.",
 	"Bacteria split into two halves when killed.",
 	"Units from earlier rounds only refund 50% if you remove them, so plan ahead.",
 	"Parasite Worms ignore your maze and chew through any unit in their way (red line).",
 	"Spores fly straight to the base (blue dashes). Only some units can hit fliers.",
-	"Damaged and destroyed units are repaired for free after every wave.",
+	"Units are repaired for free after every wave. Let nothing through for a bonus.",
 	"Smashers and fliers together: cover both the red line and the blue dashes.",
 	"Big swarm incoming. Area and fast attacks shine here.",
 	"Final wave! Later levels bring tougher elite versions of everything you've seen.",
@@ -302,6 +304,7 @@ func _pack(biome_id: String, row: Dictionary) -> PackData:
 	pack.display_name = row.name
 	pack.description = row.description
 	pack.color = Color(row.color)
+	pack.product_id = row.get("product", "")
 	var dir := "res://data/packs/%s/%s" % [biome_id, row.id]
 	DirAccess.make_dir_recursive_absolute(dir)
 	for unit_row in row.units:
@@ -364,6 +367,7 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 	invader.speed = row.speed
 	invader.base_damage = int(row.base_damage)
 	invader.smash_damage = row.get("smash", 0.0)
+	invader.atp_drop = int(row.get("drop", 1))
 	invader.is_elite = row.get("elite", false)
 	invader.is_boss = row.get("boss", false)
 	if row.has("split_into"):

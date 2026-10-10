@@ -12,6 +12,8 @@ const UNLOCK_LEVELS: Array[int] = [1, 1, 1, 2, 4, 6]
 @export var display_name: String = ""
 @export_multiline var description: String = ""
 @export var color: Color = Color.WHITE
+## Store item that unlocks this pack in every world ("" = free).
+@export var product_id: String = ""
 ## Exactly six units, in slot order.
 @export var units: Array[UnitData] = []
 

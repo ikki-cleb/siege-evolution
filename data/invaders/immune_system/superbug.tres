@@ -14,6 +14,7 @@ armor = 1
 speed = 0.4
 base_damage = 10
 smash_damage = 15.0
+atp_drop = 15
 is_boss = true
 minion = ExtResource("1_lmn6c")
 minion_count = 1

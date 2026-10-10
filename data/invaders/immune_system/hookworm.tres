@@ -13,6 +13,7 @@ regen = 3.0
 speed = 0.7
 base_damage = 4
 smash_damage = 9.0
+atp_drop = 3
 is_elite = true
 texture = ExtResource("2_pti56")
 description = "Elite: a regenerating worm."

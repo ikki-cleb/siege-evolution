@@ -12,6 +12,16 @@ const BOTTOM_TOP := 578
 const SMALL_FONT := 11
 const FONT := 14
 const PANEL_COLOR := Color(0.09, 0.05, 0.08)
+const ATP_COLOR := Color(1, 0.9, 0.4)
+const ORB_FLIGHT_TIME := 0.6
+
+
+## A small glowing ATP orb that flies from a kill to the ATP counter.
+class Orb extends Node2D:
+	func _draw() -> void:
+		draw_circle(Vector2.ZERO, 8.0, Color(1, 0.85, 0.3, 0.3))
+		draw_circle(Vector2.ZERO, 4.5, Color(1, 0.95, 0.55))
+		draw_circle(Vector2(-1.5, -1.5), 1.5, Color.WHITE)
 
 var game  # The Game node (game.gd)
 
@@ -29,6 +39,8 @@ var _evolve_buttons: Array[Button] = []
 var _sell_button: Button
 var _speed_button: Button
 var _start_button: Button
+## ATP still flying toward the counter (already added to the game's total).
+var _orb_atp := 0
 
 
 func setup(p_game) -> void:
@@ -41,7 +53,7 @@ func refresh() -> void:
 	_level_label.text = "%s · %s" % [game.level.display_name, game.pack.display_name]
 	_wave_label.text = "Wave %d/%d" % [game.wave_number, game.level.waves.size()]
 	_hp_label.text = "Base %d/%d" % [game.base_hp, game.level.base_hp]
-	_atp_label.text = "ATP %d" % game.atp
+	_atp_label.text = "ATP %d" % (game.atp - _orb_atp)
 	_next_label.text = game.next_wave_summary()
 	_footnote_label.text = game.footnote()
 
@@ -66,6 +78,10 @@ func refresh() -> void:
 				button.text = "Evolved" if unit.is_evolved() else "-"
 				button.disabled = true
 				button.icon = unit.data.texture if unit.is_evolved() else null
+			elif not game.is_veteran(unit):
+				button.text = "%s\nafter 1 wave" % evolutions[i].display_name
+				button.icon = evolutions[i].texture
+				button.disabled = true
 			else:
 				button.text = "%s\n%d ATP" % [evolutions[i].display_name, evolutions[i].cost]
 				button.icon = evolutions[i].texture
@@ -80,6 +96,25 @@ func refresh() -> void:
 
 func show_message(text: String) -> void:
 	_message_label.text = text
+
+
+## Launches an ATP orb from a screen position to the ATP counter. The counter
+## only counts it once it lands.
+func spawn_orb(from: Vector2, amount: int) -> void:
+	_orb_atp += amount
+	var orb := Orb.new()
+	orb.position = from
+	add_child(orb)
+	var target := _atp_label.position + Vector2(_atp_label.size.x - 24, _atp_label.size.y / 2)
+	var tween := create_tween()
+	tween.tween_property(orb, "position", target, ORB_FLIGHT_TIME) \
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tween.tween_callback(func():
+		orb.queue_free()
+		_orb_atp -= amount
+		_atp_label.modulate = Color.WHITE
+		create_tween().tween_property(_atp_label, "modulate", ATP_COLOR, 0.25)
+		refresh())
 
 
 func show_end_screen(won: bool) -> void:
@@ -136,7 +171,7 @@ func _build_top_bar() -> void:
 	_atp_label = _make_label(Vector2(238, 34), Vector2(110, 20), FONT, HORIZONTAL_ALIGNMENT_RIGHT)
 	_next_label = _make_label(Vector2(12, 57), Vector2(336, 20), SMALL_FONT)
 	_hp_label.modulate = Color(1, 0.55, 0.6)
-	_atp_label.modulate = Color(1, 0.9, 0.4)
+	_atp_label.modulate = ATP_COLOR
 	_next_label.modulate = Color(1, 0.8, 0.8)
 
 

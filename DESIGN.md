@@ -1,7 +1,7 @@
 # Siege Evolution: Game Design Document
 
-Status: **v0.2, World 1 playable** (7 levels, 5 packs, evolutions, saved
-progress). Balance is tuned against an automated player, not real play yet.
+Status: **v0.3, World 1 playable** (7 levels, 5 packs, evolutions, saved
+progress, store in test mode). Balance is tuned against an automated player, not real play yet.
 
 ## Pitch
 
@@ -20,7 +20,7 @@ inside the body, and each world's final boss zooms you out to a bigger world.
 | Orientation | Portrait only |
 | Art | 16×16 pixel tiles, integer-scaled. Placeholders for now; the user draws the final art. |
 | Menus | Plain and functional for now. The sleek design comes after the gameplay. |
-| Business model | Paid up front, no ads or IAP |
+| Business model | Free, no ads. Optional $1 purchases (see Monetization). |
 
 ## Structure
 
@@ -28,8 +28,15 @@ inside the body, and each world's final boss zooms you out to a bigger world.
 Title → World select → Pack select → Level select (7 levels) → Level (10 waves)
 ```
 
-- **Worlds (biomes):** 7 levels each, at one scale. World 1 is the Immune
-  System. Beating level 7 (the boss) unlocks the next, larger-scale world.
+- **Worlds (biomes):** 7 levels each, at one scale. Beating level 7 (the boss)
+  unlocks the next, larger-scale world. The five main worlds, in order:
+  1. **Microscopic** (the immune system), built
+  2. **Backyard Bugs**
+  3. **Wild Kingdom** (human and animal scale)
+  4. **Total War** (ships, tanks, bombs)
+  5. **Galactic Siege** (planets, starships, alien invaders)
+- **Bonus worlds** (bought separately, playable as soon as they're bought):
+  **Kitchen Defense** and **Birthday Bash** (a kid's birthday party).
 - **Each world has its own invader roster.** All behavior types appear in
   that world's level 1, and levels 2–7 add **elite variants** of them.
 - **Starter pack:** picked when entering a world and kept for all 7 levels.
@@ -55,15 +62,18 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
 4. **Lose:** the base has 20 HP, and each invader does its own base damage
    when it arrives.
 
-**Between waves:** all units (even destroyed ones) are **repaired for free**,
-and you earn a fixed amount of ATP.
+**Between waves:** all units (even destroyed ones) are **repaired for free**.
+A wave where nothing reaches the base earns a small **clean-wave bonus**.
 
 ## Economy and refunds
 
-- **ATP** is the currency: a starting amount plus a fixed income after each wave.
+- **ATP** is the currency: a starting amount, plus **drops from every kill**
+  (shown as an orb flying to the ATP counter), plus the clean-wave bonus.
+  ATP can only be spent between waves. Boss minions drop nothing.
 - **Starting hand:** each level grants free units as an *ATP value per pack
   slot*, converted into copies of that pack's unit (24 ATP = three 8-ATP walls
-  or eight 3-ATP walls), so every pack gets a fair hand.
+  or eight 3-ATP walls), so every pack gets a fair hand. Hands are kept
+  small (about half of v0.2) so drops matter.
 - **Removing a unit:**
   - Placed (or evolved) **this build phase**: 100% refund. Free units go back
     to the hand.
@@ -82,18 +92,21 @@ and you earn a fixed amount of ATP.
 
 Every unit blocks its tile. Each pack has **6 units**: slots 0–2 at level 1,
 then one new unit on **levels 2, 4 and 6**. Each unit **evolves once**, into
-one of **two branches**, for ATP during a build phase. Attackers usually get
+one of **two branches**, for ATP during a build phase, but only after it has
+**survived a wave** (it can't evolve the round it's placed). Attackers usually get
 a damage branch and a range branch; walls get an HP branch and a
 reflect/utility branch. Evolutions are shown with a corner badge: red arrow
 for power, blue ring for reach.
 
-| Pack | Identity |
-|---|---|
-| **Fortress** | Massive walls and slow, heavy hitters. Holds the line against smashers. |
-| **Swarm** | Cheap units that attack faster when packed together. |
-| **Precision** | Long range, big single hits, and marks that make targets take extra damage. |
-| **Control** | Slows, stuns and area damage. Deadly inside a long maze. |
-| **Toxin** | Stacking poison that ignores armor and spreads when a victim dies. |
+| Pack | Identity | Price |
+|---|---|---|
+| **Fortress** | Massive walls and slow, heavy hitters. Holds the line against smashers. | Free |
+| **Swarm** | Cheap units that attack faster when packed together. | Free |
+| **Precision** | Long range, big single hits, and marks that make targets take extra damage. | Free |
+| **Control** | Slows, stuns and area damage. Deadly inside a long maze. | $1 |
+| **Toxin** | Stacking poison that ignores armor and spreads when a victim dies. | $1 |
+
+A bought pack unlocks in **every** world, including bonus worlds.
 
 **Unit mechanics available:** single-target or pulse (hit everything in range),
 splash, armor pierce, hits fliers or not, slow, stun (bosses resist 70%),
@@ -119,6 +132,30 @@ The full roster and stats live in `tools/content/immune_system.json`.
 
 Armor reduces each non-piercing hit (a hit always does at least 1). Poison ignores armor.
 
+## Monetization
+
+Free app, **no ads**. Everything is in the **Store** (menu), and the paid
+packs and bonus worlds can also be unlocked right where they appear.
+
+| Item | Price |
+|---|---|
+| 3× speed (1× and 2× are free) | $1 |
+| Control pack | $1 |
+| Toxin pack | $1 |
+| Kitchen Defense (bonus world) | $1 |
+| Birthday Bash (bonus world) | $1 |
+| **Everything bundle** (all five) | **$3** instead of $5 |
+
+There's also a Restore Purchases button (Apple requires it). Prices shown
+in-game are placeholders; the real localized prices come from the App
+Store / Google Play.
+
+**Implementation status:** `scripts/store.gd` handles ownership, the bundle,
+and saving. Web and debug builds run in **test mode** (purchases are free and
+instant). Phone release builds still need the Apple StoreKit and Google Play
+Billing plugins connected (marked TODO), and the matching product ids set up
+in App Store Connect and Google Play Console.
+
 ## Level generation
 
 Level 1 is handwritten. Levels 2–7 are generated from a threat budget that
@@ -138,6 +175,7 @@ comes next.
 
 - World 2 theme and scale (e.g. backyard bugs?), and how packs reskin there
 - Cosmetic unlocks (palettes, skins, menu themes): what and when
+- Content for worlds 2–5 and the two bonus worlds
 - Sound and music direction
 - Sleek menu visual design
 - Save sync (iCloud / Google Play) or local only

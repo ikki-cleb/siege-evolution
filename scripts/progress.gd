@@ -4,10 +4,27 @@ extends Node
 ## can use it, e.g. Progress.pack.
 
 const SAVE_PATH := "user://save.json"
-const BIOMES: Array[String] = [
-	"res://data/biomes/immune_system.tres",
-]
 const LEVELS_PER_BIOME := 7
+
+## Every world on the map. Main worlds unlock in order by beating the
+## previous one; bonus worlds unlock by buying them in the Store. A world
+## with no "path" yet shows as "coming soon".
+const WORLDS: Array[Dictionary] = [
+	{"name": "Microscopic", "path": "res://data/biomes/immune_system.tres",
+		"theme": "Inside the body: viruses, bacteria, parasites and spores."},
+	{"name": "Backyard Bugs", "path": "",
+		"theme": "Ants, beetles and wasps against pebbles, twigs and spiders."},
+	{"name": "Wild Kingdom", "path": "",
+		"theme": "Human and animal scale: farms, forests and stone walls."},
+	{"name": "Total War", "path": "",
+		"theme": "Ships, tanks and bombers."},
+	{"name": "Galactic Siege", "path": "",
+		"theme": "Planets and starships against alien invaders."},
+	{"name": "Kitchen Defense", "path": "", "bonus": true, "product": "world_kitchen",
+		"theme": "Defend the pantry from ants, mice and roaches."},
+	{"name": "Birthday Bash", "path": "", "bonus": true, "product": "world_birthday",
+		"theme": "Protect the cake at a kid's birthday party."},
+]
 
 ## What the game scene should play next (set by the menu).
 var biome: BiomeData
@@ -25,7 +42,21 @@ func _ready() -> void:
 
 
 func load_biome(index: int) -> BiomeData:
-	return load(BIOMES[index])
+	var path: String = WORLDS[index].path
+	return load(path) if path != "" else null
+
+
+func has_content(index: int) -> bool:
+	return WORLDS[index].path != ""
+
+
+func is_bonus(index: int) -> bool:
+	return WORLDS[index].get("bonus", false)
+
+
+## The world's number among main worlds (1-5), or 0 for bonus worlds.
+func main_number(index: int) -> int:
+	return 0 if is_bonus(index) else index + 1
 
 
 ## How many levels of this biome the current run has cleared (0-7).
@@ -39,10 +70,12 @@ func run_pack(biome_id: String) -> String:
 
 
 func is_biome_unlocked(index: int) -> bool:
+	if is_bonus(index):
+		return Store.owns(WORLDS[index].product)
 	if index == 0:
 		return true
 	var previous := load_biome(index - 1)
-	return cleared(previous.id) >= LEVELS_PER_BIOME
+	return previous != null and cleared(previous.id) >= LEVELS_PER_BIOME
 
 
 ## Starts a biome with a pack. Choosing a different pack restarts the biome.

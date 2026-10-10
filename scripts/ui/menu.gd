@@ -1,15 +1,17 @@
 extends Control
-## The menus: title -> biome (world) select -> pack select -> level select.
-## Plain functional layout for now; the sleek menu design comes later.
+## The menus: title -> world select -> pack select -> level select, plus the
+## Store. Plain functional layout for now; the sleek menu design comes later.
 
 const GAME_SCENE := "res://scenes/game.tscn"
 const BG_COLOR := Color(0.09, 0.05, 0.08)
 const CARD_COLOR := Color(0.16, 0.09, 0.13)
 const DIM_TEXT := Color(0.8, 0.68, 0.74)
+const GOLD := Color(1, 0.9, 0.4)
 
 var _content: VBoxContainer
-var _biome_index := 0
 var _biome: BiomeData
+## The screen being shown, so it can redraw itself after a purchase.
+var _current_screen: Callable
 
 
 func _ready() -> void:
@@ -32,65 +34,82 @@ func _ready() -> void:
 	_content.add_theme_constant_override("separation", 12)
 	margin.add_child(_content)
 
-	if Progress.biome:
-		_biome = Progress.biome
-		_biome_index = max(0, Progress.BIOMES.find(_biome.resource_path))
+	Store.purchases_changed.connect(func(): _current_screen.call())
+	_biome = Progress.biome
 	match Progress.return_screen:
 		"levels":
-			_show_levels()
+			_show(_show_levels)
 		"biomes":
-			_show_biomes()
+			_show(_show_biomes)
 		_:
-			_show_title()
+			_show(_show_title)
+
+
+func _show(screen: Callable) -> void:
+	_current_screen = screen
+	_clear()
+	screen.call()
 
 
 # --- Screens ----------------------------------------------------------------
 
 func _show_title() -> void:
-	_clear()
-	_spacer(160)
+	_spacer(150)
 	_label("SIEGE EVOLUTION", 34, Color(1, 0.35, 0.45), HORIZONTAL_ALIGNMENT_CENTER)
-	_label("A microscopic puzzle defense", 14, DIM_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_label("A puzzle defense that keeps getting bigger", 14, DIM_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	_spacer(40)
-	_button("Play", _show_biomes)
+	_button("Play", _show.bind(_show_biomes))
+	_button("Store", _show.bind(_show_store))
 
 
 func _show_biomes() -> void:
-	_clear()
-	_header("Choose a World", _show_title)
-	for i in Progress.BIOMES.size():
-		var biome := Progress.load_biome(i)
-		var unlocked := Progress.is_biome_unlocked(i)
-		var cleared := Progress.cleared(biome.id)
-		var pack := biome.find_pack(Progress.run_pack(biome.id))
-		var status := "Not started"
-		if pack:
-			status = "%d/%d cleared with %s" % [cleared, biome.levels.size(), pack.display_name]
-		var card := _card()
-		_label("World %d: %s" % [i + 1, biome.display_name], 18, Color.WHITE, HORIZONTAL_ALIGNMENT_LEFT, card)
-		_label(biome.description, 12, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
-		_label(status, 12, Color(1, 0.9, 0.4), HORIZONTAL_ALIGNMENT_LEFT, card)
-		var open := _button("Enter" if unlocked else "Locked", _open_biome.bind(i), card)
-		open.disabled = not unlocked
-	var next := _card()
-	_label("World %d: ???" % (Progress.BIOMES.size() + 1), 18, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, next)
-	_label("Beat the last world's boss to zoom out to a bigger scale. Coming soon.", 12, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, next)
+	_header("Choose a World", _show.bind(_show_title))
+	_label("Each world is bigger than the last. Beat a world's boss to unlock the next one.", 12, DIM_TEXT)
+	for index in Progress.WORLDS.size():
+		if index == 5:
+			_label("Bonus Worlds", 18, GOLD)
+		_world_card(index)
+
+
+func _world_card(index: int) -> void:
+	var world: Dictionary = Progress.WORLDS[index]
+	var card := _card()
+	var title: String = world.name
+	if not Progress.is_bonus(index):
+		title = "World %d: %s" % [Progress.main_number(index), world.name]
+	_label(title, 18, Color.WHITE, HORIZONTAL_ALIGNMENT_LEFT, card)
+	_label(world.theme, 12, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
+
+	var unlocked := Progress.is_biome_unlocked(index)
+	if Progress.is_bonus(index) and not unlocked:
+		var product: String = world.product
+		_button("Unlock for %s" % Store.price(product), Store.buy.bind(product), card)
+		return
+	if not Progress.has_content(index):
+		_label("Coming soon" + (" (owned)" if Progress.is_bonus(index) else ""), 12, GOLD,
+			HORIZONTAL_ALIGNMENT_LEFT, card)
+		return
+	var biome := Progress.load_biome(index)
+	var pack := biome.find_pack(Progress.run_pack(biome.id))
+	if pack:
+		_label("%d/%d cleared with %s" % [Progress.cleared(biome.id), biome.levels.size(), pack.display_name],
+			12, GOLD, HORIZONTAL_ALIGNMENT_LEFT, card)
+	var enter := _button("Enter" if unlocked else "Locked: beat World %d first" % index,
+		_open_biome.bind(index), card)
+	enter.disabled = not unlocked
 
 
 func _open_biome(index: int) -> void:
-	_biome_index = index
 	_biome = Progress.load_biome(index)
-	_show_packs()
+	_show(_show_packs)
 
 
 func _show_packs() -> void:
-	_clear()
-	_header(_biome.display_name, _show_biomes)
+	_header(_biome.display_name, _show.bind(_show_biomes))
 	var current := _biome.find_pack(Progress.run_pack(_biome.id))
-	if current:
-		var cleared := Progress.cleared(_biome.id)
-		_button("Continue with %s (%d/%d cleared)" % [current.display_name, cleared, _biome.levels.size()],
-			_pick_pack.bind(current))
+	if current and Store.owns(current.product_id):
+		_button("Continue with %s (%d/%d cleared)" % [current.display_name,
+			Progress.cleared(_biome.id), _biome.levels.size()], _pick_pack.bind(current))
 	_label("Pick a starter pack. You keep it for all %d levels of this world, and it gains a new unit as you progress." % _biome.levels.size(),
 		12, DIM_TEXT)
 	for pack in _biome.packs:
@@ -105,11 +124,13 @@ func _show_packs() -> void:
 			icon.texture = unit.texture
 			icon.custom_minimum_size = Vector2(32, 32)
 			icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-			icon.tooltip_text = unit.display_name
 			icons.add_child(icon)
 		var names := ", ".join(pack.units_for_level(1).map(func(u): return u.display_name))
 		_label("Starts with: " + names, 11, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
-		if pack != current:
+		if not Store.owns(pack.product_id):
+			_button("Unlock %s · %s (all worlds)" % [pack.display_name, Store.price(pack.product_id)],
+				Store.buy.bind(pack.product_id), card)
+		elif pack != current:
 			_button("Choose %s" % pack.display_name, _confirm_pack.bind(pack), card)
 
 
@@ -119,27 +140,25 @@ func _confirm_pack(pack: PackData) -> void:
 		_pick_pack(pack)
 		return
 	_clear()
-	_header("Switch packs?", _show_packs)
+	_header("Switch packs?", _show.bind(_show_packs))
 	_label("Starting %s with %s restarts this world from level 1. Your %s run (%d/%d cleared) will be lost." % [
 		_biome.display_name, pack.display_name, current.display_name,
 		Progress.cleared(_biome.id), _biome.levels.size()], 14, Color.WHITE)
 	_button("Restart with %s" % pack.display_name, _pick_pack.bind(pack))
-	_button("Keep %s" % current.display_name, _show_packs)
+	_button("Keep %s" % current.display_name, _show.bind(_show_packs))
 
 
 func _pick_pack(pack: PackData) -> void:
 	Progress.choose_pack(_biome, pack)
-	_show_levels()
+	_show(_show_levels)
 
 
 func _show_levels() -> void:
-	_clear()
 	_biome = Progress.biome
-	_header("%s · %s" % [_biome.display_name, Progress.pack.display_name], _show_packs)
+	_header("%s · %s" % [_biome.display_name, Progress.pack.display_name], _show.bind(_show_packs))
 	var cleared := Progress.cleared(_biome.id)
 	for i in _biome.levels.size():
-		var level := _biome.levels[i]
-		var text := level.display_name
+		var text := _biome.levels[i].display_name
 		if i < cleared:
 			text += "   ✓ cleared"
 		elif i > cleared:
@@ -155,6 +174,26 @@ func _show_levels() -> void:
 func _play_level(index: int) -> void:
 	Progress.level_index = index
 	get_tree().change_scene_to_file(GAME_SCENE)
+
+
+func _show_store() -> void:
+	_header("Store", _show.bind(_show_title))
+	_label("Siege Evolution is free with no ads. These optional extras support development.", 12, DIM_TEXT)
+	if Store.test_mode:
+		_label("TEST MODE: purchases are free and instant in this build.", 12, GOLD)
+	for item in Store.PRODUCTS:
+		var is_bundle: bool = item.id == Store.BUNDLE_ALL
+		var card := _card(Color(0.3, 0.22, 0.08) if is_bundle else CARD_COLOR)
+		_label(item.name, 18, GOLD if is_bundle else Color.WHITE, HORIZONTAL_ALIGNMENT_LEFT, card)
+		_label(item.description, 12, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
+		if Store.owns(item.id):
+			_label("Owned", 14, Color(0.5, 1, 0.6), HORIZONTAL_ALIGNMENT_LEFT, card)
+		else:
+			var buy := _button("Buy · %s" % item.price, Store.buy.bind(item.id), card)
+			buy.disabled = not Store.is_available()
+	_button("Restore Purchases", Store.restore_purchases)
+	if Store.test_mode:
+		_button("Reset test purchases", Store.reset_test_purchases)
 
 
 # --- Building blocks --------------------------------------------------------

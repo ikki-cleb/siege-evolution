@@ -19,7 +19,7 @@
 [resource]
 script = ExtResource("15_dbghp")
 id = "immune_system"
-display_name = "Immune System"
+display_name = "Microscopic"
 description = "Inside the body. Hold back viruses, bacteria, parasites and spores before they reach the heart."
 packs = Array[ExtResource("9_8csiy")]([ExtResource("10_5014o"), ExtResource("11_7mrh6"), ExtResource("12_b3r13"), ExtResource("13_v5l2x"), ExtResource("14_vgv2e")])
 levels = Array[ExtResource("1_51bj6")]([ExtResource("2_34r5e"), ExtResource("3_3rxaf"), ExtResource("4_t78ly"), ExtResource("5_t574d"), ExtResource("6_fq0ug"), ExtResource("7_qdopq"), ExtResource("8_xnyyy")])
