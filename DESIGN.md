@@ -26,8 +26,10 @@ inside the body, and each world's final boss zooms you out to a bigger world.
 
 Worlds were cut from 7 levels of 10 waves to **5 levels of 8 waves** (the
 old levels 3 and 5 were dropped, and waves grow faster so the final wave
-is as big as before). Old saves convert by position. The balance numbers
-quoted below for the bonus worlds were measured before the cut.
+is as big as before). Old saves convert by position. After the cut the bot
+wins (levels 2-5): World 1 95%, World 2 95%, World 3 90%, World 4 90%,
+World 5 85%, Kitchen 90%, Birthday 70%. Older numbers quoted below were
+measured before the cut.
 
 ```
 Title → World select → Pack select → Level select (5 levels) → Level (8 waves)

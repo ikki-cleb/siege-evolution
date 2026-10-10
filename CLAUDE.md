@@ -80,13 +80,14 @@ budget. `tools/tune.py <id> key=value` edits stats.
 - Commit and push after every piece of work (a stop hook enforces it).
 
 **Open questions for the user:** how the bonus worlds feel in real play
-(before the 5-level cut the bot won 85% of Kitchen and 72% of Birthday; Fortress and
+(bot wins 90% of Kitchen and 70% of Birthday levels 2-5; Fortress and
 Precision struggle most in both); any more v0.8 playtest notes; how the sounds
 and music feel; Blinker frequency.
 
-**Full balance run before the 5-level cut (bot wins on levels 2-7):** World 1
-100%, World 2 98%, World 3 90%, World 4 93%, World 5 93%, Kitchen 88%,
-Birthday 72%. Every check passes.
+**Latest balance (5 levels x 8 waves, bot wins on levels 2-5):** World 1
+95%, World 2 95%, World 3 90%, World 4 90%, World 5 85%, Kitchen 90%,
+Birthday 70%. Every check passes. Path preview now shows on every level
+(saved "Paths" toggle in the HUD).
 
 **Next steps (user's call):** capstone tuning once the user has played
 them (prices, strongest mechanics); playtest feedback on the bonus worlds;
