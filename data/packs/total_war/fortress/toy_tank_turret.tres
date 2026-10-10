@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ajbkx"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/heavy_turret.tres" id="2_cdy2k"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/siege_turret.tres" id="3_ya1tv"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/toy_tank_turret.png" id="4_3kqrv"]
+
+[resource]
+script = ExtResource("1_ajbkx")
+id = "toy_tank_turret"
+display_name = "Tank Turret"
+role = 1
+cost = 14
+max_hp = 60
+damage = 9.0
+attack_interval = 1.1
+evolutions = Array[ExtResource("1_ajbkx")]([ExtResource("2_cdy2k"), ExtResource("3_ya1tv")])
+texture = ExtResource("4_3kqrv")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Slow, crushing melee hits."

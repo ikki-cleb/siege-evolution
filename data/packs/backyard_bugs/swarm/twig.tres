@@ -12,6 +12,7 @@ display_name = "Twig"
 cost = 3
 max_hp = 18
 evolutions = Array[ExtResource("1_wh0gp")]([ExtResource("2_grkpu"), ExtResource("3_r4cl0")])
+can_place_on_water = true
 texture = ExtResource("4_37rpe")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Dirt-cheap wall."

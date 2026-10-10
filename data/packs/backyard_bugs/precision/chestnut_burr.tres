@@ -10,6 +10,7 @@ display_name = "Chestnut Burr"
 cost = 6
 max_hp = 35
 reflect = 0.5
+can_place_on_water = true
 texture = ExtResource("2_at28e")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Reflects 50% of smasher damage."

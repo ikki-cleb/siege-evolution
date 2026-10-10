@@ -14,7 +14,7 @@ extends SceneTree
 
 const CONTENT_DIR := "res://tools/content/"
 ## Build order matters: worlds that borrow packs come after their source.
-const WORLD_FILES: Array[String] = ["immune_system.json", "backyard_bugs.json", "wild_kingdom.json"]
+const WORLD_FILES: Array[String] = ["immune_system.json", "backyard_bugs.json", "wild_kingdom.json", "total_war.json"]
 
 var invaders := {}
 var _content_by_id := {}
@@ -49,6 +49,9 @@ func _build_world(content: Dictionary) -> void:
 	biome.rock_texture = load(tiles + "rock.png")
 	biome.spawn_texture = load(tiles + "spawn.png")
 	biome.base_texture = load(tiles + "base.png")
+	if ResourceLoader.exists(tiles + "water.png"):
+		biome.water_texture = load(tiles + "water.png")
+		biome.sea_spawn_texture = load(tiles + "sea_spawn.png")
 	for pack_row in pack_rows(content, _content_by_id):
 		biome.packs.append(_pack(biome_id, pack_row))
 	for i in content.levels.size():
@@ -97,6 +100,8 @@ func _level(biome_id: String, number: int, table: Dictionary, content: Dictionar
 	level.starting_atp = int(table.atp)
 	level.atp_per_wave = int(table.income)
 	level.show_path_preview = table.get("preview", false)
+	if table.has("tips"):
+		level.wave_tips = PackedStringArray(table.tips)
 	if number == 1:
 		level.wave_tips = PackedStringArray(content.tutorial.tips)
 		for rows in content.tutorial.waves:
@@ -119,7 +124,8 @@ func _generated_wave(level_number: int, wave_index: int, table: Dictionary, rule
 	if table.has("boss") and wave_index == 9:
 		wave.entries.append(_entry(table.boss, 1, 1.0, 6.0, 0))
 		budget *= 0.5  # The boss brings minions, so fewer escorts.
-	var mix: Dictionary = rules.mix[wave_index]
+	# Sea levels use their own mix (boats plus landing troops).
+	var mix: Dictionary = (rules.sea_mix if table.get("sea", false) else rules.mix)[wave_index]
 	for category in mix:
 		var info: Dictionary = rules.categories[category]
 		var share: float = budget * mix[category]
@@ -203,6 +209,10 @@ func _unit(row: Dictionary, base: Dictionary, art_dir: String, pack_color: Color
 	unit.description = row.get("desc", "")
 	unit.shot_color = pack_color.lightened(0.4)
 	unit.texture = load("%s/%s.png" % [art_dir, row.id])
+	unit.can_place_on_water = value.call("water", false)
+	var water_art := "%s/%s_water.png" % [art_dir, row.id]
+	if ResourceLoader.exists(water_art):
+		unit.water_texture = load(water_art)
 	return unit
 
 
@@ -223,6 +233,8 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 	invader.atp_drop = int(row.get("drop", 1))
 	invader.burrow_after = int(row.get("burrow_after", 0))
 	invader.jumps = row.get("jumps", false)
+	invader.naval = row.get("naval", false)
+	invader.bomb_damage = row.get("bomb", 0.0)
 	invader.burrow_length = int(row.get("burrow_length", 0))
 	invader.is_elite = row.get("elite", false)
 	invader.is_boss = row.get("boss", false)

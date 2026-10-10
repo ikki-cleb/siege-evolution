@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tia44"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/reinforced_sandbags.tres" id="2_sv10r"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/spiked_barricade.tres" id="3_vx24t"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/sandbags.png" id="4_o0m3i"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/sandbags_water.png" id="5_u0pqw"]
+
+[resource]
+script = ExtResource("1_tia44")
+id = "sandbags"
+display_name = "Sandbags"
+cost = 7
+max_hp = 90
+evolutions = Array[ExtResource("1_tia44")]([ExtResource("2_sv10r"), ExtResource("3_vx24t")])
+can_place_on_water = true
+water_texture = ExtResource("5_u0pqw")
+texture = ExtResource("4_o0m3i")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Very tough wall."

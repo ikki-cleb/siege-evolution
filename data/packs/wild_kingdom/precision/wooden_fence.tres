@@ -11,6 +11,7 @@ id = "wooden_fence"
 display_name = "Wooden Fence"
 max_hp = 30
 evolutions = Array[ExtResource("1_ge2rr")]([ExtResource("2_v4ean"), ExtResource("3_8j1tp")])
+can_place_on_water = true
 texture = ExtResource("4_lvc4v")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sturdy wall."

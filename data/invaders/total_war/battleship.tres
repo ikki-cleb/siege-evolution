@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_p0tn4"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/battleship.png" id="2_ku3lc"]
+
+[resource]
+script = ExtResource("1_p0tn4")
+id = "battleship"
+display_name = "Battleship"
+movement = 1
+max_hp = 60
+armor = 1
+speed = 0.65
+base_damage = 3
+smash_damage = 10.0
+atp_drop = 4
+naval = true
+texture = ExtResource("2_ku3lc")
+description = "Rams straight through nets and mines."

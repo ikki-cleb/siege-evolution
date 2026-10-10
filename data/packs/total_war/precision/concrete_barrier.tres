@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_f8hlx"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/thick_barrier.tres" id="2_8cak4"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/spiked_barrier.tres" id="3_jabqb"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/concrete_barrier.png" id="4_7n82w"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/concrete_barrier_water.png" id="5_o1s2x"]
+
+[resource]
+script = ExtResource("1_f8hlx")
+id = "concrete_barrier"
+display_name = "Concrete Barrier"
+max_hp = 30
+evolutions = Array[ExtResource("1_f8hlx")]([ExtResource("2_8cak4"), ExtResource("3_jabqb")])
+can_place_on_water = true
+water_texture = ExtResource("5_o1s2x")
+texture = ExtResource("4_7n82w")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Sturdy wall."

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/tiles/total_war/base.png" id="1_20hv7"]
+[ext_resource type="Texture2D" path="res://art/tiles/total_war/floor.png" id="2_iuewo"]
+[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="3_b4vr0"]
+[ext_resource type="Resource" path="res://data/levels/total_war/level_01.tres" id="4_t74xo"]
+[ext_resource type="Resource" path="res://data/levels/total_war/level_02.tres" id="5_ubo7k"]
+[ext_resource type="Resource" path="res://data/levels/total_war/level_03.tres" id="6_i3brn"]
+[ext_resource type="Resource" path="res://data/levels/total_war/level_04.tres" id="7_rvlxa"]
+[ext_resource type="Resource" path="res://data/levels/total_war/level_05.tres" id="8_migd6"]
+[ext_resource type="Resource" path="res://data/levels/total_war/level_06.tres" id="9_yl3r3"]
+[ext_resource type="Resource" path="res://data/levels/total_war/level_07.tres" id="10_s0qeq"]
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="11_cgk5l"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/fortress_pack.tres" id="12_aeusn"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/swarm_pack.tres" id="13_v6thh"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/precision_pack.tres" id="14_4l83s"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/control_pack.tres" id="15_1ch00"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/toxin_pack.tres" id="16_t2lvu"]
+[ext_resource type="Texture2D" path="res://art/tiles/total_war/rock.png" id="17_m2mro"]
+[ext_resource type="Script" path="res://scripts/data/biome_data.gd" id="18_s402k"]
+[ext_resource type="Texture2D" path="res://art/tiles/total_war/sea_spawn.png" id="19_bcisl"]
+[ext_resource type="Texture2D" path="res://art/tiles/total_war/spawn.png" id="20_s0a01"]
+[ext_resource type="Texture2D" path="res://art/tiles/total_war/water.png" id="21_buhjj"]
+
+[resource]
+script = ExtResource("18_s402k")
+id = "total_war"
+display_name = "Total War"
+description = "A toy war across the playroom and the bathtub. Hold the toy HQ against tanks, boats and bombers."
+packs = Array[ExtResource("11_cgk5l")]([ExtResource("12_aeusn"), ExtResource("13_v6thh"), ExtResource("14_4l83s"), ExtResource("15_1ch00"), ExtResource("16_t2lvu")])
+levels = Array[ExtResource("3_b4vr0")]([ExtResource("4_t74xo"), ExtResource("5_ubo7k"), ExtResource("6_i3brn"), ExtResource("7_rvlxa"), ExtResource("8_migd6"), ExtResource("9_yl3r3"), ExtResource("10_s0qeq")])
+floor_texture = ExtResource("2_iuewo")
+rock_texture = ExtResource("17_m2mro")
+spawn_texture = ExtResource("20_s0a01")
+base_texture = ExtResource("1_20hv7")
+water_texture = ExtResource("21_buhjj")
+sea_spawn_texture = ExtResource("19_bcisl")

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iwhwd"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/heavy_long_tom.tres" id="2_uqagy"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/rapid_long_tom.tres" id="3_rf25v"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/long_tom.png" id="4_bktxr"]
+
+[resource]
+script = ExtResource("1_iwhwd")
+id = "long_tom"
+display_name = "Long Tom Cannon"
+role = 1
+cost = 24
+max_hp = 15
+damage = 30.0
+attack_range = 5.0
+attack_interval = 3.0
+hits_air = true
+pierce = true
+evolutions = Array[ExtResource("1_iwhwd")]([ExtResource("2_uqagy"), ExtResource("3_rf25v")])
+texture = ExtResource("4_bktxr")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Sniper. Huge piercing shots across the map."

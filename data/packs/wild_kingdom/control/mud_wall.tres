@@ -16,6 +16,7 @@ attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
 evolutions = Array[ExtResource("1_53j6u")]([ExtResource("2_mwbe1"), ExtResource("3_g2i3r")])
+can_place_on_water = true
 texture = ExtResource("4_fohp8")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Wall that slows invaders walking past it."

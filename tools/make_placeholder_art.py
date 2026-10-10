@@ -218,6 +218,8 @@ def unit_sprite(unit, pack_color, art_style="cells"):
         return garden_wall(color, style) if kind == "block" else bug_unit(color, style)
     if art_style == "animals":
         return farm_wall(color, style) if kind == "block" else animal_unit(color, style)
+    if art_style == "toys":
+        return fort_wall(color, style) if kind == "block" else toy_unit(color, style)
     return block_unit(color, style) if kind == "block" else cell_unit(color, style)
 
 
@@ -543,6 +545,198 @@ FARM_INVADER_ART = {
 }
 
 
+# --- Toy war world ----------------------------------------------------------
+
+def sand():
+    img = Image.new("RGBA", (16, 16), hexc("#e2c98f"))
+    speckle(img, [hexc("#d6bb7f"), hexc("#ecd6a2"), hexc("#c9ad70")], 50, 31)
+    rect(img, 0, 0, 15, 0, hexc("#d2b67a"))
+    rect(img, 0, 0, 0, 15, hexc("#d2b67a"))
+    return img
+
+
+def toy_block():
+    img = sand()
+    rect(img, 2, 2, 13, 13, hexc("#3a7bd5"))
+    rect(img, 2, 2, 13, 3, hexc("#6aa0ea"))
+    rect(img, 2, 12, 13, 13, hexc("#24569c"))
+    px(img, [(7, 6), (8, 6), (6, 7), (9, 7), (6, 8), (9, 8), (7, 9), (8, 9)], hexc("#f0f0f0"))  # an "O" letter
+    return img
+
+
+def toy_box():
+    img = sand()
+    rect(img, 1, 3, 14, 14, hexc("#c0392b"))
+    rect(img, 1, 3, 14, 5, hexc("#e05a48"))
+    rect(img, 4, 8, 11, 12, hexc("#2a1010"))
+    return img
+
+
+def toy_fort():
+    img = sand()
+    rect(img, 2, 6, 13, 14, hexc("#7a8a5a"))
+    for x in (2, 5, 8, 11):
+        rect(img, x, 4, x + 1, 5, hexc("#7a8a5a"))
+    rect(img, 7, 10, 8, 14, hexc("#3a3a2a"))
+    rect(img, 8, 0, 8, 4, hexc("#5a4a3a"))
+    rect(img, 9, 0, 12, 2, hexc("#e8c84a"))  # flag
+    return img
+
+
+def bath_water():
+    img = Image.new("RGBA", (16, 16), hexc("#5aaee0"))
+    for x, y in [(2, 3), (9, 6), (5, 11), (12, 13)]:
+        px(img, [(x, y), (x + 1, y), (x + 2, y)], hexc("#8fd0f5"))
+    px(img, [(13, 2), (3, 8)], hexc("#e8f8ff"))  # bubbles
+    return img
+
+
+def drain():
+    img = bath_water()
+    ring(img, 8, 8, 5.5, hexc("#c8d0d8"), 1.3)
+    for y in (6, 8, 10):
+        rect(img, 5, y, 10, y, hexc("#8a96a2"))
+    return img
+
+
+def toy_unit(color, style):
+    """An attacker drawn as a toy soldier figure or a toy turret."""
+    img = new()
+    base, dark, light = shade(color, 0.0), shade(color, -0.3), shade(color, 0.25)
+    if style % 2 == 0:  # army figure on a little base
+        disc(img, 8, 4, 2.5, base)                 # head
+        rect(img, 6, 6, 10, 11, base)              # body
+        rect(img, 6, 12, 7, 13, dark)              # legs
+        rect(img, 9, 12, 10, 13, dark)
+        rect(img, 4, 14, 12, 15, dark)             # plastic base
+        rect(img, 10, 7, 14, 8, hexc("#3a3a3a"))   # gun
+        px(img, [(7, 2), (8, 2), (9, 2)], dark)    # helmet rim
+        if style >= 6:
+            px(img, [(7, 8), (8, 8)], light)
+    else:  # turret
+        disc(img, 8, 10, 5.5, base)
+        ring(img, 8, 10, 5.5, dark)
+        disc(img, 8, 10, 2.5, light)
+        rect(img, 7, 1, 9, 8, hexc("#3a3a3a"))     # barrel
+        if style >= 7:
+            rect(img, 4, 1, 5, 6, hexc("#3a3a3a"))  # second barrel
+    return img
+
+
+def fort_wall(color, style):
+    """A wall drawn as a toy fortification, tinted with the pack color."""
+    img = new()
+    base, dark, light = shade(color, -0.1), shade(color, -0.35), shade(color, 0.2)
+    kind = style % 5
+    if kind == 0:  # sandbags
+        for row, y in enumerate((11, 7, 3)):
+            for x in range(1 + (row % 2) * 2, 14, 5):
+                rect(img, x, y, x + 3, y + 3, base)
+                rect(img, x, y, x + 3, y, light)
+    elif kind == 1:  # repair depot / crates
+        rect(img, 2, 4, 13, 14, base)
+        px(img, [(i + 2, i + 4) for i in range(11)] + [(13 - i, i + 4) for i in range(11)], dark)
+        rect(img, 2, 4, 13, 4, light)
+    elif kind == 2:  # concrete bunker
+        rect(img, 1, 5, 14, 14, base)
+        rect(img, 1, 5, 14, 6, light)
+        rect(img, 4, 9, 11, 10, hexc("#1a1a1a"))  # slit
+    elif kind == 3:  # barbed wire / tank trap
+        for x in (3, 8, 13):
+            px(img, [(x - 2, 13), (x - 1, 12), (x, 11), (x + 1, 12), (x + 2, 13), (x, 10), (x, 9)], base)
+        for x in range(0, 16, 2):
+            px(img, [(x, 6 + (x // 2) % 2)], dark)
+    else:  # oil barrels
+        for x in (2, 9):
+            rect(img, x, 4, x + 4, 14, base)
+            rect(img, x, 6, x + 4, 6, dark)
+            rect(img, x, 11, x + 4, 11, dark)
+            rect(img, x, 4, x + 4, 4, light)
+    return img
+
+
+def water_net(color, heavy=False):
+    img = new()
+    rope = shade(hexc(color), 0.25)
+    for i in range(1, 16, 3 if heavy else 4):
+        rect(img, i, 2, i, 13, rope)
+        rect(img, 1, i if i < 14 else 13, 14, i if i < 14 else 13, rope)
+    for x in (1, 14):
+        disc(img, x, 2, 1.5, hexc("#f05a3a"))  # floats
+    return img
+
+
+def naval_mine(color):
+    img = new()
+    disc(img, 8, 9, 5, hexc("#3a3a42"))
+    ring(img, 8, 9, 5, shade(hexc(color), -0.2))
+    for x, y in [(8, 2), (8, 15), (1, 9), (15, 9), (3, 4), (13, 4), (3, 14), (13, 14)]:
+        px(img, [(x, y)], hexc("#d0d0d0"))
+    px(img, [(6, 7), (7, 6)], hexc("#8a8a92"))
+    return img
+
+
+def toy_vehicle(body, size=1.0, turret=False, wheels=True, boat=False, plane=False, sub=False):
+    img = new()
+    c = hexc(body)
+    if plane:
+        rect(img, 2, 7, 13, 9, c)
+        rect(img, 6, 3, 8, 13, c)
+        rect(img, 11, 5, 12, 11, shade(c, -0.2))
+        return img
+    if sub:
+        rect(img, 2, 8, 13, 11, c)
+        disc(img, 2, 9.5, 2, c)
+        disc(img, 13, 9.5, 2, c)
+        rect(img, 7, 5, 9, 8, shade(c, -0.2))
+        return img
+    w = int(5 * size)
+    rect(img, 8 - w, 8, 7 + w, 12, c)
+    if boat:
+        rect(img, 8 - w + 1, 13, 7 + w - 1, 13, shade(c, -0.25))
+        rect(img, 7, 4, 9, 7, shade(c, 0.2))
+        return img
+    if turret:
+        rect(img, 5, 5, 10, 8, shade(c, 0.15))
+        rect(img, 10, 6, 15, 7, hexc("#2a2a2a"))
+    if wheels:
+        for x in range(8 - w, 8 + w, 3):
+            disc(img, x + 1, 13, 1.4, hexc("#2a2a2a"))
+    return img
+
+
+def toy_figure(body):
+    img = new()
+    c = hexc(body)
+    disc(img, 8, 4, 2.2, c)
+    rect(img, 6, 6, 10, 11, c)
+    rect(img, 6, 12, 7, 14, shade(c, -0.25))
+    rect(img, 9, 12, 10, 14, shade(c, -0.25))
+    rect(img, 2, 7, 6, 8, hexc("#3a3a3a"))
+    return img
+
+
+TOY_INVADER_ART = {
+    "toy_recruit": lambda: toy_figure("#c8a878"),
+    "toy_soldier": lambda: toy_figure("#b88a50"),
+    "ranger": lambda: toy_figure("#8a5a30"),
+    "troop_truck": lambda: toy_vehicle("#9a8a60", size=1.1),
+    "armored_carrier": lambda: toy_vehicle("#6a6a58", size=1.2, turret=True),
+    "motorbike": lambda: toy_vehicle("#d04040", size=0.6),
+    "toy_tank": lambda: toy_vehicle("#8a8a50", size=1.1, turret=True),
+    "heavy_tank": lambda: toy_vehicle("#5a5a40", size=1.4, turret=True),
+    "paper_plane": lambda: toy_vehicle("#f0f0f0", plane=True),
+    "jet": lambda: toy_vehicle("#8a96a8", plane=True),
+    "toy_bomber": lambda: toy_vehicle("#7a8a6a", plane=True),
+    "heavy_bomber": lambda: toy_vehicle("#4a5a3a", plane=True),
+    "patrol_boat": lambda: toy_vehicle("#e8e8e8", size=0.8, boat=True),
+    "destroyer": lambda: toy_vehicle("#9aa0aa", size=1.1, boat=True),
+    "submarine": lambda: toy_vehicle("#4a4a5a", sub=True),
+    "battleship": lambda: toy_vehicle("#6a707a", size=1.4, boat=True),
+    "mega_tank": lambda: toy_vehicle("#4a4a30", size=1.5, turret=True),
+}
+
+
 BACKYARD_INVADER_ART = {
     "aphid": lambda: bug_invader("#9fd44a", "#7ab030", legs=False, size=0.6),
     "termite": lambda: bug_invader("#e8d2a8", "#b07a3a", size=0.8),
@@ -666,6 +860,9 @@ if __name__ == "__main__":
         save(fn(), f"tiles/backyard_bugs/{name}.png")
     for name, fn in {"floor": pasture, "rock": boulder, "spawn": forest_edge, "base": farmhouse}.items():
         save(fn(), f"tiles/wild_kingdom/{name}.png")
+    for name, fn in {"floor": sand, "rock": toy_block, "spawn": toy_box, "base": toy_fort,
+                     "water": bath_water, "sea_spawn": drain}.items():
+        save(fn(), f"tiles/total_war/{name}.png")
 
     all_content = {}
     for content_file in sorted((PROJECT / "tools" / "content").glob("*.json")):
@@ -679,8 +876,15 @@ if __name__ == "__main__":
                 save(sprite, f"units/{biome_id}/{pack['id']}/{unit['id']}.png")
                 for branch, evo in enumerate(unit["evolutions"]):
                     save(add_badge(sprite.copy(), branch), f"units/{biome_id}/{pack['id']}/{evo['id']}.png")
+                # Basic walls on water: nets (base and HP branch) and mines (reflect branch).
+                if content.get("water_walls") and unit.get("water"):
+                    color = pack["color"]
+                    save(water_net(color), f"units/{biome_id}/{pack['id']}/{unit['id']}_water.png")
+                    for branch, evo in enumerate(unit["evolutions"]):
+                        art = water_net(color, heavy=True) if branch == 0 else naval_mine(color)
+                        save(add_badge(art, branch), f"units/{biome_id}/{pack['id']}/{evo['id']}_water.png")
         for invader in content["invaders"]:
             art = (INVADER_ART.get(invader["art"]) or BACKYARD_INVADER_ART.get(invader["art"])
-                   or FARM_INVADER_ART[invader["art"]])
+                   or FARM_INVADER_ART.get(invader["art"]) or TOY_INVADER_ART[invader["art"]])
             save(art(), f"invaders/{biome_id}/{invader['id']}.png")
     print("Placeholder art written to", ROOT)

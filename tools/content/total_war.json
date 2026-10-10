@@ -1,0 +1,1160 @@
+{
+  "biome": {
+    "id": "total_war",
+    "name": "Total War",
+    "description": "A toy war across the playroom and the bathtub. Hold the toy HQ against tanks, boats and bombers."
+  },
+  "packs_from": "immune_system",
+  "renames": {
+    "platelet_clot": [
+      "sandbags",
+      "Sandbags"
+    ],
+    "fibrin_mesh": [
+      "reinforced_sandbags",
+      "Reinforced Sandbags"
+    ],
+    "thrombus_spike": [
+      "spiked_barricade",
+      "Spiked Barricade"
+    ],
+    "macrophage": [
+      "toy_tank_turret",
+      "Tank Turret"
+    ],
+    "giant_macrophage": [
+      "heavy_turret",
+      "Heavy Turret"
+    ],
+    "foam_macrophage": [
+      "siege_turret",
+      "Siege Turret"
+    ],
+    "dendritic_cell": [
+      "field_gun",
+      "Field Gun"
+    ],
+    "mature_dendrite": [
+      "big_field_gun",
+      "Big Field Gun"
+    ],
+    "roaming_dendrite": [
+      "long_field_gun",
+      "Long Field Gun"
+    ],
+    "fibroblast": [
+      "repair_depot",
+      "Repair Depot"
+    ],
+    "scar_fibroblast": [
+      "armored_depot",
+      "Armored Depot"
+    ],
+    "healing_fibroblast": [
+      "rapid_depot",
+      "Rapid Depot"
+    ],
+    "eosinophil": [
+      "howitzer",
+      "Howitzer"
+    ],
+    "eosinophil_burst": [
+      "heavy_howitzer",
+      "Heavy Howitzer"
+    ],
+    "eosinophil_lancer": [
+      "long_howitzer",
+      "Long Howitzer"
+    ],
+    "granuloma": [
+      "concrete_bunker",
+      "Concrete Bunker"
+    ],
+    "calcified_granuloma": [
+      "reinforced_bunker",
+      "Reinforced Bunker"
+    ],
+    "caseous_granuloma": [
+      "spiked_bunker",
+      "Spiked Bunker"
+    ],
+    "epithelial_cell": [
+      "barbed_wire",
+      "Barbed Wire"
+    ],
+    "keratinized_cell": [
+      "double_wire",
+      "Double Wire"
+    ],
+    "ciliated_cell": [
+      "razor_wire",
+      "Razor Wire"
+    ],
+    "neutrophil": [
+      "rifleman",
+      "Rifleman"
+    ],
+    "frenzied_neutrophil": [
+      "veteran_rifleman",
+      "Veteran Rifleman"
+    ],
+    "scout_neutrophil": [
+      "scout_rifleman",
+      "Scout Rifleman"
+    ],
+    "monocyte": [
+      "aa_gunner",
+      "AA Gunner"
+    ],
+    "volley_monocyte": [
+      "twin_aa_gunner",
+      "Twin AA Gunner"
+    ],
+    "lookout_monocyte": [
+      "sentry_aa_gunner",
+      "Sentry AA Gunner"
+    ],
+    "basophil": [
+      "grenadier",
+      "Grenadier"
+    ],
+    "degranulating_basophil": [
+      "heavy_grenadier",
+      "Heavy Grenadier"
+    ],
+    "wide_basophil": [
+      "wide_grenadier",
+      "Wide Grenadier"
+    ],
+    "nk_cell": [
+      "commando",
+      "Commando"
+    ],
+    "killer_nk_cell": [
+      "elite_commando",
+      "Elite Commando"
+    ],
+    "hunting_nk_cell": [
+      "ranger_commando",
+      "Ranger Commando"
+    ],
+    "net_trap": [
+      "tank_trap",
+      "Tank Trap"
+    ],
+    "dense_net": [
+      "steel_tank_trap",
+      "Steel Tank Trap"
+    ],
+    "wide_net": [
+      "wide_tank_trap",
+      "Wide Tank Trap"
+    ],
+    "keratin_plate": [
+      "concrete_barrier",
+      "Concrete Barrier"
+    ],
+    "layered_plate": [
+      "thick_barrier",
+      "Thick Barrier"
+    ],
+    "spined_plate": [
+      "spiked_barrier",
+      "Spiked Barrier"
+    ],
+    "b_cell": [
+      "sniper",
+      "Sniper"
+    ],
+    "plasma_cell": [
+      "veteran_sniper",
+      "Veteran Sniper"
+    ],
+    "memory_b_cell": [
+      "marksman",
+      "Marksman"
+    ],
+    "antibody_tagger": [
+      "spotter",
+      "Spotter"
+    ],
+    "opsonizer": [
+      "laser_spotter",
+      "Laser Spotter"
+    ],
+    "long_tagger": [
+      "long_range_spotter",
+      "Long-Range Spotter"
+    ],
+    "cytotoxic_t": [
+      "bazooka_trooper",
+      "Bazooka Trooper"
+    ],
+    "effector_t": [
+      "heavy_bazooka",
+      "Heavy Bazooka"
+    ],
+    "patrol_t": [
+      "roaming_bazooka",
+      "Roaming Bazooka"
+    ],
+    "opsonin_lance": [
+      "long_tom",
+      "Long Tom Cannon"
+    ],
+    "heavy_lance": [
+      "heavy_long_tom",
+      "Heavy Long Tom"
+    ],
+    "rapid_lance": [
+      "rapid_long_tom",
+      "Rapid Long Tom"
+    ],
+    "interferon_beacon": [
+      "radar_tower",
+      "Radar Tower"
+    ],
+    "alarm_beacon": [
+      "advanced_radar",
+      "Advanced Radar"
+    ],
+    "tall_beacon": [
+      "tall_radar",
+      "Tall Radar"
+    ],
+    "mucus_wall": [
+      "sticky_barricade",
+      "Sticky Barricade"
+    ],
+    "thick_mucus": [
+      "thick_barricade",
+      "Thick Barricade"
+    ],
+    "sticky_mucus": [
+      "gluey_barricade",
+      "Gluey Barricade"
+    ],
+    "mast_cell": [
+      "smoke_launcher",
+      "Smoke Launcher"
+    ],
+    "reactive_mast_cell": [
+      "dense_smoke_launcher",
+      "Dense Smoke Launcher"
+    ],
+    "spreading_mast_cell": [
+      "wide_smoke_launcher",
+      "Wide Smoke Launcher"
+    ],
+    "histamine_spitter": [
+      "mortar_team",
+      "Mortar Team"
+    ],
+    "acid_spitter": [
+      "heavy_mortar",
+      "Heavy Mortar"
+    ],
+    "far_spitter": [
+      "long_mortar",
+      "Long Mortar"
+    ],
+    "fever_node": [
+      "flame_turret",
+      "Flame Turret"
+    ],
+    "high_fever": [
+      "hot_flame_turret",
+      "Hot Flame Turret"
+    ],
+    "wide_fever": [
+      "wide_flame_turret",
+      "Wide Flame Turret"
+    ],
+    "cytokine_storm": [
+      "shock_turret",
+      "Shock Turret"
+    ],
+    "paralyzing_storm": [
+      "overcharged_turret",
+      "Overcharged Turret"
+    ],
+    "rolling_storm": [
+      "chain_shock_turret",
+      "Chain Shock Turret"
+    ],
+    "inflammation_zone": [
+      "water_cannon",
+      "Water Cannon"
+    ],
+    "searing_zone": [
+      "power_water_cannon",
+      "Power Water Cannon"
+    ],
+    "swollen_zone": [
+      "wide_water_cannon",
+      "Wide Water Cannon"
+    ],
+    "toxic_membrane": [
+      "barrel_wall",
+      "Barrel Wall"
+    ],
+    "thick_membrane": [
+      "stacked_barrels",
+      "Stacked Barrels"
+    ],
+    "venom_membrane": [
+      "leaky_barrels",
+      "Leaky Barrels"
+    ],
+    "killer_t": [
+      "chem_trooper",
+      "Chem Trooper"
+    ],
+    "venomous_t": [
+      "hazard_trooper",
+      "Hazard Trooper"
+    ],
+    "reaching_t": [
+      "long_chem_trooper",
+      "Long Chem Trooper"
+    ],
+    "complement_sprayer": [
+      "gas_mortar",
+      "Gas Mortar"
+    ],
+    "caustic_sprayer": [
+      "caustic_mortar",
+      "Caustic Mortar"
+    ],
+    "misting_sprayer": [
+      "misting_mortar",
+      "Misting Mortar"
+    ],
+    "lysozyme_pool": [
+      "gas_canister",
+      "Gas Canister"
+    ],
+    "acid_pool": [
+      "leaking_canister",
+      "Leaking Canister"
+    ],
+    "spilling_pool": [
+      "spreading_canister",
+      "Spreading Canister"
+    ],
+    "perforin_lancer": [
+      "toxic_drone",
+      "Toxic Drone"
+    ],
+    "plague_lancer": [
+      "venom_drone",
+      "Venom Drone"
+    ],
+    "long_lancer": [
+      "long_range_drone",
+      "Long-Range Drone"
+    ],
+    "necrosis_bloom": [
+      "sludge_pit",
+      "Sludge Pit"
+    ],
+    "hardened_bloom": [
+      "hardened_sludge",
+      "Hardened Sludge"
+    ],
+    "virulent_bloom": [
+      "virulent_sludge",
+      "Virulent Sludge"
+    ]
+  },
+  "art_style": "toys",
+  "water_walls": true,
+  "invaders": [
+    {
+      "id": "toy_recruit",
+      "name": "Toy Recruit",
+      "movement": "pather",
+      "hp": 5,
+      "speed": 1.5,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "toy_recruit"
+    },
+    {
+      "id": "toy_soldier",
+      "name": "Toy Soldier",
+      "movement": "pather",
+      "hp": 8,
+      "speed": 1.5,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "toy_soldier",
+      "desc": "Marches in swarms."
+    },
+    {
+      "id": "ranger",
+      "name": "Toy Ranger",
+      "movement": "pather",
+      "hp": 15,
+      "armor": 1,
+      "speed": 1.9,
+      "base_damage": 1,
+      "elite": true,
+      "drop": 2,
+      "art": "ranger",
+      "desc": "Elite: fast and armored."
+    },
+    {
+      "id": "troop_truck",
+      "name": "Troop Truck",
+      "movement": "pather",
+      "hp": 18,
+      "speed": 1.1,
+      "base_damage": 2,
+      "split_into": "toy_recruit",
+      "split_count": 3,
+      "drop": 1,
+      "art": "troop_truck",
+      "desc": "Unloads three recruits when destroyed."
+    },
+    {
+      "id": "armored_carrier",
+      "name": "Armored Carrier",
+      "movement": "pather",
+      "hp": 30,
+      "armor": 2,
+      "speed": 1.0,
+      "base_damage": 2,
+      "split_into": "toy_recruit",
+      "split_count": 3,
+      "elite": true,
+      "drop": 2,
+      "art": "armored_carrier",
+      "desc": "Elite: an armored troop carrier."
+    },
+    {
+      "id": "motorbike",
+      "name": "Stunt Bike",
+      "movement": "pather",
+      "hp": 18,
+      "speed": 1.6,
+      "base_damage": 2,
+      "jumps": true,
+      "drop": 2,
+      "art": "motorbike",
+      "desc": "Jumps any single unit tile off a ramp."
+    },
+    {
+      "id": "toy_tank",
+      "name": "Toy Tank",
+      "movement": "smasher",
+      "hp": 55,
+      "armor": 0,
+      "speed": 0.7,
+      "base_damage": 3,
+      "smash": 8,
+      "drop": 3,
+      "art": "toy_tank",
+      "desc": "Rolls straight through units."
+    },
+    {
+      "id": "heavy_tank",
+      "name": "Heavy Tank",
+      "movement": "smasher",
+      "hp": 95,
+      "armor": 2,
+      "speed": 0.65,
+      "base_damage": 4,
+      "smash": 12,
+      "elite": true,
+      "drop": 5,
+      "art": "heavy_tank",
+      "desc": "Elite: very heavily armored."
+    },
+    {
+      "id": "paper_plane",
+      "name": "Paper Plane",
+      "movement": "flier",
+      "hp": 8,
+      "speed": 1.3,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "paper_plane",
+      "desc": "Flies straight over everything."
+    },
+    {
+      "id": "jet",
+      "name": "Toy Jet",
+      "movement": "flier",
+      "hp": 20,
+      "armor": 1,
+      "speed": 1.6,
+      "base_damage": 2,
+      "elite": true,
+      "drop": 2,
+      "art": "jet",
+      "desc": "Elite: a fast armored flier."
+    },
+    {
+      "id": "toy_bomber",
+      "name": "Toy Bomber",
+      "movement": "flier",
+      "hp": 24,
+      "armor": 1,
+      "speed": 0.8,
+      "base_damage": 2,
+      "bomb": 35,
+      "drop": 2,
+      "art": "toy_bomber",
+      "desc": "Drops a bomb on your most valuable unit near its flight line, hitting the tiles around it too."
+    },
+    {
+      "id": "heavy_bomber",
+      "name": "Heavy Bomber",
+      "movement": "flier",
+      "hp": 40,
+      "armor": 2,
+      "speed": 0.75,
+      "base_damage": 3,
+      "bomb": 60,
+      "elite": true,
+      "drop": 3,
+      "art": "heavy_bomber",
+      "desc": "Elite: a bigger bomb and more armor."
+    },
+    {
+      "id": "patrol_boat",
+      "name": "Patrol Boat",
+      "movement": "pather",
+      "naval": true,
+      "hp": 10,
+      "speed": 1.4,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "patrol_boat",
+      "desc": "Sails the water lanes."
+    },
+    {
+      "id": "destroyer",
+      "name": "Destroyer",
+      "movement": "pather",
+      "naval": true,
+      "hp": 22,
+      "armor": 1,
+      "speed": 1.6,
+      "base_damage": 2,
+      "elite": true,
+      "drop": 2,
+      "art": "destroyer",
+      "desc": "Elite: a fast armored boat."
+    },
+    {
+      "id": "submarine",
+      "name": "Submarine",
+      "movement": "pather",
+      "naval": true,
+      "hp": 22,
+      "speed": 1.0,
+      "base_damage": 2,
+      "burrow_after": 3,
+      "burrow_length": 6,
+      "drop": 2,
+      "art": "submarine",
+      "desc": "Dives under 6 tiles of its lane."
+    },
+    {
+      "id": "battleship",
+      "name": "Battleship",
+      "movement": "smasher",
+      "naval": true,
+      "hp": 60,
+      "armor": 1,
+      "speed": 0.65,
+      "base_damage": 3,
+      "smash": 10,
+      "drop": 4,
+      "art": "battleship",
+      "desc": "Rams straight through nets and mines."
+    },
+    {
+      "id": "mega_tank",
+      "name": "Mega Tank",
+      "movement": "smasher",
+      "hp": 750,
+      "armor": 1,
+      "speed": 0.4,
+      "base_damage": 10,
+      "smash": 20,
+      "boss": true,
+      "minion": "toy_soldier",
+      "minion_count": 1,
+      "minion_interval": 4.5,
+      "drop": 20,
+      "art": "mega_tank",
+      "desc": "Boss: a giant tank that rolls over everything and deploys soldiers."
+    }
+  ],
+  "waves": {
+    "threat": {
+      "toy_soldier": 1.4,
+      "ranger": 2.4,
+      "troop_truck": 3.6,
+      "armored_carrier": 5.8,
+      "toy_tank": 6.5,
+      "heavy_tank": 11.0,
+      "motorbike": 2.8,
+      "paper_plane": 1.7,
+      "jet": 4.0,
+      "toy_bomber": 6.0,
+      "heavy_bomber": 10.0,
+      "patrol_boat": 2.2,
+      "destroyer": 3.8,
+      "submarine": 3.0,
+      "battleship": 8.5
+    },
+    "categories": {
+      "swarm": {
+        "normal": "toy_soldier",
+        "elite": "ranger",
+        "elite_level": 2
+      },
+      "split": {
+        "normal": "troop_truck",
+        "elite": "armored_carrier",
+        "elite_level": 3
+      },
+      "smash": {
+        "normal": "toy_tank",
+        "elite": "heavy_tank",
+        "elite_level": 5
+      },
+      "jump": {
+        "normal": "motorbike"
+      },
+      "fly": {
+        "normal": "paper_plane",
+        "elite": "jet",
+        "elite_level": 4
+      },
+      "bomb": {
+        "normal": "toy_bomber",
+        "elite": "heavy_bomber",
+        "elite_level": 6
+      },
+      "navy": {
+        "normal": "patrol_boat",
+        "elite": "destroyer",
+        "elite_level": 4
+      },
+      "battleship": {
+        "normal": "battleship"
+      },
+      "sub": {
+        "normal": "submarine"
+      }
+    },
+    "mix": [
+      {
+        "swarm": 0.7,
+        "fly": 0.3
+      },
+      {
+        "swarm": 0.5,
+        "split": 0.5
+      },
+      {
+        "jump": 0.5,
+        "bomb": 0.5
+      },
+      {
+        "swarm": 0.4,
+        "smash": 0.6
+      },
+      {
+        "split": 0.4,
+        "jump": 0.3,
+        "fly": 0.3
+      },
+      {
+        "bomb": 0.5,
+        "smash": 0.5
+      },
+      {
+        "swarm": 0.5,
+        "jump": 0.25,
+        "fly": 0.25
+      },
+      {
+        "smash": 0.35,
+        "split": 0.3,
+        "bomb": 0.35
+      },
+      {
+        "swarm": 0.4,
+        "jump": 0.3,
+        "bomb": 0.3
+      },
+      {
+        "swarm": 0.2,
+        "split": 0.2,
+        "smash": 0.2,
+        "fly": 0.1,
+        "jump": 0.15,
+        "bomb": 0.15
+      }
+    ],
+    "sea_mix": [
+      {
+        "navy": 0.6,
+        "swarm": 0.4
+      },
+      {
+        "navy": 0.5,
+        "swarm": 0.5
+      },
+      {
+        "sub": 0.5,
+        "bomb": 0.5
+      },
+      {
+        "navy": 0.4,
+        "battleship": 0.3,
+        "swarm": 0.3
+      },
+      {
+        "sub": 0.4,
+        "navy": 0.3,
+        "fly": 0.3
+      },
+      {
+        "battleship": 0.5,
+        "swarm": 0.5
+      },
+      {
+        "navy": 0.5,
+        "bomb": 0.25,
+        "sub": 0.25
+      },
+      {
+        "battleship": 0.35,
+        "sub": 0.3,
+        "swarm": 0.35
+      },
+      {
+        "navy": 0.4,
+        "bomb": 0.3,
+        "swarm": 0.3
+      },
+      {
+        "navy": 0.25,
+        "sub": 0.2,
+        "battleship": 0.2,
+        "swarm": 0.2,
+        "bomb": 0.15
+      }
+    ],
+    "growth_per_wave": 0.32
+  },
+  "tutorial": {
+    "waves": [
+      [
+        [
+          "toy_soldier",
+          7,
+          1.1,
+          0
+        ]
+      ],
+      [
+        [
+          "toy_soldier",
+          10,
+          0.9,
+          0
+        ]
+      ],
+      [
+        [
+          "troop_truck",
+          4,
+          2.2,
+          0
+        ],
+        [
+          "toy_soldier",
+          6,
+          1.0,
+          3
+        ]
+      ],
+      [
+        [
+          "toy_tank",
+          2,
+          6.0,
+          0
+        ],
+        [
+          "toy_soldier",
+          6,
+          1.0,
+          2
+        ]
+      ],
+      [
+        [
+          "paper_plane",
+          5,
+          1.5,
+          0
+        ],
+        [
+          "toy_soldier",
+          8,
+          0.8,
+          1
+        ]
+      ],
+      [
+        [
+          "toy_bomber",
+          2,
+          5.0,
+          0
+        ],
+        [
+          "toy_soldier",
+          8,
+          0.8,
+          1
+        ]
+      ],
+      [
+        [
+          "motorbike",
+          4,
+          2.5,
+          0
+        ],
+        [
+          "troop_truck",
+          3,
+          2.0,
+          3
+        ]
+      ],
+      [
+        [
+          "toy_tank",
+          3,
+          5.0,
+          0
+        ],
+        [
+          "toy_bomber",
+          2,
+          5.0,
+          3
+        ]
+      ],
+      [
+        [
+          "toy_soldier",
+          20,
+          0.45,
+          0
+        ],
+        [
+          "motorbike",
+          4,
+          2.0,
+          4
+        ]
+      ],
+      [
+        [
+          "toy_tank",
+          3,
+          4.0,
+          0
+        ],
+        [
+          "troop_truck",
+          4,
+          1.8,
+          2
+        ],
+        [
+          "motorbike",
+          3,
+          2.0,
+          5
+        ],
+        [
+          "paper_plane",
+          6,
+          1.2,
+          8
+        ],
+        [
+          "toy_bomber",
+          2,
+          4.0,
+          9
+        ]
+      ]
+    ],
+    "tips": [
+      "Welcome to the toy war! Your pack plays exactly the same here. Toy soldiers march around your units; every kill drops ATP.",
+      "Units that survived a wave can evolve. Anything placed this round refunds in full.",
+      "Troop Trucks unload three recruits when destroyed.",
+      "Toy Tanks ignore your maze and roll through any unit in their way (red line).",
+      "Paper Planes fly straight to the HQ (blue dashes). Only some units can hit fliers.",
+      "NEW: Toy Bombers drop a bomb on your most valuable unit near their flight line. Shoot them down early, or spread out.",
+      "Stunt Bikes jump any single unit tile, like the deer. Build walls two tiles thick.",
+      "Tanks and bombers together: guard your expensive units.",
+      "Big march with bikes mixed in. Thick walls keep the bikes on the long route.",
+      "Final wave! Next level takes the war to the water."
+    ]
+  },
+  "levels": [
+    {
+      "name": "1. Sandbox",
+      "preview": true,
+      "hand": [
+        12,
+        15,
+        7,
+        0,
+        0,
+        0
+      ],
+      "atp": 40,
+      "income": 5,
+      "layout": [
+        "....S....",
+        ".........",
+        "..#...#..",
+        ".........",
+        "#.......#",
+        "...#.#...",
+        ".........",
+        ".........",
+        "...#.#...",
+        "#.......#",
+        ".........",
+        "..#...#..",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "2. Bathtub Beach",
+      "sea": true,
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 20,
+      "income": 5,
+      "budget": 9.5,
+      "layout": [
+        "S...N...S",
+        "....~....",
+        "..#.~~.#.",
+        "....~~...",
+        "....~....",
+        ".#..~..#.",
+        "...~~....",
+        "...~~....",
+        "....~....",
+        "..#.~.#..",
+        "....~~...",
+        "....~~...",
+        "....~....",
+        "....B...."
+      ],
+      "tips": [
+        "NEW: water lanes! Boats sail the blue water to your HQ, while landing troops march the land. Build your maze on land.",
+        "Only your basic wall can go on water. There it becomes a net, or a mine if evolved for reflect. Nets push boats into the other lane but can never seal it.",
+        "Cover the water lanes and the land route at the same time. Units can shoot boats from the shore.",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "3. Toy Shelf",
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 20,
+      "income": 5,
+      "budget": 15,
+      "layout": [
+        "S.......S",
+        ".........",
+        "..#...#..",
+        ".........",
+        "##.....##",
+        ".........",
+        "...#.#...",
+        ".........",
+        "##.....##",
+        ".........",
+        "..#...#..",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "4. Rubber Duck Harbor",
+      "sea": true,
+      "hand": [
+        14,
+        8,
+        7,
+        5,
+        10,
+        0
+      ],
+      "atp": 20,
+      "income": 6,
+      "budget": 21,
+      "layout": [
+        "S..N....S",
+        "...~.....",
+        "...~~....",
+        "....~~...",
+        ".#...~.#.",
+        ".....~~..",
+        "......~..",
+        ".....~~..",
+        "....~~...",
+        ".#.~~..#.",
+        "...~.....",
+        "...~~....",
+        "....~....",
+        "....B...."
+      ],
+      "tips": [
+        "Submarines dive under part of their lane, like burrowers. Keep coverage near the HQ.",
+        "",
+        "",
+        "Battleships ram straight through nets and mines.",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "5. Bedroom Floor",
+      "hand": [
+        16,
+        12,
+        7,
+        5,
+        10,
+        0
+      ],
+      "atp": 25,
+      "income": 6,
+      "budget": 21,
+      "layout": [
+        "S........",
+        ".........",
+        "...##....",
+        "...##...S",
+        ".........",
+        ".........",
+        ".##...##.",
+        ".##...##.",
+        ".........",
+        ".........",
+        "....##...",
+        "....##...",
+        ".........",
+        "........B"
+      ]
+    },
+    {
+      "name": "6. Pool Party Landing",
+      "sea": true,
+      "hand": [
+        16,
+        12,
+        7,
+        10,
+        10,
+        7
+      ],
+      "atp": 25,
+      "income": 6,
+      "budget": 25,
+      "layout": [
+        "N~..S..~N",
+        "~~.....~~",
+        ".~~...~~.",
+        "..~~.~~..",
+        "..~~.~~..",
+        ".~~...~~.",
+        "~~..#..~~",
+        "~~.....~~",
+        ".~~...~~.",
+        "..~~.~~..",
+        "..~~.~~..",
+        ".~~...~~.",
+        "~~.....~~",
+        "~~~~B~~~~"
+      ]
+    },
+    {
+      "name": "7. Playroom Siege",
+      "hand": [
+        20,
+        12,
+        15,
+        10,
+        10,
+        7
+      ],
+      "atp": 30,
+      "income": 7,
+      "budget": 29,
+      "boss": "mega_tank",
+      "layout": [
+        "S...S...S",
+        ".........",
+        "#.#...#.#",
+        ".........",
+        "...#.#...",
+        ".........",
+        ".#.....#.",
+        ".........",
+        "...#.#...",
+        ".........",
+        "#.#...#.#",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    }
+  ]
+}

@@ -11,6 +11,7 @@ id = "keratin_plate"
 display_name = "Keratin Plate"
 max_hp = 30
 evolutions = Array[ExtResource("1_aersl")]([ExtResource("2_yi41c"), ExtResource("3_6mv04")])
+can_place_on_water = true
 texture = ExtResource("4_2e6fr")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sturdy wall."

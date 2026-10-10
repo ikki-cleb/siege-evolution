@@ -14,6 +14,9 @@ extends Resource
 @export var rock_texture: Texture2D
 @export var spawn_texture: Texture2D
 @export var base_texture: Texture2D
+## Only needed by worlds with sea levels.
+@export var water_texture: Texture2D
+@export var sea_spawn_texture: Texture2D
 
 
 func find_pack(pack_id: String) -> PackData:

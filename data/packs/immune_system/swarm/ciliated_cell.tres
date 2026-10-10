@@ -10,6 +10,7 @@ display_name = "Ciliated Cell"
 cost = 4
 max_hp = 22
 reflect = 0.4
+can_place_on_water = true
 texture = ExtResource("2_tvy0e")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Reflects 40% of smasher damage."

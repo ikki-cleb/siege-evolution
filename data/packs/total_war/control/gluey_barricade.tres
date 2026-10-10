@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t1juu"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/gluey_barricade.png" id="2_dhcor"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/gluey_barricade_water.png" id="3_nybyv"]
+
+[resource]
+script = ExtResource("1_t1juu")
+id = "gluey_barricade"
+display_name = "Gluey Barricade"
+cost = 6
+max_hp = 25
+attack_mode = 1
+attack_range = 1.2
+attack_interval = 0.5
+slow = 0.5
+slow_duration = 1.0
+can_place_on_water = true
+water_texture = ExtResource("3_nybyv")
+texture = ExtResource("2_dhcor")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Stronger slow."

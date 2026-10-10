@@ -14,6 +14,7 @@ attack_range = 1.2
 attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
+can_place_on_water = true
 texture = ExtResource("2_pujua")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stronger slow."

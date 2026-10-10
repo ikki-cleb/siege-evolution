@@ -9,6 +9,7 @@ id = "walnut_shell"
 display_name = "Walnut Shell"
 cost = 6
 max_hp = 70
+can_place_on_water = true
 texture = ExtResource("2_dwrjt")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

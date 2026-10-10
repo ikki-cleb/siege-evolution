@@ -23,9 +23,10 @@ func _run() -> void:
 	await _test_rules(biome)
 	await _test_burrowing(progress.load_biome(1))
 	await _test_jumping(progress.load_biome(2))
+	await _test_sea_and_bombs(progress.load_biome(3))
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index).
-		var worlds := [0, 1, 2]
+		var worlds := [0, 1, 2, 3]
 		for arg in OS.get_cmdline_user_args():
 			if arg.begins_with("world="):
 				worlds = [int(arg.split("=")[1])]
@@ -175,6 +176,45 @@ func _test_jumping(biome: BiomeData) -> void:
 			crossed = true
 			break
 	_check(crossed, "A deer hops the wall and continues toward the base")
+	await _stop(game)
+
+
+# --- Water lanes and bombers -------------------------------------------------
+
+func _test_sea_and_bombs(biome: BiomeData) -> void:
+	var game := await _start(biome, 0, 1)  # Bathtub Beach (sea level)
+	var board: Board = game.board
+	var wall: UnitData = game.unit_types[0]
+	var fighter: UnitData = game.unit_types[1]
+	game.atp = 999
+	_check(not game.try_place(fighter, Vector2i(4, 4)), "Attackers can't be placed on water")
+	_check(game.try_place(wall, Vector2i(5, 2)), "The basic wall can be placed on water (as a net)")
+	_check(not game.try_place(wall, Vector2i(4, 2)), "A net can't seal a water lane")
+	var boat_data: InvaderData = load("res://data/invaders/total_war/patrol_boat.tres")
+	var route := board.route_for(boat_data, board.sea_spawn_cells[0])
+	var all_water := route.all(func(cell): return board.water.has(cell) or cell == board.base_cell)
+	_check(not route.is_empty() and all_water and not route.has(Vector2i(5, 2)),
+		"Boats stay on water and steer around nets")
+	var soldier: InvaderData = load("res://data/invaders/total_war/toy_soldier.tres")
+	var land_route := board.route_for(soldier, board.spawn_cells[0])
+	_check(not land_route.any(func(cell): return board.water.has(cell)), "Land troops never walk on water")
+	await _stop(game)
+
+	# A bomber hits the most valuable unit near its flight line.
+	game = await _start(biome, 0, 0)  # Sandbox
+	board = game.board
+	wall = game.unit_types[0]
+	fighter = game.unit_types[1]
+	var cheap := board.place_unit(wall, Vector2i(4, 4))
+	var pricey := board.place_unit(fighter, Vector2i(4, 5))
+	board.wave_active = true
+	board.spawn_invader(load("res://data/invaders/total_war/toy_bomber.tres"), 0)
+	for i in 60 * 15:
+		await process_frame
+		if pricey.hp < pricey.data.max_hp or pricey.destroyed:
+			break
+	_check(pricey.destroyed or pricey.hp < pricey.data.max_hp, "Bombers target the most valuable unit nearby")
+	_check(cheap.hp < cheap.data.max_hp or cheap.destroyed, "The blast also damages neighboring units")
 	await _stop(game)
 
 

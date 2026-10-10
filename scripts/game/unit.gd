@@ -36,8 +36,14 @@ func setup(p_data: UnitData, p_cell: Vector2i, p_board: Board) -> void:
 	hp = data.max_hp
 	position = board.cell_center(cell)
 	_sprite = Sprite2D.new()
-	_sprite.texture = data.texture
 	add_child(_sprite)
+	_update_sprite()
+
+
+## Units on water use their water look (nets and mines).
+func _update_sprite() -> void:
+	var on_water := board.water.has(cell) and data.water_texture != null
+	_sprite.texture = data.water_texture if on_water else data.texture
 
 
 func is_evolved() -> bool:
@@ -48,7 +54,7 @@ func is_evolved() -> bool:
 func evolve(into: UnitData) -> void:
 	data = into
 	hp = data.max_hp
-	_sprite.texture = data.texture
+	_update_sprite()
 	queue_redraw()
 
 

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Resource" path="res://data/invaders/total_war/toy_soldier.tres" id="1_2q3nq"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="2_lpydw"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/mega_tank.png" id="3_seh5y"]
+
+[resource]
+script = ExtResource("2_lpydw")
+id = "mega_tank"
+display_name = "Mega Tank"
+movement = 1
+max_hp = 750
+armor = 1
+speed = 0.4
+base_damage = 10
+smash_damage = 20.0
+atp_drop = 20
+is_boss = true
+minion = ExtResource("1_2q3nq")
+minion_count = 1
+minion_interval = 4.5
+texture = ExtResource("3_seh5y")
+description = "Boss: a giant tank that rolls over everything and deploys soldiers."

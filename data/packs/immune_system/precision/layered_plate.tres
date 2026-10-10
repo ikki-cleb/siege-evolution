@@ -9,6 +9,7 @@ id = "layered_plate"
 display_name = "Layered Plate"
 cost = 6
 max_hp = 70
+can_place_on_water = true
 texture = ExtResource("2_vfcom")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

@@ -9,6 +9,7 @@ id = "fibrin_mesh"
 display_name = "Fibrin Mesh"
 cost = 10
 max_hp = 220
+can_place_on_water = true
 texture = ExtResource("2_ojq2s")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

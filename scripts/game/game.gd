@@ -133,15 +133,20 @@ func _on_cell_tapped(cell: Vector2i) -> void:
 ## Returns true if it was placed.
 func try_place(type: UnitData, cell: Vector2i) -> bool:
 	_select_cell(Board.NO_CELL)
-	if phase != Phase.BUILD or not board.is_buildable(cell):
+	var on_water: bool = board.water.has(cell)
+	if phase != Phase.BUILD or (not on_water and not board.is_buildable(cell)):
 		board.flash(cell)
+		return false
+	if on_water and not type.can_place_on_water:
+		board.flash(cell)
+		hud.show_message("Only your basic wall can go on water (as a net or mine).")
 		return false
 	var from_hand: bool = hand.get(type.id, 0) > 0
 	if not from_hand and atp < type.cost:
 		board.flash(cell)
 		hud.show_message("Not enough ATP.")
 		return false
-	if not board.can_place(cell):
+	if not board.can_place_unit(type, cell):
 		board.flash(cell)
 		hud.show_message("Can't seal the path completely!")
 		return false

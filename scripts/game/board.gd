@@ -26,10 +26,16 @@ const PATH_COLOR := Color(1, 1, 1, 0.55)
 const SMASHER_PATH_COLOR := Color(1, 0.35, 0.25, 0.7)
 const FLIER_PATH_COLOR := Color(0.5, 0.85, 1, 0.7)
 const JUMPER_PATH_COLOR := Color(1, 0.65, 0.2, 0.75)
+## A bomb's full damage hits its target; the 8 tiles around take this share.
+const BOMB_SPLASH := 0.5
 
 var grid_size := Vector2i.ZERO
 var rocks := {}  # Vector2i -> true
+## Land spawn points ("S").
 var spawn_cells: Array[Vector2i] = []
+## Sea spawn points for boats ("N").
+var sea_spawn_cells: Array[Vector2i] = []
+var water := {}  # Vector2i -> true
 var base_cell := NO_CELL
 
 var units := {}  # Vector2i -> Unit
@@ -42,6 +48,9 @@ var wave_active := false
 # rocks, because they plan to chew straight through any unit in the way.
 var _walk_grid := AStarGrid2D.new()
 var _smash_grid := AStarGrid2D.new()
+# Boats get the same pair, but only water (and the base) is open to them.
+var _boat_grid := AStarGrid2D.new()
+var _boat_smash_grid := AStarGrid2D.new()
 
 # What the board draws on top of the tiles (set by the game).
 var show_path_preview := false
@@ -75,15 +84,28 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 					spawn_cells.append(cell)
 				"B":
 					base_cell = cell
+				"~":
+					water[cell] = true
+				"N":
+					water[cell] = true
+					sea_spawn_cells.append(cell)
 
-	for grid in [_walk_grid, _smash_grid]:
+	for grid in [_walk_grid, _smash_grid, _boat_grid, _boat_smash_grid]:
 		grid.region = Rect2i(Vector2i.ZERO, grid_size)
 		grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 		grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 		grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 		grid.update()
-		for cell in rocks:
-			grid.set_point_solid(cell, true)
+	for y in grid_size.y:
+		for x in grid_size.x:
+			var cell := Vector2i(x, y)
+			# Land invaders can't cross rocks or water; boats only use water.
+			var land_blocked := rocks.has(cell) or water.has(cell)
+			_walk_grid.set_point_solid(cell, land_blocked)
+			_smash_grid.set_point_solid(cell, land_blocked)
+			var sea_blocked := not water.has(cell) and cell != base_cell
+			_boat_grid.set_point_solid(cell, sea_blocked)
+			_boat_smash_grid.set_point_solid(cell, sea_blocked)
 
 	fx = ShotEffects.new()
 	fx.z_index = 10
@@ -101,15 +123,46 @@ func is_inside(cell: Vector2i) -> bool:
 	return cell.x >= 0 and cell.y >= 0 and cell.x < grid_size.x and cell.y < grid_size.y
 
 
-## True if the tile is open floor with nothing on it.
+## True if the tile is open land floor with nothing on it.
 func is_buildable(cell: Vector2i) -> bool:
-	return (is_inside(cell) and not rocks.has(cell) and not units.has(cell)
+	return (is_inside(cell) and not rocks.has(cell) and not units.has(cell) and not water.has(cell)
 		and cell != base_cell and not spawn_cells.has(cell))
 
 
-## True if a unit could go here without sealing off the base from any spawn.
+## True if a land unit could go here without sealing off the base from any spawn.
 func can_place(cell: Vector2i) -> bool:
 	return is_buildable(cell) and path_length_if_blocked(cell) >= 0
+
+
+## The full placement rule for a specific unit: land as usual, and water
+## only for units that allow it (nets and mines), never sealing a sea lane.
+func can_place_unit(data: UnitData, cell: Vector2i) -> bool:
+	if not water.has(cell):
+		return can_place(cell)
+	if not data.can_place_on_water or units.has(cell) or sea_spawn_cells.has(cell):
+		return false
+	return not boat_paths_if_blocked(cell).is_empty() or sea_spawn_cells.is_empty()
+
+
+## Every sea spawn's boat route if this water tile were blocked (empty if
+## that would seal a lane).
+func boat_paths_if_blocked(cell: Vector2i) -> Array:
+	var was_solid := _boat_grid.is_point_solid(cell)
+	_boat_grid.set_point_solid(cell, true)
+	var paths := []
+	for spawn in sea_spawn_cells:
+		var path := _boat_grid.get_id_path(spawn, base_cell)
+		if path.is_empty():
+			paths.clear()
+			break
+		paths.append(path)
+	_boat_grid.set_point_solid(cell, was_solid)
+	return paths
+
+
+## The grid a unit on this tile blocks: the boat grid on water, else walkers'.
+func _blocking_grid(cell: Vector2i) -> AStarGrid2D:
+	return _boat_grid if water.has(cell) else _walk_grid
 
 
 ## Total length of every walker route if this tile were blocked, or -1 if
@@ -198,9 +251,9 @@ func jumper_path(from_cell: Vector2i) -> Array[Vector2i]:
 	return path
 
 
-## Open for walking: inside the grid, no rock, no intact unit.
+## Open for walking: inside the grid, no rock or water, no intact unit.
 func _is_open(cell: Vector2i) -> bool:
-	return is_inside(cell) and not rocks.has(cell) and not _is_unit_tile(cell)
+	return is_inside(cell) and not rocks.has(cell) and not water.has(cell) and not _is_unit_tile(cell)
 
 
 func _is_unit_tile(cell: Vector2i) -> bool:
@@ -219,6 +272,9 @@ func jumper_paths_if_blocked(cell: Vector2i) -> Array:
 
 ## The route an invader of this kind would take from a tile.
 func route_for(data: InvaderData, from_cell: Vector2i) -> Array[Vector2i]:
+	if data.naval:
+		var grid := _boat_smash_grid if data.movement == InvaderData.Movement.SMASHER else _boat_grid
+		return grid.get_id_path(from_cell, base_cell)
 	match data.movement:
 		InvaderData.Movement.SMASHER:
 			return smasher_path(from_cell)
@@ -252,7 +308,7 @@ func place_unit(data: UnitData, cell: Vector2i) -> Unit:
 	unit.setup(data, cell, self)
 	add_child(unit)
 	units[cell] = unit
-	_walk_grid.set_point_solid(cell, true)
+	_blocking_grid(cell).set_point_solid(cell, true)
 	queue_redraw()
 	return unit
 
@@ -263,14 +319,14 @@ func remove_unit(cell: Vector2i) -> void:
 		return
 	units.erase(cell)
 	unit.queue_free()
-	_walk_grid.set_point_solid(cell, false)
+	_blocking_grid(cell).set_point_solid(cell, false)
 	queue_redraw()
 
 
 ## Called by a unit when a smasher breaks it. The tile opens up, so walkers
 ## may now find a shorter route.
 func on_unit_destroyed(unit: Unit) -> void:
-	_walk_grid.set_point_solid(unit.cell, false)
+	_blocking_grid(unit.cell).set_point_solid(unit.cell, false)
 	for invader in invaders:
 		invader.repath()
 
@@ -279,13 +335,16 @@ func on_unit_destroyed(unit: Unit) -> void:
 func restore_units() -> void:
 	for cell in units:
 		units[cell].restore()
-		_walk_grid.set_point_solid(cell, true)
+		_blocking_grid(cell).set_point_solid(cell, true)
 
 
 # --- Invaders ---------------------------------------------------------------
 
 func spawn_invader(data: InvaderData, spawn_index: int) -> void:
-	var start := spawn_cells[spawn_index % spawn_cells.size()]
+	# Boats start at sea spawns; fliers use land spawns, or sea ones if a
+	# level has no land spawns.
+	var spawns := sea_spawn_cells if data.naval or spawn_cells.is_empty() else spawn_cells
+	var start := spawns[spawn_index % spawns.size()]
 	_add_invader(data, cell_center(start), route_for(data, start), 0)
 
 
@@ -329,6 +388,17 @@ func on_invader_killed(invader: Invader) -> void:
 	invader.queue_free()
 
 
+## A bomber's payload: full damage on the target tile, half on the 8 around.
+func bomb(cell: Vector2i, damage: float) -> void:
+	fx.add_pulse(cell_center(cell), TILE * 1.6, Color(1, 0.55, 0.15))
+	fx.add_pulse(cell_center(cell), TILE * 0.8, Color(1, 0.9, 0.4))
+	for dy in [-1, 0, 1]:
+		for dx in [-1, 0, 1]:
+			var unit := intact_unit_at(cell + Vector2i(dx, dy))
+			if unit:
+				unit.take_damage(damage if dx == 0 and dy == 0 else damage * BOMB_SPLASH)
+
+
 func on_invader_reached_base(invader: Invader) -> void:
 	invaders.erase(invader)
 	invader.queue_free()
@@ -366,7 +436,11 @@ func _draw() -> void:
 		for x in grid_size.x:
 			var cell := Vector2i(x, y)
 			var texture := biome.floor_texture
-			if rocks.has(cell):
+			if sea_spawn_cells.has(cell):
+				texture = biome.sea_spawn_texture
+			elif water.has(cell):
+				texture = biome.water_texture
+			elif rocks.has(cell):
 				texture = biome.rock_texture
 			elif spawn_cells.has(cell):
 				texture = biome.spawn_texture

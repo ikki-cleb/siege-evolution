@@ -9,6 +9,7 @@ id = "picket_fence"
 display_name = "Picket Fence"
 cost = 6
 max_hp = 70
+can_place_on_water = true
 texture = ExtResource("2_w5gd7")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

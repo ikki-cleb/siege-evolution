@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_oohx1"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/stacked_barrels.tres" id="2_3yyu4"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/leaky_barrels.tres" id="3_c1kgu"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/barrel_wall.png" id="4_towvn"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/barrel_wall_water.png" id="5_py3kd"]
+
+[resource]
+script = ExtResource("1_oohx1")
+id = "barrel_wall"
+display_name = "Barrel Wall"
+max_hp = 25
+reflect = 0.3
+evolutions = Array[ExtResource("1_oohx1")]([ExtResource("2_3yyu4"), ExtResource("3_c1kgu")])
+can_place_on_water = true
+water_texture = ExtResource("5_py3kd")
+texture = ExtResource("4_towvn")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that hurts smashers biting it."

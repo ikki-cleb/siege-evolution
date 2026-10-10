@@ -12,6 +12,7 @@ display_name = "Pebble Wall"
 cost = 7
 max_hp = 90
 evolutions = Array[ExtResource("1_3sqwe")]([ExtResource("2_fs01p"), ExtResource("3_oesel")])
+can_place_on_water = true
 texture = ExtResource("4_s3miq")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Very tough wall."

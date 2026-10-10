@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_mje3u"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/submarine.png" id="2_7q7kh"]
+
+[resource]
+script = ExtResource("1_mje3u")
+id = "submarine"
+display_name = "Submarine"
+max_hp = 22
+base_damage = 2
+atp_drop = 2
+naval = true
+burrow_after = 3
+burrow_length = 6
+texture = ExtResource("2_7q7kh")
+description = "Dives under 6 tiles of its lane."

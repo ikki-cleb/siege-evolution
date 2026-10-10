@@ -10,6 +10,8 @@ extends Resource
 ##   #  tissue wall: blocks walkers and building, but fliers pass over it
 ##   S  invader spawn point (you can have more than one)
 ##   B  your base
+##   ~  water (boats only; only units that allow it can be placed here)
+##   N  sea spawn point for boats (on water)
 @export var layout: PackedStringArray = []
 
 @export var base_hp: int = 20

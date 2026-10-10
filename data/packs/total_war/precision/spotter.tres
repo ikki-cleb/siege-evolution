@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_nhrut"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/laser_spotter.tres" id="2_o11lq"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/long_range_spotter.tres" id="3_2osgr"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/spotter.png" id="4_l4nr1"]
+
+[resource]
+script = ExtResource("1_nhrut")
+id = "spotter"
+display_name = "Spotter"
+role = 2
+cost = 12
+max_hp = 15
+damage = 1.0
+attack_range = 3.0
+hits_air = true
+mark_bonus = 0.3
+mark_duration = 3.0
+evolutions = Array[ExtResource("1_nhrut")]([ExtResource("2_o11lq"), ExtResource("3_2osgr")])
+texture = ExtResource("4_l4nr1")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Marks targets: they take 40% more damage from everything."

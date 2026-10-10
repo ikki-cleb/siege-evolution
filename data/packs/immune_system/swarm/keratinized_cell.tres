@@ -9,6 +9,7 @@ id = "keratinized_cell"
 display_name = "Keratinized Cell"
 cost = 4
 max_hp = 40
+can_place_on_water = true
 texture = ExtResource("2_rjhp3")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

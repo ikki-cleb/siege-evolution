@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_w48j0"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/ranger.png" id="2_lay4w"]
+
+[resource]
+script = ExtResource("1_w48j0")
+id = "ranger"
+display_name = "Toy Ranger"
+max_hp = 15
+armor = 1
+speed = 1.9
+atp_drop = 2
+is_elite = true
+texture = ExtResource("2_lay4w")
+description = "Elite: fast and armored."

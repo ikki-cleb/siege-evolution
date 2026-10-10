@@ -10,6 +10,7 @@ display_name = "Venom Membrane"
 cost = 6
 max_hp = 25
 reflect = 0.8
+can_place_on_water = true
 texture = ExtResource("2_xjfnr")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

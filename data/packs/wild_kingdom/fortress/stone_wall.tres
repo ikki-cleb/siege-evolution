@@ -12,6 +12,7 @@ display_name = "Stone Wall"
 cost = 7
 max_hp = 90
 evolutions = Array[ExtResource("1_14tkl")]([ExtResource("2_tabh6"), ExtResource("3_6xyyr")])
+can_place_on_water = true
 texture = ExtResource("4_wpsi5")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Very tough wall."

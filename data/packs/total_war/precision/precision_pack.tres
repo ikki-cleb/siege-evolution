@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_ddckw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_15k8k"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/concrete_barrier.tres" id="3_axbnd"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/sniper.tres" id="4_jhq68"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/spotter.tres" id="5_8hynj"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/bazooka_trooper.tres" id="6_6ne61"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/long_tom.tres" id="7_imu7e"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/radar_tower.tres" id="8_ofrqs"]
+
+[resource]
+script = ExtResource("1_ddckw")
+id = "precision"
+display_name = "Precision"
+description = "Long range and big single hits. Marks targets so everything hits harder."
+color = Color(0.30588236, 0.65882355, 0.87058824, 1)
+units = Array[ExtResource("2_15k8k")]([ExtResource("3_axbnd"), ExtResource("4_jhq68"), ExtResource("5_8hynj"), ExtResource("6_6ne61"), ExtResource("7_imu7e"), ExtResource("8_ofrqs")])

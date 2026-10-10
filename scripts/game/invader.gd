@@ -22,6 +22,13 @@ var underground := false
 var _has_burrowed := false
 var _start_index := 0
 var _emerge_index := 0
+## Bombers look for a target once they've flown this share of the way...
+const BOMB_AFTER := 0.3
+## ...and only bomb units within this many tiles of them.
+const BOMB_REACH := 2.5
+var _has_bombed := false
+var _flight_start := Vector2.ZERO
+
 ## Jumpers crouch for this long before each hop.
 const HOP_PAUSE := 0.45
 var _hopping := false
@@ -52,6 +59,7 @@ func setup(p_data: InvaderData, p_board: Board, start: Vector2, p_path: Array[Ve
 	path = p_path
 	path_index = p_index
 	_start_index = p_index
+	_flight_start = start
 	_minion_timer = data.minion_interval
 	_sprite = Sprite2D.new()
 	_sprite.texture = data.texture
@@ -171,6 +179,10 @@ func _update_effects(delta: float) -> void:
 func _fly(tiles: float) -> void:
 	var target := board.cell_center(board.base_cell)
 	position = position.move_toward(target, tiles * Board.TILE)
+	if data.bomb_damage > 0.0 and not _has_bombed:
+		var flown := _flight_start.distance_to(position) / maxf(1.0, _flight_start.distance_to(target))
+		if flown >= BOMB_AFTER:
+			_try_bomb()
 	if position.distance_to(target) < 0.5:
 		alive = false
 		board.on_invader_reached_base(self)
@@ -223,6 +235,23 @@ func _update_hop_arc(target: Vector2) -> void:
 		return
 	var progress := 1.0 - position.distance_to(target) / _hop_length
 	_sprite.position.y = -sin(progress * PI) * 6.0
+
+
+## Drops the bomb on the most valuable unit in reach (if any).
+func _try_bomb() -> void:
+	var best: Unit = null
+	var best_value := 0
+	for cell in board.units:
+		var unit: Unit = board.units[cell]
+		if unit.destroyed or unit.position.distance_to(position) > BOMB_REACH * Board.TILE:
+			continue
+		var value := unit.base_data.cost + (unit.data.cost if unit.is_evolved() else 0)
+		if value > best_value:
+			best_value = value
+			best = unit
+	if best:
+		_has_bombed = true
+		board.bomb(best.cell, data.bomb_damage)
 
 
 func _should_burrow() -> bool:

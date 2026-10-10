@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_pcc6x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_3jcip"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/sticky_barricade.tres" id="3_hkdl8"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/smoke_launcher.tres" id="4_rn8tu"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/mortar_team.tres" id="5_vhi35"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/flame_turret.tres" id="6_ihtv3"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/shock_turret.tres" id="7_tr4n6"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/water_cannon.tres" id="8_skkim"]
+
+[resource]
+script = ExtResource("1_pcc6x")
+id = "control"
+display_name = "Control"
+description = "Slows, stuns and area damage. Weak alone, deadly inside a long maze."
+color = Color(0.6156863, 0.4745098, 0.8392157, 1)
+product_id = "pack_control"
+units = Array[ExtResource("2_3jcip")]([ExtResource("3_hkdl8"), ExtResource("4_rn8tu"), ExtResource("5_vhi35"), ExtResource("6_ihtv3"), ExtResource("7_tr4n6"), ExtResource("8_skkim")])

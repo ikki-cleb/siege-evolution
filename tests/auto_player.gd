@@ -15,6 +15,7 @@ var rng := RandomNumberGenerator.new()
 var _has_smashers := false
 var _has_fliers := false
 var _has_jumpers := false
+var _boat_cells := {}  # water tiles boats use, for coverage scoring
 var _flier_points: Array[Vector2] = []
 
 
@@ -27,6 +28,12 @@ func _init(p_game, seed_value := 1) -> void:
 			_has_smashers = _has_smashers or entry.invader.movement == InvaderData.Movement.SMASHER
 			_has_fliers = _has_fliers or entry.invader.movement == InvaderData.Movement.FLIER
 			_has_jumpers = _has_jumpers or entry.invader.jumps
+	for wave in game.level.waves:
+		for entry in wave.entries:
+			if entry.invader.naval:
+				for spawn in board.sea_spawn_cells:
+					for cell in board.route_for(entry.invader, spawn):
+						_boat_cells[cell] = 1
 	for spawn in board.spawn_cells:
 		var from := board.cell_center(spawn)
 		var to := board.cell_center(board.base_cell)
@@ -232,6 +239,9 @@ func _coverage(cell: Vector2i, type: UnitData, walker: Dictionary, smasher: Dict
 		if center.distance_to(board.cell_center(path_cell)) <= reach:
 			score += walker[path_cell]
 	for path_cell in smasher:
+		if center.distance_to(board.cell_center(path_cell)) <= reach:
+			score += 1.0
+	for path_cell in _boat_cells:
 		if center.distance_to(board.cell_center(path_cell)) <= reach:
 			score += 1.0
 	if type.hits_air:

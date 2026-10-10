@@ -12,6 +12,7 @@ display_name = "Toxic Membrane"
 max_hp = 25
 reflect = 0.3
 evolutions = Array[ExtResource("1_3k4tf")]([ExtResource("2_32fmk"), ExtResource("3_qmrqc")])
+can_place_on_water = true
 texture = ExtResource("4_ntnhb")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Wall that hurts smashers biting it."

@@ -12,6 +12,7 @@ display_name = "Hay Bale"
 cost = 3
 max_hp = 18
 evolutions = Array[ExtResource("1_i3h70")]([ExtResource("2_ray20"), ExtResource("3_tg21u")])
+can_place_on_water = true
 texture = ExtResource("4_bca74")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Dirt-cheap wall."

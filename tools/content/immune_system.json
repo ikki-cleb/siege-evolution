@@ -39,7 +39,8 @@
               "reflect": 0.6,
               "desc": "Reflects 60% of smasher damage."
             }
-          ]
+          ],
+          "water": true
         },
         {
           "id": "macrophage",
@@ -236,7 +237,8 @@
               "reflect": 0.4,
               "desc": "Reflects 40% of smasher damage."
             }
-          ]
+          ],
+          "water": true
         },
         {
           "id": "neutrophil",
@@ -441,7 +443,8 @@
               "reflect": 0.5,
               "desc": "Reflects 50% of smasher damage."
             }
-          ]
+          ],
+          "water": true
         },
         {
           "id": "b_cell",
@@ -648,7 +651,8 @@
               "slow": 0.5,
               "desc": "Stronger slow."
             }
-          ]
+          ],
+          "water": true
         },
         {
           "id": "mast_cell",
@@ -854,7 +858,8 @@
               "reflect": 0.8,
               "desc": "Reflects 80% of smasher damage."
             }
-          ]
+          ],
+          "water": true
         },
         {
           "id": "killer_t",

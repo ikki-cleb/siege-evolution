@@ -1,6 +1,6 @@
 # Siege Evolution: Game Design Document
 
-Status: **v0.5, Worlds 1–3 playable** (21 levels, 5 packs, evolutions,
+Status: **v0.6, Worlds 1–4 playable** (28 levels, 5 packs, evolutions,
 saved progress, store in test mode). Balance is tuned against an automated player, not real play yet.
 
 ## Pitch
@@ -33,7 +33,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
   1. **Microscopic** (the immune system), built
   2. **Backyard Bugs** (defend the queen's anthill), built
   3. **Wild Kingdom** (human and animal scale: defend the farmhouse), built
-  4. **Total War** (ships, tanks, bombs)
+  4. **Total War** (a toy war across the playroom and the bathtub), built
   5. **Galactic Siege** (planets, starships, alien invaders)
 - **Bonus worlds** (bought separately, playable as soon as they're bought):
   **Kitchen Defense** and **Birthday Bash** (a kid's birthday party).
@@ -185,6 +185,44 @@ the ATP they drop, though drops stay generous enough to keep building.
 | Gopher | Burrower | Tunnels under 6 tiles |
 | **Grizzly Bear** | Boss smasher (level 7, wave 10) | Armor 2, brings bear cubs |
 
+## World 4: Total War (toy soldiers)
+
+Tone is a lighthearted **toy war**: plastic army men, toy tanks, paper planes
+and bath-toy boats. You defend a toy fort HQ. Walls are toy fortifications
+(sandbags, barbed wire, concrete barriers, barricades, barrels), attackers
+are toy troops and turrets.
+
+**Sea levels (2, 4, 6) have water lanes.** Water tiles (`~`) carry boats only,
+starting from sea spawns (`N`). Land invaders can't cross water. Only each
+pack's **basic wall** can be placed on water, where it becomes a **net** (the
+base wall and its HP evolution) or a **naval mine** (its reflect evolution).
+Nets push boats into another lane but can never seal one. Landing troops
+still march the land, so sea levels are two puzzles at once. Lanes run
+through the land so units on both banks can cover them; lanes along the map
+edges proved nearly impossible to defend.
+
+**New behavior: bombers.** After about 30% of their flight they drop one bomb
+on the most valuable unit within 2.5 tiles (unit plus evolution cost): full
+damage to it, half to the 8 tiles around it. Destroyed units come back after
+the wave as usual.
+
+| Invader | Type | Notes |
+|---|---|---|
+| Toy Soldier / Toy Ranger (elite) | Walker | Swarms |
+| Troop Truck / Armored Carrier (elite) | Walker | Unloads 3 recruits |
+| Stunt Bike | Jumper | |
+| Toy Tank / Heavy Tank (elite) | Smasher | |
+| Paper Plane / Toy Jet (elite) | Flier | |
+| **Toy Bomber** / Heavy Bomber (elite) | **Bomber** (flier) | 35 / 60 bomb damage |
+| Patrol Boat / Destroyer (elite) | Boat | Water lanes |
+| Submarine | Boat burrower | Dives under 6 tiles |
+| Battleship | Boat smasher | Rams nets and mines |
+| **Mega Tank** | Boss smasher (level 7) | Deploys toy soldiers |
+
+**Balance lesson:** invader stats should stay comparable across worlds,
+because packs restart at base stats in every world. Difficulty should come
+from mechanics, layouts and wave mixes, not raw HP inflation.
+
 ## Monetization
 
 Free app, **no ads**. Everything is in the **Store** (menu), and the paid
@@ -233,7 +271,7 @@ comes next.
 
 - World 2 theme and scale (e.g. backyard bugs?), and how packs reskin there
 - Cosmetic unlocks (palettes, skins, menu themes): what and when
-- Content for worlds 4–5 and the two bonus worlds
+- Content for world 5 and the two bonus worlds
 - Orchard (World 3, level 3) is the hardest level for the bot, especially with Toxin
 - Overall difficulty after human playtesting (the bot finds most levels easy)
 - Sound and music direction

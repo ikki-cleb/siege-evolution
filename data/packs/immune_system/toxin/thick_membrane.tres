@@ -10,6 +10,7 @@ display_name = "Thick Membrane"
 cost = 6
 max_hp = 60
 reflect = 0.3
+can_place_on_water = true
 texture = ExtResource("2_18ytx")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

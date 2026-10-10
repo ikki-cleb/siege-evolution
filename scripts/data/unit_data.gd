@@ -59,6 +59,12 @@ enum AttackMode {
 ## The two evolutions this unit can become (empty for evolved units).
 @export var evolutions: Array[UnitData] = []
 
+@export_group("Water")
+## Can be placed on water tiles (each pack's basic wall: nets and mines).
+@export var can_place_on_water: bool = false
+## Sprite used when this unit sits on water.
+@export var water_texture: Texture2D
+
 @export_group("Looks")
 @export var texture: Texture2D
 @export var shot_color: Color = Color.WHITE

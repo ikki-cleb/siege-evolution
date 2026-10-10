@@ -28,6 +28,16 @@ enum Movement {
 @export var is_elite: bool = false
 @export var is_boss: bool = false
 
+## Boats travel only on water tiles, starting from sea spawns ("N").
+@export var naval: bool = false
+
+@export_group("Bombing")
+## Fliers with a bomb drop it once, partway along their flight, on the most
+## valuable unit near them. The target takes full damage; the 8 tiles around
+## it take half.
+@export var bomb_damage: float = 0.0
+
+@export_group("Jumping")
 ## Jumpers can hop over any single unit tile (not rocks, and not walls two
 ## tiles thick). Each hop costs them a short pause.
 @export var jumps: bool = false

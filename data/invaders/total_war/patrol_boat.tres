@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_ufdo7"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/patrol_boat.png" id="2_pkmjt"]
+
+[resource]
+script = ExtResource("1_ufdo7")
+id = "patrol_boat"
+display_name = "Patrol Boat"
+speed = 1.4
+naval = true
+texture = ExtResource("2_pkmjt")
+description = "Sails the water lanes."

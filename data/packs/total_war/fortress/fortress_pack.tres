@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_2facv"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_c23ad"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/sandbags.tres" id="3_2nv3m"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/toy_tank_turret.tres" id="4_gutj8"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/field_gun.tres" id="5_nm2v5"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/repair_depot.tres" id="6_4steh"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/howitzer.tres" id="7_846vl"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/concrete_bunker.tres" id="8_gv8sv"]
+
+[resource]
+script = ExtResource("1_2facv")
+id = "fortress"
+display_name = "Fortress"
+description = "Massive walls and slow, heavy hitters. Holds the line and outlasts smashers."
+color = Color(0.81960785, 0.3764706, 0.23921569, 1)
+units = Array[ExtResource("2_c23ad")]([ExtResource("3_2nv3m"), ExtResource("4_gutj8"), ExtResource("5_nm2v5"), ExtResource("6_4steh"), ExtResource("7_846vl"), ExtResource("8_gv8sv")])

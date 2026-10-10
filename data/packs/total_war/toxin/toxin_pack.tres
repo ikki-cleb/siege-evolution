@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_yoxw0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_7r1kw"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/barrel_wall.tres" id="3_d4kg2"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/chem_trooper.tres" id="4_sqw2d"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/gas_mortar.tres" id="5_xufdc"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/gas_canister.tres" id="6_x6jrn"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/toxic_drone.tres" id="7_2sk2l"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/sludge_pit.tres" id="8_ipfhp"]
+
+[resource]
+script = ExtResource("1_yoxw0")
+id = "toxin"
+display_name = "Toxin"
+description = "Poison that ignores armor and spreads between invaders. Slow to start, brutal on crowds."
+color = Color(0.42352942, 0.77254903, 0.31764707, 1)
+product_id = "pack_toxin"
+units = Array[ExtResource("2_7r1kw")]([ExtResource("3_d4kg2"), ExtResource("4_sqw2d"), ExtResource("5_xufdc"), ExtResource("6_x6jrn"), ExtResource("7_2sk2l"), ExtResource("8_ipfhp")])

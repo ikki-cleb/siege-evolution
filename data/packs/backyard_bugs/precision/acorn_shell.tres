@@ -11,6 +11,7 @@ id = "acorn_shell"
 display_name = "Acorn Shell"
 max_hp = 30
 evolutions = Array[ExtResource("1_5esd5")]([ExtResource("2_ild4w"), ExtResource("3_iad1e")])
+can_place_on_water = true
 texture = ExtResource("4_7ysxm")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sturdy wall."
