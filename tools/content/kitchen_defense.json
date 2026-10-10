@@ -825,7 +825,7 @@
     {
       "name": "2. Counter Top",
       "tiles": "counter",
-      "budget": 22,
+      "budget": 27,
       "hand": [
         10,
         8,
@@ -834,7 +834,7 @@
         0,
         0
       ],
-      "atp": 15,
+      "atp": 12,
       "income": 5,
       "layout": [
         "S.......S",
@@ -856,7 +856,7 @@
     {
       "name": "3. Under the Table",
       "tiles": "floor",
-      "budget": 25,
+      "budget": 30,
       "hand": [
         10,
         8,
@@ -865,7 +865,7 @@
         0,
         0
       ],
-      "atp": 15,
+      "atp": 12,
       "income": 5,
       "layout": [
         "S...S....",
@@ -886,7 +886,7 @@
     },
     {
       "name": "4. Top Shelf",
-      "budget": 27,
+      "budget": 33,
       "hand": [
         12,
         8,
@@ -895,7 +895,7 @@
         8,
         0
       ],
-      "atp": 15,
+      "atp": 12,
       "income": 5,
       "layout": [
         "S...S...S",
@@ -917,7 +917,7 @@
     {
       "name": "5. Sink Side",
       "tiles": "counter",
-      "budget": 30,
+      "budget": 33,
       "hand": [
         14,
         10,
@@ -926,7 +926,7 @@
         8,
         0
       ],
-      "atp": 20,
+      "atp": 16,
       "income": 6,
       "layout": [
         "S.......S",
@@ -948,7 +948,7 @@
     {
       "name": "6. Crumb Trail",
       "tiles": "floor",
-      "budget": 31,
+      "budget": 37,
       "hand": [
         14,
         10,
@@ -957,7 +957,7 @@
         8,
         6
       ],
-      "atp": 20,
+      "atp": 16,
       "income": 6,
       "layout": [
         "S...S...S",
@@ -978,7 +978,7 @@
     },
     {
       "name": "7. Rat King's Feast",
-      "budget": 34,
+      "budget": 41,
       "boss": "rat_king",
       "hand": [
         18,
@@ -988,7 +988,7 @@
         8,
         6
       ],
-      "atp": 25,
+      "atp": 20,
       "income": 6,
       "layout": [
         "S...S...S",
