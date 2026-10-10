@@ -28,7 +28,8 @@ from make_placeholder_anims import pack_rows  # noqa: E402
 PROJECT = Path(__file__).resolve().parent.parent
 ANIM = PROJECT / "art" / "anim"
 IMPORTED = ANIM / "imported.txt"
-WORLD_MODULES = {"immune_system": "world_immune"}
+WORLD_MODULES = {"immune_system": "world_immune", "backyard_bugs": "world_backyard", "wild_kingdom": "world_farm", "total_war": "world_toys", "galactic_siege": "world_space",
+                 "kitchen_defense": "world_kitchen", "birthday_bash": "world_party"}
 
 
 def pose(**changes):
@@ -128,12 +129,15 @@ def main(worlds):
     made = 0
     for world in worlds or WORLD_MODULES:
         module = importlib.import_module("sprites." + WORLD_MODULES[world])
+        # Every world uses World 1's attack style for each pack slot.
+        styles = {uid: style for uid, (_d, style) in importlib.import_module("sprites.world_immune").UNITS.items()}
+        designs = getattr(module, "DESIGNS", None) or {uid: d for uid, (d, _s) in module.UNITS.items()}
         content = all_content[world]
         renames = content.get("renames", {})
         for pack in w1["packs"]:
             pc = hexc(pack["color"])
             for unit in pack["units"]:
-                design, style = module.UNITS[unit["id"]]
+                design, style = designs[unit["id"]], styles[unit["id"]]
                 for branch, row in [(None, unit)] + list(enumerate(unit["evolutions"])):
                     merged = dict(unit, **row) if branch is not None else unit
                     can_attack = any(merged.get(k) for k in ("damage", "slow", "poison", "mark", "stun"))
