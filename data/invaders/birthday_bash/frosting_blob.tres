@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_2ax7i"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/frosting_blob.png" id="2_pdbdv"]
+
+[resource]
+script = ExtResource("1_2ax7i")
+id = "frosting_blob"
+display_name = "Frosting Blob"
+max_hp = 26
+armor = 1
+base_damage = 2
+coin_drop = 3
+is_elite = true
+spill_every = 2
+spill_slow = 0.4
+texture = ExtResource("2_pdbdv")
+description = "Elite spiller: faster and armored."

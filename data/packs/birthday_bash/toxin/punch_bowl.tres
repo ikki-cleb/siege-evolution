@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gosqx"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/sour_punch_bowl.tres" id="2_ynwup"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/overflowing_punch_bowl.tres" id="3_68uga"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/punch_bowl.png" id="4_bq7f6"]
+
+[resource]
+script = ExtResource("1_gosqx")
+id = "punch_bowl"
+display_name = "Punch Bowl"
+role = 1
+cost = 14
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 2.5
+poison_duration = 3.0
+evolutions = Array[ExtResource("1_gosqx")]([ExtResource("2_ynwup"), ExtResource("3_68uga")])
+texture = ExtResource("4_bq7f6")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poisons everything around it."

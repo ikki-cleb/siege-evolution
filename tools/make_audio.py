@@ -119,6 +119,9 @@ def sfx():
         "base_hit": mix(tone(110, 0.25, r, 0.4, slide=-200, wave_fn="triangle"), noise(0.2, r, 0.3, decay=15, low=6)),
         "bomb": mix(noise(0.6, r, 0.45, decay=5, low=10), tone(90, 0.5, r, 0.35, slide=-120, wave_fn="triangle")),
         "blink": tone(300, 0.12, r, 0.2, duty=0.125, slide=5000),
+        # A papery pop and a little jingle when a piñata bursts.
+        "pinata": join(noise(0.06, r, 0.3, decay=40, low=1), tone(note("C6"), 0.05, r, 0.18, duty=0.25),
+                       tone(note("G6"), 0.07, r, 0.18, duty=0.25)),
         # A wet squelch when a spiller gums up a unit.
         "spill": join(noise(0.07, r, 0.22, decay=25, low=8), tone(180, 0.1, r, 0.2, slide=-500, wave_fn="triangle")),
         "deny": join(tone(140, 0.08, r, 0.3), silence(0.03, r), tone(140, 0.1, r, 0.3)),
@@ -187,6 +190,9 @@ def music():
         # Kitchen: a jaunty, busy little tune.
         "kitchen_defense": song([("D4", "F#4", "A4"), ("G3", "B3", "D4"), ("E4", "G4", "B4"), ("A3", "C#4", "E4")] * 2,
                                 ["D5", "E5", "F#5", "A5"], 138, seed=7, lead_duty=0.25),
+        # Birthday: a bouncy major waltz-ish party tune.
+        "birthday_bash": song([("C4", "E4", "G4"), ("F4", "A4", "C5"), ("G4", "B4", "D5"), ("C4", "E4", "G4")] * 2,
+                              ["C5", "E5", "G5", "C6"], 144, seed=8, lead_duty=0.125),
         "galactic_siege": song([("E4", "G4", "B4"), ("C4", "E4", "G4"), ("A3", "C4", "E4"), ("B3", "D#4", "F#4")] * 2,
                                ["E5", "F#5", "G5", "B5"], 124, seed=6, lead_duty=0.125),
     }

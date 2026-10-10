@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_dxhdq"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/toy_car.png" id="2_gblge"]
+
+[resource]
+script = ExtResource("1_dxhdq")
+id = "toy_car"
+display_name = "Toy Car"
+movement = 1
+max_hp = 24
+base_damage = 2
+smash_damage = 5.0
+coin_drop = 2
+texture = ExtResource("2_gblge")
+description = "A small smasher that rams through units."

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_of5mv"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/soda_spill.png" id="2_2rlse"]
+
+[resource]
+script = ExtResource("1_of5mv")
+id = "soda_spill"
+display_name = "Soda Spill"
+max_hp = 30
+speed = 0.6
+base_damage = 2
+coin_drop = 2
+spill_every = 2
+spill_slow = 0.4
+texture = ExtResource("2_2rlse")
+description = "Spiller: soaks the units beside its route. Sticky units attack 40% slower until the wave ends."

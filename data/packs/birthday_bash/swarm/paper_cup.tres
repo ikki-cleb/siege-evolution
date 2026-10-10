@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x2d83"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/stacked_cups.tres" id="2_tkdf3"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/pointy_cup.tres" id="3_i33pf"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/paper_cup.png" id="4_klcc6"]
+
+[resource]
+script = ExtResource("1_x2d83")
+id = "paper_cup"
+display_name = "Paper Cup"
+cost = 3
+max_hp = 18
+evolutions = Array[ExtResource("1_x2d83")]([ExtResource("2_tkdf3"), ExtResource("3_i33pf")])
+can_place_on_water = true
+texture = ExtResource("4_klcc6")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Dirt-cheap wall."

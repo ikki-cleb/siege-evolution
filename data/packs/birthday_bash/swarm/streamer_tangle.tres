@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n3qlc"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/thick_streamers.tres" id="2_t865t"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/wide_streamers.tres" id="3_aysag"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/streamer_tangle.png" id="4_3ot1e"]
+
+[resource]
+script = ExtResource("1_n3qlc")
+id = "streamer_tangle"
+display_name = "Streamer Tangle"
+cost = 6
+max_hp = 25
+attack_mode = 1
+damage = 0.5
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+evolutions = Array[ExtResource("1_n3qlc")]([ExtResource("2_t865t"), ExtResource("3_aysag")])
+texture = ExtResource("4_3ot1e")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Sticky wall that slows anything next to it."

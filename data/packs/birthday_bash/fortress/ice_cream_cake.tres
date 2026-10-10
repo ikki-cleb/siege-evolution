@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8th4x"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/frozen_cake.tres" id="2_o4dc7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/sprinkle_spike_cake.tres" id="3_e2cpt"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/ice_cream_cake.png" id="4_kis2b"]
+
+[resource]
+script = ExtResource("1_8th4x")
+id = "ice_cream_cake"
+display_name = "Ice Cream Cake"
+cost = 18
+max_hp = 260
+attack_mode = 1
+damage = 3.0
+evolutions = Array[ExtResource("1_8th4x")]([ExtResource("2_o4dc7"), ExtResource("3_e2cpt")])
+texture = ExtResource("4_kis2b")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Enormous wall that damages everything next to it."

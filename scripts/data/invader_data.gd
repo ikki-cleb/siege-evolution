@@ -70,11 +70,22 @@ enum Movement {
 @export var split_into: InvaderData
 @export var split_count: int = 0
 
+@export_group("Pinata")
+## Piñatas burst into a "surprise" of invaders from this list when broken.
+## The surprise looks random but is the same every time a wave is replayed
+## (see Board.start_pinata_seeds).
+@export var pinata_pool: Array[InvaderData] = []
+@export var pinata_min: int = 0
+@export var pinata_max: int = 0
+
 @export_group("Minions")
 ## If set, this invader releases minions while it walks (used by bosses).
 @export var minion: InvaderData
 @export var minion_count: int = 0
 @export var minion_interval: float = 0.0
+## Minions land this many tiles further along the route (0 = at its feet).
+## The Clown tosses its mini piñatas ahead of itself.
+@export var minion_throw: int = 0
 
 @export_group("Looks")
 @export var texture: Texture2D

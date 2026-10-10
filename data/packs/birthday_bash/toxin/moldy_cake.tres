@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1i3rb"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/stale_moldy_cake.tres" id="2_vsd11"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/fuzzy_moldy_cake.tres" id="3_ckmxn"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/moldy_cake.png" id="4_ih56h"]
+
+[resource]
+script = ExtResource("1_1i3rb")
+id = "moldy_cake"
+display_name = "Moldy Cake"
+cost = 14
+max_hp = 40
+attack_mode = 1
+poison_dps = 3.0
+poison_duration = 2.0
+poison_spreads = true
+evolutions = Array[ExtResource("1_1i3rb")]([ExtResource("2_vsd11"), ExtResource("3_ckmxn")])
+texture = ExtResource("4_ih56h")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that poisons everything next to it. The poison spreads."

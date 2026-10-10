@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wq031"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/long_lemon_squirter.png" id="2_y08tu"]
+
+[resource]
+script = ExtResource("1_wq031")
+id = "long_lemon_squirter"
+display_name = "Long Lemon Squirter"
+role = 1
+cost = 12
+damage = 1.0
+attack_range = 3.0
+attack_interval = 0.9
+poison_dps = 3.5
+poison_duration = 4.0
+texture = ExtResource("2_y08tu")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "More range."

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_583ag"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/super_stink_bomb.png" id="2_xo6ae"]
+
+[resource]
+script = ExtResource("1_583ag")
+id = "super_stink_bomb"
+display_name = "Super Stink Bomb"
+role = 1
+cost = 18
+damage = 2.0
+attack_range = 2.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 8.0
+poison_duration = 5.0
+poison_spreads = true
+texture = ExtResource("2_xo6ae")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Stronger poison."

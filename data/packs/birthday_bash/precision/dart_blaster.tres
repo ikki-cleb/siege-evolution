@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bwjly"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/heavy_dart_blaster.tres" id="2_xaw50"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/long_dart_blaster.tres" id="3_g76jw"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/dart_blaster.png" id="4_12dsq"]
+
+[resource]
+script = ExtResource("1_bwjly")
+id = "dart_blaster"
+display_name = "Dart Blaster"
+role = 1
+cost = 15
+max_hp = 15
+damage = 4.5
+attack_range = 3.0
+hits_air = true
+evolutions = Array[ExtResource("1_bwjly")]([ExtResource("2_xaw50"), ExtResource("3_g76jw")])
+texture = ExtResource("4_12dsq")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Long-range antibodies. Hits fliers."

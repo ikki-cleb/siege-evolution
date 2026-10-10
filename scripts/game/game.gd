@@ -283,6 +283,8 @@ func start_wave() -> void:
 	_spawn_queue.sort_custom(func(a, b): return a.time < b.time)
 	_wave_time = 0.0
 	_leaked = false
+	# Same world + level + wave = same piñata surprises.
+	board.start_pinata_seeds("%s/%s/%d" % [Progress.biome.id, level.display_name, wave_number])
 	Audio.play("wave_start", 0.0)
 	wave_number += 1
 	hud.show_message("")

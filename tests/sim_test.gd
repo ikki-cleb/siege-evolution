@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 51
+const MIN_RULE_CHECKS := 57
 var progress: Node
 
 
@@ -30,9 +30,10 @@ func _run() -> void:
 	await _test_space(progress.load_biome(4))
 	await _test_kitchen(progress.load_biome(5))
 	await _test_selection(biome)
+	await _test_party(progress.load_biome(6))
 	if not OS.get_cmdline_user_args().has("rules"):
-		# "-- world=2" balances just one world (0-based index; 5 = Kitchen).
-		var worlds := [0, 1, 2, 3, 4, 5]
+		# "-- world=2" balances just one world (0-based index; 5 = Kitchen, 6 = Birthday).
+		var worlds := [0, 1, 2, 3, 4, 5, 6]
 		for arg in OS.get_cmdline_user_args():
 			if arg.begins_with("world="):
 				worlds = [int(arg.split("=")[1])]
@@ -376,6 +377,80 @@ func _test_kitchen(biome: BiomeData) -> void:
 	store.reset_test_purchases()
 	_check(store.product(store.WORLD_KITCHEN).get("warning", "") == "POST-GAME: HARD",
 		"The store warns that Kitchen Defense is post-game hard")
+
+
+# --- Birthday Bash: piñatas and the Clown ------------------------------------
+
+## Breaks the nth piñata of a wave and lists what came out.
+func _pinata_surprise(biome: BiomeData, seed_text: String, nth: int) -> Array[String]:
+	var game := await _start(biome, 0, 0)
+	var board: Board = game.board
+	board.wave_active = true
+	board.start_pinata_seeds(seed_text)
+	var pinata_data: InvaderData = load("res://data/invaders/birthday_bash/pinata.tres")
+	for i in nth + 1:
+		board.spawn_invader(pinata_data, 0)
+	var pinata: Invader = board.invaders[nth]
+	pinata.take_damage(100000.0, true)
+	var names: Array[String] = []
+	for invader in board.invaders:
+		if invader.data != pinata_data:
+			names.append(invader.data.id)
+	await _stop(game)
+	return names
+
+
+func _test_party(biome: BiomeData) -> void:
+	var first := await _pinata_surprise(biome, "birthday/2/3", 0)
+	var again := await _pinata_surprise(biome, "birthday/2/3", 0)
+	_check(not first.is_empty() and first == again,
+		"Replaying a wave gives the same piñata surprise (%s)" % ", ".join(first))
+	var pinata_data: InvaderData = load("res://data/invaders/birthday_bash/pinata.tres")
+	var pool_ids := pinata_data.pinata_pool.map(func(d): return d.id)
+	_check(first.size() >= pinata_data.pinata_min and first.size() <= pinata_data.pinata_max
+		and first.all(func(id): return pool_ids.has(id)),
+		"Piñata surprises hold %d-%d of the world's small invaders" % [pinata_data.pinata_min, pinata_data.pinata_max])
+	# Different piñatas (or waves) usually hide different surprises.
+	var differs := false
+	for nth in 4:
+		var other := await _pinata_surprise(biome, "birthday/2/3", nth + 1)
+		differs = differs or other != first
+	_check(differs, "Different piñatas hide different surprises")
+
+	# The Clown tosses mini piñatas a few tiles ahead of itself.
+	var game := await _start(biome, 0, 6)
+	var board: Board = game.board
+	board.wave_active = true
+	board.start_pinata_seeds("clown-test")
+	var clown_data: InvaderData = load("res://data/invaders/birthday_bash/clown.tres")
+	board.spawn_invader(clown_data, 0)
+	var clown: Invader = board.invaders[0]
+	var tossed_ahead := false
+	for i in 60 * 10:
+		await process_frame
+		for invader in board.invaders:
+			if invader.data.id == "mini_pinata" and invader.path_index >= 0 \
+					and invader.position.distance_to(clown.position) > Board.TILE * 1.5:
+				tossed_ahead = true
+		if tossed_ahead:
+			break
+	_check(tossed_ahead, "The Clown tosses mini piñatas ahead onto its route")
+	await _stop(game)
+
+	# Beating the Clown suggests Kitchen Defense if it isn't owned.
+	var store: Node = root.get_node("Store")
+	store.reset_test_purchases()
+	store.buy(store.WORLD_BIRTHDAY)
+	game = await _start(biome, 0, 6)
+	game.hud.show_end_screen(true)
+	await process_frame
+	var texts := _all_texts(game.hud)
+	_check(texts.has("Birthday Bash cleared!") and texts.any(func(t): return t.contains(": Kitchen Defense.")),
+		"Birthday Bash shows its world-cleared screen and suggests Kitchen Defense")
+	await _stop(game)
+	store.reset_test_purchases()
+	_check(store.product(store.WORLD_BIRTHDAY).get("warning", "") == "POST-GAME: HARD",
+		"The store warns that Birthday Bash is post-game hard")
 
 
 ## Every Label and Button text under a node (for checking screens).

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6p208"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/wide_mallet.png" id="2_2wuw2"]
+
+[resource]
+script = ExtResource("1_6p208")
+id = "wide_mallet"
+display_name = "Wide Mallet"
+role = 1
+cost = 16
+max_hp = 60
+damage = 9.0
+attack_range = 1.8
+attack_interval = 1.1
+splash_radius = 1.0
+texture = ExtResource("2_2wuw2")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Longer reach and hits splash."

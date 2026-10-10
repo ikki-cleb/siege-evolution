@@ -35,7 +35,8 @@ const PRODUCTS: Array[Dictionary] = [
 		"description": "Bonus world: defend the cookie jar from ants, slugs, mice and roaches.",
 		"warning": "POST-GAME: HARD", "warning_detail": "Harder than Galactic Siege. Best after finishing the main game."},
 	{"id": WORLD_BIRTHDAY, "name": "Birthday Bash", "price": "$1.00",
-		"description": "Bonus world: protect the cake at a kid's birthday party."},
+		"description": "Bonus world: wind-up toys, balloons, piñatas and a clown crash the party. Protect the cake.",
+		"warning": "POST-GAME: HARD", "warning_detail": "Harder than Galactic Siege. Best after finishing the main game."},
 ]
 
 const SAVE_PATH := "user://purchases.json"

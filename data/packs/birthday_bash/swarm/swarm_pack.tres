@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_7jgxm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_8x88r"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/paper_cup.tres" id="3_kixfg"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/party_blower.tres" id="4_o18p1"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/water_pistol.tres" id="5_4t40y"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/noisemaker.tres" id="6_jlqjx"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/sparkler.tres" id="7_x74ra"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/streamer_tangle.tres" id="8_xj8gr"]
+
+[resource]
+script = ExtResource("1_7jgxm")
+id = "swarm"
+display_name = "Swarm"
+description = "Cheap units, and lots of them. Attacks faster when packed together."
+color = Color(0.9137255, 0.76862746, 0.41568628, 1)
+units = Array[ExtResource("2_8x88r")]([ExtResource("3_kixfg"), ExtResource("4_o18p1"), ExtResource("5_4t40y"), ExtResource("6_jlqjx"), ExtResource("7_x74ra"), ExtResource("8_xj8gr")])

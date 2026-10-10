@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_rdjmh"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/windup_mouse.tres" id="2_e2qj7"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/bouncy_ball.tres" id="3_i0qly"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/balloon.tres" id="4_1442q"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/toy_car.tres" id="5_f06go"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/pinata.png" id="6_ducna"]
+
+[resource]
+script = ExtResource("1_rdjmh")
+id = "pinata"
+display_name = "Piñata"
+max_hp = 40
+speed = 0.7
+base_damage = 2
+coin_drop = 2
+pinata_pool = Array[ExtResource("1_rdjmh")]([ExtResource("2_e2qj7"), ExtResource("2_e2qj7"), ExtResource("3_i0qly"), ExtResource("4_1442q"), ExtResource("5_f06go")])
+pinata_min = 3
+pinata_max = 5
+texture = ExtResource("6_ducna")
+description = "Bursts into a surprise when broken. Same wave, same surprise."

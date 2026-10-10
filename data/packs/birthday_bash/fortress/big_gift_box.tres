@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_a1p7d"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/big_gift_box.png" id="2_rp3un"]
+
+[resource]
+script = ExtResource("1_a1p7d")
+id = "big_gift_box"
+display_name = "Big Gift Box"
+cost = 10
+max_hp = 220
+can_place_on_water = true
+texture = ExtResource("2_rp3un")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Much more HP."

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_fag0r"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/windup_mouse.tres" id="2_egv7r"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/bouncy_ball.tres" id="3_cj2fg"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/balloon.tres" id="4_eqbdg"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/toy_car.tres" id="5_1ifcp"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/mini_pinata.png" id="6_p0myo"]
+
+[resource]
+script = ExtResource("1_fag0r")
+id = "mini_pinata"
+display_name = "Mini Piñata"
+max_hp = 15
+speed = 0.8
+pinata_pool = Array[ExtResource("1_fag0r")]([ExtResource("2_egv7r"), ExtResource("2_egv7r"), ExtResource("3_cj2fg"), ExtResource("4_eqbdg"), ExtResource("5_1ifcp")])
+pinata_min = 2
+pinata_max = 3
+texture = ExtResource("6_p0myo")
+description = "A small piñata the Clown tosses ahead."

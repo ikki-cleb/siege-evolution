@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8ouhg"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/long_confetti_cannon.png" id="2_hebre"]
+
+[resource]
+script = ExtResource("1_8ouhg")
+id = "long_confetti_cannon"
+display_name = "Long Confetti Cannon"
+role = 1
+cost = 15
+max_hp = 30
+damage = 8.0
+attack_range = 3.6
+attack_interval = 1.4
+hits_air = true
+texture = ExtResource("2_hebre")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Much more range."

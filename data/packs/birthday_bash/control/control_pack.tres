@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_ijo1c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_hve5k"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/jelly_wall.tres" id="3_mjeuj"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bubble_machine.tres" id="4_262q1"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/pie_launcher.tres" id="5_qarvf"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/candle_stand.tres" id="6_vkxlu"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/party_horn.tres" id="7_l51tj"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/foam_machine.tres" id="8_kdhb3"]
+
+[resource]
+script = ExtResource("1_ijo1c")
+id = "control"
+display_name = "Control"
+description = "Slows, stuns and area damage. Weak alone, deadly inside a long maze."
+color = Color(0.6156863, 0.4745098, 0.8392157, 1)
+product_id = "pack_control"
+units = Array[ExtResource("2_hve5k")]([ExtResource("3_mjeuj"), ExtResource("4_262q1"), ExtResource("5_qarvf"), ExtResource("6_vkxlu"), ExtResource("7_l51tj"), ExtResource("8_kdhb3")])

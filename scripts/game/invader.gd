@@ -13,6 +13,8 @@ var hp: float
 var alive := true
 ## False for boss minions, so bosses can't be farmed for coins.
 var drops_coins := true
+## Piñatas only: decides what's inside (same seed = same surprise).
+var pinata_seed := 0
 ## The tiles this invader will walk through, ending at the base.
 var path: Array[Vector2i] = []
 ## Which tile in `path` it is currently heading toward.
@@ -154,7 +156,7 @@ func _process(delta: float) -> void:
 		_minion_timer -= delta
 		if _minion_timer <= 0.0:
 			_minion_timer = data.minion_interval
-			board.spawn_from(self, data.minion, data.minion_count, false)
+			board.spawn_from(self, data.minion, data.minion_count, false, data.minion_throw)
 	if stun_time > 0.0:
 		return
 	if data.blink_interval > 0.0 and not underground:

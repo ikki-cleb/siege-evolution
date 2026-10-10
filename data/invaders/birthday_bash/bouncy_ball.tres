@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_g1sia"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/bouncy_ball.png" id="2_tjq2b"]
+
+[resource]
+script = ExtResource("1_g1sia")
+id = "bouncy_ball"
+display_name = "Bouncy Ball"
+max_hp = 18
+speed = 1.4
+base_damage = 2
+coin_drop = 2
+jumps = true
+texture = ExtResource("2_tjq2b")
+description = "Bounces over any single unit tile."

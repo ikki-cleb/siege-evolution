@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t48un"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/stacked_chairs.tres" id="2_sq0gt"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/spiky_chair.tres" id="3_6okd4"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/folding_chair.png" id="4_h76cv"]
+
+[resource]
+script = ExtResource("1_t48un")
+id = "folding_chair"
+display_name = "Folding Chair"
+max_hp = 30
+evolutions = Array[ExtResource("1_t48un")]([ExtResource("2_sq0gt"), ExtResource("3_6okd4")])
+can_place_on_water = true
+texture = ExtResource("4_h76cv")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Sturdy wall."

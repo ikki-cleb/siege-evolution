@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gwni6"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/loud_noisemaker.tres" id="2_3arut"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/wide_noisemaker.tres" id="3_3jjjw"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/noisemaker.png" id="4_2y6p0"]
+
+[resource]
+script = ExtResource("1_gwni6")
+id = "noisemaker"
+display_name = "Noisemaker"
+role = 1
+cost = 9
+max_hp = 15
+attack_mode = 1
+damage = 1.2
+attack_interval = 0.6
+adjacency_bonus = 0.15
+evolutions = Array[ExtResource("1_gwni6")]([ExtResource("2_3arut"), ExtResource("3_3jjjw")])
+texture = ExtResource("4_2y6p0")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Damages everything around it."

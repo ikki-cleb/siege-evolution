@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_afa0t"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/toy_robot.png" id="2_ec7wj"]
+
+[resource]
+script = ExtResource("1_afa0t")
+id = "toy_robot"
+display_name = "Toy Robot"
+movement = 1
+max_hp = 55
+speed = 0.7
+base_damage = 3
+smash_damage = 8.0
+coin_drop = 3
+texture = ExtResource("2_ec7wj")
+description = "Stomps straight through units."

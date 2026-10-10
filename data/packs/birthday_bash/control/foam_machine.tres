@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3cx1g"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/hot_foam_machine.tres" id="2_on5fc"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/big_foam_machine.tres" id="3_pex04"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/foam_machine.png" id="4_8yer4"]
+
+[resource]
+script = ExtResource("1_3cx1g")
+id = "foam_machine"
+display_name = "Foam Machine"
+role = 1
+cost = 18
+max_hp = 30
+attack_mode = 1
+damage = 1.5
+attack_range = 2.5
+attack_interval = 0.5
+hits_air = true
+slow = 0.5
+slow_duration = 1.0
+evolutions = Array[ExtResource("1_3cx1g")]([ExtResource("2_on5fc"), ExtResource("3_pex04")])
+texture = ExtResource("4_8yer4")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Heavily slows and burns a wide area."

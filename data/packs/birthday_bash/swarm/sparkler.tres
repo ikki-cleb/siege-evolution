@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7ey5w"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/hot_sparkler.tres" id="2_pfk06"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/long_sparkler.tres" id="3_186hl"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/sparkler.png" id="4_v2dgp"]
+
+[resource]
+script = ExtResource("1_7ey5w")
+id = "sparkler"
+display_name = "Sparkler"
+role = 1
+cost = 14
+max_hp = 25
+damage = 4.0
+attack_interval = 0.45
+pierce = true
+adjacency_bonus = 0.15
+evolutions = Array[ExtResource("1_7ey5w")]([ExtResource("2_pfk06"), ExtResource("3_186hl")])
+texture = ExtResource("4_v2dgp")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Armor-piercing melee flurries."

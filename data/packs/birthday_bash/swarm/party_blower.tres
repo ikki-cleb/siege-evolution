@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_514nr"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/loud_blower.tres" id="2_xb0vf"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/long_blower.tres" id="3_fpfie"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/party_blower.png" id="4_xy7uc"]
+
+[resource]
+script = ExtResource("1_514nr")
+id = "party_blower"
+display_name = "Party Blower"
+role = 1
+cost = 8
+damage = 2.3
+attack_interval = 0.45
+adjacency_bonus = 0.15
+evolutions = Array[ExtResource("1_514nr")]([ExtResource("2_xb0vf"), ExtResource("3_fpfie")])
+texture = ExtResource("4_xy7uc")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Fast melee jabs, faster in groups."

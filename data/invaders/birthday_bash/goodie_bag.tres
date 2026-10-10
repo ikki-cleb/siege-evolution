@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_0bq6b"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/gumdrop.tres" id="2_ixvdo"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/goodie_bag.png" id="3_xgewb"]
+
+[resource]
+script = ExtResource("1_0bq6b")
+id = "goodie_bag"
+display_name = "Goodie Bag"
+max_hp = 30
+armor = 2
+speed = 0.9
+base_damage = 2
+coin_drop = 2
+is_elite = true
+split_into = ExtResource("2_ixvdo")
+split_count = 3
+texture = ExtResource("3_xgewb")
+description = "Elite: an armored party bag."

@@ -23,8 +23,9 @@ const WORLDS: Array[Dictionary] = [
 	{"name": "Kitchen Defense", "path": "res://data/biomes/kitchen_defense.tres", "bonus": true,
 		"product": "world_kitchen",
 		"theme": "Ants, slugs, mice and roaches raid the kitchen. Defend the cookie jar."},
-	{"name": "Birthday Bash", "path": "", "bonus": true, "product": "world_birthday",
-		"theme": "Protect the cake at a kid's birthday party."},
+	{"name": "Birthday Bash", "path": "res://data/biomes/birthday_bash.tres", "bonus": true,
+		"product": "world_birthday",
+		"theme": "Wind-up toys, balloons, piñatas and a clown crash the party. Protect the cake."},
 ]
 
 ## What the game scene should play next (set by the menu).

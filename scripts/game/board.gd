@@ -32,6 +32,8 @@ const JUMPER_PATH_COLOR := Color(1, 0.65, 0.2, 0.75)
 const BOMB_SPLASH := 0.5
 ## Goo left by spillers (Kitchen Defense).
 const SPILL_COLOR := Color(0.85, 0.6, 0.2)
+## The flash when a piñata bursts (Birthday Bash).
+const PINATA_COLOR := Color(1.0, 0.45, 0.8)
 
 var grid_size := Vector2i.ZERO
 var rocks := {}  # Vector2i -> true
@@ -47,6 +49,10 @@ var invaders: Array[Invader] = []
 
 ## True while a wave is running. Units only act during waves.
 var wave_active := false
+# Piñata surprises (see start_pinata_seeds).
+var _pinata_seed_base := 0
+var _pinatas_spawned := 0
+var _pinatas_tossed := 0
 
 # Two pathfinding grids. Walkers treat units as walls; smashers only avoid
 # rocks, because they plan to chew straight through any unit in the way.
@@ -357,12 +363,43 @@ func spawn_invader(data: InvaderData, spawn_index: int) -> void:
 	# level has no land spawns.
 	var spawns := sea_spawn_cells if data.naval or spawn_cells.is_empty() else spawn_cells
 	var start := spawns[spawn_index % spawns.size()]
-	_add_invader(data, cell_center(start), route_for(data, start), 0)
+	var invader := _add_invader(data, cell_center(start), route_for(data, start), 0)
+	if not data.pinata_pool.is_empty():
+		# The 1st, 2nd, 3rd... piñata of the wave always gets the same seed.
+		invader.pinata_seed = _pinata_seed_base + _pinatas_spawned
+		_pinatas_spawned += 1
+
+
+## Called at the start of each wave. Piñata surprises come from this seed,
+## so replaying the same level and wave gives the same surprises.
+func start_pinata_seeds(seed_text: String) -> void:
+	_pinata_seed_base = seed_text.hash()
+	_pinatas_spawned = 0
+	_pinatas_tossed = 0
+
+
+## Breaks a piñata open: picks its surprise from its seed.
+func _burst_pinata(pinata: Invader) -> void:
+	var rng := RandomNumberGenerator.new()
+	rng.seed = pinata.pinata_seed
+	var pool := pinata.data.pinata_pool
+	var count := rng.randi_range(pinata.data.pinata_min, pinata.data.pinata_max)
+	fx.add_pulse(pinata.position, TILE * 1.2, PINATA_COLOR)
+	Sfx.play("pinata", 0.1)
+	for i in count:
+		spawn_from(pinata, pool[rng.randi() % pool.size()], 1, pinata.drops_coins)
 
 
 ## Adds invaders at another invader's position, following its route
 ## (used for splitting and for boss minions).
-func spawn_from(parent: Invader, data: InvaderData, count: int, drops_coins := true) -> void:
+## `ahead` > 0 lands them that many tiles further along the parent's route.
+func spawn_from(parent: Invader, data: InvaderData, count: int, drops_coins := true, ahead := 0) -> void:
+	# Where along the parent's route they start.
+	var from_index := parent.path_index
+	var start := parent.position
+	if ahead > 0 and parent.path.size() >= 2 and parent.path_index < parent.path.size():
+		from_index = mini(parent.path_index + ahead, parent.path.size() - 2)
+		start = cell_center(parent.path[from_index])
 	for i in count:
 		# Nudge them apart a little so they don't overlap exactly.
 		var nudge := Vector2(randf_range(-3, 3), randf_range(-3, 3))
@@ -373,14 +410,19 @@ func spawn_from(parent: Invader, data: InvaderData, count: int, drops_coins := t
 			# (or the first spawn if it's over a rock).
 			var below := Vector2i((parent.position / TILE).floor())
 			path = route_for(data, below if _is_open(below) or below == base_cell else spawn_cells[0])
-		elif data.movement == InvaderData.Movement.PATHER and parent.path_index < parent.path.size():
+		elif data.movement == InvaderData.Movement.PATHER and from_index < parent.path.size():
 			# Walkers need their own kind of route, even if the parent was a smasher.
-			path = route_for(data, parent.path[parent.path_index])
+			path = route_for(data, parent.path[from_index])
 		elif data.movement != InvaderData.Movement.FLIER:
 			path = parent.path.duplicate()
-			index = parent.path_index
-		var invader := _add_invader(data, parent.position + nudge, path, index)
+			index = from_index
+		var invader := _add_invader(data, start + nudge, path, index)
 		invader.drops_coins = drops_coins
+		if not data.pinata_pool.is_empty():
+			# Tossed piñatas get their own numbering, so their surprises don't
+			# depend on how they interleave with the wave's own piñatas.
+			invader.pinata_seed = _pinata_seed_base + 100000 + _pinatas_tossed
+			_pinatas_tossed += 1
 
 
 func _add_invader(data: InvaderData, pos: Vector2, path: Array[Vector2i], path_index: int) -> Invader:
@@ -399,6 +441,8 @@ func on_invader_killed(invader: Invader) -> void:
 		coins_dropped.emit(invader.data.coin_drop, to_global(invader.position))
 	if invader.data.split_into:
 		spawn_from(invader, invader.data.split_into, invader.data.split_count)
+	if not invader.data.pinata_pool.is_empty():
+		_burst_pinata(invader)
 	# Spreading poison jumps to everyone nearby when its carrier dies.
 	if invader.poison_time > 0.0 and invader.poison_spreads:
 		for other in invaders:

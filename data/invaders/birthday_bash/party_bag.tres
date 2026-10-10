@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_fhpsh"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/gumdrop.tres" id="2_2874n"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/party_bag.png" id="3_jha4j"]
+
+[resource]
+script = ExtResource("1_fhpsh")
+id = "party_bag"
+display_name = "Party Bag"
+max_hp = 18
+base_damage = 2
+split_into = ExtResource("2_2874n")
+split_count = 3
+texture = ExtResource("3_jha4j")
+description = "Bursts into three gumdrops."

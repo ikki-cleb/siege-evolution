@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_wgwla"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/gumdrop.png" id="2_6cc3m"]
+
+[resource]
+script = ExtResource("1_wgwla")
+id = "gumdrop"
+display_name = "Gumdrop"
+max_hp = 5
+speed = 1.5
+texture = ExtResource("2_6cc3m")

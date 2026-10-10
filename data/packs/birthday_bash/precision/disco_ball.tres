@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cynpg"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bright_disco_ball.tres" id="2_rmt6k"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/tall_disco_ball.tres" id="3_r8hcd"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/disco_ball.png" id="4_3a0e8"]
+
+[resource]
+script = ExtResource("1_cynpg")
+id = "disco_ball"
+display_name = "Disco Ball"
+role = 2
+cost = 14
+max_hp = 35
+attack_mode = 1
+attack_range = 2.5
+hits_air = true
+mark_bonus = 0.25
+mark_duration = 1.5
+evolutions = Array[ExtResource("1_cynpg")]([ExtResource("2_rmt6k"), ExtResource("3_r8hcd")])
+texture = ExtResource("4_3a0e8")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Marks everything around it for +25% damage."

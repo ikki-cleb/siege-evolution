@@ -15,7 +15,8 @@ extends SceneTree
 const CONTENT_DIR := "res://tools/content/"
 ## Build order matters: worlds that borrow packs come after their source.
 const WORLD_FILES: Array[String] = ["immune_system.json", "backyard_bugs.json", "wild_kingdom.json",
-	"total_war.json", "galactic_siege.json", "kitchen_defense.json"]
+	"total_war.json", "galactic_siege.json", "kitchen_defense.json",
+	"birthday_bash.json"]
 
 var invaders := {}
 var _content_by_id := {}
@@ -257,6 +258,12 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 		invader.minion = invaders[row.minion]
 		invader.minion_count = int(row.minion_count)
 		invader.minion_interval = row.minion_interval
+		invader.minion_throw = int(row.get("minion_throw", 0))
+	if row.has("pinata_pool"):
+		for id in row.pinata_pool:
+			invader.pinata_pool.append(invaders[id])
+		invader.pinata_min = int(row.pinata_min)
+		invader.pinata_max = int(row.pinata_max)
 	invader.description = row.get("desc", "")
 	invader.texture = load("res://art/invaders/%s/%s.png" % [biome_id, row.id])
 	invaders[row.id] = _save(invader, "res://data/invaders/%s/%s.tres" % [biome_id, row.id])

@@ -137,7 +137,7 @@ func show_end_screen(won: bool) -> void:
 		return
 	if won and game.is_last_level() and _progress().is_bonus_biome(biome.id):
 		_show_celebration("%s cleared!" % biome.display_name, "You beat a post-game bonus world.",
-			"That took real skill. The %s is safe... for now." % ("cookie jar" if biome.id == "kitchen_defense" else "party"),
+			"That took real skill. The %s is safe... for now." % ("cookie jar" if biome.id == "kitchen_defense" else "birthday cake"),
 			biome.display_name)
 		return
 	Sfx.play("win" if won else "lose")
