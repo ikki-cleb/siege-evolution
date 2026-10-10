@@ -85,6 +85,8 @@ func _test_balance(biome: BiomeData) -> void:
 		header += "%11s" % pack.display_name
 	print(header)
 	var pack_wins := {}
+	var runs_won := 0
+	var runs := 0
 	for level_index in biome.levels.size():
 		var row := "%-22s" % biome.levels[level_index].display_name
 		for pack_index in biome.packs.size():
@@ -94,8 +96,10 @@ func _test_balance(biome: BiomeData) -> void:
 			for seed_value in [7, 99]:
 				var game := await _start(biome, pack_index, level_index)
 				await _play(game, AutoPlayer.new(game, seed_value + level_index))
+				runs += 1
 				if game.phase == game.Phase.WON:
 					wins += 1
+					runs_won += 1
 					results.append(str(game.base_hp))
 				else:
 					results.append("L%d" % game.wave_number)
@@ -111,10 +115,14 @@ func _test_balance(biome: BiomeData) -> void:
 		_check(game.phase == game.Phase.LOST, "%s is lost with no defenses (wave %d)" % [
 			biome.levels[level_index].display_name, game.wave_number])
 		await _stop(game)
+	# Bonus worlds are post-game hard: the bot should win about 70% of runs,
+	# and every pack should still beat 5 of 7 levels (6 of 7 in main worlds).
+	print("Bot won %d of %d runs (%d%%)" % [runs_won, runs, roundi(100.0 * runs_won / runs)])
+	var needed := biome.levels.size() - (2 if progress.is_bonus_biome(biome.id) else 1)
 	for pack_index in biome.packs.size():
-		_check(pack_wins.get(pack_index, 0) >= biome.levels.size() - 1,
+		_check(pack_wins.get(pack_index, 0) >= needed,
 			"%s pack beats at least %d of %d levels" % [biome.packs[pack_index].display_name,
-			biome.levels.size() - 1, biome.levels.size()])
+			needed, biome.levels.size()])
 
 
 # --- Burrowing --------------------------------------------------------------

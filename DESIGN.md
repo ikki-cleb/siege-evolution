@@ -41,7 +41,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
   layouts, nastier wave mixes and less starting ATP (invader stats stay
   comparable to the main worlds). The store card warns about this before
   purchase. Each bonus world adds its own new invader type.
-  - **Kitchen Defense** (built first, see its section below).
+  - **Kitchen Defense**: built (see its section below).
 - **Each world has its own invader roster.** All behavior types appear in
   that world's level 1, and levels 2–7 add **elite variants** of them.
 - **Starter pack:** picked when entering a world and kept for all 7 levels.
@@ -260,7 +260,7 @@ hit it, and every pack has at least one.
 | UFO Bomber | Bomber |
 | **Mothership** | Flying boss: repeated bombs, drops blinkers |
 
-## Bonus World: Kitchen Defense (post-game)
+## Bonus World: Kitchen Defense (post-game, built)
 
 Pantry-pest scale: ants, cockroaches, mice and flies raid the kitchen; you
 defend the **cookie jar**. Levels rotate three areas with their own tiles and
@@ -275,10 +275,13 @@ Difficulty comes from mechanics, tighter layouts, nastier wave mixes and less
 starting ATP, not inflated invader stats. Target: the auto-player wins about
 70% of level/pack runs, and every pack beats at least 5 of 7 levels.
 
-**New behavior: spillers.** Every few tiles a spiller splashes the units
-right beside its route. A sticky unit attacks 40% slower until the free
-repair after the wave. Long mazes lined with attackers get gummed up, so
-players must choose where to fight.
+**New behavior: spillers.** Every 2 tiles it walks, a spiller splashes goo
+on the units on the 8 tiles around it. A sticky unit attacks 40% slower
+(60% of its normal attack speed) until the free repair after the wave; goo
+doesn't stack. Long mazes lined with attackers get gummed up, so players
+must choose where to fight. The counter: ranged attackers two tiles back
+from the route stay clean, and walls don't care. Sticky units show goo
+drips (`spill_every` / `spill_slow` in the world JSON).
 
 Returning behaviors: walker swarms, splitters, smashers and fliers.
 
@@ -291,6 +294,10 @@ Returning behaviors: walker swarms, splitters, smashers and fliers.
 | Cockroach / Giant Roach (elite) | Smasher |
 | Fruit Fly / Housefly (elite) | Flier |
 | **Rat King** | Boss smasher (level 7): sheds rats, leaves a grease trail |
+
+Levels: 1 Pantry Raid, 2 Counter Top, 3 Under the Table, 4 Top Shelf,
+5 Sink Side, 6 Crumb Trail, 7 Rat King's Feast. Pantry tiles are the
+default; levels set `"tiles": "counter"` or `"floor"`.
 
 Beating the Rat King shows a **world-cleared screen** (confetti,
 "Kitchen Defense cleared!", and a nudge toward Birthday Bash if not owned).

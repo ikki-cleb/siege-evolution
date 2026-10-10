@@ -44,7 +44,8 @@ them; they upload it themselves.
 `godot` plus the web export templates in cloud sessions. Commands:
 - Rebuild content after editing `tools/content/*.json`: `godot --headless --script tools/build_content.gd`
 - Rules tests (about 1 minute): `godot --headless --fixed-fps 60 --script tests/sim_test.gd -- rules`
-- Balance for one world (about 10 minutes; run in the background): `... tests/sim_test.gd -- world=4` (0-based)
+- Balance for one world (about 10 minutes; run in the background): `... tests/sim_test.gd -- world=4` (0-based; 5 = Kitchen Defense)
+- After adding new PNGs, run `godot --headless --import` before the content build, or it can't load them
 - Full suite, all worlds (about 50 minutes): `... tests/sim_test.gd`
 - Replay one level with layouts and leaks: `... tests/debug_level.gd -- <world> <pack> <level> [seed]`
 - Placeholder art and audio: `python3 tools/make_placeholder_art.py --only-missing`, `python3 tools/make_audio.py --only-missing`
