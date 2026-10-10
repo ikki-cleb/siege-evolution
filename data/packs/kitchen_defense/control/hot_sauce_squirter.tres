@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_f0kec"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/hot_sauce_squirter.png" id="2_f87m2"]
+
+[resource]
+script = ExtResource("1_f0kec")
+id = "hot_sauce_squirter"
+display_name = "Hot Sauce Squirter"
+role = 1
+cost = 12
+max_hp = 15
+damage = 6.0
+attack_range = 3.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+texture = ExtResource("2_f87m2")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "More damage."

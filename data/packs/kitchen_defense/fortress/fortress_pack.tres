@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_vgwrr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_j2ml5"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/tin_can.tres" id="3_duafx"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/rolling_pin.tres" id="4_tbcoc"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/cork_popper.tres" id="5_8wwy1"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sponge.tres" id="6_01aow"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/pressure_cooker.tres" id="7_8730j"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/cast_iron_pan.tres" id="8_meuem"]
+
+[resource]
+script = ExtResource("1_vgwrr")
+id = "fortress"
+display_name = "Fortress"
+description = "Massive walls and slow, heavy hitters. Holds the line and outlasts smashers."
+color = Color(0.81960785, 0.3764706, 0.23921569, 1)
+units = Array[ExtResource("2_j2ml5")]([ExtResource("3_duafx"), ExtResource("4_tbcoc"), ExtResource("5_8wwy1"), ExtResource("6_01aow"), ExtResource("7_8730j"), ExtResource("8_meuem")])

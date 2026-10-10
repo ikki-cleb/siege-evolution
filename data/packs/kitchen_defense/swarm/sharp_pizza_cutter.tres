@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_04h00"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sharp_pizza_cutter.png" id="2_wmcd4"]
+
+[resource]
+script = ExtResource("1_04h00")
+id = "sharp_pizza_cutter"
+display_name = "Sharp Pizza Cutter"
+role = 1
+cost = 12
+max_hp = 25
+damage = 7.0
+attack_interval = 0.45
+pierce = true
+adjacency_bonus = 0.15
+texture = ExtResource("2_wmcd4")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "More damage."

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_olj1t"]
+[ext_resource type="Resource" path="res://data/invaders/kitchen_defense/mouse.tres" id="2_nynbs"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/mouse_nest.png" id="3_ydycp"]
+
+[resource]
+script = ExtResource("1_olj1t")
+id = "mouse_nest"
+display_name = "Mouse Nest"
+max_hp = 18
+base_damage = 2
+split_into = ExtResource("2_nynbs")
+split_count = 3
+texture = ExtResource("3_ydycp")
+description = "Bursts into three mice."

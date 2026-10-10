@@ -109,6 +109,8 @@ func _world_card(index: int) -> void:
 	var unlocked := Progress.is_biome_unlocked(index)
 	if Progress.is_bonus(index) and not unlocked:
 		var product: String = world.product
+		# Warn before buying here too, not just in the Store.
+		_warning(Store.product(product), card)
 		_button("Unlock for %s" % Store.price(product), Store.buy.bind(product), card)
 		return
 	if not Progress.has_content(index):
@@ -211,6 +213,7 @@ func _show_store() -> void:
 		var is_bundle: bool = item.id == Store.BUNDLE_ALL
 		var card := _card(Color(0.3, 0.22, 0.08) if is_bundle else CARD_COLOR)
 		_label(item.name, 18, GOLD if is_bundle else Color.WHITE, HORIZONTAL_ALIGNMENT_LEFT, card)
+		_warning(item, card)
 		_label(item.description, 12, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
 		if Store.owns(item.id):
 			_label("Owned", 14, Color(0.5, 1, 0.6), HORIZONTAL_ALIGNMENT_LEFT, card)
@@ -226,6 +229,15 @@ func _show_store() -> void:
 
 
 # --- Building blocks --------------------------------------------------------
+
+## A red "POST-GAME: HARD" tag plus one line, for store items that have a
+## "warning" (the bonus worlds). Does nothing for other items.
+func _warning(item: Dictionary, card: Control) -> void:
+	if not item.has("warning"):
+		return
+	_label(item.warning, 13, Palette.WARNING, HORIZONTAL_ALIGNMENT_LEFT, card)
+	_label(item.warning_detail, 12, Palette.WARNING.lightened(0.35), HORIZONTAL_ALIGNMENT_LEFT, card)
+
 
 func _clear() -> void:
 	for child in _content.get_children():

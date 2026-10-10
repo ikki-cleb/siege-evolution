@@ -127,9 +127,15 @@ func spawn_orb(from: Vector2, amount: int) -> void:
 
 
 func show_end_screen(won: bool) -> void:
-	var final_victory: bool = won and game.is_last_level() and _progress().biome.id == FINAL_WORLD
-	if final_victory:
-		_show_final_victory()
+	var biome: BiomeData = _progress().biome
+	if won and game.is_last_level() and biome.id == FINAL_WORLD:
+		_show_celebration("VICTORY!", "The Mothership is down and the galaxy is safe.",
+			"From a single cell to the stars, you defended every scale. Congratulations, Commander!")
+		return
+	if won and game.is_last_level() and _progress().is_bonus_biome(biome.id):
+		_show_celebration("%s cleared!" % biome.display_name, "You beat a post-game bonus world.",
+			"That took real skill. The %s is safe... for now." % ("cookie jar" if biome.id == "kitchen_defense" else "party"),
+			biome.display_name)
 		return
 	Sfx.play("win" if won else "lose")
 	var dim := ColorRect.new()
@@ -177,9 +183,11 @@ func show_end_screen(won: bool) -> void:
 			button.custom_minimum_size = Vector2(200, 48)
 
 
-## The big finish after beating the Mothership, with a nudge toward the bonus
-## worlds the player doesn't own yet.
-func _show_final_victory() -> void:
+## A big celebration with confetti: after the Mothership (the end of the main
+## game) or a bonus world's boss. It nudges toward the bonus worlds the player
+## doesn't own yet, except `this_world` (the one just beaten).
+func _show_celebration(title_text: String, subtitle_text: String, detail_text: String,
+		this_world := "") -> void:
 	Sfx.play("victory", 0.0)
 	var dim := ColorRect.new()
 	dim.color = Color(Palette.BG, 0.0)
@@ -195,16 +203,16 @@ func _show_final_victory() -> void:
 	box.add_theme_constant_override("separation", 14)
 	dim.add_child(box)
 
-	var title := _end_label("VICTORY!", 40, Palette.GOLD)
-	var subtitle := _end_label("The Mothership is down and the galaxy is safe.", 16, Palette.TEXT)
-	var detail := _end_label("From a single cell to the stars, you defended every scale. Congratulations, Commander!", 13, Palette.TEXT_DIM)
+	var title := _end_label(title_text, 40 if title_text.length() < 12 else 28, Palette.GOLD)
+	var subtitle := _end_label(subtitle_text, 16, Palette.TEXT)
+	var detail := _end_label(detail_text, 13, Palette.TEXT_DIM)
 	for label in [title, subtitle, detail]:
 		box.add_child(label)
 
 	var missing: Array[String] = []
 	for index in _progress().WORLDS.size():
 		var world: Dictionary = _progress().WORLDS[index]
-		if _progress().is_bonus(index) and not _store().owns(world.product):
+		if _progress().is_bonus(index) and not _store().owns(world.product) and world.name != this_world:
 			missing.append(world.name)
 	if not missing.is_empty():
 		var pitch := PanelContainer.new()
@@ -214,7 +222,8 @@ func _show_final_victory() -> void:
 		inner.add_theme_constant_override("separation", 8)
 		pitch.add_child(inner)
 		inner.add_child(_end_label("Ready for more?", 18, Palette.GOLD))
-		inner.add_child(_end_label("Bonus worlds: %s. Brand-new places to defend." % " and ".join(missing), 13, Palette.TEXT))
+		var noun := "Bonus world" if missing.size() == 1 else "Bonus worlds"
+		inner.add_child(_end_label("%s: %s. Brand-new places to defend." % [noun, " and ".join(missing)], 13, Palette.TEXT))
 		var store := _make_button("See bonus worlds", game.open_store)
 		store.custom_minimum_size.y = 48
 		inner.add_child(store)

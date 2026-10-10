@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_64ar4"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/seasoned_pan.png" id="2_hfhh5"]
+
+[resource]
+script = ExtResource("1_64ar4")
+id = "seasoned_pan"
+display_name = "Seasoned Pan"
+cost = 16
+max_hp = 480
+attack_mode = 1
+damage = 3.0
+texture = ExtResource("2_hfhh5")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Nearly unbreakable."

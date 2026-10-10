@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kjsus"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/dense_sponge.tres" id="2_h74n5"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/soaked_sponge.tres" id="3_j2gyy"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/sponge.png" id="4_xqmdr"]
+
+[resource]
+script = ExtResource("1_kjsus")
+id = "sponge"
+display_name = "Sponge"
+cost = 10
+max_hp = 70
+regen = 6.0
+evolutions = Array[ExtResource("1_kjsus")]([ExtResource("2_h74n5"), ExtResource("3_j2gyy")])
+texture = ExtResource("4_xqmdr")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Wall that heals itself when not under attack."

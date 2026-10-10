@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_goq6o"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/rat_trap.tres" id="2_qjk0h"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/swatter_trap.tres" id="3_aueyh"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/mousetrap.png" id="4_487r8"]
+
+[resource]
+script = ExtResource("1_goq6o")
+id = "mousetrap"
+display_name = "Mousetrap"
+role = 1
+cost = 18
+max_hp = 25
+damage = 12.0
+attack_range = 2.5
+attack_interval = 1.6
+pierce = true
+evolutions = Array[ExtResource("1_goq6o")]([ExtResource("2_qjk0h"), ExtResource("3_aueyh")])
+texture = ExtResource("4_487r8")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Armor-piercing strikes. Ground only."

@@ -30,6 +30,8 @@ const FLIER_PATH_COLOR := Color(0.5, 0.85, 1, 0.7)
 const JUMPER_PATH_COLOR := Color(1, 0.65, 0.2, 0.75)
 ## A bomb's full damage hits its target; the 8 tiles around take this share.
 const BOMB_SPLASH := 0.5
+## Goo left by spillers (Kitchen Defense).
+const SPILL_COLOR := Color(0.85, 0.6, 0.2)
 
 var grid_size := Vector2i.ZERO
 var rocks := {}  # Vector2i -> true
@@ -417,6 +419,21 @@ func bomb(cell: Vector2i, damage: float) -> void:
 			var unit := intact_unit_at(cell + Vector2i(dx, dy))
 			if unit:
 				unit.take_damage(damage if dx == 0 and dy == 0 else damage * BOMB_SPLASH)
+
+
+## A spiller's goo: every unit on the 8 tiles around `cell` gets sticky and
+## attacks slower until the units are repaired after the wave.
+func spill(cell: Vector2i, slow: float) -> void:
+	fx.add_puff(cell_center(cell), SPILL_COLOR)
+	var hit_any := false
+	for dy in [-1, 0, 1]:
+		for dx in [-1, 0, 1]:
+			var unit := intact_unit_at(cell + Vector2i(dx, dy))
+			if unit:
+				unit.make_sticky(slow)
+				hit_any = true
+	if hit_any:
+		Sfx.play("spill", 0.15)
 
 
 func on_invader_reached_base(invader: Invader) -> void:

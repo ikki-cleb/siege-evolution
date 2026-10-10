@@ -1,0 +1,1011 @@
+{
+  "biome": {
+    "id": "kitchen_defense",
+    "name": "Kitchen Defense",
+    "description": "Bonus world (post-game). Ants, slugs, mice and roaches raid the kitchen. Defend the cookie jar."
+  },
+  "packs_from": "immune_system",
+  "renames": {
+    "platelet_clot": [
+      "tin_can",
+      "Tin Can"
+    ],
+    "fibrin_mesh": [
+      "stacked_cans",
+      "Stacked Cans"
+    ],
+    "thrombus_spike": [
+      "jagged_can",
+      "Jagged Can"
+    ],
+    "macrophage": [
+      "rolling_pin",
+      "Rolling Pin"
+    ],
+    "giant_macrophage": [
+      "marble_rolling_pin",
+      "Marble Rolling Pin"
+    ],
+    "foam_macrophage": [
+      "wide_rolling_pin",
+      "Wide Rolling Pin"
+    ],
+    "dendritic_cell": [
+      "cork_popper",
+      "Cork Popper"
+    ],
+    "mature_dendrite": [
+      "champagne_popper",
+      "Champagne Popper"
+    ],
+    "roaming_dendrite": [
+      "long_cork_popper",
+      "Long Cork Popper"
+    ],
+    "fibroblast": [
+      "sponge",
+      "Sponge"
+    ],
+    "scar_fibroblast": [
+      "dense_sponge",
+      "Dense Sponge"
+    ],
+    "healing_fibroblast": [
+      "soaked_sponge",
+      "Soaked Sponge"
+    ],
+    "eosinophil": [
+      "pressure_cooker",
+      "Pressure Cooker"
+    ],
+    "eosinophil_burst": [
+      "big_pressure_cooker",
+      "Big Pressure Cooker"
+    ],
+    "eosinophil_lancer": [
+      "steam_jet_cooker",
+      "Steam Jet Cooker"
+    ],
+    "granuloma": [
+      "cast_iron_pan",
+      "Cast-Iron Pan"
+    ],
+    "calcified_granuloma": [
+      "seasoned_pan",
+      "Seasoned Pan"
+    ],
+    "caseous_granuloma": [
+      "spiked_grill_pan",
+      "Spiked Grill Pan"
+    ],
+    "epithelial_cell": [
+      "sugar_cube",
+      "Sugar Cube"
+    ],
+    "keratinized_cell": [
+      "sugar_lump",
+      "Sugar Lump"
+    ],
+    "ciliated_cell": [
+      "rock_candy",
+      "Rock Candy"
+    ],
+    "neutrophil": [
+      "fork",
+      "Fork"
+    ],
+    "frenzied_neutrophil": [
+      "sharp_fork",
+      "Sharp Fork"
+    ],
+    "scout_neutrophil": [
+      "long_fork",
+      "Long Fork"
+    ],
+    "monocyte": [
+      "spray_bottle",
+      "Spray Bottle"
+    ],
+    "volley_monocyte": [
+      "twin_spray",
+      "Twin Spray"
+    ],
+    "lookout_monocyte": [
+      "jet_spray",
+      "Jet Spray"
+    ],
+    "basophil": [
+      "egg_beater",
+      "Egg Beater"
+    ],
+    "degranulating_basophil": [
+      "power_beater",
+      "Power Beater"
+    ],
+    "wide_basophil": [
+      "wide_whisk",
+      "Wide Whisk"
+    ],
+    "nk_cell": [
+      "pizza_cutter",
+      "Pizza Cutter"
+    ],
+    "killer_nk_cell": [
+      "sharp_pizza_cutter",
+      "Sharp Pizza Cutter"
+    ],
+    "hunting_nk_cell": [
+      "rolling_pizza_cutter",
+      "Rolling Pizza Cutter"
+    ],
+    "net_trap": [
+      "cling_wrap",
+      "Cling Wrap"
+    ],
+    "dense_net": [
+      "double_wrap",
+      "Double Wrap"
+    ],
+    "wide_net": [
+      "wide_wrap",
+      "Wide Wrap"
+    ],
+    "keratin_plate": [
+      "cutting_board",
+      "Cutting Board"
+    ],
+    "layered_plate": [
+      "butcher_block",
+      "Butcher Block"
+    ],
+    "spined_plate": [
+      "cheese_grater",
+      "Cheese Grater"
+    ],
+    "b_cell": [
+      "pepper_grinder",
+      "Pepper Grinder"
+    ],
+    "plasma_cell": [
+      "ghost_pepper_grinder",
+      "Ghost Pepper Grinder"
+    ],
+    "memory_b_cell": [
+      "tall_pepper_grinder",
+      "Tall Pepper Grinder"
+    ],
+    "antibody_tagger": [
+      "flour_sifter",
+      "Flour Sifter"
+    ],
+    "opsonizer": [
+      "heavy_sifter",
+      "Heavy Sifter"
+    ],
+    "long_tagger": [
+      "long_sifter",
+      "Long Sifter"
+    ],
+    "cytotoxic_t": [
+      "mousetrap",
+      "Mousetrap"
+    ],
+    "effector_t": [
+      "rat_trap",
+      "Rat Trap"
+    ],
+    "patrol_t": [
+      "swatter_trap",
+      "Swatter Trap"
+    ],
+    "opsonin_lance": [
+      "toaster",
+      "Toaster"
+    ],
+    "heavy_lance": [
+      "four_slice_toaster",
+      "Four-Slice Toaster"
+    ],
+    "rapid_lance": [
+      "turbo_toaster",
+      "Turbo Toaster"
+    ],
+    "interferon_beacon": [
+      "kitchen_lamp",
+      "Kitchen Lamp"
+    ],
+    "alarm_beacon": [
+      "bright_lamp",
+      "Bright Lamp"
+    ],
+    "tall_beacon": [
+      "tall_lamp",
+      "Tall Lamp"
+    ],
+    "mucus_wall": [
+      "flypaper",
+      "Flypaper"
+    ],
+    "thick_mucus": [
+      "thick_flypaper",
+      "Thick Flypaper"
+    ],
+    "sticky_mucus": [
+      "extra_sticky_flypaper",
+      "Extra-Sticky Flypaper"
+    ],
+    "mast_cell": [
+      "ice_tray",
+      "Ice Tray"
+    ],
+    "reactive_mast_cell": [
+      "frosty_ice_tray",
+      "Frosty Ice Tray"
+    ],
+    "spreading_mast_cell": [
+      "wide_ice_tray",
+      "Wide Ice Tray"
+    ],
+    "histamine_spitter": [
+      "ketchup_squirter",
+      "Ketchup Squirter"
+    ],
+    "acid_spitter": [
+      "hot_sauce_squirter",
+      "Hot Sauce Squirter"
+    ],
+    "far_spitter": [
+      "long_squirter",
+      "Long Squirter"
+    ],
+    "fever_node": [
+      "stove_burner",
+      "Stove Burner"
+    ],
+    "high_fever": [
+      "high_flame_burner",
+      "High Flame Burner"
+    ],
+    "wide_fever": [
+      "wide_burner",
+      "Wide Burner"
+    ],
+    "cytokine_storm": [
+      "bug_zapper",
+      "Bug Zapper"
+    ],
+    "paralyzing_storm": [
+      "mega_zapper",
+      "Mega Zapper"
+    ],
+    "rolling_storm": [
+      "chain_zapper",
+      "Chain Zapper"
+    ],
+    "inflammation_zone": [
+      "hot_griddle",
+      "Hot Griddle"
+    ],
+    "searing_zone": [
+      "searing_griddle",
+      "Searing Griddle"
+    ],
+    "swollen_zone": [
+      "big_griddle",
+      "Big Griddle"
+    ],
+    "toxic_membrane": [
+      "soap_bar",
+      "Soap Bar"
+    ],
+    "thick_membrane": [
+      "big_soap_bar",
+      "Big Soap Bar"
+    ],
+    "venom_membrane": [
+      "lye_soap",
+      "Lye Soap"
+    ],
+    "killer_t": [
+      "bug_spray",
+      "Bug Spray"
+    ],
+    "venomous_t": [
+      "extra_strength_spray",
+      "Extra-Strength Spray"
+    ],
+    "reaching_t": [
+      "long_spray",
+      "Long Spray"
+    ],
+    "complement_sprayer": [
+      "pest_mister",
+      "Pest Mister"
+    ],
+    "caustic_sprayer": [
+      "caustic_mister",
+      "Caustic Mister"
+    ],
+    "misting_sprayer": [
+      "fine_mister",
+      "Fine Mister"
+    ],
+    "lysozyme_pool": [
+      "vinegar_bowl",
+      "Vinegar Bowl"
+    ],
+    "acid_pool": [
+      "pickling_bowl",
+      "Pickling Bowl"
+    ],
+    "spilling_pool": [
+      "overflowing_bowl",
+      "Overflowing Bowl"
+    ],
+    "perforin_lancer": [
+      "ant_bait_station",
+      "Ant Bait Station"
+    ],
+    "plague_lancer": [
+      "super_bait_station",
+      "Super Bait Station"
+    ],
+    "long_lancer": [
+      "long_bait_station",
+      "Long Bait Station"
+    ],
+    "necrosis_bloom": [
+      "moldy_bread",
+      "Moldy Bread"
+    ],
+    "hardened_bloom": [
+      "stale_moldy_bread",
+      "Stale Moldy Bread"
+    ],
+    "virulent_bloom": [
+      "fuzzy_mold_loaf",
+      "Fuzzy Mold Loaf"
+    ]
+  },
+  "art_style": "kitchen",
+  "invaders": [
+    {
+      "id": "mouse",
+      "name": "Mouse",
+      "movement": "pather",
+      "hp": 5,
+      "speed": 1.6,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "mouse"
+    },
+    {
+      "id": "rat",
+      "name": "Rat",
+      "movement": "pather",
+      "hp": 10,
+      "speed": 1.4,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "rat"
+    },
+    {
+      "id": "sugar_ant",
+      "name": "Sugar Ant",
+      "movement": "pather",
+      "hp": 8,
+      "speed": 1.6,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "sugar_ant",
+      "desc": "Marches in swarms."
+    },
+    {
+      "id": "fire_ant",
+      "name": "Fire Ant",
+      "movement": "pather",
+      "hp": 15,
+      "armor": 1,
+      "speed": 1.9,
+      "base_damage": 1,
+      "elite": true,
+      "drop": 2,
+      "art": "fire_ant",
+      "desc": "Elite: fast and armored."
+    },
+    {
+      "id": "slug",
+      "name": "Slug",
+      "movement": "pather",
+      "hp": 30,
+      "speed": 0.6,
+      "base_damage": 2,
+      "spill_every": 2,
+      "spill_slow": 0.4,
+      "drop": 2,
+      "art": "slug",
+      "desc": "Spiller: slimes the units beside its route. Sticky units attack 40% slower until the wave ends."
+    },
+    {
+      "id": "honey_ant",
+      "name": "Honey Ant",
+      "movement": "pather",
+      "hp": 26,
+      "armor": 1,
+      "speed": 1.0,
+      "base_damage": 2,
+      "spill_every": 2,
+      "spill_slow": 0.4,
+      "elite": true,
+      "drop": 3,
+      "art": "honey_ant",
+      "desc": "Elite spiller: faster and armored, drips honey on units beside its route."
+    },
+    {
+      "id": "mouse_nest",
+      "name": "Mouse Nest",
+      "movement": "pather",
+      "hp": 18,
+      "speed": 1.0,
+      "base_damage": 2,
+      "split_into": "mouse",
+      "split_count": 3,
+      "drop": 1,
+      "art": "mouse_nest",
+      "desc": "Bursts into three mice."
+    },
+    {
+      "id": "rat_nest",
+      "name": "Rat Nest",
+      "movement": "pather",
+      "hp": 30,
+      "armor": 2,
+      "speed": 0.9,
+      "base_damage": 2,
+      "split_into": "mouse",
+      "split_count": 3,
+      "elite": true,
+      "drop": 2,
+      "art": "rat_nest",
+      "desc": "Elite: an armored nest."
+    },
+    {
+      "id": "cockroach",
+      "name": "Cockroach",
+      "movement": "smasher",
+      "hp": 55,
+      "speed": 0.7,
+      "base_damage": 3,
+      "smash": 8,
+      "drop": 3,
+      "art": "cockroach",
+      "desc": "Chews straight through units."
+    },
+    {
+      "id": "giant_roach",
+      "name": "Giant Roach",
+      "movement": "smasher",
+      "hp": 90,
+      "armor": 2,
+      "speed": 0.65,
+      "base_damage": 4,
+      "smash": 11,
+      "elite": true,
+      "drop": 4,
+      "art": "giant_roach",
+      "desc": "Elite: heavily armored."
+    },
+    {
+      "id": "fruit_fly",
+      "name": "Fruit Fly",
+      "movement": "flier",
+      "hp": 9,
+      "speed": 1.3,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "fruit_fly",
+      "desc": "Flies straight over everything."
+    },
+    {
+      "id": "housefly",
+      "name": "Housefly",
+      "movement": "flier",
+      "hp": 20,
+      "armor": 1,
+      "speed": 1.6,
+      "base_damage": 2,
+      "elite": true,
+      "drop": 2,
+      "art": "housefly",
+      "desc": "Elite: a fast armored flier."
+    },
+    {
+      "id": "rat_king",
+      "name": "Rat King",
+      "movement": "smasher",
+      "hp": 800,
+      "armor": 1,
+      "speed": 0.4,
+      "base_damage": 10,
+      "smash": 18,
+      "spill_every": 2,
+      "spill_slow": 0.4,
+      "boss": true,
+      "minion": "rat",
+      "minion_count": 1,
+      "minion_interval": 4.0,
+      "drop": 20,
+      "art": "rat_king",
+      "desc": "Boss: chews through anything, leaves a greasy trail, and sheds rats."
+    }
+  ],
+  "waves": {
+    "threat": {
+      "sugar_ant": 1.3,
+      "fire_ant": 2.3,
+      "mouse_nest": 3.4,
+      "rat_nest": 5.6,
+      "slug": 3.4,
+      "honey_ant": 5.4,
+      "cockroach": 6.5,
+      "giant_roach": 10.5,
+      "fruit_fly": 1.7,
+      "housefly": 4.0
+    },
+    "categories": {
+      "swarm": {
+        "normal": "sugar_ant",
+        "elite": "fire_ant",
+        "elite_level": 2
+      },
+      "split": {
+        "normal": "mouse_nest",
+        "elite": "rat_nest",
+        "elite_level": 3
+      },
+      "spill": {
+        "normal": "slug",
+        "elite": "honey_ant",
+        "elite_level": 4
+      },
+      "smash": {
+        "normal": "cockroach",
+        "elite": "giant_roach",
+        "elite_level": 5
+      },
+      "fly": {
+        "normal": "fruit_fly",
+        "elite": "housefly",
+        "elite_level": 6
+      }
+    },
+    "mix": [
+      {
+        "swarm": 0.6,
+        "spill": 0.4
+      },
+      {
+        "swarm": 0.5,
+        "split": 0.5
+      },
+      {
+        "spill": 0.5,
+        "fly": 0.5
+      },
+      {
+        "swarm": 0.3,
+        "smash": 0.4,
+        "spill": 0.3
+      },
+      {
+        "split": 0.4,
+        "spill": 0.6
+      },
+      {
+        "smash": 0.5,
+        "fly": 0.5
+      },
+      {
+        "swarm": 0.4,
+        "spill": 0.3,
+        "fly": 0.3
+      },
+      {
+        "smash": 0.3,
+        "split": 0.3,
+        "spill": 0.4
+      },
+      {
+        "swarm": 0.4,
+        "spill": 0.6
+      },
+      {
+        "swarm": 0.2,
+        "split": 0.2,
+        "smash": 0.2,
+        "spill": 0.25,
+        "fly": 0.15
+      }
+    ],
+    "growth_per_wave": 0.32
+  },
+  "tutorial": {
+    "waves": [
+      [
+        [
+          "sugar_ant",
+          8,
+          1.1,
+          0
+        ]
+      ],
+      [
+        [
+          "sugar_ant",
+          8,
+          0.9,
+          0
+        ],
+        [
+          "slug",
+          2,
+          3.0,
+          3
+        ]
+      ],
+      [
+        [
+          "slug",
+          4,
+          2.5,
+          0
+        ],
+        [
+          "sugar_ant",
+          6,
+          1.0,
+          3
+        ]
+      ],
+      [
+        [
+          "mouse_nest",
+          4,
+          2.2,
+          0
+        ],
+        [
+          "sugar_ant",
+          6,
+          1.0,
+          3
+        ]
+      ],
+      [
+        [
+          "cockroach",
+          2,
+          6.0,
+          0
+        ],
+        [
+          "sugar_ant",
+          6,
+          1.0,
+          2
+        ]
+      ],
+      [
+        [
+          "fruit_fly",
+          7,
+          1.3,
+          0
+        ],
+        [
+          "slug",
+          2,
+          3.0,
+          2
+        ]
+      ],
+      [
+        [
+          "slug",
+          4,
+          2.2,
+          0
+        ],
+        [
+          "mouse_nest",
+          3,
+          2.2,
+          3
+        ]
+      ],
+      [
+        [
+          "cockroach",
+          2,
+          5.0,
+          0
+        ],
+        [
+          "fruit_fly",
+          6,
+          1.2,
+          3
+        ]
+      ],
+      [
+        [
+          "sugar_ant",
+          18,
+          0.45,
+          0
+        ],
+        [
+          "slug",
+          3,
+          2.5,
+          4
+        ]
+      ],
+      [
+        [
+          "cockroach",
+          3,
+          4.0,
+          0
+        ],
+        [
+          "mouse_nest",
+          4,
+          1.8,
+          2
+        ],
+        [
+          "slug",
+          4,
+          2.0,
+          5
+        ],
+        [
+          "fruit_fly",
+          5,
+          1.2,
+          8
+        ]
+      ]
+    ],
+    "tips": [
+      "Bonus world! This kitchen is post-game: tighter maps and nastier waves. Sugar ants march around your units; every kill drops ATP.",
+      "NEW: Slugs are spillers. Every couple of tiles they slime the units right beside their route, and sticky units attack 40% slower until the wave ends.",
+      "Spill counter: ranged attackers can fight from two tiles back and stay clean. Walls don't mind being sticky.",
+      "Mouse Nests burst into three mice.",
+      "Cockroaches ignore your maze and chew through units (red line).",
+      "Fruit flies fly straight in. Keep anti-air near the cookie jar.",
+      "Slugs and nests together. Kill spillers early, before they reach your best attackers.",
+      "Roaches on the ground, flies in the air.",
+      "Ant swarm with slugs behind it!",
+      "Final wave! The Rat King waits at the end of this world."
+    ]
+  },
+  "levels": [
+    {
+      "name": "1. Pantry Raid",
+      "preview": true,
+      "hand": [
+        12,
+        12,
+        7,
+        0,
+        0,
+        0
+      ],
+      "atp": 35,
+      "income": 5,
+      "layout": [
+        "....S....",
+        ".........",
+        ".#.....#.",
+        ".........",
+        "...#.#...",
+        ".........",
+        "##.....##",
+        ".........",
+        "...#.#...",
+        ".........",
+        ".#.....#.",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "2. Counter Top",
+      "tiles": "counter",
+      "budget": 22,
+      "hand": [
+        10,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 15,
+      "income": 5,
+      "layout": [
+        "S.......S",
+        ".........",
+        "..##.##..",
+        ".........",
+        "#.......#",
+        "...#.#...",
+        ".........",
+        ".##...##.",
+        ".........",
+        "...#.#...",
+        "#.......#",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "3. Under the Table",
+      "tiles": "floor",
+      "budget": 25,
+      "hand": [
+        10,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 15,
+      "income": 5,
+      "layout": [
+        "S...S....",
+        ".........",
+        ".#...#...",
+        ".......#.",
+        "..#......",
+        ".....#...",
+        ".#.......",
+        "....#..#.",
+        ".........",
+        "..#...#..",
+        ".........",
+        ".#...#...",
+        ".........",
+        ".......B."
+      ]
+    },
+    {
+      "name": "4. Top Shelf",
+      "budget": 27,
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        8,
+        0
+      ],
+      "atp": 15,
+      "income": 5,
+      "layout": [
+        "S...S...S",
+        ".........",
+        "###.#.###",
+        ".........",
+        ".........",
+        ".#.#.#.#.",
+        ".........",
+        ".........",
+        ".#.#.#.#.",
+        ".........",
+        ".........",
+        "###.#.###",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "5. Sink Side",
+      "tiles": "counter",
+      "budget": 30,
+      "hand": [
+        14,
+        10,
+        7,
+        5,
+        8,
+        0
+      ],
+      "atp": 20,
+      "income": 6,
+      "layout": [
+        "S.......S",
+        ".........",
+        ".##...##.",
+        ".........",
+        "....#....",
+        ".##...##.",
+        ".........",
+        "....#....",
+        ".##...##.",
+        ".........",
+        "....#....",
+        ".........",
+        ".........",
+        "B........"
+      ]
+    },
+    {
+      "name": "6. Crumb Trail",
+      "tiles": "floor",
+      "budget": 31,
+      "hand": [
+        14,
+        10,
+        7,
+        8,
+        8,
+        6
+      ],
+      "atp": 20,
+      "income": 6,
+      "layout": [
+        "S...S...S",
+        ".........",
+        "..#...#..",
+        ".........",
+        "#..#.#..#",
+        ".........",
+        ".........",
+        ".#.....#.",
+        "...#.#...",
+        ".........",
+        "#.......#",
+        "...#.#...",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "7. Rat King's Feast",
+      "budget": 34,
+      "boss": "rat_king",
+      "hand": [
+        18,
+        12,
+        12,
+        8,
+        8,
+        6
+      ],
+      "atp": 25,
+      "income": 6,
+      "layout": [
+        "S...S...S",
+        ".........",
+        ".#.#.#.#.",
+        ".........",
+        ".........",
+        "##.....##",
+        ".........",
+        "...###...",
+        ".........",
+        "##.....##",
+        ".........",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    }
+  ]
+}

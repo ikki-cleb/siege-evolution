@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_kfpq8"]
+[ext_resource type="Resource" path="res://data/invaders/kitchen_defense/mouse.tres" id="2_ocotn"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/rat_nest.png" id="3_jx81o"]
+
+[resource]
+script = ExtResource("1_kfpq8")
+id = "rat_nest"
+display_name = "Rat Nest"
+max_hp = 30
+armor = 2
+speed = 0.9
+base_damage = 2
+atp_drop = 2
+is_elite = true
+split_into = ExtResource("2_ocotn")
+split_count = 3
+texture = ExtResource("3_jx81o")
+description = "Elite: an armored nest."

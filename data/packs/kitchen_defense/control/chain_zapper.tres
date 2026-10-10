@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wol61"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/chain_zapper.png" id="2_tc884"]
+
+[resource]
+script = ExtResource("1_wol61")
+id = "chain_zapper"
+display_name = "Chain Zapper"
+role = 1
+cost = 16
+damage = 4.0
+attack_range = 2.5
+attack_interval = 1.6
+hits_air = true
+splash_radius = 1.2
+stun_duration = 0.6
+texture = ExtResource("2_tc884")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Stuns a whole area."

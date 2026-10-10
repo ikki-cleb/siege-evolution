@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t1roa"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/jagged_can.png" id="2_8ky6m"]
+
+[resource]
+script = ExtResource("1_t1roa")
+id = "jagged_can"
+display_name = "Jagged Can"
+cost = 10
+max_hp = 120
+reflect = 0.6
+can_place_on_water = true
+texture = ExtResource("2_8ky6m")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Reflects 60% of smasher damage."

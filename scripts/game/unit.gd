@@ -11,6 +11,8 @@ var board: Board
 var hp: float
 ## True once a smasher breaks it. It stays broken until the wave ends.
 var destroyed := false
+## Goo from a spiller: attacks this much slower (0.4 = 40%) until repaired.
+var sticky := 0.0
 
 # Bookkeeping for refunds (managed by the game).
 ## Which build round it was placed in (the number of waves started before).
@@ -85,10 +87,19 @@ func take_damage(amount: float, attacker: Invader = null) -> void:
 	queue_redraw()
 
 
-## Back to full health (called between waves).
+## Covered in a spiller's goo: attacks slower until the wave ends.
+## A weaker spill never replaces a stronger one.
+func make_sticky(amount: float) -> void:
+	if amount > sticky:
+		sticky = amount
+		queue_redraw()
+
+
+## Back to full health and clean of goo (called between waves).
 func restore() -> void:
 	hp = data.max_hp
 	destroyed = false
+	sticky = 0.0
 	visible = true
 	_cooldown = 0.0
 	queue_redraw()
@@ -109,6 +120,8 @@ func _process(delta: float) -> void:
 	if _attack():
 		# Swarm units attack faster for every unit packed around them.
 		var speed_up := 1.0 + data.adjacency_bonus * board.neighbor_count(cell)
+		# Goo slows it down (0.4 sticky = attacks at 60% of normal speed).
+		speed_up *= 1.0 - sticky
 		_cooldown = data.attack_interval / speed_up
 
 
@@ -177,6 +190,12 @@ func _find_target() -> Invader:
 
 
 func _draw() -> void:
+	# Goo drips over sticky units.
+	if sticky > 0.0:
+		var goo := Color(Board.SPILL_COLOR, 0.85)
+		draw_rect(Rect2(-6, -7, 12, 3), goo)
+		for x in [-5, -1, 3]:
+			draw_rect(Rect2(x, -4, 2, 3 + (x + 5) % 3), goo)
 	# Health bar, only shown while damaged.
 	if hp < data.max_hp:
 		draw_rect(Rect2(-7, -9, 14, 2), Color(0.1, 0.1, 0.1))

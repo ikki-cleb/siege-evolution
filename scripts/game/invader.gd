@@ -30,6 +30,8 @@ var _has_bombed := false
 var _bomb_timer := 0.0
 var _flight_start := Vector2.ZERO
 var _blink_timer := 0.0
+## Tiles walked so far (spillers splash goo every few tiles).
+var _tiles_walked := 0
 
 ## Jumpers crouch for this long before each hop.
 const HOP_PAUSE := 0.45
@@ -249,6 +251,9 @@ func _walk(tiles: float, delta: float) -> void:
 		position = target
 		step -= distance
 		path_index += 1
+		_tiles_walked += 1
+		if data.spill_every > 0 and _tiles_walked % data.spill_every == 0:
+			board.spill(next_cell, data.spill_slow)
 		if _hopping:
 			_hopping = false
 			_sprite.position.y = 0.0

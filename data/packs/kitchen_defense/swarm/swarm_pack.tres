@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_lvyyf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_qv0i5"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/sugar_cube.tres" id="3_uged4"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/fork.tres" id="4_g42gj"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/spray_bottle.tres" id="5_obuvd"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/egg_beater.tres" id="6_25571"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/pizza_cutter.tres" id="7_dxk56"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/cling_wrap.tres" id="8_xtk62"]
+
+[resource]
+script = ExtResource("1_lvyyf")
+id = "swarm"
+display_name = "Swarm"
+description = "Cheap units, and lots of them. Attacks faster when packed together."
+color = Color(0.9137255, 0.76862746, 0.41568628, 1)
+units = Array[ExtResource("2_qv0i5")]([ExtResource("3_uged4"), ExtResource("4_g42gj"), ExtResource("5_obuvd"), ExtResource("6_25571"), ExtResource("7_dxk56"), ExtResource("8_xtk62")])

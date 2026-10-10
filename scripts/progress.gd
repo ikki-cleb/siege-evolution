@@ -20,8 +20,9 @@ const WORLDS: Array[Dictionary] = [
 		"theme": "A toy war across the playroom and the bathtub: tanks, boats and bombers."},
 	{"name": "Galactic Siege", "path": "res://data/biomes/galactic_siege.tres",
 		"theme": "Defend the colony reactor on the moon, a space station and an asteroid field from the alien armada."},
-	{"name": "Kitchen Defense", "path": "", "bonus": true, "product": "world_kitchen",
-		"theme": "Defend the pantry from ants, mice and roaches."},
+	{"name": "Kitchen Defense", "path": "res://data/biomes/kitchen_defense.tres", "bonus": true,
+		"product": "world_kitchen",
+		"theme": "Ants, slugs, mice and roaches raid the kitchen. Defend the cookie jar."},
 	{"name": "Birthday Bash", "path": "", "bonus": true, "product": "world_birthday",
 		"theme": "Protect the cake at a kid's birthday party."},
 ]
@@ -52,6 +53,14 @@ func has_content(index: int) -> bool:
 
 func is_bonus(index: int) -> bool:
 	return WORLDS[index].get("bonus", false)
+
+
+## True if this biome id belongs to a bonus world.
+func is_bonus_biome(biome_id: String) -> bool:
+	for index in WORLDS.size():
+		if is_bonus(index) and WORLDS[index].path.ends_with("/%s.tres" % biome_id):
+			return true
+	return false
 
 
 ## The world's number among main worlds (1-5), or 0 for bonus worlds.

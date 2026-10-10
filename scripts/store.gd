@@ -32,7 +32,8 @@ const PRODUCTS: Array[Dictionary] = [
 	{"id": PACK_TOXIN, "name": "Toxin Pack", "price": "$1.00",
 		"description": "Stacking, spreading poison that ignores armor. Usable in every world."},
 	{"id": WORLD_KITCHEN, "name": "Kitchen Defense", "price": "$1.00",
-		"description": "Bonus world: defend the pantry from ants, mice and roaches."},
+		"description": "Bonus world: defend the cookie jar from ants, slugs, mice and roaches.",
+		"warning": "POST-GAME: HARD", "warning_detail": "Harder than Galactic Siege. Best after finishing the main game."},
 	{"id": WORLD_BIRTHDAY, "name": "Birthday Bash", "price": "$1.00",
 		"description": "Bonus world: protect the cake at a kid's birthday party."},
 ]

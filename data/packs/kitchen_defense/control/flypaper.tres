@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1aonh"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/thick_flypaper.tres" id="2_ym8ck"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/extra_sticky_flypaper.tres" id="3_blkip"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/flypaper.png" id="4_olsdk"]
+
+[resource]
+script = ExtResource("1_1aonh")
+id = "flypaper"
+display_name = "Flypaper"
+max_hp = 25
+attack_mode = 1
+attack_range = 1.2
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+evolutions = Array[ExtResource("1_1aonh")]([ExtResource("2_ym8ck"), ExtResource("3_blkip")])
+can_place_on_water = true
+texture = ExtResource("4_olsdk")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Wall that slows invaders walking past it."

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_1cahf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_1ykco"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/flypaper.tres" id="3_di52o"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/ice_tray.tres" id="4_r1l78"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/ketchup_squirter.tres" id="5_fma05"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/stove_burner.tres" id="6_l7ej8"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/bug_zapper.tres" id="7_gndf1"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/hot_griddle.tres" id="8_xnrlh"]
+
+[resource]
+script = ExtResource("1_1cahf")
+id = "control"
+display_name = "Control"
+description = "Slows, stuns and area damage. Weak alone, deadly inside a long maze."
+color = Color(0.6156863, 0.4745098, 0.8392157, 1)
+product_id = "pack_control"
+units = Array[ExtResource("2_1ykco")]([ExtResource("3_di52o"), ExtResource("4_r1l78"), ExtResource("5_fma05"), ExtResource("6_l7ej8"), ExtResource("7_gndf1"), ExtResource("8_xnrlh")])

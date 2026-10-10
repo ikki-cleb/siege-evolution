@@ -57,6 +57,14 @@ enum Movement {
 ## invaders can't be hit and smashers don't chew while tunneling.
 @export var burrow_length: int = 0
 
+@export_group("Spilling")
+## Spillers splash goo on the units beside their route every this many
+## tiles walked (0 = never). Sticky units attack slower until the free
+## repair after the wave.
+@export var spill_every: int = 0
+## How much slower sticky units attack (0.4 = 40% slower).
+@export var spill_slow: float = 0.0
+
 @export_group("Splitting")
 ## If set, this invader splits into copies of another invader when killed.
 @export var split_into: InvaderData

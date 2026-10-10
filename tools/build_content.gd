@@ -15,7 +15,7 @@ extends SceneTree
 const CONTENT_DIR := "res://tools/content/"
 ## Build order matters: worlds that borrow packs come after their source.
 const WORLD_FILES: Array[String] = ["immune_system.json", "backyard_bugs.json", "wild_kingdom.json",
-	"total_war.json", "galactic_siege.json"]
+	"total_war.json", "galactic_siege.json", "kitchen_defense.json"]
 
 var invaders := {}
 var _content_by_id := {}
@@ -246,6 +246,8 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 	invader.blink_interval = row.get("blink_interval", 0.0)
 	invader.blink_distance = int(row.get("blink_distance", 0))
 	invader.burrow_length = int(row.get("burrow_length", 0))
+	invader.spill_every = int(row.get("spill_every", 0))
+	invader.spill_slow = row.get("spill_slow", 0.0)
 	invader.is_elite = row.get("elite", false)
 	invader.is_boss = row.get("boss", false)
 	if row.has("split_into"):

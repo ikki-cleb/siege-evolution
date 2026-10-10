@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_po50a"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/seasoned_pan.tres" id="2_cibkr"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/spiked_grill_pan.tres" id="3_7ho3c"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/cast_iron_pan.png" id="4_a3moo"]
+
+[resource]
+script = ExtResource("1_po50a")
+id = "cast_iron_pan"
+display_name = "Cast-Iron Pan"
+cost = 18
+max_hp = 260
+attack_mode = 1
+damage = 3.0
+evolutions = Array[ExtResource("1_po50a")]([ExtResource("2_cibkr"), ExtResource("3_7ho3c")])
+texture = ExtResource("4_a3moo")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Enormous wall that damages everything next to it."

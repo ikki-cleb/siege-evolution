@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Resource" path="res://data/invaders/kitchen_defense/rat.tres" id="1_n6oui"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="2_tly64"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/rat_king.png" id="3_bvcbl"]
+
+[resource]
+script = ExtResource("2_tly64")
+id = "rat_king"
+display_name = "Rat King"
+movement = 1
+max_hp = 800
+armor = 1
+speed = 0.4
+base_damage = 10
+smash_damage = 18.0
+atp_drop = 20
+is_boss = true
+spill_every = 2
+spill_slow = 0.4
+minion = ExtResource("1_n6oui")
+minion_count = 1
+minion_interval = 4.0
+texture = ExtResource("3_bvcbl")
+description = "Boss: chews through anything, leaves a greasy trail, and sheds rats."

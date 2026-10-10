@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_d2yy4"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/stale_moldy_bread.tres" id="2_xtvub"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/fuzzy_mold_loaf.tres" id="3_1nv4n"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/moldy_bread.png" id="4_kn1ds"]
+
+[resource]
+script = ExtResource("1_d2yy4")
+id = "moldy_bread"
+display_name = "Moldy Bread"
+cost = 14
+max_hp = 40
+attack_mode = 1
+poison_dps = 3.0
+poison_duration = 2.0
+poison_spreads = true
+evolutions = Array[ExtResource("1_d2yy4")]([ExtResource("2_xtvub"), ExtResource("3_1nv4n")])
+texture = ExtResource("4_kn1ds")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that poisons everything next to it. The poison spreads."

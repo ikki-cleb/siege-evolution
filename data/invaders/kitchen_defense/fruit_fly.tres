@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_tvjer"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/fruit_fly.png" id="2_nvuqw"]
+
+[resource]
+script = ExtResource("1_tvjer")
+id = "fruit_fly"
+display_name = "Fruit Fly"
+movement = 2
+max_hp = 9
+speed = 1.3
+texture = ExtResource("2_nvuqw")
+description = "Flies straight over everything."

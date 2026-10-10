@@ -119,6 +119,8 @@ def sfx():
         "base_hit": mix(tone(110, 0.25, r, 0.4, slide=-200, wave_fn="triangle"), noise(0.2, r, 0.3, decay=15, low=6)),
         "bomb": mix(noise(0.6, r, 0.45, decay=5, low=10), tone(90, 0.5, r, 0.35, slide=-120, wave_fn="triangle")),
         "blink": tone(300, 0.12, r, 0.2, duty=0.125, slide=5000),
+        # A wet squelch when a spiller gums up a unit.
+        "spill": join(noise(0.07, r, 0.22, decay=25, low=8), tone(180, 0.1, r, 0.2, slide=-500, wave_fn="triangle")),
         "deny": join(tone(140, 0.08, r, 0.3), silence(0.03, r), tone(140, 0.1, r, 0.3)),
         "button": tone(880, 0.03, r, 0.15, duty=0.25, release=0.02),
         "win": join(*[tone(note(n), d, r, 0.3, duty=0.25) for n, d in
@@ -182,6 +184,9 @@ def music():
         "total_war": song([("C4", "E4", "G4"), ("G3", "B3", "D4"), ("A3", "C4", "E4"), ("F3", "A3", "C4")] * 2,
                           ["C5", "D5", "E5", "G5"], 132, seed=5, lead_duty=0.5),
         # Space: minor arpeggios.
+        # Kitchen: a jaunty, busy little tune.
+        "kitchen_defense": song([("D4", "F#4", "A4"), ("G3", "B3", "D4"), ("E4", "G4", "B4"), ("A3", "C#4", "E4")] * 2,
+                                ["D5", "E5", "F#5", "A5"], 138, seed=7, lead_duty=0.25),
         "galactic_siege": song([("E4", "G4", "B4"), ("C4", "E4", "G4"), ("A3", "C4", "E4"), ("B3", "D#4", "F#4")] * 2,
                                ["E5", "F#5", "G5", "B5"], 124, seed=6, lead_duty=0.125),
     }

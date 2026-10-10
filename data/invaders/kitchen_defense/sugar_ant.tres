@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_wj1ta"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/sugar_ant.png" id="2_36656"]
+
+[resource]
+script = ExtResource("1_wj1ta")
+id = "sugar_ant"
+display_name = "Sugar Ant"
+max_hp = 8
+speed = 1.6
+texture = ExtResource("2_36656")
+description = "Marches in swarms."

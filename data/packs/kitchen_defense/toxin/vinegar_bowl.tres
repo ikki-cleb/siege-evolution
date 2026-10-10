@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bngoj"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/pickling_bowl.tres" id="2_8f0tb"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/overflowing_bowl.tres" id="3_anfkw"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/vinegar_bowl.png" id="4_6dddr"]
+
+[resource]
+script = ExtResource("1_bngoj")
+id = "vinegar_bowl"
+display_name = "Vinegar Bowl"
+role = 1
+cost = 14
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 2.5
+poison_duration = 3.0
+evolutions = Array[ExtResource("1_bngoj")]([ExtResource("2_8f0tb"), ExtResource("3_anfkw")])
+texture = ExtResource("4_6dddr")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poisons everything around it."

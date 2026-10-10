@@ -222,6 +222,8 @@ def unit_sprite(unit, pack_color, art_style="cells"):
         return fort_wall(color, style) if kind == "block" else toy_unit(color, style)
     if art_style == "tech":
         return tech_wall(color, style) if kind == "block" else robot_unit(color, style)
+    if art_style == "kitchen":
+        return kitchen_wall(color, style) if kind == "block" else kitchen_tool(color, style)
     return block_unit(color, style) if kind == "block" else cell_unit(color, style)
 
 
@@ -932,6 +934,201 @@ BACKYARD_INVADER_ART = {
 }
 
 
+# --- Kitchen world (bonus) ----------------------------------------------------
+
+def shelf_planks():
+    """Pantry shelf: wooden planks."""
+    img = Image.new("RGBA", (16, 16), hexc("#b07a48"))
+    for y in (0, 5, 10, 15):
+        rect(img, 0, y, 15, y, hexc("#8a5a32"))
+    speckle(img, [hexc("#a06c3e"), hexc("#c08a58")], 25, 51)
+    return img
+
+
+def glass_jar():
+    img = shelf_planks()
+    rect(img, 3, 3, 12, 14, hexc("#c8e8f0"))
+    rect(img, 4, 4, 11, 13, hexc("#e8b850"))   # jam inside
+    rect(img, 3, 1, 12, 3, hexc("#d04040"))     # red lid
+    px(img, [(4, 5), (4, 6), (4, 7)], hexc("#ffffff"))
+    return img
+
+
+def counter_tiles():
+    """Counter top: white tiles with grout lines."""
+    img = Image.new("RGBA", (16, 16), hexc("#e8e4dc"))
+    rect(img, 0, 0, 15, 0, hexc("#b8b0a4"))
+    rect(img, 0, 0, 0, 15, hexc("#b8b0a4"))
+    rect(img, 0, 8, 15, 8, hexc("#c8c0b4"))
+    rect(img, 8, 0, 8, 15, hexc("#c8c0b4"))
+    return img
+
+
+def tin_can_rock():
+    img = counter_tiles()
+    disc(img, 8, 8, 6.5, hexc("#a8b0b8"))
+    ring(img, 8, 8, 6.5, hexc("#6a727a"))
+    ring(img, 8, 8, 4, hexc("#8a9298"))
+    px(img, [(6, 5), (5, 6)], hexc("#e8eef2"))
+    return img
+
+
+def checker_floor():
+    """Kitchen floor: checkered linoleum."""
+    img = Image.new("RGBA", (16, 16), hexc("#d8d0c0"))
+    rect(img, 0, 0, 7, 7, hexc("#5a7a8a"))
+    rect(img, 8, 8, 15, 15, hexc("#5a7a8a"))
+    return img
+
+
+def chair_leg():
+    img = checker_floor()
+    disc(img, 8, 8, 5.5, hexc("#5a3a1e"))
+    disc(img, 8, 8, 3.5, hexc("#7a5030"))
+    px(img, [(6, 6)], hexc("#9a6a40"))
+    return img
+
+
+def mouse_hole(floor_fn):
+    img = floor_fn()
+    disc(img, 8, 10, 6, hexc("#1a1210"))
+    rect(img, 2, 10, 13, 15, hexc("#1a1210"))
+    ring(img, 8, 10, 6, hexc("#6a4a30"))
+    return img
+
+
+def cookie_jar(floor_fn):
+    img = floor_fn()
+    disc(img, 8, 9, 6.5, hexc("#f0e0c8"))
+    ring(img, 8, 9, 6.5, hexc("#a08060"), 1.2)
+    rect(img, 5, 1, 10, 3, hexc("#c87040"))      # lid
+    for x, y in [(6, 9), (10, 8), (8, 12)]:
+        disc(img, x, y, 1.6, hexc("#b07030"))    # cookies showing through
+    return img
+
+
+def kitchen_tool(color, style):
+    """An attacker drawn as a kitchen tool or gadget, tinted with the pack color."""
+    img = new()
+    body, dark, light = shade(color, 0.05), shade(color, -0.3), shade(color, 0.3)
+    if style % 2 == 0:  # utensil: a handle with a head
+        rect(img, 7, 7, 8, 15, hexc("#8a5a32"))  # wooden handle
+        disc(img, 7.5, 4.5, 3.6, body)
+        ring(img, 7.5, 4.5, 3.6, dark)
+        px(img, [(6, 3)], light)
+    else:  # gadget: a little appliance with a dial
+        rect(img, 2, 4, 13, 14, body)
+        rect(img, 2, 4, 13, 4, light)
+        rect(img, 2, 14, 13, 14, dark)
+        disc(img, 8, 9, 2.5, dark)
+        px(img, [(8, 8)], hexc("#ffffff"))
+        rect(img, 4, 2, 5, 3, dark)
+    if style >= 6:
+        px(img, [(12, 1), (13, 2)], light)
+    return img
+
+
+def kitchen_wall(color, style):
+    """A wall drawn as a kitchen object, tinted with the pack color."""
+    img = new()
+    base, dark, light = shade(color, -0.05), shade(color, -0.35), shade(color, 0.3)
+    kind = style % 5
+    if kind == 0:  # tin can (side view)
+        rect(img, 3, 2, 12, 14, base)
+        rect(img, 3, 5, 12, 11, light)
+        rect(img, 3, 2, 12, 2, dark)
+        rect(img, 3, 14, 12, 14, dark)
+    elif kind == 1:  # sponge
+        rect(img, 1, 4, 14, 13, base)
+        rect(img, 1, 4, 14, 6, hexc("#3a9a4a"))   # scrubby side
+        speckle(img, [dark], 14, 7)
+    elif kind == 2:  # cast-iron block / pan seen from above
+        disc(img, 8, 8, 6.5, dark)
+        disc(img, 8, 8, 5, base)
+        rect(img, 13, 7, 15, 9, dark)
+    elif kind == 3:  # sugar cube / board
+        rect(img, 2, 2, 13, 13, light)
+        rect(img, 2, 2, 13, 2, hexc("#ffffff"))
+        speckle(img, [base], 10, 9)
+    else:  # wrap / flypaper
+        for y in range(2, 15, 3):
+            rect(img, 1, y, 14, y + 1, base)
+        rect(img, 1, 1, 1, 14, dark)
+    return img
+
+
+def pest(body, kind="ant", size=1.0, spots=None, wings=False):
+    """Pantry pests: ants, slugs, mice, roaches and flies."""
+    img = new()
+    c = hexc(body)
+    dark = shade(c, -0.3)
+    if kind == "ant":
+        for cx, r in [(4.5, 2.0), (8, 1.6), (11.5, 2.4)]:
+            disc(img, cx, 8, r * size, c)
+        for x in (6, 8, 10):
+            px(img, [(x, 5), (x, 11)], dark)
+        px(img, [(2, 6), (2, 10)], dark)
+    elif kind == "slug":
+        rect(img, 2, 9, 13, 12, c)
+        disc(img, 12, 9, 2.6 * size, c)
+        px(img, [(12, 5), (14, 5), (12, 6), (14, 6)], dark)  # eye stalks
+        rect(img, 1, 13, 10, 13, hexc("#d8c890", 160))        # slime trail
+    elif kind == "mouse":
+        disc(img, 7, 9, 3.6 * size, c)
+        disc(img, 11, 8, 2.2 * size, c)
+        disc(img, 10, 5, 1.4, shade(c, 0.25))                  # ear
+        px(img, [(12, 8)], hexc("#1a1a1a"))
+        px(img, [(2, 10), (1, 11), (0, 11)], hexc("#e0a0a0"))  # tail
+    elif kind == "roach":
+        disc(img, 8, 8, 4.5 * size, c)
+        rect(img, 8, 4, 8, 12, dark)
+        for y in (5, 8, 11):
+            px(img, [(2, y), (14, y)], dark)
+        px(img, [(6, 1), (10, 1), (7, 2), (9, 2)], dark)        # antennae
+    elif kind == "fly":
+        disc(img, 8, 9, 2.6 * size, c)
+        disc(img, 5, 6, 2.2, hexc("#d8eaf8", 200))
+        disc(img, 11, 6, 2.2, hexc("#d8eaf8", 200))
+        px(img, [(7, 8), (9, 8)], hexc("#c02020"))
+    elif kind == "nest":
+        disc(img, 8, 9, 6, hexc("#c8a868"))
+        speckle(img, [hexc("#a08048"), hexc("#e0c890")], 18, 13)
+        for x, y in [(5, 8), (10, 7), (8, 11)]:
+            disc(img, x, y, 1.4, c)
+    if spots:
+        px(img, [(7, 7), (9, 9)], hexc(spots))
+    return img
+
+
+def rat_king():
+    img = new()
+    disc(img, 8, 9, 6.5, hexc("#6a6070"))
+    disc(img, 4, 4, 2.2, hexc("#8a8090"))
+    disc(img, 12, 4, 2.2, hexc("#8a8090"))
+    px(img, [(6, 8), (10, 8)], hexc("#ff3030"))
+    rect(img, 5, 1, 11, 2, hexc("#ffd23c"))                  # crown
+    px(img, [(5, 0), (8, 0), (11, 0)], hexc("#ffd23c"))
+    px(img, [(7, 11), (9, 11)], hexc("#f0f0f0"))             # teeth
+    return img
+
+
+KITCHEN_INVADER_ART = {
+    "mouse": lambda: pest("#a89888", "mouse", 0.8),
+    "rat": lambda: pest("#6a6070", "mouse", 1.0),
+    "sugar_ant": lambda: pest("#3a2a20", "ant"),
+    "fire_ant": lambda: pest("#c03a20", "ant", 1.1),
+    "slug": lambda: pest("#a89a5a", "slug"),
+    "honey_ant": lambda: pest("#e8a830", "ant", 1.3, spots="#ffe080"),
+    "mouse_nest": lambda: pest("#a89888", "nest"),
+    "rat_nest": lambda: pest("#5a5060", "nest"),
+    "cockroach": lambda: pest("#7a4a22", "roach"),
+    "giant_roach": lambda: pest("#4a2a12", "roach", 1.3),
+    "fruit_fly": lambda: pest("#c08040", "fly", 0.8),
+    "housefly": lambda: pest("#3a3a40", "fly", 1.1),
+    "rat_king": rat_king,
+}
+
+
 # --- Invaders ---------------------------------------------------------------
 
 def rhinovirus(main="#7bd24a", edge="#3f8a22", tips="#b6f58a"):
@@ -1048,6 +1245,12 @@ if __name__ == "__main__":
         for name, fn in {"floor": floor_fn, "rock": rock_fn, "spawn": warp_gate, "base": reactor}.items():
             save(fn(floor_fn), f"tiles/galactic_siege/{folder}{name}.png") if name in ("spawn", "base") \
                 else save(fn(), f"tiles/galactic_siege/{folder}{name}.png")
+    for folder, floor_fn, rock_fn in [("", shelf_planks, glass_jar), ("counter/", counter_tiles, tin_can_rock),
+                                      ("floor/", checker_floor, chair_leg)]:
+        save(floor_fn(), f"tiles/kitchen_defense/{folder}floor.png")
+        save(rock_fn(), f"tiles/kitchen_defense/{folder}rock.png")
+        save(mouse_hole(floor_fn), f"tiles/kitchen_defense/{folder}spawn.png")
+        save(cookie_jar(floor_fn), f"tiles/kitchen_defense/{folder}base.png")
 
     all_content = {}
     for content_file in sorted((PROJECT / "tools" / "content").glob("*.json")):
@@ -1071,6 +1274,6 @@ if __name__ == "__main__":
         for invader in content["invaders"]:
             art = (INVADER_ART.get(invader["art"]) or BACKYARD_INVADER_ART.get(invader["art"])
                    or FARM_INVADER_ART.get(invader["art"]) or TOY_INVADER_ART.get(invader["art"])
-                   or ALIEN_INVADER_ART[invader["art"]])
+                   or KITCHEN_INVADER_ART.get(invader["art"]) or ALIEN_INVADER_ART[invader["art"]])
             save(art(), f"invaders/{biome_id}/{invader['id']}.png")
     print("Placeholder art written to", ROOT)

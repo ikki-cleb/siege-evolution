@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_j5k00"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/cockroach.png" id="2_hlrvf"]
+
+[resource]
+script = ExtResource("1_j5k00")
+id = "cockroach"
+display_name = "Cockroach"
+movement = 1
+max_hp = 55
+speed = 0.7
+base_damage = 3
+smash_damage = 8.0
+atp_drop = 3
+texture = ExtResource("2_hlrvf")
+description = "Chews straight through units."

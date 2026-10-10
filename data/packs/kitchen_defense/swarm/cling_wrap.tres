@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4iqd2"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/double_wrap.tres" id="2_4j47h"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/wide_wrap.tres" id="3_qkmml"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/cling_wrap.png" id="4_mn3wc"]
+
+[resource]
+script = ExtResource("1_4iqd2")
+id = "cling_wrap"
+display_name = "Cling Wrap"
+cost = 6
+max_hp = 25
+attack_mode = 1
+damage = 0.5
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+evolutions = Array[ExtResource("1_4iqd2")]([ExtResource("2_4j47h"), ExtResource("3_qkmml")])
+texture = ExtResource("4_mn3wc")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Sticky wall that slows anything next to it."

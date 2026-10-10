@@ -19,7 +19,10 @@ const ACCENTS := {
 	"wild_kingdom": Color("#e8a03a"),
 	"total_war": Color("#6fb3e8"),
 	"galactic_siege": Color("#b07aff"),
+	"kitchen_defense": Color("#5ad1b8"),
 }
+## The red tag that warns a bonus world is post-game hard.
+const WARNING := Color("#ff5a4a")
 
 
 static func accent(world_id: String) -> Color:

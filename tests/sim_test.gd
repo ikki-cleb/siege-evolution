@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 42
+const MIN_RULE_CHECKS := 48
 var progress: Node
 
 
@@ -28,9 +28,10 @@ func _run() -> void:
 	await _test_jumping(progress.load_biome(2))
 	await _test_sea_and_bombs(progress.load_biome(3))
 	await _test_space(progress.load_biome(4))
+	await _test_kitchen(progress.load_biome(5))
 	if not OS.get_cmdline_user_args().has("rules"):
-		# "-- world=2" balances just one world (0-based index).
-		var worlds := [0, 1, 2, 3, 4]
+		# "-- world=2" balances just one world (0-based index; 5 = Kitchen).
+		var worlds := [0, 1, 2, 3, 4, 5]
 		for arg in OS.get_cmdline_user_args():
 			if arg.begins_with("world="):
 				worlds = [int(arg.split("=")[1])]
@@ -290,6 +291,66 @@ func _test_space(biome: BiomeData) -> void:
 			"Final victory screen %s the bonus worlds" % ("hides" if owned else "suggests"))
 		await _stop(game)
 	store.reset_test_purchases()
+
+
+# --- Kitchen Defense: spillers and the bonus world-cleared screen -------------
+
+func _test_kitchen(biome: BiomeData) -> void:
+	# Pantry Raid: spawn (4,0), base (4,13); the route runs down column 4.
+	var game := await _start(biome, 0, 0)
+	var board: Board = game.board
+	var attacker: UnitData = game.unit_types[1]
+	var beside_left: Unit = board.place_unit(attacker, Vector2i(3, 2))
+	var beside_right: Unit = board.place_unit(attacker, Vector2i(5, 2))
+	var far_away: Unit = board.place_unit(attacker, Vector2i(0, 12))
+	board.wave_active = true
+	var slug_data: InvaderData = load("res://data/invaders/kitchen_defense/slug.tres")
+	board.spawn_invader(slug_data, 0)
+	var slug: Invader = board.invaders[0]
+	slug.hp = 100000.0  # Keep it alive so it walks past the units.
+	for i in 60 * 10:
+		await process_frame
+	_check(beside_left.sticky > 0.0 or beside_right.sticky > 0.0,
+		"Slugs slime the units beside their route")
+	_check(far_away.sticky == 0.0, "Units away from the route stay clean")
+	board.restore_units()
+	_check(beside_left.sticky == 0.0 and beside_right.sticky == 0.0, "The free repair after a wave washes the goo off")
+	await _stop(game)
+
+	# Sticky units attack 40% slower: compare the wait after one attack.
+	game = await _start(biome, 0, 0)
+	board = game.board
+	var clean: Unit = board.place_unit(attacker, Vector2i(0, 6))
+	var gooey: Unit = board.place_unit(attacker, Vector2i(8, 6))
+	gooey.make_sticky(slug_data.spill_slow)
+	board.wave_active = true
+	for x in [0, 8]:
+		var ant: Invader = board._add_invader(load("res://data/invaders/kitchen_defense/sugar_ant.tres"),
+			board.cell_center(Vector2i(x, 7)), [Vector2i(x, 7)] as Array[Vector2i], 0)
+		ant.hp = 100000.0
+		ant.set_process(false)
+	clean._process(0.0)
+	gooey._process(0.0)
+	_check(is_equal_approx(gooey._cooldown, clean._cooldown / (1.0 - slug_data.spill_slow)),
+		"Sticky units attack 40%% slower (%.2fs vs %.2fs)" % [gooey._cooldown, clean._cooldown])
+	await _stop(game)
+
+	# Beating the Rat King shows a world-cleared screen that suggests the
+	# other bonus world, but never the one just beaten.
+	var store: Node = root.get_node("Store")
+	store.reset_test_purchases()
+	store.buy(store.WORLD_KITCHEN)
+	game = await _start(biome, 0, 6)
+	game.hud.show_end_screen(true)
+	await process_frame
+	var texts := _all_texts(game.hud)
+	_check(texts.has("Kitchen Defense cleared!") and texts.any(func(t): return t.contains("Birthday Bash"))
+		and not texts.any(func(t): return t.contains(": Kitchen Defense")),
+		"Kitchen Defense shows its own world-cleared screen")
+	await _stop(game)
+	store.reset_test_purchases()
+	_check(store.product(store.WORLD_KITCHEN).get("warning", "") == "POST-GAME: HARD",
+		"The store warns that Kitchen Defense is post-game hard")
 
 
 ## Every Label and Button text under a node (for checking screens).

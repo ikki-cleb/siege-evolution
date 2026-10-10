@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bj5h8"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/high_flame_burner.tres" id="2_chsr4"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/wide_burner.tres" id="3_t37ou"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/stove_burner.png" id="4_suaki"]
+
+[resource]
+script = ExtResource("1_bj5h8")
+id = "stove_burner"
+display_name = "Stove Burner"
+role = 1
+cost = 16
+max_hp = 25
+attack_mode = 1
+damage = 3.5
+attack_range = 2.0
+hits_air = true
+evolutions = Array[ExtResource("1_bj5h8")]([ExtResource("2_chsr4"), ExtResource("3_t37ou")])
+texture = ExtResource("4_suaki")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Burns everything in range, fliers too."

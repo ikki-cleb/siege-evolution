@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lh77f"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/wide_burner.png" id="2_ajni0"]
+
+[resource]
+script = ExtResource("1_lh77f")
+id = "wide_burner"
+display_name = "Wide Burner"
+role = 1
+cost = 14
+max_hp = 25
+attack_mode = 1
+damage = 3.5
+attack_range = 3.0
+hits_air = true
+texture = ExtResource("2_ajni0")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "More range."

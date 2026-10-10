@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uwiov"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/ghost_pepper_grinder.tres" id="2_rtgsv"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/tall_pepper_grinder.tres" id="3_53xy5"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/pepper_grinder.png" id="4_q410k"]
+
+[resource]
+script = ExtResource("1_uwiov")
+id = "pepper_grinder"
+display_name = "Pepper Grinder"
+role = 1
+cost = 15
+max_hp = 15
+damage = 4.5
+attack_range = 3.0
+hits_air = true
+evolutions = Array[ExtResource("1_uwiov")]([ExtResource("2_rtgsv"), ExtResource("3_53xy5")])
+texture = ExtResource("4_q410k")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Long-range antibodies. Hits fliers."

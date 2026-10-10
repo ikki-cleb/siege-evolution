@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lew6l"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/stacked_cans.tres" id="2_g24ug"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/jagged_can.tres" id="3_4wll0"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/tin_can.png" id="4_sj6i0"]
+
+[resource]
+script = ExtResource("1_lew6l")
+id = "tin_can"
+display_name = "Tin Can"
+cost = 7
+max_hp = 90
+evolutions = Array[ExtResource("1_lew6l")]([ExtResource("2_g24ug"), ExtResource("3_4wll0")])
+can_place_on_water = true
+texture = ExtResource("4_sj6i0")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Very tough wall."
