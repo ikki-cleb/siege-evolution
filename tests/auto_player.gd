@@ -15,6 +15,8 @@ var rng := RandomNumberGenerator.new()
 var _has_smashers := false
 var _has_fliers := false
 var _has_jumpers := false
+## A flying boss needs several anti-air units, not just one.
+var _has_flying_boss := false
 var _boat_cells := {}  # water tiles boats use, for coverage scoring
 var _flier_points: Array[Vector2] = []
 
@@ -28,6 +30,7 @@ func _init(p_game, seed_value := 1) -> void:
 			_has_smashers = _has_smashers or entry.invader.movement == InvaderData.Movement.SMASHER
 			_has_fliers = _has_fliers or entry.invader.movement == InvaderData.Movement.FLIER
 			_has_jumpers = _has_jumpers or entry.invader.jumps
+			_has_flying_boss = _has_flying_boss or (entry.invader.is_boss and entry.invader.movement == InvaderData.Movement.FLIER)
 	for wave in game.level.waves:
 		for entry in wave.entries:
 			if entry.invader.naval:
@@ -86,8 +89,8 @@ func _choose_type(candidates: Array[UnitData]) -> UnitData:
 		for cell in board.units:
 			if board.units[cell].base_data == type:
 				spent += type.cost
-		# Without anti-air yet, strongly prefer units that hit fliers.
-		if _has_fliers and type.hits_air and not _has_anti_air():
+		# Without enough anti-air yet, strongly prefer units that hit fliers.
+		if _has_fliers and type.hits_air and _anti_air_count() < (5 if _has_flying_boss else 1):
 			spent -= 1000.0
 		if spent < best_score:
 			best_score = spent
@@ -95,11 +98,12 @@ func _choose_type(candidates: Array[UnitData]) -> UnitData:
 	return best
 
 
-func _has_anti_air() -> bool:
+func _anti_air_count() -> int:
+	var count := 0
 	for cell in board.units:
 		if board.units[cell].data.hits_air and board.units[cell].data.can_attack():
-			return true
-	return false
+			count += 1
+	return count
 
 
 func _types(walls: bool) -> Array[UnitData]:
