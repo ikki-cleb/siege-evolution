@@ -83,6 +83,10 @@ budget. `tools/tune.py <id> key=value` edits stats.
 Precision struggle most in both); any more v0.8 playtest notes; how the sounds
 and music feel; Blinker frequency.
 
+**Latest full balance run (with capstones, bot wins on levels 2-7):** World 1
+100%, World 2 98%, World 3 90%, World 4 93%, World 5 93%, Kitchen 88%,
+Birthday 72%. Every check passes.
+
 **Next steps (user's call):** capstone tuning once the user has played
 them (prices, strongest mechanics); playtest feedback on the bonus worlds;
 cosmetic unlocks; real billing (Apple StoreKit and
