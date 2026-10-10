@@ -118,6 +118,13 @@ const engine = new Engine(GODOT_CONFIG);
 		fail(new Error('This browser is missing: ' + missing.join(', ')));
 		return;
 	}
+	// Browsers ignore the project's portrait setting, so ask for portrait
+	// whenever the game goes fullscreen (Android honors this; iOS can't).
+	document.addEventListener('fullscreenchange', function () {
+		if (document.fullscreenElement && screen.orientation && screen.orientation.lock) {
+			screen.orientation.lock('portrait').catch(function () {});
+		}
+	});
 	engine.startGame({
 		onProgress: function (current, total) {
 			const lit = total > 0 ? Math.round((current / total) * cells.length) : 0;
