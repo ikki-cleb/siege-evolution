@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 89
+const MIN_RULE_CHECKS := 101
 var progress: Node
 
 
@@ -36,6 +36,8 @@ func _run() -> void:
 	await _test_menu_scrolling()
 	_test_level_counts()
 	await _test_path_toggle(biome)
+	await _test_pack_swapping(biome)
+	await _test_achievements(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index; 5 = Kitchen, 6 = Birthday).
 		var worlds := [0, 1, 2, 3, 4, 5, 6]
@@ -45,6 +47,7 @@ func _run() -> void:
 		for index in worlds:
 			await _test_balance(progress.load_biome(index))
 	progress.reset()
+	root.get_node("Achievements").reset()
 	if checks_run < MIN_RULE_CHECKS:
 		print("FAIL  Only %d checks ran (expected at least %d). Look for SCRIPT ERROR above." % [checks_run, MIN_RULE_CHECKS])
 		failures += 1
@@ -653,6 +656,85 @@ func _capstone_names(world: BiomeData) -> Array[String]:
 	return names
 
 
+# --- Pack swapping and achievements ----------------------------------------------
+
+func _test_pack_swapping(biome: BiomeData) -> void:
+	progress.reset()
+	progress.choose_pack(biome, biome.packs[0])
+	for index in 2:
+		progress.level_index = index
+		progress.complete_level()
+	progress.choose_pack(biome, biome.packs[1])
+	_check(progress.cleared(biome.id) == 2, "Swapping packs keeps world progress")
+	progress.level_index = 0
+	progress.complete_level()
+	_check(progress.packs_that_beat(biome.id, 0) == ["fortress", "swarm"] and progress.packs_that_beat(biome.id, 1) == ["fortress"],
+		"Each pack remembers the levels it has beaten")
+	_check(progress.cleared(biome.id) == 2, "Replaying an earlier level never lowers progress")
+	# The level screen shows the pack picker, and no pack screen is needed.
+	progress.return_screen = "levels"
+	var menu: Control = load("res://scenes/menu.tscn").instantiate()
+	root.add_child(menu)
+	await process_frame
+	var texts := _all_texts(menu)
+	_check(texts.has("Swarm") and texts.any(func(t): return t.contains("Beaten: F S")),
+		"The level list has a pack picker and shows which packs beat each level")
+	menu.queue_free()
+	progress.return_screen = "title"
+	progress.reset()
+	await process_frame
+
+
+func _test_achievements(biome: BiomeData) -> void:
+	var achievements: Node = root.get_node("Achievements")
+	achievements.reset()
+	progress.reset()
+	_check(achievements.list.size() == 27, "There are 27 achievements")
+	achievements.on_level_won({"base_hp": 20, "max_hp": 20, "boss_level": true, "evolutions": 0,
+		"paths_seen": false, "units": 5})
+	_check(["flawless", "untouchable_boss", "back_to_basics", "blindfolded", "minimalist"].all(
+		func(id): return achievements.is_earned(id)) and not achievements.is_earned("close_call"),
+		"Winning flawlessly, unevolved and blind earns the matching skill achievements")
+	achievements.add_stat("pinatas", 49)
+	_check(not achievements.is_earned("pinata_smasher") and achievements.progress_of(achievements.find("pinata_smasher")) == [49, 50],
+		"Locked achievements report their progress (49/50)")
+	achievements.add_stat("pinatas", 1)
+	_check(achievements.is_earned("pinata_smasher"), "Running totals earn achievements when they reach the goal")
+	# Capstone Collector: one capstone of each mechanic.
+	for pack in biome.packs:
+		for unit in pack.units:
+			for tier1 in unit.evolutions:
+				for capstone in tier1.evolutions:
+					achievements.on_evolved(capstone)
+	_check(achievements.is_earned("capstone") and achievements.is_earned("capstone_collector"),
+		"Capstones count toward Capstone Collector (all 12 mechanics exist)")
+	# Pack mastery: every main-world level beaten with Fortress.
+	for index in 5:
+		var world: BiomeData = progress.load_biome(index)
+		progress.choose_pack(world, world.packs[0])
+		for level_index in world.levels.size():
+			progress.level_index = level_index
+			progress.complete_level()
+	achievements.check_progress(false)
+	_check(achievements.is_earned("fortress_master") and not achievements.is_earned("swarm_master")
+		and achievements.is_earned("cell_to_the_stars") and achievements.is_earned("germ_buster"),
+		"Beating every main level with one pack earns its mastery (and world achievements)")
+	# The achievements screen lists every one.
+	progress.return_screen = "title"
+	var menu: Control = load("res://scenes/menu.tscn").instantiate()
+	root.add_child(menu)
+	await process_frame
+	menu._show(menu._show_achievements)
+	await process_frame
+	var texts := _all_texts(menu)
+	_check(texts.any(func(t): return t.contains("Fortress Master"))
+		and texts.any(func(t): return t.contains("of 27 earned")), "The Achievements screen lists them all")
+	menu.queue_free()
+	achievements.reset()
+	progress.reset()
+	await process_frame
+
+
 # --- Path preview on every level ------------------------------------------------
 
 func _test_path_toggle(biome: BiomeData) -> void:
@@ -693,6 +775,8 @@ func _test_level_counts() -> void:
 		"Old saves convert: 7 -> 5, 4 -> 3, 3 -> 2 levels cleared")
 	progress._load()
 	_check(progress.cleared("a") == 5 and progress.cleared("b") == 3, "Converted saves don't convert twice")
+	_check(progress.packs_that_beat("a", 4) == ["fortress"] and progress.packs_that_beat("b", 2) == ["swarm"]
+		and progress.packs_that_beat("b", 3).is_empty(), "Old saves credit their pack with the levels it cleared")
 	progress.reset()
 
 

@@ -15,6 +15,7 @@ Look="*res://scripts/look.gd"
 Audio="*res://scripts/audio.gd"
 Store="*res://scripts/store.gd"
 Progress="*res://scripts/progress.gd"
+Achievements="*res://scripts/achievements.gd"
 
 [display]
 

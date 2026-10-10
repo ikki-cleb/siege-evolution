@@ -40,11 +40,12 @@ DIGITS = {
 }
 
 # New characters, drawn at the same pixel size as the digits:
-# the coin (U+E000, Palette.COIN) and a right arrow (U+2192) for
-# "before → after" stat changes.
+# the coin (U+E000, Palette.COIN), a right arrow (U+2192) for
+# "before → after" stat changes, and a star (U+2605) for earned achievements.
 EXTRA = {
     0xE000: ("coin", ["..###..", ".#####.", "##.####", "##.####", "#######", ".#####.", "..###.."]),
     0x2192: ("arrowright", [".....", "..#..", "...#.", "#####", "...#.", "..#..", "....."]),
+    0x2605: ("star", ["...#...", "..###..", "#######", ".#####.", "..###..", ".##.##.", "##...##"]),
 }
 
 # Where Pixelify's own digits sit (font units, 1000 per em), so the new ones

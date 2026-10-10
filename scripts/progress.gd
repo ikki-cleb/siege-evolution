@@ -5,9 +5,10 @@ extends Node
 
 const SAVE_PATH := "user://save.json"
 const LEVELS_PER_BIOME := 5
-## Saves from before worlds went from 7 levels to 5 have no version. Their
-## "cleared" count is converted: the kept levels were the old 1, 2, 4, 6, 7.
-const SAVE_VERSION := 2
+## Save versions: 1 = 7 levels per world, 2 = 5 levels, 3 = packs can be
+## swapped freely and each pack remembers the levels it has beaten.
+## Old saves are converted when loaded (see _convert_old_save).
+const SAVE_VERSION := 3
 const OLD_LEVELS_KEPT: Array[int] = [1, 2, 4, 6, 7]
 
 ## Every world on the map. Main worlds unlock in order by beating the
@@ -39,7 +40,10 @@ var level_index := 0
 ## Which menu screen to open when returning from a level.
 var return_screen := "title"
 
-# Saved data: { "biomes": { biome_id: { "pack": pack_id, "cleared": int } } }
+# Saved data: { "biomes": { biome_id: {
+#     "cleared": how many levels are unlocked-and-beaten (shared by all packs),
+#     "pack": the pack picked last time,
+#     "beaten": { pack_id: [level indices that pack has beaten] } } } }
 var _data := {"biomes": {}, "version": SAVE_VERSION}
 
 
@@ -84,14 +88,43 @@ func main_number(index: int) -> int:
 	return 0 if is_bonus(index) else index + 1
 
 
-## How many levels of this biome the current run has cleared (0-7).
+## How many levels of this biome are cleared, by any pack (0-5).
 func cleared(biome_id: String) -> int:
 	return int(_run(biome_id).get("cleared", 0))
 
 
-## The pack id of this biome's current run, or "" if none was started.
+## The pack picked last time in this biome, or "" if none yet.
 func run_pack(biome_id: String) -> String:
 	return _run(biome_id).get("pack", "")
+
+
+## The ids of the packs that have beaten this level (0-based index).
+func packs_that_beat(biome_id: String, index: int) -> Array[String]:
+	var result: Array[String] = []
+	var beaten: Dictionary = _run(biome_id).get("beaten", {})
+	for pack_id in beaten:
+		if beaten[pack_id].has(float(index)) or beaten[pack_id].has(index):
+			result.append(pack_id)
+	return result
+
+
+## How many of the 25 main-world levels this pack has beaten (pack mastery).
+func main_levels_beaten(pack_id: String) -> int:
+	var total := 0
+	for index in WORLDS.size():
+		var world := load_biome(index)
+		if world and not is_bonus(index):
+			total += _run(world.id).get("beaten", {}).get(pack_id, []).size()
+	return total
+
+
+## How many levels the main worlds have in all (5 worlds x 5 levels).
+func main_level_count() -> int:
+	var total := 0
+	for index in WORLDS.size():
+		if not is_bonus(index) and has_content(index):
+			total += LEVELS_PER_BIOME
+	return total
 
 
 func is_biome_unlocked(index: int) -> bool:
@@ -103,22 +136,38 @@ func is_biome_unlocked(index: int) -> bool:
 	return previous != null and cleared(previous.id) >= LEVELS_PER_BIOME
 
 
-## Starts a biome with a pack. Choosing a different pack restarts the biome.
+## Picks the pack for the next level. Packs can be swapped any time: world
+## progress is shared, and nothing is lost by switching.
 func choose_pack(p_biome: BiomeData, p_pack: PackData) -> void:
 	biome = p_biome
 	pack = p_pack
-	if run_pack(p_biome.id) != p_pack.id:
-		_data.biomes[p_biome.id] = {"pack": p_pack.id, "cleared": 0}
+	var run := _run(p_biome.id)
+	if run.get("pack", "") != p_pack.id:
+		run["pack"] = p_pack.id
+		_data.biomes[p_biome.id] = run
 		_save()
 
 
+## Records a won level: it unlocks the next level for every pack, and the
+## pack that won it remembers it (for pack mastery).
 func complete_level() -> void:
 	var run := _run(biome.id)
 	run["cleared"] = max(run.get("cleared", 0), level_index + 1)
+	_mark_beaten(run, pack.id, level_index)
 	_data.biomes[biome.id] = run
 	_save()
 
 
+func _mark_beaten(run: Dictionary, pack_id: String, index: int) -> void:
+	var beaten: Dictionary = run.get("beaten", {})
+	var levels: Array = beaten.get(pack_id, [])
+	if not levels.has(index) and not levels.has(float(index)):
+		levels.append(index)
+	beaten[pack_id] = levels
+	run["beaten"] = beaten
+
+
+## This biome's saved record (a fresh empty one if it's never been played).
 func _run(biome_id: String) -> Dictionary:
 	return _data.biomes.get(biome_id, {})
 
@@ -134,13 +183,20 @@ func _load() -> void:
 			_convert_old_save()
 
 
-## Old saves counted 7 levels per world. A player who had cleared, say, 4 old
-## levels keeps credit for every kept level up to old level 4 (new levels 1-3).
 func _convert_old_save() -> void:
+	var version := int(_data.get("version", 1))
 	for biome_id in _data.biomes:
 		var run: Dictionary = _data.biomes[biome_id]
-		var old_cleared := int(run.get("cleared", 0))
-		run["cleared"] = OLD_LEVELS_KEPT.filter(func(old_level): return old_level <= old_cleared).size()
+		var cleared_levels := int(run.get("cleared", 0))
+		# Version 1 counted 7 levels per world. A player who had cleared, say,
+		# 4 old levels keeps every kept level up to old level 4 (new 1-3).
+		if version < 2:
+			cleared_levels = OLD_LEVELS_KEPT.filter(func(old_level): return old_level <= cleared_levels).size()
+			run["cleared"] = cleared_levels
+		# Before version 3 a world had one pack: it beat every cleared level.
+		if version < 3 and run.get("pack", "") != "":
+			for index in cleared_levels:
+				_mark_beaten(run, run.pack, index)
 	_data["version"] = SAVE_VERSION
 	_save()
 

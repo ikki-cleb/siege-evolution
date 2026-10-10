@@ -36,7 +36,10 @@ Bash** (piñatas with seeded "surprise" contents, the Clown). 35 levels
 (clear digits + coin icon), coins as currency, a Cancel button, sound,
 music and victory screens. **Capstones** (a second evolution tier, 2 per
 tier-1 evolution, 120 total, 12 new mechanics, themed names in every world)
-plus a two-tap upgrade preview and drag-to-scroll menus.
+plus a two-tap upgrade preview and drag-to-scroll menus. **Packs swap
+freely** (shared world progress; each pack remembers levels it beat) and
+there are **27 achievements** (`data/achievements.json`,
+`scripts/achievements.gd`, Achievements screen + unlock banner).
 `DESIGN.md` has every design decision; read it before changing gameplay.
 
 **Playtest links.** The private Claude artifact for this game is

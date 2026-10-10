@@ -11,6 +11,8 @@ signal cell_tapped(cell: Vector2i)
 signal base_hit(invader: InvaderData)
 ## Emitted when a killed invader drops coins. `where` is in screen coordinates.
 signal coins_dropped(amount: int, where: Vector2)
+## Emitted for every invader killed (achievements count them).
+signal invader_killed(invader: Invader)
 ## Asks the game to shake the screen (bombs, base hits).
 signal shake_requested(strength: float)
 
@@ -512,6 +514,7 @@ func _add_invader(data: InvaderData, pos: Vector2, path: Array[Vector2i], path_i
 
 func on_invader_killed(invader: Invader) -> void:
 	invaders.erase(invader)
+	invader_killed.emit(invader)
 	fx.add_puff(invader.position, Color(1, 1, 1, 0.9))
 	Sfx.play("kill")
 	if invader.drops_coins and invader.data.coin_drop > 0:

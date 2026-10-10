@@ -32,7 +32,7 @@ World 5 85%, Kitchen 90%, Birthday 70%. Older numbers quoted below were
 measured before the cut.
 
 ```
-Title → World select → Pack select → Level select (5 levels) → Level (8 waves)
+Title → World select → Level select with pack picker (5 levels) → Level (8 waves)
 ```
 
 - **Worlds (biomes):** 5 levels each, at one scale. Beating level 5 (the boss)
@@ -52,11 +52,35 @@ Title → World select → Pack select → Level select (5 levels) → Level (8 
   - **Birthday Bash**: built (see its section below).
 - **Each world has its own invader roster.** All behavior types appear in
   that world's level 1, and levels 2–5 add **elite variants** of them.
-- **Starter pack:** picked when entering a world and kept for all 5 levels.
-  Picking a different pack restarts that world at level 1 (after a confirm
-  screen). Each pack plays the same way in every world; later worlds only
-  give its units new names and art for the scale.
-- **Progress** is saved locally (cleared levels and chosen pack per world).
+- **Packs swap freely.** The level list has a pack picker at the top (it
+  remembers the last pick per world). World progress is **shared**: beating
+  a level with any pack unlocks the next one. Each pack also remembers which
+  levels it has beaten, shown on the level list as initials ("Beaten: F S"),
+  for pack mastery. Each pack plays the same way in every world; later
+  worlds only give its units new names and art for the scale.
+- **Progress** is saved locally: levels cleared per world, the last pack
+  picked, and which levels each pack has beaten. Old saves convert (their
+  single pack is credited with the levels it cleared).
+
+## Achievements
+
+27 achievements, listed on an **Achievements** screen from the title (earned
+ones in gold with a star; locked ones dimmed with their goal and progress,
+e.g. "1,240 / 5,000"). Earning one slides a banner in at the top of the
+screen, in a level or in the menus. The list lives in
+`data/achievements.json`; `scripts/achievements.gd` tracks and saves them.
+
+- **Progress (8):** beat each main world (5), beat all 5 main worlds, beat
+  each bonus world (2).
+- **Pack mastery (6):** beat all 25 main-world levels with one pack (one per
+  pack), and master all 5 packs. Bonus worlds don't count.
+- **Skill (6):** Flawless (no base HP lost), Untouchable Boss (the same on a
+  boss level), Close Call (win on 1 HP), Back to Basics (no evolutions),
+  Blindfolded (boss level with Paths off the whole time), Minimalist (6 or
+  fewer units on the board).
+- **Collection & fun (7):** evolve a unit, buy a capstone, own capstones of
+  all 12 mechanics, earn 10,000 coins, defeat 5,000 invaders, break 50
+  piñatas, hold 100 coins at once.
 
 ### First level of every world (teaching level)
 

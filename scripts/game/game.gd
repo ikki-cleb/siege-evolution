@@ -42,6 +42,10 @@ var _spawn_queue: Array[Dictionary] = []
 var _wave_time := 0.0
 ## True once anything reaches the base this wave (no clean-wave bonus).
 var _leaked := false
+# For achievements: evolutions bought this level, and whether paths were
+# ever shown.
+var _evolutions := 0
+var _paths_seen := false
 
 
 func _ready() -> void:
@@ -62,6 +66,7 @@ func _ready() -> void:
 	board.cell_tapped.connect(_on_cell_tapped)
 	board.base_hit.connect(_on_base_hit)
 	board.coins_dropped.connect(_on_coins_dropped)
+	board.invader_killed.connect(_on_invader_killed)
 	board.shake_requested.connect(shake)
 	Audio.play_music(Progress.biome.id)
 
@@ -89,6 +94,7 @@ func _enter_build_phase() -> void:
 	phase = Phase.BUILD
 	board.wave_active = false
 	board.show_path_preview = Progress.show_paths()
+	_paths_seen = _paths_seen or Progress.show_paths()
 	var next_wave := level.waves[wave_number]
 	board.preview_smashers = _wave_has(next_wave, InvaderData.Movement.SMASHER)
 	board.preview_fliers = _wave_has(next_wave, InvaderData.Movement.FLIER)
@@ -108,6 +114,7 @@ func footnote() -> String:
 func toggle_paths() -> void:
 	Progress.set_show_paths(not Progress.show_paths())
 	board.show_path_preview = phase == Phase.BUILD and Progress.show_paths()
+	_paths_seen = _paths_seen or board.show_path_preview
 	board.queue_redraw()
 	hud.refresh()
 
@@ -263,6 +270,8 @@ func evolve_selected(into: UnitData) -> void:
 	coins -= into.cost
 	unit.evolve(into)
 	Audio.play("evolve", 0.0)
+	_evolutions += 1
+	Achievements.on_evolved(into)
 	if into.tier == 2:
 		unit.capstone_round = wave_number
 		hud.show_message("Capstone: %s! %s" % [into.display_name, into.description])
@@ -331,15 +340,29 @@ func _end_wave() -> void:
 	if _leaked:
 		hud.show_message("Wave cleared. Units repaired. (No bonus: something got through.)")
 	else:
-		coins += level.coins_per_wave
+		_earn_coins(level.coins_per_wave)
 		Audio.play("wave_clear", 0.0)
 		hud.show_message("Clean wave! +%s %d bonus. Units repaired." % [Palette.COIN, level.coins_per_wave])
 	_enter_build_phase()
 
 
 func _on_coins_dropped(amount: int, where: Vector2) -> void:
-	coins += amount
+	_earn_coins(amount)
 	hud.spawn_orb(where, amount)
+
+
+## Coins earned by playing (drops and bonuses, not refunds) count toward
+## achievements.
+func _earn_coins(amount: int) -> void:
+	coins += amount
+	Achievements.add_stat("coins", amount)
+	Achievements.coins_now(coins)
+
+
+func _on_invader_killed(invader: Invader) -> void:
+	Achievements.add_stat("kills", 1)
+	if not invader.data.pinata_pool.is_empty():
+		Achievements.add_stat("pinatas", 1)
 
 
 func _on_base_hit(invader: InvaderData) -> void:
@@ -359,6 +382,9 @@ func _finish(won: bool) -> void:
 	Engine.time_scale = 1.0
 	if won:
 		Progress.complete_level()
+		Achievements.on_level_won({"base_hp": base_hp, "max_hp": level.base_hp,
+			"boss_level": is_last_level(), "evolutions": _evolutions,
+			"paths_seen": _paths_seen, "units": board.units.size()})
 	hud.refresh()
 	hud.show_end_screen(won)
 

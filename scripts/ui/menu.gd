@@ -104,6 +104,8 @@ func _show_title() -> void:
 	play.custom_minimum_size.y = 56
 	play.add_theme_font_size_override("font_size", 20)
 	_button("Store", _show.bind(_show_store))
+	_button("Achievements (%d/%d)" % [Achievements.earned_count(), Achievements.list.size()],
+		_show.bind(_show_achievements))
 	var toggles := HBoxContainer.new()
 	toggles.add_theme_constant_override("separation", 8)
 	_content.add_child(toggles)
@@ -151,80 +153,68 @@ func _world_card(index: int) -> void:
 			HORIZONTAL_ALIGNMENT_LEFT, card)
 		return
 	var biome := Progress.load_biome(index)
-	var pack := biome.find_pack(Progress.run_pack(biome.id))
-	if pack:
-		_label("%d/%d cleared with %s" % [Progress.cleared(biome.id), biome.levels.size(), pack.display_name],
+	if Progress.cleared(biome.id) > 0:
+		_label("%d/%d levels cleared" % [Progress.cleared(biome.id), biome.levels.size()],
 			12, GOLD, HORIZONTAL_ALIGNMENT_LEFT, card)
 	var enter := _button("Enter" if unlocked else "Locked: beat World %d first" % index,
 		_open_biome.bind(index), card)
 	enter.disabled = not unlocked
 
 
+## Enters a world with the pack picked there last time (or the first pack).
 func _open_biome(index: int) -> void:
-	_biome = Progress.load_biome(index)
-	_show(_show_packs)
-
-
-func _show_packs() -> void:
-	_header(_biome.display_name, _show.bind(_show_biomes))
-	var current := _biome.find_pack(Progress.run_pack(_biome.id))
-	if current and Store.owns(current.product_id):
-		_button("Continue with %s (%d/%d cleared)" % [current.display_name,
-			Progress.cleared(_biome.id), _biome.levels.size()], _pick_pack.bind(current))
-	_label("Pick a starter pack. You keep it for all %d levels of this world, and it gains a new unit as you progress." % _biome.levels.size(),
-		12, DIM_TEXT)
-	for pack in _biome.packs:
-		var card := _card(CARD_COLOR, pack.color)
-		_label(pack.display_name, 18, pack.color.lightened(0.3), HORIZONTAL_ALIGNMENT_LEFT, card)
-		_label(pack.description, 12, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
-		var icons := HBoxContainer.new()
-		icons.add_theme_constant_override("separation", 6)
-		card.add_child(icons)
-		for unit in pack.units_for_level(1):
-			var icon := TextureRect.new()
-			icon.texture = unit.texture
-			icon.custom_minimum_size = Vector2(32, 32)
-			icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-			icons.add_child(icon)
-		var names := ", ".join(pack.units_for_level(1).map(func(u): return u.display_name))
-		_label("Starts with: " + names, 11, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
-		if not Store.owns(pack.product_id):
-			_button("Unlock %s · %s (all worlds)" % [pack.display_name, Store.price(pack.product_id)],
-				Store.buy.bind(pack.product_id), card)
-		elif pack != current:
-			_button("Choose %s" % pack.display_name, _confirm_pack.bind(pack), card)
-
-
-func _confirm_pack(pack: PackData) -> void:
-	var current := _biome.find_pack(Progress.run_pack(_biome.id))
-	if current == null or Progress.cleared(_biome.id) == 0:
-		_pick_pack(pack)
-		return
-	_clear()
-	_header("Switch packs?", _show.bind(_show_packs))
-	_label("Starting %s with %s restarts this world from level 1. Your %s run (%d/%d cleared) will be lost." % [
-		_biome.display_name, pack.display_name, current.display_name,
-		Progress.cleared(_biome.id), _biome.levels.size()], 14, Color.WHITE)
-	_button("Restart with %s" % pack.display_name, _pick_pack.bind(pack))
-	_button("Keep %s" % current.display_name, _show.bind(_show_packs))
-
-
-func _pick_pack(pack: PackData) -> void:
-	Progress.choose_pack(_biome, pack)
+	var biome := Progress.load_biome(index)
+	var pack := biome.find_pack(Progress.run_pack(biome.id))
+	if pack == null or not Store.owns(pack.product_id):
+		pack = biome.packs[0]
+	Progress.choose_pack(biome, pack)
 	_show(_show_levels)
 
 
+## Picks a different pack. Nothing is lost: world progress is shared.
+func _pick_pack(pack: PackData) -> void:
+	Progress.choose_pack(Progress.biome, pack)
+	_show(_show_levels)
+
+
+## The level list, with the pack picker at the top. Each level shows which
+## packs have beaten it (for pack mastery).
 func _show_levels() -> void:
 	_biome = Progress.biome
-	_header("%s · %s" % [_biome.display_name, Progress.pack.display_name], _show.bind(_show_packs))
+	var current: PackData = Progress.pack
+	_header(_biome.display_name, _show.bind(_show_biomes))
+	_label("Pack (swap any time, progress is shared):", 12, DIM_TEXT)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 4)
+	_content.add_child(row)
+	for pack in _biome.packs:
+		var owned := Store.owns(pack.product_id)
+		var button := _button(pack.display_name if owned else "%s\n%s" % [pack.display_name, Store.price(pack.product_id)],
+			_pick_pack.bind(pack) if owned else Store.buy.bind(pack.product_id), row)
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.custom_minimum_size = Vector2(0, 40)
+		button.add_theme_font_size_override("font_size", 11)
+		button.modulate = pack.color.lightened(0.45) if pack == current else Color(1, 1, 1, 0.75)
+		if pack == current:
+			button.add_theme_stylebox_override("normal", Look.panel(Look.SURFACE_HI, pack.color))
+	var card := _card(CARD_COLOR, current.color)
+	_label(current.display_name, 16, current.color.lightened(0.3), HORIZONTAL_ALIGNMENT_LEFT, card)
+	_label(current.description, 12, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
+	_label("Mastery: %d/%d main-world levels beaten with %s" % [Progress.main_levels_beaten(current.id),
+		Progress.main_level_count(), current.display_name], 11, GOLD, HORIZONTAL_ALIGNMENT_LEFT, card)
+
 	var cleared := Progress.cleared(_biome.id)
 	for i in _biome.levels.size():
 		var text := _biome.levels[i].display_name
-		if i < cleared:
-			text += " · cleared"
-		elif i > cleared:
+		if i > cleared:
 			text += " · locked"
-		var unlock := Progress.pack.unit_unlocked_on(i + 1)
+		var beaten_by := Progress.packs_that_beat(_biome.id, i)
+		if not beaten_by.is_empty():
+			# Initials of the packs that beat it, e.g. "Beaten: F S P".
+			var initials := beaten_by.map(func(id): return id.substr(0, 1).to_upper())
+			text += "\nBeaten: %s%s" % [" ".join(initials),
+				"  (new for %s)" % current.display_name if not beaten_by.has(current.id) else ""]
+		var unlock := current.unit_unlocked_on(i + 1)
 		if unlock:
 			text += "\nNew unit: %s" % unlock.display_name
 		var button := _button(text, _play_level.bind(i))
@@ -235,6 +225,35 @@ func _show_levels() -> void:
 func _play_level(index: int) -> void:
 	Progress.level_index = index
 	get_tree().change_scene_to_file(GAME_SCENE)
+
+
+## Every achievement: earned ones in gold, locked ones dimmed with progress.
+func _show_achievements() -> void:
+	_header("Achievements", _show.bind(_show_title))
+	_label("%d of %d earned" % [Achievements.earned_count(), Achievements.list.size()], 13, GOLD)
+	var group := ""
+	for item in Achievements.list:
+		if item.group != group:
+			group = item.group
+			_label(group, 16, Look.TEXT)
+		var done := Achievements.is_earned(item.id)
+		var card := _card(Color(0.3, 0.22, 0.08) if done else CARD_COLOR, GOLD if done else Color.TRANSPARENT)
+		_label(("★ " if done else "") + item.name, 15, GOLD if done else Look.TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
+		_label(item.desc, 11, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
+		var amounts: Array = Achievements.progress_of(item)
+		if not done and amounts[1] > 1:
+			_label("%s / %s" % [_count(amounts[0]), _count(amounts[1])], 11, Look.TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
+
+
+## 12345 -> "12,345"
+func _count(value: int) -> String:
+	var text := str(value)
+	var result := ""
+	for i in text.length():
+		if i > 0 and (text.length() - i) % 3 == 0:
+			result += ","
+		result += text[i]
+	return result
 
 
 func _show_store() -> void:
