@@ -554,7 +554,7 @@
       "hp": 1100,
       "armor": 0,
       "speed": 0.22,
-      "base_damage": 15,
+      "base_damage": 10,
       "bomb": 30,
       "bomb_interval": 9.0,
       "boss": true,
