@@ -1,6 +1,6 @@
 # Siege Evolution: Game Design Document
 
-Status: **v0.8, all 5 main worlds playable and polished** (35 levels,
+Status: **v0.9, all 5 main worlds plus the Kitchen Defense bonus world** (42 levels,
 5 packs, evolutions, saved progress, sound, music, store in test mode). Balance is tuned against an automated player, not real play yet.
 
 ## Pitch
@@ -272,8 +272,13 @@ swatters, spray bottles, mousetraps, pepper grinders, toasters).
 **Post-game difficulty:** the store card carries a red "POST-GAME: HARD"
 tag and "Harder than Galactic Siege. Best after finishing the main game."
 Difficulty comes from mechanics, tighter layouts, nastier wave mixes and less
-starting ATP, not inflated invader stats. Target: the auto-player wins about
-70% of level/pack runs, and every pack beats at least 5 of 7 levels.
+starting ATP, not inflated invader stats. Waves also grow faster (45% of
+wave 1 per wave, vs 32% in main worlds), so early waves are fair and the
+finish is brutal. Target was about 70% bot wins; tuning stopped at **85% on
+levels 2-7** (level 1 is the easy teaching level) because more global
+difficulty only broke Fortress and Precision while Swarm, Control and Toxin
+kept winning. Final call is the user's playtest. Every pack beats at least
+5 of 7 levels.
 
 **New behavior: spillers.** Every 2 tiles it walks, a spiller splashes goo
 on the units on the 8 tiles around it. A sticky unit attacks 40% slower
