@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://scripts/data/wave_entry.gd" id="3_rpmwa"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/windup_mouse.tres" id="4_n0g4w"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/windup_racer.tres" id="5_6yas6"]
-[ext_resource type="Resource" path="res://data/invaders/birthday_bash/pinata.tres" id="6_35kan"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/bouncy_ball.tres" id="6_35kan"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/party_bag.tres" id="7_rs0ch"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/goodie_bag.tres" id="8_r1uyc"]
-[ext_resource type="Resource" path="res://data/invaders/birthday_bash/bouncy_ball.tres" id="9_rm3ks"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/pinata.tres" id="9_rm3ks"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/balloon.tres" id="10_e3uon"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/big_balloon.tres" id="11_fv54d"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/soda_spill.tres" id="12_oul04"]
@@ -21,20 +21,21 @@
 [sub_resource type="Resource" id="Resource_vcd50"]
 script = ExtResource("3_rpmwa")
 invader = ExtResource("4_n0g4w")
-count = 6
-spacing = 2.6500000000000004
+count = 9
+spacing = 1.8
 
 [sub_resource type="Resource" id="Resource_pufqd"]
 script = ExtResource("3_rpmwa")
 invader = ExtResource("5_6yas6")
-spacing = 3.2
+count = 7
+spacing = 2.3000000000000003
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_g2j8j"]
 script = ExtResource("3_rpmwa")
 invader = ExtResource("6_35kan")
-count = 2
-spacing = 5.0
+count = 4
+spacing = 4.0
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_xnm4q"]
@@ -70,7 +71,7 @@ delay = 7.5
 
 [sub_resource type="Resource" id="Resource_3qjcj"]
 script = ExtResource("3_rpmwa")
-invader = ExtResource("9_rm3ks")
+invader = ExtResource("6_35kan")
 count = 6
 spacing = 2.6500000000000004
 delay = 10.0
@@ -81,9 +82,9 @@ entries = Array[ExtResource("3_rpmwa")]([SubResource("Resource_5esdd"), SubResou
 
 [sub_resource type="Resource" id="Resource_ow1uy"]
 script = ExtResource("3_rpmwa")
-invader = ExtResource("6_35kan")
-count = 4
-spacing = 4.0
+invader = ExtResource("9_rm3ks")
+count = 3
+spacing = 5.0
 
 [sub_resource type="Resource" id="Resource_qhgjl"]
 script = ExtResource("3_rpmwa")
@@ -149,12 +150,13 @@ entries = Array[ExtResource("3_rpmwa")]([SubResource("Resource_bq1rn"), SubResou
 
 [sub_resource type="Resource" id="Resource_cb03m"]
 script = ExtResource("3_rpmwa")
-invader = ExtResource("6_35kan")
-spacing = 3.2
+invader = ExtResource("9_rm3ks")
+count = 3
+spacing = 5.0
 
 [sub_resource type="Resource" id="Resource_kdjvs"]
 script = ExtResource("3_rpmwa")
-invader = ExtResource("9_rm3ks")
+invader = ExtResource("6_35kan")
 count = 12
 spacing = 1.35
 delay = 2.5
@@ -216,9 +218,9 @@ delay = 2.5
 
 [sub_resource type="Resource" id="Resource_xhfre"]
 script = ExtResource("3_rpmwa")
-invader = ExtResource("6_35kan")
-count = 7
-spacing = 2.3000000000000003
+invader = ExtResource("9_rm3ks")
+count = 4
+spacing = 4.0
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_ua4mb"]
@@ -266,7 +268,7 @@ delay = 7.5
 
 [sub_resource type="Resource" id="Resource_2upqa"]
 script = ExtResource("3_rpmwa")
-invader = ExtResource("9_rm3ks")
+invader = ExtResource("6_35kan")
 count = 12
 spacing = 1.35
 delay = 10.0
@@ -284,9 +286,9 @@ entries = Array[ExtResource("3_rpmwa")]([SubResource("Resource_gmlw4"), SubResou
 
 [sub_resource type="Resource" id="Resource_cgsjs"]
 script = ExtResource("3_rpmwa")
-invader = ExtResource("6_35kan")
-count = 10
-spacing = 1.6
+invader = ExtResource("9_rm3ks")
+count = 7
+spacing = 2.3000000000000003
 
 [sub_resource type="Resource" id="Resource_nreyw"]
 script = ExtResource("3_rpmwa")
@@ -369,14 +371,14 @@ delay = 12.5
 
 [sub_resource type="Resource" id="Resource_hdakf"]
 script = ExtResource("3_rpmwa")
-invader = ExtResource("6_35kan")
-count = 2
+invader = ExtResource("9_rm3ks")
+count = 1
 spacing = 5.0
 delay = 15.0
 
 [sub_resource type="Resource" id="Resource_30sr0"]
 script = ExtResource("3_rpmwa")
-invader = ExtResource("9_rm3ks")
+invader = ExtResource("6_35kan")
 count = 4
 spacing = 4.0
 delay = 17.5

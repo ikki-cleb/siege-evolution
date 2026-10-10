@@ -9,10 +9,10 @@
 [ext_resource type="Script" path="res://scripts/data/wave_entry.gd" id="7_8hvdm"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/windup_mouse.tres" id="8_pggtw"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/windup_racer.tres" id="9_ggq67"]
-[ext_resource type="Resource" path="res://data/invaders/birthday_bash/pinata.tres" id="10_iwees"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/bouncy_ball.tres" id="10_iwees"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/party_bag.tres" id="11_ekypy"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/goodie_bag.tres" id="12_fvrgh"]
-[ext_resource type="Resource" path="res://data/invaders/birthday_bash/bouncy_ball.tres" id="13_mossh"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/pinata.tres" id="13_mossh"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/balloon.tres" id="14_ok68b"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/soda_spill.tres" id="15_jindt"]
 [ext_resource type="Resource" path="res://data/invaders/birthday_bash/toy_robot.tres" id="16_oa00t"]
@@ -21,20 +21,20 @@
 [sub_resource type="Resource" id="Resource_ks6m0"]
 script = ExtResource("7_8hvdm")
 invader = ExtResource("8_pggtw")
-count = 8
-spacing = 2.0
+count = 11
+spacing = 1.4500000000000002
 
 [sub_resource type="Resource" id="Resource_0skbd"]
 script = ExtResource("7_8hvdm")
 invader = ExtResource("9_ggq67")
-count = 2
+count = 3
 spacing = 5.0
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_hrm2g"]
 script = ExtResource("7_8hvdm")
 invader = ExtResource("10_iwees")
-count = 2
+count = 3
 spacing = 5.0
 delay = 5.0
 
@@ -71,7 +71,7 @@ delay = 7.5
 
 [sub_resource type="Resource" id="Resource_y2jt3"]
 script = ExtResource("7_8hvdm")
-invader = ExtResource("13_mossh")
+invader = ExtResource("10_iwees")
 spacing = 3.2
 delay = 10.0
 
@@ -81,8 +81,8 @@ entries = Array[ExtResource("7_8hvdm")]([SubResource("Resource_1efax"), SubResou
 
 [sub_resource type="Resource" id="Resource_qfe02"]
 script = ExtResource("7_8hvdm")
-invader = ExtResource("10_iwees")
-count = 3
+invader = ExtResource("13_mossh")
+count = 2
 spacing = 5.0
 
 [sub_resource type="Resource" id="Resource_2dt28"]
@@ -129,13 +129,13 @@ entries = Array[ExtResource("7_8hvdm")]([SubResource("Resource_6uvnw"), SubResou
 
 [sub_resource type="Resource" id="Resource_a56h1"]
 script = ExtResource("7_8hvdm")
-invader = ExtResource("10_iwees")
-count = 4
-spacing = 4.0
+invader = ExtResource("13_mossh")
+count = 2
+spacing = 5.0
 
 [sub_resource type="Resource" id="Resource_mt801"]
 script = ExtResource("7_8hvdm")
-invader = ExtResource("13_mossh")
+invader = ExtResource("10_iwees")
 count = 9
 spacing = 1.8
 delay = 2.5
@@ -189,8 +189,9 @@ delay = 2.5
 
 [sub_resource type="Resource" id="Resource_q1amd"]
 script = ExtResource("7_8hvdm")
-invader = ExtResource("10_iwees")
-spacing = 3.2
+invader = ExtResource("13_mossh")
+count = 3
+spacing = 5.0
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_gq5ul"]
@@ -219,7 +220,7 @@ delay = 2.5
 
 [sub_resource type="Resource" id="Resource_iu7py"]
 script = ExtResource("7_8hvdm")
-invader = ExtResource("13_mossh")
+invader = ExtResource("10_iwees")
 count = 9
 spacing = 1.8
 delay = 5.0
@@ -237,9 +238,8 @@ entries = Array[ExtResource("7_8hvdm")]([SubResource("Resource_k68wj"), SubResou
 
 [sub_resource type="Resource" id="Resource_awr4a"]
 script = ExtResource("7_8hvdm")
-invader = ExtResource("10_iwees")
-count = 8
-spacing = 2.0
+invader = ExtResource("13_mossh")
+spacing = 3.2
 
 [sub_resource type="Resource" id="Resource_mdtwp"]
 script = ExtResource("7_8hvdm")
@@ -301,14 +301,14 @@ delay = 10.0
 
 [sub_resource type="Resource" id="Resource_fqgu3"]
 script = ExtResource("7_8hvdm")
-invader = ExtResource("10_iwees")
-count = 3
+invader = ExtResource("13_mossh")
+count = 2
 spacing = 5.0
 delay = 12.5
 
 [sub_resource type="Resource" id="Resource_je4uq"]
 script = ExtResource("7_8hvdm")
-invader = ExtResource("13_mossh")
+invader = ExtResource("10_iwees")
 spacing = 3.2
 delay = 15.0
 
@@ -342,7 +342,7 @@ script = ExtResource("4_ah8h5")
 display_name = "3. Bouncy Castle"
 layout = PackedStringArray("S...S....", ".........", "#.#...#.#", ".........", "...#.#...", ".........", ".#.....#.", ".........", "...#.#...", ".........", "#.#...#.#", ".........", ".........", "......B..")
 hand_value = PackedInt32Array(10, 8, 7, 5, 0, 0)
-starting_coins = 12
+starting_coins = 16
 wave_tips = PackedStringArray()
 floor_texture = ExtResource("2_jncq4")
 rock_texture = ExtResource("3_vxpsy")
