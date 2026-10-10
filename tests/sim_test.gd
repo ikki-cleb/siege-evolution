@@ -96,10 +96,13 @@ func _test_balance(biome: BiomeData) -> void:
 			for seed_value in [7, 99]:
 				var game := await _start(biome, pack_index, level_index)
 				await _play(game, AutoPlayer.new(game, seed_value + level_index))
-				runs += 1
+				# The teaching level (level 1) doesn't count toward the win rate.
+				if level_index > 0:
+					runs += 1
 				if game.phase == game.Phase.WON:
 					wins += 1
-					runs_won += 1
+					if level_index > 0:
+						runs_won += 1
 					results.append(str(game.base_hp))
 				else:
 					results.append("L%d" % game.wave_number)
@@ -117,7 +120,7 @@ func _test_balance(biome: BiomeData) -> void:
 		await _stop(game)
 	# Bonus worlds are post-game hard: the bot should win about 70% of runs,
 	# and every pack should still beat 5 of 7 levels (6 of 7 in main worlds).
-	print("Bot won %d of %d runs (%d%%)" % [runs_won, runs, roundi(100.0 * runs_won / runs)])
+	print("Bot won %d of %d runs on levels 2-7 (%d%%)" % [runs_won, runs, roundi(100.0 * runs_won / runs)])
 	var needed := biome.levels.size() - (2 if progress.is_bonus_biome(biome.id) else 1)
 	for pack_index in biome.packs.size():
 		_check(pack_wins.get(pack_index, 0) >= needed,
