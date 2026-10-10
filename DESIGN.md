@@ -42,6 +42,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
   comparable to the main worlds). The store card warns about this before
   purchase. Each bonus world adds its own new invader type.
   - **Kitchen Defense**: built (see its section below).
+  - **Birthday Bash**: built (see its section below).
 - **Each world has its own invader roster.** All behavior types appear in
   that world's level 1, and levels 2–7 add **elite variants** of them.
 - **Starter pack:** picked when entering a world and kept for all 7 levels.
@@ -318,6 +319,44 @@ default; levels set `"tiles": "counter"` or `"floor"`.
 Beating the Rat King shows a **world-cleared screen** (confetti,
 "Kitchen Defense cleared!", and a nudge toward Birthday Bash if not owned).
 
+## Bonus World: Birthday Bash (post-game)
+
+Toy scale: **party crashers** invade a kid's birthday party: wind-up toys,
+bouncy balls, balloons, party bags, spilled soda and piñatas. You defend the
+**birthday cake**. Levels rotate the **backyard** (lawn and party table),
+the **living room** (carpet and furniture) and the **bouncy castle**. Walls
+are party gear (gift boxes, paper cups, folding chairs, balloon arches,
+streamers); attackers are party gadgets (confetti cannons, water pistols,
+noisemakers, sparklers, party horns, disco balls).
+
+Same post-game rules as Kitchen Defense: the store card's
+"POST-GAME: HARD" warning, faster wave growth, less starting coin, and a
+similar bot win rate.
+
+**New behavior: piñatas.** A slow, tough walker that bursts into 3-5 small
+invaders when broken (walkers, jumpers, fliers, small smashers; never elites
+or bosses). The contents *look* random and there's no hint before it pops,
+but they're fixed: each piñata's contents come from a seed made of the
+level, the wave, and which piñata it is in that wave. Replaying a wave gives
+the same surprises, so players can learn them.
+
+Returning behaviors: walker swarms, splitters, smashers, jumpers, fliers,
+bombers and spillers (the "everything" bonus world).
+
+| Invader | Type |
+|---|---|
+| Wind-up Mouse / Wind-up Racer (elite) | Walker swarm |
+| Party Bag / Goodie Bag (elite) | Walker, bursts into gumdrops |
+| Bouncy Ball | Jumper |
+| Toy Robot / Mega Robot (elite) | Smasher |
+| Balloon / Big Balloon (elite) | Flier |
+| Water Balloon | Bomber |
+| Soda Spill / Frosting Blob (elite) | Spiller |
+| **Piñata** | New: bursts into a fixed "surprise" |
+| **The Clown** | Boss smasher (level 7): tosses mini piñatas a few tiles ahead onto its route |
+
+Beating the Clown shows the bonus world-cleared screen.
+
 ## Polish (v0.8)
 
 - **Look:** one theme for menus and the in-level screen. Each world has an
@@ -379,7 +418,6 @@ comes next.
 ## Open questions
 
 - Cosmetic unlocks (palettes, skins, menu themes): what and when
-- Birthday Bash content (sold in the store but not built yet)
 - User's v0.8 playtest notes (to handle after Kitchen Defense)
 - Orchard (World 3, level 3) is the hardest level for the bot, especially with Toxin
 - Overall difficulty after human playtesting (the bot finds most levels easy)
