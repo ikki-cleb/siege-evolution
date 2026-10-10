@@ -51,6 +51,10 @@ const POISON_STACK_LIMIT := 2.5
 
 var _minion_timer := 0.0
 var _sprite: Sprite2D
+## Seconds left on the white "just got hit" flash.
+var _hit_flash := 0.0
+## Each invader bobs at its own rhythm while walking.
+var _bob_offset := randf() * TAU
 
 
 func setup(p_data: InvaderData, p_board: Board, start: Vector2, p_path: Array[Vector2i], p_index: int) -> void:
@@ -95,6 +99,7 @@ func take_damage(amount: float, pierce := false) -> void:
 	if mark_time > 0.0:
 		amount *= 1.0 + mark_bonus
 	hp -= amount
+	_hit_flash = 0.08
 	queue_redraw()
 	if hp <= 0.0:
 		alive = false
@@ -180,7 +185,13 @@ func _update_effects(delta: float) -> void:
 		tint = Color(0.6, 0.8, 1.0)
 	if stun_time > 0.0:
 		tint = Color(1.0, 1.0, 0.5)
+	if _hit_flash > 0.0:
+		_hit_flash -= delta
+		tint = Color(2.2, 2.2, 2.2)  # brighter than white = a flash
 	_sprite.modulate = tint
+	# Walkers bob as they move (fliers glide, hops have their own arc).
+	if not is_flying() and not _hopping and stun_time <= 0.0:
+		_sprite.position.y = sin(Time.get_ticks_msec() / 90.0 + _bob_offset) * 0.8
 	queue_redraw()
 
 
@@ -259,6 +270,7 @@ func _blink() -> void:
 	if landing < path_index:
 		return
 	board.fx.add_pulse(position, Board.TILE * 0.8, Color(0.7, 0.4, 1.0))
+	Sfx.play("blink")
 	position = board.cell_center(path[landing])
 	path_index = landing + 1
 	board.fx.add_pulse(position, Board.TILE * 0.8, Color(0.7, 0.4, 1.0))

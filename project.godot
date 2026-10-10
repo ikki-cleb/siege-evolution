@@ -11,6 +11,8 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [autoload]
 
+Look="*res://scripts/look.gd"
+Audio="*res://scripts/audio.gd"
 Store="*res://scripts/store.gd"
 Progress="*res://scripts/progress.gd"
 
@@ -29,7 +31,7 @@ window/handheld/orientation=1
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.09, 0.05, 0.08, 1)
+environment/defaults/default_clear_color=Color(0.0784, 0.0471, 0.0706, 1)
 
 [editor]
 

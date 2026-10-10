@@ -1,7 +1,7 @@
 # Siege Evolution: Game Design Document
 
-Status: **v0.7, all 5 main worlds playable** (35 levels, 5 packs,
-evolutions, saved progress, store in test mode). Balance is tuned against an automated player, not real play yet.
+Status: **v0.8, all 5 main worlds playable and polished** (35 levels,
+5 packs, evolutions, saved progress, sound, music, store in test mode). Balance is tuned against an automated player, not real play yet.
 
 ## Pitch
 
@@ -19,7 +19,7 @@ inside the body, and each world's final boss zooms you out to a bigger world.
 | Platforms | iOS + Android (iOS builds need a Mac with Xcode). A web build is used for playtesting. |
 | Orientation | Portrait only |
 | Art | 16×16 pixel tiles, integer-scaled. Placeholders for now; the user draws the final art. |
-| Menus | Plain and functional for now. The sleek design comes after the gameplay. |
+| Menus | Clean dark style with the Pixelify Sans pixel font (SIL OFL) and an accent color per world (`scripts/look.gd`, `scripts/palette.gd`). |
 | Business model | Free, no ads. Optional $1 purchases (see Monetization). |
 
 ## Structure
@@ -255,6 +255,20 @@ hit it, and every pack has at least one.
 | UFO Bomber | Bomber |
 | **Mothership** | Flying boss: repeated bombs, drops blinkers |
 
+## Polish (v0.8)
+
+- **Look:** one theme for menus and the in-level screen. Each world has an
+  accent color, used for titles, card stripes and the HUD's accent lines.
+- **Game feel:** hit flashes, death puffs, walker bobbing, units pop in when
+  placed, a gold sparkle on evolve, screen shake on bombs and base hits.
+- **Audio:** generated chiptune sound effects and one music loop for the
+  menu and each world (`tools/make_audio.py`). Sound and Music toggles on the
+  title screen, saved between sessions. Replace any file in `assets/sfx` or
+  `assets/music` with your own of the same name.
+- **Final victory:** beating the Mothership shows a big congratulations
+  screen with confetti. If the player doesn't own both bonus worlds, it
+  suggests them with a button that opens the Store.
+
 ## Monetization
 
 Free app, **no ads**. Everything is in the **Store** (menu), and the paid
@@ -308,5 +322,5 @@ comes next.
 - Orchard (World 3, level 3) is the hardest level for the bot, especially with Toxin
 - Overall difficulty after human playtesting (the bot finds most levels easy)
 - Sound and music direction
-- Sleek menu visual design
+- Cosmetic unlocks (deferred from the polish pass)
 - Save sync (iCloud / Google Play) or local only

@@ -10,6 +10,9 @@ extends SceneTree
 const GAME_SCENE := "res://scenes/game.tscn"
 
 var failures := 0
+## If scripts fail to compile, checks silently never run; catch that too.
+var checks_run := 0
+const MIN_RULE_CHECKS := 42
 var progress: Node
 
 
@@ -34,6 +37,9 @@ func _run() -> void:
 		for index in worlds:
 			await _test_balance(progress.load_biome(index))
 	progress.reset()
+	if checks_run < MIN_RULE_CHECKS:
+		print("FAIL  Only %d checks ran (expected at least %d). Look for SCRIPT ERROR above." % [checks_run, MIN_RULE_CHECKS])
+		failures += 1
 	print("\n%s" % ("ALL TESTS PASSED" if failures == 0 else "%d TEST(S) FAILED" % failures))
 	quit(1 if failures > 0 else 0)
 
@@ -268,6 +274,33 @@ func _test_space(biome: BiomeData) -> void:
 	_check(hp_total.call() < hp_before - boss_data.bomb_damage, "The Mothership bombs more than once")
 	await _stop(game)
 
+	# The final victory screen: big congratulations, plus a bonus-world pitch
+	# only when the player doesn't own both bonus worlds.
+	var store: Node = root.get_node("Store")
+	for owned in [false, true]:
+		store.reset_test_purchases()
+		if owned:
+			store.buy(store.BUNDLE_ALL)
+		game = await _start(biome, 0, 6)
+		game.hud.show_end_screen(true)
+		await process_frame
+		var texts := _all_texts(game.hud)
+		var has_pitch := texts.any(func(t): return t.contains("See bonus worlds"))
+		_check(texts.has("VICTORY!") and has_pitch == not owned,
+			"Final victory screen %s the bonus worlds" % ("hides" if owned else "suggests"))
+		await _stop(game)
+	store.reset_test_purchases()
+
+
+## Every Label and Button text under a node (for checking screens).
+func _all_texts(node: Node) -> Array[String]:
+	var result: Array[String] = []
+	for child in node.get_children():
+		if child is Label or child is Button:
+			result.append(child.text)
+		result.append_array(_all_texts(child))
+	return result
+
 
 func _has_hop(route: Array[Vector2i]) -> bool:
 	for i in range(1, route.size()):
@@ -414,6 +447,7 @@ func _test_rules(biome: BiomeData) -> void:
 
 
 func _check(ok: bool, text: String) -> void:
+	checks_run += 1
 	print("%s  %s" % ["PASS" if ok else "FAIL", text])
 	if not ok:
 		failures += 1

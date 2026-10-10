@@ -1,12 +1,12 @@
 extends Control
 ## The menus: title -> world select -> pack select -> level select, plus the
-## Store. Plain functional layout for now; the sleek menu design comes later.
+## Store. Colors and styles come from Look.
 
 const GAME_SCENE := "res://scenes/game.tscn"
-const BG_COLOR := Color(0.09, 0.05, 0.08)
-const CARD_COLOR := Color(0.16, 0.09, 0.13)
-const DIM_TEXT := Color(0.8, 0.68, 0.74)
-const GOLD := Color(1, 0.9, 0.4)
+const BG_COLOR := Look.BG
+const CARD_COLOR := Look.SURFACE
+const DIM_TEXT := Look.TEXT_DIM
+const GOLD := Look.GOLD
 
 var _content: VBoxContainer
 var _biome: BiomeData
@@ -34,13 +34,16 @@ func _ready() -> void:
 	_content.add_theme_constant_override("separation", 12)
 	margin.add_child(_content)
 
-	Store.purchases_changed.connect(func(): _current_screen.call())
+	Store.purchases_changed.connect(func(): _show(_current_screen))
+	Audio.play_music("menu")
 	_biome = Progress.biome
 	match Progress.return_screen:
 		"levels":
 			_show(_show_levels)
 		"biomes":
 			_show(_show_biomes)
+		"store":
+			_show(_show_store)
 		_:
 			_show(_show_title)
 
@@ -54,12 +57,33 @@ func _show(screen: Callable) -> void:
 # --- Screens ----------------------------------------------------------------
 
 func _show_title() -> void:
-	_spacer(150)
-	_label("SIEGE EVOLUTION", 34, Color(1, 0.35, 0.45), HORIZONTAL_ALIGNMENT_CENTER)
-	_label("A puzzle defense that keeps getting bigger", 14, DIM_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
-	_spacer(40)
-	_button("Play", _show.bind(_show_biomes))
+	_spacer(120)
+	_label("SIEGE", 54, Look.TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	var evolution := _label("EVOLUTION", 30, Look.HEART, HORIZONTAL_ALIGNMENT_CENTER)
+	# The subtitle color cycles through every world's accent.
+	var tween := evolution.create_tween().set_loops()
+	for color in Look.ACCENTS.values():
+		tween.tween_property(evolution, "modulate", color, 0.4)
+		tween.tween_interval(1.4)
+	_label("From a single cell to the stars.", 14, DIM_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_spacer(36)
+	var play := _button("Play", _show.bind(_show_biomes))
+	play.custom_minimum_size.y = 56
+	play.add_theme_font_size_override("font_size", 20)
 	_button("Store", _show.bind(_show_store))
+	var toggles := HBoxContainer.new()
+	toggles.add_theme_constant_override("separation", 8)
+	_content.add_child(toggles)
+	var sound := _button("Sound: %s" % ("On" if Audio.sound_on else "Off"), func():
+		Audio.set_sound(not Audio.sound_on)
+		_show(_show_title), toggles)
+	var music := _button("Music: %s" % ("On" if Audio.music_on else "Off"), func():
+		Audio.set_music(not Audio.music_on)
+		_show(_show_title), toggles)
+	for button in [sound, music]:
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_spacer(80)
+	_label("Font: Pixelify Sans (SIL Open Font License)", 10, Color(Look.TEXT_DIM, 0.6), HORIZONTAL_ALIGNMENT_CENTER)
 
 
 func _show_biomes() -> void:
@@ -73,7 +97,9 @@ func _show_biomes() -> void:
 
 func _world_card(index: int) -> void:
 	var world: Dictionary = Progress.WORLDS[index]
-	var card := _card()
+	var world_biome := Progress.load_biome(index)
+	var edge := Look.accent(world_biome.id) if world_biome else Look.BORDER
+	var card := _card(CARD_COLOR, edge)
 	var title: String = world.name
 	if not Progress.is_bonus(index):
 		title = "World %d: %s" % [Progress.main_number(index), world.name]
@@ -113,7 +139,7 @@ func _show_packs() -> void:
 	_label("Pick a starter pack. You keep it for all %d levels of this world, and it gains a new unit as you progress." % _biome.levels.size(),
 		12, DIM_TEXT)
 	for pack in _biome.packs:
-		var card := _card(pack.color.darkened(0.75))
+		var card := _card(CARD_COLOR, pack.color)
 		_label(pack.display_name, 18, pack.color.lightened(0.3), HORIZONTAL_ALIGNMENT_LEFT, card)
 		_label(pack.description, 12, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
 		var icons := HBoxContainer.new()
@@ -219,13 +245,10 @@ func _header(title: String, back: Callable) -> void:
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
 
-func _card(color := CARD_COLOR) -> VBoxContainer:
+## A rounded card; `edge` adds a colored stripe down its left side.
+func _card(color := CARD_COLOR, edge := Color.TRANSPARENT) -> VBoxContainer:
 	var panel := PanelContainer.new()
-	var style := StyleBoxFlat.new()
-	style.bg_color = color
-	style.set_corner_radius_all(6)
-	style.set_content_margin_all(12)
-	panel.add_theme_stylebox_override("panel", style)
+	panel.add_theme_stylebox_override("panel", Look.panel(color, edge))
 	_content.add_child(panel)
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 6)
@@ -252,6 +275,7 @@ func _button(text: String, action: Callable, parent: Control = null) -> Button:
 	button.custom_minimum_size = Vector2(0, 44)
 	button.add_theme_font_size_override("font_size", 14)
 	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	button.pressed.connect(func(): Audio.play("button"))
 	button.pressed.connect(action)
 	(parent if parent else _content).add_child(button)
 	return button

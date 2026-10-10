@@ -63,6 +63,8 @@ func _ready() -> void:
 	board.cell_tapped.connect(_on_cell_tapped)
 	board.base_hit.connect(_on_base_hit)
 	board.atp_dropped.connect(_on_atp_dropped)
+	board.shake_requested.connect(shake)
+	Audio.play_music(Progress.biome.id)
 
 	base_hp = level.base_hp
 	atp = level.starting_atp
@@ -112,6 +114,7 @@ func select_type(type: UnitData) -> void:
 	_select_cell(Board.NO_CELL)
 	if selected_type:
 		hud.show_message(describe(selected_type))
+	Audio.play("button")
 	hud.refresh()
 
 
@@ -136,18 +139,22 @@ func try_place(type: UnitData, cell: Vector2i) -> bool:
 	var on_water: bool = board.water.has(cell)
 	if phase != Phase.BUILD or (not on_water and not board.is_buildable(cell)):
 		board.flash(cell)
+		Audio.play("deny")
 		return false
 	if on_water and not type.can_place_on_water:
 		board.flash(cell)
+		Audio.play("deny")
 		hud.show_message("Only your basic wall can go on water (as a net or mine).")
 		return false
 	var from_hand: bool = hand.get(type.id, 0) > 0
 	if not from_hand and atp < type.cost:
 		board.flash(cell)
+		Audio.play("deny")
 		hud.show_message("Not enough ATP.")
 		return false
 	if not board.can_place_unit(type, cell):
 		board.flash(cell)
+		Audio.play("deny")
 		hud.show_message("Can't seal the path completely!")
 		return false
 
@@ -156,6 +163,7 @@ func try_place(type: UnitData, cell: Vector2i) -> bool:
 	else:
 		atp -= type.cost
 	var unit := board.place_unit(type, cell)
+	Audio.play("place")
 	unit.placed_round = wave_number
 	unit.from_hand = from_hand
 	return true
@@ -199,6 +207,7 @@ func sell_selected() -> void:
 		hand[unit.base_data.id] = hand.get(unit.base_data.id, 0) + 1
 	var unit_name := unit.data.display_name
 	board.remove_unit(selected_cell)
+	Audio.play("sell")
 	_select_cell(Board.NO_CELL)
 	if value.to_hand:
 		hud.show_message("%s returned to your hand." % unit_name)
@@ -224,6 +233,7 @@ func evolve_selected(into: UnitData) -> void:
 	var unit := selected_unit()
 	atp -= into.cost
 	unit.evolve(into)
+	Audio.play("evolve", 0.0)
 	unit.evolved_round = wave_number
 	hud.show_message("Evolved into %s! %s" % [into.display_name, into.description])
 	hud.refresh()
@@ -260,6 +270,7 @@ func start_wave() -> void:
 	_spawn_queue.sort_custom(func(a, b): return a.time < b.time)
 	_wave_time = 0.0
 	_leaked = false
+	Audio.play("wave_start", 0.0)
 	wave_number += 1
 	hud.show_message("")
 	hud.refresh()
@@ -286,6 +297,7 @@ func _end_wave() -> void:
 		hud.show_message("Wave cleared. Units repaired. (No bonus: something got through.)")
 	else:
 		atp += level.atp_per_wave
+		Audio.play("wave_clear", 0.0)
 		hud.show_message("Clean wave! +%d ATP bonus. Units repaired." % level.atp_per_wave)
 	_enter_build_phase()
 
@@ -297,6 +309,8 @@ func _on_atp_dropped(amount: int, where: Vector2) -> void:
 
 func _on_base_hit(invader: InvaderData) -> void:
 	_leaked = true
+	Audio.play("base_hit")
+	shake(3.0 + invader.base_damage)
 	base_hp = max(0, base_hp - invader.base_damage)
 	hud.refresh()
 	if base_hp == 0 and phase == Phase.WAVE:
@@ -315,6 +329,15 @@ func _finish(won: bool) -> void:
 
 
 ## 1x -> 2x -> 3x (if bought in the Store) -> 1x.
+## Shakes the board for a moment (bombs, base hits).
+func shake(strength: float) -> void:
+	var tween := create_tween()
+	for i in 6:
+		var offset := Vector2(randf_range(-1, 1), randf_range(-1, 1)) * strength * (1.0 - i / 6.0)
+		tween.tween_property(board, "position", BOARD_POSITION + offset, 0.03)
+	tween.tween_property(board, "position", BOARD_POSITION, 0.03)
+
+
 func cycle_speed() -> void:
 	speed = speed % 3 + 1
 	if speed == 3 and not Store.owns(Store.SPEED_3X):
@@ -335,6 +358,13 @@ func retry() -> void:
 func next_level() -> void:
 	Progress.level_index += 1
 	get_tree().reload_current_scene()
+
+
+## From the final victory screen: straight to the Store's bonus worlds.
+func open_store() -> void:
+	Engine.time_scale = 1.0
+	Progress.return_screen = "store"
+	get_tree().change_scene_to_file(MENU_SCENE)
 
 
 func quit_to_menu() -> void:

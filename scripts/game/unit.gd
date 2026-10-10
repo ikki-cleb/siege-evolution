@@ -38,6 +38,14 @@ func setup(p_data: UnitData, p_cell: Vector2i, p_board: Board) -> void:
 	_sprite = Sprite2D.new()
 	add_child(_sprite)
 	_update_sprite()
+	_pop()
+
+
+## A quick bounce when the unit appears or evolves.
+func _pop() -> void:
+	_sprite.scale = Vector2(0.4, 0.4)
+	create_tween().tween_property(_sprite, "scale", Vector2.ONE, 0.25) \
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 ## Units on water use their water look (nets and mines).
@@ -55,6 +63,9 @@ func evolve(into: UnitData) -> void:
 	data = into
 	hp = data.max_hp
 	_update_sprite()
+	_pop()
+	board.fx.add_pulse(position, Board.TILE * 1.2, Palette.GOLD)
+	board.fx.add_puff(position, Palette.GOLD)
 	queue_redraw()
 
 
@@ -116,6 +127,7 @@ func _attack() -> bool:
 	if target == null:
 		return false
 	board.fx.add_shot(position, target.position, data.shot_color)
+	Sfx.play("shoot", 0.15)
 	var victims: Array[Invader] = [target]
 	if data.splash_radius > 0.0:
 		board.fx.add_pulse(target.position, data.splash_radius * Board.TILE, data.shot_color)

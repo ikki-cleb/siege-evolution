@@ -31,6 +31,8 @@ See `DESIGN.md` for the game design.
   `godot --headless --fixed-fps 60 --script tests/debug_level.gd -- 1 swarm 2`
   (world index, pack, level number)
 - **Try later worlds:** in a test build, Store → "Test: unlock all worlds".
+- **Sounds and music:** `python3 tools/make_audio.py --only-missing` regenerates
+  placeholders without touching files you've replaced in `assets/`.
 - **New art:** `python3 tools/make_placeholder_art.py --only-missing` draws
   placeholders only for sprites that don't exist yet.
 - **Run the automated playtest** (rules checks plus a balance table for every pack):

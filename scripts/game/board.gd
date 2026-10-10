@@ -11,6 +11,8 @@ signal cell_tapped(cell: Vector2i)
 signal base_hit(invader: InvaderData)
 ## Emitted when a killed invader drops ATP. `where` is in screen coordinates.
 signal atp_dropped(amount: int, where: Vector2)
+## Asks the game to shake the screen (bombs, base hits).
+signal shake_requested(strength: float)
 
 const TILE := 16
 const NO_CELL := Vector2i(-1, -1)
@@ -389,6 +391,8 @@ func _add_invader(data: InvaderData, pos: Vector2, path: Array[Vector2i], path_i
 
 func on_invader_killed(invader: Invader) -> void:
 	invaders.erase(invader)
+	fx.add_puff(invader.position, Color(1, 1, 1, 0.9))
+	Sfx.play("kill")
 	if invader.drops_atp and invader.data.atp_drop > 0:
 		atp_dropped.emit(invader.data.atp_drop, to_global(invader.position))
 	if invader.data.split_into:
@@ -403,6 +407,9 @@ func on_invader_killed(invader: Invader) -> void:
 
 ## A bomber's payload: full damage on the target tile, half on the 8 around.
 func bomb(cell: Vector2i, damage: float) -> void:
+	Sfx.play("bomb", 0.1)
+	shake_requested.emit(4.0)
+	fx.add_puff(cell_center(cell), Color(1, 0.6, 0.2))
 	fx.add_pulse(cell_center(cell), TILE * 1.6, Color(1, 0.55, 0.15))
 	fx.add_pulse(cell_center(cell), TILE * 0.8, Color(1, 0.9, 0.4))
 	for dy in [-1, 0, 1]:
