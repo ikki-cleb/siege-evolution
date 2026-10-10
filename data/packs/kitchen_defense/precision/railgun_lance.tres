@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u8ai7"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/railgun_lance.png" id="2_1jbfj"]
+
+[resource]
+script = ExtResource("1_u8ai7")
+id = "railgun_lance"
+display_name = "Railgun Lance"
+role = 1
+cost = 92
+max_hp = 15
+damage = 55.0
+attack_range = 5.0
+attack_interval = 3.0
+hits_air = true
+pierce = true
+tier = 2
+line_pierce = true
+texture = ExtResource("2_1jbfj")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Shots pierce every invader in a line."

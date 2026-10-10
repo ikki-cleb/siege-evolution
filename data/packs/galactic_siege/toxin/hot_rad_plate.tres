@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4igfw"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/hot_rad_plate.png" id="2_i82dn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_17vgj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/toxic_burst_membrane.tres" id="2_7t6qb"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/antitoxin_membrane.tres" id="3_2a4bp"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/hot_rad_plate.png" id="4_2srxh"]
 
 [resource]
-script = ExtResource("1_4igfw")
+script = ExtResource("1_17vgj")
 id = "hot_rad_plate"
 display_name = "Hot Rad Plate"
 cost = 6
 max_hp = 25
 reflect = 0.8
+tier = 1
+evolutions = Array[ExtResource("1_17vgj")]([ExtResource("2_7t6qb"), ExtResource("3_2a4bp")])
 can_place_on_water = true
-texture = ExtResource("2_i82dn")
+texture = ExtResource("4_2srxh")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

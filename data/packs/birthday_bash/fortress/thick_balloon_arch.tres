@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iamlv"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/thick_balloon_arch.png" id="2_k4boh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2gux5"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/keloid_wall.tres" id="2_q8vj7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/scar_lattice.tres" id="3_0x50n"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/thick_balloon_arch.png" id="4_mgcwk"]
 
 [resource]
-script = ExtResource("1_iamlv")
+script = ExtResource("1_2gux5")
 id = "thick_balloon_arch"
 display_name = "Thick Balloon Arch"
 cost = 10
 max_hp = 150
 regen = 6.0
-texture = ExtResource("2_k4boh")
+tier = 1
+evolutions = Array[ExtResource("1_2gux5")]([ExtResource("2_q8vj7"), ExtResource("3_0x50n")])
+texture = ExtResource("4_mgcwk")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

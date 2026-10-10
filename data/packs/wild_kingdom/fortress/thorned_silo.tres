@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xfj7a"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thorned_silo.png" id="2_vi70p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_p8srg"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/bursting_granuloma.tres" id="2_sbvt6"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/grasping_granuloma.tres" id="3_ut5m3"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thorned_silo.png" id="4_xxabe"]
 
 [resource]
-script = ExtResource("1_xfj7a")
+script = ExtResource("1_p8srg")
 id = "thorned_silo"
 display_name = "Thorned Silo"
 cost = 16
@@ -12,6 +14,8 @@ max_hp = 260
 reflect = 0.8
 attack_mode = 1
 damage = 5.0
-texture = ExtResource("2_vi70p")
+tier = 1
+evolutions = Array[ExtResource("1_p8srg")]([ExtResource("2_sbvt6"), ExtResource("3_ut5m3")])
+texture = ExtResource("4_xxabe")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 80% of smasher damage."

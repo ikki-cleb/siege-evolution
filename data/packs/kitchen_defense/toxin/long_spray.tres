@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fuh0o"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/long_spray.png" id="2_3bla0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pwjr4"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/chain_venom_t.tres" id="2_w688q"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/venom_sniper_t.tres" id="3_teh3y"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/long_spray.png" id="4_vnh2e"]
 
 [resource]
-script = ExtResource("1_fuh0o")
+script = ExtResource("1_pwjr4")
 id = "long_spray"
 display_name = "Long Spray"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 3.0
 attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
-texture = ExtResource("2_3bla0")
+tier = 1
+evolutions = Array[ExtResource("1_pwjr4")]([ExtResource("2_w688q"), ExtResource("3_teh3y")])
+texture = ExtResource("4_vnh2e")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8ffaq"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/stubborn_mule.png" id="2_u805m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ufhm4"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/chain_storm.tres" id="2_v8kqj"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/storm_volley.tres" id="3_p7twy"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/stubborn_mule.png" id="4_ilmol"]
 
 [resource]
-script = ExtResource("1_8ffaq")
+script = ExtResource("1_ufhm4")
 id = "stubborn_mule"
 display_name = "Stubborn Mule"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 2.5
 attack_interval = 1.6
 hits_air = true
 stun_duration = 1.1
-texture = ExtResource("2_u805m")
+tier = 1
+evolutions = Array[ExtResource("1_ufhm4")]([ExtResource("2_v8kqj"), ExtResource("3_p7twy")])
+texture = ExtResource("4_ilmol")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Longer stun."

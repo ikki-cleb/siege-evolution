@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u1r6k"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/shockwave_click_beetle.png" id="2_iyi4s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mxgy6"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shockwave_storm.tres" id="2_dy7kj"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/freezing_storm.tres" id="3_q1kjh"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/shockwave_click_beetle.png" id="4_mmc2i"]
 
 [resource]
-script = ExtResource("1_u1r6k")
+script = ExtResource("1_mxgy6")
 id = "shockwave_click_beetle"
 display_name = "Shockwave Click Beetle"
 role = 1
@@ -15,6 +17,8 @@ attack_interval = 1.6
 hits_air = true
 splash_radius = 1.2
 stun_duration = 0.6
-texture = ExtResource("2_iyi4s")
+tier = 1
+evolutions = Array[ExtResource("1_mxgy6")]([ExtResource("2_dy7kj"), ExtResource("3_q1kjh")])
+texture = ExtResource("4_mmc2i")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns a whole area."

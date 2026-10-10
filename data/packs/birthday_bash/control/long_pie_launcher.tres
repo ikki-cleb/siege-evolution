@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dvrkr"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/long_pie_launcher.png" id="2_g4btw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yw6lv"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/twin_spitter.tres" id="2_gi12k"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/bouncing_spitter.tres" id="3_envdv"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/long_pie_launcher.png" id="4_to0ki"]
 
 [resource]
-script = ExtResource("1_dvrkr")
+script = ExtResource("1_yw6lv")
 id = "long_pie_launcher"
 display_name = "Long Pie Launcher"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 4.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_g4btw")
+tier = 1
+evolutions = Array[ExtResource("1_yw6lv")]([ExtResource("2_gi12k"), ExtResource("3_envdv")])
+texture = ExtResource("4_to0ki")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iosf5"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/rearing_horse.png" id="2_vxm1c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_aq730"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/eosinophil_spear.tres" id="2_5i3td"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/eosinophil_shredder.tres" id="3_hr7mu"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/rearing_horse.png" id="4_01blm"]
 
 [resource]
-script = ExtResource("1_iosf5")
+script = ExtResource("1_aq730")
 id = "rearing_horse"
 display_name = "Rearing Horse"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.2
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_vxm1c")
+tier = 1
+evolutions = Array[ExtResource("1_aq730")]([ExtResource("2_5i3td"), ExtResource("3_hr7mu")])
+texture = ExtResource("4_01blm")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

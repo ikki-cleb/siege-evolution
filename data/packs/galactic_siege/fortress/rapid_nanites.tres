@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dkx7g"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/rapid_nanites.png" id="2_hyebk"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_s2j7n"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/signaling_fibroblast.tres" id="2_fl836"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/granulation_tissue.tres" id="3_ci2xv"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/rapid_nanites.png" id="4_ser3u"]
 
 [resource]
-script = ExtResource("1_dkx7g")
+script = ExtResource("1_s2j7n")
 id = "rapid_nanites"
 display_name = "Rapid Nanites"
 cost = 10
 max_hp = 70
 regen = 16.0
-texture = ExtResource("2_hyebk")
+tier = 1
+evolutions = Array[ExtResource("1_s2j7n")]([ExtResource("2_fl836"), ExtResource("3_ci2xv")])
+texture = ExtResource("4_ser3u")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

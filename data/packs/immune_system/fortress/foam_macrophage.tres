@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_co5fm"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/foam_macrophage.png" id="2_ilj68"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0uhgu"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/engulfing_foam.tres" id="2_yxjt3"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/foam_eruption.tres" id="3_bcqag"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/foam_macrophage.png" id="4_oxho0"]
 
 [resource]
-script = ExtResource("1_co5fm")
+script = ExtResource("1_0uhgu")
 id = "foam_macrophage"
 display_name = "Foam Macrophage"
 role = 1
@@ -14,6 +16,8 @@ damage = 9.0
 attack_range = 1.8
 attack_interval = 1.1
 splash_radius = 1.0
-texture = ExtResource("2_ilj68")
+tier = 1
+evolutions = Array[ExtResource("1_0uhgu")]([ExtResource("2_yxjt3"), ExtResource("3_bcqag")])
+texture = ExtResource("4_oxho0")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Longer reach and hits splash."

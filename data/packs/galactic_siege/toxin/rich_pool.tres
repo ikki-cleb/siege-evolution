@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7iltp"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/rich_pool.png" id="2_apgdo"]
+
+[resource]
+script = ExtResource("1_7iltp")
+id = "rich_pool"
+display_name = "Rich Pool"
+role = 1
+cost = 54
+attack_mode = 1
+attack_range = 2.5
+hits_air = true
+poison_dps = 2.5
+poison_duration = 3.0
+tier = 2
+bounty = 1
+texture = ExtResource("2_apgdo")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Its kills drop an extra coin."

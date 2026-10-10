@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_upmg8"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/spooky_scarecrow.png" id="2_r2mey"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_70c27"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/interferon_storm.tres" id="2_67dxh"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/rallying_beacon.tres" id="3_sl5s8"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/spooky_scarecrow.png" id="4_5ljji"]
 
 [resource]
-script = ExtResource("1_upmg8")
+script = ExtResource("1_70c27")
 id = "spooky_scarecrow"
 display_name = "Spooky Scarecrow"
 role = 2
@@ -15,6 +17,8 @@ attack_range = 2.5
 hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
-texture = ExtResource("2_r2mey")
+tier = 1
+evolutions = Array[ExtResource("1_70c27")]([ExtResource("2_67dxh"), ExtResource("3_sl5s8")])
+texture = ExtResource("4_5ljji")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

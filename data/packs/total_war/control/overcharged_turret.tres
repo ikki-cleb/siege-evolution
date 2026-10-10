@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_viyv6"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/overcharged_turret.png" id="2_ulbpj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8wegq"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/chain_storm.tres" id="2_jv1hs"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/storm_volley.tres" id="3_mgkch"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/overcharged_turret.png" id="4_t313n"]
 
 [resource]
-script = ExtResource("1_viyv6")
+script = ExtResource("1_8wegq")
 id = "overcharged_turret"
 display_name = "Overcharged Turret"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 2.5
 attack_interval = 1.6
 hits_air = true
 stun_duration = 1.1
-texture = ExtResource("2_ulbpj")
+tier = 1
+evolutions = Array[ExtResource("1_8wegq")]([ExtResource("2_jv1hs"), ExtResource("3_mgkch")])
+texture = ExtResource("4_t313n")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Longer stun."

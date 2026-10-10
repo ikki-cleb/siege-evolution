@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wol61"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/chain_zapper.png" id="2_tc884"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wca0s"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/shockwave_storm.tres" id="2_hw755"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/freezing_storm.tres" id="3_nds68"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/chain_zapper.png" id="4_1r1fd"]
 
 [resource]
-script = ExtResource("1_wol61")
+script = ExtResource("1_wca0s")
 id = "chain_zapper"
 display_name = "Chain Zapper"
 role = 1
@@ -15,6 +17,8 @@ attack_interval = 1.6
 hits_air = true
 splash_radius = 1.2
 stun_duration = 0.6
-texture = ExtResource("2_tc884")
+tier = 1
+evolutions = Array[ExtResource("1_wca0s")]([ExtResource("2_hw755"), ExtResource("3_nds68")])
+texture = ExtResource("4_1r1fd")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns a whole area."

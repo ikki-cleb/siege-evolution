@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4jadk"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/marble_rolling_pin.png" id="2_ffckl"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_45ray"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/devouring_macrophage.tres" id="2_srm1r"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/titan_macrophage.tres" id="3_jtnud"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/marble_rolling_pin.png" id="4_rchq0"]
 
 [resource]
-script = ExtResource("1_4jadk")
+script = ExtResource("1_45ray")
 id = "marble_rolling_pin"
 display_name = "Marble Rolling Pin"
 role = 1
@@ -12,6 +14,8 @@ cost = 16
 max_hp = 80
 damage = 17.0
 attack_interval = 1.1
-texture = ExtResource("2_ffckl")
+tier = 1
+evolutions = Array[ExtResource("1_45ray")]([ExtResource("2_srm1r"), ExtResource("3_jtnud")])
+texture = ExtResource("4_rchq0")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Hits far harder."

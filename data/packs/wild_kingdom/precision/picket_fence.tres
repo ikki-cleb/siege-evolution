@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qyuq4"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/picket_fence.png" id="2_w5gd7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fi7el"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/armored_keratin.tres" id="2_cj52h"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/rebuilt_plate.tres" id="3_arxeg"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/picket_fence.png" id="4_4yn0y"]
 
 [resource]
-script = ExtResource("1_qyuq4")
+script = ExtResource("1_fi7el")
 id = "picket_fence"
 display_name = "Picket Fence"
 cost = 6
 max_hp = 70
+tier = 1
+evolutions = Array[ExtResource("1_fi7el")]([ExtResource("2_cj52h"), ExtResource("3_arxeg")])
 can_place_on_water = true
-texture = ExtResource("2_w5gd7")
+texture = ExtResource("4_4yn0y")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

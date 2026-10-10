@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_stbhg"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/sentinel_dendrite.png" id="2_3oao2"]
+
+[resource]
+script = ExtResource("1_stbhg")
+id = "sentinel_dendrite"
+display_name = "Sentinel Dendrite"
+role = 1
+cost = 56
+max_hp = 30
+damage = 8.0
+attack_range = 3.6
+attack_interval = 1.4
+hits_air = true
+tier = 2
+line_pierce = true
+texture = ExtResource("2_3oao2")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Shots pierce every invader in a line."

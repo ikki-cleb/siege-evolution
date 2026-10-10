@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jmbph"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/dendrite_volley.png" id="2_bryhs"]
+
+[resource]
+script = ExtResource("1_jmbph")
+id = "dendrite_volley"
+display_name = "Dendrite Volley"
+role = 1
+cost = 56
+max_hp = 30
+damage = 15.0
+attack_range = 2.5
+attack_interval = 1.4
+hits_air = true
+tier = 2
+multishot = 2
+texture = ExtResource("2_bryhs")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Fires at 2 targets at once."

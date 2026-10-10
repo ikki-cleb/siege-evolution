@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7ww3m"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/double_wrap.png" id="2_vkusd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_sud0a"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/snaring_net.tres" id="2_umeow"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/regrowing_net.tres" id="3_2u6cd"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/double_wrap.png" id="4_rahe7"]
 
 [resource]
-script = ExtResource("1_7ww3m")
+script = ExtResource("1_sud0a")
 id = "double_wrap"
 display_name = "Double Wrap"
 cost = 6
@@ -14,6 +16,8 @@ damage = 0.5
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
-texture = ExtResource("2_vkusd")
+tier = 1
+evolutions = Array[ExtResource("1_sud0a")]([ExtResource("2_umeow"), ExtResource("3_2u6cd")])
+texture = ExtResource("4_rahe7")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

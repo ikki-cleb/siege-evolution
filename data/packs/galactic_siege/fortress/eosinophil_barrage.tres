@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_evcke"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/eosinophil_barrage.png" id="2_5c7cj"]
+
+[resource]
+script = ExtResource("1_evcke")
+id = "eosinophil_barrage"
+display_name = "Eosinophil Barrage"
+role = 1
+cost = 84
+max_hp = 40
+damage = 52.0
+attack_range = 2.0
+attack_interval = 2.6
+hits_air = true
+pierce = true
+tier = 2
+multishot = 2
+texture = ExtResource("2_5c7cj")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Blasts 2 targets at once."

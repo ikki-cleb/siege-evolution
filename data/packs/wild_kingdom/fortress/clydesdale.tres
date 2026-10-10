@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bpt1p"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/clydesdale.png" id="2_fstox"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lu8ry"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/eosinophil_barrage.tres" id="2_0yqnh"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/major_basic_protein.tres" id="3_ac4li"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/clydesdale.png" id="4_w3jmr"]
 
 [resource]
-script = ExtResource("1_bpt1p")
+script = ExtResource("1_lu8ry")
 id = "clydesdale"
 display_name = "Clydesdale"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 2.0
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_fstox")
+tier = 1
+evolutions = Array[ExtResource("1_lu8ry")]([ExtResource("2_0yqnh"), ExtResource("3_ac4li")])
+texture = ExtResource("4_w3jmr")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Even bigger blasts."

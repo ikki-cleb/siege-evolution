@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wix08"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/pointy_cup.png" id="2_jh1eb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8pjbx"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/cilia_trap.tres" id="2_f71ke"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/bursting_cell.tres" id="3_bqeso"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/pointy_cup.png" id="4_bisqx"]
 
 [resource]
-script = ExtResource("1_wix08")
+script = ExtResource("1_8pjbx")
 id = "pointy_cup"
 display_name = "Pointy Cup"
 cost = 4
 max_hp = 22
 reflect = 0.4
+tier = 1
+evolutions = Array[ExtResource("1_8pjbx")]([ExtResource("2_f71ke"), ExtResource("3_bqeso")])
 can_place_on_water = true
-texture = ExtResource("2_jh1eb")
+texture = ExtResource("4_bisqx")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Reflects 40% of smasher damage."

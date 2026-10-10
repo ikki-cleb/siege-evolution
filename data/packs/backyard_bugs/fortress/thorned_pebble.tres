@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cjoo8"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorned_pebble.png" id="2_up22o"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3rdgf"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/thrombus_mine.tres" id="2_ewrm2"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/barbed_thrombus.tres" id="3_on64v"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorned_pebble.png" id="4_3vssl"]
 
 [resource]
-script = ExtResource("1_cjoo8")
+script = ExtResource("1_3rdgf")
 id = "thorned_pebble"
 display_name = "Thorned Pebble"
 cost = 10
 max_hp = 120
 reflect = 0.6
+tier = 1
+evolutions = Array[ExtResource("1_3rdgf")]([ExtResource("2_ewrm2"), ExtResource("3_on64v")])
 can_place_on_water = true
-texture = ExtResource("2_up22o")
+texture = ExtResource("4_3vssl")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 60% of smasher damage."

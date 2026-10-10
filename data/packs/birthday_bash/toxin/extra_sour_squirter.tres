@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cg4j2"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/extra_sour_squirter.png" id="2_fxdb6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4d3s7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/necrotizing_t.tres" id="2_uqamh"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/twin_venom_t.tres" id="3_ef1yn"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/extra_sour_squirter.png" id="4_8quqx"]
 
 [resource]
-script = ExtResource("1_cg4j2")
+script = ExtResource("1_4d3s7")
 id = "extra_sour_squirter"
 display_name = "Extra-Sour Squirter"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 2.0
 attack_interval = 0.9
 poison_dps = 6.0
 poison_duration = 4.0
-texture = ExtResource("2_fxdb6")
+tier = 1
+evolutions = Array[ExtResource("1_4d3s7")]([ExtResource("2_uqamh"), ExtResource("3_ef1yn")])
+texture = ExtResource("4_8quqx")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

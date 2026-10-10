@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_snu3y"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/layered_plate.png" id="2_vfcom"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lrvev"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/armored_keratin.tres" id="2_2e28l"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/rebuilt_plate.tres" id="3_2hx4a"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/layered_plate.png" id="4_el87b"]
 
 [resource]
-script = ExtResource("1_snu3y")
+script = ExtResource("1_lrvev")
 id = "layered_plate"
 display_name = "Layered Plate"
 cost = 6
 max_hp = 70
+tier = 1
+evolutions = Array[ExtResource("1_lrvev")]([ExtResource("2_2e28l"), ExtResource("3_2hx4a")])
 can_place_on_water = true
-texture = ExtResource("2_vfcom")
+texture = ExtResource("4_el87b")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

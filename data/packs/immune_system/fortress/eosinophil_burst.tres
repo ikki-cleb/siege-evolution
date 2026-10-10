@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vh3qu"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/eosinophil_burst.png" id="2_v4y82"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_s8e8y"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/eosinophil_barrage.tres" id="2_7fcfg"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/major_basic_protein.tres" id="3_htq15"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/eosinophil_burst.png" id="4_burv3"]
 
 [resource]
-script = ExtResource("1_vh3qu")
+script = ExtResource("1_s8e8y")
 id = "eosinophil_burst"
 display_name = "Eosinophil Burst"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 2.0
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_v4y82")
+tier = 1
+evolutions = Array[ExtResource("1_s8e8y")]([ExtResource("2_7fcfg"), ExtResource("3_htq15")])
+texture = ExtResource("4_burv3")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Even bigger blasts."

@@ -1,17 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2tfxv"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags.png" id="2_pe0rv"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags_water.png" id="3_74c6s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_74c6s"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/fibrin_bastion.tres" id="2_wot1q"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/clotting_snare.tres" id="3_j6823"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags.png" id="4_dppmc"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/reinforced_sandbags_water.png" id="5_6j6tp"]
 
 [resource]
-script = ExtResource("1_2tfxv")
+script = ExtResource("1_74c6s")
 id = "reinforced_sandbags"
 display_name = "Reinforced Sandbags"
 cost = 10
 max_hp = 220
+tier = 1
+evolutions = Array[ExtResource("1_74c6s")]([ExtResource("2_wot1q"), ExtResource("3_j6823")])
 can_place_on_water = true
-water_texture = ExtResource("3_74c6s")
-texture = ExtResource("2_pe0rv")
+water_texture = ExtResource("5_6j6tp")
+texture = ExtResource("4_dppmc")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

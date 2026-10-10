@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3p7nb"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/fuzzy_moldy_cake.png" id="2_jgica"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_li5ud"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/spore_burst_bloom.tres" id="2_qstxx"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/blight_field.tres" id="3_p8eqv"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/fuzzy_moldy_cake.png" id="4_w21p2"]
 
 [resource]
-script = ExtResource("1_3p7nb")
+script = ExtResource("1_li5ud")
 id = "fuzzy_moldy_cake"
 display_name = "Fuzzy Moldy Cake"
 cost = 12
@@ -13,6 +15,8 @@ attack_mode = 1
 poison_dps = 6.0
 poison_duration = 2.0
 poison_spreads = true
-texture = ExtResource("2_jgica")
+tier = 1
+evolutions = Array[ExtResource("1_li5ud")]([ExtResource("2_qstxx"), ExtResource("3_p8eqv")])
+texture = ExtResource("4_w21p2")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

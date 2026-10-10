@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wsoua"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/boiling_pool.png" id="2_ojesh"]
+
+[resource]
+script = ExtResource("1_wsoua")
+id = "boiling_pool"
+display_name = "Boiling Pool"
+role = 1
+cost = 54
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 4.5
+poison_duration = 3.0
+tier = 2
+zone_kind = "toxic"
+zone_power = 3.0
+texture = ExtResource("2_ojesh")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Leaves a toxic patch around itself."

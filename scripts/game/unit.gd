@@ -20,6 +20,10 @@ var placed_round := 0
 var from_hand := false
 ## Which build round it evolved in (-1 = not evolved).
 var evolved_round := -1
+## Its first evolution (kept for refunds once it becomes a capstone).
+var tier1_data: UnitData = null
+## Which build round it became a capstone in (-1 = not yet).
+var capstone_round := -1
 
 ## Regeneration pauses for this many seconds after taking damage, so a
 ## healing wall can't hold off a smasher forever.
@@ -28,6 +32,13 @@ const REGEN_PAUSE := 2.0
 var _cooldown := 0.0
 var _regen_pause := 0.0
 var _sprite: Sprite2D
+## Capstone mechanics: grab cooldown, and whether "rebuild once" was used.
+const GRAB_COOLDOWN := 3.0
+var _grab_cooldown := 0.0
+var _rebuilt := false
+## Chain hits jump this far, losing this much damage per jump.
+const CHAIN_RANGE := 2.0
+const CHAIN_FALLOFF := 0.7
 
 
 func setup(p_data: UnitData, p_cell: Vector2i, p_board: Board) -> void:
@@ -60,8 +71,24 @@ func is_evolved() -> bool:
 	return data != base_data
 
 
+func is_capstone() -> bool:
+	return data.tier == 2
+
+
+## Everything spent on this unit (what bombers look for).
+func total_cost() -> int:
+	var total := base_data.cost
+	if tier1_data:
+		total += tier1_data.cost
+	if is_capstone():
+		total += data.cost
+	return total
+
+
 ## Turns this unit into one of its evolutions, at full health.
 func evolve(into: UnitData) -> void:
+	if into.tier == 1:
+		tier1_data = into
 	data = into
 	hp = data.max_hp
 	_update_sprite()
@@ -71,18 +98,33 @@ func evolve(into: UnitData) -> void:
 	queue_redraw()
 
 
-## Damage from a smasher. Reflect bounces part of it back at the attacker.
+## Damage from a smasher or a bomb. Reflect bounces part of it back at the
+## attacker; a neighbor's shield aura softens it; grab walls stun the biter.
 func take_damage(amount: float, attacker: Invader = null) -> void:
 	if destroyed:
 		return
+	amount *= 1.0 - board.aura_at(cell).shield
 	if attacker and data.reflect > 0.0:
 		attacker.take_damage(amount * data.reflect, true)
+	if attacker and data.grab_stun > 0.0 and _grab_cooldown <= 0.0:
+		attacker.apply_stun(data.grab_stun)
+		_grab_cooldown = GRAB_COOLDOWN
+		board.fx.add_pulse(position, Board.TILE * 0.9, Palette.GOLD)
 	hp -= amount
 	_regen_pause = REGEN_PAUSE
 	if hp <= 0.0:
+		# "Rebuild once": springs back the first time it breaks each wave.
+		if data.rebuild and not _rebuilt:
+			_rebuilt = true
+			hp = data.max_hp
+			board.fx.add_pulse(position, Board.TILE * 1.2, Palette.GOOD)
+			queue_redraw()
+			return
 		hp = 0.0
 		destroyed = true
 		visible = false
+		if data.explode_damage > 0.0:
+			board.explode(position, data.explode_damage, data)
 		board.on_unit_destroyed(self)
 	queue_redraw()
 
@@ -90,6 +132,8 @@ func take_damage(amount: float, attacker: Invader = null) -> void:
 ## Covered in a spiller's goo: attacks slower until the wave ends.
 ## A weaker spill never replaces a stronger one.
 func make_sticky(amount: float) -> void:
+	if board.aura_at(cell).cleanse:
+		return
 	if amount > sticky:
 		sticky = amount
 		queue_redraw()
@@ -100,14 +144,19 @@ func restore() -> void:
 	hp = data.max_hp
 	destroyed = false
 	sticky = 0.0
+	_rebuilt = false
+	_grab_cooldown = 0.0
 	visible = true
 	_cooldown = 0.0
 	queue_redraw()
 
 
 func _process(delta: float) -> void:
+	if is_capstone():
+		queue_redraw()  # the glow pulses
 	if destroyed or not board.wave_active:
 		return
+	_grab_cooldown = max(0.0, _grab_cooldown - delta)
 	_regen_pause = max(0.0, _regen_pause - delta)
 	if data.regen > 0.0 and hp < data.max_hp and _regen_pause <= 0.0:
 		hp = min(hp + data.regen * delta, data.max_hp)
@@ -120,6 +169,8 @@ func _process(delta: float) -> void:
 	if _attack():
 		# Swarm units attack faster for every unit packed around them.
 		var speed_up := 1.0 + data.adjacency_bonus * board.neighbor_count(cell)
+		# A neighbor's speed aura (capstones) helps too.
+		speed_up += board.aura_at(cell).speed
 		# Goo slows it down (0.4 sticky = attacks at 60% of normal speed).
 		speed_up *= 1.0 - sticky
 		_cooldown = data.attack_interval / speed_up
@@ -134,25 +185,68 @@ func _attack() -> bool:
 		board.fx.add_pulse(position, data.attack_range * Board.TILE, data.shot_color)
 		for invader in targets:
 			_hit(invader)
+		# Pulse units with a zone keep a patch on the ground around themselves.
+		if data.zone_kind != "":
+			board.add_zone(position, data, self)
 		return true
 
-	var target := _find_target()
-	if target == null:
+	# Multishot fires at several targets; most units fire at one.
+	var targets := _find_targets(maxi(1, data.multishot))
+	if targets.is_empty():
 		return false
-	board.fx.add_shot(position, target.position, data.shot_color)
 	Sfx.play("shoot", 0.15)
-	var victims: Array[Invader] = [target]
-	if data.splash_radius > 0.0:
-		board.fx.add_pulse(target.position, data.splash_radius * Board.TILE, data.shot_color)
-		for other in _invaders_in_range(target.position, data.splash_radius):
-			if other != target:
-				victims.append(other)
-	for invader in victims:
-		_hit(invader)
+	for target in targets:
+		_shoot(target)
 	return true
 
 
-func _hit(invader: Invader) -> void:
+## One shot at one target, with every effect a shot can carry: splash, line
+## pierce, chain hits and lingering zones.
+func _shoot(target: Invader) -> void:
+	var victims: Array[Invader] = [target]
+	if data.line_pierce:
+		# The shot carries on through the target to the end of its range.
+		var direction := position.direction_to(target.position)
+		var end := position + direction * (data.attack_range + 1.0) * Board.TILE
+		board.fx.add_shot(position, end, data.shot_color)
+		for other in board.invaders:
+			if other != target and _can_target(other) \
+					and Geometry2D.get_closest_point_to_segment(other.position, position, end).distance_to(other.position) < Board.TILE * 0.5:
+				victims.append(other)
+	else:
+		board.fx.add_shot(position, target.position, data.shot_color)
+	if data.splash_radius > 0.0:
+		board.fx.add_pulse(target.position, data.splash_radius * Board.TILE, data.shot_color)
+		for other in _invaders_in_range(target.position, data.splash_radius):
+			if not victims.has(other):
+				victims.append(other)
+	if data.zone_kind != "":
+		board.add_zone(target.position, data, self)
+	for invader in victims:
+		_hit(invader)
+	# Chain hits jump from the target to the nearest invaders not yet hit.
+	var from := target.position
+	var factor := 1.0
+	for jump in data.chain_count:
+		var next: Invader = null
+		for other in _invaders_in_range(from, CHAIN_RANGE):
+			if not victims.has(other) and (next == null or from.distance_to(other.position) < from.distance_to(next.position)):
+				next = other
+		if next == null:
+			break
+		factor *= CHAIN_FALLOFF
+		board.fx.add_shot(from, next.position, data.shot_color.lightened(0.3))
+		victims.append(next)
+		_hit(next, factor)
+		from = next.position
+
+
+func _hit(invader: Invader, factor := 1.0) -> void:
+	if not invader.alive:
+		return
+	invader.last_hitter = self
+	if data.armor_shred > 0:
+		invader.shred_armor(data.armor_shred)
 	if data.mark_bonus > 0.0:
 		invader.apply_mark(data.mark_bonus, data.mark_duration)
 	if data.slow > 0.0:
@@ -160,9 +254,19 @@ func _hit(invader: Invader) -> void:
 	if data.stun_duration > 0.0:
 		invader.apply_stun(data.stun_duration)
 	if data.poison_dps > 0.0:
-		invader.apply_poison(data.poison_dps, data.poison_duration, data.poison_spreads)
+		invader.apply_poison(data.poison_dps * factor, data.poison_duration, data.poison_spreads)
 	if data.damage > 0.0:
-		invader.take_damage(data.damage, data.pierce)
+		invader.take_damage(data.damage * factor, data.pierce)
+	if not invader.alive:
+		return
+	# Execute: finishes off any wounded non-boss.
+	if data.execute_below > 0.0 and not invader.data.is_boss \
+			and invader.hp <= invader.data.max_hp * data.execute_below:
+		board.fx.add_pulse(invader.position, Board.TILE * 0.7, Palette.HEART)
+		invader.take_damage(invader.hp + 1.0, true)
+		return
+	if data.knockback > 0:
+		invader.knock_back(data.knockback)
 
 
 func _can_target(invader: Invader) -> bool:
@@ -177,19 +281,19 @@ func _invaders_in_range(center: Vector2, tiles: float) -> Array[Invader]:
 	return result
 
 
-## Picks the invader in range that is closest to reaching the base.
-func _find_target() -> Invader:
-	var best: Invader = null
-	var best_distance := INF
-	for invader in _invaders_in_range(position, data.attack_range):
-		var distance := invader.distance_to_base()
-		if distance < best_distance:
-			best_distance = distance
-			best = invader
-	return best
+## Picks the `count` invaders in range that are closest to the base.
+func _find_targets(count: int) -> Array[Invader]:
+	var in_range := _invaders_in_range(position, data.attack_range)
+	in_range.sort_custom(func(a, b): return a.distance_to_base() < b.distance_to_base())
+	return in_range.slice(0, count)
 
 
 func _draw() -> void:
+	# Capstones glow softly gold, so big investments stand out.
+	if is_capstone() and not destroyed:
+		var glow := 0.25 + 0.15 * sin(Time.get_ticks_msec() / 300.0)
+		draw_circle(Vector2.ZERO, 9.5, Color(Palette.GOLD, glow * 0.5))
+		draw_arc(Vector2.ZERO, 9.0, 0.0, TAU, 24, Color(Palette.GOLD, glow + 0.2), 1.0)
 	# Goo drips over sticky units.
 	if sticky > 0.0:
 		var goo := Color(Board.SPILL_COLOR, 0.85)

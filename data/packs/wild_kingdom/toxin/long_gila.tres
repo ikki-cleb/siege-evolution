@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tirb7"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/long_gila.png" id="2_jhra2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rprq1"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/plague_volley.tres" id="2_srk0l"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/plague_spear.tres" id="3_2unxl"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/long_gila.png" id="4_wpa5c"]
 
 [resource]
-script = ExtResource("1_tirb7")
+script = ExtResource("1_rprq1")
 id = "long_gila"
 display_name = "Long Gila"
 role = 1
@@ -16,6 +18,8 @@ hits_air = true
 poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
-texture = ExtResource("2_jhra2")
+tier = 1
+evolutions = Array[ExtResource("1_rprq1")]([ExtResource("2_srk0l"), ExtResource("3_2unxl")])
+texture = ExtResource("4_wpa5c")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

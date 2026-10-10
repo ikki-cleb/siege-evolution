@@ -1,17 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_c0xvo"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire.png" id="2_lvvyx"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire_water.png" id="3_vvyot"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vvyot"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/cornified_layer.tres" id="2_k0utm"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/mucosal_barrier.tres" id="3_qs221"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire.png" id="4_te7ow"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/double_wire_water.png" id="5_75jrx"]
 
 [resource]
-script = ExtResource("1_c0xvo")
+script = ExtResource("1_vvyot")
 id = "double_wire"
 display_name = "Double Wire"
 cost = 4
 max_hp = 40
+tier = 1
+evolutions = Array[ExtResource("1_vvyot")]([ExtResource("2_k0utm"), ExtResource("3_qs221")])
 can_place_on_water = true
-water_texture = ExtResource("3_vvyot")
-texture = ExtResource("2_lvvyx")
+water_texture = ExtResource("5_75jrx")
+texture = ExtResource("4_te7ow")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

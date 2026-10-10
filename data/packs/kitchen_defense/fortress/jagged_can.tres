@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t1roa"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/jagged_can.png" id="2_8ky6m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0ekrd"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/thrombus_mine.tres" id="2_8qtt2"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/barbed_thrombus.tres" id="3_k0j2v"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/jagged_can.png" id="4_1mfv0"]
 
 [resource]
-script = ExtResource("1_t1roa")
+script = ExtResource("1_0ekrd")
 id = "jagged_can"
 display_name = "Jagged Can"
 cost = 10
 max_hp = 120
 reflect = 0.6
+tier = 1
+evolutions = Array[ExtResource("1_0ekrd")]([ExtResource("2_8qtt2"), ExtResource("3_k0j2v")])
 can_place_on_water = true
-texture = ExtResource("2_8ky6m")
+texture = ExtResource("4_1mfv0")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 60% of smasher damage."

@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2jy2m"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/thick_brambles.png" id="2_h0gbc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ms6dx"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/regrowing_membrane.tres" id="2_wjqd2"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/sticky_membrane.tres" id="3_n2mgb"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/thick_brambles.png" id="4_dnpve"]
 
 [resource]
-script = ExtResource("1_2jy2m")
+script = ExtResource("1_ms6dx")
 id = "thick_brambles"
 display_name = "Thick Brambles"
 cost = 6
 max_hp = 60
 reflect = 0.3
+tier = 1
+evolutions = Array[ExtResource("1_ms6dx")]([ExtResource("2_wjqd2"), ExtResource("3_n2mgb")])
 can_place_on_water = true
-texture = ExtResource("2_h0gbc")
+texture = ExtResource("4_dnpve")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

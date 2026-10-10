@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0us78"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/caustic_sprayer.png" id="2_en43y"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e66sm"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/corroding_sprayer.tres" id="2_si3d3"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/toxic_cloud_sprayer.tres" id="3_wru3s"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/caustic_sprayer.png" id="4_0i5wi"]
 
 [resource]
-script = ExtResource("1_0us78")
+script = ExtResource("1_e66sm")
 id = "caustic_sprayer"
 display_name = "Caustic Sprayer"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 4.5
 poison_duration = 3.0
-texture = ExtResource("2_en43y")
+tier = 1
+evolutions = Array[ExtResource("1_e66sm")]([ExtResource("2_si3d3"), ExtResource("3_wru3s")])
+texture = ExtResource("4_0i5wi")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

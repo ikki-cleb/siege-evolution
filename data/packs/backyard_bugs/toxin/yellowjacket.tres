@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_scgs0"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/yellowjacket.png" id="2_d4xt3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6qxht"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/necrotizing_t.tres" id="2_ku4q7"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/twin_venom_t.tres" id="3_rubw1"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/yellowjacket.png" id="4_ten3s"]
 
 [resource]
-script = ExtResource("1_scgs0")
+script = ExtResource("1_6qxht")
 id = "yellowjacket"
 display_name = "Yellowjacket"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 2.0
 attack_interval = 0.9
 poison_dps = 6.0
 poison_duration = 4.0
-texture = ExtResource("2_d4xt3")
+tier = 1
+evolutions = Array[ExtResource("1_6qxht")]([ExtResource("2_ku4q7"), ExtResource("3_rubw1")])
+texture = ExtResource("4_ten3s")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

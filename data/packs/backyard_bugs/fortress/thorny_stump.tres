@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dbbdj"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorny_stump.png" id="2_ply8o"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ktl18"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/bursting_granuloma.tres" id="2_a22ct"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/grasping_granuloma.tres" id="3_f1p2j"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorny_stump.png" id="4_s6guw"]
 
 [resource]
-script = ExtResource("1_dbbdj")
+script = ExtResource("1_ktl18")
 id = "thorny_stump"
 display_name = "Thorny Stump"
 cost = 16
@@ -12,6 +14,8 @@ max_hp = 260
 reflect = 0.8
 attack_mode = 1
 damage = 5.0
-texture = ExtResource("2_ply8o")
+tier = 1
+evolutions = Array[ExtResource("1_ktl18")]([ExtResource("2_a22ct"), ExtResource("3_f1p2j")])
+texture = ExtResource("4_s6guw")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 80% of smasher damage."

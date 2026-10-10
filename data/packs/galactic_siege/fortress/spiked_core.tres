@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ve3g8"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/spiked_core.png" id="2_iv5gc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xi4kg"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/bursting_granuloma.tres" id="2_qkfli"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/grasping_granuloma.tres" id="3_glyna"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/spiked_core.png" id="4_fab8k"]
 
 [resource]
-script = ExtResource("1_ve3g8")
+script = ExtResource("1_xi4kg")
 id = "spiked_core"
 display_name = "Spiked Core"
 cost = 16
@@ -12,6 +14,8 @@ max_hp = 260
 reflect = 0.8
 attack_mode = 1
 damage = 5.0
-texture = ExtResource("2_iv5gc")
+tier = 1
+evolutions = Array[ExtResource("1_xi4kg")]([ExtResource("2_qkfli"), ExtResource("3_glyna")])
+texture = ExtResource("4_fab8k")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 80% of smasher damage."

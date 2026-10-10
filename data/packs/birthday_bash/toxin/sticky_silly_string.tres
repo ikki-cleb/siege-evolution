@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ae4le"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/sticky_silly_string.png" id="2_grtya"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ws0r7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/corroding_sprayer.tres" id="2_yn3x7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/toxic_cloud_sprayer.tres" id="3_8mk5a"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/sticky_silly_string.png" id="4_av77g"]
 
 [resource]
-script = ExtResource("1_ae4le")
+script = ExtResource("1_ws0r7")
 id = "sticky_silly_string"
 display_name = "Sticky Silly String"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 4.5
 poison_duration = 3.0
-texture = ExtResource("2_grtya")
+tier = 1
+evolutions = Array[ExtResource("1_ws0r7")]([ExtResource("2_yn3x7"), ExtResource("3_8mk5a")])
+texture = ExtResource("4_av77g")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

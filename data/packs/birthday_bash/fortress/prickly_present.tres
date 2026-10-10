@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_l08ou"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/prickly_present.png" id="2_l452c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7t57f"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/thrombus_mine.tres" id="2_acsdy"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/barbed_thrombus.tres" id="3_4tv34"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/prickly_present.png" id="4_1kgad"]
 
 [resource]
-script = ExtResource("1_l08ou")
+script = ExtResource("1_7t57f")
 id = "prickly_present"
 display_name = "Prickly Present"
 cost = 10
 max_hp = 120
 reflect = 0.6
+tier = 1
+evolutions = Array[ExtResource("1_7t57f")]([ExtResource("2_acsdy"), ExtResource("3_4tv34")])
 can_place_on_water = true
-texture = ExtResource("2_l452c")
+texture = ExtResource("4_1kgad")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 60% of smasher damage."

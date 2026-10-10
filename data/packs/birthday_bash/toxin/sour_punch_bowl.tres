@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_drpoc"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/sour_punch_bowl.png" id="2_0rhi4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dhn1o"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/dissolving_pool.tres" id="2_hhj8o"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/boiling_pool.tres" id="3_hmabd"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/sour_punch_bowl.png" id="4_laeu4"]
 
 [resource]
-script = ExtResource("1_drpoc")
+script = ExtResource("1_dhn1o")
 id = "sour_punch_bowl"
 display_name = "Sour Punch Bowl"
 role = 1
@@ -13,6 +15,8 @@ attack_mode = 1
 attack_range = 1.6
 poison_dps = 4.5
 poison_duration = 3.0
-texture = ExtResource("2_0rhi4")
+tier = 1
+evolutions = Array[ExtResource("1_dhn1o")]([ExtResource("2_hhj8o"), ExtResource("3_hmabd")])
+texture = ExtResource("4_laeu4")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ywvor"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/pungent_skunk.png" id="2_s0q47"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_an7ht"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/shredding_mast_cell.tres" id="2_7q0ti"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/degranulation_burst.tres" id="3_0hpbv"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/pungent_skunk.png" id="4_26lll"]
 
 [resource]
-script = ExtResource("1_ywvor")
+script = ExtResource("1_an7ht")
 id = "pungent_skunk"
 display_name = "Pungent Skunk"
 role = 1
@@ -15,6 +17,8 @@ damage = 3.5
 attack_range = 1.8
 slow = 0.35
 slow_duration = 1.2
-texture = ExtResource("2_s0q47")
+tier = 1
+evolutions = Array[ExtResource("1_an7ht")]([ExtResource("2_7q0ti"), ExtResource("3_0hpbv")])
+texture = ExtResource("4_26lll")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

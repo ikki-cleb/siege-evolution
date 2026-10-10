@@ -34,6 +34,12 @@ const BOMB_SPLASH := 0.5
 const SPILL_COLOR := Color(0.85, 0.6, 0.2)
 ## The flash when a piñata bursts (Birthday Bash).
 const PINATA_COLOR := Color(1.0, 0.45, 0.8)
+## Capstone explosions reach this far (tiles).
+const EXPLODE_RADIUS := 1.5
+## Lingering zones: size (tiles), how long they last, and their colors.
+const ZONE_RADIUS := 1.0
+const ZONE_TIME := 3.0
+const ZONE_COLORS := {"burn": Color(1.0, 0.45, 0.15), "freeze": Color(0.55, 0.85, 1.0), "toxic": Color(0.5, 0.95, 0.3)}
 
 var grid_size := Vector2i.ZERO
 var rocks := {}  # Vector2i -> true
@@ -49,6 +55,8 @@ var invaders: Array[Invader] = []
 
 ## True while a wave is running. Units only act during waves.
 var wave_active := false
+## Lingering zones on the ground: {pos, kind, power, time, owner}.
+var zones: Array[Dictionary] = []
 # Piñata surprises (see start_pinata_seeds).
 var _pinata_seed_base := 0
 var _pinatas_spawned := 0
@@ -349,8 +357,74 @@ func on_unit_destroyed(unit: Unit) -> void:
 		invader.repath()
 
 
+## The best aura each kind of capstone around `cell` gives it:
+## {"speed": attack speed bonus, "shield": damage reduction, "cleanse": goo-proof}.
+func aura_at(cell: Vector2i) -> Dictionary:
+	var aura := {"speed": 0.0, "shield": 0.0, "cleanse": false}
+	for dy in [-1, 0, 1]:
+		for dx in [-1, 0, 1]:
+			if dx == 0 and dy == 0:
+				continue
+			var neighbor := intact_unit_at(cell + Vector2i(dx, dy))
+			if neighbor == null:
+				continue
+			aura.speed = maxf(aura.speed, neighbor.data.aura_speed)
+			aura.shield = maxf(aura.shield, neighbor.data.aura_shield)
+			aura.cleanse = aura.cleanse or neighbor.data.aura_cleanse
+	return aura
+
+
+## "Explode on break": a destroyed capstone blasts the invaders around it
+## (and leaves its zone behind, if it has one).
+func explode(pos: Vector2, damage: float, unit_data: UnitData) -> void:
+	Sfx.play("bomb", 0.1)
+	shake_requested.emit(2.0)
+	fx.add_puff(pos, Color(1, 0.7, 0.3))
+	fx.add_pulse(pos, TILE * EXPLODE_RADIUS, Color(1, 0.6, 0.2))
+	for invader in invaders.duplicate():
+		if invader.alive and not invader.underground and invader.position.distance_to(pos) <= EXPLODE_RADIUS * TILE:
+			invader.take_damage(damage, true)
+	if unit_data.zone_kind != "":
+		add_zone(pos, unit_data, null)
+
+
+## Adds a lingering patch (or refreshes the one this unit already has there).
+func add_zone(pos: Vector2, unit_data: UnitData, owner: Node) -> void:
+	for zone in zones:
+		if zone.owner == owner and owner != null and zone.pos.distance_to(pos) < TILE * 0.5:
+			zone.time = ZONE_TIME
+			return
+	zones.append({"pos": pos, "kind": unit_data.zone_kind, "power": unit_data.zone_power,
+		"time": ZONE_TIME, "owner": owner})
+	queue_redraw()
+
+
+## Zones hurt, slow or poison the ground invaders standing in them.
+func _update_zones(delta: float) -> void:
+	for zone in zones:
+		zone.time -= delta
+		for invader in invaders.duplicate():
+			if not invader.alive or invader.underground or invader.is_flying():
+				continue
+			if invader.position.distance_to(zone.pos) > ZONE_RADIUS * TILE:
+				continue
+			match zone.kind:
+				"burn":
+					invader.take_damage(zone.power * delta, true)
+				"freeze":
+					invader.apply_slow(zone.power, 0.3)
+				"toxic":
+					# Re-dose only when the last dose is running out, so it doesn't stack up.
+					if invader.poison_time < 1.0:
+						invader.apply_poison(zone.power, 2.0, false)
+	zones = zones.filter(func(zone): return zone.time > 0.0)
+	queue_redraw()
+
+
 ## Between waves: every unit is repaired to full, even destroyed ones.
 func restore_units() -> void:
+	zones.clear()
+	queue_redraw()
 	for cell in units:
 		units[cell].restore()
 		_blocking_grid(cell).set_point_solid(cell, true)
@@ -439,6 +513,10 @@ func on_invader_killed(invader: Invader) -> void:
 	Sfx.play("kill")
 	if invader.drops_coins and invader.data.coin_drop > 0:
 		coins_dropped.emit(invader.data.coin_drop, to_global(invader.position))
+	# Bounty capstones pay extra for the invaders they finish off.
+	var hitter = invader.last_hitter
+	if invader.drops_coins and is_instance_valid(hitter) and hitter.data.bounty > 0:
+		coins_dropped.emit(hitter.data.bounty, to_global(invader.position))
 	if invader.data.split_into:
 		spawn_from(invader, invader.data.split_into, invader.data.split_count)
 	if not invader.data.pinata_pool.is_empty():
@@ -496,6 +574,8 @@ func flash(cell: Vector2i) -> void:
 
 
 func _process(delta: float) -> void:
+	if wave_active and not zones.is_empty():
+		_update_zones(delta)
 	if _flash_time > 0.0:
 		_flash_time -= delta
 		queue_redraw()
@@ -538,6 +618,12 @@ func _draw() -> void:
 			if preview_jumpers:
 				_draw_path(jumper_path(spawn), JUMPER_PATH_COLOR)
 			_draw_path(walker_path(spawn), PATH_COLOR)
+
+	for zone in zones:
+		var color: Color = ZONE_COLORS.get(zone.kind, Color.WHITE)
+		var fade := clampf(zone.time / ZONE_TIME, 0.0, 1.0)
+		draw_circle(zone.pos, ZONE_RADIUS * TILE, Color(color, 0.22 * fade))
+		draw_arc(zone.pos, ZONE_RADIUS * TILE, 0, TAU, 24, Color(color, 0.5 * fade), 1.0)
 
 	if selected_cell != NO_CELL:
 		draw_rect(Rect2(Vector2(selected_cell * TILE), Vector2(TILE, TILE)), Color.WHITE, false, 1.0)

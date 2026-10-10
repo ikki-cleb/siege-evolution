@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_no4lv"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/harvesting_dendrite.png" id="2_gd48b"]
+
+[resource]
+script = ExtResource("1_no4lv")
+id = "harvesting_dendrite"
+display_name = "Harvesting Dendrite"
+role = 1
+cost = 56
+max_hp = 30
+damage = 8.0
+attack_range = 3.6
+attack_interval = 1.4
+hits_air = true
+tier = 2
+bounty = 2
+texture = ExtResource("2_gd48b")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Its kills drop 2 extra coins."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_onulv"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/plague_lancer.png" id="2_cuyqn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8vxx2"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/pandemic_lancer.tres" id="2_hae88"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/plague_executioner.tres" id="3_75tc0"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/plague_lancer.png" id="4_ldkkj"]
 
 [resource]
-script = ExtResource("1_onulv")
+script = ExtResource("1_8vxx2")
 id = "plague_lancer"
 display_name = "Plague Lancer"
 role = 1
@@ -16,6 +18,8 @@ hits_air = true
 poison_dps = 8.0
 poison_duration = 5.0
 poison_spreads = true
-texture = ExtResource("2_cuyqn")
+tier = 1
+evolutions = Array[ExtResource("1_8vxx2")]([ExtResource("2_hae88"), ExtResource("3_75tc0")])
+texture = ExtResource("4_ldkkj")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

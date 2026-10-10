@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ay5c4"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/fibrin_bastion.png" id="2_bvrti"]
+
+[resource]
+script = ExtResource("1_ay5c4")
+id = "fibrin_bastion"
+display_name = "Fibrin Bastion"
+cost = 34
+max_hp = 260
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("2_bvrti")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Rebuilds itself once per wave at full HP."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_53i68"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/cane_toad.png" id="2_gq78m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x16bp"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/corroding_sprayer.tres" id="2_alaay"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/toxic_cloud_sprayer.tres" id="3_evjpu"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/cane_toad.png" id="4_a0t0m"]
 
 [resource]
-script = ExtResource("1_53i68")
+script = ExtResource("1_x16bp")
 id = "cane_toad"
 display_name = "Cane Toad"
 role = 1
@@ -17,6 +19,8 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 4.5
 poison_duration = 3.0
-texture = ExtResource("2_gq78m")
+tier = 1
+evolutions = Array[ExtResource("1_x16bp")]([ExtResource("2_alaay"), ExtResource("3_evjpu")])
+texture = ExtResource("4_a0t0m")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_j5ufk"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/clotting_snare.png" id="2_e3sdh"]
+
+[resource]
+script = ExtResource("1_j5ufk")
+id = "clotting_snare"
+display_name = "Clotting Snare"
+cost = 34
+max_hp = 220
+tier = 2
+grab_stun = 1.2
+can_place_on_water = true
+texture = ExtResource("2_e3sdh")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Smashers that bite it get stuck for 1.2s."

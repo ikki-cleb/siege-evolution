@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kooe1"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/long_sting_wasp.png" id="2_8yv7x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xpaqm"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/chain_venom_t.tres" id="2_2yk4q"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/venom_sniper_t.tres" id="3_ioggb"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/long_sting_wasp.png" id="4_s8tgy"]
 
 [resource]
-script = ExtResource("1_kooe1")
+script = ExtResource("1_xpaqm")
 id = "long_sting_wasp"
 display_name = "Long-Sting Wasp"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 3.0
 attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
-texture = ExtResource("2_8yv7x")
+tier = 1
+evolutions = Array[ExtResource("1_xpaqm")]([ExtResource("2_2yk4q"), ExtResource("3_ioggb")])
+texture = ExtResource("4_s8tgy")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

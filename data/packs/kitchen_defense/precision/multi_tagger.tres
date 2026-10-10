@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gu4kl"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/multi_tagger.png" id="2_b6a2q"]
+
+[resource]
+script = ExtResource("1_gu4kl")
+id = "multi_tagger"
+display_name = "Multi-Tagger"
+role = 2
+cost = 48
+max_hp = 15
+damage = 1.0
+attack_range = 4.5
+hits_air = true
+mark_bonus = 0.3
+mark_duration = 3.0
+tier = 2
+multishot = 3
+texture = ExtResource("2_b6a2q")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Tags 3 targets at once."

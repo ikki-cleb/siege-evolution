@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ujepv"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/acid_spitter.png" id="2_h2kcl"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_v8dt6"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/corrosive_spitter.tres" id="2_v27no"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/burning_spitter.tres" id="3_gw08a"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/acid_spitter.png" id="4_ek636"]
 
 [resource]
-script = ExtResource("1_ujepv")
+script = ExtResource("1_v8dt6")
 id = "acid_spitter"
 display_name = "Acid Spitter"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_h2kcl")
+tier = 1
+evolutions = Array[ExtResource("1_v8dt6")]([ExtResource("2_v27no"), ExtResource("3_gw08a")])
+texture = ExtResource("4_ek636")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_erhb3"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/rapid_orbital_lance.png" id="2_1drk1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3ylcj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/bounty_lance.tres" id="2_1qswc"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/ricochet_lance.tres" id="3_o5dux"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/rapid_orbital_lance.png" id="4_ncbys"]
 
 [resource]
-script = ExtResource("1_erhb3")
+script = ExtResource("1_3ylcj")
 id = "rapid_orbital_lance"
 display_name = "Rapid Orbital Lance"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 5.0
 attack_interval = 1.9
 hits_air = true
 pierce = true
-texture = ExtResource("2_1drk1")
+tier = 1
+evolutions = Array[ExtResource("1_3ylcj")]([ExtResource("2_1qswc"), ExtResource("3_o5dux")])
+texture = ExtResource("4_ncbys")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Fires much faster."

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gwojk"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/venom_sniper_t.png" id="2_rvofx"]
+
+[resource]
+script = ExtResource("1_gwojk")
+id = "venom_sniper_t"
+display_name = "Venom Sniper T-Cell"
+role = 1
+cost = 48
+damage = 1.0
+attack_range = 3.0
+attack_interval = 0.9
+poison_dps = 3.5
+poison_duration = 4.0
+tier = 2
+line_pierce = true
+texture = ExtResource("2_rvofx")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poison pierces every invader in a line."

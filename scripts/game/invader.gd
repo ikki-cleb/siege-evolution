@@ -15,6 +15,13 @@ var alive := true
 var drops_coins := true
 ## Piñatas only: decides what's inside (same seed = same surprise).
 var pinata_seed := 0
+## The unit that hit it last (bounty capstones pay out on kills).
+var last_hitter: Node = null
+## Armor stripped by shredding capstones.
+var armor_lost := 0
+## Knockback can't shove the same invader again for this long.
+const KNOCKBACK_COOLDOWN := 2.0
+var _knockback_cooldown := 0.0
 ## The tiles this invader will walk through, ending at the base.
 var path: Array[Vector2i] = []
 ## Which tile in `path` it is currently heading toward.
@@ -98,8 +105,9 @@ func distance_to_base() -> float:
 func take_damage(amount: float, pierce := false) -> void:
 	if not alive:
 		return
-	if not pierce and data.armor > 0:
-		amount = max(1.0, amount - data.armor)
+	var armor := maxi(0, data.armor - armor_lost)
+	if not pierce and armor > 0:
+		amount = max(1.0, amount - armor)
 	if mark_time > 0.0:
 		amount *= 1.0 + mark_bonus
 	hp -= amount
@@ -129,6 +137,24 @@ func apply_poison(dps: float, duration: float, spreads: bool) -> void:
 	poison_dps = max(current, min(current + dps, dps * POISON_STACK_LIMIT))
 	poison_time = max(poison_time, duration)
 	poison_spreads = poison_spreads or spreads
+
+
+## Permanently strips armor (down to 0).
+func shred_armor(amount: int) -> void:
+	armor_lost = mini(armor_lost + amount, data.armor)
+
+
+## Shoves a ground invader back along its route. Bosses, fliers and
+## tunneling invaders can't be shoved, and nothing gets shoved twice in a row.
+func knock_back(tiles: int) -> void:
+	if data.is_boss or is_flying() or underground or _knockback_cooldown > 0.0 or path.is_empty():
+		return
+	_knockback_cooldown = KNOCKBACK_COOLDOWN
+	var landing := maxi(0, mini(path_index, path.size()) - 1 - tiles)
+	position = board.cell_center(path[landing])
+	path_index = landing + 1
+	_hopping = false
+	_sprite.position.y = 0.0
 
 
 func apply_mark(bonus: float, duration: float) -> void:
@@ -175,6 +201,7 @@ func _update_effects(delta: float) -> void:
 	slow_time = max(0.0, slow_time - delta)
 	stun_time = max(0.0, stun_time - delta)
 	mark_time = max(0.0, mark_time - delta)
+	_knockback_cooldown = max(0.0, _knockback_cooldown - delta)
 	if data.regen > 0.0:
 		hp = min(hp + data.regen * delta, data.max_hp)
 	if poison_time > 0.0:
@@ -291,7 +318,7 @@ func _try_bomb() -> void:
 		var unit: Unit = board.units[cell]
 		if unit.destroyed or unit.position.distance_to(position) > BOMB_REACH * Board.TILE:
 			continue
-		var value := unit.base_data.cost + (unit.data.cost if unit.is_evolved() else 0)
+		var value := unit.total_cost()
 		if value > best_value:
 			best_value = value
 			best = unit

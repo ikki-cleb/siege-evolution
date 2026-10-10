@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_t04fh"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/toxic_burst_membrane.png" id="2_jfja8"]
+
+[resource]
+script = ExtResource("1_t04fh")
+id = "toxic_burst_membrane"
+display_name = "Toxic Burst Membrane"
+cost = 22
+max_hp = 25
+reflect = 0.8
+tier = 2
+zone_kind = "toxic"
+zone_power = 3.0
+explode_damage = 30.0
+can_place_on_water = true
+texture = ExtResource("2_jfja8")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Bursts into a toxic cloud when it breaks."

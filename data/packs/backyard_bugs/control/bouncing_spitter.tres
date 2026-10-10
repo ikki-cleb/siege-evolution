@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x4gea"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/bouncing_spitter.png" id="2_lh7p2"]
+
+[resource]
+script = ExtResource("1_x4gea")
+id = "bouncing_spitter"
+display_name = "Bouncing Spitter"
+role = 1
+cost = 50
+max_hp = 15
+damage = 3.5
+attack_range = 4.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+tier = 2
+chain_count = 2
+texture = ExtResource("2_lh7p2")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Spit bounces to 2 more invaders."

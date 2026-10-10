@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ndgt8"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/heavy_bottle_rocket.png" id="2_tmec3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0ylhq"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/railgun_lance.tres" id="2_67cyq"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/finishing_lance.tres" id="3_nbltw"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/heavy_bottle_rocket.png" id="4_i1u3i"]
 
 [resource]
-script = ExtResource("1_ndgt8")
+script = ExtResource("1_0ylhq")
 id = "heavy_bottle_rocket"
 display_name = "Heavy Bottle Rocket"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-texture = ExtResource("2_tmec3")
+tier = 1
+evolutions = Array[ExtResource("1_0ylhq")]([ExtResource("2_67cyq"), ExtResource("3_nbltw")])
+texture = ExtResource("4_i1u3i")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more damage."

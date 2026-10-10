@@ -1,17 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_osarg"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/thick_barrier.png" id="2_dka8i"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/thick_barrier_water.png" id="3_kolsj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kolsj"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/armored_keratin.tres" id="2_pruqe"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/rebuilt_plate.tres" id="3_pi6kk"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/thick_barrier.png" id="4_bxg7b"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/thick_barrier_water.png" id="5_il4if"]
 
 [resource]
-script = ExtResource("1_osarg")
+script = ExtResource("1_kolsj")
 id = "thick_barrier"
 display_name = "Thick Barrier"
 cost = 6
 max_hp = 70
+tier = 1
+evolutions = Array[ExtResource("1_kolsj")]([ExtResource("2_pruqe"), ExtResource("3_pi6kk")])
 can_place_on_water = true
-water_texture = ExtResource("3_kolsj")
-texture = ExtResource("2_dka8i")
+water_texture = ExtResource("5_il4if")
+texture = ExtResource("4_bxg7b")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u1gqo"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wafting_stink_bug.png" id="2_6npfy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gik31"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shoving_mast_cell.tres" id="2_s188r"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/alarm_mast_cell.tres" id="3_xmmyo"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wafting_stink_bug.png" id="4_q8sda"]
 
 [resource]
-script = ExtResource("1_u1gqo")
+script = ExtResource("1_gik31")
 id = "wafting_stink_bug"
 display_name = "Wafting Stink Bug"
 role = 1
@@ -15,6 +17,8 @@ damage = 2.0
 attack_range = 2.6
 slow = 0.35
 slow_duration = 1.2
-texture = ExtResource("2_6npfy")
+tier = 1
+evolutions = Array[ExtResource("1_gik31")]([ExtResource("2_s188r"), ExtResource("3_xmmyo")])
+texture = ExtResource("4_q8sda")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

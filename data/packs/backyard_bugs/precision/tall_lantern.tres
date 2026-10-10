@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_btgxt"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/tall_lantern.png" id="2_suhxs"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wjsg4"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/shield_beacon.tres" id="2_ltjyw"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/pulse_beacon.tres" id="3_dafmn"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/tall_lantern.png" id="4_2mty2"]
 
 [resource]
-script = ExtResource("1_btgxt")
+script = ExtResource("1_wjsg4")
 id = "tall_lantern"
 display_name = "Tall Lantern"
 role = 2
@@ -15,6 +17,8 @@ attack_range = 3.5
 hits_air = true
 mark_bonus = 0.25
 mark_duration = 1.5
-texture = ExtResource("2_suhxs")
+tier = 1
+evolutions = Array[ExtResource("1_wjsg4")]([ExtResource("2_ltjyw"), ExtResource("3_dafmn")])
+texture = ExtResource("4_2mty2")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

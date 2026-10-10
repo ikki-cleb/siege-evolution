@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5pjmb"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/snaring_net.png" id="2_qjqth"]
+
+[resource]
+script = ExtResource("1_5pjmb")
+id = "snaring_net"
+display_name = "Snaring NET"
+cost = 24
+max_hp = 60
+attack_mode = 1
+damage = 0.5
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+tier = 2
+grab_stun = 0.8
+texture = ExtResource("2_qjqth")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Smashers that bite it get stuck."

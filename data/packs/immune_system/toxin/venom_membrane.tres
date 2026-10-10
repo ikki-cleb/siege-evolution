@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_86j4p"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/venom_membrane.png" id="2_xjfnr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_iweba"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/toxic_burst_membrane.tres" id="2_qcknf"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/antitoxin_membrane.tres" id="3_loww8"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/venom_membrane.png" id="4_jws5f"]
 
 [resource]
-script = ExtResource("1_86j4p")
+script = ExtResource("1_iweba")
 id = "venom_membrane"
 display_name = "Venom Membrane"
 cost = 6
 max_hp = 25
 reflect = 0.8
+tier = 1
+evolutions = Array[ExtResource("1_iweba")]([ExtResource("2_qcknf"), ExtResource("3_loww8")])
 can_place_on_water = true
-texture = ExtResource("2_xjfnr")
+texture = ExtResource("4_jws5f")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

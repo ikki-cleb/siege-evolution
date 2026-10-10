@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_o2cg8"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/steel_tank_trap.png" id="2_5tsju"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xaivp"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/snaring_net.tres" id="2_u5aju"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/regrowing_net.tres" id="3_pok66"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/steel_tank_trap.png" id="4_3ywb6"]
 
 [resource]
-script = ExtResource("1_o2cg8")
+script = ExtResource("1_xaivp")
 id = "steel_tank_trap"
 display_name = "Steel Tank Trap"
 cost = 6
@@ -14,6 +16,8 @@ damage = 0.5
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
-texture = ExtResource("2_5tsju")
+tier = 1
+evolutions = Array[ExtResource("1_xaivp")]([ExtResource("2_u5aju"), ExtResource("3_pok66")])
+texture = ExtResource("4_3ywb6")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

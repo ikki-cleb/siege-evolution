@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xdask"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/soaked_sponge.png" id="2_43bsb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lv133"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/signaling_fibroblast.tres" id="2_50wk8"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/granulation_tissue.tres" id="3_182qt"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/soaked_sponge.png" id="4_sskuj"]
 
 [resource]
-script = ExtResource("1_xdask")
+script = ExtResource("1_lv133")
 id = "soaked_sponge"
 display_name = "Soaked Sponge"
 cost = 10
 max_hp = 70
 regen = 16.0
-texture = ExtResource("2_43bsb")
+tier = 1
+evolutions = Array[ExtResource("1_lv133")]([ExtResource("2_50wk8"), ExtResource("3_182qt")])
+texture = ExtResource("4_sskuj")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

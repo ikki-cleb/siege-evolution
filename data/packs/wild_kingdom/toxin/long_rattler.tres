@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_om421"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/long_rattler.png" id="2_c1cfj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qpkdj"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/chain_venom_t.tres" id="2_u1or8"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/venom_sniper_t.tres" id="3_0yhmc"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/long_rattler.png" id="4_hnskc"]
 
 [resource]
-script = ExtResource("1_om421")
+script = ExtResource("1_qpkdj")
 id = "long_rattler"
 display_name = "Long Rattler"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 3.0
 attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
-texture = ExtResource("2_c1cfj")
+tier = 1
+evolutions = Array[ExtResource("1_qpkdj")]([ExtResource("2_u1or8"), ExtResource("3_0yhmc")])
+texture = ExtResource("4_hnskc")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

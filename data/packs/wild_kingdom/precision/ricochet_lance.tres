@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1s1nh"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/ricochet_lance.png" id="2_d6nen"]
+
+[resource]
+script = ExtResource("1_1s1nh")
+id = "ricochet_lance"
+display_name = "Ricochet Lance"
+role = 1
+cost = 92
+max_hp = 15
+damage = 30.0
+attack_range = 5.0
+attack_interval = 1.9
+hits_air = true
+pierce = true
+tier = 2
+chain_count = 2
+texture = ExtResource("2_d6nen")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Shots ricochet to 2 more invaders."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jjwy8"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/thick_flypaper.png" id="2_digg5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lw41k"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/mucus_plug.tres" id="2_fut8g"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/grasping_mucus.tres" id="3_yv03w"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/thick_flypaper.png" id="4_c7xht"]
 
 [resource]
-script = ExtResource("1_jjwy8")
+script = ExtResource("1_lw41k")
 id = "thick_flypaper"
 display_name = "Thick Flypaper"
 cost = 6
@@ -14,7 +16,9 @@ attack_range = 1.2
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
+tier = 1
+evolutions = Array[ExtResource("1_lw41k")]([ExtResource("2_fut8g"), ExtResource("3_yv03w")])
 can_place_on_water = true
-texture = ExtResource("2_digg5")
+texture = ExtResource("4_c7xht")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More HP."

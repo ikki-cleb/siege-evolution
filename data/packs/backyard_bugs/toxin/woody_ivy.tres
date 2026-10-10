@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e1spc"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/woody_ivy.png" id="2_ewjbl"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tx7vl"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/undying_bloom.tres" id="2_31wkb"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/choking_bloom.tres" id="3_kuywe"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/woody_ivy.png" id="4_eabis"]
 
 [resource]
-script = ExtResource("1_e1spc")
+script = ExtResource("1_tx7vl")
 id = "woody_ivy"
 display_name = "Woody Ivy"
 cost = 12
@@ -13,6 +15,8 @@ attack_mode = 1
 poison_dps = 3.0
 poison_duration = 2.0
 poison_spreads = true
-texture = ExtResource("2_ewjbl")
+tier = 1
+evolutions = Array[ExtResource("1_tx7vl")]([ExtResource("2_31wkb"), ExtResource("3_kuywe")])
+texture = ExtResource("4_eabis")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

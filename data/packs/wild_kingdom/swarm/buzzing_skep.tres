@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4g3xb"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/buzzing_skep.png" id="2_q7nls"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yucp4"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/shockwave_basophil.tres" id="2_u72n4"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/rallying_basophil.tres" id="3_iyydl"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/buzzing_skep.png" id="4_njnah"]
 
 [resource]
-script = ExtResource("1_4g3xb")
+script = ExtResource("1_yucp4")
 id = "buzzing_skep"
 display_name = "Buzzing Skep"
 role = 1
@@ -16,6 +18,8 @@ attack_range = 2.4
 attack_interval = 0.6
 hits_air = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_q7nls")
+tier = 1
+evolutions = Array[ExtResource("1_yucp4")]([ExtResource("2_u72n4"), ExtResource("3_iyydl")])
+texture = ExtResource("4_njnah")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

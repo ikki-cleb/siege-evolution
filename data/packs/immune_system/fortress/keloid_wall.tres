@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gkv1v"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/keloid_wall.png" id="2_x7s0n"]
+
+[resource]
+script = ExtResource("1_gkv1v")
+id = "keloid_wall"
+display_name = "Keloid Wall"
+cost = 40
+max_hp = 200
+regen = 6.0
+tier = 2
+rebuild = true
+texture = ExtResource("2_x7s0n")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Rebuilds itself once per wave."

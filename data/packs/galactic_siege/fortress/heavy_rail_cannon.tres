@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0drhv"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/heavy_rail_cannon.png" id="2_4otsn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wgihn"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/eosinophil_barrage.tres" id="2_cng1u"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/major_basic_protein.tres" id="3_k1xx8"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/heavy_rail_cannon.png" id="4_kuxoa"]
 
 [resource]
-script = ExtResource("1_0drhv")
+script = ExtResource("1_wgihn")
 id = "heavy_rail_cannon"
 display_name = "Heavy Rail Cannon"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 2.0
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_4otsn")
+tier = 1
+evolutions = Array[ExtResource("1_wgihn")]([ExtResource("2_cng1u"), ExtResource("3_k1xx8")])
+texture = ExtResource("4_kuxoa")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Even bigger blasts."

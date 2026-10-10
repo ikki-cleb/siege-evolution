@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e5s0c"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/dense_sponge.png" id="2_x3etb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2263b"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/keloid_wall.tres" id="2_i4f60"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/scar_lattice.tres" id="3_7h3rw"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/dense_sponge.png" id="4_64tqg"]
 
 [resource]
-script = ExtResource("1_e5s0c")
+script = ExtResource("1_2263b")
 id = "dense_sponge"
 display_name = "Dense Sponge"
 cost = 10
 max_hp = 150
 regen = 6.0
-texture = ExtResource("2_x3etb")
+tier = 1
+evolutions = Array[ExtResource("1_2263b")]([ExtResource("2_i4f60"), ExtResource("3_7h3rw")])
+texture = ExtResource("4_64tqg")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

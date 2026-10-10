@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dxska"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/fuzzy_mold_loaf.png" id="2_qf7hn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wvdwl"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/spore_burst_bloom.tres" id="2_l715p"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/blight_field.tres" id="3_or2e6"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/fuzzy_mold_loaf.png" id="4_w2h0w"]
 
 [resource]
-script = ExtResource("1_dxska")
+script = ExtResource("1_wvdwl")
 id = "fuzzy_mold_loaf"
 display_name = "Fuzzy Mold Loaf"
 cost = 12
@@ -13,6 +15,8 @@ attack_mode = 1
 poison_dps = 6.0
 poison_duration = 2.0
 poison_spreads = true
-texture = ExtResource("2_qf7hn")
+tier = 1
+evolutions = Array[ExtResource("1_wvdwl")]([ExtResource("2_l715p"), ExtResource("3_or2e6")])
+texture = ExtResource("4_w2h0w")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

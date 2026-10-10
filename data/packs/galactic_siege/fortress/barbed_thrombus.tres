@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8h3qv"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/barbed_thrombus.png" id="2_1ukoi"]
+
+[resource]
+script = ExtResource("1_8h3qv")
+id = "barbed_thrombus"
+display_name = "Barbed Thrombus"
+cost = 34
+max_hp = 120
+reflect = 0.9
+tier = 2
+grab_stun = 0.6
+can_place_on_water = true
+texture = ExtResource("2_1ukoi")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Reflects 90% and snags smashers."

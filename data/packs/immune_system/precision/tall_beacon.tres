@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_oxvx0"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/tall_beacon.png" id="2_6rc7j"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fotl4"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/shield_beacon.tres" id="2_y20au"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/pulse_beacon.tres" id="3_fnfkh"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/tall_beacon.png" id="4_i512o"]
 
 [resource]
-script = ExtResource("1_oxvx0")
+script = ExtResource("1_fotl4")
 id = "tall_beacon"
 display_name = "Tall Beacon"
 role = 2
@@ -15,6 +17,8 @@ attack_range = 3.5
 hits_air = true
 mark_bonus = 0.25
 mark_duration = 1.5
-texture = ExtResource("2_6rc7j")
+tier = 1
+evolutions = Array[ExtResource("1_fotl4")]([ExtResource("2_y20au"), ExtResource("3_fnfkh")])
+texture = ExtResource("4_i512o")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

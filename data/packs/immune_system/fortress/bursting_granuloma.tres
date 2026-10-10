@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fmb15"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/bursting_granuloma.png" id="2_bmseh"]
+
+[resource]
+script = ExtResource("1_fmb15")
+id = "bursting_granuloma"
+display_name = "Bursting Granuloma"
+cost = 68
+max_hp = 260
+reflect = 0.8
+attack_mode = 1
+damage = 5.0
+tier = 2
+explode_damage = 120.0
+texture = ExtResource("2_bmseh")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Erupts violently when it breaks."

@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_y3bo8"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thick_hedge.png" id="2_a8li5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n8pwn"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/keloid_wall.tres" id="2_alriq"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/scar_lattice.tres" id="3_jibr2"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/thick_hedge.png" id="4_lj0i8"]
 
 [resource]
-script = ExtResource("1_y3bo8")
+script = ExtResource("1_n8pwn")
 id = "thick_hedge"
 display_name = "Thick Hedge"
 cost = 10
 max_hp = 150
 regen = 6.0
-texture = ExtResource("2_a8li5")
+tier = 1
+evolutions = Array[ExtResource("1_n8pwn")]([ExtResource("2_alriq"), ExtResource("3_jibr2")])
+texture = ExtResource("4_lj0i8")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

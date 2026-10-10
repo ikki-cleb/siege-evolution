@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ekhuw"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/wide_bonfire.png" id="2_l7aku"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uckqd"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/heatwave_node.tres" id="2_akaeg"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/warming_node.tres" id="3_snyhw"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/wide_bonfire.png" id="4_yyssi"]
 
 [resource]
-script = ExtResource("1_ekhuw")
+script = ExtResource("1_uckqd")
 id = "wide_bonfire"
 display_name = "Wide Bonfire"
 role = 1
@@ -14,6 +16,8 @@ attack_mode = 1
 damage = 3.5
 attack_range = 3.0
 hits_air = true
-texture = ExtResource("2_l7aku")
+tier = 1
+evolutions = Array[ExtResource("1_uckqd")]([ExtResource("2_akaeg"), ExtResource("3_snyhw")])
+texture = ExtResource("4_yyssi")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

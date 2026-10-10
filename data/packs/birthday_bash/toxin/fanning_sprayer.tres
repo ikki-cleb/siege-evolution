@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6t8m8"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/fanning_sprayer.png" id="2_xi3ji"]
+
+[resource]
+script = ExtResource("1_6t8m8")
+id = "fanning_sprayer"
+display_name = "Fanning Sprayer"
+role = 1
+cost = 54
+max_hp = 15
+damage = 1.0
+attack_range = 3.5
+attack_interval = 1.2
+hits_air = true
+splash_radius = 1.0
+poison_dps = 2.5
+poison_duration = 3.0
+tier = 2
+multishot = 2
+texture = ExtResource("2_xi3ji")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Sprays 2 targets at once."

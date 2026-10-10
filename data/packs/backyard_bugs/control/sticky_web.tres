@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2gtte"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/sticky_web.png" id="2_3ei2q"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pi25m"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/glue_mucus.tres" id="2_vmfwv"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/bursting_mucus.tres" id="3_wqbiu"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/sticky_web.png" id="4_hurek"]
 
 [resource]
-script = ExtResource("1_2gtte")
+script = ExtResource("1_pi25m")
 id = "sticky_web"
 display_name = "Sticky Web"
 cost = 6
@@ -14,7 +16,9 @@ attack_range = 1.2
 attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
+tier = 1
+evolutions = Array[ExtResource("1_pi25m")]([ExtResource("2_vmfwv"), ExtResource("3_wqbiu")])
 can_place_on_water = true
-texture = ExtResource("2_3ei2q")
+texture = ExtResource("4_hurek")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stronger slow."

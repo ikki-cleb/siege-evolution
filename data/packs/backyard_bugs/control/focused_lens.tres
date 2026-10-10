@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m7711"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/focused_lens.png" id="2_7wvuo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2pc31"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/inferno_node.tres" id="2_6ha16"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/heatstroke_node.tres" id="3_hrkg6"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/focused_lens.png" id="4_gcbku"]
 
 [resource]
-script = ExtResource("1_m7711")
+script = ExtResource("1_2pc31")
 id = "focused_lens"
 display_name = "Focused Lens"
 role = 1
@@ -14,6 +16,8 @@ attack_mode = 1
 damage = 6.0
 attack_range = 2.0
 hits_air = true
-texture = ExtResource("2_7wvuo")
+tier = 1
+evolutions = Array[ExtResource("1_2pc31")]([ExtResource("2_6ha16"), ExtResource("3_hrkg6")])
+texture = ExtResource("4_gcbku")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

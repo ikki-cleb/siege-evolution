@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_nihuq"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/wide_tank_trap.png" id="2_hj7m1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_r32dd"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/freezing_net.tres" id="2_y55cl"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/bursting_net.tres" id="3_1jkxt"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/wide_tank_trap.png" id="4_h0omb"]
 
 [resource]
-script = ExtResource("1_nihuq")
+script = ExtResource("1_r32dd")
 id = "wide_tank_trap"
 display_name = "Wide Tank Trap"
 cost = 6
@@ -15,6 +17,8 @@ attack_range = 2.2
 attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_hj7m1")
+tier = 1
+evolutions = Array[ExtResource("1_r32dd")]([ExtResource("2_y55cl"), ExtResource("3_1jkxt")])
+texture = ExtResource("4_h0omb")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Stronger, wider slow."

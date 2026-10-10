@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_f0kec"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/hot_sauce_squirter.png" id="2_f87m2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qk1f6"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/corrosive_spitter.tres" id="2_oat4h"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/burning_spitter.tres" id="3_te5sn"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/hot_sauce_squirter.png" id="4_avc82"]
 
 [resource]
-script = ExtResource("1_f0kec")
+script = ExtResource("1_qk1f6")
 id = "hot_sauce_squirter"
 display_name = "Hot Sauce Squirter"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_f87m2")
+tier = 1
+evolutions = Array[ExtResource("1_qk1f6")]([ExtResource("2_oat4h"), ExtResource("3_te5sn")])
+texture = ExtResource("4_avc82")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

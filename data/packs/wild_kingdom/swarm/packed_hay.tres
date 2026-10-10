@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cttic"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/packed_hay.png" id="2_1067q"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fas74"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/cornified_layer.tres" id="2_p7kt2"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/mucosal_barrier.tres" id="3_hk07b"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/packed_hay.png" id="4_5xivy"]
 
 [resource]
-script = ExtResource("1_cttic")
+script = ExtResource("1_fas74")
 id = "packed_hay"
 display_name = "Packed Hay"
 cost = 4
 max_hp = 40
+tier = 1
+evolutions = Array[ExtResource("1_fas74")]([ExtResource("2_p7kt2"), ExtResource("3_hk07b")])
 can_place_on_water = true
-texture = ExtResource("2_1067q")
+texture = ExtResource("4_5xivy")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4j037"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/eosinophil_spear.png" id="2_iw1pg"]
+
+[resource]
+script = ExtResource("1_4j037")
+id = "eosinophil_spear"
+display_name = "Eosinophil Spear"
+role = 1
+cost = 84
+max_hp = 40
+damage = 30.0
+attack_range = 3.2
+attack_interval = 2.6
+hits_air = true
+pierce = true
+tier = 2
+line_pierce = true
+texture = ExtResource("2_iw1pg")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Blasts pierce every invader in a line."

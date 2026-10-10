@@ -211,6 +211,15 @@ def add_badge(img, branch):
     return img
 
 
+def add_star(img):
+    """Marks a capstone (second evolution): a gold star in the bottom-left corner."""
+    gold, dark = hexc("#ffd23c"), hexc("#6a4a00")
+    rect(img, 0, 10, 5, 15, dark)
+    px(img, [(2, 10), (3, 10), (2, 11), (3, 11), (0, 12), (1, 12), (2, 12), (3, 12), (4, 12), (5, 12),
+             (1, 13), (2, 13), (3, 13), (4, 13), (1, 14), (4, 14), (0, 15), (5, 15)], gold)
+    return img
+
+
 def unit_sprite(unit, pack_color, art_style="cells"):
     kind, style = unit["art"]
     color = hexc(pack_color)
@@ -241,6 +250,9 @@ def pack_rows(content, all_content):
             unit["id"] = renames[unit["id"]][0]
             for evo in unit["evolutions"]:
                 evo["id"] = renames[evo["id"]][0]
+                # Capstones without a themed name yet keep their World 1 id.
+                for cap in evo.get("evolutions", []):
+                    cap["id"] = renames.get(cap["id"], [cap["id"]])[0]
         result.append(copy)
     return result
 
@@ -1495,14 +1507,20 @@ if __name__ == "__main__":
                 sprite = unit_sprite(unit, pack["color"], style)
                 save(sprite, f"units/{biome_id}/{pack['id']}/{unit['id']}.png")
                 for branch, evo in enumerate(unit["evolutions"]):
-                    save(add_badge(sprite.copy(), branch), f"units/{biome_id}/{pack['id']}/{evo['id']}.png")
+                    evolved = add_badge(sprite.copy(), branch)
+                    save(evolved, f"units/{biome_id}/{pack['id']}/{evo['id']}.png")
+                    for cap in evo.get("evolutions", []):
+                        save(add_star(evolved.copy()), f"units/{biome_id}/{pack['id']}/{cap['id']}.png")
                 # Basic walls on water: nets (base and HP branch) and mines (reflect branch).
                 if content.get("water_walls") and unit.get("water"):
                     color = pack["color"]
                     save(water_net(color), f"units/{biome_id}/{pack['id']}/{unit['id']}_water.png")
                     for branch, evo in enumerate(unit["evolutions"]):
                         art = water_net(color, heavy=True) if branch == 0 else naval_mine(color)
-                        save(add_badge(art, branch), f"units/{biome_id}/{pack['id']}/{evo['id']}_water.png")
+                        art = add_badge(art, branch)
+                        save(art, f"units/{biome_id}/{pack['id']}/{evo['id']}_water.png")
+                        for cap in evo.get("evolutions", []):
+                            save(add_star(art.copy()), f"units/{biome_id}/{pack['id']}/{cap['id']}_water.png")
         for invader in content["invaders"]:
             art = (INVADER_ART.get(invader["art"]) or BACKYARD_INVADER_ART.get(invader["art"])
                    or FARM_INVADER_ART.get(invader["art"]) or TOY_INVADER_ART.get(invader["art"])

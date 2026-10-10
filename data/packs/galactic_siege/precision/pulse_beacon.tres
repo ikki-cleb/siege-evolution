@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_trj72"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/pulse_beacon.png" id="2_5vvit"]
+
+[resource]
+script = ExtResource("1_trj72")
+id = "pulse_beacon"
+display_name = "Pulse Beacon"
+role = 2
+cost = 52
+max_hp = 35
+attack_mode = 1
+attack_range = 3.5
+hits_air = true
+mark_bonus = 0.25
+mark_duration = 1.5
+tier = 2
+knockback = 1
+texture = ExtResource("2_5vvit")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Pulses shove invaders back."

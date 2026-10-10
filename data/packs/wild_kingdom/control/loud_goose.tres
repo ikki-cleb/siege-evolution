@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hpwp7"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/loud_goose.png" id="2_4bj4n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4ke85"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/twin_spitter.tres" id="2_sxwrr"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bouncing_spitter.tres" id="3_q42n5"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/loud_goose.png" id="4_a1130"]
 
 [resource]
-script = ExtResource("1_hpwp7")
+script = ExtResource("1_4ke85")
 id = "loud_goose"
 display_name = "Loud Goose"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 4.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_4bj4n")
+tier = 1
+evolutions = Array[ExtResource("1_4ke85")]([ExtResource("2_sxwrr"), ExtResource("3_q42n5")])
+texture = ExtResource("4_a1130")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

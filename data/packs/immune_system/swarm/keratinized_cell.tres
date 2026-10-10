@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2pxmo"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/keratinized_cell.png" id="2_rjhp3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_clkcq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/cornified_layer.tres" id="2_8ap8d"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/mucosal_barrier.tres" id="3_7e5nc"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/keratinized_cell.png" id="4_7f086"]
 
 [resource]
-script = ExtResource("1_2pxmo")
+script = ExtResource("1_clkcq")
 id = "keratinized_cell"
 display_name = "Keratinized Cell"
 cost = 4
 max_hp = 40
+tier = 1
+evolutions = Array[ExtResource("1_clkcq")]([ExtResource("2_8ap8d"), ExtResource("3_7e5nc")])
 can_place_on_water = true
-texture = ExtResource("2_rjhp3")
+texture = ExtResource("4_7f086")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

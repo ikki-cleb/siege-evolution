@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qwf6w"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_plague_drone.png" id="2_74gjo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kvptm"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/plague_volley.tres" id="2_cwdbj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/plague_spear.tres" id="3_mm8s7"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_plague_drone.png" id="4_8o4xe"]
 
 [resource]
-script = ExtResource("1_qwf6w")
+script = ExtResource("1_kvptm")
 id = "long_plague_drone"
 display_name = "Long Plague Drone"
 role = 1
@@ -16,6 +18,8 @@ hits_air = true
 poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
-texture = ExtResource("2_74gjo")
+tier = 1
+evolutions = Array[ExtResource("1_kvptm")]([ExtResource("2_cwdbj"), ExtResource("3_mm8s7")])
+texture = ExtResource("4_8o4xe")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

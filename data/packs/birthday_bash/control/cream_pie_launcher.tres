@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n2l6b"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/cream_pie_launcher.png" id="2_3ipnj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hptt6"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/corrosive_spitter.tres" id="2_5rtkk"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/burning_spitter.tres" id="3_0ppiy"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/cream_pie_launcher.png" id="4_6qoi5"]
 
 [resource]
-script = ExtResource("1_n2l6b")
+script = ExtResource("1_hptt6")
 id = "cream_pie_launcher"
 display_name = "Cream Pie Launcher"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_3ipnj")
+tier = 1
+evolutions = Array[ExtResource("1_hptt6")]([ExtResource("2_5rtkk"), ExtResource("3_0ppiy")])
+texture = ExtResource("4_6qoi5")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2v4l3"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/granulation_tissue.png" id="2_saedf"]
+
+[resource]
+script = ExtResource("1_2v4l3")
+id = "granulation_tissue"
+display_name = "Granulation Tissue"
+cost = 40
+max_hp = 70
+regen = 16.0
+tier = 2
+grab_stun = 1.0
+texture = ExtResource("2_saedf")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Smashers that bite it get stuck."

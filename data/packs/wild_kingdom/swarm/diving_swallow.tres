@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mdnxb"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/diving_swallow.png" id="2_qu5pj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7f40s"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/barrage_monocyte.tres" id="2_hluej"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/piercing_monocyte.tres" id="3_rrw80"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/diving_swallow.png" id="4_l5ssm"]
 
 [resource]
-script = ExtResource("1_mdnxb")
+script = ExtResource("1_7f40s")
 id = "diving_swallow"
 display_name = "Diving Swallow"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 2.5
 attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_qu5pj")
+tier = 1
+evolutions = Array[ExtResource("1_7f40s")]([ExtResource("2_hluej"), ExtResource("3_rrw80")])
+texture = ExtResource("4_l5ssm")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

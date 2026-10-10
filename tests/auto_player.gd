@@ -19,6 +19,8 @@ var _has_jumpers := false
 var _has_flying_boss := false
 var _boat_cells := {}  # water tiles boats use, for coverage scoring
 var _flier_points: Array[Vector2] = []
+## Coins kept back when buying a capstone, so the bot still builds.
+const CAPSTONE_RESERVE := 10
 
 
 func _init(p_game, seed_value := 1) -> void:
@@ -218,21 +220,25 @@ func _evolve() -> bool:
 	var best: Unit = null
 	for cell in board.units:
 		var unit: Unit = board.units[cell]
-		if unit.is_evolved() or unit.base_data.evolutions.is_empty() or not game.is_veteran(unit):
+		if unit.data.evolutions.is_empty() or not game.is_ready_to_evolve(unit):
 			continue
 		if unit.base_data.role == UnitData.Role.WALL and not _has_smashers:
 			continue
-		if best == null or unit.base_data.cost > best.base_data.cost:
+		# First evolutions before capstones, then the priciest unit.
+		if best == null or unit.data.tier < best.data.tier \
+				or (unit.data.tier == best.data.tier and unit.base_data.cost > best.base_data.cost):
 			best = unit
 	if best == null:
 		return false
-	var into: UnitData = best.base_data.evolutions[rng.randi() % best.base_data.evolutions.size()]
-	if game.coins < into.cost:
+	var into: UnitData = best.data.evolutions[rng.randi() % best.data.evolutions.size()]
+	# Capstones only with coins to spare (it keeps a little for new units).
+	var reserve := CAPSTONE_RESERVE if into.tier == 2 else 0
+	if game.coins < into.cost + reserve:
 		return false
 	game._select_cell(best.cell)
 	game.evolve_selected(into)
 	game._select_cell(Board.NO_CELL)
-	return best.is_evolved()
+	return best.data == into
 
 
 func _coverage(cell: Vector2i, type: UnitData, walker: Dictionary, smasher: Dictionary) -> float:

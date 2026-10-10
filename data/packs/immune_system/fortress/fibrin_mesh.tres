@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kqfuy"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/fibrin_mesh.png" id="2_ojq2s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gf10q"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fibrin_bastion.tres" id="2_d7b5v"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/clotting_snare.tres" id="3_03ql4"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/fibrin_mesh.png" id="4_8apvo"]
 
 [resource]
-script = ExtResource("1_kqfuy")
+script = ExtResource("1_gf10q")
 id = "fibrin_mesh"
 display_name = "Fibrin Mesh"
 cost = 10
 max_hp = 220
+tier = 1
+evolutions = Array[ExtResource("1_gf10q")]([ExtResource("2_d7b5v"), ExtResource("3_03ql4")])
 can_place_on_water = true
-texture = ExtResource("2_ojq2s")
+texture = ExtResource("4_8apvo")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

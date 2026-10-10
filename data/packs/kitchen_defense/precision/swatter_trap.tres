@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5rk8y"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/swatter_trap.png" id="2_2sj0b"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7dyvd"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/hunter_t.tres" id="2_snyir"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/twin_patrol_t.tres" id="3_5wpyu"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/swatter_trap.png" id="4_ejrm6"]
 
 [resource]
-script = ExtResource("1_5rk8y")
+script = ExtResource("1_7dyvd")
 id = "swatter_trap"
 display_name = "Swatter Trap"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.5
 attack_interval = 1.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_2sj0b")
+tier = 1
+evolutions = Array[ExtResource("1_7dyvd")]([ExtResource("2_snyir"), ExtResource("3_5wpyu")])
+texture = ExtResource("4_ejrm6")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More range, hits fliers."

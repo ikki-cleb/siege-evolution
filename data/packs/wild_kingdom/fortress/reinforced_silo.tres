@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_glief"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/reinforced_silo.png" id="2_c1a6o"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ln11u"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/fortress_granuloma.tres" id="2_fe3em"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/bone_granuloma.tres" id="3_obroj"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/reinforced_silo.png" id="4_wdk27"]
 
 [resource]
-script = ExtResource("1_glief")
+script = ExtResource("1_ln11u")
 id = "reinforced_silo"
 display_name = "Reinforced Silo"
 cost = 16
 max_hp = 480
 attack_mode = 1
 damage = 3.0
-texture = ExtResource("2_c1a6o")
+tier = 1
+evolutions = Array[ExtResource("1_ln11u")]([ExtResource("2_fe3em"), ExtResource("3_obroj")])
+texture = ExtResource("4_wdk27")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Nearly unbreakable."

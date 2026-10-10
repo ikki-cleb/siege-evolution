@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fkuop"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_acid_bot.png" id="2_upqgh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_edxqn"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/chain_venom_t.tres" id="2_8ru7l"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/venom_sniper_t.tres" id="3_ny7tm"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_acid_bot.png" id="4_pkhd4"]
 
 [resource]
-script = ExtResource("1_fkuop")
+script = ExtResource("1_edxqn")
 id = "long_acid_bot"
 display_name = "Long Acid Bot"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 3.0
 attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
-texture = ExtResource("2_upqgh")
+tier = 1
+evolutions = Array[ExtResource("1_edxqn")]([ExtResource("2_8ru7l"), ExtResource("3_ny7tm")])
+texture = ExtResource("4_pkhd4")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

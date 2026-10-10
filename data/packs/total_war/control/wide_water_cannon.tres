@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_op1hu"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/wide_water_cannon.png" id="2_orh5j"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_d73mm"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/edema_zone.tres" id="2_4xj0p"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/fevered_zone.tres" id="3_4pond"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/wide_water_cannon.png" id="4_rxkju"]
 
 [resource]
-script = ExtResource("1_op1hu")
+script = ExtResource("1_d73mm")
 id = "wide_water_cannon"
 display_name = "Wide Water Cannon"
 role = 1
@@ -17,6 +19,8 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_orh5j")
+tier = 1
+evolutions = Array[ExtResource("1_d73mm")]([ExtResource("2_4xj0p"), ExtResource("3_4pond")])
+texture = ExtResource("4_rxkju")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

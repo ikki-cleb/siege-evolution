@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kk1th"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/lush_moss.png" id="2_a3bvx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tppal"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/signaling_fibroblast.tres" id="2_c337k"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/granulation_tissue.tres" id="3_500r2"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/lush_moss.png" id="4_72um3"]
 
 [resource]
-script = ExtResource("1_kk1th")
+script = ExtResource("1_tppal")
 id = "lush_moss"
 display_name = "Lush Moss"
 cost = 10
 max_hp = 70
 regen = 16.0
-texture = ExtResource("2_a3bvx")
+tier = 1
+evolutions = Array[ExtResource("1_tppal")]([ExtResource("2_c337k"), ExtResource("3_500r2")])
+texture = ExtResource("4_72um3")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_63rex"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/sweeping_stag.png" id="2_kyq1s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8vot0"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/engulfing_foam.tres" id="2_y2ji6"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/foam_eruption.tres" id="3_p4dlx"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/sweeping_stag.png" id="4_onh6n"]
 
 [resource]
-script = ExtResource("1_63rex")
+script = ExtResource("1_8vot0")
 id = "sweeping_stag"
 display_name = "Sweeping Stag"
 role = 1
@@ -14,6 +16,8 @@ damage = 9.0
 attack_range = 1.8
 attack_interval = 1.1
 splash_radius = 1.0
-texture = ExtResource("2_kyq1s")
+tier = 1
+evolutions = Array[ExtResource("1_8vot0")]([ExtResource("2_y2ji6"), ExtResource("3_p4dlx")])
+texture = ExtResource("4_onh6n")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Longer reach and hits splash."

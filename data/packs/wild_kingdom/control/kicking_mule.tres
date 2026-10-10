@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cooyl"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/kicking_mule.png" id="2_j62kp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_17sg6"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/shockwave_storm.tres" id="2_gymko"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/freezing_storm.tres" id="3_wthxl"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/kicking_mule.png" id="4_fd3g4"]
 
 [resource]
-script = ExtResource("1_cooyl")
+script = ExtResource("1_17sg6")
 id = "kicking_mule"
 display_name = "Kicking Mule"
 role = 1
@@ -15,6 +17,8 @@ attack_interval = 1.6
 hits_air = true
 splash_radius = 1.2
 stun_duration = 0.6
-texture = ExtResource("2_j62kp")
+tier = 1
+evolutions = Array[ExtResource("1_17sg6")]([ExtResource("2_gymko"), ExtResource("3_wthxl")])
+texture = ExtResource("4_fd3g4")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns a whole area."

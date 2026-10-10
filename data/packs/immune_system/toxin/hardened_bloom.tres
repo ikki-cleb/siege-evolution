@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5wo06"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/hardened_bloom.png" id="2_gnbav"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4qy8k"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/undying_bloom.tres" id="2_fv2f8"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/choking_bloom.tres" id="3_g6s03"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/hardened_bloom.png" id="4_rsbly"]
 
 [resource]
-script = ExtResource("1_5wo06")
+script = ExtResource("1_4qy8k")
 id = "hardened_bloom"
 display_name = "Hardened Bloom"
 cost = 12
@@ -13,6 +15,8 @@ attack_mode = 1
 poison_dps = 3.0
 poison_duration = 2.0
 poison_spreads = true
-texture = ExtResource("2_gnbav")
+tier = 1
+evolutions = Array[ExtResource("1_4qy8k")]([ExtResource("2_fv2f8"), ExtResource("3_g6s03")])
+texture = ExtResource("4_rsbly")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2065s"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/armored_plate.png" id="2_dfexk"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7qg4j"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/fibrin_bastion.tres" id="2_duv7r"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/clotting_snare.tres" id="3_driog"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/armored_plate.png" id="4_e8kda"]
 
 [resource]
-script = ExtResource("1_2065s")
+script = ExtResource("1_7qg4j")
 id = "armored_plate"
 display_name = "Armored Plate"
 cost = 10
 max_hp = 220
+tier = 1
+evolutions = Array[ExtResource("1_7qg4j")]([ExtResource("2_duv7r"), ExtResource("3_driog")])
 can_place_on_water = true
-texture = ExtResource("2_dfexk")
+texture = ExtResource("4_e8kda")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

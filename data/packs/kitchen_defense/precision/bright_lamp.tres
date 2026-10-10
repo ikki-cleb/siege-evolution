@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5b5kq"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/bright_lamp.png" id="2_vqysa"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1fils"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/interferon_storm.tres" id="2_xltb7"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/rallying_beacon.tres" id="3_84kru"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/bright_lamp.png" id="4_64c2w"]
 
 [resource]
-script = ExtResource("1_5b5kq")
+script = ExtResource("1_1fils")
 id = "bright_lamp"
 display_name = "Bright Lamp"
 role = 2
@@ -15,6 +17,8 @@ attack_range = 2.5
 hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
-texture = ExtResource("2_vqysa")
+tier = 1
+evolutions = Array[ExtResource("1_1fils")]([ExtResource("2_xltb7"), ExtResource("3_84kru")])
+texture = ExtResource("4_64c2w")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

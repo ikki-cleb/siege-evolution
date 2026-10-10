@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3ejn6"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/armored_depot.png" id="2_0ocxr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hnjav"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/keloid_wall.tres" id="2_3br71"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/scar_lattice.tres" id="3_f7i11"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/armored_depot.png" id="4_kwovf"]
 
 [resource]
-script = ExtResource("1_3ejn6")
+script = ExtResource("1_hnjav")
 id = "armored_depot"
 display_name = "Armored Depot"
 cost = 10
 max_hp = 150
 regen = 6.0
-texture = ExtResource("2_0ocxr")
+tier = 1
+evolutions = Array[ExtResource("1_hnjav")]([ExtResource("2_3br71"), ExtResource("3_f7i11")])
+texture = ExtResource("4_kwovf")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

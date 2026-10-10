@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wuats"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/giant_mantis.png" id="2_burss"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kg43f"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/eosinophil_barrage.tres" id="2_7gcqf"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/major_basic_protein.tres" id="3_6qk2w"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/giant_mantis.png" id="4_1n1ck"]
 
 [resource]
-script = ExtResource("1_wuats")
+script = ExtResource("1_kg43f")
 id = "giant_mantis"
 display_name = "Giant Mantis"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 2.0
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_burss")
+tier = 1
+evolutions = Array[ExtResource("1_kg43f")]([ExtResource("2_7gcqf"), ExtResource("3_6qk2w")])
+texture = ExtResource("4_1n1ck")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Even bigger blasts."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kyk7c"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/air_horn.png" id="2_cv2xe"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_80ofj"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/chain_storm.tres" id="2_2dr8h"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/storm_volley.tres" id="3_k33d7"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/air_horn.png" id="4_wprhb"]
 
 [resource]
-script = ExtResource("1_kyk7c")
+script = ExtResource("1_80ofj")
 id = "air_horn"
 display_name = "Air Horn"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 2.5
 attack_interval = 1.6
 hits_air = true
 stun_duration = 1.1
-texture = ExtResource("2_cv2xe")
+tier = 1
+evolutions = Array[ExtResource("1_80ofj")]([ExtResource("2_2dr8h"), ExtResource("3_k33d7")])
+texture = ExtResource("4_wprhb")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Longer stun."

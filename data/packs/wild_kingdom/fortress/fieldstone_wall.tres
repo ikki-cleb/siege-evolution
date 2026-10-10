@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8m8ct"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/fieldstone_wall.png" id="2_j1b4m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3g7mb"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/fibrin_bastion.tres" id="2_0x75k"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/clotting_snare.tres" id="3_5mhlu"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/fieldstone_wall.png" id="4_l7alo"]
 
 [resource]
-script = ExtResource("1_8m8ct")
+script = ExtResource("1_3g7mb")
 id = "fieldstone_wall"
 display_name = "Fieldstone Wall"
 cost = 10
 max_hp = 220
+tier = 1
+evolutions = Array[ExtResource("1_3g7mb")]([ExtResource("2_0x75k"), ExtResource("3_5mhlu")])
 can_place_on_water = true
-texture = ExtResource("2_j1b4m")
+texture = ExtResource("4_l7alo")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

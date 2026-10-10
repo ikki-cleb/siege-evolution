@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0wngj"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/big_foam_sword.png" id="2_3rpld"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_gg604"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/executioner_t.tres" id="2_2yfw7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/hammer_t.tres" id="3_6qeux"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/big_foam_sword.png" id="4_i180t"]
 
 [resource]
-script = ExtResource("1_0wngj")
+script = ExtResource("1_gg604")
 id = "big_foam_sword"
 display_name = "Big Foam Sword"
 role = 1
@@ -14,6 +16,8 @@ damage = 21.0
 attack_range = 2.5
 attack_interval = 1.6
 pierce = true
-texture = ExtResource("2_3rpld")
+tier = 1
+evolutions = Array[ExtResource("1_gg604")]([ExtResource("2_2yfw7"), ExtResource("3_6qeux")])
+texture = ExtResource("4_i180t")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

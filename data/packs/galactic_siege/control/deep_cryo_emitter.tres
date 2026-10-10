@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3y4gi"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/deep_cryo_emitter.png" id="2_ofeao"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_husor"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/shredding_mast_cell.tres" id="2_c5ir3"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/degranulation_burst.tres" id="3_dtxgn"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/deep_cryo_emitter.png" id="4_3eajx"]
 
 [resource]
-script = ExtResource("1_3y4gi")
+script = ExtResource("1_husor")
 id = "deep_cryo_emitter"
 display_name = "Deep Cryo Emitter"
 role = 1
@@ -15,6 +17,8 @@ damage = 3.5
 attack_range = 1.8
 slow = 0.35
 slow_duration = 1.2
-texture = ExtResource("2_ofeao")
+tier = 1
+evolutions = Array[ExtResource("1_husor")]([ExtResource("2_c5ir3"), ExtResource("3_dtxgn")])
+texture = ExtResource("4_3eajx")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

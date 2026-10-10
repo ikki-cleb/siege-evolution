@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ustnk"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/hardened_core.png" id="2_wpy2c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7lwbn"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/fortress_granuloma.tres" id="2_e0pea"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/bone_granuloma.tres" id="3_2jpuh"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/hardened_core.png" id="4_p3km4"]
 
 [resource]
-script = ExtResource("1_ustnk")
+script = ExtResource("1_7lwbn")
 id = "hardened_core"
 display_name = "Hardened Core"
 cost = 16
 max_hp = 480
 attack_mode = 1
 damage = 3.0
-texture = ExtResource("2_wpy2c")
+tier = 1
+evolutions = Array[ExtResource("1_7lwbn")]([ExtResource("2_e0pea"), ExtResource("3_2jpuh")])
+texture = ExtResource("4_p3km4")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Nearly unbreakable."

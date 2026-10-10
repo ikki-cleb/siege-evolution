@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_li3es"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/steam_jet_cooker.png" id="2_wtaik"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_um48i"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/eosinophil_spear.tres" id="2_fau0i"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/eosinophil_shredder.tres" id="3_a0dr7"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/steam_jet_cooker.png" id="4_ysfwc"]
 
 [resource]
-script = ExtResource("1_li3es")
+script = ExtResource("1_um48i")
 id = "steam_jet_cooker"
 display_name = "Steam Jet Cooker"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.2
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_wtaik")
+tier = 1
+evolutions = Array[ExtResource("1_um48i")]([ExtResource("2_fau0i"), ExtResource("3_a0dr7")])
+texture = ExtResource("4_ysfwc")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

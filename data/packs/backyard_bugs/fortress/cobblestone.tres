@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kijxp"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/cobblestone.png" id="2_7n286"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0cac5"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/fibrin_bastion.tres" id="2_ghkyi"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/clotting_snare.tres" id="3_x3mxl"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/cobblestone.png" id="4_mbfea"]
 
 [resource]
-script = ExtResource("1_kijxp")
+script = ExtResource("1_0cac5")
 id = "cobblestone"
 display_name = "Cobblestone"
 cost = 10
 max_hp = 220
+tier = 1
+evolutions = Array[ExtResource("1_0cac5")]([ExtResource("2_ghkyi"), ExtResource("3_x3mxl")])
 can_place_on_water = true
-texture = ExtResource("2_7n286")
+texture = ExtResource("4_mbfea")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

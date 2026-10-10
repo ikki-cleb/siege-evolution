@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4wdta"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/giant_macrophage.png" id="2_fbthm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m4k6t"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/devouring_macrophage.tres" id="2_ka4t5"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/titan_macrophage.tres" id="3_g0kv1"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/giant_macrophage.png" id="4_1q1ss"]
 
 [resource]
-script = ExtResource("1_4wdta")
+script = ExtResource("1_m4k6t")
 id = "giant_macrophage"
 display_name = "Giant Macrophage"
 role = 1
@@ -12,6 +14,8 @@ cost = 16
 max_hp = 80
 damage = 17.0
 attack_interval = 1.1
-texture = ExtResource("2_fbthm")
+tier = 1
+evolutions = Array[ExtResource("1_m4k6t")]([ExtResource("2_ka4t5"), ExtResource("3_g0kv1")])
+texture = ExtResource("4_1q1ss")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Hits far harder."

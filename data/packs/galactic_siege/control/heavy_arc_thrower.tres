@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1mxjg"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/heavy_arc_thrower.png" id="2_fphno"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fka6j"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/corrosive_spitter.tres" id="2_jwrn7"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/burning_spitter.tres" id="3_j6qma"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/heavy_arc_thrower.png" id="4_1xujo"]
 
 [resource]
-script = ExtResource("1_1mxjg")
+script = ExtResource("1_fka6j")
 id = "heavy_arc_thrower"
 display_name = "Heavy Arc Thrower"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_fphno")
+tier = 1
+evolutions = Array[ExtResource("1_fka6j")]([ExtResource("2_jwrn7"), ExtResource("3_j6qma")])
+texture = ExtResource("4_1xujo")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6qlqr"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/blight_field.png" id="2_nmis1"]
+
+[resource]
+script = ExtResource("1_6qlqr")
+id = "blight_field"
+display_name = "Blight Field"
+cost = 52
+max_hp = 40
+attack_mode = 1
+poison_dps = 6.0
+poison_duration = 2.0
+poison_spreads = true
+tier = 2
+zone_kind = "toxic"
+zone_power = 3.0
+texture = ExtResource("2_nmis1")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Leaves a toxic patch around itself."

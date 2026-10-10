@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_slgcb"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/heavy_lance.png" id="2_t3vt5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hjaxr"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/railgun_lance.tres" id="2_x5igu"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/finishing_lance.tres" id="3_vwodt"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/heavy_lance.png" id="4_nut5g"]
 
 [resource]
-script = ExtResource("1_slgcb")
+script = ExtResource("1_hjaxr")
 id = "heavy_lance"
 display_name = "Heavy Lance"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-texture = ExtResource("2_t3vt5")
+tier = 1
+evolutions = Array[ExtResource("1_hjaxr")]([ExtResource("2_x5igu"), ExtResource("3_vwodt")])
+texture = ExtResource("4_nut5g")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more damage."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hu2b8"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/hunting_nk_cell.png" id="2_qfq4n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_chh1e"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/stalker_nk.tres" id="2_sic0g"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/whirling_nk.tres" id="3_tc8hk"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/hunting_nk_cell.png" id="4_87048"]
 
 [resource]
-script = ExtResource("1_hu2b8")
+script = ExtResource("1_chh1e")
 id = "hunting_nk_cell"
 display_name = "Hunting NK Cell"
 role = 1
@@ -16,6 +18,8 @@ attack_interval = 0.45
 hits_air = true
 pierce = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_qfq4n")
+tier = 1
+evolutions = Array[ExtResource("1_chh1e")]([ExtResource("2_sic0g"), ExtResource("3_tc8hk")])
+texture = ExtResource("4_87048")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

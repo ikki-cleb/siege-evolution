@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_q8bjj"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/spiked_stone_wall.png" id="2_6l7f1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xwkyr"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/thrombus_mine.tres" id="2_4fffy"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/barbed_thrombus.tres" id="3_fvfur"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/spiked_stone_wall.png" id="4_kt60b"]
 
 [resource]
-script = ExtResource("1_q8bjj")
+script = ExtResource("1_xwkyr")
 id = "spiked_stone_wall"
 display_name = "Spiked Stone Wall"
 cost = 10
 max_hp = 120
 reflect = 0.6
+tier = 1
+evolutions = Array[ExtResource("1_xwkyr")]([ExtResource("2_4fffy"), ExtResource("3_fvfur")])
 can_place_on_water = true
-texture = ExtResource("2_6l7f1")
+texture = ExtResource("4_kt60b")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 60% of smasher damage."

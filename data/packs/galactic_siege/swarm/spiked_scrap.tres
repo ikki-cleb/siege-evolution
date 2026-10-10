@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3gnox"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/spiked_scrap.png" id="2_pl1rj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_w0sg1"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/cilia_trap.tres" id="2_0fv2i"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/bursting_cell.tres" id="3_8qoh8"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/spiked_scrap.png" id="4_two78"]
 
 [resource]
-script = ExtResource("1_3gnox")
+script = ExtResource("1_w0sg1")
 id = "spiked_scrap"
 display_name = "Spiked Scrap"
 cost = 4
 max_hp = 22
 reflect = 0.4
+tier = 1
+evolutions = Array[ExtResource("1_w0sg1")]([ExtResource("2_0fv2i"), ExtResource("3_8qoh8")])
 can_place_on_water = true
-texture = ExtResource("2_pl1rj")
+texture = ExtResource("4_two78")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Reflects 40% of smasher damage."

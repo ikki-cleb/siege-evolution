@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ekyr2"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/poison_brambles.png" id="2_e5hps"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mb5yu"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/toxic_burst_membrane.tres" id="2_m41f0"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/antitoxin_membrane.tres" id="3_k2e18"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/poison_brambles.png" id="4_jwudc"]
 
 [resource]
-script = ExtResource("1_ekyr2")
+script = ExtResource("1_mb5yu")
 id = "poison_brambles"
 display_name = "Poison Brambles"
 cost = 6
 max_hp = 25
 reflect = 0.8
+tier = 1
+evolutions = Array[ExtResource("1_mb5yu")]([ExtResource("2_m41f0"), ExtResource("3_k2e18")])
 can_place_on_water = true
-texture = ExtResource("2_e5hps")
+texture = ExtResource("4_jwudc")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

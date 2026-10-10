@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7hof5"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/overflowing_bowl.png" id="2_aqbfe"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xvmsc"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/flooding_pool.tres" id="2_0wmwi"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/rich_pool.tres" id="3_gpl4k"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/overflowing_bowl.png" id="4_075cn"]
 
 [resource]
-script = ExtResource("1_7hof5")
+script = ExtResource("1_xvmsc")
 id = "overflowing_bowl"
 display_name = "Overflowing Bowl"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 2.5
 hits_air = true
 poison_dps = 2.5
 poison_duration = 3.0
-texture = ExtResource("2_aqbfe")
+tier = 1
+evolutions = Array[ExtResource("1_xvmsc")]([ExtResource("2_0wmwi"), ExtResource("3_gpl4k")])
+texture = ExtResource("4_075cn")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range, hits fliers."

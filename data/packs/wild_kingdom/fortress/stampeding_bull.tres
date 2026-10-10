@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uldjr"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/stampeding_bull.png" id="2_gt50h"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dhnjq"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/engulfing_foam.tres" id="2_bu0ps"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/foam_eruption.tres" id="3_j3tl2"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/stampeding_bull.png" id="4_lv77h"]
 
 [resource]
-script = ExtResource("1_uldjr")
+script = ExtResource("1_dhnjq")
 id = "stampeding_bull"
 display_name = "Stampeding Bull"
 role = 1
@@ -14,6 +16,8 @@ damage = 9.0
 attack_range = 1.8
 attack_interval = 1.1
 splash_radius = 1.0
-texture = ExtResource("2_gt50h")
+tier = 1
+evolutions = Array[ExtResource("1_dhnjq")]([ExtResource("2_bu0ps"), ExtResource("3_j3tl2")])
+texture = ExtResource("4_lv77h")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Longer reach and hits splash."

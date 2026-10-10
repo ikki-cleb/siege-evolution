@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_loun0"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/memory_lance.png" id="2_e1jgw"]
+
+[resource]
+script = ExtResource("1_loun0")
+id = "memory_lance"
+display_name = "Memory Lance"
+role = 1
+cost = 56
+max_hp = 15
+damage = 4.5
+attack_range = 4.5
+hits_air = true
+tier = 2
+line_pierce = true
+texture = ExtResource("2_e1jgw")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Shots pierce every invader in a line."

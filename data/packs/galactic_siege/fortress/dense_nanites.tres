@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jpfnw"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/dense_nanites.png" id="2_70oqg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3ab33"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/keloid_wall.tres" id="2_qcorj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/scar_lattice.tres" id="3_w52b8"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/dense_nanites.png" id="4_rv2fm"]
 
 [resource]
-script = ExtResource("1_jpfnw")
+script = ExtResource("1_3ab33")
 id = "dense_nanites"
 display_name = "Dense Nanites"
 cost = 10
 max_hp = 150
 regen = 6.0
-texture = ExtResource("2_70oqg")
+tier = 1
+evolutions = Array[ExtResource("1_3ab33")]([ExtResource("2_qcorj"), ExtResource("3_w52b8")])
+texture = ExtResource("4_rv2fm")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

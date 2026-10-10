@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mvnw2"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/ghost_pepper_grinder.png" id="2_wfrho"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3yhc6"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/antibody_storm.tres" id="2_q4nv0"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/neutralizing_plasma.tres" id="3_p2847"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/ghost_pepper_grinder.png" id="4_fgvdm"]
 
 [resource]
-script = ExtResource("1_mvnw2")
+script = ExtResource("1_3yhc6")
 id = "ghost_pepper_grinder"
 display_name = "Ghost Pepper Grinder"
 role = 1
@@ -13,6 +15,8 @@ max_hp = 15
 damage = 8.0
 attack_range = 3.0
 hits_air = true
-texture = ExtResource("2_wfrho")
+tier = 1
+evolutions = Array[ExtResource("1_3yhc6")]([ExtResource("2_q4nv0"), ExtResource("3_p2847")])
+texture = ExtResource("4_fgvdm")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

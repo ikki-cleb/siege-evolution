@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_nhvp2"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/big_foam_machine.png" id="2_eih4a"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_igip1"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/edema_zone.tres" id="2_lohyh"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/fevered_zone.tres" id="3_1q2yp"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/big_foam_machine.png" id="4_gvj8t"]
 
 [resource]
-script = ExtResource("1_nhvp2")
+script = ExtResource("1_igip1")
 id = "big_foam_machine"
 display_name = "Big Foam Machine"
 role = 1
@@ -17,6 +19,8 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_eih4a")
+tier = 1
+evolutions = Array[ExtResource("1_igip1")]([ExtResource("2_lohyh"), ExtResource("3_1q2yp")])
+texture = ExtResource("4_gvj8t")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

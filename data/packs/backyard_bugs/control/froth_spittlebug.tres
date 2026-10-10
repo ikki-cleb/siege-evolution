@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6cysc"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/froth_spittlebug.png" id="2_4872h"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m3kj8"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/corrosive_spitter.tres" id="2_4aqwj"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/burning_spitter.tres" id="3_he1wm"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/froth_spittlebug.png" id="4_b8l5h"]
 
 [resource]
-script = ExtResource("1_6cysc")
+script = ExtResource("1_m3kj8")
 id = "froth_spittlebug"
 display_name = "Froth Spittlebug"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_4872h")
+tier = 1
+evolutions = Array[ExtResource("1_m3kj8")]([ExtResource("2_4aqwj"), ExtResource("3_he1wm")])
+texture = ExtResource("4_b8l5h")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

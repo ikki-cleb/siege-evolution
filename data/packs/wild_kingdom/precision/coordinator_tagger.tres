@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1nu6t"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/coordinator_tagger.png" id="2_8kfb1"]
+
+[resource]
+script = ExtResource("1_1nu6t")
+id = "coordinator_tagger"
+display_name = "Coordinator Tagger"
+role = 2
+cost = 48
+max_hp = 15
+damage = 1.0
+attack_range = 4.5
+hits_air = true
+mark_bonus = 0.3
+mark_duration = 3.0
+tier = 2
+aura_speed = 0.2
+texture = ExtResource("2_8kfb1")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Neighbors attack 20% faster."

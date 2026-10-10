@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_p67cw"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/rotting_manure.png" id="2_j4ybb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1x6s3"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/dissolving_pool.tres" id="2_fvtty"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/boiling_pool.tres" id="3_lnbaq"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/rotting_manure.png" id="4_hftu8"]
 
 [resource]
-script = ExtResource("1_p67cw")
+script = ExtResource("1_1x6s3")
 id = "rotting_manure"
 display_name = "Rotting Manure"
 role = 1
@@ -13,6 +15,8 @@ attack_mode = 1
 attack_range = 1.6
 poison_dps = 4.5
 poison_duration = 3.0
-texture = ExtResource("2_j4ybb")
+tier = 1
+evolutions = Array[ExtResource("1_1x6s3")]([ExtResource("2_fvtty"), ExtResource("3_lnbaq")])
+texture = ExtResource("4_hftu8")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ieuyr"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/long_rail_cannon.png" id="2_bqmic"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jqdv0"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/eosinophil_spear.tres" id="2_jyylc"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/eosinophil_shredder.tres" id="3_clhrs"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/long_rail_cannon.png" id="4_by4oe"]
 
 [resource]
-script = ExtResource("1_ieuyr")
+script = ExtResource("1_jqdv0")
 id = "long_rail_cannon"
 display_name = "Long Rail Cannon"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.2
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_bqmic")
+tier = 1
+evolutions = Array[ExtResource("1_jqdv0")]([ExtResource("2_jyylc"), ExtResource("3_clhrs")])
+texture = ExtResource("4_by4oe")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

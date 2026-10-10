@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bb3q3"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/sprinkle_spike_cake.png" id="2_akp3p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_opaiw"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/bursting_granuloma.tres" id="2_1w7i2"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/grasping_granuloma.tres" id="3_xyb2q"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/sprinkle_spike_cake.png" id="4_3pa23"]
 
 [resource]
-script = ExtResource("1_bb3q3")
+script = ExtResource("1_opaiw")
 id = "sprinkle_spike_cake"
 display_name = "Sprinkle Spike Cake"
 cost = 16
@@ -12,6 +14,8 @@ max_hp = 260
 reflect = 0.8
 attack_mode = 1
 damage = 5.0
-texture = ExtResource("2_akp3p")
+tier = 1
+evolutions = Array[ExtResource("1_opaiw")]([ExtResource("2_1w7i2"), ExtResource("3_xyb2q")])
+texture = ExtResource("4_3pa23")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 80% of smasher damage."

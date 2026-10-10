@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5ikpx"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/plague_spear.png" id="2_a5vhh"]
+
+[resource]
+script = ExtResource("1_5ikpx")
+id = "plague_spear"
+display_name = "Plague Spear"
+role = 1
+cost = 76
+damage = 2.0
+attack_range = 3.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 4.5
+poison_duration = 5.0
+poison_spreads = true
+tier = 2
+line_pierce = true
+texture = ExtResource("2_a5vhh")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Plague pierces every invader in a line."

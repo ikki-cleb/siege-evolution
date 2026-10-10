@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wq031"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/long_lemon_squirter.png" id="2_y08tu"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3a541"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/chain_venom_t.tres" id="2_lfye4"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/venom_sniper_t.tres" id="3_qa36j"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/long_lemon_squirter.png" id="4_bjnf4"]
 
 [resource]
-script = ExtResource("1_wq031")
+script = ExtResource("1_3a541")
 id = "long_lemon_squirter"
 display_name = "Long Lemon Squirter"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 3.0
 attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
-texture = ExtResource("2_y08tu")
+tier = 1
+evolutions = Array[ExtResource("1_3a541")]([ExtResource("2_lfye4"), ExtResource("3_qa36j")])
+texture = ExtResource("4_bjnf4")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

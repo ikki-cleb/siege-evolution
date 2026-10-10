@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bo0j5"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/engulfing_foam.png" id="2_o7r6e"]
+
+[resource]
+script = ExtResource("1_bo0j5")
+id = "engulfing_foam"
+display_name = "Engulfing Foam"
+role = 1
+cost = 60
+max_hp = 60
+damage = 9.0
+attack_range = 1.8
+attack_interval = 1.1
+splash_radius = 1.5
+tier = 2
+armor_shred = 1
+texture = ExtResource("2_o7r6e")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Wide splash that strips armor."

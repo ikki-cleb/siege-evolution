@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6v0h7"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/rapid_bottle_rocket.png" id="2_rhnln"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7r1gc"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bounty_lance.tres" id="2_ey5ni"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/ricochet_lance.tres" id="3_68fdd"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/rapid_bottle_rocket.png" id="4_mfumb"]
 
 [resource]
-script = ExtResource("1_6v0h7")
+script = ExtResource("1_7r1gc")
 id = "rapid_bottle_rocket"
 display_name = "Rapid Bottle Rocket"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 5.0
 attack_interval = 1.9
 hits_air = true
 pierce = true
-texture = ExtResource("2_rhnln")
+tier = 1
+evolutions = Array[ExtResource("1_7r1gc")]([ExtResource("2_ey5ni"), ExtResource("3_68fdd")])
+texture = ExtResource("4_mfumb")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Fires much faster."

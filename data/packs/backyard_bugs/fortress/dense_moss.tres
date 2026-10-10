@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1tjlg"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/dense_moss.png" id="2_r48bw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_piyrf"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/keloid_wall.tres" id="2_170bm"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/scar_lattice.tres" id="3_4up4j"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/dense_moss.png" id="4_37vdm"]
 
 [resource]
-script = ExtResource("1_1tjlg")
+script = ExtResource("1_piyrf")
 id = "dense_moss"
 display_name = "Dense Moss"
 cost = 10
 max_hp = 150
 regen = 6.0
-texture = ExtResource("2_r48bw")
+tier = 1
+evolutions = Array[ExtResource("1_piyrf")]([ExtResource("2_170bm"), ExtResource("3_4up4j")])
+texture = ExtResource("4_37vdm")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

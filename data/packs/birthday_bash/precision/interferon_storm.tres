@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ng5se"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/interferon_storm.png" id="2_72s7g"]
+
+[resource]
+script = ExtResource("1_ng5se")
+id = "interferon_storm"
+display_name = "Interferon Storm"
+role = 2
+cost = 52
+max_hp = 35
+attack_mode = 1
+attack_range = 2.5
+hits_air = true
+mark_bonus = 0.45
+mark_duration = 1.5
+tier = 2
+armor_shred = 1
+texture = ExtResource("2_72s7g")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Pulses strip 1 armor."

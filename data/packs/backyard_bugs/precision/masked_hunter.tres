@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_i7i07"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/masked_hunter.png" id="2_buwe8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_m075x"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/executioner_t.tres" id="2_6pydd"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/hammer_t.tres" id="3_42ab0"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/masked_hunter.png" id="4_iyv2v"]
 
 [resource]
-script = ExtResource("1_i7i07")
+script = ExtResource("1_m075x")
 id = "masked_hunter"
 display_name = "Masked Hunter"
 role = 1
@@ -14,6 +16,8 @@ damage = 21.0
 attack_range = 2.5
 attack_interval = 1.6
 pierce = true
-texture = ExtResource("2_buwe8")
+tier = 1
+evolutions = Array[ExtResource("1_m075x")]([ExtResource("2_6pydd"), ExtResource("3_42ab0")])
+texture = ExtResource("4_iyv2v")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

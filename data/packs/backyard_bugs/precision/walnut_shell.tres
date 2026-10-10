@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_r60tt"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/walnut_shell.png" id="2_dwrjt"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qu7wd"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/armored_keratin.tres" id="2_jexso"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/rebuilt_plate.tres" id="3_61del"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/walnut_shell.png" id="4_ry7vw"]
 
 [resource]
-script = ExtResource("1_r60tt")
+script = ExtResource("1_qu7wd")
 id = "walnut_shell"
 display_name = "Walnut Shell"
 cost = 6
 max_hp = 70
+tier = 1
+evolutions = Array[ExtResource("1_qu7wd")]([ExtResource("2_jexso"), ExtResource("3_61del")])
 can_place_on_water = true
-texture = ExtResource("2_dwrjt")
+texture = ExtResource("4_ry7vw")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

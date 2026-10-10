@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ox2rb"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/searing_griddle.png" id="2_5a5q1"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dnrnx"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/scorched_zone.tres" id="2_wv683"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/sepsis_zone.tres" id="3_4ljk6"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/searing_griddle.png" id="4_kxpai"]
 
 [resource]
-script = ExtResource("1_ox2rb")
+script = ExtResource("1_dnrnx")
 id = "searing_griddle"
 display_name = "Searing Griddle"
 role = 1
@@ -17,6 +19,8 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_5a5q1")
+tier = 1
+evolutions = Array[ExtResource("1_dnrnx")]([ExtResource("2_wv683"), ExtResource("3_4ljk6")])
+texture = ExtResource("4_kxpai")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

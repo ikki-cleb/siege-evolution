@@ -71,6 +71,37 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
 **Between waves:** all units (even destroyed ones) are **repaired for free**.
 A wave where nothing reaches the base earns a small **clean-wave bonus**.
 
+## Capstones (second evolution tier)
+
+After its first evolution, a unit can evolve **once more** into one of **two
+capstones** (4 per unit, 120 in all). Capstones are powerful but
+expensive: about **2× (unit cost + tier-1 cost)**, so players choose between
+more units and one strong unit. Like tier 1, a unit must **survive a wave
+after its first evolution** before it can take a capstone. Refunds follow
+the usual rules (100% the round bought, 50% after). Capstones show a **gold
+star badge** and a soft gold glow. The auto-player buys them when it has
+spare coins.
+
+Each capstone keeps its tier-1 stats and adds a **new mechanic**:
+
+| Mechanic | What it does |
+|---|---|
+| Chain hit | Each hit jumps to 2-3 more invaders nearby (70% damage per jump) |
+| Line pierce | Shots hit every invader in a line through the target |
+| Multishot | Attacks 2-3 targets at once |
+| Execute | Instantly finishes any non-boss below 15-35% HP |
+| Knockback | Shoves ground invaders 1-2 tiles back along their route (bosses immune; 2s cooldown per invader) |
+| Armor shred | Each hit permanently removes armor from the target (down to 0) |
+| Bounty | Invaders it kills drop extra coins |
+| Lingering zone | Leaves a burning, freezing or toxic patch for 3s |
+| Grab | A smasher biting this wall is stunned (every 3s at most) |
+| Explode on break | When destroyed, blasts invaders around it |
+| Rebuild once | Comes back at full HP once per wave after being destroyed |
+| Aura | The 8 neighbors attack faster, take less damage, or shrug off spill goo |
+
+**Rollout:** stage 1 (now) has every capstone named for World 1; other
+worlds show those names until stage 2 gives each world themed names.
+
 ## Economy and refunds
 
 - **Coins** are the in-game currency (earned only by playing, never sold;

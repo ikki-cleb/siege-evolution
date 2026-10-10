@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_42p7b"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/alarm_beacon.png" id="2_fhovh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ggivq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/interferon_storm.tres" id="2_bsh38"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/rallying_beacon.tres" id="3_c3865"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/alarm_beacon.png" id="4_l6gm1"]
 
 [resource]
-script = ExtResource("1_42p7b")
+script = ExtResource("1_ggivq")
 id = "alarm_beacon"
 display_name = "Alarm Beacon"
 role = 2
@@ -15,6 +17,8 @@ attack_range = 2.5
 hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
-texture = ExtResource("2_fhovh")
+tier = 1
+evolutions = Array[ExtResource("1_ggivq")]([ExtResource("2_bsh38"), ExtResource("3_c3865")])
+texture = ExtResource("4_l6gm1")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

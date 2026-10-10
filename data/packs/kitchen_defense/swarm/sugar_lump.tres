@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x0vn0"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sugar_lump.png" id="2_hlupf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_l0ex2"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/cornified_layer.tres" id="2_ecnn2"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/mucosal_barrier.tres" id="3_w626r"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/sugar_lump.png" id="4_rd7op"]
 
 [resource]
-script = ExtResource("1_x0vn0")
+script = ExtResource("1_l0ex2")
 id = "sugar_lump"
 display_name = "Sugar Lump"
 cost = 4
 max_hp = 40
+tier = 1
+evolutions = Array[ExtResource("1_l0ex2")]([ExtResource("2_ecnn2"), ExtResource("3_w626r")])
 can_place_on_water = true
-texture = ExtResource("2_hlupf")
+texture = ExtResource("4_rd7op")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

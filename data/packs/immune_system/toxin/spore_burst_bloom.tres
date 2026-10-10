@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u2jxt"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/spore_burst_bloom.png" id="2_jsl50"]
+
+[resource]
+script = ExtResource("1_u2jxt")
+id = "spore_burst_bloom"
+display_name = "Spore Burst Bloom"
+cost = 52
+max_hp = 40
+attack_mode = 1
+poison_dps = 6.0
+poison_duration = 2.0
+poison_spreads = true
+tier = 2
+zone_kind = "toxic"
+zone_power = 4.0
+explode_damage = 60.0
+texture = ExtResource("2_jsl50")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Bursts into a toxic cloud when it breaks."

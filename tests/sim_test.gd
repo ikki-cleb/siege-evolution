@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 57
+const MIN_RULE_CHECKS := 74
 var progress: Node
 
 
@@ -31,6 +31,7 @@ func _run() -> void:
 	await _test_kitchen(progress.load_biome(5))
 	await _test_selection(biome)
 	await _test_party(progress.load_biome(6))
+	await _test_capstones(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index; 5 = Kitchen, 6 = Birthday).
 		var worlds := [0, 1, 2, 3, 4, 5, 6]
@@ -451,6 +452,179 @@ func _test_party(biome: BiomeData) -> void:
 	store.reset_test_purchases()
 	_check(store.product(store.WORLD_BIRTHDAY).get("warning", "") == "POST-GAME: HARD",
 		"The store warns that Birthday Bash is post-game hard")
+
+
+# --- Capstones (second evolution tier) ----------------------------------------
+
+const PACKS := "res://data/packs/immune_system/"
+const INVADERS := "res://data/invaders/immune_system/"
+
+
+## A tough, frozen-in-place invader for testing hits.
+func _dummy(board: Board, id: String, cell: Vector2i, hp := 1000.0) -> Invader:
+	var path: Array[Vector2i] = [cell]
+	var invader := board._add_invader(load(INVADERS + id + ".tres"), board.cell_center(cell), path, 0)
+	invader.hp = hp
+	invader.set_process(false)
+	return invader
+
+
+func _test_capstones(biome: BiomeData) -> void:
+	# Level 1 of World 1: an open 9x14 map with spawn (4,0) and base (4,13).
+	var game := await _start(biome, 0, 0)
+	var board: Board = game.board
+	board.wave_active = true
+
+	# Chain: one shot hits the target and jumps to the others nearby.
+	var chain: Unit = board.place_unit(load(PACKS + "fortress/presenting_dendrite.tres"), Vector2i(1, 5))
+	var a := _dummy(board, "rhinovirus", Vector2i(2, 6))
+	var b := _dummy(board, "rhinovirus", Vector2i(3, 6))
+	var c := _dummy(board, "rhinovirus", Vector2i(4, 6))
+	chain._attack()
+	_check(a.hp < 1000 and b.hp < 1000 and c.hp < 1000, "Chain hits jump to more invaders")
+	_check(c.hp > a.hp, "Chain jumps deal less damage")
+	for x in [a, b, c]:
+		board.invaders.erase(x)
+		x.queue_free()
+	board.remove_unit(Vector2i(1, 5))
+
+	# Multishot: three far-apart targets all get hit at once.
+	var multi: Unit = board.place_unit(load(PACKS + "swarm/barrage_monocyte.tres"), Vector2i(4, 5))
+	var targets: Array[Invader] = [_dummy(board, "rhinovirus", Vector2i(2, 5)),
+		_dummy(board, "rhinovirus", Vector2i(6, 5)), _dummy(board, "rhinovirus", Vector2i(4, 7))]
+	multi._attack()
+	_check(targets.all(func(t): return t.hp < 1000), "Multishot hits 3 targets at once")
+	for t in targets:
+		board.invaders.erase(t)
+		t.queue_free()
+	board.remove_unit(Vector2i(4, 5))
+
+	# Line pierce: the shot carries through to invaders behind the target.
+	var lance: Unit = board.place_unit(load(PACKS + "precision/railgun_lance.tres"), Vector2i(4, 2))
+	var front := _dummy(board, "rhinovirus", Vector2i(4, 4))
+	var behind := _dummy(board, "rhinovirus", Vector2i(4, 6))
+	front.hp = 10.0  # closest to the base? No: make the front one the target by distance.
+	lance._attack()
+	_check(front.hp < 10.0 and behind.hp < 1000, "Line pierce hits every invader in the line")
+	for t in [front, behind]:
+		if is_instance_valid(t):
+			board.invaders.erase(t)
+			t.queue_free()
+	board.remove_unit(Vector2i(4, 2))
+
+	# Execute: a wounded invader is finished off.
+	var executioner: Unit = board.place_unit(load(PACKS + "fortress/devouring_macrophage.tres"), Vector2i(1, 8))
+	# 25 HP minus a 20-damage hit (22 - 2 armor) leaves 5, under 25% of 24.
+	var wounded := _dummy(board, "biofilm", Vector2i(2, 8), 25.0)
+	executioner._hit(wounded)
+	_check(not wounded.alive, "Execute finishes off wounded invaders")
+	board.remove_unit(Vector2i(1, 8))
+
+	# Armor shred: hits strip armor permanently.
+	var shredder: Unit = board.place_unit(load(PACKS + "swarm/piercing_monocyte.tres"), Vector2i(1, 8))
+	var armored := _dummy(board, "biofilm", Vector2i(2, 8))
+	shredder._hit(armored)
+	_check(armored.armor_lost == 1, "Armor shred strips armor")
+	board.invaders.erase(armored)
+	armored.queue_free()
+	board.remove_unit(Vector2i(1, 8))
+
+	# Knockback: shoves a walker back along its route (but never a boss).
+	var pusher: Unit = board.place_unit(load(PACKS + "fortress/titan_macrophage.tres"), Vector2i(0, 8))
+	var route := board.walker_path(Vector2i(4, 0))
+	var walker := board._add_invader(load(INVADERS + "rhinovirus.tres"), board.cell_center(route[6]), route, 7)
+	walker.hp = 1000.0
+	walker.set_process(false)
+	pusher._hit(walker)
+	_check(walker.path_index < 7, "Knockback shoves invaders back along their route")
+	var boss := board._add_invader(load(INVADERS + "superbug.tres"), board.cell_center(route[6]), route, 7)
+	boss.set_process(false)
+	pusher._hit(boss)
+	_check(boss.path_index == 7, "Bosses can't be knocked back")
+	for t in [walker, boss]:
+		board.invaders.erase(t)
+		t.queue_free()
+	board.remove_unit(Vector2i(0, 8))
+
+	# Bounty: kills pay extra coins.
+	var drops := [0]
+	board.coins_dropped.connect(func(amount, _where): drops[0] += amount)
+	var hunter: Unit = board.place_unit(load(PACKS + "fortress/harvesting_dendrite.tres"), Vector2i(1, 8))
+	var prey := _dummy(board, "rhinovirus", Vector2i(2, 8), 1.0)
+	hunter._hit(prey)
+	_check(drops[0] == prey.data.coin_drop + 2, "Bounty kills drop extra coins (%d)" % drops[0])
+	board.remove_unit(Vector2i(1, 8))
+
+	# Zones: a burning patch keeps hurting whoever stands in it.
+	var burner: Unit = board.place_unit(load(PACKS + "fortress/foam_eruption.tres"), Vector2i(1, 8))
+	var standing := _dummy(board, "rhinovirus", Vector2i(2, 8))
+	burner._shoot(standing)
+	var hp_after_hit := standing.hp
+	board._update_zones(1.0)
+	_check(not board.zones.is_empty() and standing.hp < hp_after_hit, "Lingering zones keep hurting invaders")
+	board.restore_units()
+	_check(board.zones.is_empty(), "Zones clear between waves")
+	board.invaders.erase(standing)
+	standing.queue_free()
+	board.remove_unit(Vector2i(1, 8))
+
+	# Grab: a smasher biting the wall gets stuck.
+	var snare: Unit = board.place_unit(load(PACKS + "fortress/clotting_snare.tres"), Vector2i(1, 8))
+	var biter := _dummy(board, "worm", Vector2i(1, 7))
+	snare.take_damage(5.0, biter)
+	_check(biter.stun_time > 0.0, "Grab walls stun the smashers biting them")
+	board.remove_unit(Vector2i(1, 8))
+
+	# Explode on break: blasts nearby invaders.
+	var mine: Unit = board.place_unit(load(PACKS + "fortress/thrombus_mine.tres"), Vector2i(1, 8))
+	mine.take_damage(100000.0, biter)
+	_check(biter.hp < biter.data.max_hp - 50 or not biter.alive, "Exploding walls blast nearby invaders")
+	board.remove_unit(Vector2i(1, 8))
+
+	# Rebuild once: survives its first break each wave.
+	var bastion: Unit = board.place_unit(load(PACKS + "fortress/fibrin_bastion.tres"), Vector2i(1, 8))
+	bastion.take_damage(100000.0)
+	_check(not bastion.destroyed and bastion.hp == bastion.data.max_hp, "Rebuild walls come back once")
+	bastion.take_damage(100000.0)
+	_check(bastion.destroyed, "...but only once per wave")
+	board.remove_unit(Vector2i(1, 8))
+
+	# Auras: neighbors take less damage, attack faster and ignore goo.
+	board.place_unit(load(PACKS + "fortress/fortress_granuloma.tres"), Vector2i(1, 8))
+	var guarded: Unit = board.place_unit(load(PACKS + "fortress/platelet_clot.tres"), Vector2i(2, 8))
+	guarded.take_damage(10.0)
+	_check(is_equal_approx(guarded.hp, guarded.data.max_hp - 7.0), "Shield auras cut neighbors' damage by 30%")
+	guarded.make_sticky(0.4)
+	_check(guarded.sticky == 0.0, "Cleanse auras keep neighbors free of goo")
+	board.place_unit(load(PACKS + "fortress/signaling_fibroblast.tres"), Vector2i(3, 8))
+	_check(board.aura_at(Vector2i(2, 9)).speed == 0.25, "Speed auras reach the 8 tiles around")
+	await _stop(game)
+
+	# Buying: a capstone needs a tier-1 unit that has survived a wave since
+	# evolving, and refunds like everything else.
+	game = await _start(biome, 0, 0)
+	board = game.board
+	game.coins = 999
+	var base: UnitData = game.unit_types[1]
+	game.try_place(base, Vector2i(0, 10))
+	var unit: Unit = board.units[Vector2i(0, 10)]
+	var coins_after_placing: int = game.coins
+	game._select_cell(unit.cell)
+	game.wave_number += 1
+	var tier1: UnitData = base.evolutions[0]
+	game.evolve_selected(tier1)
+	var capstone: UnitData = tier1.evolutions[0]
+	_check(unit.data == tier1 and not game.can_evolve(capstone), "Capstones need a wave after the first evolution")
+	game.wave_number += 1
+	game.evolve_selected(capstone)
+	_check(unit.is_capstone() and game.coins == coins_after_placing - tier1.cost - capstone.cost
+		and capstone.cost == 2 * (base.cost + tier1.cost),
+		"A capstone costs 2x the unit plus its first evolution (%d)" % capstone.cost)
+	var refund: int = game.sell_value(unit).coins
+	_check(refund == int(base.cost * 0.5) + int(tier1.cost * 0.5) + capstone.cost,
+		"Capstones refund fully the round they're bought")
+	_check(unit.total_cost() == base.cost + tier1.cost + capstone.cost, "Bombers see a capstone's full value")
+	await _stop(game)
 
 
 ## Every Label and Button text under a node (for checking screens).

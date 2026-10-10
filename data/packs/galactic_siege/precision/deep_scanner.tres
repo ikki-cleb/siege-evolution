@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cyqpg"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/deep_scanner.png" id="2_rc4af"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e231h"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/interferon_storm.tres" id="2_bd4q3"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/rallying_beacon.tres" id="3_wueux"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/deep_scanner.png" id="4_sguly"]
 
 [resource]
-script = ExtResource("1_cyqpg")
+script = ExtResource("1_e231h")
 id = "deep_scanner"
 display_name = "Deep Scanner"
 role = 2
@@ -15,6 +17,8 @@ attack_range = 2.5
 hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
-texture = ExtResource("2_rc4af")
+tier = 1
+evolutions = Array[ExtResource("1_e231h")]([ExtResource("2_bd4q3"), ExtResource("3_wueux")])
+texture = ExtResource("4_sguly")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

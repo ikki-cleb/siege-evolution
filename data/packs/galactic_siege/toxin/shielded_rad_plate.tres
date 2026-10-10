@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ss7ac"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/shielded_rad_plate.png" id="2_0d14p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ure4l"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/regrowing_membrane.tres" id="2_m6nac"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/sticky_membrane.tres" id="3_vouml"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/shielded_rad_plate.png" id="4_21k2x"]
 
 [resource]
-script = ExtResource("1_ss7ac")
+script = ExtResource("1_ure4l")
 id = "shielded_rad_plate"
 display_name = "Shielded Rad Plate"
 cost = 6
 max_hp = 60
 reflect = 0.3
+tier = 1
+evolutions = Array[ExtResource("1_ure4l")]([ExtResource("2_m6nac"), ExtResource("3_vouml")])
 can_place_on_water = true
-texture = ExtResource("2_0d14p")
+texture = ExtResource("4_21k2x")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

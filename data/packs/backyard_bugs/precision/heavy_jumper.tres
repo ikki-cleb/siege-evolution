@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_k8yvj"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/heavy_jumper.png" id="2_fxx7t"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_s4pqq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/railgun_lance.tres" id="2_j0qr3"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/finishing_lance.tres" id="3_wghm4"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/heavy_jumper.png" id="4_fhe5y"]
 
 [resource]
-script = ExtResource("1_k8yvj")
+script = ExtResource("1_s4pqq")
 id = "heavy_jumper"
 display_name = "Heavy Jumper"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-texture = ExtResource("2_fxx7t")
+tier = 1
+evolutions = Array[ExtResource("1_s4pqq")]([ExtResource("2_j0qr3"), ExtResource("3_wghm4")])
+texture = ExtResource("4_fhe5y")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more damage."

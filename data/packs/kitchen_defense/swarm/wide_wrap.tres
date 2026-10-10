@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fvbp3"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/wide_wrap.png" id="2_upr0c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_v6c1w"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/freezing_net.tres" id="2_gpbgn"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/bursting_net.tres" id="3_glw28"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/wide_wrap.png" id="4_q2rrl"]
 
 [resource]
-script = ExtResource("1_fvbp3")
+script = ExtResource("1_v6c1w")
 id = "wide_wrap"
 display_name = "Wide Wrap"
 cost = 6
@@ -15,6 +17,8 @@ attack_range = 2.2
 attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_upr0c")
+tier = 1
+evolutions = Array[ExtResource("1_v6c1w")]([ExtResource("2_gpbgn"), ExtResource("3_glw28")])
+texture = ExtResource("4_q2rrl")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Stronger, wider slow."

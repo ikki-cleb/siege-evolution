@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kpvx2"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/extra_strength_spray.png" id="2_wgtvm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_puo77"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/necrotizing_t.tres" id="2_38ffh"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/twin_venom_t.tres" id="3_1q0e4"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/extra_strength_spray.png" id="4_cyv63"]
 
 [resource]
-script = ExtResource("1_kpvx2")
+script = ExtResource("1_puo77")
 id = "extra_strength_spray"
 display_name = "Extra-Strength Spray"
 role = 1
@@ -14,6 +16,8 @@ attack_range = 2.0
 attack_interval = 0.9
 poison_dps = 6.0
 poison_duration = 4.0
-texture = ExtResource("2_wgtvm")
+tier = 1
+evolutions = Array[ExtResource("1_puo77")]([ExtResource("2_38ffh"), ExtResource("3_1q0e4")])
+texture = ExtResource("4_cyv63")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

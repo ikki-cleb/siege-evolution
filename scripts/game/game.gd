@@ -198,12 +198,16 @@ func sell_value(unit: Unit) -> Dictionary:
 			result.coins += unit.base_data.cost
 	else:
 		result.coins += int(unit.base_data.cost * OLD_UNIT_REFUND)
-	if unit.is_evolved():
-		if unit.evolved_round == wave_number:
-			result.coins += unit.data.cost
-		else:
-			result.coins += int(unit.data.cost * OLD_UNIT_REFUND)
+	# Each evolution refunds by the same rule, by the round it was bought in.
+	if unit.tier1_data:
+		result.coins += _refund(unit.tier1_data.cost, unit.evolved_round)
+	if unit.is_capstone():
+		result.coins += _refund(unit.data.cost, unit.capstone_round)
 	return result
+
+
+func _refund(cost: int, bought_round: int) -> int:
+	return cost if bought_round == wave_number else int(cost * OLD_UNIT_REFUND)
 
 
 func can_sell() -> bool:
@@ -234,10 +238,18 @@ func is_veteran(unit: Unit) -> bool:
 	return unit.placed_round < wave_number
 
 
+## True once a unit has survived a wave since it was placed (for its first
+## evolution) or since its first evolution (for a capstone).
+func is_ready_to_evolve(unit: Unit) -> bool:
+	if unit.data.tier == 0:
+		return is_veteran(unit)
+	return unit.evolved_round < wave_number
+
+
 func can_evolve(into: UnitData) -> bool:
 	var unit := selected_unit()
-	return (phase == Phase.BUILD and unit != null and not unit.is_evolved()
-		and is_veteran(unit) and coins >= into.cost)
+	return (phase == Phase.BUILD and unit != null and unit.data.evolutions.has(into)
+		and is_ready_to_evolve(unit) and coins >= into.cost)
 
 
 func evolve_selected(into: UnitData) -> void:
@@ -247,8 +259,12 @@ func evolve_selected(into: UnitData) -> void:
 	coins -= into.cost
 	unit.evolve(into)
 	Audio.play("evolve", 0.0)
-	unit.evolved_round = wave_number
-	hud.show_message("Evolved into %s! %s" % [into.display_name, into.description])
+	if into.tier == 2:
+		unit.capstone_round = wave_number
+		hud.show_message("Capstone: %s! %s" % [into.display_name, into.description])
+	else:
+		unit.evolved_round = wave_number
+		hud.show_message("Evolved into %s! %s" % [into.display_name, into.description])
 	hud.refresh()
 
 
@@ -434,6 +450,35 @@ func describe(type: UnitData) -> String:
 		parts.append("regen %s/s" % _num(type.regen))
 	if type.adjacency_bonus > 0.0:
 		parts.append("faster in groups")
+	# Capstone mechanics.
+	if type.chain_count > 0:
+		parts.append("chains to %d" % type.chain_count)
+	if type.multishot > 1:
+		parts.append("hits %d targets" % type.multishot)
+	if type.line_pierce:
+		parts.append("pierces the line")
+	if type.execute_below > 0.0:
+		parts.append("executes below %d%%" % roundi(type.execute_below * 100))
+	if type.knockback > 0:
+		parts.append("knocks back %d" % type.knockback)
+	if type.armor_shred > 0:
+		parts.append("shreds %d armor" % type.armor_shred)
+	if type.bounty > 0:
+		parts.append("kills +%s %d" % [Palette.COIN, type.bounty])
+	if type.zone_kind != "":
+		parts.append("leaves %s patches" % {"burn": "burning", "freeze": "freezing", "toxic": "toxic"}[type.zone_kind])
+	if type.grab_stun > 0.0:
+		parts.append("grabs smashers %ss" % _num(type.grab_stun))
+	if type.explode_damage > 0.0:
+		parts.append("explodes for %s" % _num(type.explode_damage))
+	if type.rebuild:
+		parts.append("rebuilds once")
+	if type.aura_speed > 0.0:
+		parts.append("neighbors +%d%% speed" % roundi(type.aura_speed * 100))
+	if type.aura_shield > 0.0:
+		parts.append("neighbors -%d%% damage" % roundi(type.aura_shield * 100))
+	if type.aura_cleanse:
+		parts.append("neighbors ignore goo")
 	if type.can_attack():
 		parts.append("hits fliers" if type.hits_air else "ground only")
 	return "%s: %s." % [type.display_name, ", ".join(parts)]

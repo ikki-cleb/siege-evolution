@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h2rjr"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/sticky_membrane.png" id="2_ogn7x"]
+
+[resource]
+script = ExtResource("1_h2rjr")
+id = "sticky_membrane"
+display_name = "Sticky Membrane"
+cost = 22
+max_hp = 60
+reflect = 0.3
+tier = 2
+grab_stun = 0.8
+can_place_on_water = true
+texture = ExtResource("2_ogn7x")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Smashers that bite it get stuck."

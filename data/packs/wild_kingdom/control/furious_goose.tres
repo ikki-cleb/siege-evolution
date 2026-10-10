@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_esusi"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/furious_goose.png" id="2_ldlfm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rov2v"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/corrosive_spitter.tres" id="2_jbxpr"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/burning_spitter.tres" id="3_4dptx"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/furious_goose.png" id="4_lk662"]
 
 [resource]
-script = ExtResource("1_esusi")
+script = ExtResource("1_rov2v")
 id = "furious_goose"
 display_name = "Furious Goose"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 3.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_ldlfm")
+tier = 1
+evolutions = Array[ExtResource("1_rov2v")]([ExtResource("2_jbxpr"), ExtResource("3_4dptx")])
+texture = ExtResource("4_lk662")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

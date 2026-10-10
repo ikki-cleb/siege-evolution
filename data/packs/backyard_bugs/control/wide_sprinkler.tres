@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jfkd8"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wide_sprinkler.png" id="2_024nc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7m2n1"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/edema_zone.tres" id="2_fp54y"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/fevered_zone.tres" id="3_3mp7x"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/wide_sprinkler.png" id="4_n00ia"]
 
 [resource]
-script = ExtResource("1_jfkd8")
+script = ExtResource("1_7m2n1")
 id = "wide_sprinkler"
 display_name = "Wide Sprinkler"
 role = 1
@@ -17,6 +19,8 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_024nc")
+tier = 1
+evolutions = Array[ExtResource("1_7m2n1")]([ExtResource("2_fp54y"), ExtResource("3_3mp7x")])
+texture = ExtResource("4_n00ia")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

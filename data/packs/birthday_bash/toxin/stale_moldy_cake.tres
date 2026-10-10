@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_udpc2"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/stale_moldy_cake.png" id="2_jbcmi"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kkx1t"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/undying_bloom.tres" id="2_c8jfm"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/choking_bloom.tres" id="3_2yufg"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/stale_moldy_cake.png" id="4_0kjuq"]
 
 [resource]
-script = ExtResource("1_udpc2")
+script = ExtResource("1_kkx1t")
 id = "stale_moldy_cake"
 display_name = "Stale Moldy Cake"
 cost = 12
@@ -13,6 +15,8 @@ attack_mode = 1
 poison_dps = 3.0
 poison_duration = 2.0
 poison_spreads = true
-texture = ExtResource("2_jbcmi")
+tier = 1
+evolutions = Array[ExtResource("1_kkx1t")]([ExtResource("2_c8jfm"), ExtResource("3_2yufg")])
+texture = ExtResource("4_0kjuq")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dbrrb"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/wide_smoke.png" id="2_leux5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_idp3t"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/edema_zone.tres" id="2_2hyrm"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/fevered_zone.tres" id="3_fqhqn"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/wide_smoke.png" id="4_ykd2c"]
 
 [resource]
-script = ExtResource("1_dbrrb")
+script = ExtResource("1_idp3t")
 id = "wide_smoke"
 display_name = "Wide Smoke"
 role = 1
@@ -17,6 +19,8 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_leux5")
+tier = 1
+evolutions = Array[ExtResource("1_idp3t")]([ExtResource("2_2hyrm"), ExtResource("3_fqhqn")])
+texture = ExtResource("4_ykd2c")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

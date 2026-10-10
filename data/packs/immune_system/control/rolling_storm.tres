@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rkonx"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/rolling_storm.png" id="2_tml65"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_a5uss"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/shockwave_storm.tres" id="2_rlqu3"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/freezing_storm.tres" id="3_55ohi"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/rolling_storm.png" id="4_8bo3v"]
 
 [resource]
-script = ExtResource("1_rkonx")
+script = ExtResource("1_a5uss")
 id = "rolling_storm"
 display_name = "Rolling Storm"
 role = 1
@@ -15,6 +17,8 @@ attack_interval = 1.6
 hits_air = true
 splash_radius = 1.2
 stun_duration = 0.6
-texture = ExtResource("2_tml65")
+tier = 1
+evolutions = Array[ExtResource("1_a5uss")]([ExtResource("2_rlqu3"), ExtResource("3_55ohi")])
+texture = ExtResource("4_8bo3v")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns a whole area."

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_emtgj"]
-[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/loud_blower.png" id="2_hjf0n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_27bqi"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/frenzied_horde.tres" id="2_kmdj5"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/killer_neutrophil.tres" id="3_k8xbo"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/loud_blower.png" id="4_c4smr"]
 
 [resource]
-script = ExtResource("1_emtgj")
+script = ExtResource("1_27bqi")
 id = "loud_blower"
 display_name = "Loud Blower"
 role = 1
@@ -12,6 +14,8 @@ cost = 8
 damage = 3.5
 attack_interval = 0.45
 adjacency_bonus = 0.15
-texture = ExtResource("2_hjf0n")
+tier = 1
+evolutions = Array[ExtResource("1_27bqi")]([ExtResource("2_kmdj5"), ExtResource("3_k8xbo")])
+texture = ExtResource("4_c4smr")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

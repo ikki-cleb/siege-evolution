@@ -81,21 +81,27 @@ func refresh() -> void:
 	_unit_row.visible = not show_options
 	_selection_row.visible = show_options
 	if show_options:
-		var evolutions: Array[UnitData] = unit.base_data.evolutions
+		# The next tier's two options: tier 1 for a placed unit, capstones for
+		# a tier-1 evolution, nothing once it's a capstone.
+		var options: Array[UnitData] = unit.data.evolutions
 		for i in _evolve_buttons.size():
 			var button := _evolve_buttons[i]
-			if unit.is_evolved() or i >= evolutions.size():
-				button.text = "Evolved" if unit.is_evolved() else "-"
+			if options.is_empty():
+				button.text = "Capstone\n(maxed)" if unit.is_capstone() else "-"
 				button.disabled = true
-				button.icon = unit.data.texture if unit.is_evolved() else null
-			elif not game.is_veteran(unit):
-				button.text = "%s\nafter 1 wave" % evolutions[i].display_name
-				button.icon = evolutions[i].texture
+				button.icon = unit.data.texture
+			elif i >= options.size():
+				button.text = "-"
+				button.disabled = true
+				button.icon = null
+			elif not game.is_ready_to_evolve(unit):
+				button.text = "%s\nafter 1 wave" % options[i].display_name
+				button.icon = options[i].texture
 				button.disabled = true
 			else:
-				button.text = "%s\n%s %d" % [evolutions[i].display_name, Palette.COIN, evolutions[i].cost]
-				button.icon = evolutions[i].texture
-				button.disabled = not game.can_evolve(evolutions[i])
+				button.text = "%s\n%s %d" % [options[i].display_name, Palette.COIN, options[i].cost]
+				button.icon = options[i].texture
+				button.disabled = not game.can_evolve(options[i])
 		var value: Dictionary = game.sell_value(unit)
 		_sell_button.text = "Remove\nto hand" if value.to_hand else "Remove\n+%s %d" % [Palette.COIN, value.coins]
 
@@ -368,8 +374,8 @@ func _build_bottom_bar() -> void:
 
 func _on_evolve_pressed(index: int) -> void:
 	var unit: Unit = game.selected_unit()
-	if unit and index < unit.base_data.evolutions.size():
-		game.evolve_selected(unit.base_data.evolutions[index])
+	if unit and index < unit.data.evolutions.size():
+		game.evolve_selected(unit.data.evolutions[index])
 
 
 ## A bar across the screen with a thin accent line on the side facing the board.

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_al85y"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/scar_lattice.png" id="2_63seg"]
+
+[resource]
+script = ExtResource("1_al85y")
+id = "scar_lattice"
+display_name = "Scar Lattice"
+cost = 40
+max_hp = 150
+regen = 6.0
+tier = 2
+aura_shield = 0.3
+texture = ExtResource("2_63seg")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Neighbors take 30% less damage."

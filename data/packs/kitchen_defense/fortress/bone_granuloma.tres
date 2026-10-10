@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_hxssc"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/bone_granuloma.png" id="2_kpeto"]
+
+[resource]
+script = ExtResource("1_hxssc")
+id = "bone_granuloma"
+display_name = "Bone Granuloma"
+cost = 68
+max_hp = 480
+attack_mode = 1
+damage = 3.0
+tier = 2
+rebuild = true
+texture = ExtResource("2_kpeto")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Rebuilds itself once per wave."

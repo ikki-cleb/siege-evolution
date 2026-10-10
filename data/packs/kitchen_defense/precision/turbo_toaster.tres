@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_amvca"]
-[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/turbo_toaster.png" id="2_8fgys"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dgki6"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/bounty_lance.tres" id="2_x4t3a"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/ricochet_lance.tres" id="3_n5om5"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/turbo_toaster.png" id="4_l7fkr"]
 
 [resource]
-script = ExtResource("1_amvca")
+script = ExtResource("1_dgki6")
 id = "turbo_toaster"
 display_name = "Turbo Toaster"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 5.0
 attack_interval = 1.9
 hits_air = true
 pierce = true
-texture = ExtResource("2_8fgys")
+tier = 1
+evolutions = Array[ExtResource("1_dgki6")]([ExtResource("2_x4t3a"), ExtResource("3_n5om5")])
+texture = ExtResource("4_l7fkr")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Fires much faster."

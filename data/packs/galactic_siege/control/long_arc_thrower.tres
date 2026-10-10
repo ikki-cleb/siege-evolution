@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2cq0y"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/long_arc_thrower.png" id="2_xlilu"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6ej8j"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/twin_spitter.tres" id="2_oqpb8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/bouncing_spitter.tres" id="3_fpt8o"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/long_arc_thrower.png" id="4_2u6gl"]
 
 [resource]
-script = ExtResource("1_2cq0y")
+script = ExtResource("1_6ej8j")
 id = "long_arc_thrower"
 display_name = "Long Arc Thrower"
 role = 1
@@ -15,6 +17,8 @@ attack_range = 4.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_xlilu")
+tier = 1
+evolutions = Array[ExtResource("1_6ej8j")]([ExtResource("2_oqpb8"), ExtResource("3_fpt8o")])
+texture = ExtResource("4_2u6gl")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

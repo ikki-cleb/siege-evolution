@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ly4gb"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/plague_volley.png" id="2_vhlbd"]
+
+[resource]
+script = ExtResource("1_ly4gb")
+id = "plague_volley"
+display_name = "Plague Volley"
+role = 1
+cost = 76
+damage = 2.0
+attack_range = 3.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 4.5
+poison_duration = 5.0
+poison_spreads = true
+tier = 2
+multishot = 2
+texture = ExtResource("2_vhlbd")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Infects 2 targets at once."

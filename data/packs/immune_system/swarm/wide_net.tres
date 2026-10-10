@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ux4hk"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/wide_net.png" id="2_8wo12"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mnkud"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/freezing_net.tres" id="2_rsrm8"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/bursting_net.tres" id="3_ukj3l"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/wide_net.png" id="4_xxged"]
 
 [resource]
-script = ExtResource("1_ux4hk")
+script = ExtResource("1_mnkud")
 id = "wide_net"
 display_name = "Wide NET"
 cost = 6
@@ -15,6 +17,8 @@ attack_range = 2.2
 attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_8wo12")
+tier = 1
+evolutions = Array[ExtResource("1_mnkud")]([ExtResource("2_rsrm8"), ExtResource("3_ukj3l")])
+texture = ExtResource("4_xxged")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Stronger, wider slow."

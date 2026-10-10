@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vcebt"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/antitoxin_membrane.png" id="2_8rhdo"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/antitoxin_membrane_water.png" id="3_1r7rp"]
+
+[resource]
+script = ExtResource("1_vcebt")
+id = "antitoxin_membrane"
+display_name = "Antitoxin Membrane"
+cost = 22
+max_hp = 25
+reflect = 0.8
+tier = 2
+aura_shield = 0.2
+aura_cleanse = true
+can_place_on_water = true
+water_texture = ExtResource("3_1r7rp")
+texture = ExtResource("2_8rhdo")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Neighbors take 20% less damage and ignore goo."

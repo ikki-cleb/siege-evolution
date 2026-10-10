@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_exjes"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/rapid_depot.png" id="2_axkrh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_bxg5c"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/signaling_fibroblast.tres" id="2_wih5r"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/granulation_tissue.tres" id="3_kt7ok"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/rapid_depot.png" id="4_dueq6"]
 
 [resource]
-script = ExtResource("1_exjes")
+script = ExtResource("1_bxg5c")
 id = "rapid_depot"
 display_name = "Rapid Depot"
 cost = 10
 max_hp = 70
 regen = 16.0
-texture = ExtResource("2_axkrh")
+tier = 1
+evolutions = Array[ExtResource("1_bxg5c")]([ExtResource("2_wih5r"), ExtResource("3_kt7ok")])
+texture = ExtResource("4_dueq6")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

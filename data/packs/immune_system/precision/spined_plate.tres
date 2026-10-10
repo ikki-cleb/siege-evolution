@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dsj7p"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/spined_plate.png" id="2_307cm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_1rpim"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/spike_trap_plate.tres" id="2_n7ifw"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/hooked_plate.tres" id="3_21u4i"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/spined_plate.png" id="4_aqa5p"]
 
 [resource]
-script = ExtResource("1_dsj7p")
+script = ExtResource("1_1rpim")
 id = "spined_plate"
 display_name = "Spined Plate"
 cost = 6
 max_hp = 35
 reflect = 0.5
+tier = 1
+evolutions = Array[ExtResource("1_1rpim")]([ExtResource("2_n7ifw"), ExtResource("3_21u4i")])
 can_place_on_water = true
-texture = ExtResource("2_307cm")
+texture = ExtResource("4_aqa5p")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Reflects 50% of smasher damage."

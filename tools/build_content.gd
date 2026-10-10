@@ -75,11 +75,16 @@ static func pack_rows(content: Dictionary, all_content: Dictionary) -> Array:
 			_apply_rename(unit, renames)
 			for evolution in unit.evolutions:
 				_apply_rename(evolution, renames)
+				for capstone in evolution.get("evolutions", []):
+					_apply_rename(capstone, renames)
 		result.append(copy)
 	return result
 
 
 static func _apply_rename(row: Dictionary, renames: Dictionary) -> void:
+	# Capstones without a themed name yet keep their World 1 name.
+	if not renames.has(row.id):
+		return
 	var entry: Array = renames[row.id]
 	row.id = entry[0]
 	row.name = entry[1]
@@ -180,6 +185,14 @@ func _pack(biome_id: String, row: Dictionary) -> PackData:
 		for evo_row in unit_row.evolutions:
 			# Evolutions start as a copy of the base unit, then apply changes.
 			var evolution := _unit(evo_row, unit_row, art_dir, pack.color)
+			evolution.tier = 1
+			# Capstones start as a copy of the tier-1 evolution.
+			var tier1: Dictionary = unit_row.duplicate()
+			tier1.merge(evo_row, true)
+			for cap_row in evo_row.get("evolutions", []):
+				var capstone := _unit(cap_row, tier1, art_dir, pack.color)
+				capstone.tier = 2
+				evolution.evolutions.append(_save(capstone, "%s/%s.tres" % [dir, cap_row.id]))
 			unit.evolutions.append(_save(evolution, "%s/%s.tres" % [dir, evo_row.id]))
 		pack.units.append(_save(unit, "%s/%s.tres" % [dir, unit_row.id]))
 	return _save(pack, "%s/%s_pack.tres" % [dir, row.id])
@@ -214,6 +227,21 @@ func _unit(row: Dictionary, base: Dictionary, art_dir: String, pack_color: Color
 	unit.poison_spreads = value.call("spreads", false)
 	unit.mark_bonus = value.call("mark", 0.0)
 	unit.mark_duration = value.call("mark_dur", 0.0)
+	unit.chain_count = int(value.call("chain", 0))
+	unit.multishot = int(value.call("multishot", 0))
+	unit.line_pierce = value.call("line", false)
+	unit.execute_below = value.call("execute", 0.0)
+	unit.knockback = int(value.call("knockback", 0))
+	unit.armor_shred = int(value.call("shred", 0))
+	unit.bounty = int(value.call("bounty", 0))
+	unit.zone_kind = value.call("zone", "")
+	unit.zone_power = value.call("zone_power", 0.0)
+	unit.grab_stun = value.call("grab", 0.0)
+	unit.explode_damage = value.call("explode", 0.0)
+	unit.rebuild = value.call("rebuild", false)
+	unit.aura_speed = value.call("aura_speed", 0.0)
+	unit.aura_shield = value.call("aura_shield", 0.0)
+	unit.aura_cleanse = value.call("aura_cleanse", false)
 	unit.description = row.get("desc", "")
 	unit.shot_color = pack_color.lightened(0.4)
 	unit.texture = load("%s/%s.png" % [art_dir, row.id])

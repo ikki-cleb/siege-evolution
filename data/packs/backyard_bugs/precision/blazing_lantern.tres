@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_b037h"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/blazing_lantern.png" id="2_i3cig"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_h13rs"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/interferon_storm.tres" id="2_eg8vk"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/rallying_beacon.tres" id="3_xl0bu"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/blazing_lantern.png" id="4_vhfaj"]
 
 [resource]
-script = ExtResource("1_b037h")
+script = ExtResource("1_h13rs")
 id = "blazing_lantern"
 display_name = "Blazing Lantern"
 role = 2
@@ -15,6 +17,8 @@ attack_range = 2.5
 hits_air = true
 mark_bonus = 0.45
 mark_duration = 1.5
-texture = ExtResource("2_i3cig")
+tier = 1
+evolutions = Array[ExtResource("1_h13rs")]([ExtResource("2_eg8vk"), ExtResource("3_xl0bu")])
+texture = ExtResource("4_vhfaj")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +45% damage."

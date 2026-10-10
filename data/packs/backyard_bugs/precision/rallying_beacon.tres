@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3jbjq"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/rallying_beacon.png" id="2_feuk5"]
+
+[resource]
+script = ExtResource("1_3jbjq")
+id = "rallying_beacon"
+display_name = "Rallying Beacon"
+role = 2
+cost = 52
+max_hp = 35
+attack_mode = 1
+attack_range = 2.5
+hits_air = true
+mark_bonus = 0.45
+mark_duration = 1.5
+tier = 2
+aura_speed = 0.25
+texture = ExtResource("2_feuk5")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Neighbors attack 25% faster."

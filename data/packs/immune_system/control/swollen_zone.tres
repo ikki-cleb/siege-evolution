@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0y6fd"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/swollen_zone.png" id="2_uvhev"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_14t4g"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/edema_zone.tres" id="2_by7rf"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/fevered_zone.tres" id="3_oqpxy"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/swollen_zone.png" id="4_iy75y"]
 
 [resource]
-script = ExtResource("1_0y6fd")
+script = ExtResource("1_14t4g")
 id = "swollen_zone"
 display_name = "Swollen Zone"
 role = 1
@@ -17,6 +19,8 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_uvhev")
+tier = 1
+evolutions = Array[ExtResource("1_14t4g")]([ExtResource("2_by7rf"), ExtResource("3_oqpxy")])
+texture = ExtResource("4_iy75y")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."
