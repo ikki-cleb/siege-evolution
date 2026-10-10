@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_0qipo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_qua14"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/rad_plate.tres" id="3_b74nr"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/acid_bot.tres" id="4_e4sh1"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/nanite_sprayer.tres" id="5_x7u5m"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/toxic_reactor.tres" id="6_yu2ub"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/plague_drone.tres" id="7_8658x"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/contamination_zone.tres" id="8_injyw"]
+
+[resource]
+script = ExtResource("1_0qipo")
+id = "toxin"
+display_name = "Toxin"
+description = "Poison that ignores armor and spreads between invaders. Slow to start, brutal on crowds."
+color = Color(0.42352942, 0.77254903, 0.31764707, 1)
+product_id = "pack_toxin"
+units = Array[ExtResource("2_qua14")]([ExtResource("3_b74nr"), ExtResource("4_e4sh1"), ExtResource("5_x7u5m"), ExtResource("6_yu2ub"), ExtResource("7_8658x"), ExtResource("8_injyw")])

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jpfnw"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/dense_nanites.png" id="2_70oqg"]
+
+[resource]
+script = ExtResource("1_jpfnw")
+id = "dense_nanites"
+display_name = "Dense Nanites"
+cost = 10
+max_hp = 150
+regen = 6.0
+texture = ExtResource("2_70oqg")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Much more HP."

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2tgmn"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/shielded_rad_plate.tres" id="2_4q0k2"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/hot_rad_plate.tres" id="3_la6ss"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/rad_plate.png" id="4_4tbpn"]
+
+[resource]
+script = ExtResource("1_2tgmn")
+id = "rad_plate"
+display_name = "Radioactive Plate"
+max_hp = 25
+reflect = 0.3
+evolutions = Array[ExtResource("1_2tgmn")]([ExtResource("2_4q0k2"), ExtResource("3_la6ss")])
+can_place_on_water = true
+texture = ExtResource("4_4tbpn")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that hurts smashers biting it."

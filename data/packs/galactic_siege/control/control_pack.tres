@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_23xsr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_3mvss"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/force_field.tres" id="3_s4jcs"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/cryo_emitter.tres" id="4_3mt4w"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/arc_thrower.tres" id="5_iswqj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/plasma_vent.tres" id="6_sda52"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/emp_tower.tres" id="7_4r65k"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/tractor_beam.tres" id="8_aw7q8"]
+
+[resource]
+script = ExtResource("1_23xsr")
+id = "control"
+display_name = "Control"
+description = "Slows, stuns and area damage. Weak alone, deadly inside a long maze."
+color = Color(0.6156863, 0.4745098, 0.8392157, 1)
+product_id = "pack_control"
+units = Array[ExtResource("2_3mvss")]([ExtResource("3_s4jcs"), ExtResource("4_3mt4w"), ExtResource("5_iswqj"), ExtResource("6_sda52"), ExtResource("7_4r65k"), ExtResource("8_aw7q8")])

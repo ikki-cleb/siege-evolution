@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fc0lk"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/patrol_ion_cannon.png" id="2_rh6if"]
+
+[resource]
+script = ExtResource("1_fc0lk")
+id = "patrol_ion_cannon"
+display_name = "Patrol Ion Cannon"
+role = 1
+cost = 16
+max_hp = 25
+damage = 12.0
+attack_range = 3.5
+attack_interval = 1.6
+hits_air = true
+pierce = true
+texture = ExtResource("2_rh6if")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "More range, hits fliers."

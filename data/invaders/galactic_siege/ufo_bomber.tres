@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_1ph37"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/ufo_bomber.png" id="2_gc61j"]
+
+[resource]
+script = ExtResource("1_1ph37")
+id = "ufo_bomber"
+display_name = "UFO Bomber"
+movement = 2
+max_hp = 24
+armor = 1
+speed = 0.8
+base_damage = 2
+atp_drop = 2
+bomb_damage = 35.0
+texture = ExtResource("2_gc61j")
+description = "Bombs your most valuable unit near its flight line."

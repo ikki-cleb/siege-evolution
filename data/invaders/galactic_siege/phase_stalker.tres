@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_a2gnc"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/phase_stalker.png" id="2_7ot4r"]
+
+[resource]
+script = ExtResource("1_a2gnc")
+id = "phase_stalker"
+display_name = "Phase Stalker"
+max_hp = 28
+armor = 1
+speed = 1.2
+base_damage = 3
+atp_drop = 3
+is_elite = true
+blink_interval = 2.0
+blink_distance = 3
+texture = ExtResource("2_7ot4r")
+description = "Elite: blinks more often."

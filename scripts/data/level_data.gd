@@ -31,5 +31,13 @@ extends Resource
 ## Optional footnote shown before each wave (tutorial hints). Index 0 = wave 1.
 @export var wave_tips: PackedStringArray = []
 
+@export_group("Tiles")
+## Optional tile art for this level (e.g. a station level in a moon world).
+## Empty means "use the world's tiles".
+@export var floor_texture: Texture2D
+@export var rock_texture: Texture2D
+@export var spawn_texture: Texture2D
+@export var base_texture: Texture2D
+
 ## Exactly 10 waves per level (by design), played in order.
 @export var waves: Array[WaveData] = []

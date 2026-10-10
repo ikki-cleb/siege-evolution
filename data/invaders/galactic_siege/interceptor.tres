@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_3kq60"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/interceptor.png" id="2_2wevc"]
+
+[resource]
+script = ExtResource("1_3kq60")
+id = "interceptor"
+display_name = "Interceptor"
+movement = 2
+max_hp = 20
+armor = 1
+speed = 1.6
+base_damage = 2
+atp_drop = 2
+is_elite = true
+texture = ExtResource("2_2wevc")
+description = "Elite: a fast armored flier."

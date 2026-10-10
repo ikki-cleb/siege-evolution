@@ -24,9 +24,10 @@ func _run() -> void:
 	await _test_burrowing(progress.load_biome(1))
 	await _test_jumping(progress.load_biome(2))
 	await _test_sea_and_bombs(progress.load_biome(3))
+	await _test_space(progress.load_biome(4))
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index).
-		var worlds := [0, 1, 2, 3]
+		var worlds := [0, 1, 2, 3, 4]
 		for arg in OS.get_cmdline_user_args():
 			if arg.begins_with("world="):
 				worlds = [int(arg.split("=")[1])]
@@ -215,6 +216,56 @@ func _test_sea_and_bombs(biome: BiomeData) -> void:
 			break
 	_check(pricey.destroyed or pricey.hp < pricey.data.max_hp, "Bombers target the most valuable unit nearby")
 	_check(cheap.hp < cheap.data.max_hp or cheap.destroyed, "The blast also damages neighboring units")
+	await _stop(game)
+
+
+# --- Teleporters and the Mothership ------------------------------------------
+
+func _test_space(biome: BiomeData) -> void:
+	var game := await _start(biome, 0, 0)  # Moon Landing
+	var board: Board = game.board
+	board.wave_active = true
+	board.spawn_invader(load("res://data/invaders/galactic_siege/blinker.tres"), 0)
+	var blinker: Invader = board.invaders[0]
+	var last := blinker.path_index
+	var jumped := false
+	for i in 60 * 6:
+		await process_frame
+		if not is_instance_valid(blinker) or not blinker.alive:
+			break
+		if blinker.path_index - last >= 3:
+			jumped = true
+			break
+		last = blinker.path_index
+	_check(jumped, "Blinkers teleport several tiles forward along their route")
+	await _stop(game)
+
+	game = await _start(biome, 0, 6)  # Mothership level
+	board = game.board
+	var wall: UnitData = game.unit_types[0]
+	for x in [2, 4, 6]:
+		for y in [3, 6, 9, 11]:
+			if board.is_buildable(Vector2i(x, y)):
+				board.place_unit(wall, Vector2i(x, y))
+	var bombs := [0]
+	board.wave_active = true
+	var boss_data: InvaderData = load("res://data/invaders/galactic_siege/mothership.tres")
+	board.spawn_invader(boss_data, 0)
+	var boss: Invader = board.invaders[0]
+	var minion_routes_ok := true
+	var hp_total := func():
+		var total := 0.0
+		for cell in board.units:
+			total += board.units[cell].hp
+		return total
+	var hp_before: float = hp_total.call()
+	for i in 60 * 40:
+		await process_frame
+		for invader in board.invaders:
+			if invader != boss and invader.path.is_empty():
+				minion_routes_ok = false
+	_check(board.invaders.size() > 1 and minion_routes_ok, "The Mothership drops blinkers that walk a real route")
+	_check(hp_total.call() < hp_before - boss_data.bomb_damage, "The Mothership bombs more than once")
 	await _stop(game)
 
 

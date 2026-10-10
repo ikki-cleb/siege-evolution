@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_4t47a"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/crusher.png" id="2_ejuu7"]
+
+[resource]
+script = ExtResource("1_4t47a")
+id = "crusher"
+display_name = "Crusher Mech"
+movement = 1
+max_hp = 55
+speed = 0.7
+base_damage = 3
+smash_damage = 8.0
+atp_drop = 3
+texture = ExtResource("2_ejuu7")
+description = "Stomps straight through units."

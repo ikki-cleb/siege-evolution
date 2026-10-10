@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_twcnp"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/welded_scrap.tres" id="2_vqhyo"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/spiked_scrap.tres" id="3_3pd22"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/scrap_barrier.png" id="4_ijolp"]
+
+[resource]
+script = ExtResource("1_twcnp")
+id = "scrap_barrier"
+display_name = "Scrap Barrier"
+cost = 3
+max_hp = 18
+evolutions = Array[ExtResource("1_twcnp")]([ExtResource("2_vqhyo"), ExtResource("3_3pd22")])
+can_place_on_water = true
+texture = ExtResource("4_ijolp")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Dirt-cheap wall."

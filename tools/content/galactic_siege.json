@@ -1,0 +1,1055 @@
+{
+  "biome": {
+    "id": "galactic_siege",
+    "name": "Galactic Siege",
+    "description": "The final frontier. Defend the colony reactor across the moon, a space station and an asteroid field from the alien armada."
+  },
+  "packs_from": "immune_system",
+  "renames": {
+    "platelet_clot": [
+      "hull_plate",
+      "Hull Plate"
+    ],
+    "fibrin_mesh": [
+      "armored_plate",
+      "Armored Plate"
+    ],
+    "thrombus_spike": [
+      "spiked_plate",
+      "Spiked Plate"
+    ],
+    "macrophage": [
+      "mech_brawler",
+      "Mech Brawler"
+    ],
+    "giant_macrophage": [
+      "heavy_mech",
+      "Heavy Mech"
+    ],
+    "foam_macrophage": [
+      "shockwave_mech",
+      "Shockwave Mech"
+    ],
+    "dendritic_cell": [
+      "plasma_cannon",
+      "Plasma Cannon"
+    ],
+    "mature_dendrite": [
+      "overcharged_cannon",
+      "Overcharged Cannon"
+    ],
+    "roaming_dendrite": [
+      "long_plasma_cannon",
+      "Long Plasma Cannon"
+    ],
+    "fibroblast": [
+      "nanite_wall",
+      "Nanite Wall"
+    ],
+    "scar_fibroblast": [
+      "dense_nanites",
+      "Dense Nanites"
+    ],
+    "healing_fibroblast": [
+      "rapid_nanites",
+      "Rapid Nanites"
+    ],
+    "eosinophil": [
+      "rail_cannon",
+      "Rail Cannon"
+    ],
+    "eosinophil_burst": [
+      "heavy_rail_cannon",
+      "Heavy Rail Cannon"
+    ],
+    "eosinophil_lancer": [
+      "long_rail_cannon",
+      "Long Rail Cannon"
+    ],
+    "granuloma": [
+      "fortress_core",
+      "Fortress Core"
+    ],
+    "calcified_granuloma": [
+      "hardened_core",
+      "Hardened Core"
+    ],
+    "caseous_granuloma": [
+      "spiked_core",
+      "Spiked Core"
+    ],
+    "epithelial_cell": [
+      "scrap_barrier",
+      "Scrap Barrier"
+    ],
+    "keratinized_cell": [
+      "welded_scrap",
+      "Welded Scrap"
+    ],
+    "ciliated_cell": [
+      "spiked_scrap",
+      "Spiked Scrap"
+    ],
+    "neutrophil": [
+      "buzz_bot",
+      "Buzz Bot"
+    ],
+    "frenzied_neutrophil": [
+      "frenzy_bot",
+      "Frenzy Bot"
+    ],
+    "scout_neutrophil": [
+      "scout_bot",
+      "Scout Bot"
+    ],
+    "monocyte": [
+      "gun_drone",
+      "Gun Drone"
+    ],
+    "volley_monocyte": [
+      "twin_drone",
+      "Twin Drone"
+    ],
+    "lookout_monocyte": [
+      "sentry_drone",
+      "Sentry Drone"
+    ],
+    "basophil": [
+      "tesla_coil",
+      "Tesla Coil"
+    ],
+    "degranulating_basophil": [
+      "high_voltage_coil",
+      "High-Voltage Coil"
+    ],
+    "wide_basophil": [
+      "wide_tesla_coil",
+      "Wide Tesla Coil"
+    ],
+    "nk_cell": [
+      "blade_bot",
+      "Blade Bot"
+    ],
+    "killer_nk_cell": [
+      "razor_bot",
+      "Razor Bot"
+    ],
+    "hunting_nk_cell": [
+      "hunter_bot",
+      "Hunter Bot"
+    ],
+    "net_trap": [
+      "gravity_well",
+      "Gravity Well"
+    ],
+    "dense_net": [
+      "dense_gravity_well",
+      "Dense Gravity Well"
+    ],
+    "wide_net": [
+      "wide_gravity_well",
+      "Wide Gravity Well"
+    ],
+    "keratin_plate": [
+      "energy_barrier",
+      "Energy Barrier"
+    ],
+    "layered_plate": [
+      "reinforced_barrier",
+      "Reinforced Barrier"
+    ],
+    "spined_plate": [
+      "reflector_barrier",
+      "Reflector Barrier"
+    ],
+    "b_cell": [
+      "laser_turret",
+      "Laser Turret"
+    ],
+    "plasma_cell": [
+      "pulse_laser",
+      "Pulse Laser"
+    ],
+    "memory_b_cell": [
+      "long_laser",
+      "Long Laser"
+    ],
+    "antibody_tagger": [
+      "targeting_beacon",
+      "Targeting Beacon"
+    ],
+    "opsonizer": [
+      "lock_on_beacon",
+      "Lock-On Beacon"
+    ],
+    "long_tagger": [
+      "long_beacon",
+      "Long Beacon"
+    ],
+    "cytotoxic_t": [
+      "ion_cannon",
+      "Ion Cannon"
+    ],
+    "effector_t": [
+      "heavy_ion_cannon",
+      "Heavy Ion Cannon"
+    ],
+    "patrol_t": [
+      "patrol_ion_cannon",
+      "Patrol Ion Cannon"
+    ],
+    "opsonin_lance": [
+      "orbital_lance",
+      "Orbital Lance"
+    ],
+    "heavy_lance": [
+      "heavy_orbital_lance",
+      "Heavy Orbital Lance"
+    ],
+    "rapid_lance": [
+      "rapid_orbital_lance",
+      "Rapid Orbital Lance"
+    ],
+    "interferon_beacon": [
+      "scanner_array",
+      "Scanner Array"
+    ],
+    "alarm_beacon": [
+      "deep_scanner",
+      "Deep Scanner"
+    ],
+    "tall_beacon": [
+      "tall_scanner",
+      "Tall Scanner"
+    ],
+    "mucus_wall": [
+      "force_field",
+      "Force Field"
+    ],
+    "thick_mucus": [
+      "thick_force_field",
+      "Thick Force Field"
+    ],
+    "sticky_mucus": [
+      "stasis_field",
+      "Stasis Field"
+    ],
+    "mast_cell": [
+      "cryo_emitter",
+      "Cryo Emitter"
+    ],
+    "reactive_mast_cell": [
+      "deep_cryo_emitter",
+      "Deep Cryo Emitter"
+    ],
+    "spreading_mast_cell": [
+      "wide_cryo_emitter",
+      "Wide Cryo Emitter"
+    ],
+    "histamine_spitter": [
+      "arc_thrower",
+      "Arc Thrower"
+    ],
+    "acid_spitter": [
+      "heavy_arc_thrower",
+      "Heavy Arc Thrower"
+    ],
+    "far_spitter": [
+      "long_arc_thrower",
+      "Long Arc Thrower"
+    ],
+    "fever_node": [
+      "plasma_vent",
+      "Plasma Vent"
+    ],
+    "high_fever": [
+      "hot_plasma_vent",
+      "Hot Plasma Vent"
+    ],
+    "wide_fever": [
+      "wide_plasma_vent",
+      "Wide Plasma Vent"
+    ],
+    "cytokine_storm": [
+      "emp_tower",
+      "EMP Tower"
+    ],
+    "paralyzing_storm": [
+      "overloaded_emp",
+      "Overloaded EMP"
+    ],
+    "rolling_storm": [
+      "chain_emp",
+      "Chain EMP"
+    ],
+    "inflammation_zone": [
+      "tractor_beam",
+      "Tractor Beam"
+    ],
+    "searing_zone": [
+      "strong_tractor_beam",
+      "Strong Tractor Beam"
+    ],
+    "swollen_zone": [
+      "wide_tractor_beam",
+      "Wide Tractor Beam"
+    ],
+    "toxic_membrane": [
+      "rad_plate",
+      "Radioactive Plate"
+    ],
+    "thick_membrane": [
+      "shielded_rad_plate",
+      "Shielded Rad Plate"
+    ],
+    "venom_membrane": [
+      "hot_rad_plate",
+      "Hot Rad Plate"
+    ],
+    "killer_t": [
+      "acid_bot",
+      "Acid Bot"
+    ],
+    "venomous_t": [
+      "corrosive_bot",
+      "Corrosive Bot"
+    ],
+    "reaching_t": [
+      "long_acid_bot",
+      "Long Acid Bot"
+    ],
+    "complement_sprayer": [
+      "nanite_sprayer",
+      "Nanite Sprayer"
+    ],
+    "caustic_sprayer": [
+      "swarming_nanites",
+      "Swarming Nanites"
+    ],
+    "misting_sprayer": [
+      "misting_nanites",
+      "Misting Nanites"
+    ],
+    "lysozyme_pool": [
+      "toxic_reactor",
+      "Toxic Reactor"
+    ],
+    "acid_pool": [
+      "meltdown_reactor",
+      "Meltdown Reactor"
+    ],
+    "spilling_pool": [
+      "leaking_reactor",
+      "Leaking Reactor"
+    ],
+    "perforin_lancer": [
+      "plague_drone",
+      "Plague Drone"
+    ],
+    "plague_lancer": [
+      "plague_swarm",
+      "Plague Swarm"
+    ],
+    "long_lancer": [
+      "long_plague_drone",
+      "Long Plague Drone"
+    ],
+    "necrosis_bloom": [
+      "contamination_zone",
+      "Contamination Zone"
+    ],
+    "hardened_bloom": [
+      "hardened_zone",
+      "Hardened Zone"
+    ],
+    "virulent_bloom": [
+      "virulent_zone",
+      "Virulent Zone"
+    ]
+  },
+  "art_style": "tech",
+  "invaders": [
+    {
+      "id": "spawnling",
+      "name": "Spawnling",
+      "movement": "pather",
+      "hp": 5,
+      "speed": 1.5,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "spawnling"
+    },
+    {
+      "id": "grub",
+      "name": "Alien Grub",
+      "movement": "pather",
+      "hp": 8,
+      "speed": 1.6,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "grub",
+      "desc": "Skitters in swarms."
+    },
+    {
+      "id": "drone",
+      "name": "Alien Drone",
+      "movement": "pather",
+      "hp": 15,
+      "armor": 1,
+      "speed": 1.9,
+      "base_damage": 1,
+      "elite": true,
+      "drop": 2,
+      "art": "drone",
+      "desc": "Elite: fast and armored."
+    },
+    {
+      "id": "brood_pod",
+      "name": "Brood Pod",
+      "movement": "pather",
+      "hp": 18,
+      "speed": 1.0,
+      "base_damage": 2,
+      "split_into": "spawnling",
+      "split_count": 3,
+      "drop": 1,
+      "art": "brood_pod",
+      "desc": "Bursts into three spawnlings."
+    },
+    {
+      "id": "hive_pod",
+      "name": "Hive Pod",
+      "movement": "pather",
+      "hp": 30,
+      "armor": 2,
+      "speed": 0.9,
+      "base_damage": 2,
+      "split_into": "spawnling",
+      "split_count": 3,
+      "elite": true,
+      "drop": 2,
+      "art": "hive_pod",
+      "desc": "Elite: an armored brood pod."
+    },
+    {
+      "id": "blinker",
+      "name": "Blinker",
+      "movement": "pather",
+      "hp": 16,
+      "speed": 1.1,
+      "base_damage": 2,
+      "blink_interval": 2.5,
+      "blink_distance": 3,
+      "drop": 2,
+      "art": "blinker",
+      "desc": "Teleports 3 tiles forward along its route every few seconds."
+    },
+    {
+      "id": "phase_stalker",
+      "name": "Phase Stalker",
+      "movement": "pather",
+      "hp": 28,
+      "armor": 1,
+      "speed": 1.2,
+      "base_damage": 3,
+      "blink_interval": 2.0,
+      "blink_distance": 3,
+      "elite": true,
+      "drop": 3,
+      "art": "phase_stalker",
+      "desc": "Elite: blinks more often."
+    },
+    {
+      "id": "hopper",
+      "name": "Hopper",
+      "movement": "pather",
+      "hp": 18,
+      "speed": 1.3,
+      "base_damage": 2,
+      "jumps": true,
+      "drop": 2,
+      "art": "hopper",
+      "desc": "Leaps any single unit tile."
+    },
+    {
+      "id": "tunneler",
+      "name": "Tunneler",
+      "movement": "pather",
+      "hp": 20,
+      "speed": 1.0,
+      "base_damage": 2,
+      "burrow_after": 3,
+      "burrow_length": 6,
+      "drop": 2,
+      "art": "tunneler",
+      "desc": "Tunnels under 6 tiles of its route."
+    },
+    {
+      "id": "crusher",
+      "name": "Crusher Mech",
+      "movement": "smasher",
+      "hp": 55,
+      "speed": 0.7,
+      "base_damage": 3,
+      "smash": 8,
+      "drop": 3,
+      "art": "crusher",
+      "desc": "Stomps straight through units."
+    },
+    {
+      "id": "assault_mech",
+      "name": "Assault Mech",
+      "movement": "smasher",
+      "hp": 90,
+      "armor": 2,
+      "speed": 0.65,
+      "base_damage": 4,
+      "smash": 11,
+      "elite": true,
+      "drop": 4,
+      "art": "assault_mech",
+      "desc": "Elite: heavily armored."
+    },
+    {
+      "id": "saucer",
+      "name": "Saucer",
+      "movement": "flier",
+      "hp": 9,
+      "speed": 1.3,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "saucer",
+      "desc": "Flies straight over everything."
+    },
+    {
+      "id": "interceptor",
+      "name": "Interceptor",
+      "movement": "flier",
+      "hp": 20,
+      "armor": 1,
+      "speed": 1.6,
+      "base_damage": 2,
+      "elite": true,
+      "drop": 2,
+      "art": "interceptor",
+      "desc": "Elite: a fast armored flier."
+    },
+    {
+      "id": "ufo_bomber",
+      "name": "UFO Bomber",
+      "movement": "flier",
+      "hp": 24,
+      "armor": 1,
+      "speed": 0.8,
+      "base_damage": 2,
+      "bomb": 35,
+      "drop": 2,
+      "art": "ufo_bomber",
+      "desc": "Bombs your most valuable unit near its flight line."
+    },
+    {
+      "id": "mothership",
+      "name": "Mothership",
+      "movement": "flier",
+      "hp": 1100,
+      "armor": 0,
+      "speed": 0.22,
+      "base_damage": 15,
+      "bomb": 30,
+      "bomb_interval": 9.0,
+      "boss": true,
+      "minion": "blinker",
+      "minion_count": 1,
+      "minion_interval": 6.5,
+      "drop": 25,
+      "art": "mothership",
+      "desc": "Final boss: drifts toward your reactor, bombing your defenses and dropping blinkers. Only anti-air units can hit it."
+    }
+  ],
+  "waves": {
+    "threat": {
+      "grub": 1.3,
+      "drone": 2.3,
+      "brood_pod": 3.4,
+      "hive_pod": 5.6,
+      "blinker": 3.2,
+      "phase_stalker": 5.2,
+      "hopper": 2.8,
+      "tunneler": 2.8,
+      "crusher": 6.5,
+      "assault_mech": 10.5,
+      "saucer": 1.7,
+      "interceptor": 4.0,
+      "ufo_bomber": 6.0
+    },
+    "categories": {
+      "swarm": {
+        "normal": "grub",
+        "elite": "drone",
+        "elite_level": 2
+      },
+      "split": {
+        "normal": "brood_pod",
+        "elite": "hive_pod",
+        "elite_level": 3
+      },
+      "blink": {
+        "normal": "blinker",
+        "elite": "phase_stalker",
+        "elite_level": 4
+      },
+      "smash": {
+        "normal": "crusher",
+        "elite": "assault_mech",
+        "elite_level": 5
+      },
+      "fly": {
+        "normal": "saucer",
+        "elite": "interceptor",
+        "elite_level": 6
+      },
+      "jump": {
+        "normal": "hopper"
+      },
+      "burrow": {
+        "normal": "tunneler"
+      },
+      "bomb": {
+        "normal": "ufo_bomber"
+      }
+    },
+    "mix": [
+      {
+        "swarm": 0.6,
+        "blink": 0.4
+      },
+      {
+        "swarm": 0.5,
+        "split": 0.5
+      },
+      {
+        "blink": 0.5,
+        "fly": 0.5
+      },
+      {
+        "swarm": 0.3,
+        "smash": 0.4,
+        "burrow": 0.3
+      },
+      {
+        "split": 0.3,
+        "jump": 0.3,
+        "blink": 0.4
+      },
+      {
+        "bomb": 0.4,
+        "smash": 0.6
+      },
+      {
+        "swarm": 0.4,
+        "blink": 0.3,
+        "fly": 0.3
+      },
+      {
+        "smash": 0.3,
+        "split": 0.2,
+        "jump": 0.2,
+        "bomb": 0.3
+      },
+      {
+        "swarm": 0.3,
+        "blink": 0.4,
+        "burrow": 0.3
+      },
+      {
+        "swarm": 0.15,
+        "split": 0.15,
+        "smash": 0.15,
+        "blink": 0.2,
+        "jump": 0.1,
+        "fly": 0.1,
+        "bomb": 0.15
+      }
+    ],
+    "growth_per_wave": 0.32
+  },
+  "tutorial": {
+    "waves": [
+      [
+        [
+          "grub",
+          7,
+          1.1,
+          0
+        ]
+      ],
+      [
+        [
+          "grub",
+          10,
+          0.9,
+          0
+        ]
+      ],
+      [
+        [
+          "blinker",
+          3,
+          3.0,
+          0
+        ],
+        [
+          "grub",
+          6,
+          1.0,
+          2
+        ]
+      ],
+      [
+        [
+          "brood_pod",
+          4,
+          2.2,
+          0
+        ],
+        [
+          "grub",
+          6,
+          1.0,
+          3
+        ]
+      ],
+      [
+        [
+          "crusher",
+          2,
+          6.0,
+          0
+        ],
+        [
+          "grub",
+          6,
+          1.0,
+          2
+        ]
+      ],
+      [
+        [
+          "saucer",
+          6,
+          1.4,
+          0
+        ],
+        [
+          "hopper",
+          3,
+          2.5,
+          2
+        ]
+      ],
+      [
+        [
+          "tunneler",
+          4,
+          2.5,
+          0
+        ],
+        [
+          "blinker",
+          3,
+          2.5,
+          3
+        ]
+      ],
+      [
+        [
+          "crusher",
+          2,
+          5.0,
+          0
+        ],
+        [
+          "ufo_bomber",
+          2,
+          5.0,
+          3
+        ]
+      ],
+      [
+        [
+          "grub",
+          18,
+          0.45,
+          0
+        ],
+        [
+          "blinker",
+          4,
+          2.0,
+          4
+        ]
+      ],
+      [
+        [
+          "crusher",
+          3,
+          4.0,
+          0
+        ],
+        [
+          "brood_pod",
+          4,
+          1.8,
+          2
+        ],
+        [
+          "blinker",
+          4,
+          2.0,
+          5
+        ],
+        [
+          "saucer",
+          5,
+          1.2,
+          8
+        ],
+        [
+          "ufo_bomber",
+          2,
+          4.0,
+          9
+        ]
+      ]
+    ],
+    "tips": [
+      "The final frontier! Your pack plays exactly the same out here. Alien grubs crawl around your units; every kill drops ATP.",
+      "Units that survived a wave can evolve. Anything placed this round refunds in full.",
+      "NEW: Blinkers teleport 3 tiles forward along their route every few seconds. Spread your attackers along the whole route, not one kill zone.",
+      "Brood Pods burst into three spawnlings.",
+      "Crusher Mechs ignore your maze and stomp through units (red line).",
+      "Saucers fly straight in. Hoppers leap single walls, so build them two thick.",
+      "Tunnelers dig under part of the route. Every trick you've learned comes together here.",
+      "UFO Bombers target your most valuable units. Keep anti-air nearby.",
+      "Blinker swarm! Coverage along the whole route matters most.",
+      "Final wave! The Mothership waits at the end of this world."
+    ]
+  },
+  "levels": [
+    {
+      "name": "1. Moon Landing",
+      "preview": true,
+      "hand": [
+        12,
+        15,
+        7,
+        0,
+        0,
+        0
+      ],
+      "atp": 40,
+      "income": 5,
+      "layout": [
+        "....S....",
+        ".........",
+        "..#...#..",
+        ".........",
+        "#.......#",
+        "...#.#...",
+        ".........",
+        ".........",
+        "...#.#...",
+        "#.......#",
+        ".........",
+        "..#...#..",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "2. Station Corridors",
+      "tiles": "station",
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 20,
+      "income": 5,
+      "budget": 20,
+      "layout": [
+        "S...#...S",
+        "....#....",
+        "....#....",
+        "##.....##",
+        ".........",
+        "...###...",
+        ".........",
+        ".........",
+        "...###...",
+        ".........",
+        "##.....##",
+        "....#....",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "3. Asteroid Belt",
+      "tiles": "asteroid",
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "atp": 20,
+      "income": 5,
+      "budget": 23,
+      "layout": [
+        "S........",
+        ".........",
+        ".##...#..",
+        ".##......",
+        "......##.",
+        "..#...##.",
+        ".........",
+        ".#.......",
+        ".....#...",
+        "..##.....",
+        "..##..#..",
+        ".........",
+        ".......#.",
+        "........B"
+      ]
+    },
+    {
+      "name": "4. Crater Base",
+      "hand": [
+        14,
+        8,
+        7,
+        5,
+        10,
+        0
+      ],
+      "atp": 20,
+      "income": 6,
+      "budget": 24.0,
+      "layout": [
+        "S.......S",
+        ".........",
+        "..#...#..",
+        ".#.....#.",
+        ".........",
+        "...#.#...",
+        "....#....",
+        "...#.#...",
+        ".........",
+        ".#.....#.",
+        "..#...#..",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "5. Reactor Deck",
+      "tiles": "station",
+      "hand": [
+        16,
+        12,
+        7,
+        5,
+        10,
+        0
+      ],
+      "atp": 25,
+      "income": 6,
+      "budget": 28,
+      "layout": [
+        "S...S...S",
+        ".........",
+        "#.##.##.#",
+        ".........",
+        ".........",
+        "##.....##",
+        ".........",
+        ".........",
+        "##.....##",
+        ".........",
+        ".........",
+        "#.##.##.#",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "6. Comet Tail",
+      "tiles": "asteroid",
+      "hand": [
+        16,
+        12,
+        7,
+        10,
+        10,
+        7
+      ],
+      "atp": 25,
+      "income": 6,
+      "budget": 29.0,
+      "layout": [
+        "S.......S",
+        ".........",
+        "...##....",
+        "...##..#.",
+        ".#.......",
+        ".......#.",
+        "..#......",
+        "......#..",
+        ".#.......",
+        "....##...",
+        "....##.#.",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "7. Mothership Assault",
+      "hand": [
+        20,
+        12,
+        15,
+        10,
+        10,
+        7
+      ],
+      "atp": 30,
+      "income": 7,
+      "budget": 34.0,
+      "boss": "mothership",
+      "layout": [
+        "S...S...S",
+        ".........",
+        "#.#...#.#",
+        ".........",
+        "...#.#...",
+        ".........",
+        ".#.....#.",
+        ".........",
+        "...#.#...",
+        ".........",
+        "#.#...#.#",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    }
+  ]
+}

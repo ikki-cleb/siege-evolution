@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4igfw"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/hot_rad_plate.png" id="2_i82dn"]
+
+[resource]
+script = ExtResource("1_4igfw")
+id = "hot_rad_plate"
+display_name = "Hot Rad Plate"
+cost = 6
+max_hp = 25
+reflect = 0.8
+can_place_on_water = true
+texture = ExtResource("2_i82dn")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Reflects 80% of smasher damage."

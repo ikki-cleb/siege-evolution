@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4wulf"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/long_laser.png" id="2_bj10b"]
+
+[resource]
+script = ExtResource("1_4wulf")
+id = "long_laser"
+display_name = "Long Laser"
+role = 1
+cost = 13
+max_hp = 15
+damage = 4.5
+attack_range = 4.5
+hits_air = true
+texture = ExtResource("2_bj10b")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Much more range."

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_cyhww"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_5sm4u"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/scrap_barrier.tres" id="3_4o0j2"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/buzz_bot.tres" id="4_n6t58"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/gun_drone.tres" id="5_u5e4s"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/tesla_coil.tres" id="6_1t78x"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/blade_bot.tres" id="7_hl11p"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/gravity_well.tres" id="8_eo76u"]
+
+[resource]
+script = ExtResource("1_cyhww")
+id = "swarm"
+display_name = "Swarm"
+description = "Cheap units, and lots of them. Attacks faster when packed together."
+color = Color(0.9137255, 0.76862746, 0.41568628, 1)
+units = Array[ExtResource("2_5sm4u")]([ExtResource("3_4o0j2"), ExtResource("4_n6t58"), ExtResource("5_u5e4s"), ExtResource("6_1t78x"), ExtResource("7_hl11p"), ExtResource("8_eo76u")])

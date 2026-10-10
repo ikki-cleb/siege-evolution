@@ -67,12 +67,20 @@ var _flash_time := 0.0
 
 ## Draws shots and pulses above units and invaders.
 var fx: ShotEffects
-## Tile art comes from the world (biome) being played.
+## Tile art comes from the world (biome) being played, unless the level
+## has its own.
 var biome: BiomeData
+var _tiles := {}
 
 
 func setup(level: LevelData, p_biome: BiomeData) -> void:
 	biome = p_biome
+	_tiles = {
+		"floor": level.floor_texture if level.floor_texture else biome.floor_texture,
+		"rock": level.rock_texture if level.rock_texture else biome.rock_texture,
+		"spawn": level.spawn_texture if level.spawn_texture else biome.spawn_texture,
+		"base": level.base_texture if level.base_texture else biome.base_texture,
+	}
 	grid_size = Vector2i(level.layout[0].length(), level.layout.size())
 	for y in grid_size.y:
 		for x in grid_size.x:
@@ -356,7 +364,12 @@ func spawn_from(parent: Invader, data: InvaderData, count: int, drops_atp := tru
 		var nudge := Vector2(randf_range(-3, 3), randf_range(-3, 3))
 		var path: Array[Vector2i] = []
 		var index := 0
-		if data.movement == InvaderData.Movement.PATHER and parent.path_index < parent.path.size():
+		if parent.is_flying() and not data.movement == InvaderData.Movement.FLIER:
+			# Dropped from a flier: start walking from the open tile below it
+			# (or the first spawn if it's over a rock).
+			var below := Vector2i((parent.position / TILE).floor())
+			path = route_for(data, below if _is_open(below) or below == base_cell else spawn_cells[0])
+		elif data.movement == InvaderData.Movement.PATHER and parent.path_index < parent.path.size():
 			# Walkers need their own kind of route, even if the parent was a smasher.
 			path = route_for(data, parent.path[parent.path_index])
 		elif data.movement != InvaderData.Movement.FLIER:
@@ -435,17 +448,17 @@ func _draw() -> void:
 	for y in grid_size.y:
 		for x in grid_size.x:
 			var cell := Vector2i(x, y)
-			var texture := biome.floor_texture
+			var texture: Texture2D = _tiles.floor
 			if sea_spawn_cells.has(cell):
 				texture = biome.sea_spawn_texture
 			elif water.has(cell):
 				texture = biome.water_texture
 			elif rocks.has(cell):
-				texture = biome.rock_texture
+				texture = _tiles.rock
 			elif spawn_cells.has(cell):
-				texture = biome.spawn_texture
+				texture = _tiles.spawn
 			elif cell == base_cell:
-				texture = biome.base_texture
+				texture = _tiles.base
 			draw_texture(texture, Vector2(cell * TILE))
 
 	if show_path_preview:

@@ -36,6 +36,14 @@ enum Movement {
 ## valuable unit near them. The target takes full damage; the 8 tiles around
 ## it take half.
 @export var bomb_damage: float = 0.0
+## If above 0, keeps bombing every this many seconds (bosses).
+@export var bomb_interval: float = 0.0
+
+@export_group("Teleporting")
+## Every this many seconds, blinks forward along its route (0 = never).
+@export var blink_interval: float = 0.0
+## How many tiles of its route each blink skips.
+@export var blink_distance: int = 0
 
 @export_group("Jumping")
 ## Jumpers can hop over any single unit tile (not rocks, and not walls two

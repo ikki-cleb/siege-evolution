@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2cq0y"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/long_arc_thrower.png" id="2_xlilu"]
+
+[resource]
+script = ExtResource("1_2cq0y")
+id = "long_arc_thrower"
+display_name = "Long Arc Thrower"
+role = 1
+cost = 12
+max_hp = 15
+damage = 3.5
+attack_range = 4.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+texture = ExtResource("2_xlilu")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "More range."

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_clnlr"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/razor_bot.tres" id="2_ewbmm"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/hunter_bot.tres" id="3_4lbvt"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/blade_bot.png" id="4_f3jk4"]
+
+[resource]
+script = ExtResource("1_clnlr")
+id = "blade_bot"
+display_name = "Blade Bot"
+role = 1
+cost = 14
+max_hp = 25
+damage = 4.0
+attack_interval = 0.45
+pierce = true
+adjacency_bonus = 0.15
+evolutions = Array[ExtResource("1_clnlr")]([ExtResource("2_ewbmm"), ExtResource("3_4lbvt")])
+texture = ExtResource("4_f3jk4")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Armor-piercing melee flurries."

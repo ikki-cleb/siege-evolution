@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yru3b"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/armored_plate.tres" id="2_fgs4i"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/spiked_plate.tres" id="3_sf04a"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/hull_plate.png" id="4_mmj2d"]
+
+[resource]
+script = ExtResource("1_yru3b")
+id = "hull_plate"
+display_name = "Hull Plate"
+cost = 7
+max_hp = 90
+evolutions = Array[ExtResource("1_yru3b")]([ExtResource("2_fgs4i"), ExtResource("3_sf04a")])
+can_place_on_water = true
+texture = ExtResource("4_mmj2d")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Very tough wall."

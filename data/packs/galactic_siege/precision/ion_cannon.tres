@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_svol4"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/heavy_ion_cannon.tres" id="2_jsg1g"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/patrol_ion_cannon.tres" id="3_r3ww6"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/ion_cannon.png" id="4_71fs4"]
+
+[resource]
+script = ExtResource("1_svol4")
+id = "ion_cannon"
+display_name = "Ion Cannon"
+role = 1
+cost = 18
+max_hp = 25
+damage = 12.0
+attack_range = 2.5
+attack_interval = 1.6
+pierce = true
+evolutions = Array[ExtResource("1_svol4")]([ExtResource("2_jsg1g"), ExtResource("3_r3ww6")])
+texture = ExtResource("4_71fs4")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Armor-piercing strikes. Ground only."

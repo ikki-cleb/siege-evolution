@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_rdwgw"]
+[ext_resource type="Resource" path="res://data/invaders/galactic_siege/spawnling.tres" id="2_6uevd"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/brood_pod.png" id="3_yrivc"]
+
+[resource]
+script = ExtResource("1_rdwgw")
+id = "brood_pod"
+display_name = "Brood Pod"
+max_hp = 18
+base_damage = 2
+split_into = ExtResource("2_6uevd")
+split_count = 3
+texture = ExtResource("3_yrivc")
+description = "Bursts into three spawnlings."

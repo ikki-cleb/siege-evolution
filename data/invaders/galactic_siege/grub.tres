@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_f66m6"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/grub.png" id="2_6j21s"]
+
+[resource]
+script = ExtResource("1_f66m6")
+id = "grub"
+display_name = "Alien Grub"
+max_hp = 8
+speed = 1.6
+texture = ExtResource("2_6j21s")
+description = "Skitters in swarms."

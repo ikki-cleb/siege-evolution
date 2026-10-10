@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xgvfu"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/overloaded_emp.tres" id="2_se8ty"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/chain_emp.tres" id="3_53lms"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/emp_tower.png" id="4_cs8pj"]
+
+[resource]
+script = ExtResource("1_xgvfu")
+id = "emp_tower"
+display_name = "EMP Tower"
+role = 1
+cost = 18
+damage = 4.0
+attack_range = 2.5
+attack_interval = 1.6
+hits_air = true
+stun_duration = 0.6
+evolutions = Array[ExtResource("1_xgvfu")]([ExtResource("2_se8ty"), ExtResource("3_53lms")])
+texture = ExtResource("4_cs8pj")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Stuns its target in place."

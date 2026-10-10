@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_3vaf2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_762tm"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/hull_plate.tres" id="3_ij4ya"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/mech_brawler.tres" id="4_5yx05"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/plasma_cannon.tres" id="5_i1k8g"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/nanite_wall.tres" id="6_hwkvw"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/rail_cannon.tres" id="7_r8shk"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/fortress_core.tres" id="8_iw4hu"]
+
+[resource]
+script = ExtResource("1_3vaf2")
+id = "fortress"
+display_name = "Fortress"
+description = "Massive walls and slow, heavy hitters. Holds the line and outlasts smashers."
+color = Color(0.81960785, 0.3764706, 0.23921569, 1)
+units = Array[ExtResource("2_762tm")]([ExtResource("3_ij4ya"), ExtResource("4_5yx05"), ExtResource("5_i1k8g"), ExtResource("6_hwkvw"), ExtResource("7_r8shk"), ExtResource("8_iw4hu")])

@@ -220,6 +220,8 @@ def unit_sprite(unit, pack_color, art_style="cells"):
         return farm_wall(color, style) if kind == "block" else animal_unit(color, style)
     if art_style == "toys":
         return fort_wall(color, style) if kind == "block" else toy_unit(color, style)
+    if art_style == "tech":
+        return tech_wall(color, style) if kind == "block" else robot_unit(color, style)
     return block_unit(color, style) if kind == "block" else cell_unit(color, style)
 
 
@@ -716,6 +718,184 @@ def toy_figure(body):
     return img
 
 
+# --- Space world ------------------------------------------------------------
+
+def moon_floor():
+    img = Image.new("RGBA", (16, 16), hexc("#b8b8c0"))
+    speckle(img, [hexc("#a8a8b2"), hexc("#c8c8d0"), hexc("#9a9aa4")], 45, 41)
+    ring(img, 11, 5, 2.2, hexc("#9a9aa4"))
+    rect(img, 0, 0, 15, 0, hexc("#a2a2ac"))
+    rect(img, 0, 0, 0, 15, hexc("#a2a2ac"))
+    return img
+
+
+def crater():
+    img = moon_floor()
+    disc(img, 8, 8, 6.8, hexc("#6a6a76"))
+    disc(img, 9, 9, 5, hexc("#55555f"))
+    ring(img, 8, 8, 6.8, hexc("#d8d8e0"))
+    return img
+
+
+def deck_plate():
+    img = Image.new("RGBA", (16, 16), hexc("#4a5260"))
+    rect(img, 0, 0, 15, 0, hexc("#3a414c"))
+    rect(img, 0, 0, 0, 15, hexc("#3a414c"))
+    rect(img, 0, 8, 15, 8, hexc("#424a56"))
+    px(img, [(2, 2), (13, 2), (2, 13), (13, 13)], hexc("#7a8494"))  # rivets
+    return img
+
+
+def bulkhead():
+    img = Image.new("RGBA", (16, 16), hexc("#2a2f38"))
+    for y in range(0, 16, 4):
+        rect(img, 0, y, 15, y, hexc("#e0b030"))  # hazard stripes
+        px(img, [(x, y + 1) for x in range(0, 16, 2)], hexc("#1a1d22"))
+    rect(img, 2, 2, 13, 13, hexc("#3a414c"))
+    return img
+
+
+def asteroid_floor():
+    img = Image.new("RGBA", (16, 16), hexc("#6a5a4e"))
+    speckle(img, [hexc("#5e4e44"), hexc("#7a6a5c"), hexc("#4e4038")], 55, 43)
+    px(img, [(3, 4), (12, 11)], hexc("#e8e8ff"))  # glints of starlight
+    return img
+
+
+def asteroid_rock():
+    img = Image.new("RGBA", (16, 16), hexc("#0c0c18"))
+    for x, y in [(2, 3), (12, 2), (6, 13), (14, 10)]:
+        px(img, [(x, y)], hexc("#e8e8ff"))  # open space between rocks
+    disc(img, 8, 8, 5.5, hexc("#5a4a40"))
+    disc(img, 7, 7, 2.5, hexc("#6e5e52"))
+    return img
+
+
+def warp_gate(floor_fn):
+    img = floor_fn()
+    ring(img, 8, 8, 7, hexc("#8a5ad8"), 1.5)
+    disc(img, 8, 8, 4.5, hexc("#3a1a6a"))
+    disc(img, 8, 8, 2, hexc("#c8a0ff"))
+    return img
+
+
+def reactor(floor_fn):
+    img = floor_fn()
+    disc(img, 8, 9, 6.5, hexc("#9ad8f0"))
+    ring(img, 8, 9, 6.5, hexc("#3a6a8a"), 1.3)
+    disc(img, 8, 9, 2.5, hexc("#f0fcff"))
+    rect(img, 7, 1, 8, 3, hexc("#3a6a8a"))
+    return img
+
+
+def robot_unit(color, style):
+    """An attacker drawn as a robot or a tech turret, tinted with the pack color."""
+    img = new()
+    body, dark, light = shade(color, 0.0), shade(color, -0.3), shade(color, 0.3)
+    if style % 2 == 0:  # robot
+        rect(img, 4, 2, 11, 7, body)            # head
+        rect(img, 5, 4, 10, 5, hexc("#60f0ff"))  # visor
+        rect(img, 5, 8, 10, 12, dark)           # body
+        rect(img, 3, 8, 4, 11, body)            # arms
+        rect(img, 11, 8, 12, 11, body)
+        rect(img, 5, 13, 6, 15, dark)           # legs
+        rect(img, 9, 13, 10, 15, dark)
+        px(img, [(7, 0), (7, 1)], light)        # antenna
+    else:  # turret with a glowing barrel
+        disc(img, 8, 11, 5, dark)
+        disc(img, 8, 10, 3.5, body)
+        rect(img, 7, 1, 8, 8, light)
+        px(img, [(7, 1), (8, 1)], hexc("#60f0ff"))
+    if style >= 6:
+        px(img, [(4, 2), (11, 2)], light)
+    return img
+
+
+def tech_wall(color, style):
+    """A wall drawn as a tech barrier, tinted with the pack color."""
+    img = new()
+    base, dark, light = shade(color, -0.1), shade(color, -0.35), shade(color, 0.3)
+    kind = style % 5
+    if kind == 0:  # hull plate
+        rect(img, 1, 1, 14, 14, base)
+        rect(img, 1, 1, 14, 1, light)
+        px(img, [(3, 3), (12, 3), (3, 12), (12, 12)], dark)
+    elif kind == 1:  # nanite mass
+        for cx, cy in [(5, 6), (10, 6), (7, 10), (11, 11), (4, 11)]:
+            disc(img, cx, cy, 2.6, base)
+        speckle(img, [light], 10, 5)
+    elif kind == 2:  # core block
+        rect(img, 2, 2, 13, 13, dark)
+        disc(img, 8, 8, 3.5, base)
+        disc(img, 8, 8, 1.5, light)
+    elif kind == 3:  # scrap barrier
+        rect(img, 1, 6, 14, 13, base)
+        for x in range(1, 15, 3):
+            rect(img, x, 4, x + 1, 6, dark)
+    else:  # energy field
+        for y in range(1, 15, 2):
+            rect(img, 2, y, 13, y, base)
+        rect(img, 1, 1, 1, 14, light)
+        rect(img, 14, 1, 14, 14, light)
+    return img
+
+
+def alien(body, eyes="#ff4060", size=1.0, legs=4, wings=False, pods=0, mech=False):
+    img = new()
+    c = hexc(body)
+    if mech:
+        rect(img, 3, 3, 12, 9, c)
+        rect(img, 5, 5, 10, 6, hexc(eyes))
+        rect(img, 3, 10, 5, 15, shade(c, -0.25))
+        rect(img, 10, 10, 12, 15, shade(c, -0.25))
+        rect(img, 0, 5, 2, 7, shade(c, 0.2))
+        return img
+    if wings:
+        rect(img, 1, 7, 14, 9, hexc("#8a96a8"))
+        disc(img, 8, 8, 3.5 * size, c)
+        rect(img, 6, 6, 9, 6, hexc(eyes))
+        return img
+    if pods:
+        for cx, cy in [(5, 7), (10, 6), (8, 11)][:pods]:
+            disc(img, cx, cy, 3, c)
+            px(img, [(int(cx), int(cy))], hexc(eyes))
+        return img
+    disc(img, 8, 9, 4 * size, c)
+    px(img, [(7, 8), (9, 8)], hexc(eyes))
+    for i in range(legs):
+        x = 4 + i * (8 // max(1, legs - 1))
+        px(img, [(x, 13), (x, 14)], shade(c, -0.3))
+    return img
+
+
+def ufo(body, size=1.0, bomb=False):
+    img = new()
+    rect(img, int(8 - 6 * size), 8, int(7 + 6 * size), 10, hexc(body))
+    disc(img, 8, 7, 3 * size, hexc("#a0e8ff"))
+    if bomb:
+        disc(img, 8, 13, 1.5, hexc("#2a2a2a"))
+    return img
+
+
+ALIEN_INVADER_ART = {
+    "spawnling": lambda: alien("#9ad84a", size=0.6, legs=2),
+    "grub": lambda: alien("#7ac83a", size=0.8),
+    "drone": lambda: alien("#3a9a5a", size=0.9, eyes="#ffd040"),
+    "brood_pod": lambda: alien("#b8a05a", pods=3),
+    "hive_pod": lambda: alien("#7a6a3a", pods=3, eyes="#ffd040"),
+    "blinker": lambda: alien("#a060f0", size=0.9, eyes="#ffffff", legs=0),
+    "phase_stalker": lambda: alien("#6a30c0", size=1.0, eyes="#ff60ff", legs=2),
+    "hopper": lambda: alien("#d88a3a", size=0.8, legs=2),
+    "tunneler": lambda: alien("#8a6a4a", size=0.9, legs=6),
+    "crusher": lambda: alien("#6a7a8a", mech=True),
+    "assault_mech": lambda: alien("#4a5260", eyes="#ffd040", mech=True),
+    "saucer": lambda: ufo("#a0a8b8", size=0.8),
+    "interceptor": lambda: alien("#6a7a9a", wings=True),
+    "ufo_bomber": lambda: ufo("#7a8090", size=1.0, bomb=True),
+    "mothership": lambda: ufo("#5a5a7a", size=1.25),
+}
+
+
 TOY_INVADER_ART = {
     "toy_recruit": lambda: toy_figure("#c8a878"),
     "toy_soldier": lambda: toy_figure("#b88a50"),
@@ -863,6 +1043,11 @@ if __name__ == "__main__":
     for name, fn in {"floor": sand, "rock": toy_block, "spawn": toy_box, "base": toy_fort,
                      "water": bath_water, "sea_spawn": drain}.items():
         save(fn(), f"tiles/total_war/{name}.png")
+    for folder, floor_fn, rock_fn in [("", moon_floor, crater), ("station/", deck_plate, bulkhead),
+                                      ("asteroid/", asteroid_floor, asteroid_rock)]:
+        for name, fn in {"floor": floor_fn, "rock": rock_fn, "spawn": warp_gate, "base": reactor}.items():
+            save(fn(floor_fn), f"tiles/galactic_siege/{folder}{name}.png") if name in ("spawn", "base") \
+                else save(fn(), f"tiles/galactic_siege/{folder}{name}.png")
 
     all_content = {}
     for content_file in sorted((PROJECT / "tools" / "content").glob("*.json")):
@@ -885,6 +1070,7 @@ if __name__ == "__main__":
                         save(add_badge(art, branch), f"units/{biome_id}/{pack['id']}/{evo['id']}_water.png")
         for invader in content["invaders"]:
             art = (INVADER_ART.get(invader["art"]) or BACKYARD_INVADER_ART.get(invader["art"])
-                   or FARM_INVADER_ART.get(invader["art"]) or TOY_INVADER_ART[invader["art"]])
+                   or FARM_INVADER_ART.get(invader["art"]) or TOY_INVADER_ART.get(invader["art"])
+                   or ALIEN_INVADER_ART[invader["art"]])
             save(art(), f"invaders/{biome_id}/{invader['id']}.png")
     print("Placeholder art written to", ROOT)

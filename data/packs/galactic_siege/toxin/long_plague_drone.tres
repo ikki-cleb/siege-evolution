@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_qwf6w"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_plague_drone.png" id="2_74gjo"]
+
+[resource]
+script = ExtResource("1_qwf6w")
+id = "long_plague_drone"
+display_name = "Long Plague Drone"
+role = 1
+cost = 18
+damage = 2.0
+attack_range = 3.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 4.5
+poison_duration = 5.0
+poison_spreads = true
+texture = ExtResource("2_74gjo")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "More range."

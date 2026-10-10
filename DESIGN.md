@@ -1,7 +1,7 @@
 # Siege Evolution: Game Design Document
 
-Status: **v0.6, Worlds 1–4 playable** (28 levels, 5 packs, evolutions,
-saved progress, store in test mode). Balance is tuned against an automated player, not real play yet.
+Status: **v0.7, all 5 main worlds playable** (35 levels, 5 packs,
+evolutions, saved progress, store in test mode). Balance is tuned against an automated player, not real play yet.
 
 ## Pitch
 
@@ -34,7 +34,7 @@ Title → World select → Pack select → Level select (7 levels) → Level (10
   2. **Backyard Bugs** (defend the queen's anthill), built
   3. **Wild Kingdom** (human and animal scale: defend the farmhouse), built
   4. **Total War** (a toy war across the playroom and the bathtub), built
-  5. **Galactic Siege** (planets, starships, alien invaders)
+  5. **Galactic Siege** (moon, space station and asteroid levels), built
 - **Bonus worlds** (bought separately, playable as soon as they're bought):
   **Kitchen Defense** and **Birthday Bash** (a kid's birthday party).
 - **Each world has its own invader roster.** All behavior types appear in
@@ -223,6 +223,38 @@ the wave as usual.
 because packs restart at base stats in every world. Difficulty should come
 from mechanics, layouts and wave mixes, not raw HP inflation.
 
+## World 5: Galactic Siege (final main world)
+
+Levels alternate settings with their own tiles: **moon surface** (levels 1,
+4, 7), **station interior** (2, 5) and **asteroid field** (3, 6). Any level
+can set its own tiles in its world's JSON (`"tiles": "station"`). You defend
+the colony reactor. Walls are tech barriers (hull plates, scrap, energy
+barriers, force fields, radioactive plates); attackers are robots and
+turrets (mechs, bots, drones, laser and ion cannons, EMP towers).
+
+**New behavior: teleporters ("blinkers").** Every few seconds they blink 3
+tiles forward along their route (never straight onto the base), so one kill
+zone isn't enough and you need coverage along the whole route. World 5 also
+brings back burrowers (Tunnelers), jumpers (Hoppers) and bombers (UFO
+Bombers): it's the "everything you've learned" world.
+
+**Finale: the Mothership**, a flying boss that drifts slowly toward the
+reactor, bombs your most valuable unit every few seconds, and drops blinkers
+(which walk a real route from where they land). Only anti-air units can
+hit it, and every pack has at least one.
+
+| Invader | Type |
+|---|---|
+| Alien Grub / Alien Drone (elite) | Walker |
+| Brood Pod / Hive Pod (elite) | Walker, bursts into spawnlings |
+| **Blinker** / Phase Stalker (elite) | **Teleporter** |
+| Hopper | Jumper |
+| Tunneler | Burrower |
+| Crusher Mech / Assault Mech (elite) | Smasher |
+| Saucer / Interceptor (elite) | Flier |
+| UFO Bomber | Bomber |
+| **Mothership** | Flying boss: repeated bombs, drops blinkers |
+
 ## Monetization
 
 Free app, **no ads**. Everything is in the **Store** (menu), and the paid
@@ -271,7 +303,8 @@ comes next.
 
 - World 2 theme and scale (e.g. backyard bugs?), and how packs reskin there
 - Cosmetic unlocks (palettes, skins, menu themes): what and when
-- Content for world 5 and the two bonus worlds
+- Content for the two bonus worlds
+- After World 5's boss: credits / ending screen?
 - Orchard (World 3, level 3) is the hardest level for the bot, especially with Toxin
 - Overall difficulty after human playtesting (the bot finds most levels easy)
 - Sound and music direction

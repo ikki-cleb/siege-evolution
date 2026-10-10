@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cit12"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/high_voltage_coil.tres" id="2_tcjj5"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/wide_tesla_coil.tres" id="3_twoge"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/tesla_coil.png" id="4_36pai"]
+
+[resource]
+script = ExtResource("1_cit12")
+id = "tesla_coil"
+display_name = "Tesla Coil"
+role = 1
+cost = 9
+max_hp = 15
+attack_mode = 1
+damage = 1.2
+attack_interval = 0.6
+adjacency_bonus = 0.15
+evolutions = Array[ExtResource("1_cit12")]([ExtResource("2_tcjj5"), ExtResource("3_twoge")])
+texture = ExtResource("4_36pai")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Damages everything around it."

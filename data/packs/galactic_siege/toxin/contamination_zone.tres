@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rv71d"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/hardened_zone.tres" id="2_evho1"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/virulent_zone.tres" id="3_m0if1"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/contamination_zone.png" id="4_8v6ot"]
+
+[resource]
+script = ExtResource("1_rv71d")
+id = "contamination_zone"
+display_name = "Contamination Zone"
+cost = 14
+max_hp = 40
+attack_mode = 1
+poison_dps = 3.0
+poison_duration = 2.0
+poison_spreads = true
+evolutions = Array[ExtResource("1_rv71d")]([ExtResource("2_evho1"), ExtResource("3_m0if1")])
+texture = ExtResource("4_8v6ot")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that poisons everything next to it. The poison spreads."

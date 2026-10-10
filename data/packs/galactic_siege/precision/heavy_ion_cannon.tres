@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pt3b8"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/heavy_ion_cannon.png" id="2_a4nei"]
+
+[resource]
+script = ExtResource("1_pt3b8")
+id = "heavy_ion_cannon"
+display_name = "Heavy Ion Cannon"
+role = 1
+cost = 16
+max_hp = 25
+damage = 21.0
+attack_range = 2.5
+attack_interval = 1.6
+pierce = true
+texture = ExtResource("2_a4nei")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "More damage."

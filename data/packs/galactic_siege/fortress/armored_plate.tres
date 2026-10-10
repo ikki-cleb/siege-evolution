@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2065s"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/armored_plate.png" id="2_dfexk"]
+
+[resource]
+script = ExtResource("1_2065s")
+id = "armored_plate"
+display_name = "Armored Plate"
+cost = 10
+max_hp = 220
+can_place_on_water = true
+texture = ExtResource("2_dfexk")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Much more HP."

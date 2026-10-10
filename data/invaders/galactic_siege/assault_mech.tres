@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_pyjsq"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/assault_mech.png" id="2_y20wv"]
+
+[resource]
+script = ExtResource("1_pyjsq")
+id = "assault_mech"
+display_name = "Assault Mech"
+movement = 1
+max_hp = 90
+armor = 2
+speed = 0.65
+base_damage = 4
+smash_damage = 11.0
+atp_drop = 4
+is_elite = true
+texture = ExtResource("2_y20wv")
+description = "Elite: heavily armored."

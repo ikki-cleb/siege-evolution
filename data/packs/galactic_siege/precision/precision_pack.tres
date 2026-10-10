@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_x5tky"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_k8abv"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/energy_barrier.tres" id="3_xdsbh"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/laser_turret.tres" id="4_vejdt"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/targeting_beacon.tres" id="5_851hd"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/ion_cannon.tres" id="6_xdtww"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/orbital_lance.tres" id="7_lekje"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/scanner_array.tres" id="8_e4xv3"]
+
+[resource]
+script = ExtResource("1_x5tky")
+id = "precision"
+display_name = "Precision"
+description = "Long range and big single hits. Marks targets so everything hits harder."
+color = Color(0.30588236, 0.65882355, 0.87058824, 1)
+units = Array[ExtResource("2_k8abv")]([ExtResource("3_xdsbh"), ExtResource("4_vejdt"), ExtResource("5_851hd"), ExtResource("6_xdtww"), ExtResource("7_lekje"), ExtResource("8_e4xv3")])

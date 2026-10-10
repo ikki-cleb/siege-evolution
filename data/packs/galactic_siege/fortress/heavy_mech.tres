@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2sxwo"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/heavy_mech.png" id="2_00p6y"]
+
+[resource]
+script = ExtResource("1_2sxwo")
+id = "heavy_mech"
+display_name = "Heavy Mech"
+role = 1
+cost = 16
+max_hp = 80
+damage = 17.0
+attack_interval = 1.1
+texture = ExtResource("2_00p6y")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Hits far harder."

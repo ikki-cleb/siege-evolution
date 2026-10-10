@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u0gwh"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/reflector_barrier.png" id="2_j48pk"]
+
+[resource]
+script = ExtResource("1_u0gwh")
+id = "reflector_barrier"
+display_name = "Reflector Barrier"
+cost = 6
+max_hp = 35
+reflect = 0.5
+can_place_on_water = true
+texture = ExtResource("2_j48pk")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Reflects 50% of smasher damage."

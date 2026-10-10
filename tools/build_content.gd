@@ -14,7 +14,8 @@ extends SceneTree
 
 const CONTENT_DIR := "res://tools/content/"
 ## Build order matters: worlds that borrow packs come after their source.
-const WORLD_FILES: Array[String] = ["immune_system.json", "backyard_bugs.json", "wild_kingdom.json", "total_war.json"]
+const WORLD_FILES: Array[String] = ["immune_system.json", "backyard_bugs.json", "wild_kingdom.json",
+	"total_war.json", "galactic_siege.json"]
 
 var invaders := {}
 var _content_by_id := {}
@@ -102,6 +103,12 @@ func _level(biome_id: String, number: int, table: Dictionary, content: Dictionar
 	level.show_path_preview = table.get("preview", false)
 	if table.has("tips"):
 		level.wave_tips = PackedStringArray(table.tips)
+	if table.has("tiles"):
+		var tiles := "res://art/tiles/%s/%s/" % [biome_id, table.tiles]
+		level.floor_texture = load(tiles + "floor.png")
+		level.rock_texture = load(tiles + "rock.png")
+		level.spawn_texture = load(tiles + "spawn.png")
+		level.base_texture = load(tiles + "base.png")
 	if number == 1:
 		level.wave_tips = PackedStringArray(content.tutorial.tips)
 		for rows in content.tutorial.waves:
@@ -235,6 +242,9 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 	invader.jumps = row.get("jumps", false)
 	invader.naval = row.get("naval", false)
 	invader.bomb_damage = row.get("bomb", 0.0)
+	invader.bomb_interval = row.get("bomb_interval", 0.0)
+	invader.blink_interval = row.get("blink_interval", 0.0)
+	invader.blink_distance = int(row.get("blink_distance", 0))
 	invader.burrow_length = int(row.get("burrow_length", 0))
 	invader.is_elite = row.get("elite", false)
 	invader.is_boss = row.get("boss", false)

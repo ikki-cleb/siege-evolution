@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_85yqf"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/meltdown_reactor.tres" id="2_06h1i"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/leaking_reactor.tres" id="3_fng36"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/toxic_reactor.png" id="4_dd6yr"]
+
+[resource]
+script = ExtResource("1_85yqf")
+id = "toxic_reactor"
+display_name = "Toxic Reactor"
+role = 1
+cost = 14
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 2.5
+poison_duration = 3.0
+evolutions = Array[ExtResource("1_85yqf")]([ExtResource("2_06h1i"), ExtResource("3_fng36")])
+texture = ExtResource("4_dd6yr")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poisons everything around it."

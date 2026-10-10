@@ -27,7 +27,9 @@ const BOMB_AFTER := 0.3
 ## ...and only bomb units within this many tiles of them.
 const BOMB_REACH := 2.5
 var _has_bombed := false
+var _bomb_timer := 0.0
 var _flight_start := Vector2.ZERO
+var _blink_timer := 0.0
 
 ## Jumpers crouch for this long before each hop.
 const HOP_PAUSE := 0.45
@@ -61,6 +63,7 @@ func setup(p_data: InvaderData, p_board: Board, start: Vector2, p_path: Array[Ve
 	_start_index = p_index
 	_flight_start = start
 	_minion_timer = data.minion_interval
+	_blink_timer = data.blink_interval
 	_sprite = Sprite2D.new()
 	_sprite.texture = data.texture
 	if data.is_boss:
@@ -147,6 +150,11 @@ func _process(delta: float) -> void:
 			board.spawn_from(self, data.minion, data.minion_count, false)
 	if stun_time > 0.0:
 		return
+	if data.blink_interval > 0.0 and not underground:
+		_blink_timer -= delta
+		if _blink_timer <= 0.0:
+			_blink_timer = data.blink_interval
+			_blink()
 	var speed := data.speed * (1.0 - slow_amount if slow_time > 0.0 else 1.0)
 	if is_flying():
 		_fly(speed * delta)
@@ -179,6 +187,11 @@ func _update_effects(delta: float) -> void:
 func _fly(tiles: float) -> void:
 	var target := board.cell_center(board.base_cell)
 	position = position.move_toward(target, tiles * Board.TILE)
+	# Bosses with a bomb interval re-arm after each bomb.
+	if _has_bombed and data.bomb_interval > 0.0:
+		_bomb_timer -= tiles / maxf(0.01, data.speed)
+		if _bomb_timer <= 0.0:
+			_has_bombed = false
 	if data.bomb_damage > 0.0 and not _has_bombed:
 		var flown := _flight_start.distance_to(position) / maxf(1.0, _flight_start.distance_to(target))
 		if flown >= BOMB_AFTER:
@@ -237,6 +250,20 @@ func _update_hop_arc(target: Vector2) -> void:
 	_sprite.position.y = -sin(progress * PI) * 6.0
 
 
+## Teleports forward along the route, skipping `blink_distance` tiles (but
+## never straight onto the base).
+func _blink() -> void:
+	if path.is_empty() or path_index >= path.size() - 1:
+		return
+	var landing := mini(path_index + data.blink_distance - 1, path.size() - 2)
+	if landing < path_index:
+		return
+	board.fx.add_pulse(position, Board.TILE * 0.8, Color(0.7, 0.4, 1.0))
+	position = board.cell_center(path[landing])
+	path_index = landing + 1
+	board.fx.add_pulse(position, Board.TILE * 0.8, Color(0.7, 0.4, 1.0))
+
+
 ## Drops the bomb on the most valuable unit in reach (if any).
 func _try_bomb() -> void:
 	var best: Unit = null
@@ -251,6 +278,7 @@ func _try_bomb() -> void:
 			best = unit
 	if best:
 		_has_bombed = true
+		_bomb_timer = data.bomb_interval
 		board.bomb(best.cell, data.bomb_damage)
 
 

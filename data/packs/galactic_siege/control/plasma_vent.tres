@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ylcur"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/hot_plasma_vent.tres" id="2_dbsof"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/wide_plasma_vent.tres" id="3_iwa7t"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/plasma_vent.png" id="4_1hykp"]
+
+[resource]
+script = ExtResource("1_ylcur")
+id = "plasma_vent"
+display_name = "Plasma Vent"
+role = 1
+cost = 16
+max_hp = 25
+attack_mode = 1
+damage = 3.5
+attack_range = 2.0
+hits_air = true
+evolutions = Array[ExtResource("1_ylcur")]([ExtResource("2_dbsof"), ExtResource("3_iwa7t")])
+texture = ExtResource("4_1hykp")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Burns everything in range, fliers too."
