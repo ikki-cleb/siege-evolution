@@ -166,6 +166,7 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 					water[cell] = true
 					sea_spawn_cells.append(cell)
 	_make_base_block()
+	_add_obstacle_layer()
 	_add_spawners()
 
 	for grid in [_walk_grid, _smash_grid, _boat_grid, _boat_smash_grid]:
@@ -230,6 +231,18 @@ func _add_background(texture: Texture2D) -> void:
 ## Animated spawners (tools/draw_spawners.py) on the spawn tiles. Where a
 ## world has one, the still spawn tile isn't drawn.
 var _animated_spawns := {}
+
+
+## The 32x32 obstacles and animated water (tools/draw_objects.py). Where a
+## world has them, the old still rock/water tiles aren't drawn.
+var obstacle_layer: ObstacleLayer
+
+
+func _add_obstacle_layer() -> void:
+	var sheet := ObstacleLayer.art_next_to(_tiles.rock, "obstacle.png")
+	var water_art := ObstacleLayer.art_next_to(biome.water_texture, "water_anim.png")
+	obstacle_layer = ObstacleLayer.new().setup(self, sheet, water_art)
+	add_child(obstacle_layer)
 
 
 func _add_spawners() -> void:
@@ -875,13 +888,20 @@ func _draw() -> void:
 		for x in grid_size.x:
 			var cell := Vector2i(x, y)
 			var texture: Texture2D = null if _has_background else _tiles.floor
+			var animated_water := obstacle_layer.water != null
 			if sea_spawn_cells.has(cell):
 				# Under an animated drain, plain water.
-				texture = biome.water_texture if _animated_spawns.has(cell) else biome.sea_spawn_texture
+				if not _animated_spawns.has(cell):
+					texture = biome.sea_spawn_texture
+				elif not animated_water:
+					texture = biome.water_texture
 			elif water.has(cell):
-				texture = biome.water_texture
+				if not animated_water:
+					texture = biome.water_texture
 			elif rocks.has(cell):
-				texture = _tiles.rock
+				# New obstacles sit on the floor (the layer draws them on top).
+				if obstacle_layer.obstacles == null:
+					texture = _tiles.rock
 			elif spawn_cells.has(cell) and not _animated_spawns.has(cell):
 				texture = _tiles.spawn
 			if texture:

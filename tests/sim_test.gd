@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 147
+const MIN_RULE_CHECKS := 148
 var progress: Node
 
 
@@ -997,6 +997,12 @@ func _test_background(biome: BiomeData) -> void:
 	_check(spawners.size() == game.board.spawn_cells.size() + game.board.sea_spawn_cells.size()
 		and spawners.all(func(view): return view.strip.get_width() == view.strip.get_height() * SpawnerView.FRAMES),
 		"Each spawn tile plays an animated 4-frame spawner")
+	# Obstacles use the 32x32 map-object art, in a mix of the 3 looks.
+	var looks := {}
+	for cell in game.board.rocks:
+		looks[ObstacleLayer.look_for(cell)] = true
+	_check(game.board.obstacle_layer.obstacles != null and (game.board.rocks.size() < 4 or looks.size() > 1),
+		"Obstacles are drawn from the world's map-object art, in mixed looks")
 	level.background = null
 	await _stop(game)
 

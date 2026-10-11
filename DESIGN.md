@@ -360,6 +360,28 @@ doorway with bobbing balloons. Art: `python3 tools/draw_spawners.py`
 (`scripts/game/spawner_view.gd`) plays them, and the still spawn tile is
 skipped wherever a strip exists.
 
+## Map objects (obstacles and water)
+
+Every obstacle tile is 32x32 code-drawn art in one of 3 looks for its
+world (or level variant), picked per tile by position so a level's
+obstacles are mixed. **Obstacles must never look like units** (the user's
+rule): they are terrain and clutter only, never devices, containers or
+items the packs are made of, and they share a "map object" style: colors
+muted ~28% and a soft outline in each object's own darker color (units
+have a black outline, a dark pad and animate). Looks: Backyard boulders /
+stacked stones / mushroom rock; Wild Kingdom boulder / stump / hay bale;
+Microscopic blood cell / fat cell / bubbles (pulse); Total War letter block
+/ brick / toy drum; Galactic moon rock / crater / glowing crystals,
+asteroids (twinkle), station crate / sparking scrap heap / collapsed panel;
+Kitchen flour heap / coffee beans / paper towel, milk puddle / cereal /
+dust bunny, coffee spill / crumbs / foil ball; Birthday wrapping-paper heap
+/ confetti mound / ribbon tangle, ball-pit balls / beach ball / deflated
+balloon, cushion / bunched rug / streamers. Total War's bathtub water is a
+seamless 4-frame ripple loop. Art: `python3 tools/draw_objects.py` (designs
+in `tools/objects/designs.py`) writes `obstacle.png` (3 looks x 1 or 4
+frames) and `water_anim.png` next to each world's tiles;
+`scripts/game/obstacle_layer.gd` draws them.
+
 ## Microscopic unit names
 
 Microscopic uses plain body words, not biology terms, so the
