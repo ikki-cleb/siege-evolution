@@ -43,11 +43,21 @@ def fortress(i, c):
 
 
 def swarm(i, c):
-    # A honeycomb cluster of seven cells.
+    # A honeycomb: a column of 3 cells with 2 cells on each side.
     light, base, dark, darker = ramp(c)
-    cell = [".ddd.", "dbbbd", "dlbbd", "dbbbd", ".ddd."]
-    for x, y in ((5, 0), (1, 3), (9, 3), (5, 5), (1, 8), (9, 8), (5, 10)):
-        i.grid(x, y, cell, {"d": dark, "b": base, "l": light})
+
+    def cell(x0, y0):
+        # A 6x6 cell with cut corners: dark border, honey inside.
+        i.rect(x0 + 1, y0, x0 + 4, y0 + 5, darker)
+        i.rect(x0, y0 + 1, x0 + 5, y0 + 4, darker)
+        i.rect(x0 + 1, y0 + 1, x0 + 4, y0 + 4, base)
+        i.px(x0 + 1, y0 + 1, light)
+        i.rect(x0 + 2, y0 + 4, x0 + 4, y0 + 4, dark)
+
+    for y in (2, 7):
+        cell(0, y)   # left column (mirrored onto the right)
+    for y in (0, 5, 10):
+        cell(5, y)   # middle column
 
 
 def precision(i, c):
@@ -79,19 +89,36 @@ def toxin(i, c):
     light, base, dark, darker = ramp(c)
     i.poly([(7, 0), (8, 0), (13, 7), (2, 7)], base)
     i.ell(2, 4, 13, 15, base)
-    i.ell(2, 4, 13, 15, base)
     i.pxs([(5, 4), (4, 6)], light)
-    i.grid(5, 7, [".####.", "######", "#..#..#"[:6], "######", ".#.#.."],
-           {"#": (240, 240, 228, 255)})
-    i.pxs([(6, 9), (9, 9)], INK)
+    bone = (240, 240, 228, 255)
+    i.grid(5, 7, [".####.", "######", "######", ".####.", ".#..#."], {"#": bone})
+    i.pxs([(6, 9), (9, 9)], INK)  # eyes
 
 
 DRAW = {"fortress": fortress, "swarm": swarm, "precision": precision, "control": control, "toxin": toxin}
 
 
+# Every symbol is mirrored left-right; these are mirrored top-bottom too.
+MIRROR_BOTH = ("precision", "control")
+
+
+def mirror(img, top_to_bottom=False):
+    """Copy the left half onto the right half (and the top half onto the
+    bottom half), so the symbol is perfectly symmetrical."""
+    size = img.width
+    for y in range(size):
+        for x in range(size // 2):
+            img.putpixel((size - 1 - x, y), img.getpixel((x, y)))
+    if top_to_bottom:
+        for y in range(size // 2):
+            for x in range(size):
+                img.putpixel((x, size - 1 - y), img.getpixel((x, y)))
+
+
 def symbol(pack):
     icon = Icon()
     DRAW[pack](icon, PACKS[pack])
+    mirror(icon.img, pack in MIRROR_BOTH)
     return icon.finish()
 
 

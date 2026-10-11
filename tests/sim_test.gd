@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 145
+const MIN_RULE_CHECKS := 146
 var progress: Node
 
 
@@ -997,6 +997,19 @@ func _test_background(biome: BiomeData) -> void:
 
 # --- Pack swapping and achievements ----------------------------------------------
 
+## True if an image looks the same mirrored left-right (and, with
+## `top_bottom`, also mirrored top-bottom).
+func _symmetric(image: Image, top_bottom: bool) -> bool:
+	for y in image.get_height():
+		for x in image.get_width():
+			var color := image.get_pixel(x, y)
+			if color != image.get_pixel(image.get_width() - 1 - x, y):
+				return false
+			if top_bottom and color != image.get_pixel(x, image.get_height() - 1 - y):
+				return false
+	return true
+
+
 ## Every PackSymbol under a node.
 func _pack_symbols(node: Node) -> Array:
 	var result := []
@@ -1033,6 +1046,13 @@ func _test_pack_swapping(biome: BiomeData) -> void:
 	# The world card's symbols fill up 1/5 per level beaten.
 	menu._show(menu._show_biomes)
 	await process_frame
+	# Pack symbols are mirror images left-right; Precision and Control
+	# also top-bottom (the user's rule).
+	var all_symmetric := true
+	for pack_id in PackSymbol.ORDER:
+		var image: Image = load(PackSymbol.ART_DIR + pack_id + ".png").get_image()
+		all_symmetric = all_symmetric and _symmetric(image, pack_id in ["precision", "control"])
+	_check(all_symmetric, "Pack symbols are symmetrical (Precision and Control both ways)")
 	# Backyard (always unlocked) shows 5 symbols; the test world is locked
 	# after the reset, so its fill is checked through the count it uses.
 	var card_symbols := _pack_symbols(menu)

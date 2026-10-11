@@ -316,7 +316,9 @@ The full roster and stats live in `tools/content/immune_system.json`.
 Each pack has a 16x16 symbol in its color: Fortress = castle tower, Swarm
 = honeycomb, Precision = crosshair, Control = snowflake, Toxin = poison
 drop with a skull (the user chose these "classic emblems"). Every symbol
-also has a dark empty silhouette.
+also has a dark empty silhouette. Every symbol is symmetrical left-right; Precision and
+Control are symmetrical top-bottom too (the user's rule; the drawing script
+mirrors each design, and a rules test checks it).
 
 - **World select:** each unlocked world card shows all 5 symbols. A pack's
   symbol fills with color from the bottom up, 1/5 for each of that world's
