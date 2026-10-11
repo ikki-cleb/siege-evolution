@@ -1,144 +1,146 @@
 [gd_resource type="Resource" script_class="LevelData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="1_fjv3w"]
-[ext_resource type="Script" path="res://scripts/data/wave_data.gd" id="2_hqf0y"]
-[ext_resource type="Script" path="res://scripts/data/wave_entry.gd" id="3_7niaj"]
-[ext_resource type="Resource" path="res://data/invaders/immune_system/rhinovirus.tres" id="4_gregp"]
-[ext_resource type="Resource" path="res://data/invaders/immune_system/bacterium.tres" id="5_avb1p"]
-[ext_resource type="Resource" path="res://data/invaders/immune_system/worm.tres" id="6_s5iml"]
-[ext_resource type="Resource" path="res://data/invaders/immune_system/spore.tres" id="7_ouwir"]
+[ext_resource type="Texture2D" path="res://art/backgrounds/immune_system/level_01.webp" id="1_hqf0y"]
+[ext_resource type="Script" path="res://scripts/data/level_data.gd" id="2_7niaj"]
+[ext_resource type="Script" path="res://scripts/data/wave_data.gd" id="3_gregp"]
+[ext_resource type="Script" path="res://scripts/data/wave_entry.gd" id="4_avb1p"]
+[ext_resource type="Resource" path="res://data/invaders/immune_system/rhinovirus.tres" id="5_s5iml"]
+[ext_resource type="Resource" path="res://data/invaders/immune_system/bacterium.tres" id="6_ouwir"]
+[ext_resource type="Resource" path="res://data/invaders/immune_system/worm.tres" id="7_vo1aq"]
+[ext_resource type="Resource" path="res://data/invaders/immune_system/spore.tres" id="8_d53cw"]
 
-[sub_resource type="Resource" id="Resource_vo1aq"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("4_gregp")
+[sub_resource type="Resource" id="Resource_3frcx"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("5_s5iml")
 count = 6
 spacing = 1.2000000000000002
 
-[sub_resource type="Resource" id="Resource_d53cw"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_vo1aq")])
+[sub_resource type="Resource" id="Resource_kppfn"]
+script = ExtResource("3_gregp")
+entries = Array[ExtResource("4_avb1p")]([SubResource("Resource_3frcx")])
 
-[sub_resource type="Resource" id="Resource_3frcx"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("4_gregp")
+[sub_resource type="Resource" id="Resource_1nnyi"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("5_s5iml")
 count = 10
 spacing = 0.9
 
-[sub_resource type="Resource" id="Resource_kppfn"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_3frcx")])
+[sub_resource type="Resource" id="Resource_24y2o"]
+script = ExtResource("3_gregp")
+entries = Array[ExtResource("4_avb1p")]([SubResource("Resource_1nnyi")])
 
-[sub_resource type="Resource" id="Resource_1nnyi"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("5_avb1p")
+[sub_resource type="Resource" id="Resource_bjffi"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("6_ouwir")
 count = 4
 spacing = 2.2
 
-[sub_resource type="Resource" id="Resource_24y2o"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("4_gregp")
+[sub_resource type="Resource" id="Resource_47mhj"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("5_s5iml")
 count = 6
 delay = 3.0
 
-[sub_resource type="Resource" id="Resource_bjffi"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_1nnyi"), SubResource("Resource_24y2o")])
+[sub_resource type="Resource" id="Resource_b7e11"]
+script = ExtResource("3_gregp")
+entries = Array[ExtResource("4_avb1p")]([SubResource("Resource_bjffi"), SubResource("Resource_47mhj")])
 
-[sub_resource type="Resource" id="Resource_47mhj"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("4_gregp")
+[sub_resource type="Resource" id="Resource_0rmg6"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("5_s5iml")
 count = 14
 spacing = 0.6000000000000001
 
-[sub_resource type="Resource" id="Resource_b7e11"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_47mhj")])
+[sub_resource type="Resource" id="Resource_scbq2"]
+script = ExtResource("3_gregp")
+entries = Array[ExtResource("4_avb1p")]([SubResource("Resource_0rmg6")])
 
-[sub_resource type="Resource" id="Resource_0rmg6"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("6_s5iml")
+[sub_resource type="Resource" id="Resource_0a0pd"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("7_vo1aq")
 count = 2
 spacing = 6.0
 
-[sub_resource type="Resource" id="Resource_scbq2"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("4_gregp")
+[sub_resource type="Resource" id="Resource_8ges4"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("5_s5iml")
 count = 6
 delay = 2.0
 
-[sub_resource type="Resource" id="Resource_0a0pd"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_0rmg6"), SubResource("Resource_scbq2")])
+[sub_resource type="Resource" id="Resource_bju0m"]
+script = ExtResource("3_gregp")
+entries = Array[ExtResource("4_avb1p")]([SubResource("Resource_0a0pd"), SubResource("Resource_8ges4")])
 
-[sub_resource type="Resource" id="Resource_8ges4"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("7_ouwir")
+[sub_resource type="Resource" id="Resource_hc34k"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("8_d53cw")
 count = 6
 spacing = 1.5
 
-[sub_resource type="Resource" id="Resource_bju0m"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("4_gregp")
+[sub_resource type="Resource" id="Resource_n8xae"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("5_s5iml")
 count = 8
 spacing = 0.8
 delay = 1.0
 
-[sub_resource type="Resource" id="Resource_hc34k"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_8ges4"), SubResource("Resource_bju0m")])
+[sub_resource type="Resource" id="Resource_gqva3"]
+script = ExtResource("3_gregp")
+entries = Array[ExtResource("4_avb1p")]([SubResource("Resource_hc34k"), SubResource("Resource_n8xae")])
 
-[sub_resource type="Resource" id="Resource_n8xae"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("5_avb1p")
+[sub_resource type="Resource" id="Resource_ue1w7"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("6_ouwir")
 count = 6
 spacing = 1.8
 
-[sub_resource type="Resource" id="Resource_gqva3"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("4_gregp")
+[sub_resource type="Resource" id="Resource_1j5mv"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("5_s5iml")
 count = 8
 spacing = 0.8
 delay = 4.0
 
-[sub_resource type="Resource" id="Resource_ue1w7"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_n8xae"), SubResource("Resource_gqva3")])
+[sub_resource type="Resource" id="Resource_sitfq"]
+script = ExtResource("3_gregp")
+entries = Array[ExtResource("4_avb1p")]([SubResource("Resource_ue1w7"), SubResource("Resource_1j5mv")])
 
-[sub_resource type="Resource" id="Resource_1j5mv"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("6_s5iml")
+[sub_resource type="Resource" id="Resource_gw5fc"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("7_vo1aq")
 count = 3
 spacing = 4.0
 
-[sub_resource type="Resource" id="Resource_sitfq"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("5_avb1p")
+[sub_resource type="Resource" id="Resource_tj6um"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("6_ouwir")
 spacing = 1.6
 delay = 2.0
 
-[sub_resource type="Resource" id="Resource_gw5fc"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("4_gregp")
+[sub_resource type="Resource" id="Resource_rnl3e"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("5_s5iml")
 count = 12
 spacing = 0.5
 delay = 6.0
 
-[sub_resource type="Resource" id="Resource_tj6um"]
-script = ExtResource("3_7niaj")
-invader = ExtResource("7_ouwir")
+[sub_resource type="Resource" id="Resource_qtjbt"]
+script = ExtResource("4_avb1p")
+invader = ExtResource("8_d53cw")
 count = 6
 spacing = 1.2000000000000002
 delay = 8.0
 
-[sub_resource type="Resource" id="Resource_rnl3e"]
-script = ExtResource("2_hqf0y")
-entries = Array[ExtResource("3_7niaj")]([SubResource("Resource_1j5mv"), SubResource("Resource_sitfq"), SubResource("Resource_gw5fc"), SubResource("Resource_tj6um")])
+[sub_resource type="Resource" id="Resource_65jww"]
+script = ExtResource("3_gregp")
+entries = Array[ExtResource("4_avb1p")]([SubResource("Resource_gw5fc"), SubResource("Resource_tj6um"), SubResource("Resource_rnl3e"), SubResource("Resource_qtjbt")])
 
 [resource]
-script = ExtResource("1_fjv3w")
+script = ExtResource("2_7niaj")
 display_name = "1. First Infection"
 layout = PackedStringArray("....S....", ".........", ".........", "..#...#..", ".........", ".........", "#.......#", ".........", ".........", "..#...#..", ".........", ".........", ".........", "....B....")
 hand_value = PackedInt32Array(12, 15, 7, 0, 0, 0)
 starting_coins = 20
-wave_tips = PackedStringArray("Rhinoviruses walk around your units. Use walls to make their route longer, and put attackers beside it. Every kill drops coins.", "Units that survived a wave can evolve: tap one and pick a branch. Anything placed this round refunds in full.", "Bacteria split into two halves when killed.", "Units from earlier rounds only refund 50% if you remove them, so plan ahead.", "Parasite Worms ignore your maze and chew through any unit in their way (red line).", "Spores fly straight to the base (blue dashes). Only some units can hit fliers.", "Units are repaired for free after every wave. Let nothing through for a bonus.", "Final wave! Later levels bring tougher elite versions of everything you\'ve seen.")
-waves = Array[ExtResource("2_hqf0y")]([SubResource("Resource_d53cw"), SubResource("Resource_kppfn"), SubResource("Resource_bjffi"), SubResource("Resource_b7e11"), SubResource("Resource_0a0pd"), SubResource("Resource_hc34k"), SubResource("Resource_ue1w7"), SubResource("Resource_rnl3e")])
+wave_tips = PackedStringArray("New world, new scale: inside the body! Your pack plays exactly the same here. Rhinoviruses walk around your units; every kill drops coins.", "Units that survived a wave can evolve. Anything placed this round refunds in full.", "Bacteria split into two halves when killed.", "Nothing tunnels or jumps in here: every walker follows the route you build, so make it long.", "Parasite Worms ignore your maze and chew through any unit in their way (red line).", "Spores fly straight to the heart (blue dashes). Only some units can hit fliers.", "Splitters again: keep attackers near the end of the route too.", "Final wave! Later levels bring tougher elite versions, and the Superbug waits at the end.")
+background = ExtResource("1_hqf0y")
+waves = Array[ExtResource("3_gregp")]([SubResource("Resource_kppfn"), SubResource("Resource_24y2o"), SubResource("Resource_b7e11"), SubResource("Resource_scbq2"), SubResource("Resource_bju0m"), SubResource("Resource_gqva3"), SubResource("Resource_sitfq"), SubResource("Resource_65jww")])

@@ -2138,7 +2138,7 @@
       "id": "superbug",
       "name": "Superbug",
       "movement": "smasher",
-      "hp": 450,
+      "hp": 600,
       "armor": 1,
       "speed": 0.4,
       "base_damage": 10,
@@ -2332,14 +2332,14 @@
       ]
     ],
     "tips": [
-      "Rhinoviruses walk around your units. Use walls to make their route longer, and put attackers beside it. Every kill drops coins.",
-      "Units that survived a wave can evolve: tap one and pick a branch. Anything placed this round refunds in full.",
+      "New world, new scale: inside the body! Your pack plays exactly the same here. Rhinoviruses walk around your units; every kill drops coins.",
+      "Units that survived a wave can evolve. Anything placed this round refunds in full.",
       "Bacteria split into two halves when killed.",
-      "Units from earlier rounds only refund 50% if you remove them, so plan ahead.",
+      "Nothing tunnels or jumps in here: every walker follows the route you build, so make it long.",
       "Parasite Worms ignore your maze and chew through any unit in their way (red line).",
-      "Spores fly straight to the base (blue dashes). Only some units can hit fliers.",
-      "Units are repaired for free after every wave. Let nothing through for a bonus.",
-      "Final wave! Later levels bring tougher elite versions of everything you've seen."
+      "Spores fly straight to the heart (blue dashes). Only some units can hit fliers.",
+      "Splitters again: keep attackers near the end of the route too.",
+      "Final wave! Later levels bring tougher elite versions, and the Superbug waits at the end."
     ]
   },
   "levels": [
@@ -2384,7 +2384,7 @@
       ],
       "coins": 15,
       "income": 5,
-      "budget": 14,
+      "budget": 16,
       "layout": [
         "S........",
         ".........",
@@ -2414,7 +2414,7 @@
       ],
       "coins": 20,
       "income": 6,
-      "budget": 22,
+      "budget": 26,
       "layout": [
         "....S....",
         ".........",
@@ -2444,7 +2444,7 @@
       ],
       "coins": 25,
       "income": 6,
-      "budget": 28,
+      "budget": 30,
       "layout": [
         "S...S...S",
         ".........",
@@ -2474,7 +2474,7 @@
       ],
       "coins": 30,
       "income": 7,
-      "budget": 32,
+      "budget": 38,
       "boss": "superbug",
       "layout": [
         "S...S....",

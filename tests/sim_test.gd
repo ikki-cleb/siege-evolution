@@ -22,10 +22,10 @@ func _initialize() -> void:
 
 func _run() -> void:
 	progress = root.get_node("Progress")
-	var biome: BiomeData = progress.load_biome(0)
+	var biome: BiomeData = progress.load_biome(2)  # Microscopic (World 3)
 	await _test_rules(biome)
-	await _test_burrowing(progress.load_biome(1))
-	await _test_jumping(progress.load_biome(2))
+	await _test_burrowing(progress.load_biome(0))
+	await _test_jumping(progress.load_biome(1))
 	await _test_sea_and_bombs(progress.load_biome(3))
 	await _test_space(progress.load_biome(4))
 	await _test_bosses(biome)
@@ -42,7 +42,9 @@ func _run() -> void:
 	await _test_background(biome)
 	await _test_animations(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
-		# "-- world=2" balances just one world (0-based index; 5 = Kitchen, 6 = Birthday).
+		# "-- world=2" balances just one world (0-based index: 0 = Backyard Bugs,
+		# 1 = Wild Kingdom, 2 = Microscopic, 3 = Total War, 4 = Galactic Siege,
+		# 5 = Kitchen, 6 = Birthday).
 		var worlds := [0, 1, 2, 3, 4, 5, 6]
 		for arg in OS.get_cmdline_user_args():
 			if arg.begins_with("world="):
@@ -694,16 +696,19 @@ func _test_capstones(biome: BiomeData) -> void:
 	_check(unit.total_cost() == base.cost + tier1.cost + capstone.cost, "Bombers see a capstone's full value")
 	await _stop(game)
 
-	# Every world gives its capstones their own themed names.
-	var world1_names := {}
+	# Every world gives its capstones their own themed names (compared with
+	# Microscopic, where the pack stats and base names live).
+	var base_names := {}
 	for name in _capstone_names(biome):
-		world1_names[name] = true
+		base_names[name] = true
 	var reused := 0
-	for index in range(1, progress.WORLDS.size()):
+	for index in progress.WORLDS.size():
+		if progress.world_id(index) == biome.id:
+			continue
 		for name in _capstone_names(progress.load_biome(index)):
-			if world1_names.has(name):
+			if base_names.has(name):
 				reused += 1
-	_check(reused == 0, "Every world has its own capstone names (%d reused from World 1)" % reused)
+	_check(reused == 0, "Every world has its own capstone names (%d reused from Microscopic)" % reused)
 
 
 func _capstone_names(world: BiomeData) -> Array[String]:

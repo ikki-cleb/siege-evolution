@@ -6,7 +6,8 @@ kitchen_defense_level_03.png), then run from the project folder:
     python3 tools/import_backgrounds.py path/to/folder
 
 Each image is center-cropped to the board's 9:14 portrait shape, resized to
-1152x1792, and saved as a compressed WebP in art/backgrounds/<world>/level_NN.webp
+1152x1792, softened (see soften(): a light filter so backgrounds stay calm
+and game sprites stand out), and saved as a compressed WebP in art/backgrounds/<world>/level_NN.webp
 (WebP keeps the web build small). Then rebuild:
 
     godot --headless --import
@@ -16,11 +17,16 @@ import re
 import sys
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageEnhance
 
 PROJECT = Path(__file__).resolve().parent.parent
 WIDTH, HEIGHT = 1152, 1792  # 8x the 144x224-pixel board
 QUALITY = 85
+# The "Light" filter the user picked: 30% less color, a bit less contrast,
+# a touch brighter. Set all three to 1.0 to import images untouched.
+SATURATION = 0.7
+CONTRAST = 0.85
+BRIGHTNESS = 1.04
 NAME = re.compile(r"^([a-z_]+)_level_(\d\d)$")
 
 
@@ -38,6 +44,13 @@ def fit(image):
     return image.resize((WIDTH, HEIGHT), Image.LANCZOS)
 
 
+def soften(image):
+    """Calms a background down so it doesn't compete with the game."""
+    image = ImageEnhance.Color(image).enhance(SATURATION)
+    image = ImageEnhance.Contrast(image).enhance(CONTRAST)
+    return ImageEnhance.Brightness(image).enhance(BRIGHTNESS)
+
+
 def main(folder):
     worlds = {p.stem for p in (PROJECT / "tools" / "content").glob("*.json")}
     done = 0
@@ -52,7 +65,7 @@ def main(folder):
             continue
         out = PROJECT / "art" / "backgrounds" / world / f"level_{number}.webp"
         out.parent.mkdir(parents=True, exist_ok=True)
-        fit(Image.open(path)).save(out, "WEBP", quality=QUALITY)
+        soften(fit(Image.open(path))).save(out, "WEBP", quality=QUALITY)
         print(f"{path.name} -> {out.relative_to(PROJECT)} ({out.stat().st_size // 1024} KB)")
         done += 1
     print(done, "background(s) imported.")

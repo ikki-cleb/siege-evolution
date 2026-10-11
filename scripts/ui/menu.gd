@@ -123,7 +123,7 @@ func _show_title() -> void:
 
 func _show_biomes() -> void:
 	_header("Choose a World", _show.bind(_show_title))
-	_label("Each world is bigger than the last. Beat a world's boss to unlock the next one.", 12, DIM_TEXT)
+	_label("Each world brings new invaders. Beat a world's boss to unlock the next one.", 12, DIM_TEXT)
 	for index in Progress.WORLDS.size():
 		if index == 5:
 			_label("Bonus Worlds", 18, GOLD)

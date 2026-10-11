@@ -156,7 +156,7 @@ func show_end_screen(won: bool) -> void:
 	var biome: BiomeData = _progress().biome
 	if won and game.is_last_level() and biome.id == FINAL_WORLD:
 		_show_celebration("VICTORY!", "The Mothership is down and the galaxy is safe.",
-			"From a single cell to the stars, you defended every scale. Congratulations, Commander!")
+			"From the backyard to the stars, you defended every world. Congratulations, Commander!")
 		return
 	if won and game.is_last_level() and _progress().is_bonus_biome(biome.id):
 		_show_celebration("%s cleared!" % biome.display_name, "You beat a post-game bonus world.",

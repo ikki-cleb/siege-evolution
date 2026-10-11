@@ -978,7 +978,7 @@
       "id": "giant_centipede",
       "name": "Giant Centipede",
       "movement": "smasher",
-      "hp": 520,
+      "hp": 450,
       "armor": 1,
       "speed": 0.45,
       "base_damage": 10,
@@ -1187,14 +1187,14 @@
       ]
     ],
     "tips": [
-      "New world, new scale! Your pack plays exactly the same here. Termites walk around your units; every kill drops coins.",
-      "Units that survived a wave can evolve. Anything placed this round refunds in full.",
-      "NEW: Mole Crickets walk 3 tiles, then tunnel under the next 6 tiles of the route and pop up further along. Defend deep, not just the entrance.",
-      "Aphid Clusters burst into three aphids when killed.",
+      "Termites walk around your units. Use walls to make their route longer, and put attackers beside it. Every kill drops coins.",
+      "Units that survived a wave can evolve: tap one and pick a branch. Anything placed this round refunds in full.",
+      "Mole Crickets walk 3 tiles, then tunnel under the next 6 tiles of the route and pop up further along. Defend deep, not just the entrance.",
+      "Aphid Clusters burst into three aphids when killed. Units from earlier rounds only refund 50% if you remove them, so plan ahead.",
       "Rhino Beetles ignore your maze and ram through any unit in their way (red line).",
       "Mosquitoes fly straight to the anthill (blue dashes). Only some units can hit fliers.",
-      "Burrowers and splitters together: keep attackers near the end of the route too.",
-      "Final wave! Later levels bring elite versions, and the boss can tunnel too."
+      "Units are repaired for free after every wave. Let nothing through for a bonus.",
+      "Final wave! Later levels bring tougher elite versions, and the boss can tunnel too."
     ]
   },
   "levels": [
@@ -1239,7 +1239,7 @@
       ],
       "coins": 15,
       "income": 5,
-      "budget": 16,
+      "budget": 14,
       "layout": [
         "S........",
         ".........",
@@ -1269,7 +1269,7 @@
       ],
       "coins": 20,
       "income": 6,
-      "budget": 26,
+      "budget": 22,
       "layout": [
         "....S....",
         ".........",
@@ -1299,7 +1299,7 @@
       ],
       "coins": 25,
       "income": 6,
-      "budget": 30,
+      "budget": 28,
       "layout": [
         "S...S...S",
         ".........",
@@ -1329,7 +1329,7 @@
       ],
       "coins": 30,
       "income": 7,
-      "budget": 38,
+      "budget": 32,
       "boss": "giant_centipede",
       "layout": [
         "S...S....",

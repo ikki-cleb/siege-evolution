@@ -1,17 +1,8 @@
 [
   {
-    "id": "germ_buster",
-    "name": "Germ Buster",
-    "desc": "Beat World 1.",
-    "kind": "world",
-    "group": "Progress",
-    "param": "immune_system",
-    "target": 5
-  },
-  {
     "id": "bug_squasher",
     "name": "Bug Squasher",
-    "desc": "Beat World 2.",
+    "desc": "Beat World 1.",
     "kind": "world",
     "group": "Progress",
     "param": "backyard_bugs",
@@ -20,10 +11,19 @@
   {
     "id": "farm_hand",
     "name": "Farm Hand",
-    "desc": "Beat World 3.",
+    "desc": "Beat World 2.",
     "kind": "world",
     "group": "Progress",
     "param": "wild_kingdom",
+    "target": 5
+  },
+  {
+    "id": "germ_buster",
+    "name": "Germ Buster",
+    "desc": "Beat World 3.",
+    "kind": "world",
+    "group": "Progress",
+    "param": "immune_system",
     "target": 5
   },
   {
@@ -46,7 +46,7 @@
   },
   {
     "id": "cell_to_the_stars",
-    "name": "Cell to the Stars",
+    "name": "To the Stars",
     "desc": "Beat all 5 main worlds.",
     "kind": "main_game",
     "group": "Progress",

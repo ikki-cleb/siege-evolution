@@ -11,16 +11,17 @@ const LEVELS_PER_BIOME := 5
 const SAVE_VERSION := 3
 const OLD_LEVELS_KEPT: Array[int] = [1, 2, 4, 6, 7]
 
-## Every world on the map. Main worlds unlock in order by beating the
-## previous one; bonus worlds unlock by buying them in the Store. A world
+## Every world on the map, in play order (Backyard Bugs is first; the
+## order changed in v1.1, saves are keyed by world id so nothing is lost).
+## Main worlds unlock in order by beating the previous one; bonus worlds unlock by buying them in the Store. A world
 ## with no "path" yet shows as "coming soon".
 const WORLDS: Array[Dictionary] = [
-	{"name": "Microscopic", "path": "res://data/biomes/immune_system.tres",
-		"theme": "Inside the body: viruses, bacteria, parasites and spores."},
 	{"name": "Backyard Bugs", "path": "res://data/biomes/backyard_bugs.tres",
 		"theme": "Protect the anthill from termites, beetles, mosquitoes and burrowing mole crickets."},
 	{"name": "Wild Kingdom", "path": "res://data/biomes/wild_kingdom.tres",
 		"theme": "Keep foxes, wolves, boars, crows and leaping deer away from the farmhouse."},
+	{"name": "Microscopic", "path": "res://data/biomes/immune_system.tres",
+		"theme": "Inside the body: viruses, bacteria, parasites and spores."},
 	{"name": "Total War", "path": "res://data/biomes/total_war.tres",
 		"theme": "A toy war across the playroom and the bathtub: tanks, boats and bombers."},
 	{"name": "Galactic Siege", "path": "res://data/biomes/galactic_siege.tres",
