@@ -202,7 +202,9 @@ they're picked**.
   over exact balance), so bot balance numbers vary a little between runs.
 - **How it works in code:** `scripts/game/relic_set.gd` (pool, filters,
   offers, stat math), `Unit.stat()` (every relic-affected stat goes through
-  it), `scripts/ui/relic_icon.gd` (38 pixel icons). Picked relics show as
+  it), `scripts/ui/relic_icon.gd` (draws each relic's own 16x16 icon from
+  `art/relics/<id>.png` on a grey/blue/purple rarity badge; the icons are
+  code-drawn by `tools/draw_relics.py`, one unique design per relic). Picked relics show as
   icons in the board's left margin (dimmed until active; tap for details).
   The auto-player picks the rarest relic, preferring unit upgrades.
 

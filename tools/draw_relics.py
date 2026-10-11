@@ -1,7 +1,8 @@
 """Draws the 16x16 relic icons into art/relics/<id>.png.
 
 Designs live in tools/relics/designs.py (one function per relic id in
-data/relics.json). Usage:
+data/relics.json). It also writes the rarity badges drawn behind them
+(art/relics/badge_<rarity>.png). Usage:
     python3 tools/draw_relics.py              # write every icon
     python3 tools/draw_relics.py --preview out.png   # contact sheet only
 """
@@ -29,13 +30,19 @@ def draw(relic):
     return icon.finish()
 
 
-def badge(relic, scale):
-    """The icon on its rarity badge, as the game shows it (20x20 pixels)."""
+def rarity_badge(rarity):
+    """The 20x20 backing behind an icon, in the rarity's color."""
     img = Image.new("RGBA", (20, 20), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
-    color = hexc(RARITY[relic["rarity"]])
+    color = hexc(RARITY[rarity])
     d.rounded_rectangle((0, 0, 19, 19), 3, fill=shade(color, -0.5), outline=color)
     d.rounded_rectangle((1, 1, 18, 18), 2, outline=shade(color, -0.3))
+    return img
+
+
+def badge(relic, scale):
+    """The icon on its rarity badge, as the game shows it (20x20 pixels)."""
+    img = rarity_badge(relic["rarity"])
     img.alpha_composite(draw(relic), (2, 2))
     return img.resize((20 * scale, 20 * scale), Image.NEAREST)
 
@@ -78,6 +85,8 @@ def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     for relic in relics:
         draw(relic).save(os.path.join(OUT_DIR, relic["id"] + ".png"))
+    for rarity in RARITY:
+        rarity_badge(rarity).save(os.path.join(OUT_DIR, "badge_%s.png" % rarity))
     print("Wrote %d relic icons to %s" % (len(relics), OUT_DIR))
 
 

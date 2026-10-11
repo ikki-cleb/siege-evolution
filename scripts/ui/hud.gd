@@ -192,13 +192,13 @@ func _refresh_relic_column() -> void:
 	for relic in relics.active + relics.pending:
 		var waiting: bool = relics.pending.has(relic)
 		var button := Button.new()
-		button.custom_minimum_size = Vector2(26, 26)
+		button.custom_minimum_size = Vector2(30, 30)
 		button.flat = true
 		button.focus_mode = Control.FOCUS_NONE
 		button.pressed.connect(func():
 			show_message("%s (%s): %s%s" % [relic.name, relic.rarity, relic.desc,
 				" Starts next wave." if waiting else ""]))
-		var icon := RelicIcon.new().setup(relic.icon, Color(relic.color))
+		var icon := RelicIcon.new().setup(relic)
 		icon.dimmed = waiting
 		icon.set_anchors_preset(Control.PRESET_FULL_RECT)
 		button.add_child(icon)
@@ -251,7 +251,7 @@ func _relic_card(relic: Dictionary, index: int) -> Button:
 	row.add_theme_constant_override("separation", 12)
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	card.add_child(row)
-	var icon := RelicIcon.new().setup(relic.icon, Color(relic.color))
+	var icon := RelicIcon.new().setup(relic)
 	icon.custom_minimum_size = Vector2(56, 56)
 	icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	row.add_child(icon)

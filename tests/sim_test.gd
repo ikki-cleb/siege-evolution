@@ -375,7 +375,7 @@ func _test_relics(biome: BiomeData) -> void:
 	var ids := {}
 	for relic in pool:
 		var ok: bool = RelicSet.RARITY_ORDER.has(relic.rarity) and RELIC_FILTERS.has(relic.filter) \
-			and RelicIcon.SHAPES.has(relic.icon) and not ids.has(relic.id)
+			and RelicIcon.has_art(relic.id) and not ids.has(relic.id)
 		for key in relic.get("mult", {}).keys() + relic.get("add", {}).keys():
 			ok = ok and RELIC_STATS.has(key)
 		for ability in relic.get("grant", []):
