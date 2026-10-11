@@ -368,12 +368,14 @@ obstacles are mixed. **Obstacles must never look like units** (the user's
 rule): they are terrain and clutter only, never devices, containers or
 items the packs are made of, and they share a "map object" style: colors
 muted ~28% and a soft outline in each object's own darker color (units
-have a black outline, a dark pad and animate). Looks: Backyard boulders /
+have a black outline, a dark pad tinted subtly with the pack's color, and
+animate). Looks: Backyard boulders /
 stacked stones / mushroom rock; Wild Kingdom boulder / stump / hay bale;
 Microscopic blood cell / fat cell / bubbles (pulse); Total War letter block
 / brick / toy drum; Galactic moon rock / crater / glowing crystals,
 asteroids (twinkle), station crate / sparking scrap heap / collapsed panel;
-Kitchen flour heap / coffee beans / paper towel, milk puddle / cereal /
+Kitchen flour heap / dry spaghetti / paper towel (coffee beans looked
+like poop), milk puddle / cereal /
 dust bunny, coffee spill / crumbs / foil ball; Birthday wrapping-paper heap
 / confetti mound / ribbon tangle, ball-pit balls / beach ball / deflated
 balloon, cushion / bunched rug / streamers. Total War's bathtub water is a

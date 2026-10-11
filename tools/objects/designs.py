@@ -236,14 +236,13 @@ def shelf_clutter(c, v, t):
     if v == 0:  # a heap of spilled flour
         heap(c, hexc("#ece6dc"))
         speckles(c, [(8, 24), (25, 25), (12, 27)], hexc("#ece6dc"))
-    elif v == 1:  # a pile of spilled coffee beans
+    elif v == 1:  # a heap of spilled dry spaghetti
         shadow(c, ry=3)
-        bean = hexc("#5a3420")
-        for x, y in ((8, 22), (13, 20), (18, 22), (23, 21), (10, 16), (16, 15), (21, 16),
-                     (13, 11), (19, 10), (6, 18), (26, 17), (15, 25)):
-            c.ellipse(x, y, 2.6, 2, bean)
-            c.line([(x - 1, y), (x + 1, y)], shade(bean, -0.2))
-            c.px(x - 1, y - 1, shade(bean, 0.2))
+        pasta = hexc("#f0cc60")
+        for k, (a, b) in enumerate((((4, 22), (27, 14)), ((5, 15), (28, 22)), ((7, 25), (25, 9)),
+                                    ((3, 18), (29, 18)), ((9, 10), (24, 26)), ((6, 12), (26, 25)))):
+            c.line([a, b], pasta if k % 2 == 0 else shade(pasta, -0.1), 2)
+            c.line([a, b], shade(pasta, 0.15))
     else:  # a crumpled paper towel
         paper = hexc("#e8ecf0")
         heap(c, paper, rx=11, ry=9)

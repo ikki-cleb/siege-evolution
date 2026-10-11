@@ -73,6 +73,7 @@ func _ready() -> void:
 	board.position = BOARD_POSITION
 	board.scale = Vector2(BOARD_SCALE, BOARD_SCALE)
 	add_child(board)
+	board.pack_color = pack.color
 	board.setup(level, Progress.biome)
 	board.cell_tapped.connect(_on_cell_tapped)
 	board.base_hit.connect(_on_base_hit)

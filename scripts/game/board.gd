@@ -131,6 +131,9 @@ var _flash_time := 0.0
 
 ## Draws shots and pulses above units and invaders.
 var fx: ShotEffects
+## The current pack's color: tints the pad under every unit, so units never
+## get mistaken for map objects.
+var pack_color := Color.TRANSPARENT
 ## Effects that sit on the ground, under units and invaders.
 var ground_fx: ShotEffects
 ## Tile art comes from the world (biome) being played, unless the level

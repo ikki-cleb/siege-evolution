@@ -43,6 +43,9 @@ const DROP_HEIGHT := 7.0
 const SHADOW_COLOR := Color(0, 0, 0, 0.45)
 const PAD_COLOR := Color(0, 0, 0, 0.18)
 const PAD_EDGE := Color(0, 0, 0, 0.35)
+## The pack-color tint on the pad (the user chose "subtle"): fill and edge.
+const PAD_TINT_FILL := 0.15
+const PAD_TINT_EDGE := 0.6
 const DUST_COLOR := Color(0.85, 0.78, 0.65)
 ## Wall relic aura: how often it ticks, how far it reaches (tiles), its color.
 const WALL_AURA_TICK := 0.5
@@ -517,8 +520,13 @@ func _draw() -> void:
 	# A faint pad on the tile and a soft shadow under the unit, so it looks
 	# planted on the ground instead of floating on the art.
 	if not destroyed:
+		# The pad is tinted with the pack's color (see Board.pack_color).
+		var tint := board.pack_color
+		var fill := Color(tint, PAD_TINT_FILL) if tint.a > 0.0 else PAD_COLOR
+		var edge := Color(tint, PAD_TINT_EDGE) if tint.a > 0.0 else PAD_EDGE
 		draw_rect(Rect2(-7.5, -7.5, 15, 15), PAD_COLOR)
-		draw_rect(Rect2(-7.5, -7.5, 15, 15), PAD_EDGE, false, 0.5)
+		draw_rect(Rect2(-7.5, -7.5, 15, 15), fill)
+		draw_rect(Rect2(-7.5, -7.5, 15, 15), edge, false, 0.5)
 		draw_set_transform(Vector2(0, 6.5), 0.0, Vector2(1.0, 0.4))
 		draw_circle(Vector2.ZERO, 7.5, SHADOW_COLOR)
 		draw_set_transform(Vector2.ZERO)
