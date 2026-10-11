@@ -6,7 +6,7 @@ kitchen_defense_level_03.png), then run from the project folder:
     python3 tools/import_backgrounds.py path/to/folder
 
 Each image is center-cropped to the board's 9:14 portrait shape, resized to
-864x1344, softened (see soften(): a light filter so backgrounds stay calm
+720x1120, softened (see soften(): a light filter so backgrounds stay calm
 and game sprites stand out), and saved as a compressed WebP in art/backgrounds/<world>/level_NN.webp
 (WebP keeps the web build small). It also writes a Godot .import file that
 tells Godot to store the image with lossy compression; Godot's default
@@ -23,7 +23,7 @@ from pathlib import Path
 from PIL import Image, ImageEnhance
 
 PROJECT = Path(__file__).resolve().parent.parent
-WIDTH, HEIGHT = 864, 1344  # 6x the 144x224-pixel board (sharp on a 1080p phone)
+WIDTH, HEIGHT = 720, 1120  # 5x the 144x224-pixel board (about 1:1 with a 1080p phone screen)
 QUALITY = 85
 # The "Light" filter the user picked: 30% less color, a bit less contrast,
 # a touch brighter. Set all three to 1.0 to import images untouched.

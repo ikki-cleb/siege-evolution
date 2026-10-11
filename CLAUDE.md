@@ -136,10 +136,11 @@ for 0.9s with a red warning before they explode (`Board.drop_bomb`).
 world loading in achievement checks) is fixed and guarded by a test; the
 loading screen no longer says "World 1". Web build: `index.pck.b64.txt` must
 stay under the artifact's 16 MB-per-file limit. It was 8.2 MB with no
-backgrounds. Backgrounds are 864x1344 and the importer writes a `.import`
+backgrounds. Backgrounds are 720x1120 and the importer writes a `.import`
 with lossy compression at quality 0.4 (Godot's lossless default made 5
-backgrounds cost 14 MB). Each one adds ~0.2 MB to the b64 file, so all 35
-should land near 15 MB: if it goes over, lower `compress/lossy_quality`
+backgrounds cost 14 MB). 25 backgrounds = 12.3 MB b64; each adds ~0.17 MB,
+so all 35 should land near 14 MB. The source images are not in the repo
+(only the softened imports): if it goes over, lower `compress/lossy_quality`
 in the .import files or the WIDTH/HEIGHT in `tools/import_backgrounds.py`.
 
 **Latest balance (5 levels x 8 waves, bot wins on levels 2-5), after
