@@ -2384,7 +2384,7 @@
       ],
       "coins": 15,
       "income": 5,
-      "budget": 16,
+      "budget": 17,
       "layout": [
         "S........",
         ".........",
@@ -2414,7 +2414,7 @@
       ],
       "coins": 20,
       "income": 6,
-      "budget": 26,
+      "budget": 28,
       "layout": [
         "....S....",
         ".........",
@@ -2444,7 +2444,7 @@
       ],
       "coins": 25,
       "income": 6,
-      "budget": 30,
+      "budget": 33,
       "layout": [
         "S...S...S",
         ".........",
@@ -2474,7 +2474,7 @@
       ],
       "coins": 30,
       "income": 7,
-      "budget": 38,
+      "budget": 42,
       "boss": "superbug",
       "layout": [
         "S...S....",
