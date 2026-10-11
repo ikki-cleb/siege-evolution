@@ -1031,7 +1031,7 @@
       "id": "mothership",
       "name": "Mothership",
       "movement": "flier",
-      "hp": 800,
+      "hp": 550,
       "armor": 0,
       "speed": 0.22,
       "base_damage": 10,
