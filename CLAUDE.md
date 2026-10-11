@@ -46,11 +46,25 @@ move/death) in all 7 worlds; only living things have faces. Levels can take
 painted backgrounds (game support done, none delivered yet).
 `DESIGN.md` has every design decision; read it before changing gameplay.
 
+**World order (v1.1):** Backyard Bugs, Wild Kingdom, Microscopic, Total
+War, Galactic Siege (Microscopic moved from 1st to 3rd; the user found its
+body-tissue art unsettling for a first world). Saves are keyed by world id.
+`Progress.WORLDS` sets the order; tests use `load_biome(2)` for Microscopic
+(where pack stats live). Backyard's tutorial has the beginner tips.
+Difficulty was retuned to rise in order: Backyard got Microscopic's old
+budgets (14/22/28/32) and a 450 HP Giant Centipede; Microscopic got
+17/28/28/36 and a 600 HP Superbug (Precision limits how high L4-5 can go).
+
 **Art handoff state.** The user is making the 35 level backgrounds in
 ChatGPT from drag-and-drop prompt files in `docs/art/chatgpt/` (one per
 world; filenames like `kitchen_defense_level_03.png`). When they send the
-images: `tools/import_backgrounds.py <folder>`, then import + content build,
-then republish. Follow-up once backgrounds exist: obstacle/spawn/base tiles
+images: `tools/import_backgrounds.py <folder>` (it also softens them: 30%
+less color, less contrast, a bit brighter, as the user chose), then import +
+content build, then republish. **Imported so far: Microscopic (all 5).**
+Images pasted mid-turn in chat don't get saved as files; ask the user to
+attach them in their own message. The user's batches arrive in reverse
+level order (oak roots = Backyard 5, pine forest = Wild Kingdom 5, toy road
+playmat = Total War 5); check each scene against the prompt file. Follow-up once backgrounds exist: obstacle/spawn/base tiles
 have their old floor color baked in and will show as squares on top of the
 art; redraw them with transparency. Two Claude Docs briefs exist for
 reference: backgrounds https://claude.ai/artifact/Dk8EnbQN1PGpeuyhSoS4xK and
@@ -127,6 +141,8 @@ loading screen no longer says "World 1". Web build: `index.pck.b64.txt` is
 **Latest balance (5 levels x 8 waves, bot wins on levels 2-5), after
 bosses became an instant loss:** World 1 95%, World 2 95%, World 3 88%,
 World 4 88%, World 5 75%, Kitchen 80%, Birthday 70%. Every check passes.
+After the reorder: Backyard 100%, Wild Kingdom 90%, Microscopic 95% (the
+bot can't separate W2/W3 finely; Precision is the binding pack).
 The Mothership went 1100 -> 550 HP and the bot now covers a flying boss's
 marked flight line; Swarm (weakest anti-air) still loses that level in the
 bot runs. Comet Tail losses predate the boss change. Path preview now shows on every level
