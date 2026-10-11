@@ -162,6 +162,7 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 					water[cell] = true
 					sea_spawn_cells.append(cell)
 	_make_base_block()
+	_add_spawners()
 
 	for grid in [_walk_grid, _smash_grid, _boat_grid, _boat_smash_grid]:
 		grid.region = Rect2i(Vector2i.ZERO, grid_size)
@@ -215,6 +216,24 @@ func _add_background(texture: Texture2D) -> void:
 	# tools/make_cutout_tiles.py) so they don't show squares of floor color.
 	for key in ["rock", "spawn", "base"]:
 		_tiles[key] = _cutout(_tiles[key])
+
+
+## Animated spawners (tools/draw_spawners.py) on the spawn tiles. Where a
+## world has one, the still spawn tile isn't drawn.
+var _animated_spawns := {}
+
+
+func _add_spawners() -> void:
+	var land := SpawnerView.strip_for(_tiles.spawn)
+	var sea := SpawnerView.strip_for(biome.sea_spawn_texture, true)
+	for cell in spawn_cells:
+		if land:
+			add_child(SpawnerView.new().setup(land, cell))
+			_animated_spawns[cell] = true
+	for cell in sea_spawn_cells:
+		if sea:
+			add_child(SpawnerView.new().setup(sea, cell))
+			_animated_spawns[cell] = true
 
 
 ## The see-through "_cut" version of a tile, or the tile itself if there is none.
@@ -839,12 +858,13 @@ func _draw() -> void:
 			var cell := Vector2i(x, y)
 			var texture: Texture2D = null if _has_background else _tiles.floor
 			if sea_spawn_cells.has(cell):
-				texture = biome.sea_spawn_texture
+				# Under an animated drain, plain water.
+				texture = biome.water_texture if _animated_spawns.has(cell) else biome.sea_spawn_texture
 			elif water.has(cell):
 				texture = biome.water_texture
 			elif rocks.has(cell):
 				texture = _tiles.rock
-			elif spawn_cells.has(cell):
+			elif spawn_cells.has(cell) and not _animated_spawns.has(cell):
 				texture = _tiles.spawn
 			if texture:
 				draw_texture(texture, Vector2(cell * TILE))

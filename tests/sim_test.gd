@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 146
+const MIN_RULE_CHECKS := 147
 var progress: Node
 
 
@@ -991,6 +991,11 @@ func _test_background(biome: BiomeData) -> void:
 	_check(sprite != null and game.board._has_background
 		and is_equal_approx(sprite.scale.x * 1152, 9 * Board.TILE) and is_equal_approx(sprite.scale.y * 1792, 14 * Board.TILE),
 		"A level background fills the 9x14 board exactly")
+	# Every spawn tile gets an animated spawner (and the still tile is hidden).
+	var spawners: Array = game.board.get_children().filter(func(child): return child is SpawnerView)
+	_check(spawners.size() == game.board.spawn_cells.size() + game.board.sea_spawn_cells.size()
+		and spawners.all(func(view): return view.strip.get_width() == view.strip.get_height() * SpawnerView.FRAMES),
+		"Each spawn tile plays an animated 4-frame spawner")
 	level.background = null
 	await _stop(game)
 

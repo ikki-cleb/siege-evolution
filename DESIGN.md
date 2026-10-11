@@ -333,6 +333,24 @@ mirrors each design, and a rules test checks it).
   and `<pack>_empty.png`; `scripts/ui/pack_symbol.gd` draws the partial
   fill (whole pixel rows from the bottom).
 
+## Spawners
+
+Every spawn tile shows an animated 32x32 spawner (a 4-frame loop at 5 fps;
+the board is drawn at 2x, so every pixel shows). Each has something alive
+in it so it reads as "invaders come from here": glinting eyes that blink,
+a swirling portal, a hopping lid. Designs (one per world plus variants):
+Backyard dirt-mound burrow; Wild Kingdom den under a rustling thicket;
+Microscopic pulsing pore with a rising spore; Total War red toy chest whose
+lid lifts (and a bathtub drain with swirling water for sea spawns);
+Galactic warp gate, asteroid crater and station hatch (all with a swirling
+vortex); Kitchen mouse hole in wood, plaster or tiled wall (nose twitches);
+Birthday giant present (lid hops, confetti), bounce-castle door and a
+doorway with bobbing balloons. Art: `python3 tools/draw_spawners.py`
+(designs in `tools/spawners/designs.py`) writes `spawner.png` /
+`sea_spawner.png` strips next to each world's tiles; `SpawnerView`
+(`scripts/game/spawner_view.gd`) plays them, and the still spawn tile is
+skipped wherever a strip exists.
+
 ## Microscopic unit names
 
 Microscopic uses plain body words, not biology terms, so the
