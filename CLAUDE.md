@@ -167,6 +167,10 @@ bosses became an instant loss:** World 1 95%, World 2 95%, World 3 88%,
 World 4 88%, World 5 75%, Kitchen 80%, Birthday 70%. Every check passes.
 After the reorder: Backyard 100%, Wild Kingdom 90%, Microscopic 95% (the
 bot can't separate W2/W3 finely; Precision is the binding pack).
+After the 3x2 base (the user chose to keep it harder): Backyard 90%,
+Wild Kingdom 85%, Microscopic 93%, Total War 78%, Galactic 68% (Crater Base
+and Comet Tail budgets lowered 24->22 and 29->26 so every pack still beats
+4 of 5), Kitchen 80%, Birthday 60%. Every check passes.
 The Mothership went 1100 -> 550 HP and the bot now covers a flying boss's
 marked flight line; Swarm (weakest anti-air) still loses that level in the
 bot runs. Comet Tail losses predate the boss change. Path preview now shows on every level
