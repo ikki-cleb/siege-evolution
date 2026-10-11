@@ -19,6 +19,9 @@ var _has_jumpers := false
 var _has_flying_boss := false
 var _boat_cells := {}  # water tiles boats use, for coverage scoring
 var _flier_points: Array[Vector2] = []
+## Points along a flying boss's flight line (from its marked spawn tile).
+## Like a player who sees the skull marker, the bot covers this line first.
+var _boss_flier_points: Array[Vector2] = []
 ## Coins kept back when buying a capstone, so the bot still builds.
 const CAPSTONE_RESERVE := 10
 
@@ -39,12 +42,28 @@ func _init(p_game, seed_value := 1) -> void:
 				for spawn in board.sea_spawn_cells:
 					for cell in board.route_for(entry.invader, spawn):
 						_boat_cells[cell] = 1
+	for wave in game.level.waves:
+		for entry in wave.entries:
+			if entry.invader.is_boss and entry.invader.movement == InvaderData.Movement.FLIER:
+				for spawn in game._boss_spawn_cells(wave):
+					_boss_flier_points.append_array(_line_points(spawn))
 	for spawn in board.spawn_cells:
 		var from := board.cell_center(spawn)
 		var to := board.cell_center(board.base_cell)
 		var steps := int(from.distance_to(to) / (Board.TILE * 0.5))
 		for i in steps:
 			_flier_points.append(from.lerp(to, float(i) / steps))
+
+
+## Points every half tile on the straight line from a spawn to the base.
+func _line_points(spawn: Vector2i) -> Array[Vector2]:
+	var points: Array[Vector2] = []
+	var from := board.cell_center(spawn)
+	var to := board.cell_center(board.base_cell)
+	var steps := int(from.distance_to(to) / (Board.TILE * 0.5))
+	for i in steps:
+		points.append(from.lerp(to, float(i) / steps))
+	return points
 
 
 ## Spends coins and free units until nothing more is worth doing.
@@ -258,6 +277,9 @@ func _coverage(cell: Vector2i, type: UnitData, walker: Dictionary, smasher: Dict
 		for point in _flier_points:
 			if center.distance_to(point) <= reach:
 				score += 0.5
+		for point in _boss_flier_points:
+			if center.distance_to(point) <= reach:
+				score += 2.0
 	return score
 
 
