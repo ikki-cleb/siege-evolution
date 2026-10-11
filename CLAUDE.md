@@ -134,9 +134,13 @@ for 0.9s with a red warning before they explode (`Board.drop_bomb`).
 
 **Recent fixes worth knowing:** a ~10s freeze after winning a level (slow
 world loading in achievement checks) is fixed and guarded by a test; the
-loading screen no longer says "World 1". Web build: `index.pck.b64.txt` is
-~8.5 MB of the artifact's 16 MB-per-file limit; watch it when big art lands
-(backgrounds are imported as compressed WebP for this reason).
+loading screen no longer says "World 1". Web build: `index.pck.b64.txt` must
+stay under the artifact's 16 MB-per-file limit. It was 8.2 MB with no
+backgrounds and 9.4 MB with Microscopic's 5. Backgrounds are 864x1344 and
+the importer writes a `.import` with lossy compression (Godot's lossless
+default made 5 backgrounds cost 14 MB). All 35 would land near 16-17 MB:
+if it goes over, lower `compress/lossy_quality` in the .import files or
+the WIDTH/HEIGHT in `tools/import_backgrounds.py`.
 
 **Latest balance (5 levels x 8 waves, bot wins on levels 2-5), after
 bosses became an instant loss:** World 1 95%, World 2 95%, World 3 88%,

@@ -6,9 +6,12 @@ kitchen_defense_level_03.png), then run from the project folder:
     python3 tools/import_backgrounds.py path/to/folder
 
 Each image is center-cropped to the board's 9:14 portrait shape, resized to
-1152x1792, softened (see soften(): a light filter so backgrounds stay calm
+864x1344, softened (see soften(): a light filter so backgrounds stay calm
 and game sprites stand out), and saved as a compressed WebP in art/backgrounds/<world>/level_NN.webp
-(WebP keeps the web build small). Then rebuild:
+(WebP keeps the web build small). It also writes a Godot .import file that
+tells Godot to store the image with lossy compression; Godot's default
+(lossless) made each background ~2 MB inside the game and the web build
+went over the 16 MB-per-file artifact limit with just 5 of them. Then rebuild:
 
     godot --headless --import
     godot --headless --script tools/build_content.gd
@@ -20,7 +23,7 @@ from pathlib import Path
 from PIL import Image, ImageEnhance
 
 PROJECT = Path(__file__).resolve().parent.parent
-WIDTH, HEIGHT = 1152, 1792  # 8x the 144x224-pixel board
+WIDTH, HEIGHT = 864, 1344  # 6x the 144x224-pixel board (sharp on a 1080p phone)
 QUALITY = 85
 # The "Light" filter the user picked: 30% less color, a bit less contrast,
 # a touch brighter. Set all three to 1.0 to import images untouched.
@@ -51,6 +54,32 @@ def soften(image):
     return ImageEnhance.Brightness(image).enhance(BRIGHTNESS)
 
 
+IMPORT_SETTINGS = """[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+
+[params]
+
+compress/mode=1
+compress/lossy_quality=0.7
+mipmaps/generate=false
+"""
+
+
+def write_import_settings(image_path):
+    """Makes Godot store this background lossy (small) instead of lossless."""
+    settings = image_path.with_name(image_path.name + ".import")
+    text = settings.read_text() if settings.exists() else ""
+    if "compress/mode=1" in text:
+        return
+    if "compress/mode=" in text:
+        text = text.replace("compress/mode=0", "compress/mode=1")
+    else:
+        text = IMPORT_SETTINGS
+    settings.write_text(text)
+
+
 def main(folder):
     worlds = {p.stem for p in (PROJECT / "tools" / "content").glob("*.json")}
     done = 0
@@ -66,6 +95,7 @@ def main(folder):
         out = PROJECT / "art" / "backgrounds" / world / f"level_{number}.webp"
         out.parent.mkdir(parents=True, exist_ok=True)
         soften(fit(Image.open(path))).save(out, "WEBP", quality=QUALITY)
+        write_import_settings(out)
         print(f"{path.name} -> {out.relative_to(PROJECT)} ({out.stat().st_size // 1024} KB)")
         done += 1
     print(done, "background(s) imported.")
