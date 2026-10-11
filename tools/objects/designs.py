@@ -16,7 +16,7 @@ from kit import hexc, shade  # noqa: E402
 
 FRAMES = 4
 LOOKS = 3
-SHADOW = (0, 0, 0, 95)
+SHADOW = (0, 0, 0, 130)
 WHITE = (255, 255, 255, 255)
 
 # Obstacle file (under art/tiles/) -> (design, animated?)
@@ -42,84 +42,93 @@ def speckles(c, points, color):
 # --- Backyard Bugs: garden stones --------------------------------------------
 
 @obstacle("backyard_bugs/obstacle.png")
-def garden_stone(c, v, t):
-    stone = hexc("#8e8a84")
-    if v == 0:  # a round boulder with moss on top
-        shadow(c)
-        c.blob(16, 18, 12, 10, stone)
-        c.ellipse(13, 10, 7, 3, hexc("#5e9a3a"))
-        c.ellipse(12, 9.5, 5, 2, hexc("#7cb84a"))
-        speckles(c, [(20, 20), (11, 22), (22, 15)], shade(stone, -0.15))
-    elif v == 1:  # stacked flat stones
+def garden_clutter(c, v, t):
+    # Garden junk (the bugs' walls are pebbles, stumps and mushrooms, so no
+    # stones or plants here).
+    if v == 0:  # a broken terracotta flower pot
+        clay = hexc("#c8683a")
+        shadow(c, rx=13)
+        c.poly([(4, 26), (7, 11), (25, 9), (28, 25), (19, 21), (14, 27)], clay)
+        c.poly([(7, 11), (25, 9), (25, 13), (7, 15)], shade(clay, 0.12))
+        c.line([(19, 21), (16, 14)], shade(clay, -0.3))
+        c.ellipse(16, 22, 4, 2, hexc("#5a3a22"))  # spilled soil
+    elif v == 1:  # a silver bottle cap lying upside down
+        metal = hexc("#b8bcc6")
         shadow(c, ry=3)
-        c.blob(16, 23, 13, 5, shade(stone, -0.05))
-        c.blob(15, 16, 10, 4.5, stone)
-        c.blob(17, 10, 7, 3.5, shade(stone, 0.06))
-        speckles(c, [(9, 23), (22, 16), (15, 10)], shade(stone, -0.18))
-    else:  # a rock with a little mushroom and clover
+        c.ellipse(16, 17, 12, 10, shade(metal, -0.25))
+        for k in range(16):  # the crimped edge
+            a = k * math.tau / 16
+            c.ellipse(16 + math.cos(a) * 11, 17 + math.sin(a) * 9, 1.4, 1.4, shade(metal, -0.1))
+        c.ellipse(16, 16.5, 9, 7, metal)
+        c.ellipse(16, 16.5, 4, 3, hexc("#3a6ad0"))
+        c.ellipse(12, 13, 3, 1.2, WHITE)
+    else:  # a coiled garden hose
+        hose = hexc("#3aa04a")
         shadow(c)
-        c.blob(15, 19, 11, 9, shade(stone, 0.03))
-        c.rect(23, 14, 25, 21, hexc("#f0e6d0"))
-        c.ellipse(24, 13, 4.5, 3, hexc("#d04a3a"))
-        speckles(c, [(22, 12), (25, 11)], WHITE)
-        for x, y in ((7, 25), (9, 24), (8, 26)):
-            c.ellipse(x, y, 1.6, 1.4, hexc("#5aa03a"))
+        for r in (11, 7.5, 4):
+            c.ellipse(16, 17, r, r * 0.8, shade(hose, -0.2))
+            c.ellipse(16, 16.5, r - 1.5, r * 0.8 - 1.5, (0, 0, 0, 0))
+        c.ellipse(16, 17, 2.5, 2, hexc("#c8c8c8"))  # the nozzle
 
 
 # --- Wild Kingdom: farm obstacles --------------------------------------------
 
 @obstacle("wild_kingdom/obstacle.png")
 def farm_obstacle(c, v, t):
-    if v == 0:  # a lichen-spotted boulder
-        stone = hexc("#9a948c")
+    # (The farm's units include hay bales, fences, stone walls and bushes.)
+    if v == 0:  # a dark granite boulder with pale lichen
+        stone = hexc("#5c5a60")
         shadow(c)
         c.blob(16, 18, 13, 10, stone)
-        speckles(c, [(10, 14), (11, 14), (20, 19), (21, 19), (14, 22)], hexc("#b8c070"))
+        speckles(c, [(10, 14), (11, 14), (20, 19), (21, 19), (14, 22), (22, 12)], hexc("#d8dcb8"))
         c.line([(18, 10), (21, 14)], shade(stone, -0.2))
-    elif v == 1:  # a tree stump with rings
-        bark = hexc("#7a5030")
-        shadow(c, rx=11)
-        c.rect(6, 14, 26, 26, bark)
-        c.rect(6, 14, 8, 26, shade(bark, 0.08))
-        c.rect(24, 14, 26, 26, shade(bark, -0.12))
-        c.ellipse(16, 14, 10, 5, hexc("#d8b078"))
-        c.ellipse(16, 14, 6.5, 3.2, hexc("#c09060"))
-        c.ellipse(16, 14, 3, 1.5, hexc("#d8b078"))
-        c.line([(16, 14), (21, 12)], hexc("#a07040"))
-    else:  # a hay bale
-        hay = hexc("#e0c060")
+    elif v == 1:  # an old wagon wheel lying in the grass
+        wood = hexc("#8a5a30")
+        shadow(c, ry=3)
+        c.ellipse(16, 17, 12.5, 10, hexc("#404048"))
+        c.ellipse(16, 17, 11, 8.5, wood)
+        c.ellipse(16, 17, 9, 6.5, (0, 0, 0, 0))
+        for k in range(8):
+            a = k * math.tau / 8
+            c.line([(16, 17), (16 + math.cos(a) * 9.5, 17 + math.sin(a) * 7)], wood, 2)
+        c.ellipse(16, 17, 2.5, 2, hexc("#404048"))
+    else:  # two pumpkins
+        orange = hexc("#e87a20")
         shadow(c, rx=13)
-        c.block(4, 10, 29, 27, hay)
-        for y in (13, 17, 21, 25):
-            c.line([(5, y), (27, y + 1)], shade(hay, -0.12))
-        c.rect(10, 10, 11, 26, hexc("#a06030"))
-        c.rect(21, 10, 22, 26, hexc("#a06030"))
+        for x, y, r in ((10, 19, 7.5), (22, 18, 6.5)):
+            c.blob(x, y, r, r * 0.8, orange)
+            c.line([(x, y - r * 0.7), (x, y + r * 0.7)], shade(orange, -0.2))
+            c.rect(x - 1, y - r * 0.8 - 2, x + 1, y - r * 0.8, hexc("#4a8a2a"))
 
 
 # --- Microscopic: cells (they pulse gently) -----------------------------------
 
 @obstacle("immune_system/obstacle.png", animated=True)
-def tissue_cell(c, v, t):
-    pulse = (0, 0.5, 1, 0.5)[t]
-    if v == 0:  # a red blood cell with its dimple
-        red = hexc("#c83848")
-        shadow(c, ry=3)
-        c.ellipse(16, 17, 12 + pulse, 10 + pulse, shade(red, -0.15))
-        c.ellipse(15.5, 16.5, 11.5 + pulse, 9.5 + pulse, red)
-        c.ellipse(16, 17, 6, 4.5, shade(red, -0.2))
-        c.ellipse(14, 13, 3, 1.5, shade(red, 0.18))
-    elif v == 1:  # a yellow fat cell with a nucleus
-        fat = hexc("#e8c860")
+def tissue_deposit(c, v, t):
+    # Hard deposits in the body: angular or flat, never round like the
+    # smiling cell units.
+    shine = (0, 0.05, 0.1, 0.05)[t]
+    if v == 0:  # a cluster of pale salt crystals
         shadow(c)
-        c.blob(16, 17, 12 + pulse * 0.6, 10 + pulse * 0.6, fat)
-        c.ellipse(20, 20, 3, 2.5, hexc("#a08030"))
-        c.px(19, 19, shade(fat, 0.2))
-    else:  # a cluster of purple membrane bubbles
-        purple = hexc("#8a4a8a")
-        shadow(c, rx=13)
-        for x, y, r in ((10, 19, 6), (21, 18, 7), (15, 11, 5.5)):
-            c.blob(x, y, r + pulse * 0.4, r + pulse * 0.4, purple)
-        speckles(c, [(9, 18), (20, 16), (14, 10)], shade(purple, 0.25))
+        for x, h, w in ((9, 13, 3), (16, 19, 4), (23, 14, 3)):
+            crystal = shade(hexc("#c8e4f0"), shine)
+            c.poly([(x - w, 26), (x + w, 26), (x + w, 26 - h + 3), (x, 26 - h), (x - w, 26 - h + 3)], crystal)
+            c.line([(x, 25), (x, 27 - h)], WHITE)
+    elif v == 1:  # branching bone spicules
+        bone = hexc("#ece4d0")
+        shadow(c)
+        c.line([(6, 26), (16, 14), (26, 26)], bone, 2)
+        c.line([(16, 14), (16, 4)], bone, 2)
+        c.line([(16, 9), (22, 5)], bone, 2)
+        c.line([(11, 20), (6, 15)], bone, 2)
+        for x, y in ((16, 4), (22, 5), (6, 15), (6, 26), (26, 26)):
+            c.ellipse(x, y, 1.6, 1.6, bone)
+    else:  # a flat smear of yellow plaque
+        plaque = shade(hexc("#e0c870"), shine)
+        c.ellipse(16, 20, 13, 6, (0, 0, 0, 70))
+        c.poly([(3, 20), (9, 13), (19, 12), (28, 16), (27, 23), (15, 26), (6, 25)], plaque)
+        c.poly([(9, 15), (19, 14), (24, 17), (14, 18)], shade(plaque, 0.12))
+        speckles(c, [(8, 21), (20, 22), (24, 19)], shade(plaque, -0.2))
 
 
 # --- Total War: toys -----------------------------------------------------------
@@ -170,19 +179,22 @@ def asteroid(c, v, t, rock, glint=True):
 
 @obstacle("galactic_siege/asteroid/obstacle.png", animated=True)
 def space_rock(c, v, t):
-    asteroid(c, v, t, hexc("#6a5a4c"))
+    # Icy blue-grey rocks, so they stand out on the brown asteroid field.
+    asteroid(c, v, t, hexc("#7a8ca4"))
+    for x, y in ((12, 10), (18, 9), (20, 11)):
+        c.px(x, y, hexc("#e8f4ff"))
 
 
 @obstacle("galactic_siege/obstacle.png", animated=True)
 def moon_obstacle(c, v, t):
     if v == 0:  # a grey moon rock
         asteroid(c, 0, t, hexc("#8a8c94"))
-    elif v == 1:  # a small crater
-        dust = hexc("#9a9ca4")
-        c.ellipse(16, 18, 13, 9, (0, 0, 0, 60))
-        c.ellipse(16, 17, 12.5, 8.5, shade(dust, 0.08))
-        c.ellipse(16, 18, 9, 6, shade(dust, -0.15))
-        c.ellipse(16, 19, 7, 4, shade(dust, -0.3))
+    elif v == 1:  # a dark meteorite with glowing lava cracks
+        shadow(c)
+        c.blob(16, 17, 11, 9, hexc("#3a3436"))
+        lava = (hexc("#ff7a20"), hexc("#ffb040"), hexc("#ff9030"), hexc("#ffb040"))[t]
+        c.line([(9, 15), (14, 18), (13, 23)], lava)
+        c.line([(14, 18), (21, 15), (24, 19)], lava)
     else:  # a cluster of glowing crystals
         shadow(c)
         glow = (0, 0.06, 0.12, 0.06)[t]

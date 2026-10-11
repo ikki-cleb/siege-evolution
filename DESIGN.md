@@ -364,29 +364,34 @@ skipped wherever a strip exists.
 
 Every obstacle tile is 32x32 code-drawn art in one of 3 looks for its
 world (or level variant), picked per tile by position so a level's
-obstacles are mixed. **Obstacles must never look like units** (the user's
-rule): they are terrain and clutter only, never devices, containers or
-items the packs are made of, and they share a "map object" style: colors
-muted ~28% and a soft outline in each object's own darker color (units
-have a black outline, a dark pad tinted subtly with the pack's color, and
-animate). Looks: Backyard boulders /
-stacked stones / mushroom rock; Wild Kingdom boulder / stump / hay bale;
-Microscopic blood cell / fat cell / bubbles (pulse); Total War letter block
-/ brick / toy drum; Galactic moon rock / crater / glowing crystals,
-asteroids (twinkle), station crate / sparking scrap heap / collapsed panel;
-Kitchen flour heap / dry spaghetti / paper towel (coffee beans looked
-like poop), milk puddle / cereal /
-dust bunny, coffee spill / crumbs / foil ball; Birthday wrapping-paper heap
-/ confetti mound / ribbon tangle, ball-pit balls / beach ball / deflated
-balloon, cushion / bunched rug / streamers. Total War's bathtub water is a
-seamless 4-frame ripple loop. Birthday Bash is the exception to the muted style: its
+obstacles are mixed. Two rules from the user:
+- **Obstacles must never look like units:** terrain and clutter only,
+  never devices, containers, plants or materials a world's units are made
+  of (Backyard has pebble, stump and mushroom units; Wild Kingdom has hay
+  bales, fences and bushes; Microscopic has round smiling cells).
+- **Obstacles must not camouflage into their backgrounds:** no pebbles on
+  pebbly ground, craters on a cratered moon, brown asteroids on an
+  asteroid field, red cells on red-cell tissue, hay on straw.
+
+Style: colors muted 15%, an outline in each object's own much darker color
+(units have a black outline and a pack-tinted pad, and animate), and a
+strong soft shadow. Birthday Bash keeps full color (`BOLD_WORLDS`) and its
 backgrounds are toned down an extra step (`WORLD_TONE` in
-`tools/import_backgrounds.py`) and its obstacles keep full color with a
-darker outline (`BOLD_WORLDS` in `tools/draw_objects.py`), because they faded
-into its busy, saturated art. Art: `python3 tools/draw_objects.py` (designs
-in `tools/objects/designs.py`) writes `obstacle.png` (3 looks x 1 or 4
-frames) and `water_anim.png` next to each world's tiles;
-`scripts/game/obstacle_layer.gd` draws them.
+`tools/import_backgrounds.py`), because its art is so busy.
+
+Looks: Backyard broken flower pot / silver bottle cap / coiled hose; Wild
+Kingdom granite boulder / wagon wheel / pumpkins; Microscopic salt
+crystals / bone spicules / plaque smear (they shimmer); Total War letter
+block / brick / toy drum; Galactic moon rock / meteorite with glowing lava
+cracks / crystals, icy blue asteroids (twinkle), station crate / sparking
+scrap heap / collapsed panel; Kitchen flour heap / dry spaghetti / paper
+towel, milk puddle / cereal / dust bunny, coffee spill / crumbs / foil
+ball; Birthday wrapping-paper heap / confetti mound / ribbon tangle,
+ball-pit balls / beach ball / deflated balloon, cushion / bunched rug /
+streamers. Total War's bathtub water is a seamless 4-frame ripple loop.
+Art: `python3 tools/draw_objects.py` (designs in `tools/objects/designs.py`)
+writes `obstacle.png` (3 looks x 1 or 4 frames) and `water_anim.png` next
+to each world's tiles; `scripts/game/obstacle_layer.gd` draws them.
 
 ## Microscopic unit names
 

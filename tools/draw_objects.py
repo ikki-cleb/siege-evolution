@@ -28,8 +28,8 @@ from kit import SIZE, Canvas  # noqa: E402
 # The "map object" look, so obstacles never read as units: colors a bit
 # muted, and a soft outline in each object's own darker color (units have a
 # black outline, a pad and animate).
-MUTE = 0.28        # how much color is taken out (0 = none, 1 = grey)
-OUTLINE_DARKEN = 0.5
+MUTE = 0.15        # how much color is taken out (0 = none, 1 = grey)
+OUTLINE_DARKEN = 0.3
 
 
 # Worlds with very busy, colorful backgrounds get bolder objects: less
