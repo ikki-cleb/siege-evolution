@@ -62,7 +62,7 @@ type="CompressedTexture2D"
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 mipmaps/generate=false
 """
 

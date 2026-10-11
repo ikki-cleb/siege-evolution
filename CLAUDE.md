@@ -60,7 +60,7 @@ ChatGPT from drag-and-drop prompt files in `docs/art/chatgpt/` (one per
 world; filenames like `kitchen_defense_level_03.png`). When they send the
 images: `tools/import_backgrounds.py <folder>` (it also softens them: 30%
 less color, less contrast, a bit brighter, as the user chose), then import +
-content build, then republish. **Imported so far: Microscopic (all 5).**
+content build, then republish. **Imported so far: Microscopic and Kitchen Defense (all 5 each).**
 Images pasted mid-turn in chat don't get saved as files; ask the user to
 attach them in their own message. The user's batches arrive in reverse
 level order (oak roots = Backyard 5, pine forest = Wild Kingdom 5, toy road
@@ -136,11 +136,11 @@ for 0.9s with a red warning before they explode (`Board.drop_bomb`).
 world loading in achievement checks) is fixed and guarded by a test; the
 loading screen no longer says "World 1". Web build: `index.pck.b64.txt` must
 stay under the artifact's 16 MB-per-file limit. It was 8.2 MB with no
-backgrounds and 9.4 MB with Microscopic's 5. Backgrounds are 864x1344 and
-the importer writes a `.import` with lossy compression (Godot's lossless
-default made 5 backgrounds cost 14 MB). All 35 would land near 16-17 MB:
-if it goes over, lower `compress/lossy_quality` in the .import files or
-the WIDTH/HEIGHT in `tools/import_backgrounds.py`.
+backgrounds. Backgrounds are 864x1344 and the importer writes a `.import`
+with lossy compression at quality 0.5 (Godot's lossless default made 5
+backgrounds cost 14 MB). Each one adds ~0.2 MB to the b64 file, so all 35
+should land near 15 MB: if it goes over, lower `compress/lossy_quality`
+in the .import files or the WIDTH/HEIGHT in `tools/import_backgrounds.py`.
 
 **Latest balance (5 levels x 8 waves, bot wins on levels 2-5), after
 bosses became an instant loss:** World 1 95%, World 2 95%, World 3 88%,
