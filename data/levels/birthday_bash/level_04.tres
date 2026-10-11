@@ -25,14 +25,13 @@
 [sub_resource type="Resource" id="Resource_eavmb"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("9_1j0fm")
-count = 11
-spacing = 1.4500000000000002
+count = 13
+spacing = 1.25
 
 [sub_resource type="Resource" id="Resource_0n1ji"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("10_wuggt")
-count = 4
-spacing = 4.0
+spacing = 3.2
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_0687o"]
@@ -49,8 +48,8 @@ entries = Array[ExtResource("8_b5spl")]([SubResource("Resource_eavmb"), SubResou
 [sub_resource type="Resource" id="Resource_bvel6"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("9_1j0fm")
-count = 10
-spacing = 1.6
+count = 11
+spacing = 1.4500000000000002
 
 [sub_resource type="Resource" id="Resource_yyrrl"]
 script = ExtResource("8_b5spl")
@@ -62,8 +61,8 @@ delay = 2.5
 [sub_resource type="Resource" id="Resource_tc5ru"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("12_41fl6")
-count = 3
-spacing = 5.0
+count = 4
+spacing = 4.0
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_gnd7a"]
@@ -76,8 +75,8 @@ delay = 7.5
 [sub_resource type="Resource" id="Resource_t14jh"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("11_efpb3")
-count = 6
-spacing = 2.6500000000000004
+count = 7
+spacing = 2.3000000000000003
 delay = 10.0
 
 [sub_resource type="Resource" id="Resource_6iwdc"]
@@ -93,14 +92,14 @@ spacing = 5.0
 [sub_resource type="Resource" id="Resource_yvoa7"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("15_vl1ad")
-count = 17
-spacing = 0.9500000000000001
+count = 19
+spacing = 0.8500000000000001
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_s2eym"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("16_t3uk4")
-count = 2
+count = 3
 spacing = 5.0
 delay = 5.0
 
@@ -111,8 +110,8 @@ entries = Array[ExtResource("8_b5spl")]([SubResource("Resource_xtpmo"), SubResou
 [sub_resource type="Resource" id="Resource_7xi46"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("17_iuyhs")
-count = 7
-spacing = 2.3000000000000003
+count = 8
+spacing = 2.0
 
 [sub_resource type="Resource" id="Resource_idvap"]
 script = ExtResource("8_b5spl")
@@ -124,8 +123,8 @@ delay = 2.5
 [sub_resource type="Resource" id="Resource_coblf"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("19_1nokk")
-count = 3
-spacing = 5.0
+count = 4
+spacing = 4.0
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_ttneu"]
@@ -138,8 +137,8 @@ delay = 7.5
 [sub_resource type="Resource" id="Resource_gpj20"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("9_1j0fm")
-count = 12
-spacing = 1.35
+count = 13
+spacing = 1.25
 delay = 10.0
 
 [sub_resource type="Resource" id="Resource_nmyc6"]
@@ -156,27 +155,27 @@ entries = Array[ExtResource("8_b5spl")]([SubResource("Resource_7xi46"), SubResou
 [sub_resource type="Resource" id="Resource_yn2aw"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("14_xp5k3")
-count = 3
-spacing = 5.0
+count = 4
+spacing = 4.0
 
 [sub_resource type="Resource" id="Resource_mukc8"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("11_efpb3")
-count = 12
-spacing = 1.35
+count = 14
+spacing = 1.1500000000000001
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_7jbyn"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("12_41fl6")
-count = 6
-spacing = 2.6500000000000004
+count = 7
+spacing = 2.3000000000000003
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_ikevh"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("13_klkei")
-count = 2
+count = 3
 spacing = 5.0
 delay = 7.5
 
@@ -187,20 +186,20 @@ entries = Array[ExtResource("8_b5spl")]([SubResource("Resource_yn2aw"), SubResou
 [sub_resource type="Resource" id="Resource_f86fb"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("21_uf57c")
-count = 9
-spacing = 1.8
+count = 10
+spacing = 1.6
 
 [sub_resource type="Resource" id="Resource_g1kob"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("19_1nokk")
-count = 9
-spacing = 1.8
+count = 10
+spacing = 1.6
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_kruy6"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("20_kcjvo")
-count = 2
+count = 3
 spacing = 5.0
 delay = 5.0
 
@@ -211,28 +210,27 @@ entries = Array[ExtResource("8_b5spl")]([SubResource("Resource_f86fb"), SubResou
 [sub_resource type="Resource" id="Resource_vcdhl"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("9_1j0fm")
-count = 17
-spacing = 0.9500000000000001
+count = 19
+spacing = 0.8500000000000001
 
 [sub_resource type="Resource" id="Resource_tpqb4"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("10_wuggt")
-count = 11
-spacing = 1.4500000000000002
+count = 12
+spacing = 1.35
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_dp52a"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("14_xp5k3")
-count = 4
-spacing = 4.0
+spacing = 3.2
 delay = 5.0
 
 [sub_resource type="Resource" id="Resource_pjwnf"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("15_vl1ad")
-count = 19
-spacing = 0.8500000000000001
+count = 21
+spacing = 0.75
 delay = 7.5
 
 [sub_resource type="Resource" id="Resource_fuvt2"]
@@ -249,14 +247,14 @@ entries = Array[ExtResource("8_b5spl")]([SubResource("Resource_vcdhl"), SubResou
 [sub_resource type="Resource" id="Resource_0xpsr"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("9_1j0fm")
-count = 9
-spacing = 1.8
+count = 10
+spacing = 1.6
 
 [sub_resource type="Resource" id="Resource_4jo65"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("10_wuggt")
-count = 6
-spacing = 2.6500000000000004
+count = 7
+spacing = 2.3000000000000003
 delay = 2.5
 
 [sub_resource type="Resource" id="Resource_dhmq1"]
@@ -269,7 +267,7 @@ delay = 5.0
 [sub_resource type="Resource" id="Resource_wofa6"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("13_klkei")
-count = 1
+count = 2
 spacing = 5.0
 delay = 7.5
 
@@ -297,15 +295,15 @@ delay = 15.0
 [sub_resource type="Resource" id="Resource_7ilki"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("11_efpb3")
-count = 6
-spacing = 2.6500000000000004
+count = 7
+spacing = 2.3000000000000003
 delay = 17.5
 
 [sub_resource type="Resource" id="Resource_8yh5i"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("15_vl1ad")
-count = 7
-spacing = 2.3000000000000003
+count = 8
+spacing = 2.0
 delay = 20.0
 
 [sub_resource type="Resource" id="Resource_5p8v4"]
@@ -332,7 +330,7 @@ delay = 27.5
 [sub_resource type="Resource" id="Resource_x5xp2"]
 script = ExtResource("8_b5spl")
 invader = ExtResource("18_4hql0")
-count = 1
+count = 2
 spacing = 5.0
 delay = 30.0
 
