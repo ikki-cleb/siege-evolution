@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 133
+const MIN_RULE_CHECKS := 137
 var progress: Node
 
 
@@ -430,6 +430,29 @@ func _test_relics(biome: BiomeData) -> void:
 	_check(is_equal_approx(unit.stat("damage"), damage_before), "A relic doesn't work until the next wave")
 	game.start_wave()
 	_check(is_equal_approx(unit.stat("damage"), damage_before * 1.3), "...then it powers up matching units")
+	await _stop(game)
+
+	# One-time relics pay out the moment they're picked.
+	game = await _start(biome, 0, 1)
+	var coins_before: int = game.coins
+	game.relic_offer = [RelicSet.find("gift_box")]
+	game.pick_relic(0)
+	_check(game.coins == coins_before + 25, "Gift Box pays its coins right when it's picked")
+	# Offers are random: rolling many times gives different offers.
+	var seen := {}
+	for i in 8:
+		var offer := RelicSet.new().roll_offer(game.unit_types, 0, randi())
+		seen[str(offer.map(func(relic): return relic.id))] = true
+	_check(seen.size() > 1, "Relic offers are random, not the same every time")
+	# Removing a unit takes two taps.
+	var placed: Unit = game.board.place_unit(game.unit_types[0], Vector2i(4, 8))
+	game._select_cell(placed.cell)
+	game.hud.refresh()
+	game.hud._on_remove_pressed()
+	_check(game.board.units.has(Vector2i(4, 8)) and game.hud._sell_button.text.begins_with("Tap again"),
+		"The first tap on Remove only asks to confirm")
+	game.hud._on_remove_pressed()
+	_check(not game.board.units.has(Vector2i(4, 8)), "...and the second tap removes the unit")
 	await _stop(game)
 
 	# Economy relics: evolutions get cheaper.

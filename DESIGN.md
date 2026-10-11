@@ -101,14 +101,17 @@ screen, in a level or in the menus. The list lives in
    during waves; the build phase always runs at 1×, so starting a wave
    visibly speeds up.
 3. Survive **8 waves** to clear the level. **Pass/fail only**, no stars.
-4. **The base** is a 3x2 block on the bottom middle of the board (the "B"
+4. **Removing a unit** takes two taps: the first turns the Remove button
+   into "Tap again to remove", the second removes it (selecting anything
+   else cancels).
+5. **The base** is a 3x2 block on the bottom middle of the board (the "B"
    in a layout marks its bottom-middle tile; at the sides it shifts inward).
    Nothing can be built on it, and invaders arrive as soon as they step onto
    any of its tiles (fliers: as soon as they're over it). Each world draws it
    as one big sprite with depth (`tools/draw_bases.py`: anthill, farmhouse,
    heart, toy fort, reactor, cookie jar, cake). It cracks below 2/3 and 1/3
    HP, and flashes red and shakes when hit.
-5. **Lose:** the base has 20 HP, and each invader does its own base damage
+6. **Lose:** the base has 20 HP, and each invader does its own base damage
    when it arrives. **A boss reaching the base is always an instant loss**
    (its minions only do their normal damage).
 
@@ -164,6 +167,8 @@ gold with a gem over its head. Kill it and it drops a relic; if it reaches the
 base, that relic is lost. When the wave ends, a **choose 1 of 3** card screen
 opens (the next wave can't start until you pick). The relic **starts working
 when the next wave starts** and lasts until the end of the level (max 4).
+One-time relics (gift coins, base heal, free walls) pay out **the moment
+they're picked**.
 
 - **Pool:** 64 relics in `data/relics.json` (32 common, 22 rare, 10 epic).
   Each targets all units, a role (attackers, walls, anti-air, ground-only,
@@ -176,7 +181,8 @@ when the next wave starts** and lasts until the end of the level (max 4).
 - **Offers** only include relics useful for the units you can field this
   level, never repeat one you have, and later relics in a level roll better
   rarities (epic chance 3% for the first, 18% for the fourth). Offers are
-  seeded by world, level and wave.
+  **fully random** every time (the user chose variety and replayability
+  over exact balance), so bot balance numbers vary a little between runs.
 - **How it works in code:** `scripts/game/relic_set.gd` (pool, filters,
   offers, stat math), `Unit.stat()` (every relic-affected stat goes through
   it), `scripts/ui/relic_icon.gd` (38 pixel icons). Picked relics show as

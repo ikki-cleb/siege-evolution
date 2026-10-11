@@ -342,7 +342,7 @@
     "icon": "box",
     "color": "#c0a080",
     "filter": "economy",
-    "desc": "Get 2 free basic walls in your hand.",
+    "desc": "Get 2 free basic walls in your hand right away.",
     "economy": {
       "free_walls": 2
     }
@@ -354,7 +354,7 @@
     "icon": "gift",
     "color": "#ff80c0",
     "filter": "economy",
-    "desc": "Get 25 coins when the next wave starts.",
+    "desc": "Get 25 coins right away.",
     "economy": {
       "gift_coins": 25
     }
@@ -366,7 +366,7 @@
     "icon": "heart",
     "color": "#ff6070",
     "filter": "economy",
-    "desc": "Heal your base by 4 HP.",
+    "desc": "Heal your base by 4 HP right away.",
     "economy": {
       "base_heal": 4
     }

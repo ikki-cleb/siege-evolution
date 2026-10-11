@@ -521,11 +521,10 @@ func _on_relic_lost() -> void:
 	hud.show_message("The relic carrier got through. That relic is lost!")
 
 
-## Rolls three relics and opens the picker. The seed comes from the world,
-## level and wave, so the same run offers the same relics.
+## Rolls three random relics and opens the picker. Offers are truly random
+## (different every time), for variety and replayability.
 func _offer_relics() -> void:
-	var seed_text := "%s/%s/%d/relic" % [Progress.biome.id, level.display_name, wave_number]
-	relic_offer = board.relics.roll_offer(unit_types, _relics_offered, seed_text.hash())
+	relic_offer = board.relics.roll_offer(unit_types, _relics_offered, randi())
 	_relics_offered += 1
 	if relic_offer.is_empty():
 		return
@@ -543,23 +542,37 @@ func pick_relic(index: int) -> void:
 	relic_offer = []
 	hud.close_relic_picker()
 	Audio.play("evolve", 0.0)
-	hud.show_message("%s: %s It starts working next wave." % [relic.name, relic.desc])
+	# One-time rewards (coins, healing, free walls) pay out right away;
+	# lasting effects start with the next wave.
+	if _apply_instant_relic(relic):
+		hud.show_message("%s: %s" % [relic.name, relic.desc])
+	else:
+		hud.show_message("%s: %s It starts working next wave." % [relic.name, relic.desc])
 	hud.refresh()
 
 
-## At the start of a wave: picked relics turn on. One-time relics pay out now,
-## and every unit is topped up to its (possibly higher) health.
+## Pays out a relic's one-time rewards. Returns true if it had any.
+func _apply_instant_relic(relic: Dictionary) -> bool:
+	var economy: Dictionary = relic.get("economy", {})
+	var any := false
+	if economy.has("gift_coins"):
+		_earn_coins(int(economy.gift_coins))
+		any = true
+	if economy.has("base_heal"):
+		base_hp = mini(level.base_hp, base_hp + int(economy.base_heal))
+		board.set_base_health(float(base_hp) / level.base_hp)
+		any = true
+	if economy.has("free_walls"):
+		var wall := unit_types[0]
+		hand[wall.id] = hand.get(wall.id, 0) + int(economy.free_walls)
+		any = true
+	return any
+
+
+## At the start of a wave: picked relics turn on, and every unit is topped up
+## to its (possibly higher) health.
 func _activate_relics() -> void:
-	for relic in board.relics.activate_pending():
-		var economy: Dictionary = relic.get("economy", {})
-		if economy.has("gift_coins"):
-			_earn_coins(int(economy.gift_coins))
-		if economy.has("base_heal"):
-			base_hp = mini(level.base_hp, base_hp + int(economy.base_heal))
-			board.set_base_health(float(base_hp) / level.base_hp)
-		if economy.has("free_walls"):
-			var wall := unit_types[0]
-			hand[wall.id] = hand.get(wall.id, 0) + int(economy.free_walls)
+	board.relics.activate_pending()
 	var per_wave := roundi(board.relics.economy("wave_coins"))
 	if per_wave > 0:
 		_earn_coins(per_wave)

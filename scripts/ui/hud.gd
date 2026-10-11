@@ -40,6 +40,8 @@ var _armed_option := -1
 ## The unit whose upgrade is being previewed (a new selection resets it).
 var _armed_unit: Unit = null
 var _sell_button: Button
+## Removing takes two taps: the unit the first tap armed (null = none).
+var _remove_armed_unit: Unit = null
 var _speed_button: Button
 ## Shown while a unit is selected, so it's obvious how to deselect it.
 var _cancel_button: Button
@@ -84,6 +86,8 @@ func refresh() -> void:
 	# Selecting a different unit (or nothing) cancels an upgrade preview.
 	if game.selected_unit() != _armed_unit or game.phase != game.Phase.BUILD:
 		_disarm()
+	if game.selected_unit() != _remove_armed_unit or game.phase != game.Phase.BUILD:
+		_remove_armed_unit = null
 	if _armed_option >= 0:
 		# The footnote area shows the before → after numbers.
 		_footnote_label.text = game.stat_changes(_armed_unit.data, _armed_unit.data.evolutions[_armed_option])
@@ -128,7 +132,10 @@ func refresh() -> void:
 				button.icon = options[i].icon()
 				button.disabled = false  # tap to preview, even if it's too expensive yet
 		var value: Dictionary = game.sell_value(unit)
-		_sell_button.text = "Remove\nto hand" if value.to_hand else "Remove\n+%s %d" % [Palette.COIN, value.coins]
+		if _remove_armed_unit == unit:
+			_sell_button.text = "Tap again\nto remove"
+		else:
+			_sell_button.text = "Remove\nto hand" if value.to_hand else "Remove\n+%s %d" % [Palette.COIN, value.coins]
 
 	_cancel_button.visible = game.has_selection()
 	_speed_button.text = "%dx" % game.speed
@@ -496,7 +503,7 @@ func _build_bottom_bar() -> void:
 		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		_selection_row.add_child(button)
 		_evolve_buttons.append(button)
-	_sell_button = _make_button("Remove", game.sell_selected)
+	_sell_button = _make_button("Remove", _on_remove_pressed)
 	_sell_button.custom_minimum_size = Vector2(80, 64)
 	_sell_button.add_theme_font_size_override("font_size", SMALL_FONT)
 	_selection_row.add_child(_sell_button)
@@ -536,6 +543,20 @@ func _on_evolve_pressed(index: int) -> void:
 	refresh()
 	game.board.preview_range = option.attack_range if option.can_attack() else 0.0
 	game.board.queue_redraw()
+
+
+## First tap on Remove asks to confirm; the second removes the unit.
+func _on_remove_pressed() -> void:
+	var unit: Unit = game.selected_unit()
+	if unit == null:
+		return
+	if _remove_armed_unit == unit:
+		_remove_armed_unit = null
+		game.sell_selected()
+		return
+	_remove_armed_unit = unit
+	show_message("Remove %s? Tap Remove again to confirm, or Cancel." % unit.data.display_name)
+	refresh()
 
 
 func _disarm() -> void:
