@@ -2444,7 +2444,7 @@
       ],
       "coins": 25,
       "income": 6,
-      "budget": 33,
+      "budget": 28,
       "layout": [
         "S...S...S",
         ".........",
@@ -2474,7 +2474,7 @@
       ],
       "coins": 30,
       "income": 7,
-      "budget": 42,
+      "budget": 36,
       "boss": "superbug",
       "layout": [
         "S...S....",
