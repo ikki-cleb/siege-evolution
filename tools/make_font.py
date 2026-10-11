@@ -31,11 +31,13 @@ FONTS = PROJECT / "assets" / "fonts"
 
 # source file, output file, new family name, scale (1.0 = as designed),
 # characters to mirror left-right (Coiny draws "/" leaning the wrong way,
-# so "0/27" read as "0\27")
+# so "0/27" read as "0\27"), and characters to redraw as a pointed V
+# (Coiny's rounded V and v made "EVOLUTION" read as "EUOLUTION")
 BUILDS = [
-    ("Coiny-Regular.ttf", "SiegeTitle.ttf", "Siege Title", 1.0, "/"),
-    ("SpaceMono-Regular.ttf", "SiegeText.ttf", "Siege Text", 0.88, ""),
+    ("Coiny-Regular.ttf", "SiegeTitle.ttf", "Siege Title", 1.0, "/", "Vv"),
+    ("SpaceMono-Regular.ttf", "SiegeText.ttf", "Siege Text", 0.88, "", ""),
 ]
+V_STROKE = 225  # stroke thickness for redrawn V shapes (Coiny's "l" is ~220)
 
 # The icons, one string per row ('#' = filled pixel). 7 rows tall, like a digit.
 EXTRA = {
@@ -96,11 +98,37 @@ def mirror(font, char):
     glyph.recalcBounds(font["glyf"])
 
 
-def build(source, output, family, scale, flip):
+def pointed_v(font, char):
+    """Replaces a character with a bold V that has a pointed bottom, the
+    same size as the original."""
+    name = font.getBestCmap()[ord(char)]
+    old = font["glyf"][name]
+    x0, x1, bottom, top = old.xMin, old.xMax, max(0, old.yMin), old.yMax
+    middle = (x0 + x1) / 2
+    stroke = V_STROKE
+    # How far down the inside notch reaches: keeps the arms about `stroke` thick.
+    notch = bottom + stroke * 1.25
+    tip = stroke * 0.42  # half-width of the bottom point
+    points = [(x0, top), (x0 + stroke, top), (middle, notch), (x1 - stroke, top),
+        (x1, top), (middle + tip, bottom), (middle - tip, bottom)]
+    pen = TTGlyphPen(None)
+    pen.moveTo(tuple(round(v) for v in points[0]))
+    for point in points[1:]:
+        pen.lineTo(tuple(round(v) for v in point))
+    pen.closePath()
+    glyph = pen.glyph()
+    font["glyf"][name] = glyph
+    glyph.recalcBounds(font["glyf"])
+    font["hmtx"][name] = (font["hmtx"][name][0], glyph.xMin)
+
+
+def build(source, output, family, scale, flip, vees):
     font = TTFont(FONTS / source)
     cmap = font.getBestCmap()
     for char in flip:
         mirror(font, char)
+    for char in vees:
+        pointed_v(font, char)
     # Size the icons from the font's own "0", so they sit like a digit.
     zero = font["glyf"][cmap[ord("0")]]
     left, bottom, top = 40, zero.yMin, zero.yMax
