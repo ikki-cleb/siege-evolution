@@ -156,6 +156,7 @@ func take_damage(amount: float, attacker: Invader = null) -> void:
 		attacker.take_damage(amount * data.reflect, true)
 	if attacker and data.grab_stun > 0.0 and _grab_cooldown <= 0.0:
 		attacker.apply_stun(data.grab_stun)
+		attacker.show_grabbed(data.grab_stun)
 		_grab_cooldown = GRAB_COOLDOWN
 		board.fx.add_pulse(position, Board.TILE * 0.9, Palette.GOLD)
 	hp -= amount
@@ -280,6 +281,8 @@ func _shoot(target: Invader) -> void:
 	else:
 		board.fx.add_shot(position, target.position, data.shot_color)
 	if data.splash_radius > 0.0:
+		# The blast area: a soft filled flash plus the expanding ring.
+		board.fx.add_blast(target.position, data.splash_radius * Board.TILE, data.shot_color)
 		board.fx.add_pulse(target.position, data.splash_radius * Board.TILE, data.shot_color)
 		for other in _invaders_in_range(target.position, data.splash_radius):
 			if not victims.has(other):
@@ -299,7 +302,7 @@ func _shoot(target: Invader) -> void:
 		if next == null:
 			break
 		factor *= CHAIN_FALLOFF
-		board.fx.add_shot(from, next.position, data.shot_color.lightened(0.3))
+		board.fx.add_bolt(from, next.position, data.shot_color.lightened(0.3))
 		victims.append(next)
 		_hit(next, factor)
 		from = next.position
@@ -366,9 +369,12 @@ func _draw() -> void:
 		var glow := 0.25 + 0.15 * sin(Time.get_ticks_msec() / 300.0)
 		draw_circle(Vector2.ZERO, 9.5, Color(Palette.GOLD, glow * 0.5))
 		draw_arc(Vector2.ZERO, 9.0, 0.0, TAU, 24, Color(Palette.GOLD, glow + 0.2), 1.0)
-	# Goo drips over sticky units.
+	# Goo drips over sticky units, with a puddle at their feet.
 	if sticky > 0.0:
 		var goo := Color(Board.SPILL_COLOR, 0.85)
+		draw_set_transform(Vector2(0, 6), 0.0, Vector2(1.0, 0.45))
+		draw_circle(Vector2.ZERO, 7.0, Color(Board.SPILL_COLOR, 0.55))
+		draw_set_transform(Vector2.ZERO)
 		draw_rect(Rect2(-6, -7, 12, 3), goo)
 		for x in [-5, -1, 3]:
 			draw_rect(Rect2(x, -4, 2, 3 + (x + 5) % 3), goo)

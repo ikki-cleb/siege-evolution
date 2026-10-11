@@ -22,6 +22,16 @@ var _bombs: Array[Dictionary] = []
 var _explosions: Array[Dictionary] = []
 ## Burrow holes / water splashes: {center, water, time, duration}
 var _holes: Array[Dictionary] = []
+## Dotted streaks (teleports, knockbacks): {from, to, color, time, duration}
+var _streaks: Array[Dictionary] = []
+## Lightning arcs for chain hits: {points, color, time}
+var _bolts: Array[Dictionary] = []
+## Splash hits: a soft filled circle over the blast area {center, radius, color, time}
+var _blasts: Array[Dictionary] = []
+const BLAST_DURATION := 0.25
+## Blobs thrown in an arc (goo): {from, to, color, time, duration}
+var _lobs: Array[Dictionary] = []
+const BOLT_DURATION := 0.2
 const HOLE_COLOR := Color(0.16, 0.1, 0.06)
 const HOLE_RIM := Color(0.5, 0.34, 0.2)
 const SPLASH_COLOR := Color(0.85, 0.95, 1.0)
@@ -70,11 +80,42 @@ func add_hole(center: Vector2, water: bool, duration := 3.0) -> void:
 	queue_redraw()
 
 
+## A dotted line from `from` to `to` that fades out (where a teleporter
+## jumped, or how far a knockback shoved something).
+func add_streak(from: Vector2, to: Vector2, color: Color, duration := 0.45) -> void:
+	_streaks.append({"from": from, "to": to, "color": color, "time": duration, "duration": duration})
+	queue_redraw()
+
+
+## The area a splash shot hits, as a quick filled flash.
+func add_blast(center: Vector2, radius: float, color: Color) -> void:
+	_blasts.append({"center": center, "radius": radius, "color": color, "time": BLAST_DURATION})
+	queue_redraw()
+
+
+## A jagged lightning arc between two points (chain hits).
+func add_bolt(from: Vector2, to: Vector2, color: Color) -> void:
+	var points := PackedVector2Array([from])
+	var side := (to - from).orthogonal().normalized()
+	for i in range(1, 5):
+		points.append(from.lerp(to, i / 5.0) + side * randf_range(-3.0, 3.0))
+	points.append(to)
+	_bolts.append({"points": points, "color": color, "time": BOLT_DURATION})
+	queue_redraw()
+
+
+## A blob thrown from `from` to `to` in an arc (a spiller's goo).
+func add_lob(from: Vector2, to: Vector2, color: Color, duration := 0.35) -> void:
+	_lobs.append({"from": from, "to": to, "color": color, "time": duration, "duration": duration})
+	queue_redraw()
+
+
 func _process(delta: float) -> void:
-	if _shots.is_empty() and _pulses.is_empty() and _puffs.is_empty() \
-			and _bombs.is_empty() and _explosions.is_empty() and _holes.is_empty():
+	if _shots.is_empty() and _pulses.is_empty() and _puffs.is_empty() and _bombs.is_empty() \
+			and _explosions.is_empty() and _holes.is_empty() and _streaks.is_empty() \
+			and _bolts.is_empty() and _lobs.is_empty() and _blasts.is_empty():
 		return
-	for effect in _shots + _pulses + _puffs + _bombs + _explosions + _holes:
+	for effect in _shots + _pulses + _puffs + _bombs + _explosions + _holes + _streaks + _bolts + _lobs + _blasts:
 		effect.time -= delta
 	_shots = _shots.filter(func(effect): return effect.time > 0.0)
 	_pulses = _pulses.filter(func(effect): return effect.time > 0.0)
@@ -82,6 +123,10 @@ func _process(delta: float) -> void:
 	_bombs = _bombs.filter(func(effect): return effect.time > 0.0)
 	_explosions = _explosions.filter(func(effect): return effect.time > 0.0)
 	_holes = _holes.filter(func(effect): return effect.time > 0.0)
+	_streaks = _streaks.filter(func(effect): return effect.time > 0.0)
+	_bolts = _bolts.filter(func(effect): return effect.time > 0.0)
+	_lobs = _lobs.filter(func(effect): return effect.time > 0.0)
+	_blasts = _blasts.filter(func(effect): return effect.time > 0.0)
 	queue_redraw()
 
 
@@ -103,6 +148,22 @@ func _draw() -> void:
 		var color: Color = pulse.color
 		color.a = 0.6 * (1.0 - progress)
 		draw_arc(pulse.center, pulse.radius * (0.3 + 0.7 * progress), 0, TAU, 32, color, 1.0)
+	for blast in _blasts:
+		var fade: float = blast.time / BLAST_DURATION
+		draw_circle(blast.center, blast.radius, Color(blast.color, 0.28 * fade))
+		draw_arc(blast.center, blast.radius, 0, TAU, 24, Color(blast.color, 0.7 * fade), 1.0)
+	for streak in _streaks:
+		var fade: float = streak.time / streak.duration
+		draw_dashed_line(streak.from, streak.to, Color(streak.color, 0.8 * fade), 1.0, 2.0)
+	for bolt in _bolts:
+		var fade: float = bolt.time / BOLT_DURATION
+		draw_polyline(bolt.points, Color(bolt.color, fade), 1.5)
+		draw_polyline(bolt.points, Color(1, 1, 1, fade), 0.5)
+	for lob in _lobs:
+		var progress: float = 1.0 - lob.time / lob.duration
+		var spot: Vector2 = (lob.from as Vector2).lerp(lob.to, progress) + Vector2(0, -sin(progress * PI) * 8.0)
+		draw_circle(spot, 2.0, lob.color)
+		draw_circle(spot + Vector2(-0.6, -0.6), 0.7, Color(1, 1, 1, 0.6))
 	for bomb in _bombs:
 		_draw_falling_bomb(bomb)
 	for explosion in _explosions:

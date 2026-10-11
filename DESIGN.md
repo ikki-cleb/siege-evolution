@@ -472,6 +472,18 @@ Beating the Clown shows the bonus world-cleared screen.
   to a pulsing red ring where it will come up. It pops out with a hop and a
   dirt burst, leaving a second hole for a few seconds. Submarines get the
   water version: splash, foam ripple, bubble trail, splash on surfacing.
+- **Special moves read clearly:** teleporters flicker purple and show a
+  shrinking ring plus a dashed line to their landing tile for 0.6s before a
+  blink, then leave a purple streak and flash on arrival. Jumpers squash and
+  bracket their landing tile while crouching, cast a shadow mid-hop and puff
+  dust on landing. Split pieces, piñata surprises and boss minions fly out
+  of their parent. Spillers lob visible goo blobs onto units, and sticky
+  units get a goo puddle.
+- **Player effects on enemies:** stunned = circling stars, slowed = frost
+  specks, poisoned = green bubbles (one per stacked dose; poison and zones
+  no longer make enemies flash white every frame), marked = red reticle,
+  grabbed = gold hand. Chain hits draw lightning, splash hits flash their
+  blast area, knockbacks leave a white shove streak.
 - **Fire rate:** a unit's info line shows its fire rate as shots per
   second. A placed unit sped up by neighbors (Swarm), auras or slowed by goo
   shows its current rate with the base in brackets ("2.9 shots/s (base

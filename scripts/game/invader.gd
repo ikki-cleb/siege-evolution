@@ -41,6 +41,17 @@ const DIRT_DARK := Color(0.24, 0.15, 0.08)
 const WATER_FOAM := Color(0.85, 0.95, 1.0)
 const SHIELD_COLOR := Color(0.85, 0.9, 1.0)
 var _dig_time := 0.0
+## Teleporters glow and show where they'll land for this long before a blink.
+const BLINK_CHARGE := 0.6
+const BLINK_COLOR := Color(0.7, 0.4, 1.0)
+## Pieces from a split or a toss fly from their parent to their spot.
+const TOSS_TIME := 0.35
+var _toss_time := 0.0
+var _toss_offset := Vector2.ZERO
+## Seconds left on a grab wall's hold (draws a "grabbed" hand).
+var _grab_time := 0.0
+## How many poison doses are stacked (1-3 bubbles).
+var _poison_doses := 0
 var _rise_time := 0.0
 var _spray_timer := 0.0
 var _exit_pos := Vector2.ZERO
@@ -138,7 +149,9 @@ func distance_to_base() -> float:
 
 
 ## A hit from a unit. Armor reduces each hit unless it pierces.
-func take_damage(amount: float, pierce := false) -> void:
+## `flash` is false for damage over time (poison, zones), which ticks every
+## frame: a constant white flash would hide the poison tint.
+func take_damage(amount: float, pierce := false, flash := true) -> void:
 	if not alive:
 		return
 	var armor := maxi(0, data.armor - armor_lost)
@@ -147,7 +160,8 @@ func take_damage(amount: float, pierce := false) -> void:
 	if mark_time > 0.0:
 		amount *= 1.0 + mark_bonus
 	hp -= amount
-	_hit_flash = 0.08
+	if flash:
+		_hit_flash = 0.08
 	queue_redraw()
 	if hp <= 0.0:
 		alive = false
@@ -171,6 +185,7 @@ func apply_stun(duration: float) -> void:
 func apply_poison(dps: float, duration: float, spreads: bool) -> void:
 	var current := poison_dps if poison_time > 0.0 else 0.0
 	poison_dps = max(current, min(current + dps, dps * POISON_STACK_LIMIT))
+	_poison_doses = mini(3, (_poison_doses if poison_time > 0.0 else 0) + 1)
 	poison_time = max(poison_time, duration)
 	poison_spreads = poison_spreads or spreads
 
@@ -187,7 +202,11 @@ func knock_back(tiles: int) -> void:
 		return
 	_knockback_cooldown = KNOCKBACK_COOLDOWN
 	var landing := maxi(0, mini(path_index, path.size()) - 1 - tiles)
+	var from := position
 	position = board.cell_center(path[landing])
+	# A white shove streak shows how far it was pushed back.
+	board.fx.add_streak(from, position, Color.WHITE, 0.35)
+	board.fx.add_puff(position, Color(0.9, 0.9, 0.9))
 	path_index = landing + 1
 	_hopping = false
 	_sprite.position.y = 0.0
@@ -242,7 +261,7 @@ func _update_effects(delta: float) -> void:
 		hp = min(hp + data.regen * delta, data.max_hp)
 	if poison_time > 0.0:
 		poison_time = max(0.0, poison_time - delta)
-		take_damage(poison_dps * delta, true)
+		take_damage(poison_dps * delta, true, false)
 
 	# Tint shows the strongest active effect.
 	var tint := Color.WHITE
@@ -255,10 +274,17 @@ func _update_effects(delta: float) -> void:
 	if _hit_flash > 0.0:
 		_hit_flash -= delta
 		tint = Color(2.2, 2.2, 2.2)  # brighter than white = a flash
+	# Teleporters flicker purple while charging up a blink.
+	if data.blink_interval > 0.0 and _blink_timer < BLINK_CHARGE and not underground:
+		tint = tint.lerp(BLINK_COLOR, 0.35 + 0.35 * sin(Time.get_ticks_msec() / 40.0))
 	_sprite.modulate = tint
+	_grab_time = maxf(0.0, _grab_time - delta)
+	if poison_time <= 0.0:
+		_poison_doses = 0
+	_update_pose(delta)
 	# Walkers bob as they move (fliers glide, hops have their own arc).
 	_update_burrow_visuals(delta)
-	if not is_flying() and not _hopping and stun_time <= 0.0 and _dig_time <= 0.0 and _rise_time <= 0.0:
+	if not is_flying() and not _hopping and stun_time <= 0.0 and _dig_time <= 0.0 and _rise_time <= 0.0 and _toss_time <= 0.0:
 		_sprite.position.y = sin(Time.get_ticks_msec() / 90.0 + _bob_offset) * 0.8
 	queue_redraw()
 
@@ -323,6 +349,7 @@ func _walk(tiles: float, delta: float) -> void:
 		if _hopping:
 			_hopping = false
 			_sprite.position.y = 0.0
+			board.fx.add_puff(position + Vector2(0, 5), Color(0.85, 0.78, 0.65))
 
 
 func _update_hop_arc(target: Vector2) -> void:
@@ -340,11 +367,36 @@ func _blink() -> void:
 	var landing := mini(path_index + data.blink_distance - 1, path.size() - 2)
 	if landing < path_index:
 		return
-	board.fx.add_pulse(position, Board.TILE * 0.8, Color(0.7, 0.4, 1.0))
+	var from := position
+	# A fading purple "ghost" where it was, a streak to where it went, and a
+	# bright flash where it arrives.
+	board.fx.add_puff(from, BLINK_COLOR)
+	board.fx.add_pulse(from, Board.TILE * 0.8, BLINK_COLOR)
 	Sfx.play("blink")
 	position = board.cell_center(path[landing])
 	path_index = landing + 1
-	board.fx.add_pulse(position, Board.TILE * 0.8, Color(0.7, 0.4, 1.0))
+	board.fx.add_streak(from, position, BLINK_COLOR)
+	board.fx.add_pulse(position, Board.TILE * 1.3, BLINK_COLOR)
+	board.fx.add_puff(position, Color(0.9, 0.8, 1.0))
+
+
+## Where the next blink will land (for the charge-up preview).
+func _blink_landing() -> Vector2:
+	if path.is_empty() or path_index >= path.size() - 1:
+		return position
+	var landing := mini(path_index + data.blink_distance - 1, path.size() - 2)
+	return board.cell_center(path[maxi(landing, path_index)])
+
+
+## A piece of a split (or a tossed minion) flies from `from` to its own spot.
+func toss_in(from: Vector2) -> void:
+	_toss_offset = from - position
+	_toss_time = TOSS_TIME
+
+
+## Called by a grab wall: shows a gold "grabbed" hand while it's held.
+func show_grabbed(seconds: float) -> void:
+	_grab_time = seconds * (0.3 if data.is_boss else 1.0)
 
 
 ## Drops the bomb on the most valuable unit in reach (if any).
@@ -409,6 +461,23 @@ func _surface() -> void:
 	board.ground_fx.add_hole(position, data.naval)
 
 
+## Crouching before a hop, and flying in after a split or toss.
+func _update_pose(delta: float) -> void:
+	if _dig_time > 0.0 or _rise_time > 0.0:
+		return
+	if _toss_time > 0.0:
+		_toss_time = maxf(0.0, _toss_time - delta)
+		var left := _toss_time / TOSS_TIME  # 1 -> 0
+		_sprite.position = _toss_offset * left + Vector2(0, -sin(left * PI) * 5.0)
+		_sprite.scale = _base_scale * (1.0 - 0.5 * left)
+		if _toss_time <= 0.0:
+			_sprite.position = Vector2.ZERO
+			_sprite.scale = _base_scale
+		return
+	var crouching := _hopping and _hop_wait > 0.0
+	_sprite.scale = _base_scale * (Vector2(1.12, 0.84) if crouching else Vector2.ONE)
+
+
 ## Runs the sink, trail and pop-up animations.
 func _update_burrow_visuals(delta: float) -> void:
 	for point in _trail:
@@ -444,11 +513,11 @@ func _draw() -> void:
 		_draw_tunneler()
 		return
 	var half := 9.0 if data.is_boss else 6.0
+	_draw_move_hints(half)
 	if hp < data.max_hp:
 		draw_rect(Rect2(-half, -half - 4, half * 2, 2), Color(0.1, 0.1, 0.1))
 		draw_rect(Rect2(-half, -half - 4, half * 2 * hp / data.max_hp, 2), Color(1, 0.3, 0.3))
-	if mark_time > 0.0:
-		draw_circle(Vector2(half - 1, -half + 1), 1.5, Color(1, 0.2, 0.2))
+	_draw_status(half)
 
 
 ## Churned dirt (or bubbles) left behind the tunneler, fading out.
@@ -491,3 +560,69 @@ func _draw_shield(at: Vector2) -> void:
 	var inner := PackedVector2Array([at + Vector2(-1.7, -1.8), at + Vector2(1.7, -1.8),
 		at + Vector2(1.7, 0.2), at + Vector2(0, 2), at + Vector2(-1.7, 0.2)])
 	draw_colored_polygon(inner, SHIELD_COLOR)
+
+
+## Previews for special moves: where a teleporter will land, where a jumper
+## will land, and a shadow under a jumper in mid-air.
+func _draw_move_hints(half: float) -> void:
+	if data.blink_interval > 0.0 and _blink_timer < BLINK_CHARGE and not underground:
+		var charge := 1.0 - _blink_timer / BLINK_CHARGE  # 0 -> 1
+		draw_arc(Vector2.ZERO, half + 4.0 * (1.0 - charge), 0, TAU, 20, Color(BLINK_COLOR, 0.4 + 0.5 * charge), 1.0)
+		var landing := _blink_landing() - position
+		if landing.length() > 2.0:
+			draw_dashed_line(Vector2.ZERO, landing, Color(BLINK_COLOR, 0.6 * charge), 0.75, 2.0)
+			draw_circle(landing, 3.0 + 2.0 * charge, Color(BLINK_COLOR, 0.3 * charge))
+	if _hopping and path_index < path.size():
+		var target := board.cell_center(path[path_index]) - position
+		if _hop_wait > 0.0:
+			_draw_brackets(target, Color(1, 0.65, 0.2, 0.9))
+		else:
+			# Shadow on the ground under the leaping sprite.
+			draw_set_transform(Vector2(0, 5), 0.0, Vector2(1.0, 0.4))
+			draw_circle(Vector2.ZERO, 5.0, Color(0, 0, 0, 0.35))
+			draw_set_transform(Vector2.ZERO)
+
+
+## Corner brackets around a tile, centered on `at`.
+func _draw_brackets(at: Vector2, color: Color) -> void:
+	var size := Board.TILE * 0.5 - 1.0
+	for corner in [Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1), Vector2(1, 1)]:
+		var tip: Vector2 = at + corner * size
+		draw_line(tip, tip - Vector2(corner.x * 3.0, 0), color, 1.0)
+		draw_line(tip, tip - Vector2(0, corner.y * 3.0), color, 1.0)
+
+
+## Icons for what the player's units are doing to this invader.
+func _draw_status(half: float) -> void:
+	var now := Time.get_ticks_msec() / 1000.0
+	# Stunned: two little stars circling above its head.
+	if stun_time > 0.0:
+		for i in 2:
+			var angle := now * 6.0 + i * PI
+			var spot := Vector2(cos(angle) * 4.0, -half - 2.0 + sin(angle) * 1.5)
+			draw_rect(Rect2(spot - Vector2(1, 0), Vector2(3, 1)), Color(1, 0.95, 0.4))
+			draw_rect(Rect2(spot - Vector2(0, 1), Vector2(1, 3)), Color(1, 0.95, 0.4))
+	# Slowed: pale blue frost specks drifting around it.
+	if slow_time > 0.0:
+		for i in 3:
+			var angle := now * 1.5 + i * TAU / 3.0
+			var spot := Vector2(cos(angle) * (half + 1.0), sin(angle) * (half - 1.0))
+			draw_rect(Rect2(spot, Vector2(1.5, 1.5)), Color(0.75, 0.9, 1.0, 0.9))
+	# Poisoned: green bubbles rising, one per stacked dose.
+	for i in _poison_doses:
+		var rise := fmod(now * 0.9 + i * 0.33, 1.0)
+		var spot := Vector2(-3.0 + i * 3.0, -half * rise)
+		draw_circle(spot, 1.6, Color(0.45, 1.0, 0.35, 0.85 * (1.0 - rise)))
+		draw_circle(spot + Vector2(-0.5, -0.5), 0.5, Color(1, 1, 1, 0.8 * (1.0 - rise)))
+	# Marked: a red target reticle.
+	if mark_time > 0.0:
+		var r := half + 2.0
+		draw_arc(Vector2.ZERO, r, 0, TAU, 24, Color(1, 0.25, 0.25, 0.85), 0.75)
+		for dir in [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]:
+			draw_line(dir * (r - 2.0), dir * (r + 1.5), Color(1, 0.25, 0.25), 1.0)
+	# Grabbed by a grab wall: a gold hand above it.
+	if _grab_time > 0.0:
+		var top := Vector2(0, -half - 4.0)
+		draw_rect(Rect2(top + Vector2(-2.5, 0), Vector2(5, 3)), Palette.GOLD)
+		for x in [-2.5, -1.0, 0.5, 2.0]:
+			draw_rect(Rect2(top + Vector2(x, -2), Vector2(1, 2)), Palette.GOLD)

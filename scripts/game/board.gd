@@ -502,7 +502,7 @@ func _update_zones(delta: float) -> void:
 				continue
 			match zone.kind:
 				"burn":
-					invader.take_damage(zone.power * delta, true)
+					invader.take_damage(zone.power * delta, true, false)
 				"freeze":
 					invader.apply_slow(zone.power, 0.3)
 				"toxic":
@@ -583,6 +583,8 @@ func spawn_from(parent: Invader, data: InvaderData, count: int, drops_coins := t
 			index = from_index
 		var invader := _add_invader(data, start + nudge, path, index)
 		invader.drops_coins = drops_coins
+		# The new piece visibly flies out of its parent to its spot.
+		invader.toss_in(parent.position)
 		if not data.pinata_pool.is_empty():
 			# Tossed piñatas get their own numbering, so their surprises don't
 			# depend on how they interleave with the wave's own piñatas.
@@ -696,6 +698,8 @@ func spill(cell: Vector2i, slow: float) -> void:
 		for dx in [-1, 0, 1]:
 			var unit := intact_unit_at(cell + Vector2i(dx, dy))
 			if unit:
+				# A blob of goo flies from the spiller onto the unit.
+				fx.add_lob(cell_center(cell), unit.position, SPILL_COLOR)
 				unit.make_sticky(slow)
 				hit_any = true
 	if hit_any:
