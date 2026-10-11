@@ -137,7 +137,7 @@ world loading in achievement checks) is fixed and guarded by a test; the
 loading screen no longer says "World 1". Web build: `index.pck.b64.txt` must
 stay under the artifact's 16 MB-per-file limit. It was 8.2 MB with no
 backgrounds. Backgrounds are 864x1344 and the importer writes a `.import`
-with lossy compression at quality 0.5 (Godot's lossless default made 5
+with lossy compression at quality 0.4 (Godot's lossless default made 5
 backgrounds cost 14 MB). Each one adds ~0.2 MB to the b64 file, so all 35
 should land near 15 MB: if it goes over, lower `compress/lossy_quality`
 in the .import files or the WIDTH/HEIGHT in `tools/import_backgrounds.py`.
