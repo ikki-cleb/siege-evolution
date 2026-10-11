@@ -32,7 +32,14 @@ MUTE = 0.28        # how much color is taken out (0 = none, 1 = grey)
 OUTLINE_DARKEN = 0.5
 
 
-def object_style(img):
+# Worlds with very busy, colorful backgrounds get bolder objects: less
+# muted and a darker outline, so they don't fade into the art (the user's
+# pick for Birthday Bash). world id -> (mute, outline darken)
+BOLD_WORLDS = {"birthday_bash": (0.0, 0.25)}
+
+
+def object_style(img, world=""):
+    mute, darken = BOLD_WORLDS.get(world, (MUTE, OUTLINE_DARKEN))
     pix = img.load()
     w, h = img.size
     # Mute the solid pixels (shadows are see-through, leave them).
@@ -42,7 +49,7 @@ def object_style(img):
             if a < 200:
                 continue
             grey = 0.3 * r + 0.59 * g + 0.11 * b
-            pix[x, y] = tuple(int(c + (grey - c) * MUTE) for c in (r, g, b)) + (a,)
+            pix[x, y] = tuple(int(c + (grey - c) * mute) for c in (r, g, b)) + (a,)
     # Outline every solid shape with a darker copy of the color next to it.
     src = img.copy()
     spix = src.load()
@@ -53,19 +60,19 @@ def object_style(img):
             for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
                 if 0 <= nx < w and 0 <= ny < h and spix[nx, ny][3] >= 200:
                     r, g, b, _ = spix[nx, ny]
-                    pix[x, y] = (int(r * OUTLINE_DARKEN), int(g * OUTLINE_DARKEN), int(b * OUTLINE_DARKEN), 255)
+                    pix[x, y] = (int(r * darken), int(g * darken), int(b * darken), 255)
                     break
     return img
 
 
-def obstacle_sheet(design, animated):
+def obstacle_sheet(design, animated, world=""):
     frames = FRAMES if animated else 1
     sheet = Image.new("RGBA", (SIZE * frames, SIZE * LOOKS), (0, 0, 0, 0))
     for v in range(LOOKS):
         for t in range(frames):
             canvas = Canvas()
             design(canvas, v, t)
-            sheet.alpha_composite(object_style(canvas.img), (t * SIZE, v * SIZE))
+            sheet.alpha_composite(object_style(canvas.img, world), (t * SIZE, v * SIZE))
     return sheet
 
 
@@ -104,7 +111,7 @@ def main():
         preview(sys.argv[sys.argv.index("--preview") + 1])
         return
     for name, (design, animated) in OBSTACLES.items():
-        obstacle_sheet(design, animated).save(os.path.join(ROOT, "art", "tiles", name))
+        obstacle_sheet(design, animated, name.split("/")[0]).save(os.path.join(ROOT, "art", "tiles", name))
     for name, color in WATER.items():
         water_strip(color).save(os.path.join(ROOT, "art", "tiles", name))
     print("Wrote %d obstacle sets and %d water strips" % (len(OBSTACLES), len(WATER)))

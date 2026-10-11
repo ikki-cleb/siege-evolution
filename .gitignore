@@ -3,3 +3,6 @@
 # Exported builds
 build/
 playtest/
+
+# Python caches from the art tools
+__pycache__/

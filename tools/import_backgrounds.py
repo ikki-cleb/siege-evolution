@@ -33,6 +33,10 @@ BRIGHTNESS = 1.04
 # Busy backgrounds can get the stronger "Medium" filter instead: half the
 # color, softer contrast and a pale wash. List them here by file name.
 MEDIUM = {"total_war_level_05"}  # the playroom playmat
+# Whole worlds whose art is extra saturated get toned down further, after
+# the normal filter: (color, contrast, brightness). Birthday Bash: the user
+# found it too saturated and the map objects faded into it.
+WORLD_TONE = {"birthday_bash": (0.55, 0.8, 0.97)}
 NAME = re.compile(r"^([a-z_]+)_level_(\d\d)$")
 
 
@@ -102,7 +106,13 @@ def main(folder):
             continue
         out = PROJECT / "art" / "backgrounds" / world / f"level_{number}.webp"
         out.parent.mkdir(parents=True, exist_ok=True)
-        soften(fit(Image.open(path)), path.stem in MEDIUM).save(out, "WEBP", quality=QUALITY)
+        image = soften(fit(Image.open(path)), path.stem in MEDIUM)
+        tone = WORLD_TONE.get(NAME.match(path.stem).group(1)) if NAME.match(path.stem) else None
+        if tone:
+            image = ImageEnhance.Color(image).enhance(tone[0])
+            image = ImageEnhance.Contrast(image).enhance(tone[1])
+            image = ImageEnhance.Brightness(image).enhance(tone[2])
+        image.save(out, "WEBP", quality=QUALITY)
         write_import_settings(out)
         print(f"{path.name} -> {out.relative_to(PROJECT)} ({out.stat().st_size // 1024} KB)")
         done += 1

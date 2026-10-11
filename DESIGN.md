@@ -379,7 +379,11 @@ like poop), milk puddle / cereal /
 dust bunny, coffee spill / crumbs / foil ball; Birthday wrapping-paper heap
 / confetti mound / ribbon tangle, ball-pit balls / beach ball / deflated
 balloon, cushion / bunched rug / streamers. Total War's bathtub water is a
-seamless 4-frame ripple loop. Art: `python3 tools/draw_objects.py` (designs
+seamless 4-frame ripple loop. Birthday Bash is the exception to the muted style: its
+backgrounds are toned down an extra step (`WORLD_TONE` in
+`tools/import_backgrounds.py`) and its obstacles keep full color with a
+darker outline (`BOLD_WORLDS` in `tools/draw_objects.py`), because they faded
+into its busy, saturated art. Art: `python3 tools/draw_objects.py` (designs
 in `tools/objects/designs.py`) writes `obstacle.png` (3 looks x 1 or 4
 frames) and `water_anim.png` next to each world's tiles;
 `scripts/game/obstacle_layer.gd` draws them.
