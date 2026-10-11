@@ -20,6 +20,11 @@ var _puffs: Array[Dictionary] = []
 var _bombs: Array[Dictionary] = []
 ## {center, radius, time, smoke}
 var _explosions: Array[Dictionary] = []
+## Burrow holes / water splashes: {center, water, time, duration}
+var _holes: Array[Dictionary] = []
+const HOLE_COLOR := Color(0.16, 0.1, 0.06)
+const HOLE_RIM := Color(0.5, 0.34, 0.2)
+const SPLASH_COLOR := Color(0.85, 0.95, 1.0)
 
 
 func add_shot(from: Vector2, to: Vector2, color: Color) -> void:
@@ -58,21 +63,31 @@ func add_explosion(center: Vector2, radius: float) -> void:
 	queue_redraw()
 
 
+## A hole in the ground where a burrower dug in or came up (or, in water,
+## rings of foam). It fades out over `duration` seconds.
+func add_hole(center: Vector2, water: bool, duration := 3.0) -> void:
+	_holes.append({"center": center, "water": water, "time": duration, "duration": duration})
+	queue_redraw()
+
+
 func _process(delta: float) -> void:
 	if _shots.is_empty() and _pulses.is_empty() and _puffs.is_empty() \
-			and _bombs.is_empty() and _explosions.is_empty():
+			and _bombs.is_empty() and _explosions.is_empty() and _holes.is_empty():
 		return
-	for effect in _shots + _pulses + _puffs + _bombs + _explosions:
+	for effect in _shots + _pulses + _puffs + _bombs + _explosions + _holes:
 		effect.time -= delta
 	_shots = _shots.filter(func(effect): return effect.time > 0.0)
 	_pulses = _pulses.filter(func(effect): return effect.time > 0.0)
 	_puffs = _puffs.filter(func(effect): return effect.time > 0.0)
 	_bombs = _bombs.filter(func(effect): return effect.time > 0.0)
 	_explosions = _explosions.filter(func(effect): return effect.time > 0.0)
+	_holes = _holes.filter(func(effect): return effect.time > 0.0)
 	queue_redraw()
 
 
 func _draw() -> void:
+	for hole in _holes:
+		_draw_hole(hole)
 	for shot in _shots:
 		var color: Color = shot.color
 		color.a = shot.time / SHOT_DURATION
@@ -92,6 +107,23 @@ func _draw() -> void:
 		_draw_falling_bomb(bomb)
 	for explosion in _explosions:
 		_draw_explosion(explosion)
+
+
+func _draw_hole(hole: Dictionary) -> void:
+	var fade: float = minf(1.0, hole.time / 0.8)  # fades out in the last 0.8s
+	var center: Vector2 = hole.center
+	if hole.water:
+		# Foam rings spreading out on the water.
+		var age: float = hole.duration - hole.time
+		for i in 2:
+			var radius := 3.0 + fmod(age * 6.0 + i * 3.0, 7.0)
+			draw_arc(center, radius, 0, TAU, 20, Color(SPLASH_COLOR, 0.6 * fade), 1.0)
+		return
+	# A dark oval hole with a lighter rim of dug-up dirt.
+	draw_set_transform(center + Vector2(0, 3), 0.0, Vector2(1.0, 0.55))
+	draw_circle(Vector2.ZERO, 5.0, Color(HOLE_RIM, 0.9 * fade))
+	draw_circle(Vector2.ZERO, 3.6, Color(HOLE_COLOR, 0.95 * fade))
+	draw_set_transform(Vector2.ZERO)
 
 
 func _draw_falling_bomb(bomb: Dictionary) -> void:

@@ -113,6 +113,8 @@ var _flash_time := 0.0
 
 ## Draws shots and pulses above units and invaders.
 var fx: ShotEffects
+## Effects that sit on the ground, under units and invaders.
+var ground_fx: ShotEffects
 ## Tile art comes from the world (biome) being played, unless the level
 ## has its own.
 var biome: BiomeData
@@ -167,6 +169,10 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 		_add_background(level.background)
 	boss_marker = BossMarker.new()
 	add_child(boss_marker)
+	# Effects on the ground (burrow holes, splashes): drawn under units and
+	# invaders, because they're added before any of them.
+	ground_fx = ShotEffects.new()
+	add_child(ground_fx)
 	fx = ShotEffects.new()
 	fx.z_index = 10
 	add_child(fx)

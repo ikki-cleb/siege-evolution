@@ -466,6 +466,12 @@ Beating the Clown shows the bonus world-cleared screen.
 
 - **Look:** one theme for menus and the in-level screen. Each world has an
   accent color, used for titles, card stripes and the HUD's accent lines.
+- **Burrowing:** a burrower sinks into the ground with dirt spraying,
+  leaving a hole. Underground it's a wobbling soil bump with a small shield
+  icon (can't be hit) that leaves a fading trail, and a red dashed line runs
+  to a pulsing red ring where it will come up. It pops out with a hop and a
+  dirt burst, leaving a second hole for a few seconds. Submarines get the
+  water version: splash, foam ripple, bubble trail, splash on surfacing.
 - **Fire rate:** a unit's info line shows its fire rate as shots per
   second. A placed unit sped up by neighbors (Swarm), auras or slowed by goo
   shows its current rate with the base in brackets ("2.9 shots/s (base

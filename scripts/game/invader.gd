@@ -29,6 +29,24 @@ var path_index := 0
 ## True while tunneling (can't be hit). Burrowers dig in only once.
 var underground := false
 var _has_burrowed := false
+## Burrowing visuals: the sprite sinks in over DIG_TIME, a bump of soil (or
+## ripple, for boats) travels underground leaving a trail, and it pops back
+## out over RISE_TIME. A dashed line shows where it will come up.
+const DIG_TIME := 0.45
+const RISE_TIME := 0.4
+const TRAIL_LIFE := 1.4
+const DIRT := Color(0.45, 0.3, 0.18)
+const DIRT_LIGHT := Color(0.62, 0.45, 0.28)
+const DIRT_DARK := Color(0.24, 0.15, 0.08)
+const WATER_FOAM := Color(0.85, 0.95, 1.0)
+const SHIELD_COLOR := Color(0.85, 0.9, 1.0)
+var _dig_time := 0.0
+var _rise_time := 0.0
+var _spray_timer := 0.0
+var _exit_pos := Vector2.ZERO
+var _base_scale := Vector2.ONE
+## Churned-up ground behind the tunneler: {pos (board space), age}.
+var _trail: Array[Dictionary] = []
 var _start_index := 0
 var _emerge_index := 0
 ## Bombers look for a target once they've flown this share of the way...
@@ -100,6 +118,7 @@ func setup(p_data: InvaderData, p_board: Board, start: Vector2, p_path: Array[Ve
 		_strips.start_loop(_sprite, data.anim_move, StripPlayer.ACTION_FPS)
 		size *= float(Board.TILE) / data.anim_move.get_height()
 	_sprite.scale = Vector2(size, size)
+	_base_scale = _sprite.scale
 	add_child(_sprite)
 	# Fliers are drawn above everything else on the board.
 	z_index = 5 if is_flying() else 1
@@ -238,7 +257,8 @@ func _update_effects(delta: float) -> void:
 		tint = Color(2.2, 2.2, 2.2)  # brighter than white = a flash
 	_sprite.modulate = tint
 	# Walkers bob as they move (fliers glide, hops have their own arc).
-	if not is_flying() and not _hopping and stun_time <= 0.0:
+	_update_burrow_visuals(delta)
+	if not is_flying() and not _hopping and stun_time <= 0.0 and _dig_time <= 0.0 and _rise_time <= 0.0:
 		_sprite.position.y = sin(Time.get_ticks_msec() / 90.0 + _bob_offset) * 0.8
 	queue_redraw()
 
@@ -352,30 +372,76 @@ func _should_burrow() -> bool:
 
 
 ## Digs in: heads straight for a tile further along the route, underground.
+## (It can't be hit from this moment; the sinking is just the animation.)
 func _start_tunnel() -> void:
 	_has_burrowed = true
 	underground = true
 	_emerge_index = mini(path_index + data.burrow_length, path.size() - 2)
-	_sprite.visible = false
+	_exit_pos = board.cell_center(path[_emerge_index])
+	_dig_time = DIG_TIME
+	board.ground_fx.add_hole(position, data.naval)
 	queue_redraw()
 
 
 func _tunnel(step: float) -> void:
-	var target := board.cell_center(path[_emerge_index])
+	var target := _exit_pos
 	position = position.move_toward(target, step)
+	# Leave churned ground (or bubbles) behind every few pixels.
+	if _trail.is_empty() or _trail[-1].pos.distance_to(position) > 3.0:
+		_trail.append({"pos": position, "age": 0.0})
 	if position.distance_to(target) < 0.5:
 		position = target
 		underground = false
 		path_index = _emerge_index + 1
-		_sprite.visible = true
+		_surface()
 	queue_redraw()
 
 
+## Bursts back out of the ground with a spray of dirt (or a splash).
+func _surface() -> void:
+	_dig_time = 0.0
+	_rise_time = RISE_TIME
+	_sprite.visible = true
+	var color := WATER_FOAM if data.naval else DIRT_LIGHT
+	board.fx.add_puff(position + Vector2(-3, 3), color)
+	board.fx.add_puff(position + Vector2(3, 3), color)
+	board.fx.add_pulse(position, Board.TILE, color)
+	board.ground_fx.add_hole(position, data.naval)
+
+
+## Runs the sink, trail and pop-up animations.
+func _update_burrow_visuals(delta: float) -> void:
+	for point in _trail:
+		point.age += delta
+	if not _trail.is_empty() and _trail[0].age > TRAIL_LIFE:
+		_trail = _trail.filter(func(point): return point.age <= TRAIL_LIFE)
+	if _dig_time > 0.0:
+		_dig_time -= delta
+		var left := maxf(0.0, _dig_time / DIG_TIME)  # 1 -> 0 as it sinks
+		_sprite.scale = Vector2(_base_scale.x, _base_scale.y * left)
+		_sprite.position.y = (1.0 - left) * 6.0
+		_spray_timer -= delta
+		if _spray_timer <= 0.0:
+			_spray_timer = 0.1
+			board.fx.add_puff(position + Vector2(0, 4), WATER_FOAM if data.naval else DIRT_LIGHT)
+		if _dig_time <= 0.0:
+			_sprite.visible = false
+			_sprite.scale = _base_scale
+			_sprite.position.y = 0.0
+	elif _rise_time > 0.0:
+		_rise_time -= delta
+		var progress := 1.0 - maxf(0.0, _rise_time / RISE_TIME)  # 0 -> 1
+		_sprite.position.y = -sin(progress * PI) * 6.0
+		_sprite.scale = _base_scale * Vector2(1.0 + 0.2 * (1.0 - progress), 0.8 + 0.2 * progress)
+		if _rise_time <= 0.0:
+			_sprite.scale = _base_scale
+			_sprite.position.y = 0.0
+
+
 func _draw() -> void:
-	if underground:
-		# A little moving mound of dirt.
-		draw_circle(Vector2(0, 3), 4.0, Color(0.45, 0.3, 0.18))
-		draw_circle(Vector2(-2, 2), 1.5, Color(0.6, 0.42, 0.25))
+	_draw_trail()
+	if underground and _dig_time <= 0.0:
+		_draw_tunneler()
 		return
 	var half := 9.0 if data.is_boss else 6.0
 	if hp < data.max_hp:
@@ -383,3 +449,45 @@ func _draw() -> void:
 		draw_rect(Rect2(-half, -half - 4, half * 2 * hp / data.max_hp, 2), Color(1, 0.3, 0.3))
 	if mark_time > 0.0:
 		draw_circle(Vector2(half - 1, -half + 1), 1.5, Color(1, 0.2, 0.2))
+
+
+## Churned dirt (or bubbles) left behind the tunneler, fading out.
+func _draw_trail() -> void:
+	for point in _trail:
+		var fade: float = 1.0 - point.age / TRAIL_LIFE
+		var spot: Vector2 = point.pos - position + Vector2(0, 3)  # board space -> ours
+		if data.naval:
+			draw_arc(spot, 1.2 + point.age, 0, TAU, 8, Color(WATER_FOAM, 0.7 * fade), 0.5)
+		else:
+			draw_circle(spot, 2.4, Color(DIRT_DARK, 0.85 * fade))
+			draw_circle(spot + Vector2(-0.8, -0.6), 1.0, Color(DIRT_LIGHT, 0.85 * fade))
+
+
+## While underground: a wobbling bump of soil (or a ripple), a shield
+## showing it can't be hit, and a dashed line to where it will come up.
+func _draw_tunneler() -> void:
+	var exit := _exit_pos - position  # board space -> ours
+	if exit.length() > 2.0:
+		draw_dashed_line(Vector2(0, 3), exit + Vector2(0, 3), Color(1, 0.4, 0.35, 0.75), 0.75, 2.0)
+	var pulse := 0.5 + 0.5 * sin(Time.get_ticks_msec() / 150.0)
+	draw_arc(exit + Vector2(0, 3), 4.0 + 1.5 * pulse, 0, TAU, 16, Color(1, 0.35, 0.3, 0.45 + 0.35 * pulse), 1.0)
+	var wobble := sin(Time.get_ticks_msec() / 70.0) * 0.6
+	if data.naval:
+		draw_arc(Vector2(0, 3), 4.5 + wobble, 0, TAU, 16, Color(WATER_FOAM, 0.8), 1.0)
+		draw_arc(Vector2(0, 3), 2.0, 0, TAU, 12, Color(WATER_FOAM, 0.5), 0.5)
+	else:
+		draw_circle(Vector2(0, 3), 5.0, DIRT_DARK)
+		draw_circle(Vector2(0, 3), 4.2, DIRT)
+		draw_circle(Vector2(-2 + wobble, 2), 2.0, DIRT_LIGHT)
+		draw_circle(Vector2(2, 1.5 - wobble), 1.4, DIRT_LIGHT)
+	_draw_shield(Vector2(0, -5))
+
+
+## A tiny pixel shield: "can't be hit right now".
+func _draw_shield(at: Vector2) -> void:
+	var points := PackedVector2Array([at + Vector2(-2.5, -2.5), at + Vector2(2.5, -2.5),
+		at + Vector2(2.5, 0.5), at + Vector2(0, 3), at + Vector2(-2.5, 0.5)])
+	draw_colored_polygon(points, Color(0.1, 0.1, 0.15, 0.8))
+	var inner := PackedVector2Array([at + Vector2(-1.7, -1.8), at + Vector2(1.7, -1.8),
+		at + Vector2(1.7, 0.2), at + Vector2(0, 2), at + Vector2(-1.7, 0.2)])
+	draw_colored_polygon(inner, SHIELD_COLOR)
