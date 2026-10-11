@@ -67,8 +67,9 @@ level order (oak roots = Backyard 5, pine forest = Wild Kingdom 5, toy road
 playmat = Total War 5); check each scene against the prompt file. On levels with a background the board uses see-through
 `rock_cut.png` / `spawn_cut.png` / `base_cut.png` tiles (floor pixels
 removed, soft shadow added) made by `python3 tools/make_cutout_tiles.py`;
-re-run it after redrawing any tile. Tiles that fill their square (e.g.
-Microscopic's rock) stay solid. Two Claude Docs briefs exist for
+re-run it after redrawing any tile. Rocks also get a dark outline and a
+stronger shadow so they don't blend with painted pebbles; Microscopic's
+square rock is cut into a round blob (ROUND_ROCKS). Two Claude Docs briefs exist for
 reference: backgrounds https://claude.ai/artifact/Dk8EnbQN1PGpeuyhSoS4xK and
 sprites https://claude.ai/artifact/VnjA9ALpqnN1UNRHhVscKi (the sprite one
 describes 64x64 AI art; the user chose code-drawn 32x32 instead, with
