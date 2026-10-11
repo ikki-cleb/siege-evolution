@@ -64,9 +64,13 @@ var spawn_cells: Array[Vector2i] = []
 ## Sea spawn points for boats ("N").
 var sea_spawn_cells: Array[Vector2i] = []
 var water := {}  # Vector2i -> true
+## Route cost of stepping on a base side tile (a normal step costs 1): a
+## route takes up to this many extra steps to enter through the middle.
+const BASE_SIDE_COST := 12
+
 ## The base is 3 tiles wide and 2 tall. `base_cell` is the "B" in the level
-## layout (bottom middle of the block); routes are aimed at it, but an
-## invader arrives as soon as it steps onto any tile in `base_cells`.
+## layout (bottom middle of the block); routes are aimed at it and end on
+## the first middle-column base tile they reach (see _trim_to_base).
 var base_cell := NO_CELL
 var base_cells: Array[Vector2i] = []
 const BASE_SIZE := Vector2i(3, 2)
@@ -180,6 +184,11 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 			var sea_blocked := not water.has(cell) and not base_cells.has(cell)
 			_boat_grid.set_point_solid(cell, sea_blocked)
 			_boat_smash_grid.set_point_solid(cell, sea_blocked)
+			# Stepping on the base's side tiles costs a lot, so routes enter
+			# through the base's middle column whenever they can.
+			if is_base_side(cell):
+				for grid in [_walk_grid, _smash_grid, _boat_grid, _boat_smash_grid]:
+					grid.set_point_weight_scale(cell, BASE_SIDE_COST)
 
 	if level.background:
 		_add_background(level.background)
@@ -301,6 +310,12 @@ func is_base(cell: Vector2i) -> bool:
 	return base_cells.has(cell)
 
 
+## True for the base's left and right columns. Routes avoid them and always
+## end on a middle tile, so invaders walk into the middle of the base.
+func is_base_side(cell: Vector2i) -> bool:
+	return base_cells.has(cell) and cell.x != base_cells[0].x + 1
+
+
 ## The middle of the base block (where fliers and bombers head).
 func base_center() -> Vector2:
 	var total := Vector2.ZERO
@@ -309,11 +324,12 @@ func base_center() -> Vector2:
 	return total / base_cells.size() if not base_cells.is_empty() else cell_center(base_cell)
 
 
-## A route cut off at the first base tile it touches (that's where an
-## invader arrives).
+## A route cut off at the first middle base tile it reaches: that's where
+## an invader arrives. (If a level only lets it in from the side, it steps
+## onto the side tile and on into the middle.)
 func _trim_to_base(path: Array[Vector2i]) -> Array[Vector2i]:
 	for i in path.size():
-		if is_base(path[i]):
+		if is_base(path[i]) and not is_base_side(path[i]):
 			return path.slice(0, i + 1)
 	return path
 
@@ -419,7 +435,7 @@ func jumper_path(from_cell: Vector2i) -> Array[Vector2i]:
 		var cell: Vector2i = item[1]
 		if item[0] > cost_so_far[cell]:
 			continue
-		if is_base(cell):
+		if is_base(cell) and not is_base_side(cell):
 			reached = cell
 			break
 		for direction in DIRECTIONS:
@@ -432,6 +448,8 @@ func jumper_path(from_cell: Vector2i) -> Array[Vector2i]:
 					step_cost = HOP_COST
 				else:
 					continue
+			if is_base_side(next):
+				step_cost = BASE_SIDE_COST  # avoid the base's side tiles
 			var new_cost: int = cost_so_far[cell] + step_cost
 			if new_cost < cost_so_far.get(next, 1 << 30):
 				cost_so_far[next] = new_cost

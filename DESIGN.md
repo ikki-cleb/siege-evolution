@@ -283,6 +283,15 @@ they're picked**.
 - Walkers path with A*. **You can never fully seal the path.** Placements
   that would are refused.
 
+- **Routes end in the middle of the base** (the user's rule): the base's
+  left and right columns cost 12 steps to cross when routing
+  (`Board.BASE_SIDE_COST`), so ground and boat routes enter through the
+  middle column whenever they can, and every route ends on a middle tile
+  (`_trim_to_base`). Five levels have a rock or water lane right above the
+  base's middle (Top Shelf, Station Corridors, Bathtub Beach, Rubber Duck
+  Harbor, Pool Party Landing): there invaders step in from the side and
+  walk on into the middle. A rules test checks every route of every level.
+
 ## Units and packs
 
 Every unit blocks its tile. Each pack has **6 units**: slots 0–2 at level 1,

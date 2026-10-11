@@ -342,14 +342,15 @@ func _test_base_block() -> void:
 				fits = fits and board.is_inside(cell) and not board.spawn_cells.has(cell) \
 					and not board.sea_spawn_cells.has(cell) and not board.is_buildable(cell)
 			for spawn in board.spawn_cells:
-				var route := board.walker_path(spawn)
-				fits = fits and not route.is_empty() and board.is_base(route[-1])
+				for route in [board.walker_path(spawn), board.smasher_path(spawn), board.jumper_path(spawn)]:
+					fits = fits and not route.is_empty() and board.is_base(route[-1]) \
+						and not board.is_base_side(route[-1])
 			if not fits:
 				print("  base block problem: %s level %d" % [world.id, level_index + 1])
 			ok = ok and fits
 			board.queue_free()
 	await process_frame
-	_check(ok, "The 3x2 base fits every level, can't be built on, and routes end on it")
+	_check(ok, "The 3x2 base fits every level, can't be built on, and every route ends in its middle column")
 
 
 # --- Relics -------------------------------------------------------------------
