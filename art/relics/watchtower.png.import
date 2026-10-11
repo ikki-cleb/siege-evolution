@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl67xjhjlp7vm"
-path="res://.godot/imported/frostbite.png-4b67a3891d83793d2c4993b0dae4ed0e.ctex"
+uid="uid://buegwsbx0uq7u"
+path="res://.godot/imported/watchtower.png-1efe3793c5c796e405a01f409318068c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/frostbite.png"
-dest_files=["res://.godot/imported/frostbite.png-4b67a3891d83793d2c4993b0dae4ed0e.ctex"]
+source_file="res://art/relics/watchtower.png"
+dest_files=["res://.godot/imported/watchtower.png-1efe3793c5c796e405a01f409318068c.ctex"]
 
 [params]
 

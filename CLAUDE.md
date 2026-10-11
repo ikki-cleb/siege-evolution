@@ -145,6 +145,8 @@ Wall relics were redesigned (the user found wall HP relics unfun): walls now
 boost neighboring attackers (`wall_buddy_*`, `Unit.next_to_wall()`), slow
 and burn ground invaders next to them (`Unit._wall_aura()`), or get cheaper
 (`Game.unit_cost()`; always use it, not `type.cost`, for placing prices).
+Rares/epics are archetype build-arounds, not bigger commons (the user's
+rule; see DESIGN.md): swarm, status, maze, elite. Some epics have a cost.
 
 **Base (latest round):** 3x2 tiles (`Board.base_cells`, built from the
 layout's "B" by `_make_base_block`). Routes still aim at `base_cell` but

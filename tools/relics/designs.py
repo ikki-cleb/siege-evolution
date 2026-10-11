@@ -503,48 +503,6 @@ def lucky_coin(i, c):
 
 
 @design
-def overclock(i, c):
-    # A speed gauge with the needle pinned in the red.
-    i.ell(1, 2, 14, 15, "#404850")
-    i.ell(2, 3, 13, 14, (240, 236, 228, 255))
-    i.rect(1, 10, 14, 15, (0, 0, 0, 0))
-    i.rect(2, 10, 13, 11, "#404850")
-    i.pxs([(3, 8), (4, 6), (6, 4), (9, 4)], INK)
-    i.pxs([(11, 6), (12, 7), (12, 8), (11, 5)], c)
-    i.line([(7, 9), (12, 5)], shade(c, -0.1))
-    i.ell(6, 8, 8, 10, INK)
-
-
-@design
-def diamond_edge(i, c):
-    # A cut diamond, facets shaded.
-    light, base, dark, darker = ramp(c)
-    i.poly([(4, 2), (11, 2), (14, 6), (7, 14), (1, 6)], base)
-    i.poly([(1, 6), (14, 6), (7, 14)], dark)
-    i.poly([(5, 6), (10, 6), (7, 14)], base)
-    i.line([(4, 2), (5, 6)], light)
-    i.line([(11, 2), (10, 6)], dark)
-    i.line([(1, 6), (14, 6)], light)
-    i.pxs([(5, 3), (6, 3), (5, 4)], WHITE)
-    i.px(13, 1, WHITE)
-
-
-@design
-def telescope(i, c):
-    # A big telescope on a tripod.
-    i.line([(7, 9), (3, 14)], WOOD)
-    i.line([(8, 9), (12, 14)], WOOD)
-    i.line([(7, 9), (7, 14)], WOOD)
-    light, base, dark, _ = ramp(c)
-    for k in range(8):
-        i.rect(1 + k, 8 - k // 2 - 1, 2 + k, 10 - k // 2, base)
-        i.px(1 + k, 8 - k // 2 - 1, light)
-    i.ell(9, 2, 14, 7, dark)
-    i.ell(10, 3, 13, 6, (120, 200, 255, 255))
-    i.px(11, 4, WHITE)
-
-
-@design
 def critical_eye(i, c):
     # A starburst "critical hit" with a "!".
     light, base, dark, _ = ramp(c)
@@ -607,7 +565,7 @@ def shrapnel(i, c):
 
 
 @design
-def frostbite(i, c):
+def cold_snap(i, c):
     # A row of icicles, the middle one a fang.
     light, base, dark, _ = ramp(c)
     i.box(1, 1, 14, 3, (230, 245, 255, 255))
@@ -616,14 +574,6 @@ def frostbite(i, c):
         i.line([(x, 4), (x + 1, 3 + h)], light)
         i.px(x + 2, 5, dark)
     i.px(9, 6, WHITE)
-
-
-@design
-def thunder_bell(i, c):
-    bell(i, c, x=-1)
-    bolt = (255, 255, 200, 255)
-    i.pxs([(14, 1), (13, 2), (14, 3), (13, 4), (12, 5)], bolt)
-    i.pxs([(1, 13), (2, 12), (1, 11)], bolt)
 
 
 @design
@@ -636,17 +586,6 @@ def plague_jar(i, c):
     i.rect(4, 11, 11, 13, dark)
     i.rect(3, 3, 3, 13, SHINE)
     i.grid(5, 6, [".###.", "#.#.#", "#####", ".#.#."], {"#": (240, 240, 230, 255)})
-
-
-@design
-def bullseye(i, c):
-    light, base, dark, _ = ramp(c)
-    i.ell(1, 2, 13, 14, dark)
-    i.ell(1, 2, 12, 13, WHITE)
-    i.ell(3, 4, 10, 11, base)
-    i.ell(5, 6, 8, 9, WHITE)
-    i.ell(6, 7, 7, 8, base)
-    arrow(i, 7, 8, 6, head=METAL, feather="#60a0e0")
 
 
 @design
@@ -692,7 +631,7 @@ def acid_flask(i, c):
 
 
 @design
-def hornet_nest(i, c):
+def colony(i, c):
     # A papery nest hanging from a branch.
     i.line([(1, 1), (14, 1)], WOOD)
     light, base, dark, _ = ramp(c)
@@ -717,7 +656,7 @@ def interest_ledger(i, c):
 
 
 @design
-def wind_wings(i, c):
+def skyward(i, c):
     # A spread wing with gust lines.
     light, base, dark, _ = ramp(c)
     i.grid(1, 1, [
@@ -737,42 +676,6 @@ def wind_wings(i, c):
 
 
 @design
-def fortified_nest(i, c):
-    # A heater shield with brickwork and a sword crossing behind it.
-    light, base, dark, darker = ramp(c)
-    blade(i, 1, 13, 12, METAL)
-    i.poly([(3, 2), (12, 2), (12, 8), (8, 13), (7, 13), (3, 8)], base)
-    i.poly([(8, 2), (12, 2), (12, 8), (8, 13)], dark)
-    i.line([(3, 2), (12, 2)], light)
-    i.line([(3, 3), (3, 8)], light)
-    for y in (5, 8):
-        i.line([(4, y), (11, y)], darker)
-    i.pxs([(7, 3), (7, 4), (5, 6), (5, 7), (10, 6), (10, 7), (7, 9), (7, 10)], darker)
-
-
-@design
-def tar_pits(i, c):
-    # A black tar puddle with a bubble and a sinking bone.
-    light, base, dark, darker = ramp(c)
-    i.ell(1, 7, 14, 14, darker)
-    i.ell(2, 7, 13, 12, base)
-    i.ell(5, 3, 9, 7, base)
-    i.px(6, 4, light)
-    i.pxs([(10, 9), (11, 9), (9, 10)], light)
-    i.line([(10, 6), (13, 4)], (230, 222, 205, 255), 2)
-
-
-@design
-def barbed_wire(i, c):
-    light, base, dark, _ = ramp(c)
-    for y in (4, 10):
-        i.line([(1, y), (14, y + 1)], base)
-        i.line([(1, y + 1), (14, y + 2)], dark)
-    for x, y in ((4, 4), (10, 5), (7, 10), (12, 11), (2, 10)):
-        i.pxs([(x - 1, y - 1), (x + 1, y + 2), (x + 1, y - 1), (x - 1, y + 2)], light)
-
-
-@design
 def flat_pack(i, c):
     # A flat cardboard box with an allen key.
     light, base, dark, _ = ramp(c)
@@ -785,20 +688,6 @@ def flat_pack(i, c):
 
 
 # --- epic --------------------------------------------------------------------
-
-@design
-def war_drum(i, c):
-    light, base, dark, darker = ramp(c)
-    i.rect(2, 5, 13, 13, base)
-    i.rect(11, 5, 13, 13, dark)
-    i.ell(2, 3, 13, 7, (240, 230, 210, 255))
-    i.ell(2, 12, 13, 15, darker)
-    i.rect(2, 12, 13, 13, darker)
-    for x in (3, 6, 9, 12):
-        i.line([(x, 7), (x + 1, 11)], GOLD)
-    i.line([(1, 0), (6, 4)], WOOD, 2)
-    i.line([(14, 0), (9, 4)], WOOD, 2)
-
 
 @design
 def philosophers_stone(i, c):
@@ -900,14 +789,194 @@ def bastion(i, c):
     i.rect(10, 0, 12, 1, c)
 
 
+# --- archetype relics (rare/epic build-arounds) ------------------------------
+
 @design
-def living_hedge(i, c):
-    # A thorny bush with a flower.
+def packed_ranks(i, c):
+    # A shield wall: three soldiers' shields side by side, helmets behind.
+    for x in (2, 7, 12):
+        i.ell(x - 2, 1, x + 2, 5, "#8890a0")
+        i.px(x - 1, 2, SHINE)
+    for x, color in ((0, c), (5, shade(c, 0.12)), (10, c)):
+        light, base, dark, darker = ramp(color)
+        i.rect(x, 5, x + 4, 11, base)
+        i.poly([(x, 11), (x + 4, 11), (x + 2, 14)], base)
+        i.rect(x + 4, 5, x + 4, 11, dark)
+        i.rect(x, 5, x + 4, 5, light)
+        i.rect(x + 2, 6, x + 2, 12, (240, 236, 228, 255))
+        i.rect(x + 1, 8, x + 3, 8, (240, 236, 228, 255))
+
+
+@design
+def concussion(i, c):
+    # A dented helmet with stars spinning above it.
+    i.ell(2, 6, 13, 16, "#7c8494")
+    i.ell(2, 6, 12, 15, "#a8b0bc")
+    i.rect(1, 12, 14, 14, "#5c6474")
+    i.rect(1, 12, 14, 12, "#8890a0")
+    i.pxs([(8, 8), (9, 9), (8, 10)], "#5c6474")  # dent
+    i.px(5, 8, SHINE)
+    for x, y in ((2, 3), (7, 1), (12, 3)):
+        sparkle(i, x, y, hexc(c))
+        i.px(x, y, WHITE)
+
+
+@design
+def festering(i, c):
+    # A bubbling green ooze with popping blisters.
     light, base, dark, darker = ramp(c)
-    i.ell(1, 4, 14, 14, dark)
-    i.ell(1, 4, 13, 13, base)
-    i.ell(3, 1, 11, 9, base)
-    i.pxs([(4, 4), (5, 3), (3, 7), (8, 6), (10, 10), (5, 11)], light)
-    i.pxs([(0, 8), (15, 9), (6, 0), (12, 2), (2, 13), (13, 14)], (240, 240, 220, 255))
-    i.ell(8, 3, 12, 7, (240, 90, 120, 255))
-    i.px(10, 5, GOLD)
+    i.ell(1, 6, 14, 14, darker)
+    i.ell(1, 6, 13, 13, base)
+    i.ell(4, 3, 10, 9, base)
+    i.ell(3, 9, 6, 12, dark)
+    i.ell(8, 8, 12, 12, dark)
+    i.pxs([(4, 10), (9, 9)], light)
+    i.px(6, 4, light)
+    i.ell(10, 1, 13, 4, light)
+    i.px(11, 2, WHITE)
+    i.pxs([(2, 3), (14, 6)], light)
+
+
+@design
+def affliction(i, c):
+    # A cursed voodoo doll stuck with pins.
+    cloth, cloth_b, cloth_d, _ = ramp("#c8a070")
+    i.ell(4, 1, 11, 7, cloth_b)
+    i.rect(5, 7, 10, 12, cloth_b)
+    i.rect(2, 8, 13, 9, cloth_b)
+    i.rect(5, 13, 6, 14, cloth_b)
+    i.rect(9, 13, 10, 14, cloth_b)
+    i.rect(10, 7, 10, 12, cloth_d)
+    i.pxs([(6, 3), (9, 3)], INK)
+    i.line([(6, 5), (9, 5)], cloth_d)
+    i.rect(6, 9, 9, 11, cloth_d)  # stitched patch
+    for (x, y), color in (((12, 2), c), ((3, 6), "#60d0ff"), ((12, 11), "#90e050")):
+        i.line([(x, y), (7 if x > 7 else 8, y + 3 if y < 8 else y - 1)], METAL)
+        i.ell(x - 1, y - 1, x + 1, y + 1, color)
+
+
+@design
+def long_road(i, c):
+    # A long winding road vanishing into the distance.
+    light, base, dark, _ = ramp(c)
+    i.rect(1, 1, 14, 14, "#5c8a48")
+    i.rect(1, 1, 14, 3, "#88b8e0")
+    i.poly([(2, 14), (8, 14), (11, 10), (5, 8), (9, 5), (8, 4), (3, 7), (8, 10)], base)
+    i.line([(5, 13), (8, 10)], light)
+    i.pxs([(6, 7), (7, 6)], light)
+    i.rect(12, 6, 12, 12, WOOD)  # signpost
+    i.rect(10, 6, 14, 7, "#c09060")
+
+
+@design
+def watchtower(i, c):
+    # A wooden lookout tower on stilts.
+    light, base, dark, darker = ramp(c)
+    i.line([(4, 7), (2, 14)], dark, 2)
+    i.line([(11, 7), (13, 14)], dark, 2)
+    i.line([(4, 9), (12, 13)], darker)
+    i.line([(11, 9), (3, 13)], darker)
+    i.box(2, 4, 13, 7, c)
+    i.rect(4, 5, 5, 6, INK)
+    i.rect(10, 5, 11, 6, INK)
+    i.poly([(1, 4), (7, 0), (8, 0), (14, 4)], "#b05040")
+    i.line([(7, 0), (14, 4)], "#803028")
+
+
+@design
+def exposed_flank(i, c):
+    # A cracked shield with a red target on the weak spot.
+    light, base, dark, darker = ramp("#9098a8")
+    i.poly([(2, 1), (13, 1), (13, 8), (8, 14), (7, 14), (2, 8)], base)
+    i.poly([(8, 1), (13, 1), (13, 8), (8, 14)], dark)
+    i.line([(2, 1), (13, 1)], light)
+    i.pxs([(6, 1), (7, 2), (6, 3), (7, 4), (6, 5)], INK)  # crack
+    red = hexc(c)
+    i.ell(7, 5, 12, 10, red)
+    i.ell(8, 6, 11, 9, WHITE)
+    i.ell(9, 7, 10, 8, red)
+
+
+@design
+def labyrinth(i, c):
+    # A hedge maze seen from above.
+    light, base, dark, darker = ramp(c)
+    i.rect(1, 1, 14, 14, "#d8c8a0")
+    i.grid(1, 1, [
+        "##############",
+        "#.....#......#",
+        "#.###.#.####.#",
+        "#.#...#....#.#",
+        "#.#.######.#.#",
+        "#.#.#....#.#.#",
+        "#...#.##.#...#",
+        "#####.#..###.#",
+        "#.....#.##...#",
+        "#.#####.#..###",
+        "#.......#.#..#",
+        "#.#######.##.#",
+        "#.........#...",
+        "##############",
+    ], {"#": base})
+    i.pxs([(13, 13), (14, 13)], GOLD)
+
+
+@design
+def veterans_medal(i, c):
+    # A medal hanging from a striped ribbon.
+    i.poly([(3, 1), (7, 1), (9, 7), (6, 7)], "#c03838")
+    i.poly([(8, 1), (12, 1), (9, 7), (8, 4)], "#3858c0")
+    i.line([(5, 1), (7, 6)], WHITE)
+    coin(i, 3, 6, 12, 15, c)
+    sparkle(i, 7, 10, shade(c, 0.25))
+
+
+@design
+def elite_training(i, c):
+    # A sergeant's badge: three bold chevrons on a dark shield.
+    i.poly([(1, 1), (14, 1), (14, 10), (8, 15), (7, 15), (1, 10)], "#2e2a3c")
+    light, base, dark, _ = ramp(c)
+    for y in (2, 6, 10):
+        for k in range(6):
+            i.rect(2 + k, y + k // 2, 2 + k, y + k // 2 + 1, base)
+            i.rect(13 - k, y + k // 2, 13 - k, y + k // 2 + 1, base)
+            i.px(2 + k, y + k // 2, light)
+            i.px(13 - k, y + k // 2, light)
+
+
+@design
+def lone_wolf(i, c):
+    # A wolf howling at the moon.
+    i.ell(8, 0, 14, 6, (240, 236, 210, 255))
+    i.pxs([(10, 2), (12, 4)], (210, 205, 180, 255))
+    fur, base, dark, darker = ramp(c)
+    i.grid(1, 3, [
+        "..........d...",
+        ".........dbd..",
+        "........dbbb..",
+        ".......dbbbbbb",
+        "......dbbbbkbb",
+        ".....bbbbbbb..",
+        "...bbbbbbbb...",
+        "..bbbbbbbbb...",
+        ".bbbbbbbbbb...",
+        ".bbbbddbbbb...",
+        "bbbb...dbbb...",
+        "ddd.....ddd...",
+    ], {"b": base, "d": dark, "k": INK})
+    i.pxs([(9, 9), (8, 10), (7, 11)], fur)
+
+
+@design
+def champion(i, c):
+    # A jeweled golden crown.
+    light, base, dark, darker = ramp(c)
+    i.poly([(1, 4), (4, 8), (7, 2), (8, 2), (11, 8), (14, 4), (13, 12), (2, 12)], base)
+    i.rect(2, 10, 13, 12, dark)
+    i.rect(2, 10, 13, 10, light)
+    i.pxs([(1, 3), (7, 1), (8, 1), (14, 3)], light)
+    i.ell(6, 6, 9, 9, "#e03050")
+    i.px(7, 7, WHITE)
+    i.pxs([(4, 11), (11, 11)], "#40a0ff")
+    sparkle(i, 13, 14, WHITE)
+

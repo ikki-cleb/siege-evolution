@@ -253,12 +253,13 @@ func _refund(cost: int, bought_round: int) -> int:
 	return cost if bought_round == wave_number else int(cost * old_refund())
 
 
-## What placing a unit costs right now. Wall relics (Bulk Bricks, Flat Pack)
-## make walls cheaper, down to 1 coin.
+## What placing a unit costs right now. Wall relics (Bulk Bricks, Labyrinth)
+## make walls cheaper, down to 1 coin; a few epics (Labyrinth, Philosopher's
+## Stone) make every other unit pricier.
 func unit_cost(type: UnitData) -> int:
 	if type.role == UnitData.Role.WALL:
 		return maxi(1, type.cost - roundi(board.relics.economy("wall_discount")))
-	return type.cost
+	return roundi(type.cost * (1.0 + board.relics.economy("unit_markup")))
 
 
 ## Share refunded for units from earlier rounds (a relic can raise it).
@@ -406,6 +407,10 @@ func _end_wave() -> void:
 		_earn_coins(bonus)
 		Audio.play("wave_clear", 0.0)
 		hud.show_message("Clean wave! +%s %d bonus. Units repaired." % [Palette.COIN, bonus])
+	# Flat Pack: free walls for the next build phase.
+	var walls := roundi(board.relics.economy("wave_walls"))
+	if walls > 0:
+		hand[unit_types[0].id] = hand.get(unit_types[0].id, 0) + walls
 	# Interest relic: a share of the coins you saved.
 	var interest := board.relics.economy("interest")
 	if interest > 0.0:
@@ -701,8 +706,10 @@ func describe(type: UnitData, unit: Unit = null) -> String:
 		parts.append("slows neighbors %d%%" % roundi(minf(0.6, unit.stat("wall_slow")) * 100))
 	if unit and unit.stat("wall_burn") > 0.0:
 		parts.append("burns neighbors %s/s" % _num(unit.stat("wall_burn")))
-	if unit and unit.next_to_wall() and unit.stat("wall_buddy_damage") > 0.0:
-		parts.append("+%d%% dmg by a wall" % roundi(unit.stat("wall_buddy_damage") * 100))
+	# Relics that depend on where it stands or whether it evolved
+	# (walls, neighbors, evolutions), added up: "relics +25% dmg here".
+	if unit and type.can_attack() and absf(unit.self_bonus()) > 0.001:
+		parts.append("relics %+d%% dmg here" % roundi(unit.self_bonus() * 100))
 	if type.can_attack():
 		parts.append("hits fliers" if _has(type, unit, "hits_air") else "ground only")
 	return "%s: %s." % [type.display_name, ", ".join(parts)]

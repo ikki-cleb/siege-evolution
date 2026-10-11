@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fjilor4dlabp"
-path="res://.godot/imported/hornet_nest.png-8329f747bddf4eb7c4689f10dd45b4dc.ctex"
+uid="uid://d0yxtav1343bt"
+path="res://.godot/imported/long_road.png-e8eca661058847e79c85468f236a12a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/hornet_nest.png"
-dest_files=["res://.godot/imported/hornet_nest.png-8329f747bddf4eb7c4689f10dd45b4dc.ctex"]
+source_file="res://art/relics/long_road.png"
+dest_files=["res://.godot/imported/long_road.png-e8eca661058847e79c85468f236a12a8.ctex"]
 
 [params]
 

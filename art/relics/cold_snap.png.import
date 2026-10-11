@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgdjbrskcryjn"
-path="res://.godot/imported/war_drum.png-0984d82d1a8659d0074ba19e5c05e42b.ctex"
+uid="uid://dc1rcbxkrmgji"
+path="res://.godot/imported/cold_snap.png-e7d70be6dbebef2c75d632ff706b54ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/war_drum.png"
-dest_files=["res://.godot/imported/war_drum.png-0984d82d1a8659d0074ba19e5c05e42b.ctex"]
+source_file="res://art/relics/cold_snap.png"
+dest_files=["res://.godot/imported/cold_snap.png-e7d70be6dbebef2c75d632ff706b54ed.ctex"]
 
 [params]
 

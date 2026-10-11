@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsspwiufkxnh0"
-path="res://.godot/imported/diamond_edge.png-bc8413b7a4a70685c2d57ab8e72c1767.ctex"
+uid="uid://jbbxhi00xkqx"
+path="res://.godot/imported/exposed_flank.png-472234e789ac32cbf9491dc5c9f888cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/diamond_edge.png"
-dest_files=["res://.godot/imported/diamond_edge.png-bc8413b7a4a70685c2d57ab8e72c1767.ctex"]
+source_file="res://art/relics/exposed_flank.png"
+dest_files=["res://.godot/imported/exposed_flank.png-472234e789ac32cbf9491dc5c9f888cc.ctex"]
 
 [params]
 

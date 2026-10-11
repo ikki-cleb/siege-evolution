@@ -297,36 +297,36 @@
     }
   },
   {
-    "id": "overclock",
-    "name": "Overclock",
+    "id": "elite_training",
+    "name": "Elite Training",
     "rarity": "rare",
     "color": "#ff9040",
     "filter": "attackers",
-    "desc": "Attackers fire 25% faster.",
-    "mult": {
-      "fire_rate": 0.25
-    }
-  },
-  {
-    "id": "diamond_edge",
-    "name": "Diamond Edge",
-    "rarity": "rare",
-    "color": "#80e0ff",
-    "filter": "attackers",
-    "desc": "Attackers deal +30% damage.",
-    "mult": {
-      "damage": 0.3
-    }
-  },
-  {
-    "id": "telescope",
-    "name": "Telescope",
-    "rarity": "rare",
-    "color": "#ffd070",
-    "filter": "attackers",
-    "desc": "Attackers get +0.75 range.",
+    "desc": "Evolved units fire 20% faster.",
     "add": {
-      "attack_range": 0.75
+      "evolved_rate": 0.2
+    }
+  },
+  {
+    "id": "veterans_medal",
+    "name": "Veteran's Medal",
+    "rarity": "rare",
+    "color": "#ffc040",
+    "filter": "attackers",
+    "desc": "Evolved units deal +30% damage.",
+    "add": {
+      "evolved_damage": 0.3
+    }
+  },
+  {
+    "id": "lone_wolf",
+    "name": "Lone Wolf",
+    "rarity": "rare",
+    "color": "#a0a8c0",
+    "filter": "attackers",
+    "desc": "Attackers with no units around them deal +40% damage.",
+    "add": {
+      "lonely_damage": 0.4
     }
   },
   {
@@ -385,26 +385,25 @@
     }
   },
   {
-    "id": "frostbite",
-    "name": "Frostbite",
+    "id": "cold_snap",
+    "name": "Cold Snap",
     "rarity": "rare",
     "color": "#70c0ff",
-    "filter": "slow",
-    "desc": "Slows are 15% stronger and last 1.5s longer.",
+    "filter": "attackers",
+    "desc": "Slowed invaders take +30% damage.",
     "add": {
-      "slow": 0.15,
-      "slow_duration": 1.5
+      "vs_slowed": 0.3
     }
   },
   {
-    "id": "thunder_bell",
-    "name": "Thunder Bell",
+    "id": "concussion",
+    "name": "Concussion",
     "rarity": "rare",
     "color": "#ffd040",
-    "filter": "stun",
-    "desc": "Stuns last 0.6s longer.",
+    "filter": "attackers",
+    "desc": "Stunned invaders take +50% damage.",
     "add": {
-      "stun_duration": 0.6
+      "vs_stunned": 0.5
     }
   },
   {
@@ -422,14 +421,14 @@
     ]
   },
   {
-    "id": "bullseye",
-    "name": "Bullseye",
+    "id": "festering",
+    "name": "Festering",
     "rarity": "rare",
-    "color": "#ff4040",
-    "filter": "mark",
-    "desc": "Marks add +25% more damage taken.",
+    "color": "#90d050",
+    "filter": "attackers",
+    "desc": "Poisoned invaders take +25% damage.",
     "add": {
-      "mark_bonus": 0.25
+      "vs_poisoned": 0.25
     }
   },
   {
@@ -477,14 +476,14 @@
     }
   },
   {
-    "id": "hornet_nest",
-    "name": "Hornet Nest",
+    "id": "packed_ranks",
+    "name": "Packed Ranks",
     "rarity": "rare",
-    "color": "#ffb020",
-    "filter": "swarm",
-    "desc": "Swarm units get +12% speed per neighbor.",
+    "color": "#e0a040",
+    "filter": "attackers",
+    "desc": "Attackers deal +6% damage for every unit next to them.",
     "add": {
-      "adjacency_bonus": 0.12
+      "damage_per_neighbor": 0.06
     }
   },
   {
@@ -499,28 +498,28 @@
     }
   },
   {
-    "id": "wind_wings",
-    "name": "Wings of Wind",
+    "id": "skyward",
+    "name": "Skyward",
     "rarity": "rare",
     "color": "#a0f0ff",
     "filter": "anti_air",
-    "desc": "Anti-air units get +0.75 range and +20% damage.",
+    "desc": "Anti-air units deal +50% damage to fliers, but 10% less to ground invaders.",
     "add": {
-      "attack_range": 0.75
-    },
-    "mult": {
-      "damage": 0.2
+      "flier_damage": 0.5,
+      "ground_damage": -0.1
     }
   },
   {
-    "id": "war_drum",
-    "name": "War Drum",
+    "id": "champion",
+    "name": "Champion",
     "rarity": "epic",
-    "color": "#ff6040",
+    "color": "#ffd040",
     "filter": "attackers",
-    "desc": "Attackers fire 40% faster.",
-    "mult": {
-      "fire_rate": 0.4
+    "desc": "Evolved units deal +60% damage and get +0.5 range. Unevolved attackers deal 15% less.",
+    "add": {
+      "evolved_damage": 0.6,
+      "evolved_range": 0.5,
+      "unevolved_damage": -0.15
     }
   },
   {
@@ -529,9 +528,10 @@
     "rarity": "epic",
     "color": "#ff60ff",
     "filter": "economy",
-    "desc": "Evolutions cost half.",
+    "desc": "Evolutions cost half, but new units cost 12% more.",
     "economy": {
-      "evolve_discount": 0.5
+      "evolve_discount": 0.5,
+      "unit_markup": 0.12
     }
   },
   {
@@ -562,9 +562,10 @@
     "rarity": "epic",
     "color": "#ffd040",
     "filter": "economy",
-    "desc": "Every kill drops +2 coins.",
+    "desc": "Every kill drops +2 coins, but clean-wave bonuses are halved.",
     "economy": {
-      "kill_coins": 2
+      "kill_coins": 2,
+      "clean_bonus_mult": -0.5
     }
   },
   {
@@ -595,9 +596,12 @@
     "rarity": "epic",
     "color": "#c080ff",
     "filter": "attackers",
-    "desc": "Every hit stuns for 0.2s.",
+    "desc": "Every hit stuns for 0.2s, but attackers fire 8% slower.",
     "add": {
       "stun_duration": 0.2
+    },
+    "mult": {
+      "fire_rate": -0.08
     }
   },
   {
@@ -656,36 +660,36 @@
     }
   },
   {
-    "id": "fortified_nest",
-    "name": "Fortified Nest",
+    "id": "watchtower",
+    "name": "Watchtower",
     "rarity": "rare",
-    "color": "#e0a050",
+    "color": "#c09060",
     "filter": "attackers",
-    "desc": "Attackers next to a wall deal +30% damage.",
+    "desc": "Attackers next to a wall get +0.6 range.",
     "add": {
-      "wall_buddy_damage": 0.3
+      "wall_buddy_range": 0.6
     }
   },
   {
-    "id": "tar_pits",
-    "name": "Tar Pits",
+    "id": "exposed_flank",
+    "name": "Exposed Flank",
     "rarity": "rare",
-    "color": "#606070",
+    "color": "#ff7050",
     "filter": "walls",
-    "desc": "Invaders next to a wall are slowed 30%.",
+    "desc": "Invaders next to a wall take +20% damage from everything.",
     "add": {
-      "wall_slow": 0.3
+      "wall_mark": 0.2
     }
   },
   {
-    "id": "barbed_wire",
-    "name": "Barbed Wire",
+    "id": "long_road",
+    "name": "Long Road",
     "rarity": "rare",
-    "color": "#c0c8d0",
-    "filter": "walls",
-    "desc": "Walls sting invaders next to them for 5 damage per second.",
+    "color": "#d0b080",
+    "filter": "attackers",
+    "desc": "Invaders take +2% damage for every tile they've walked (up to +60%).",
     "add": {
-      "wall_burn": 5.0
+      "walked_damage": 0.02
     }
   },
   {
@@ -694,9 +698,9 @@
     "rarity": "rare",
     "color": "#e0c080",
     "filter": "economy",
-    "desc": "Walls cost 1 coin less, and removing a wall always refunds its full cost.",
+    "desc": "Get 1 free wall after every wave, and removing a wall always refunds its full cost.",
     "economy": {
-      "wall_discount": 1,
+      "wave_walls": 1,
       "wall_refund": 1
     }
   },
@@ -706,22 +710,48 @@
     "rarity": "epic",
     "color": "#ffb040",
     "filter": "attackers",
-    "desc": "Attackers next to a wall deal +40% damage and fire 25% faster.",
+    "desc": "Attackers next to a wall deal +40% damage and fire 25% faster. Attackers away from walls deal 15% less.",
     "add": {
       "wall_buddy_damage": 0.4,
-      "wall_buddy_rate": 0.25
+      "wall_buddy_rate": 0.25,
+      "no_wall_damage": -0.15
     }
   },
   {
-    "id": "living_hedge",
-    "name": "Living Hedge",
+    "id": "labyrinth",
+    "name": "Labyrinth",
     "rarity": "epic",
-    "color": "#60e070",
-    "filter": "walls",
-    "desc": "Invaders next to a wall are slowed 25% and take 4 damage per second.",
+    "color": "#60c070",
+    "filter": "economy",
+    "desc": "Walls cost just 1 coin, but every other unit costs 12% more.",
+    "economy": {
+      "wall_discount": 99,
+      "unit_markup": 0.12
+    }
+  },
+  {
+    "id": "colony",
+    "name": "Colony",
+    "rarity": "epic",
+    "color": "#ffb020",
+    "filter": "attackers",
+    "desc": "Units with 3+ neighbors deal +60% damage and fire 30% faster. Units with 0-1 neighbors deal 20% less.",
     "add": {
-      "wall_slow": 0.25,
-      "wall_burn": 4.0
+      "cluster_damage": 0.6,
+      "cluster_rate": 0.3,
+      "small_group_damage": -0.2
+    }
+  },
+  {
+    "id": "affliction",
+    "name": "Affliction",
+    "rarity": "epic",
+    "color": "#c060ff",
+    "filter": "attackers",
+    "desc": "+20% damage for each status (slow, stun, poison, mark) on the target. 15% less against invaders with none.",
+    "add": {
+      "per_status_damage": 0.2,
+      "clean_target_damage": -0.15
     }
   }
 ]

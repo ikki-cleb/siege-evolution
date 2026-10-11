@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cusuw8o7y3g1b"
-path="res://.godot/imported/thunder_bell.png-d12a66cdaaf0e44a867bc03efe5148ad.ctex"
+uid="uid://ct2qkc6tueqdv"
+path="res://.godot/imported/lone_wolf.png-1db4039b74decda4848f63578a25e8ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/thunder_bell.png"
-dest_files=["res://.godot/imported/thunder_bell.png-d12a66cdaaf0e44a867bc03efe5148ad.ctex"]
+source_file="res://art/relics/lone_wolf.png"
+dest_files=["res://.godot/imported/lone_wolf.png-1db4039b74decda4848f63578a25e8ed.ctex"]
 
 [params]
 

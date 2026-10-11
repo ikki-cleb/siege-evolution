@@ -170,7 +170,7 @@ when the next wave starts** and lasts until the end of the level (max 4).
 One-time relics (gift coins, base heal, free walls) pay out **the moment
 they're picked**.
 
-- **Pool:** 65 relics in `data/relics.json` (31 common, 24 rare, 10 epic).
+- **Pool:** 67 relics in `data/relics.json` (31 common, 24 rare, 12 epic).
   Each targets all units, a role (attackers, walls, anti-air, ground-only,
   single-target, pulse, long/short range) or a mechanic (splash, slow, stun,
   poison, mark, swarm, regen, reflect, chain, multishot, knockback), or is an
@@ -195,6 +195,34 @@ they're picked**.
   Removed: Mortar Mix, Moss Patch, Thorn Bark, Reinforced Steel, Healing
   Spring, Phoenix Feather, Spiked Collar, Field Medic, Tin Helmet, Dragon
   Scale (all wall HP/regen/reflect/rebuild relics).
+- **Rarity = archetype, not a bigger number** (the user's rule): commons
+  are simple flat boosts; rares and epics are never just stronger copies
+  of a common. They are build-arounds that pull you into one of four
+  archetypes, and many epics carry a cost (the user chose costs about
+  half as harsh as first proposed, roughly -10 to -20%):
+  - **Swarm / clusters:** Packed Ranks (+6% damage per neighbor), Colony
+    (epic: 3+ neighbors +60% damage, +30% speed; 0-1 neighbors -20%).
+  - **Status / control:** Cold Snap (+30% vs slowed), Concussion (+50% vs
+    stunned), Festering (+25% vs poisoned), Affliction (epic: +20% per
+    status on the target, -15% vs targets with none), Doom Bell (epic:
+    every hit stuns, attackers 8% slower).
+  - **Maze / walls:** Long Road (+2% damage per tile the target walked, up
+    to +60%), Watchtower (+0.6 range next to a wall), Exposed Flank (walls
+    mark invaders next to them, +20% damage taken), Flat Pack (1 free wall
+    after every wave, full wall refunds), Labyrinth (epic: walls cost 1,
+    other units +12%), Bastion (epic: away from walls -15%).
+  - **Few elite units:** Veteran's Medal (+30% damage when evolved), Elite
+    Training (+20% speed when evolved), Lone Wolf (+40% damage with no
+    units around), Champion (epic: evolved +60% damage, +0.5 range;
+    unevolved -15%), Philosopher's Stone (epic: evolutions half price,
+    new units +12%).
+  - Also: Skyward (+50% vs fliers, -10% vs ground), Golden Goose (epic:
+    +2 coins per kill, clean-wave bonus halved).
+  Lone Wolf and Colony pull against each other on purpose. Unit-side
+  bonuses are in `Unit.self_bonus()`; target-side ones in
+  `Unit._bonus_against()`; a placed unit's info line shows the total as
+  "relics +X% dmg here". The bot scores each offered relic by how much it
+  would raise its own army's firepower (`AutoPlayer._relic_score`).
 - **Offers** only include relics useful for the units you can field this
   level, never repeat one you have, and later relics in a level roll better
   rarities (epic chance 3% for the first, 18% for the fourth). Offers are

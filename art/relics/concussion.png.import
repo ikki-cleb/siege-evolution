@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bquq5g0kchd1x"
-path="res://.godot/imported/living_hedge.png-ff2639c47d323bba88ef8ebed99a671a.ctex"
+uid="uid://s38crx4b2k1d"
+path="res://.godot/imported/concussion.png-12b5651deb2d94776701625195f320a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/living_hedge.png"
-dest_files=["res://.godot/imported/living_hedge.png-ff2639c47d323bba88ef8ebed99a671a.ctex"]
+source_file="res://art/relics/concussion.png"
+dest_files=["res://.godot/imported/concussion.png-12b5651deb2d94776701625195f320a8.ctex"]
 
 [params]
 

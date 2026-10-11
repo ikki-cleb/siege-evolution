@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bje4kh7omvhli"
-path="res://.godot/imported/wind_wings.png-af31f99e98af9aa6f9e2c36fe14968ad.ctex"
+uid="uid://c4mw2p0mqo41t"
+path="res://.godot/imported/veterans_medal.png-a19df0b427f313e01789f9d986524d52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/wind_wings.png"
-dest_files=["res://.godot/imported/wind_wings.png-af31f99e98af9aa6f9e2c36fe14968ad.ctex"]
+source_file="res://art/relics/veterans_medal.png"
+dest_files=["res://.godot/imported/veterans_medal.png-a19df0b427f313e01789f9d986524d52.ctex"]
 
 [params]
 

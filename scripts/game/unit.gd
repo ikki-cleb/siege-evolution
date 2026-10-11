@@ -48,6 +48,10 @@ const DUST_COLOR := Color(0.85, 0.78, 0.65)
 const WALL_AURA_TICK := 0.5
 const WALL_AURA_RANGE := 1.2
 const WALL_AURA_COLOR := Color(0.75, 0.55, 0.3, 0.5)
+## Colony: a unit with this many neighbors counts as a big cluster.
+const CLUSTER_SIZE := 3
+## Long Road's bonus stops growing here (+60% damage).
+const WALKED_DAMAGE_CAP := 0.6
 ## Countdown to the next tick of a wall relic's slow/burn aura.
 var _aura_timer := 0.0
 ## Draws the capstone star over animated art (still art has it built in).
@@ -100,7 +104,21 @@ func _land() -> void:
 ## of reading data.<stat> directly for anything a relic can change.
 func stat(name: String) -> float:
 	var base = data.get(name)
-	return board.relics.stat(data, name, float(base) if base != null else 0.0)
+	var value := board.relics.stat(data, name, float(base) if base != null else 0.0)
+	if name == "attack_range":
+		value += _bonus_range()
+	return value
+
+
+## Extra range from relics that depend on where the unit stands or whether
+## it has evolved (Watchtower, Champion).
+func _bonus_range() -> float:
+	var extra := 0.0
+	if next_to_wall():
+		extra += stat("wall_buddy_range")
+	if is_evolved():
+		extra += stat("evolved_range")
+	return extra
 
 
 ## True if this unit has an ability, from its own data or from a relic.
@@ -256,6 +274,11 @@ func speed_multiplier() -> float:
 	# Wall-buddy relics: faster when a wall stands next to this unit.
 	if next_to_wall():
 		speed_up += stat("wall_buddy_rate")
+	# Archetype relics: evolved units (Elite Training), big clusters (Colony).
+	if is_evolved():
+		speed_up += stat("evolved_rate")
+	if board.neighbor_count(cell) >= CLUSTER_SIZE:
+		speed_up += stat("cluster_rate")
 	# Goo slows it down (0.4 sticky = attacks at 60% of normal speed).
 	speed_up *= 1.0 - sticky
 	return speed_up
@@ -365,21 +388,69 @@ func _hit(invader: Invader, factor := 1.0) -> void:
 		invader.knock_back(roundi(stat("knockback")))
 
 
-## Extra damage from relics that depends on the target (bosses, fliers,
-## armored invaders) plus the chance of a double-damage critical hit.
+## Extra damage from relics. Some depend on the target (bosses, fliers,
+## armored, status effects, how far it walked), some on this unit (next to a
+## wall, evolved, how many neighbors). Ends with the chance of a
+## double-damage critical hit. Never drops below 10% damage.
 func _bonus_against(invader: Invader) -> float:
 	var bonus := 1.0
+	# --- the target ---
 	if invader.data.is_boss:
 		bonus += stat("boss_damage")
 	if invader.is_flying():
 		bonus += stat("flier_damage")
+	else:
+		bonus += stat("ground_damage")  # Skyward makes this negative
 	if invader.data.armor > 0:
 		bonus += stat("armored_damage")
-	if next_to_wall():
-		bonus += stat("wall_buddy_damage")
+	# Status relics (Cold Snap, Concussion, Festering, Affliction).
+	var statuses := 0
+	if invader.slow_time > 0.0:
+		bonus += stat("vs_slowed")
+		statuses += 1
+	if invader.stun_time > 0.0:
+		bonus += stat("vs_stunned")
+		statuses += 1
+	if invader.poison_time > 0.0:
+		bonus += stat("vs_poisoned")
+		statuses += 1
+	if invader.mark_time > 0.0:
+		statuses += 1
+	bonus += stat("per_status_damage") * statuses
+	if statuses == 0:
+		bonus += stat("clean_target_damage")  # Affliction's cost (negative)
+	# Long Road: invaders that walked a long maze take more damage.
+	bonus += minf(stat("walked_damage") * invader._tiles_walked, WALKED_DAMAGE_CAP)
+	# --- this unit ---
+	bonus += self_bonus()
+	bonus = maxf(0.1, bonus)
 	if randf() < stat("crit"):
 		bonus *= 2.0
 		board.fx.add_puff(invader.position, Palette.GOLD)
+	return bonus
+
+
+## Extra damage from relics that depend only on this unit and where it
+## stands (any target): next to a wall, evolved, how many neighbors.
+## 0.25 means +25% damage.
+func self_bonus() -> float:
+	var bonus := 0.0
+	if next_to_wall():
+		bonus += stat("wall_buddy_damage")
+	else:
+		bonus += stat("no_wall_damage")  # Bastion's cost (negative)
+	if is_evolved():
+		bonus += stat("evolved_damage")
+	else:
+		bonus += stat("unevolved_damage")  # Champion's cost (negative)
+	var neighbors := board.neighbor_count(cell)
+	bonus += stat("damage_per_neighbor") * neighbors
+	if neighbors == 0:
+		bonus += stat("lonely_damage")  # Lone Wolf
+	if neighbors >= CLUSTER_SIZE:
+		bonus += stat("cluster_damage")  # Colony
+	elif neighbors <= 1:
+		bonus += stat("small_group_damage")  # Colony's cost (negative)
 	return bonus
 
 
@@ -399,7 +470,8 @@ func next_to_wall() -> bool:
 func _wall_aura(delta: float) -> void:
 	var slow := stat("wall_slow")
 	var burn := stat("wall_burn")
-	if slow <= 0.0 and burn <= 0.0:
+	var mark := stat("wall_mark")  # Exposed Flank
+	if slow <= 0.0 and burn <= 0.0 and mark <= 0.0:
 		return
 	_aura_timer -= delta
 	if _aura_timer > 0.0:
@@ -416,6 +488,8 @@ func _wall_aura(delta: float) -> void:
 			invader.apply_slow(minf(slow, 0.6), WALL_AURA_TICK * 2.0)
 		if burn > 0.0:
 			invader.take_damage(burn * WALL_AURA_TICK, true, false)
+		if mark > 0.0:
+			invader.apply_mark(mark, WALL_AURA_TICK * 2.0)
 	if hit:
 		board.fx.add_pulse(position, Board.TILE * WALL_AURA_RANGE, WALL_AURA_COLOR)
 

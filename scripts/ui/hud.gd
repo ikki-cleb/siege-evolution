@@ -238,7 +238,7 @@ func close_relic_picker() -> void:
 func _relic_card(relic: Dictionary, index: int) -> Button:
 	var rarity_color: Color = RelicSet.RARITY_COLORS[relic.rarity]
 	var card := Button.new()
-	card.custom_minimum_size = Vector2(320, 92)
+	card.custom_minimum_size = Vector2(320, 100)
 	card.focus_mode = Control.FOCUS_NONE
 	for state in ["normal", "hover", "pressed", "hover_pressed"]:
 		var style := Palette.panel(Palette.SURFACE_HI if state == "normal" else Color("#3a2434"), rarity_color, 10)
@@ -247,7 +247,7 @@ func _relic_card(relic: Dictionary, index: int) -> Button:
 	card.pressed.connect(func(): game.pick_relic(index))
 	var row := HBoxContainer.new()
 	row.position = Vector2(12, 10)
-	row.size = Vector2(296, 72)
+	row.size = Vector2(296, 80)
 	row.add_theme_constant_override("separation", 12)
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	card.add_child(row)

@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 140
+const MIN_RULE_CHECKS := 144
 var progress: Node
 
 
@@ -358,11 +358,16 @@ const RELIC_STATS := ["damage", "attack_range", "fire_rate", "max_hp", "regen", 
 	"splash_radius", "slow", "slow_duration", "stun_duration", "poison_dps", "poison_duration",
 	"mark_bonus", "mark_duration", "chain_count", "multishot", "knockback", "armor_shred",
 	"execute_below", "adjacency_bonus", "crit", "boss_damage", "flier_damage", "armored_damage",
-	"wall_buddy_damage", "wall_buddy_rate", "wall_slow", "wall_burn"]
+	"wall_buddy_damage", "wall_buddy_rate", "wall_slow", "wall_burn",
+	# Archetype relics (rare/epic build-arounds).
+	"wall_buddy_range", "wall_mark", "no_wall_damage", "walked_damage", "ground_damage",
+	"vs_slowed", "vs_stunned", "vs_poisoned", "per_status_damage", "clean_target_damage",
+	"damage_per_neighbor", "cluster_damage", "cluster_rate", "small_group_damage",
+	"lonely_damage", "evolved_damage", "evolved_rate", "evolved_range", "unevolved_damage"]
 const RELIC_ABILITIES := ["pierce", "hits_air", "poison_spreads", "rebuild"]
 const RELIC_ECONOMY := ["kill_coins", "wave_coins", "clean_bonus_mult", "evolve_discount",
 	"refund_old", "base_heal", "gift_coins", "free_walls", "interest",
-	"wall_discount", "wall_refund"]
+	"wall_discount", "wall_refund", "unit_markup", "wave_walls"]
 const RELIC_FILTERS := ["all", "attackers", "walls", "anti_air", "ground_only", "single", "pulse",
 	"splash", "slow", "stun", "poison", "mark", "swarm", "regen", "reflect", "chain", "multishot",
 	"knockback", "long_range", "short_range", "economy"]
@@ -427,11 +432,11 @@ func _test_relics(biome: BiomeData) -> void:
 	# A picked relic only works from the next wave on.
 	var unit: Unit = board.place_unit(game.unit_types[1], Vector2i(4, 8))
 	var damage_before := unit.stat("damage")
-	game.relic_offer = [RelicSet.find("diamond_edge")]
+	game.relic_offer = [RelicSet.find("sharpening_stone")]
 	game.pick_relic(0)
 	_check(is_equal_approx(unit.stat("damage"), damage_before), "A relic doesn't work until the next wave")
 	game.start_wave()
-	_check(is_equal_approx(unit.stat("damage"), damage_before * 1.3), "...then it powers up matching units")
+	_check(is_equal_approx(unit.stat("damage"), damage_before * 1.15), "...then it powers up matching units")
 	await _stop(game)
 
 	# One-time relics pay out the moment they're picked.
@@ -505,6 +510,39 @@ func _test_relics(biome: BiomeData) -> void:
 		_check(dummy.slow_amount > 0.0 and dummy.hp < hp_before, "Wall relics slow and burn invaders next to walls")
 	else:
 		_check(false, "Wall relic test found a plain ground invader")
+	await _stop(game)
+
+	# Archetype relics: rare/epic build-arounds with conditions and costs.
+	game = await _start(biome, 0, 1)
+	board = game.board
+	game.start_wave()
+	game._wave_time = 999.0
+	await process_frame
+	var target: Invader = null
+	for invader in board.invaders:
+		if not invader.is_flying() and not invader.data.is_boss and invader.data.armor == 0:
+			target = invader
+			break
+	var loner: Unit = board.place_unit(shooter, Vector2i(1, 8))
+	var plain := loner._bonus_against(target)
+	board.relics.add_pending(RelicSet.find("lone_wolf"))
+	board.relics.add_pending(RelicSet.find("cold_snap"))
+	board.relics.add_pending(RelicSet.find("champion"))
+	board.relics.activate_pending()
+	# Lone Wolf +40%, Champion's cost -15% (not evolved), no slow yet.
+	_check(is_equal_approx(loner._bonus_against(target), plain + 0.4 - 0.15),
+		"Lone Wolf boosts a unit with no neighbors; Champion weakens unevolved units")
+	target.apply_slow(0.3, 5.0)
+	_check(is_equal_approx(loner._bonus_against(target), plain + 0.4 - 0.15 + 0.3),
+		"Cold Snap: slowed invaders take more damage")
+	loner.evolve(loner.data.evolutions[0])
+	_check(is_equal_approx(loner._bonus_against(target), plain + 0.4 + 0.6 + 0.3)
+		and is_equal_approx(loner.stat("attack_range"), loner.data.attack_range + 0.5),
+		"Champion: evolved units hit harder and reach farther")
+	board.relics.add_pending(RelicSet.find("labyrinth"))
+	board.relics.activate_pending()
+	_check(game.unit_cost(wall) == 1 and game.unit_cost(shooter) == roundi(shooter.cost * 1.12),
+		"Labyrinth: walls cost 1 coin, other units cost more")
 	await _stop(game)
 
 

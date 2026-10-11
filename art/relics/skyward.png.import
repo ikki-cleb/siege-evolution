@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqh7vqujvkujr"
-path="res://.godot/imported/bullseye.png-2d0303a6b3ada15a5c2af2affa71c37f.ctex"
+uid="uid://63fh3yguhysd"
+path="res://.godot/imported/skyward.png-8b67ce42b16cfc75b243be48100911ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/bullseye.png"
-dest_files=["res://.godot/imported/bullseye.png-2d0303a6b3ada15a5c2af2affa71c37f.ctex"]
+source_file="res://art/relics/skyward.png"
+dest_files=["res://.godot/imported/skyward.png-8b67ce42b16cfc75b243be48100911ca.ctex"]
 
 [params]
 

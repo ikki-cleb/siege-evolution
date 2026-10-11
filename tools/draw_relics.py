@@ -52,7 +52,7 @@ def preview(relics, path):
     title = ImageFont.truetype(os.path.join(fonts, "Coiny-Regular.ttf"), 18)
     head = ImageFont.truetype(os.path.join(fonts, "Coiny-Regular.ttf"), 28)
     body = ImageFont.truetype(os.path.join(fonts, "SpaceMono-Regular.ttf"), 12)
-    cols, cw, ch, gap, pad = 5, 280, 104, 10, 24
+    cols, cw, ch, gap, pad = 5, 280, 120, 10, 24
     groups = [(r, [x for x in relics if x["rarity"] == r]) for r in RARITY]
     height = pad + 56 + sum(44 + ((len(g) + cols - 1) // cols) * (ch + gap) for _, g in groups)
     sheet = Image.new("RGBA", (pad * 2 + cols * cw + (cols - 1) * gap, height), (23, 13, 20, 255))
@@ -68,7 +68,7 @@ def preview(relics, path):
             d.rounded_rectangle((x, yy, x + cw, yy + ch), 8, fill=(42, 22, 34), outline=RARITY[rarity], width=2)
             sheet.alpha_composite(badge(relic, 4), (x + 8, yy + 12))
             d.text((x + 98, yy + 10), relic["name"], font=title, fill=(243, 227, 234))
-            for j, line in enumerate(textwrap.wrap(relic["desc"], 24)[:4]):
+            for j, line in enumerate(textwrap.wrap(relic["desc"], 24)[:5]):
                 d.text((x + 98, yy + 38 + j * 15), line, font=body, fill=(210, 195, 202))
         y += ((len(group) + cols - 1) // cols) * (ch + gap) + 10
     sheet.save(path)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c14qvyptk0bx4"
-path="res://.godot/imported/overclock.png-bd493e5e1581cd6ff10b896b3ec8092a.ctex"
+uid="uid://cuh04xcro73fg"
+path="res://.godot/imported/packed_ranks.png-6f187316ed951b52d6fde8eef0e505ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/overclock.png"
-dest_files=["res://.godot/imported/overclock.png-bd493e5e1581cd6ff10b896b3ec8092a.ctex"]
+source_file="res://art/relics/packed_ranks.png"
+dest_files=["res://.godot/imported/packed_ranks.png-6f187316ed951b52d6fde8eef0e505ae.ctex"]
 
 [params]
 

@@ -72,14 +72,43 @@ func pick_relic() -> void:
 	if game.relic_offer.is_empty():
 		return
 	var best := 0
-	var best_score := -1
+	var best_score := -INF
 	for i in game.relic_offer.size():
-		var relic: Dictionary = game.relic_offer[i]
-		var score: int = RelicSet.RARITY_ORDER.find(relic.rarity) * 2 + (0 if relic.filter == "economy" else 1)
+		var score := _relic_score(game.relic_offer[i])
 		if score > best_score:
 			best_score = score
 			best = i
 	game.pick_relic(best)
+
+
+## How much a relic would help the bot's current board. Relics that change
+## its units' damage, speed or range are measured directly (so a Lone Wolf
+## in a packed maze scores badly); others get a guess by rarity.
+func _relic_score(relic: Dictionary) -> float:
+	var rarity := RelicSet.RARITY_ORDER.find(relic.rarity)
+	var guess: float = [0.08, 0.15, 0.25][rarity]
+	if relic.filter == "economy":
+		return guess * 0.8
+	var before := _army_power()
+	board.relics.active.append(relic)
+	var after := _army_power()
+	board.relics.active.erase(relic)
+	if before <= 0.0 or is_equal_approx(before, after):
+		return guess
+	return after / before - 1.0
+
+
+## A rough measure of the bot's firepower: damage x fire rate x relic
+## bonuses x range, added up over its attacking units.
+func _army_power() -> float:
+	var total := 0.0
+	for cell in board.units:
+		var unit: Unit = board.units[cell]
+		if unit.destroyed or not unit.data.can_attack():
+			continue
+		total += unit.stat("damage") * unit.speed_multiplier() / unit.data.attack_interval \
+			* maxf(0.1, 1.0 + unit.self_bonus()) * (0.5 + unit.stat("attack_range") * 0.25)
+	return total
 
 
 ## Spends coins and free units until nothing more is worth doing.

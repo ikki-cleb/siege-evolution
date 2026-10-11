@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yvkrmlctmeuk"
-path="res://.godot/imported/tar_pits.png-69c080f32fd07aed2316929c8ba081e9.ctex"
+uid="uid://bdqb0fi26r1mq"
+path="res://.godot/imported/labyrinth.png-82235da799a5bb4e7342787979de2e91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/tar_pits.png"
-dest_files=["res://.godot/imported/tar_pits.png-69c080f32fd07aed2316929c8ba081e9.ctex"]
+source_file="res://art/relics/labyrinth.png"
+dest_files=["res://.godot/imported/labyrinth.png-82235da799a5bb4e7342787979de2e91.ctex"]
 
 [params]
 

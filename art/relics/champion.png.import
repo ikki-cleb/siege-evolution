@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3lni3vdd0rs0"
-path="res://.godot/imported/barbed_wire.png-f8697cc9962e83cb621f4b8dc7821382.ctex"
+uid="uid://c1bdfmiw701cs"
+path="res://.godot/imported/champion.png-83dc9a232cafedfffd16379aef648c85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/relics/barbed_wire.png"
-dest_files=["res://.godot/imported/barbed_wire.png-f8697cc9962e83cb621f4b8dc7821382.ctex"]
+source_file="res://art/relics/champion.png"
+dest_files=["res://.godot/imported/champion.png-83dc9a232cafedfffd16379aef648c85.ctex"]
 
 [params]
 
