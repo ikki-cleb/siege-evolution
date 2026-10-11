@@ -36,54 +36,6 @@
     }
   },
   {
-    "id": "mortar_mix",
-    "name": "Mortar Mix",
-    "rarity": "common",
-    "icon": "brick",
-    "color": "#c87850",
-    "filter": "walls",
-    "desc": "Walls get +30% HP.",
-    "mult": {
-      "max_hp": 0.3
-    }
-  },
-  {
-    "id": "moss_patch",
-    "name": "Moss Patch",
-    "rarity": "common",
-    "icon": "leaf",
-    "color": "#70c060",
-    "filter": "walls",
-    "desc": "Walls regenerate 1.5 HP per second.",
-    "add": {
-      "regen": 1.5
-    }
-  },
-  {
-    "id": "thorn_bark",
-    "name": "Thorn Bark",
-    "rarity": "common",
-    "icon": "thorn",
-    "color": "#a07040",
-    "filter": "walls",
-    "desc": "Walls bounce 15% of smasher damage back.",
-    "add": {
-      "reflect": 0.15
-    }
-  },
-  {
-    "id": "tin_helmet",
-    "name": "Tin Helmet",
-    "rarity": "common",
-    "icon": "helmet",
-    "color": "#b0b8c0",
-    "filter": "all",
-    "desc": "All units get +15% HP.",
-    "mult": {
-      "max_hp": 0.15
-    }
-  },
-  {
     "id": "heavy_rounds",
     "name": "Heavy Rounds",
     "rarity": "common",
@@ -264,30 +216,6 @@
     }
   },
   {
-    "id": "field_medic",
-    "name": "Field Medic",
-    "rarity": "common",
-    "icon": "cross",
-    "color": "#70e090",
-    "filter": "regen",
-    "desc": "Regeneration is 50% faster.",
-    "mult": {
-      "regen": 0.5
-    }
-  },
-  {
-    "id": "spiked_collar",
-    "name": "Spiked Collar",
-    "rarity": "common",
-    "icon": "thorn",
-    "color": "#d0d0d0",
-    "filter": "reflect",
-    "desc": "Reflecting units bounce 15% more back.",
-    "add": {
-      "reflect": 0.15
-    }
-  },
-  {
     "id": "bird_net",
     "name": "Bird Net",
     "rarity": "common",
@@ -417,18 +345,6 @@
     "desc": "Attackers deal +30% damage.",
     "mult": {
       "damage": 0.3
-    }
-  },
-  {
-    "id": "reinforced_steel",
-    "name": "Reinforced Steel",
-    "rarity": "rare",
-    "icon": "shield",
-    "color": "#a0b0c8",
-    "filter": "walls",
-    "desc": "Walls get +60% HP.",
-    "mult": {
-      "max_hp": 0.6
     }
   },
   {
@@ -643,33 +559,6 @@
     }
   },
   {
-    "id": "healing_spring",
-    "name": "Healing Spring",
-    "rarity": "rare",
-    "icon": "drop",
-    "color": "#60c0ff",
-    "filter": "walls",
-    "desc": "Walls regenerate 3 HP per second.",
-    "add": {
-      "regen": 3.0
-    }
-  },
-  {
-    "id": "dragon_scale",
-    "name": "Dragon Scale",
-    "rarity": "epic",
-    "icon": "shield",
-    "color": "#ff7040",
-    "filter": "all",
-    "desc": "All units get +50% HP, and walls bounce 20% of smasher damage back.",
-    "mult": {
-      "max_hp": 0.5
-    },
-    "add": {
-      "reflect": 0.2
-    }
-  },
-  {
     "id": "war_drum",
     "name": "War Drum",
     "rarity": "epic",
@@ -742,18 +631,6 @@
     }
   },
   {
-    "id": "phoenix_feather",
-    "name": "Phoenix Feather",
-    "rarity": "epic",
-    "icon": "flame",
-    "color": "#ff8040",
-    "filter": "walls",
-    "desc": "Walls rebuild once each wave when broken.",
-    "grant": [
-      "rebuild"
-    ]
-  },
-  {
     "id": "triple_shot",
     "name": "Triple Shot",
     "rarity": "epic",
@@ -775,6 +652,141 @@
     "desc": "Every hit stuns for 0.2s.",
     "add": {
       "stun_duration": 0.2
+    }
+  },
+  {
+    "id": "buddy_system",
+    "name": "Buddy System",
+    "rarity": "common",
+    "icon": "brick",
+    "color": "#d09060",
+    "filter": "attackers",
+    "desc": "Attackers next to a wall deal +15% damage.",
+    "add": {
+      "wall_buddy_damage": 0.15
+    }
+  },
+  {
+    "id": "brace_posts",
+    "name": "Brace Posts",
+    "rarity": "common",
+    "icon": "gear",
+    "color": "#c0a070",
+    "filter": "attackers",
+    "desc": "Attackers next to a wall fire 12% faster.",
+    "add": {
+      "wall_buddy_rate": 0.12
+    }
+  },
+  {
+    "id": "sticky_mortar",
+    "name": "Sticky Mortar",
+    "rarity": "common",
+    "icon": "drop",
+    "color": "#b0c070",
+    "filter": "walls",
+    "desc": "Invaders next to a wall are slowed 15%.",
+    "add": {
+      "wall_slow": 0.15
+    }
+  },
+  {
+    "id": "nettle_hedge",
+    "name": "Nettle Hedge",
+    "rarity": "common",
+    "icon": "leaf",
+    "color": "#80c060",
+    "filter": "walls",
+    "desc": "Walls sting invaders next to them for 2 damage per second.",
+    "add": {
+      "wall_burn": 2.0
+    }
+  },
+  {
+    "id": "bulk_bricks",
+    "name": "Bulk Bricks",
+    "rarity": "common",
+    "icon": "box",
+    "color": "#c87850",
+    "filter": "economy",
+    "desc": "Walls cost 2 coins less (never below 1).",
+    "economy": {
+      "wall_discount": 2
+    }
+  },
+  {
+    "id": "fortified_nest",
+    "name": "Fortified Nest",
+    "rarity": "rare",
+    "icon": "shield",
+    "color": "#e0a050",
+    "filter": "attackers",
+    "desc": "Attackers next to a wall deal +30% damage.",
+    "add": {
+      "wall_buddy_damage": 0.3
+    }
+  },
+  {
+    "id": "tar_pits",
+    "name": "Tar Pits",
+    "rarity": "rare",
+    "icon": "drop",
+    "color": "#606070",
+    "filter": "walls",
+    "desc": "Invaders next to a wall are slowed 30%.",
+    "add": {
+      "wall_slow": 0.3
+    }
+  },
+  {
+    "id": "barbed_wire",
+    "name": "Barbed Wire",
+    "rarity": "rare",
+    "icon": "thorn",
+    "color": "#c0c8d0",
+    "filter": "walls",
+    "desc": "Walls sting invaders next to them for 5 damage per second.",
+    "add": {
+      "wall_burn": 5.0
+    }
+  },
+  {
+    "id": "flat_pack",
+    "name": "Flat-Pack Walls",
+    "rarity": "rare",
+    "icon": "scroll",
+    "color": "#e0c080",
+    "filter": "economy",
+    "desc": "Walls cost 1 coin less, and removing a wall always refunds its full cost.",
+    "economy": {
+      "wall_discount": 1,
+      "wall_refund": 1
+    }
+  },
+  {
+    "id": "bastion",
+    "name": "Bastion",
+    "rarity": "epic",
+    "icon": "helmet",
+    "color": "#ffb040",
+    "filter": "attackers",
+    "desc": "Attackers next to a wall deal +40% damage and fire 25% faster.",
+    "add": {
+      "wall_buddy_damage": 0.4,
+      "wall_buddy_rate": 0.25
+    }
+  },
+  {
+    "id": "living_hedge",
+    "name": "Living Hedge",
+    "rarity": "epic",
+    "icon": "thorn",
+    "color": "#60e070",
+    "filter": "walls",
+    "desc": "Invaders next to a wall are slowed 25% and take 4 damage per second.",
+    "add": {
+      "wall_slow": 0.25,
+      "wall_burn": 4.0
     }
   }
 ]

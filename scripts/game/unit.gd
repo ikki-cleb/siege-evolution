@@ -44,6 +44,12 @@ const SHADOW_COLOR := Color(0, 0, 0, 0.45)
 const PAD_COLOR := Color(0, 0, 0, 0.18)
 const PAD_EDGE := Color(0, 0, 0, 0.35)
 const DUST_COLOR := Color(0.85, 0.78, 0.65)
+## Wall relic aura: how often it ticks, how far it reaches (tiles), its color.
+const WALL_AURA_TICK := 0.5
+const WALL_AURA_RANGE := 1.2
+const WALL_AURA_COLOR := Color(0.75, 0.55, 0.3, 0.5)
+## Countdown to the next tick of a wall relic's slow/burn aura.
+var _aura_timer := 0.0
 ## Draws the capstone star over animated art (still art has it built in).
 var _star: CapstoneStar
 ## Capstone mechanics: grab cooldown, and whether "rebuild once" was used.
@@ -227,6 +233,7 @@ func _process(delta: float) -> void:
 	if stat("regen") > 0.0 and hp < max_hp() and _regen_pause <= 0.0:
 		hp = min(hp + stat("regen") * delta, max_hp())
 		queue_redraw()
+	_wall_aura(delta)
 	if not data.can_attack():
 		return
 	_cooldown -= delta
@@ -246,6 +253,9 @@ func speed_multiplier() -> float:
 	speed_up += board.aura_at(cell).speed
 	# Fire-rate relics.
 	speed_up *= board.relics.stat(data, "fire_rate", 1.0)
+	# Wall-buddy relics: faster when a wall stands next to this unit.
+	if next_to_wall():
+		speed_up += stat("wall_buddy_rate")
 	# Goo slows it down (0.4 sticky = attacks at 60% of normal speed).
 	speed_up *= 1.0 - sticky
 	return speed_up
@@ -365,10 +375,49 @@ func _bonus_against(invader: Invader) -> float:
 		bonus += stat("flier_damage")
 	if invader.data.armor > 0:
 		bonus += stat("armored_damage")
+	if next_to_wall():
+		bonus += stat("wall_buddy_damage")
 	if randf() < stat("crit"):
 		bonus *= 2.0
 		board.fx.add_puff(invader.position, Palette.GOLD)
 	return bonus
+
+
+## True if a wall stands on one of the 8 tiles around this unit
+## (for the "wall buddy" relics like Buddy System).
+func next_to_wall() -> bool:
+	for dy in [-1, 0, 1]:
+		for dx in [-1, 0, 1]:
+			var other := board.intact_unit_at(cell + Vector2i(dx, dy))
+			if other and other != self and other.data.role == UnitData.Role.WALL:
+				return true
+	return false
+
+
+## Wall relics (Sticky Mortar, Nettle Hedge...): every half second, a wall
+## slows and/or burns ground invaders walking right next to it.
+func _wall_aura(delta: float) -> void:
+	var slow := stat("wall_slow")
+	var burn := stat("wall_burn")
+	if slow <= 0.0 and burn <= 0.0:
+		return
+	_aura_timer -= delta
+	if _aura_timer > 0.0:
+		return
+	_aura_timer = WALL_AURA_TICK
+	var hit := false
+	for invader in board.invaders:
+		if not invader.alive or invader.underground or invader.is_flying():
+			continue
+		if position.distance_to(invader.position) > WALL_AURA_RANGE * Board.TILE:
+			continue
+		hit = true
+		if slow > 0.0:
+			invader.apply_slow(minf(slow, 0.6), WALL_AURA_TICK * 2.0)
+		if burn > 0.0:
+			invader.take_damage(burn * WALL_AURA_TICK, true, false)
+	if hit:
+		board.fx.add_pulse(position, Board.TILE * WALL_AURA_RANGE, WALL_AURA_COLOR)
 
 
 func _can_target(invader: Invader) -> bool:

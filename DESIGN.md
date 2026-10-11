@@ -170,7 +170,7 @@ when the next wave starts** and lasts until the end of the level (max 4).
 One-time relics (gift coins, base heal, free walls) pay out **the moment
 they're picked**.
 
-- **Pool:** 64 relics in `data/relics.json` (32 common, 22 rare, 10 epic).
+- **Pool:** 65 relics in `data/relics.json` (31 common, 24 rare, 10 epic).
   Each targets all units, a role (attackers, walls, anti-air, ground-only,
   single-target, pulse, long/short range) or a mechanic (splash, slow, stun,
   poison, mark, swarm, regen, reflect, chain, multishot, knockback), or is an
@@ -178,6 +178,23 @@ they're picked**.
   refunds, base heal, free walls, interest, gift coins, clean-wave bonus).
   New relics need no code if they use existing filters, stats and keys
   (a rules test checks every entry).
+- **Wall relics (redesigned):** the user found "make walls tougher" relics
+  unfun (few enemies hit walls, so upgrading one felt like a wasted pick).
+  Wall relics now make walls *matter to everything else*:
+  - **Wall buddies** (filter "attackers"): `wall_buddy_damage` /
+    `wall_buddy_rate` boost any attacker with a wall on one of its 8
+    neighboring tiles (Buddy System, Brace Posts, Fortified Nest, Bastion).
+  - **Wall auras** (filter "walls"): every 0.5s each wall slows
+    (`wall_slow`, capped at 60%) and/or burns (`wall_burn` damage per
+    second, ignores armor) ground invaders within 1.2 tiles (Sticky Mortar,
+    Nettle Hedge, Tar Pits, Barbed Wire, Living Hedge). Fliers and
+    burrowers are untouched.
+  - **Cheaper walls** (economy): `wall_discount` coins off every wall (min
+    1; Bulk Bricks, Flat Pack) and `wall_refund` (Flat Pack: old walls
+    refund in full). Refunds use the discounted price.
+  Removed: Mortar Mix, Moss Patch, Thorn Bark, Reinforced Steel, Healing
+  Spring, Phoenix Feather, Spiked Collar, Field Medic, Tin Helmet, Dragon
+  Scale (all wall HP/regen/reflect/rebuild relics).
 - **Offers** only include relics useful for the units you can field this
   level, never repeat one you have, and later relics in a level roll better
   rarities (epic chance 3% for the first, 18% for the fourth). Offers are

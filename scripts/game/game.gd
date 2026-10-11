@@ -201,7 +201,7 @@ func try_place(type: UnitData, cell: Vector2i) -> bool:
 		hud.show_message("Only your basic wall can go on water (as a net or mine).")
 		return false
 	var from_hand: bool = hand.get(type.id, 0) > 0
-	if not from_hand and coins < type.cost:
+	if not from_hand and coins < unit_cost(type):
 		board.flash(cell)
 		Audio.play("deny")
 		hud.show_message("Not enough coins.")
@@ -215,7 +215,7 @@ func try_place(type: UnitData, cell: Vector2i) -> bool:
 	if from_hand:
 		hand[type.id] -= 1
 	else:
-		coins -= type.cost
+		coins -= unit_cost(type)
 	var unit := board.place_unit(type, cell)
 	Audio.play("place")
 	unit.placed_round = wave_number
@@ -236,9 +236,11 @@ func sell_value(unit: Unit) -> Dictionary:
 		if unit.from_hand:
 			result.to_hand = true
 		else:
-			result.coins += unit.base_data.cost
+			result.coins += unit_cost(unit.base_data)
+	elif unit.base_data.role == UnitData.Role.WALL and board.relics.economy("wall_refund") > 0.0:
+		result.coins += unit_cost(unit.base_data)  # Flat Pack: walls always refund fully
 	else:
-		result.coins += int(unit.base_data.cost * old_refund())
+		result.coins += int(unit_cost(unit.base_data) * old_refund())
 	# Each evolution refunds by the same rule, by the round it was bought in.
 	if unit.tier1_data:
 		result.coins += _refund(evolve_cost(unit.tier1_data), unit.evolved_round)
@@ -249,6 +251,14 @@ func sell_value(unit: Unit) -> Dictionary:
 
 func _refund(cost: int, bought_round: int) -> int:
 	return cost if bought_round == wave_number else int(cost * old_refund())
+
+
+## What placing a unit costs right now. Wall relics (Bulk Bricks, Flat Pack)
+## make walls cheaper, down to 1 coin.
+func unit_cost(type: UnitData) -> int:
+	if type.role == UnitData.Role.WALL:
+		return maxi(1, type.cost - roundi(board.relics.economy("wall_discount")))
+	return type.cost
 
 
 ## Share refunded for units from earlier rounds (a relic can raise it).
@@ -686,6 +696,13 @@ func describe(type: UnitData, unit: Unit = null) -> String:
 		parts.append("neighbors -%d%% damage" % roundi(type.aura_shield * 100))
 	if type.aura_cleanse:
 		parts.append("neighbors ignore goo")
+	# Wall relics (only on placed units: they come from relics, not data).
+	if unit and unit.stat("wall_slow") > 0.0:
+		parts.append("slows neighbors %d%%" % roundi(minf(0.6, unit.stat("wall_slow")) * 100))
+	if unit and unit.stat("wall_burn") > 0.0:
+		parts.append("burns neighbors %s/s" % _num(unit.stat("wall_burn")))
+	if unit and unit.next_to_wall() and unit.stat("wall_buddy_damage") > 0.0:
+		parts.append("+%d%% dmg by a wall" % roundi(unit.stat("wall_buddy_damage") * 100))
 	if type.can_attack():
 		parts.append("hits fliers" if _has(type, unit, "hits_air") else "ground only")
 	return "%s: %s." % [type.display_name, ", ".join(parts)]

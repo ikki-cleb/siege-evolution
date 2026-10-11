@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 137
+const MIN_RULE_CHECKS := 140
 var progress: Node
 
 
@@ -357,10 +357,12 @@ func _test_base_block() -> void:
 const RELIC_STATS := ["damage", "attack_range", "fire_rate", "max_hp", "regen", "reflect",
 	"splash_radius", "slow", "slow_duration", "stun_duration", "poison_dps", "poison_duration",
 	"mark_bonus", "mark_duration", "chain_count", "multishot", "knockback", "armor_shred",
-	"execute_below", "adjacency_bonus", "crit", "boss_damage", "flier_damage", "armored_damage"]
+	"execute_below", "adjacency_bonus", "crit", "boss_damage", "flier_damage", "armored_damage",
+	"wall_buddy_damage", "wall_buddy_rate", "wall_slow", "wall_burn"]
 const RELIC_ABILITIES := ["pierce", "hits_air", "poison_spreads", "rebuild"]
 const RELIC_ECONOMY := ["kill_coins", "wave_coins", "clean_bonus_mult", "evolve_discount",
-	"refund_old", "base_heal", "gift_coins", "free_walls", "interest"]
+	"refund_old", "base_heal", "gift_coins", "free_walls", "interest",
+	"wall_discount", "wall_refund"]
 const RELIC_FILTERS := ["all", "attackers", "walls", "anti_air", "ground_only", "single", "pulse",
 	"splash", "slow", "stun", "poison", "mark", "swarm", "regen", "reflect", "chain", "multishot",
 	"knockback", "long_range", "short_range", "economy"]
@@ -461,6 +463,48 @@ func _test_relics(biome: BiomeData) -> void:
 	game.board.relics.add_pending(RelicSet.find("bargain_scroll"))
 	game.board.relics.activate_pending()
 	_check(game.evolve_cost(evolution) == roundi(evolution.cost * 0.75), "Bargain Scroll makes evolutions 25% cheaper")
+	await _stop(game)
+
+	# Wall relics: cheaper walls, wall buddies hit harder, walls slow and burn.
+	game = await _start(biome, 0, 1)
+	board = game.board
+	var wall: UnitData = null
+	var shooter: UnitData = null
+	for type in game.unit_types:
+		if type.role == UnitData.Role.WALL and wall == null:
+			wall = type
+		elif type.can_attack() and shooter == null:
+			shooter = type
+	var wall_price: int = game.unit_cost(wall)
+	for id in ["bulk_bricks", "buddy_system", "sticky_mortar", "nettle_hedge"]:
+		board.relics.add_pending(RelicSet.find(id))
+	board.relics.activate_pending()
+	_check(game.unit_cost(wall) == maxi(1, wall_price - 2) and game.unit_cost(shooter) == shooter.cost,
+		"Bulk Bricks makes walls (only walls) 2 coins cheaper")
+	var gunner: Unit = board.place_unit(shooter, Vector2i(4, 8))
+	var lone_bonus := 0.0
+	var dummy: Invader = null
+	game.start_wave()
+	game._wave_time = 999.0
+	await process_frame
+	for invader in board.invaders:
+		if not invader.is_flying() and not invader.data.is_boss and invader.data.armor == 0:
+			dummy = invader
+			break
+	if dummy:
+		dummy.data = dummy.data.duplicate()  # no surprise crits from relics here
+		lone_bonus = gunner._bonus_against(dummy)
+		var brick: Unit = board.place_unit(wall, Vector2i(5, 8))
+		_check(gunner.next_to_wall() and is_equal_approx(gunner._bonus_against(dummy), lone_bonus + 0.15),
+			"Buddy System: +15% damage next to a wall")
+		# Park the invader next to the wall and let the aura tick.
+		dummy.position = brick.position + Vector2(Board.TILE * 0.6, 0)
+		var hp_before := dummy.hp
+		brick._aura_timer = 0.0
+		brick._wall_aura(0.0)
+		_check(dummy.slow_amount > 0.0 and dummy.hp < hp_before, "Wall relics slow and burn invaders next to walls")
+	else:
+		_check(false, "Wall relic test found a plain ground invader")
 	await _stop(game)
 
 

@@ -140,6 +140,10 @@ for 0.9s with a red warning before they explode (`Board.drop_bomb`).
 through `Unit.stat(name)` / `has_ability(name)` / `max_hp()` (never read
 relic-affected `data.<stat>` directly in unit code); game hooks in
 `game.gd` (# --- Relics section); picker + icon column in `hud.gd`.
+Wall relics were redesigned (the user found wall HP relics unfun): walls now
+boost neighboring attackers (`wall_buddy_*`, `Unit.next_to_wall()`), slow
+and burn ground invaders next to them (`Unit._wall_aura()`), or get cheaper
+(`Game.unit_cost()`; always use it, not `type.cost`, for placing prices).
 
 **Base (latest round):** 3x2 tiles (`Board.base_cells`, built from the
 layout's "B" by `_make_base_block`). Routes still aim at `base_cell` but

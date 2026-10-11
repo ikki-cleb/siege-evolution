@@ -96,7 +96,7 @@ func refresh() -> void:
 	for type in _unit_buttons:
 		var button: Button = _unit_buttons[type]
 		var free_left: int = game.hand.get(type.id, 0)
-		button.text = "x%d free" % free_left if free_left > 0 else "%s %d" % [Palette.COIN, type.cost]
+		button.text = "x%d free" % free_left if free_left > 0 else "%s %d" % [Palette.COIN, game.unit_cost(type)]
 		button.disabled = not building
 		button.set_pressed_no_signal(game.selected_type == type)
 

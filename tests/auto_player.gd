@@ -111,7 +111,7 @@ func _take_action() -> bool:
 
 
 func _affordable(type: UnitData) -> bool:
-	return game.hand.get(type.id, 0) > 0 or game.coins >= type.cost
+	return game.hand.get(type.id, 0) > 0 or game.coins >= game.unit_cost(type)
 
 
 ## Free units first, then whichever affordable type we've spent least on.
