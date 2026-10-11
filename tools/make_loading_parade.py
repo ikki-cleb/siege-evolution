@@ -10,6 +10,7 @@ markers. Re-run after redrawing any of these invaders or changing a font:
 """
 import base64
 import io
+import json
 import re
 from pathlib import Path
 
@@ -63,15 +64,22 @@ def _has_brotli():
         return False
 
 
-# Units that stand under the track and shoot at the parade: one per pack
-# (Backyard Bugs, the first world), with the pack's color for pad and shots.
-SHOOTERS = [
-    ("backyard_bugs/units/fortress/bombardier_beetle", "#d1603d"),
-    ("backyard_bugs/units/swarm/honeybee", "#e9c46a"),
-    ("backyard_bugs/units/precision/firefly", "#4ea8de"),
-    ("backyard_bugs/units/control/click_beetle", "#9d79d6"),
-    ("backyard_bugs/units/toxin/paper_wasp", "#6cc551"),
-]
+# Units that stand under the track and shoot at the parade: the same five
+# units (one per pack) in every world; each load picks a world at random.
+# Ids are Microscopic's (where pack stats live); other worlds rename them.
+SHOOTER_IDS = ["dendritic_cell", "basophil", "antibody_tagger", "cytokine_storm", "killer_t"]
+PACKS = ["fortress", "swarm", "precision", "control", "toxin"]
+PACK_COLORS = ["#d1603d", "#e9c46a", "#4ea8de", "#9d79d6", "#6cc551"]
+WORLDS = ["backyard_bugs", "wild_kingdom", "immune_system", "total_war", "galactic_siege",
+          "kitchen_defense", "birthday_bash"]
+
+
+def shooters(world):
+    """The five shooters' art paths in one world (renamed per world)."""
+    content = json.loads((PROJECT / "tools" / "content" / f"{world}.json").read_text())
+    renames = content.get("renames", {})
+    return [f"{world}/units/{pack}/{renames.get(uid, [uid])[0]}"
+            for uid, pack in zip(SHOOTER_IDS, PACKS)]
 
 
 def data_url(path):
@@ -84,15 +92,18 @@ def main():
     for index, path in enumerate(MARCHERS):
         rules.append(f"#parade .inv-{index} {{ background-image: {data_url(path + '_move.png')}; }}")
         rules.append(f"#parade .inv-{index}.dead {{ background-image: {data_url(path + '_death.png')}; }}")
-    for index, (path, color) in enumerate(SHOOTERS):
-        rules.append(f"#units .unit-{index} {{ --pack: {color}; background-image: {data_url(path + '_idle.png')}; }}")
-        rules.append(f"#units .unit-{index}.firing {{ background-image: {data_url(path + '_attack.png')}; }}")
+    for index, color in enumerate(PACK_COLORS):
+        rules.append(f"#units .unit-{index} {{ --pack: {color}; }}")
+    for w, world in enumerate(WORLDS):
+        for index, path in enumerate(shooters(world)):
+            rules.append(f"#units .w{w}.unit-{index} {{ background-image: {data_url(path + '_idle.png')}; }}")
+            rules.append(f"#units .w{w}.unit-{index}.firing {{ background-image: {data_url(path + '_attack.png')}; }}")
     block = ("/* PARADE START (made by tools/make_loading_parade.py; don't edit by hand) */\n"
              + "\n".join(rules) + "\n/* PARADE END */")
     text = SHELL.read_text()
     text = re.sub(r"/\* PARADE START.*?PARADE END \*/", lambda _: block, text, flags=re.S)
     SHELL.write_text(text)
-    print(f"Embedded {len(MARCHERS)} marchers, {len(SHOOTERS)} shooters and {len(FONTS)} fonts in {SHELL.relative_to(PROJECT)} "
+    print(f"Embedded {len(MARCHERS)} marchers, {len(SHOOTER_IDS)} shooters x {len(WORLDS)} worlds and {len(FONTS)} fonts in {SHELL.relative_to(PROJECT)} "
           f"({len(block) // 1024} KB)")
 
 

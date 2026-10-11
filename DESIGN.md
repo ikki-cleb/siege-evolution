@@ -402,8 +402,9 @@ jump when the game takes over. It uses the game's own fonts (tiny subsets
 embedded as data URLs; Google's Coiny draws V like U). EVOLUTION cycles
 through the world colors like the menu. Below the title, one invader from
 each world marches across a track (with the red enemy ring) while five
-Backyard units, one per pack on pack-tinted pads, shoot pack-colored
-shots at them; five hits and an invader plays its death animation and
+units, one per pack, shoot pack-colored shots at them (each load picks a
+random world's version of the same five units; no pads, which are only
+for units on the game board); five hits and an invader plays its death animation and
 returns next lap. A 14-cell pixel bar and a percentage show real download
 progress: the base64 trick that lets the Claude artifact host serve the
 game hid progress from Godot, so the page counts the packed downloads
