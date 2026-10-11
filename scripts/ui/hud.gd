@@ -323,6 +323,8 @@ func show_end_screen(won: bool) -> void:
 	card.pivot_offset = Vector2(140, 80)
 	create_tween().tween_property(card, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
+	if won:
+		box.add_child(_pack_progress())
 	if won and not game.is_last_level():
 		var unlock: UnitData = game.pack.unit_unlocked_on(game.level_number + 1)
 		if unlock:
@@ -338,6 +340,31 @@ func show_end_screen(won: bool) -> void:
 	for button in box.get_children():
 		if button is Button:
 			button.custom_minimum_size = Vector2(200, 48)
+
+
+## The pack's symbol filling up for this win: "Fortress: 3/5 levels of
+## this world". It animates from the old fill to the new one.
+func _pack_progress() -> Control:
+	var progress := _progress()
+	var levels: int = progress.LEVELS_PER_BIOME
+	var now: int = progress.levels_beaten_by(progress.biome.id, game.pack.id)
+	var row := HBoxContainer.new()
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_theme_constant_override("separation", 10)
+	var symbol := PackSymbol.new().setup(game.pack.id, float(game.pack_levels_before) / levels, 48)
+	row.add_child(symbol)
+	var label := Label.new()
+	label.text = "%s\n%d/%d levels of this world" % [game.pack.display_name, now, levels]
+	label.add_theme_font_size_override("font_size", FONT)
+	label.modulate = game.pack.color.lightened(0.3)
+	row.add_child(label)
+	if now > game.pack_levels_before:
+		var tween := create_tween()
+		tween.tween_interval(0.4)
+		tween.tween_property(symbol, "fill", float(now) / levels, 0.8) \
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tween.tween_callback(func(): Sfx.play("evolve", 0.0))
+	return row
 
 
 ## A big celebration with confetti: after the Mothership (the end of the main
@@ -365,6 +392,7 @@ func _show_celebration(title_text: String, subtitle_text: String, detail_text: S
 	var detail := _end_label(detail_text, 13, Palette.TEXT_DIM)
 	for label in [title, subtitle, detail]:
 		box.add_child(label)
+	box.add_child(_pack_progress())
 
 	var missing: Array[String] = []
 	for index in _progress().WORLDS.size():
@@ -445,7 +473,12 @@ class Confetti extends Node2D:
 
 func _build_top_bar() -> void:
 	_add_panel(Vector2.ZERO, Vector2(WIDTH, TOP_HEIGHT))
-	_level_label = _make_label(Vector2(12, 8), Vector2(260, 20), FONT)
+	# The current pack's symbol, then "Level · Pack".
+	var symbol := PackSymbol.new().setup(game.pack.id, 1.0, 18)
+	symbol.position = Vector2(10, 9)
+	symbol.size = Vector2(18, 18)
+	_root.add_child(symbol)
+	_level_label = _make_label(Vector2(32, 8), Vector2(240, 20), FONT)
 	var menu := _make_button("Menu", game.quit_to_menu)
 	menu.position = Vector2(WIDTH - 72, 6)
 	menu.custom_minimum_size = Vector2(60, 26)

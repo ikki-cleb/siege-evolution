@@ -458,12 +458,19 @@ func _on_base_hit(invader: InvaderData) -> void:
 		_finish(false)
 
 
+## Levels of this world the pack had beaten before the current win.
+var pack_levels_before := 0
+
+
 func _finish(won: bool) -> void:
 	phase = Phase.WON if won else Phase.LOST
 	board.wave_active = false
 	board.process_mode = Node.PROCESS_MODE_DISABLED
 	Engine.time_scale = 1.0
 	if won:
+		# How full the pack's symbol was before this win (the victory screen
+		# animates it filling up).
+		pack_levels_before = Progress.levels_beaten_by(Progress.biome.id, pack.id)
 		Progress.complete_level()
 		Achievements.on_level_won({"base_hp": base_hp, "max_hp": level.base_hp,
 			"boss_level": is_last_level(), "evolutions": _evolutions,

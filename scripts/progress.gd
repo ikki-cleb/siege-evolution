@@ -116,6 +116,12 @@ func packs_that_beat(biome_id: String, index: int) -> Array[String]:
 	return result
 
 
+## How many of a world's levels this pack has beaten (0-5). The pack
+## symbols on the world cards fill up by this.
+func levels_beaten_by(biome_id: String, pack_id: String) -> int:
+	return _run(biome_id).get("beaten", {}).get(pack_id, []).size()
+
+
 ## How many of the 25 main-world levels this pack has beaten (pack mastery).
 func main_levels_beaten(pack_id: String) -> int:
 	var total := 0

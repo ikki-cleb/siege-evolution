@@ -155,6 +155,12 @@ func _world_card(index: int) -> void:
 	if Progress.cleared(id) > 0:
 		_label("%d/%d levels cleared" % [Progress.cleared(id), Progress.LEVELS_PER_BIOME],
 			12, GOLD, HORIZONTAL_ALIGNMENT_LEFT, card)
+	# One symbol per pack, filling up as that pack beats this world's levels.
+	if unlocked:
+		var symbols := _symbol_row(card)
+		for pack_id in PackSymbol.ORDER:
+			var beaten := Progress.levels_beaten_by(id, pack_id)
+			symbols.add_child(PackSymbol.new().setup(pack_id, float(beaten) / Progress.LEVELS_PER_BIOME, 26))
 	var enter := _button("Enter" if unlocked else "Locked: beat World %d first" % index,
 		_open_biome.bind(index), card)
 	enter.disabled = not unlocked
@@ -191,8 +197,16 @@ func _show_levels() -> void:
 		var button := _button(pack.display_name if owned else "%s\n%s" % [pack.display_name, Store.price(pack.product_id)],
 			_pick_pack.bind(pack) if owned else Store.buy.bind(pack.product_id), row)
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		button.custom_minimum_size = Vector2(0, 40)
+		button.custom_minimum_size = Vector2(0, 58)
 		button.add_theme_font_size_override("font_size", 11)
+		# The pack's symbol above its name.
+		button.icon = load(PackSymbol.ART_DIR + pack.id + ".png")
+		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		button.vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
+		button.add_theme_constant_override("icon_max_width", 20)
+		button.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		button.autowrap_mode = TextServer.AUTOWRAP_OFF  # never split a name
+		button.add_theme_font_size_override("font_size", 10)
 		button.modulate = pack.color.lightened(0.45) if pack == current else Color(1, 1, 1, 0.75)
 		if pack == current:
 			button.add_theme_stylebox_override("normal", Look.panel(Look.SURFACE_HI, pack.color))
@@ -207,18 +221,32 @@ func _show_levels() -> void:
 		var text := _biome.levels[i].display_name
 		if i > cleared:
 			text += " · locked"
-		var beaten_by := Progress.packs_that_beat(_biome.id, i)
-		if not beaten_by.is_empty():
-			# Initials of the packs that beat it, e.g. "Beaten: F S P".
-			var initials := beaten_by.map(func(id): return id.substr(0, 1).to_upper())
-			text += "\nBeaten: %s%s" % [" ".join(initials),
-				"  (new for %s)" % current.display_name if not beaten_by.has(current.id) else ""]
 		var unlock := current.unit_unlocked_on(i + 1)
 		if unlock:
 			text += "\nNew unit: %s" % unlock.display_name
-		var button := _button(text, _play_level.bind(i))
+		var button := _button("", _play_level.bind(i))
 		button.disabled = i > cleared
-		button.custom_minimum_size.y = 56
+		# Inside the button: the level's text, then its 5 pack symbols,
+		# filled for each pack that has beaten this level.
+		var inside := VBoxContainer.new()
+		inside.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		inside.alignment = BoxContainer.ALIGNMENT_CENTER
+		inside.add_theme_constant_override("separation", 4)
+		button.add_child(inside)
+		inside.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_KEEP_SIZE, 6)
+		var title := _label(text, 14, Look.TEXT, HORIZONTAL_ALIGNMENT_CENTER, inside)
+		title.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		title.theme_type_variation = "TitleLabel"  # same font as button text
+		var beaten_by := Progress.packs_that_beat(_biome.id, i)
+		var symbols := HBoxContainer.new()
+		symbols.alignment = BoxContainer.ALIGNMENT_CENTER
+		symbols.add_theme_constant_override("separation", 6)
+		symbols.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		inside.add_child(symbols)
+		for pack_id in PackSymbol.ORDER:
+			symbols.add_child(PackSymbol.new().setup(pack_id, 1.0 if beaten_by.has(pack_id) else 0.0, 20))
+		button.custom_minimum_size.y = 84 if unlock else 66
+		inside.modulate.a = 0.45 if button.disabled else 1.0
 
 
 func _play_level(index: int) -> void:
@@ -311,6 +339,14 @@ func _header(title: String, back: Callable) -> void:
 
 
 ## A rounded card; `edge` adds a colored stripe down its left side.
+## A row for pack symbols inside a card.
+func _symbol_row(parent: Control) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 8)
+	parent.add_child(row)
+	return row
+
+
 func _card(color := CARD_COLOR, edge := Color.TRANSPARENT) -> VBoxContainer:
 	var panel := PanelContainer.new()
 	panel.add_theme_stylebox_override("panel", Look.panel(color, edge))

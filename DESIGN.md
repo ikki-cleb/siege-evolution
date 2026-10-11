@@ -311,6 +311,26 @@ and reflect (bounces part of smasher damage back).
 
 The full roster and stats live in `tools/content/immune_system.json`.
 
+## Pack symbols (progress at a glance)
+
+Each pack has a 16x16 symbol in its color: Fortress = castle tower, Swarm
+= honeycomb, Precision = crosshair, Control = snowflake, Toxin = poison
+drop with a skull (the user chose these "classic emblems"). Every symbol
+also has a dark empty silhouette.
+
+- **World select:** each unlocked world card shows all 5 symbols. A pack's
+  symbol fills with color from the bottom up, 1/5 for each of that world's
+  levels the pack has beaten (full = all 5).
+- **Level list:** each level shows the 5 symbols, filled for the packs that
+  have beaten it (this replaced the "Beaten: F S P" text). The pack picker
+  buttons show each pack's symbol above its name.
+- **In a level:** the current pack's symbol sits before the level name in
+  the top bar. On a win, the end screen shows the symbol filling up to its
+  new level ("Fortress, 3/5 levels of this world"), with a chime.
+- Art: `python3 tools/draw_pack_symbols.py` writes `art/packs/<pack>.png`
+  and `<pack>_empty.png`; `scripts/ui/pack_symbol.gd` draws the partial
+  fill (whole pixel rows from the bottom).
+
 ## Microscopic unit names
 
 Microscopic uses plain body words, not biology terms, so the

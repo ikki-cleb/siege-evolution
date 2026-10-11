@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 144
+const MIN_RULE_CHECKS := 145
 var progress: Node
 
 
@@ -997,6 +997,16 @@ func _test_background(biome: BiomeData) -> void:
 
 # --- Pack swapping and achievements ----------------------------------------------
 
+## Every PackSymbol under a node.
+func _pack_symbols(node: Node) -> Array:
+	var result := []
+	for child in node.get_children():
+		if child is PackSymbol:
+			result.append(child)
+		result.append_array(_pack_symbols(child))
+	return result
+
+
 func _test_pack_swapping(biome: BiomeData) -> void:
 	progress.reset()
 	progress.choose_pack(biome, biome.packs[0])
@@ -1016,8 +1026,19 @@ func _test_pack_swapping(biome: BiomeData) -> void:
 	root.add_child(menu)
 	await process_frame
 	var texts := _all_texts(menu)
-	_check(texts.has("Swarm") and texts.any(func(t): return t.contains("Beaten: F S")),
-		"The level list has a pack picker and shows which packs beat each level")
+	var symbols := _pack_symbols(menu)
+	var filled := symbols.filter(func(symbol): return symbol.fill >= 1.0)
+	_check(texts.has("Swarm") and symbols.size() == 25 and filled.size() == 3,
+		"The level list has a pack picker and fills a pack symbol for each pack that beat a level")
+	# The world card's symbols fill up 1/5 per level beaten.
+	menu._show(menu._show_biomes)
+	await process_frame
+	# Backyard (always unlocked) shows 5 symbols; the test world is locked
+	# after the reset, so its fill is checked through the count it uses.
+	var card_symbols := _pack_symbols(menu)
+	_check(card_symbols.size() == 5 and progress.levels_beaten_by(biome.id, "fortress") == 2
+		and progress.levels_beaten_by(biome.id, "swarm") == 1,
+		"World cards show the 5 pack symbols, filled by levels each pack beat (Fortress 2/5)")
 	menu.queue_free()
 	progress.return_screen = "title"
 	progress.reset()
