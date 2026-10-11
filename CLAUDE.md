@@ -110,15 +110,24 @@ how the bonus worlds feel (bot wins 90% of Kitchen and 70% of Birthday
 levels 2-5; Fortress and Precision struggle most); sounds and music;
 Blinker frequency.
 
+**Bosses (latest playtest round):** a boss reaching the base is an
+instant loss (minions do normal damage); the boss spawn tile has a purple
+glow + skull all level (`scripts/game/boss_marker.gd`); the boss route is a
+thick purple line before the boss wave (even with Paths off); bombs fall
+for 0.9s with a red warning before they explode (`Board.drop_bomb`).
+
 **Recent fixes worth knowing:** a ~10s freeze after winning a level (slow
 world loading in achievement checks) is fixed and guarded by a test; the
 loading screen no longer says "World 1". Web build: `index.pck.b64.txt` is
 ~8.5 MB of the artifact's 16 MB-per-file limit; watch it when big art lands
 (backgrounds are imported as compressed WebP for this reason).
 
-**Latest balance (5 levels x 8 waves, bot wins on levels 2-5):** World 1
-95%, World 2 95%, World 3 90%, World 4 90%, World 5 85%, Kitchen 90%,
-Birthday 70%. Every check passes. Path preview now shows on every level
+**Latest balance (5 levels x 8 waves, bot wins on levels 2-5), after
+bosses became an instant loss:** World 1 95%, World 2 95%, World 3 88%,
+World 4 88%, World 5 75%, Kitchen 80%, Birthday 70%. Every check passes.
+The Mothership went 1100 -> 550 HP and the bot now covers a flying boss's
+marked flight line; Swarm (weakest anti-air) still loses that level in the
+bot runs. Comet Tail losses predate the boss change. Path preview now shows on every level
 (saved "Paths" toggle in the HUD).
 
 **Next steps (user's call):** import the user's backgrounds when they

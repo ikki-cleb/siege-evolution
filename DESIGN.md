@@ -357,7 +357,8 @@ Bombers): it's the "everything you've learned" world.
 **Finale: the Mothership**, a flying boss that drifts slowly toward the
 reactor, bombs your most valuable unit every few seconds, and drops blinkers
 (which walk a real route from where they land). Only anti-air units can
-hit it, and every pack has at least one.
+hit it, and every pack has at least one. Since reaching the reactor is an
+instant loss, it has 550 HP (was 1100), in line with the other final bosses.
 
 | Invader | Type |
 |---|---|
