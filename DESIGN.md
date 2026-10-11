@@ -8,8 +8,9 @@ Status: **v1.2, all 5 main worlds plus both bonus worlds** (35 levels,
 A puzzle tower defense played in portrait on phones. Each level is a grid
 where your units are the maze: walls and defenders shape the invaders' route
 while they fight. There's no single solution. Many layouts work, and the best
-ones aren't obvious going in. The scale grows as you progress: you start
-inside the body, and each world's final boss zooms you out to a bigger world.
+ones aren't obvious going in. Each world is its own setting with its own
+invaders, from the backyard to outer space; beating a world's boss unlocks
+the next one.
 
 ## Platform & tech
 
@@ -19,7 +20,7 @@ inside the body, and each world's final boss zooms you out to a bigger world.
 | Platforms | iOS + Android (iOS builds need a Mac with Xcode). A web build is used for playtesting. |
 | Orientation | Portrait only |
 | Animation | Units and invaders can have **animation strips**: one PNG per animation, square 64×64 frames side by side (`art/anim/<world>/...`). Units: idle (loops, 4 fps) and attack (plays once per shot at 10 fps, sped up so it ends before the next shot; plain walls have none). Invaders: move (loops, 10 fps) and death (plays once where it died, replacing the white puff). Base units and tier-1 evolutions have their own strips; capstones reuse tier 1's and the game draws a gold star. Without strips the still sprite is used. **All sprites are drawn in code** at 32×32 per frame (`tools/draw_sprites.py`, designs in `tools/sprites/`): cute shaded cells with faces and pack-color accents; tier-1 evolutions add spikes (power branch) or a lens antenna (reach branch); walls add armor bands or spikes. Only living things have faces (cells, bugs, animals, aliens, pests, the clown); objects, toys, robots and gear don't. Final art can replace any strip via `tools/import_sprites.py`. Unit buttons show the first idle frame. |
-| Art | 16×16 pixel tiles, integer-scaled. Placeholders for now; the user draws the final art. Each level can also have a painted **ground background** (detailed pixel art, 1152×1792, 9:14 portrait, no obstacles baked in) that replaces its floor tiles; rocks, spawns, base and water still draw on top. |
+| Art | 16×16 pixel tiles, integer-scaled. Placeholders for now; the user draws the final art. Each level can also have a painted **ground background** (detailed pixel art, 1152×1792, 9:14 portrait, no obstacles baked in) that replaces its floor tiles; rocks, spawns, base and water still draw on top. The importer softens every background (30% less color, a bit less contrast, slightly brighter) so the art stays calm and sprites stand out. |
 | Menus | Clean dark style with the "Siege Pixel" font (Pixelify Sans, SIL OFL, with redrawn digits because its 2 looked like an 8, plus the coin icon; built by `tools/make_font.py`) and an accent color per world (`scripts/look.gd`, `scripts/palette.gd`). |
 | Business model | Free, no ads. Optional $1 purchases (see Monetization). |
 
@@ -37,10 +38,12 @@ Title → World select → Level select with pack picker (5 levels) → Level (8
 ```
 
 - **Worlds (biomes):** 5 levels each, at one scale. Beating level 5 (the boss)
-  unlocks the next, larger-scale world. The five main worlds, in order:
-  1. **Microscopic** (the immune system), built
-  2. **Backyard Bugs** (defend the queen's anthill), built
-  3. **Wild Kingdom** (human and animal scale: defend the farmhouse), built
+  unlocks the next world. The five main worlds, in order (since v1.1;
+  Microscopic used to be first, but its body-tissue art was too unsettling
+  for a first world):
+  1. **Backyard Bugs** (defend the queen's anthill), built
+  2. **Wild Kingdom** (human and animal scale: defend the farmhouse), built
+  3. **Microscopic** (the immune system), built
   4. **Total War** (a toy war across the playroom and the bathtub), built
   5. **Galactic Siege** (moon, space station and asteroid levels), built
 - **Bonus worlds** (bought separately, playable as soon as they're bought):
@@ -219,9 +222,9 @@ and reflect (bounces part of smasher damage back).
 
 The full roster and stats live in `tools/content/immune_system.json`.
 
-## World 1 unit names
+## Microscopic unit names
 
-World 1 (Microscopic) uses plain body words, not biology terms, so the
+Microscopic uses plain body words, not biology terms, so the
 theme reads instantly: Scab, Germ Eater, Scout Cell, White Blood Cell,
 Skin Cell, Killer Cell, Antibody Shooter, Germ Tagger, Mucus Wall,
 Sneeze Blaster, Fever Spot, Poison Cell, Acid Puddle, Rot Patch, and so on.
@@ -240,7 +243,7 @@ Kingdom, walls are farm materials (stone walls, hay bales, fences, mud,
 brambles) and attackers are farm animals (bulls, hens, owls, skunks,
 rattlesnakes).
 
-## Invaders (World 1)
+## Invaders (Microscopic, World 3)
 
 | Invader | Type | Notes |
 |---|---|---|
@@ -256,7 +259,7 @@ rattlesnakes).
 
 Armor reduces each non-piercing hit (a hit always does at least 1). Poison ignores armor.
 
-## Invaders (World 2: Backyard Bugs)
+## Invaders (Backyard Bugs, World 1)
 
 New behavior: **burrowers.** They walk a few tiles, tunnel under the next
 stretch of their route (untargetable while underground), and resurface
@@ -275,13 +278,13 @@ further along. That rewards defense in depth over a single choke point.
 | Hornet | Flier (elite, level 4+) | Armor 1, tougher |
 | **Giant Centipede** | Boss smasher (level 5, last wave) | Tunnels once, releases termites |
 
-## Invaders (World 3: Wild Kingdom)
+## Invaders (Wild Kingdom, World 2)
 
 New behavior: **jumpers.** They plan their route as if they can hop over any
 single unit tile (not rocks, not walls two tiles thick), pausing briefly
 before each hop. On the tutorial level their route shows in orange. Burrowers
-return from World 2. World 3 is noticeably harder: invaders are tougher for
-the coins they drop, though drops stay generous enough to keep building.
+return from Backyard Bugs. Wild Kingdom's invaders are tougher for the coins
+they drop, though drops stay generous enough to keep building.
 
 | Invader | Type | Notes |
 |---|---|---|
@@ -502,7 +505,7 @@ in App Store Connect and Google Play Console.
 Each world's levels, wave rules and tutorial live in its JSON file
 (`tools/content/<world>.json`). Level 1 is handwritten. Levels 2–7 are
 generated from a threat budget that grows 32% per wave and a fixed category
-mix per wave (swarm / split / smash / fly, plus burrow in World 2), with a
+mix per wave (swarm / split / smash / fly, plus burrow in Backyard Bugs), with a
 growing share of elites once they're introduced. The output is regular .tres
 files that can be edited by hand.
 
