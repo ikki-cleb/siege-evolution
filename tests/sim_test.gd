@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 120
+const MIN_RULE_CHECKS := 122
 var progress: Node
 
 
@@ -909,6 +909,21 @@ func _test_level_counts() -> void:
 # --- Upgrade preview and menu scrolling ----------------------------------------
 
 func _test_upgrade_preview(biome: BiomeData) -> void:
+	# Fire rate: shots per second in the info line; a placed Swarm unit with
+	# neighbors shows its faster current rate next to its base rate.
+	var swarm_game := await _start(biome, 1, 0)
+	swarm_game.coins = 999
+	var swarm_type: UnitData = swarm_game.unit_types[1]
+	var rate: String = swarm_game._num(1.0 / swarm_type.attack_interval)
+	_check(swarm_game.describe(swarm_type).contains("%s shots/s" % rate), "Unit info shows fire rate in shots/s")
+	var swarm_board: Board = swarm_game.board
+	var packed: Unit = swarm_board.place_unit(swarm_type, Vector2i(4, 8))
+	swarm_board.place_unit(swarm_game.unit_types[0], Vector2i(3, 8))
+	swarm_board.place_unit(swarm_game.unit_types[0], Vector2i(5, 8))
+	_check(swarm_type.adjacency_bonus > 0.0 and swarm_game.describe(swarm_type, packed).contains("(base %s)" % rate),
+		"A packed Swarm unit shows its boosted fire rate and its base rate")
+	await _stop(swarm_game)
+
 	var game := await _start(biome, 0, 0)
 	game.coins = 999
 	var base: UnitData = game.unit_types[1]  # Germ Eater

@@ -466,6 +466,10 @@ Beating the Clown shows the bonus world-cleared screen.
 
 - **Look:** one theme for menus and the in-level screen. Each world has an
   accent color, used for titles, card stripes and the HUD's accent lines.
+- **Fire rate:** a unit's info line shows its fire rate as shots per
+  second. A placed unit sped up by neighbors (Swarm), auras or slowed by goo
+  shows its current rate with the base in brackets ("2.9 shots/s (base
+  2.2)"). Long info lines drop to a smaller font so two lines fit.
 - **Heft:** units are drawn 12% bigger, sit on a faint dark pad with a
   soft shadow, and drop onto their tile when placed (squash on landing,
   dust puffs, low thud sound). If a placement changes an invader route, the

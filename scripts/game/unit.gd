@@ -216,13 +216,19 @@ func _process(delta: float) -> void:
 		return
 	if _attack():
 		_play_attack()
-		# Swarm units attack faster for every unit packed around them.
-		var speed_up := 1.0 + data.adjacency_bonus * board.neighbor_count(cell)
-		# A neighbor's speed aura (capstones) helps too.
-		speed_up += board.aura_at(cell).speed
-		# Goo slows it down (0.4 sticky = attacks at 60% of normal speed).
-		speed_up *= 1.0 - sticky
-		_cooldown = data.attack_interval / speed_up
+		_cooldown = data.attack_interval / speed_multiplier()
+
+
+## How much faster than normal this unit attacks right now (1.0 = normal).
+## Also shown to the player as its current shots per second.
+func speed_multiplier() -> float:
+	# Swarm units attack faster for every unit packed around them.
+	var speed_up := 1.0 + data.adjacency_bonus * board.neighbor_count(cell)
+	# A neighbor's speed aura (capstones) helps too.
+	speed_up += board.aura_at(cell).speed
+	# Goo slows it down (0.4 sticky = attacks at 60% of normal speed).
+	speed_up *= 1.0 - sticky
+	return speed_up
 
 
 ## Plays the attack strip once, fast enough to finish before the next shot.

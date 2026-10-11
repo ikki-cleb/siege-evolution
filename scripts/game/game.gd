@@ -164,7 +164,7 @@ func _on_cell_tapped(cell: Vector2i) -> void:
 	if board.units.has(cell):
 		_select_cell(Board.NO_CELL if selected_cell == cell else cell)
 		if selected_cell != Board.NO_CELL:
-			hud.show_message(describe(board.units[cell].data))
+			hud.show_message(describe(board.units[cell].data, board.units[cell]))
 	elif phase == Phase.BUILD and selected_type:
 		try_place(selected_type, cell)
 	else:
@@ -477,8 +477,10 @@ func next_wave_summary() -> String:
 	return "Next: " + ", ".join(parts)
 
 
-## One line of stats for a unit, e.g. "White Blood Cell: 2 dmg, range 1.5, ground only."
-func describe(type: UnitData) -> String:
+## One line of stats for a unit, e.g.
+## "White Blood Cell: 2 dmg, range 1.5, 1.2 shots/s, ground only."
+## Pass the placed `unit` to show its current fire rate (with bonuses).
+func describe(type: UnitData, unit: Unit = null) -> String:
 	var parts: Array[String] = []
 	if type.role == UnitData.Role.WALL or not type.can_attack():
 		parts.append("%d HP" % type.max_hp)
@@ -486,6 +488,7 @@ func describe(type: UnitData) -> String:
 		parts.append("%s dmg%s" % [_num(type.damage), " to all in range" if type.attack_mode == UnitData.AttackMode.PULSE else ""])
 	if type.can_attack():
 		parts.append("range %s" % _num(type.attack_range))
+		parts.append(_fire_rate(type, unit))
 	if type.splash_radius > 0.0:
 		parts.append("splash")
 	if type.slow > 0.0:
@@ -538,13 +541,23 @@ func describe(type: UnitData) -> String:
 	return "%s: %s." % [type.display_name, ", ".join(parts)]
 
 
+## Fire rate as "1.5 shots/s". For a placed unit whose speed is changed by
+## neighbors, auras or goo: "2.1 shots/s (base 1.5)".
+func _fire_rate(type: UnitData, unit: Unit) -> String:
+	var base := 1.0 / type.attack_interval
+	var now := base * unit.speed_multiplier() if unit else base
+	if _num(now) == _num(base):
+		return "%s shots/s" % _num(base)
+	return "%s shots/s (base %s)" % [_num(now), _num(base)]
+
+
 ## What changes when `from` evolves into `to`, e.g.
 ## "dmg 9 → 17, HP 60 → 80, new: chains to 2." Used by the upgrade preview.
 func stat_changes(from: UnitData, to: UnitData) -> String:
 	var parts: Array[String] = []
 	var numbers := [["HP", from.max_hp, to.max_hp], ["dmg", from.damage, to.damage],
 		["range", from.attack_range, to.attack_range],
-		["attacks/s", 1.0 / from.attack_interval, 1.0 / to.attack_interval],
+		["shots/s", 1.0 / from.attack_interval, 1.0 / to.attack_interval],
 		["splash", from.splash_radius, to.splash_radius], ["regen", from.regen, to.regen],
 		["slow %", from.slow * 100, to.slow * 100], ["stun", from.stun_duration, to.stun_duration],
 		["poison", from.poison_dps, to.poison_dps], ["mark %", from.mark_bonus * 100, to.mark_bonus * 100],
@@ -570,7 +583,7 @@ func _is_number_part(part: String) -> bool:
 			"hits fliers", "ground only", "pierces armor"]:
 		if part.begins_with(prefix):
 			return true
-	return part.contains(" dmg")
+	return part.contains(" dmg") or part.contains("shots/s")
 
 
 func _num(value: float) -> String:

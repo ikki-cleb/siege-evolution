@@ -128,8 +128,16 @@ func refresh() -> void:
 	_start_button.text = "Start Wave" if building else "Wave %d..." % game.wave_number
 
 
+## The message line has room for one line at normal size. Longer messages
+## (like a unit's full stats) switch to a smaller size so two lines fit.
+const MESSAGE_SMALL_FONT := 9
+
+
 func show_message(text: String) -> void:
 	_message_label.text = text
+	_message_label.add_theme_font_size_override("font_size", SMALL_FONT)
+	if _message_label.get_line_count() > 1:
+		_message_label.add_theme_font_size_override("font_size", MESSAGE_SMALL_FONT)
 
 
 ## Launches a coin orb from a screen position to the coin counter. The counter
