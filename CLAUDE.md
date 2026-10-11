@@ -33,8 +33,8 @@ for the full game design — keep it updated whenever a design decision changes.
 worlds are built: **Kitchen Defense** (spillers, Rat King) and **Birthday
 Bash** (piñatas with seeded "surprise" contents, the Clown). 35 levels
 (5 per world, 8 waves each),
-5 packs, evolutions, saves, a test-mode store, the "Siege Pixel" font
-(clear digits + coin icon), coins as currency, a Cancel button, sound,
+5 packs, evolutions, saves, a test-mode store, Coiny + Space Mono
+fonts (with a coin icon), coins as currency, a Cancel button, sound,
 music and victory screens. **Capstones** (a second evolution tier, 2 per
 tier-1 evolution, 120 total, 12 new mechanics, themed names in every world)
 plus a two-tap upgrade preview and drag-to-scroll menus. **Packs swap
@@ -91,7 +91,7 @@ them; they upload it themselves.
 - Full suite, all worlds (about 50 minutes): `... tests/sim_test.gd`
 - Replay one level with layouts and leaks: `... tests/debug_level.gd -- <world> <pack> <level> [seed]`
 - Placeholder art and audio: `python3 tools/make_placeholder_art.py --only-missing`, `python3 tools/make_audio.py --only-missing`
-- Game font (Pixelify Sans + clearer digits + coin icon U+E000): `pip install fonttools && python3 tools/make_font.py`
+- Game fonts (Coiny for titles/buttons, Space Mono for text, plus coin icon U+E000): `pip install fonttools && python3 tools/make_font.py`. Labels use the title font via `theme_type_variation = "TitleLabel"` (menu/HUD do this for sizes >= 18).
 - Code-drawn sprites (32x32 frames, the current art): `python3 tools/draw_sprites.py [world]`; designs for all 7 worlds live in `tools/sprites/world_<name>.py` (shared parts in `parts.py`, drawing kit in `kit.py`); `tools/preview_sprites.py <world> <out.png>` makes a contact sheet. It skips anything listed in `art/anim/imported.txt`.
 - Animated sprites (the user generates them): `python3 tools/import_sprites.py <folder>` (files named `<world>_<id>_<anim>.png` strips or `_<anim>_<n>.png` frames), then import + content build. Placeholder strips: `python3 tools/make_placeholder_anims.py` (never overwrites).
 - Painted level backgrounds (the user generates them): `python3 tools/import_backgrounds.py <folder>` (files named `<world_id>_level_NN.png`), then `godot --headless --import` and the content build. Levels without one keep their floor tiles.

@@ -5,7 +5,13 @@ extends Node
 ##   Look.accent("galactic_siege")    -> that world's accent color
 ##   Look.panel(color)                -> a rounded panel style
 
-const FONT := preload("res://assets/fonts/SiegePixel.ttf")
+## Two fonts (built by tools/make_font.py): a bubbly one for titles and
+## buttons, and a clean one for everything else. Labels opt into the title
+## font with `label.theme_type_variation = "TitleLabel"`.
+const FONT := preload("res://assets/fonts/SiegeText.ttf")
+const TITLE_FONT := preload("res://assets/fonts/SiegeTitle.ttf")
+## Labels at least this big use the title font (see use_title_font).
+const TITLE_SIZE := 18
 
 # Colors live in Palette (scripts/palette.gd) so every script can use them.
 const BG := Palette.BG
@@ -35,6 +41,14 @@ func panel(color := SURFACE, edge := Color.TRANSPARENT, radius := 8) -> StyleBox
 	return Palette.panel(color, edge, radius)
 
 
+## Ligatures off: fancy letter joins (like "fi") don't suit game text.
+func _no_ligatures(base: Font) -> FontVariation:
+	var font := FontVariation.new()
+	font.base_font = base
+	font.opentype_features = {TextServerManager.get_primary_interface().name_to_tag("liga"): 0}
+	return font
+
+
 func _button_style(bg: Color, border: Color) -> StyleBoxFlat:
 	var style := StyleBoxFlat.new()
 	style.bg_color = bg
@@ -50,12 +64,12 @@ func _button_style(bg: Color, border: Color) -> StyleBoxFlat:
 
 
 func _build_theme() -> void:
-	# Ligatures off: this font's "fi" ligature draws incorrectly.
-	var font := FontVariation.new()
-	font.base_font = FONT
-	font.opentype_features = {TextServerManager.get_primary_interface().name_to_tag("liga"): 0}
-	theme.default_font = font
+	theme.default_font = _no_ligatures(FONT)
 	theme.default_font_size = 14
+	var title := _no_ligatures(TITLE_FONT)
+	theme.set_font("font", "Button", title)
+	theme.set_type_variation("TitleLabel", "Label")
+	theme.set_font("font", "TitleLabel", title)
 
 	theme.set_stylebox("normal", "Button", _button_style(SURFACE_HI, BORDER))
 	theme.set_stylebox("hover", "Button", _button_style(Color("#3a2434"), Color("#6a4258")))

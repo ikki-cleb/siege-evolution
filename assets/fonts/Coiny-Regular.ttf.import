@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://vbu37f8hmvn8"
-path="res://.godot/imported/SiegePixel.ttf-5da4c9f9dfee9bc5d39e1bd41197395d.fontdata"
+uid="uid://owi3xo6sw74s"
+path="res://.godot/imported/Coiny-Regular.ttf-a868e7f84df8c16c47051ed92e052803.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/SiegePixel.ttf"
-dest_files=["res://.godot/imported/SiegePixel.ttf-5da4c9f9dfee9bc5d39e1bd41197395d.fontdata"]
+source_file="res://assets/fonts/Coiny-Regular.ttf"
+dest_files=["res://.godot/imported/Coiny-Regular.ttf-a868e7f84df8c16c47051ed92e052803.fontdata"]
 
 [params]
 

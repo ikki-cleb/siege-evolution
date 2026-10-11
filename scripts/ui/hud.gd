@@ -193,6 +193,7 @@ func show_end_screen(won: bool) -> void:
 	else:
 		title.text = "Level Cleared!" if won else "Defenses Broken..."
 	title.add_theme_font_size_override("font_size", 26)
+	title.theme_type_variation = "TitleLabel"
 	title.modulate = _accent() if won else Palette.TEXT_DIM
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(title)
@@ -273,6 +274,8 @@ func _end_label(text: String, size: int, color: Color) -> Label:
 	var label := Label.new()
 	label.text = text
 	label.add_theme_font_size_override("font_size", size)
+	if size >= 18:
+		label.theme_type_variation = "TitleLabel"  # big text uses the title font
 	label.modulate = color
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

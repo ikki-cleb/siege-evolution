@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bax0ev8bx5rco"
-path="res://.godot/imported/PixelifySans.ttf-4613dc276f227b5d31d032a4586e3281.fontdata"
+uid="uid://d331ycmehcmfa"
+path="res://.godot/imported/SiegeTitle.ttf-06ed3607b99c7cf7c516be9b1776d5b9.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/PixelifySans.ttf"
-dest_files=["res://.godot/imported/PixelifySans.ttf-4613dc276f227b5d31d032a4586e3281.fontdata"]
+source_file="res://assets/fonts/SiegeTitle.ttf"
+dest_files=["res://.godot/imported/SiegeTitle.ttf-06ed3607b99c7cf7c516be9b1776d5b9.fontdata"]
 
 [params]
 

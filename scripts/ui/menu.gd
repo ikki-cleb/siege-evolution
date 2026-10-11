@@ -98,7 +98,7 @@ func _show_title() -> void:
 	for color in Look.ACCENTS.values():
 		tween.tween_property(evolution, "modulate", color, 0.4)
 		tween.tween_interval(1.4)
-	_label("From a single cell to the stars.", 14, DIM_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_label("From the backyard to the stars.", 14, DIM_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	_spacer(36)
 	var play := _button("Play", _show.bind(_show_biomes))
 	play.custom_minimum_size.y = 56
@@ -118,7 +118,7 @@ func _show_title() -> void:
 	for button in [sound, music]:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_spacer(80)
-	_label("Font: based on Pixelify Sans (SIL Open Font License)", 10, Color(Look.TEXT_DIM, 0.6), HORIZONTAL_ALIGNMENT_CENTER)
+	_label("Fonts: Coiny and Space Mono (SIL Open Font License)", 10, Color(Look.TEXT_DIM, 0.6), HORIZONTAL_ALIGNMENT_CENTER)
 
 
 func _show_biomes() -> void:
@@ -328,6 +328,8 @@ func _label(text: String, font_size: int, color := Color.WHITE,
 	label.horizontal_alignment = align
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.add_theme_font_size_override("font_size", font_size)
+	if font_size >= Look.TITLE_SIZE:
+		label.theme_type_variation = "TitleLabel"  # big text uses the title font
 	label.modulate = color
 	label.custom_minimum_size.x = 100
 	(parent if parent else _content).add_child(label)
