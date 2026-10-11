@@ -466,6 +466,8 @@ Beating the Clown shows the bonus world-cleared screen.
 
 - **Look:** one theme for menus and the in-level screen. Each world has an
   accent color, used for titles, card stripes and the HUD's accent lines.
+- **Gridlines:** very faint grey lines between tiles during every build
+  phase (hidden during waves), so it's easy to see where a unit will go.
 - **Enemy outline:** every invader has a thin solid red ring around its
   sprite (`shaders/enemy_outline.gdshader`), so enemies never look like the
   player's units. Units have no outline.

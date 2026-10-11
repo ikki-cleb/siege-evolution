@@ -31,6 +31,8 @@ const SMASHER_PATH_COLOR := Color(1, 0.35, 0.25, 0.7)
 const FLIER_PATH_COLOR := Color(0.5, 0.85, 1, 0.7)
 const JUMPER_PATH_COLOR := Color(1, 0.65, 0.2, 0.75)
 ## The boss's route (shown before the boss wave) is purple and thicker.
+## Very faint grey lines between tiles (build phase only).
+const GRID_COLOR := Color(0.85, 0.85, 0.85, 0.16)
 const BOSS_PATH_COLOR := Color(0.75, 0.4, 1.0, 0.9)
 const BOSS_PATH_WIDTH := 2.5
 ## Seconds a bomb takes to fall. Its target tile shows a warning meanwhile.
@@ -79,6 +81,8 @@ var _boat_smash_grid := AStarGrid2D.new()
 
 # What the board draws on top of the tiles (set by the game).
 var show_path_preview := false
+## Faint gridlines over the board while the player is building.
+var show_grid := false
 var preview_smashers := false
 var preview_fliers := false
 var preview_jumpers := false
@@ -718,6 +722,9 @@ func _draw() -> void:
 			if texture:
 				draw_texture(texture, Vector2(cell * TILE))
 
+	if show_grid:
+		_draw_grid()
+
 	if show_path_preview:
 		for spawn in spawn_cells:
 			if preview_fliers:
@@ -752,6 +759,15 @@ func _draw() -> void:
 
 	if _flash_time > 0.0:
 		draw_rect(Rect2(Vector2(_flash_cell * TILE), Vector2(TILE, TILE)), Color(1, 0, 0, _flash_time))
+
+
+## Thin lines between all tiles, so it's easy to see where a unit will go.
+func _draw_grid() -> void:
+	var board_size := Vector2(grid_size * TILE)
+	for x in range(1, grid_size.x):
+		draw_line(Vector2(x * TILE, 0), Vector2(x * TILE, board_size.y), GRID_COLOR, 0.5)
+	for y in range(1, grid_size.y):
+		draw_line(Vector2(0, y * TILE), Vector2(board_size.x, y * TILE), GRID_COLOR, 0.5)
 
 
 func _draw_path(path: Array[Vector2i], color: Color, width := 1.0) -> void:

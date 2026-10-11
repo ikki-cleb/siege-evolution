@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 118
+const MIN_RULE_CHECKS := 120
 var progress: Node
 
 
@@ -862,6 +862,11 @@ func _test_path_toggle(biome: BiomeData) -> void:
 	progress.reset()
 	var game := await _start(biome, 0, 2)  # level 3: not a teaching level
 	_check(game.board.show_path_preview, "Paths show on every level by default")
+	_check(game.board.show_grid, "Faint gridlines show while building")
+	game.start_wave()
+	_check(not game.board.show_grid, "...and hide during waves")
+	await _stop(game)
+	game = await _start(biome, 0, 2)
 	game.toggle_paths()
 	_check(not game.board.show_path_preview and game.hud._paths_button.text == "Paths: Off",
 		"The Paths button hides the routes")

@@ -101,6 +101,7 @@ func _enter_build_phase() -> void:
 	phase = Phase.BUILD
 	board.wave_active = false
 	board.show_path_preview = Progress.show_paths()
+	board.show_grid = true
 	_paths_seen = _paths_seen or Progress.show_paths()
 	var next_wave := level.waves[wave_number]
 	board.preview_smashers = _wave_has(next_wave, InvaderData.Movement.SMASHER)
@@ -311,6 +312,7 @@ func start_wave() -> void:
 	selected_type = null
 	_select_cell(Board.NO_CELL)
 	board.show_path_preview = false
+	board.show_grid = false
 	board.preview_boss = null
 	board.wave_active = true
 	board.queue_redraw()
