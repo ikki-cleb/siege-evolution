@@ -62,6 +62,12 @@ const POISON_STACK_LIMIT := 2.5
 
 var _minion_timer := 0.0
 var _sprite: Sprite2D
+## Every enemy gets a thin red edge (shaders/enemy_outline.gdshader) so it
+## never looks like one of the player's units.
+const OUTLINE_SHADER := preload("res://shaders/enemy_outline.gdshader")
+## 1.0 = solid red edge, lower = softer.
+const OUTLINE_STRENGTH := 1.0
+var _outline: ShaderMaterial
 ## Plays the move animation when the invader has one (see StripPlayer).
 var _strips := StripPlayer.new()
 ## Seconds left on the white "just got hit" flash.
@@ -83,6 +89,10 @@ func setup(p_data: InvaderData, p_board: Board, start: Vector2, p_path: Array[Ve
 	_blink_timer = data.blink_interval
 	_sprite = Sprite2D.new()
 	_sprite.texture = data.texture
+	_outline = ShaderMaterial.new()
+	_outline.shader = OUTLINE_SHADER
+	_outline.set_shader_parameter("outline_color", Color(1.0, 0.18, 0.18, OUTLINE_STRENGTH))
+	_sprite.material = _outline
 	var size := 1.75 if data.is_boss else 1.0
 	if data.anim_move:
 		# Strips are drawn at 64x64 per frame; shrink them to the 16x16 tile.

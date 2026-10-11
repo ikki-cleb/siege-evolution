@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 117
+const MIN_RULE_CHECKS := 118
 var progress: Node
 
 
@@ -741,6 +741,9 @@ func _test_animations(biome: BiomeData) -> void:
 	_check(capstone._star.visible and capstone.data.anim_idle == load(PACKS + "fortress/mature_dendrite.tres").anim_idle,
 		"Capstones reuse their tier-1 animation, with a gold star")
 	var walker := _dummy(board, "rhinovirus", Vector2i(2, 10), 1.0)
+	var outline: ShaderMaterial = walker._sprite.material
+	_check(outline != null and outline.get_shader_parameter("frames") == walker._sprite.hframes
+		and unit._sprite.material == null, "Enemies get the red outline (matching their strip's frames); units don't")
 	var sprites_before := board.get_children().filter(func(c): return c is Sprite2D).size()
 	walker.take_damage(5.0, true)
 	_check(walker._sprite.hframes > 1 and board.get_children().filter(func(c): return c is Sprite2D).size() == sprites_before + 1,

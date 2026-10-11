@@ -43,6 +43,9 @@ func play_once(p_sprite: Sprite2D, strip: Texture2D, fps := ACTION_FPS) -> void:
 func _show(strip: Texture2D, fps: float, looping: bool) -> void:
 	sprite.texture = strip
 	sprite.hframes = frames_in(strip)
+	# The enemy outline shader needs the frame count too (see invader.gd).
+	if sprite.material is ShaderMaterial:
+		sprite.material.set_shader_parameter("frames", sprite.hframes)
 	sprite.frame = 0
 	_fps = fps
 	_looping = looping

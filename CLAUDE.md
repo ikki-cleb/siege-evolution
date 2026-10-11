@@ -135,6 +135,15 @@ glow + skull all level (`scripts/game/boss_marker.gd`); the boss route is a
 thick purple line before the boss wave (even with Paths off); bombs fall
 for 0.9s with a red warning before they explode (`Board.drop_bomb`).
 
+**Readability (latest round):** enemies get a solid red 1-pixel ring
+(`shaders/enemy_outline.gdshader`, set on each invader sprite; StripPlayer
+passes the strip's frame count to it). Two Compatibility-renderer gotchas
+found there: read TEXTURE directly in fragment() (not via a helper
+function), and the starting COLOR in fragment() already includes the
+texture, so the shader passes the tint through a varying. The font now
+has same-width digits and a spaced-out period (`tools/make_font.py`),
+because "$1.00" read as "$100".
+
 **Recent fixes worth knowing:** a ~10s freeze after winning a level (slow
 world loading in achievement checks) is fixed and guarded by a test; the
 loading screen no longer says "World 1". Web build: `index.pck.b64.txt` must

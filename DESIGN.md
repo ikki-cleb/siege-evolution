@@ -466,6 +466,11 @@ Beating the Clown shows the bonus world-cleared screen.
 
 - **Look:** one theme for menus and the in-level screen. Each world has an
   accent color, used for titles, card stripes and the HUD's accent lines.
+- **Enemy outline:** every invader has a thin solid red ring around its
+  sprite (`shaders/enemy_outline.gdshader`), so enemies never look like the
+  player's units. Units have no outline.
+- **Digits:** all digits in the game font have the same width, and the
+  period has a gap on each side, so prices like "$1.00" can't read as "$100".
 - **Game feel:** hit flashes, death puffs, walker bobbing, units pop in when
   placed, a gold sparkle on evolve, screen shake on bombs and base hits.
 - **Audio:** generated chiptune sound effects and one music loop for the

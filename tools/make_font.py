@@ -52,6 +52,8 @@ EXTRA = {
 # line up with the letters around them.
 LEFT, RIGHT = 60, 531
 BOTTOM, TOP = -12, 633
+DIGIT_ADVANCE = 592  # Pixelify's width for "0": all digits get this width
+PERIOD_MARGIN = 110  # space on each side of the period (about one pixel)
 OVERLAP = 2  # pixels overlap slightly so no hairline gaps appear between them
 
 
@@ -97,8 +99,17 @@ def main():
         glyph = pixel_glyph(rows)
         font["glyf"][name] = glyph
         glyph.recalcBounds(font["glyf"])
-        advance = font["hmtx"][name][0]
-        font["hmtx"][name] = (advance, glyph.xMin)
+        # Every digit gets the same width ("tabular" digits). Pixelify's
+        # narrow "1" made the redrawn 1 crowd the next character, so "$1.00"
+        # read like "$100".
+        font["hmtx"][name] = (DIGIT_ADVANCE, glyph.xMin)
+    # The period: a clear gap on both sides, so decimals read as decimals.
+    period = cmap[ord(".")]
+    glyph = font["glyf"][period]
+    shift = PERIOD_MARGIN - glyph.xMin
+    glyph.coordinates.translate((shift, 0))
+    glyph.recalcBounds(font["glyf"])
+    font["hmtx"][period] = (glyph.xMax + PERIOD_MARGIN, glyph.xMin)
     # Brand-new characters.
     for char, (name, rows) in EXTRA.items():
         glyph = pixel_glyph(rows)
