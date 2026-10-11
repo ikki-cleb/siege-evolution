@@ -10,4 +10,9 @@ rm -rf build/web && mkdir -p build/web
 gzip -9 -c build/web/index.wasm | base64 -w 0 > build/web/index.wasm.gz.b64.txt
 base64 -w 0 build/web/index.pck > build/web/index.pck.b64.txt
 rm build/web/index.wasm build/web/index.pck
+# Tell the loading screen how big the packed files are, so its progress bar
+# knows the total from the start.
+WASM_SIZE=$(stat -c %s build/web/index.wasm.gz.b64.txt)
+PCK_SIZE=$(stat -c %s build/web/index.pck.b64.txt)
+sed -i "s/__PACKED_SIZES__/{\"index.wasm\": $WASM_SIZE, \"index.pck\": $PCK_SIZE}/" build/web/index.html
 ls -la build/web

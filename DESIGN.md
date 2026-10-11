@@ -393,6 +393,24 @@ Art: `python3 tools/draw_objects.py` (designs in `tools/objects/designs.py`)
 writes `obstacle.png` (3 looks x 1 or 4 frames) and `water_anim.png` next
 to each world's tiles; `scripts/game/obstacle_layer.gd` draws them.
 
+## Web loading screen
+
+The HTML page shown while the web build downloads (`web/shell.html`) is
+laid out in the game's own 360x640 units, so SIEGE / EVOLUTION / the
+tagline sit exactly where the title menu draws them (pixel-checked): no
+jump when the game takes over. It uses the game's own fonts (tiny subsets
+embedded as data URLs; Google's Coiny draws V like U). EVOLUTION cycles
+through the world colors like the menu. Below the title, one invader from
+each world marches across a track (with the red enemy ring) while five
+Backyard units, one per pack on pack-tinted pads, shoot pack-colored
+shots at them; five hits and an invader plays its death animation and
+returns next lap. A 14-cell pixel bar and a percentage show real download
+progress: the base64 trick that lets the Claude artifact host serve the
+game hid progress from Godot, so the page counts the packed downloads
+itself (`tools/export_web.sh` writes their sizes into the page); the
+itch.io build uses Godot's own progress. Art and fonts are embedded by
+`python3 tools/make_loading_parade.py`.
+
 ## Microscopic unit names
 
 Microscopic uses plain body words, not biology terms, so the
