@@ -730,8 +730,8 @@ func _test_animations(biome: BiomeData) -> void:
 	var attacker: UnitData = load(PACKS + "fortress/macrophage.tres")
 	var unit: Unit = board.place_unit(attacker, Vector2i(1, 8))
 	_check(attacker.anim_idle != null and unit._sprite.hframes == StripPlayer.frames_in(attacker.anim_idle)
-		and is_equal_approx(unit._art_scale * attacker.anim_idle.get_height(), Board.TILE),
-		"Units play their idle strip, shrunk to fit the tile")
+		and is_equal_approx(unit._art_scale * attacker.anim_idle.get_height(), Board.TILE * Unit.ART_BOOST),
+		"Units play their idle strip, sized to fill the tile")
 	unit._play_attack()
 	_check(unit._sprite.texture == attacker.anim_attack, "Firing plays the attack strip")
 	for i in 60:

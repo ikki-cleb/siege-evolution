@@ -36,6 +36,14 @@ var _sprite: Sprite2D
 var _strips := StripPlayer.new()
 ## Strips are drawn at 64x64 per frame; this shrinks them to the 16x16 tile.
 var _art_scale := 1.0
+## Units are drawn a bit bigger than their tile's art box, so they fill it.
+const ART_BOOST := 1.12
+## How far above its tile a new unit starts before it drops into place.
+const DROP_HEIGHT := 7.0
+const SHADOW_COLOR := Color(0, 0, 0, 0.45)
+const PAD_COLOR := Color(0, 0, 0, 0.18)
+const PAD_EDGE := Color(0, 0, 0, 0.35)
+const DUST_COLOR := Color(0.85, 0.78, 0.65)
 ## Draws the capstone star over animated art (still art has it built in).
 var _star: CapstoneStar
 ## Capstone mechanics: grab cooldown, and whether "rebuild once" was used.
@@ -60,10 +68,29 @@ func setup(p_data: UnitData, p_cell: Vector2i, p_board: Board) -> void:
 	_star = CapstoneStar.new()
 	add_child(_star)
 	_update_sprite()
-	_pop()
+	_drop_in()
 
 
-## A quick bounce when the unit appears or evolves.
+## Placing: the unit falls onto its tile, squashes as it lands and kicks up
+## a little ring of dust, so it feels heavy.
+func _drop_in() -> void:
+	var rest := Vector2.ONE * _art_scale
+	_sprite.position.y = -DROP_HEIGHT
+	var tween := create_tween()
+	tween.tween_property(_sprite, "position:y", 0.0, 0.12).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tween.tween_callback(_land)
+	tween.tween_property(_sprite, "scale", rest * Vector2(1.18, 0.82), 0.05)
+	tween.tween_property(_sprite, "scale", rest, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+
+## The moment of landing: dust puffs out from the unit's feet.
+func _land() -> void:
+	board.fx.add_puff(position + Vector2(-3, 6), DUST_COLOR)
+	board.fx.add_puff(position + Vector2(3, 6), DUST_COLOR)
+	board.fx.add_pulse(position + Vector2(0, 6), Board.TILE * 0.9, DUST_COLOR)
+
+
+## A quick bounce when the unit evolves.
 func _pop() -> void:
 	_sprite.scale = Vector2.ONE * 0.4 * _art_scale
 	create_tween().tween_property(_sprite, "scale", Vector2.ONE * _art_scale, 0.25) \
@@ -77,13 +104,13 @@ func _update_sprite() -> void:
 	var animated := data.anim_idle != null and not on_water
 	if animated:
 		_strips.start_loop(_sprite, data.anim_idle)
-		_art_scale = float(Board.TILE) / data.anim_idle.get_height()
+		_art_scale = float(Board.TILE) / data.anim_idle.get_height() * ART_BOOST
 	else:
 		_strips.start_loop(_sprite, null)
 		_sprite.texture = data.water_texture if on_water else data.texture
 		_sprite.hframes = 1
 		_sprite.frame = 0
-		_art_scale = 1.0
+		_art_scale = ART_BOOST
 	_sprite.scale = Vector2.ONE * _art_scale
 	_star.visible = animated and is_capstone()
 
@@ -320,6 +347,14 @@ func _find_targets(count: int) -> Array[Invader]:
 
 
 func _draw() -> void:
+	# A faint pad on the tile and a soft shadow under the unit, so it looks
+	# planted on the ground instead of floating on the art.
+	if not destroyed:
+		draw_rect(Rect2(-7.5, -7.5, 15, 15), PAD_COLOR)
+		draw_rect(Rect2(-7.5, -7.5, 15, 15), PAD_EDGE, false, 0.5)
+		draw_set_transform(Vector2(0, 6.5), 0.0, Vector2(1.0, 0.4))
+		draw_circle(Vector2.ZERO, 7.5, SHADOW_COLOR)
+		draw_set_transform(Vector2.ZERO)
 	# Capstones glow softly gold, so big investments stand out.
 	if is_capstone() and not destroyed:
 		var glow := 0.25 + 0.15 * sin(Time.get_ticks_msec() / 300.0)

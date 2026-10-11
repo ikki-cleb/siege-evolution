@@ -33,6 +33,9 @@ const JUMPER_PATH_COLOR := Color(1, 0.65, 0.2, 0.75)
 ## The boss's route (shown before the boss wave) is purple and thicker.
 ## Very faint grey lines between tiles (build phase only).
 const GRID_COLOR := Color(0.85, 0.85, 0.85, 0.16)
+## After a placement changes a route, the new route flashes this color.
+const ROUTE_FLASH_COLOR := Color(1.0, 0.95, 0.6)
+const ROUTE_FLASH_TIME := 0.7
 const BOSS_PATH_COLOR := Color(0.75, 0.4, 1.0, 0.9)
 const BOSS_PATH_WIDTH := 2.5
 ## Seconds a bomb takes to fall. Its target tile shows a warning meanwhile.
@@ -83,6 +86,9 @@ var _boat_smash_grid := AStarGrid2D.new()
 var show_path_preview := false
 ## Faint gridlines over the board while the player is building.
 var show_grid := false
+## Routes that just changed (lists of cells) and how long they still flash.
+var _route_flash: Array = []
+var _route_flash_time := 0.0
 var preview_smashers := false
 var preview_fliers := false
 var preview_jumpers := false
@@ -388,13 +394,35 @@ func neighbor_count(cell: Vector2i) -> int:
 # --- Units ------------------------------------------------------------------
 
 func place_unit(data: UnitData, cell: Vector2i) -> Unit:
+	var routes_before := _walker_routes()
 	var unit := Unit.new()
 	unit.setup(data, cell, self)
 	add_child(unit)
 	units[cell] = unit
 	_blocking_grid(cell).set_point_solid(cell, true)
+	_flash_changed_routes(routes_before)
 	queue_redraw()
 	return unit
+
+
+## Every spawn's walking route right now.
+func _walker_routes() -> Array:
+	var routes := []
+	for spawn in spawn_cells:
+		routes.append(walker_path(spawn))
+	return routes
+
+
+## Makes any route that a placement just changed flash for a moment, so the
+## player sees their unit push the maze around.
+func _flash_changed_routes(routes_before: Array) -> void:
+	var routes_after := _walker_routes()
+	_route_flash.clear()
+	for i in routes_after.size():
+		if routes_after[i] != routes_before[i]:
+			_route_flash.append(routes_after[i])
+	if not _route_flash.is_empty():
+		_route_flash_time = ROUTE_FLASH_TIME
 
 
 func remove_unit(cell: Vector2i) -> void:
@@ -691,6 +719,9 @@ func _process(delta: float) -> void:
 	if _flash_time > 0.0:
 		_flash_time -= delta
 		queue_redraw()
+	if _route_flash_time > 0.0:
+		_route_flash_time -= delta
+		queue_redraw()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -734,6 +765,11 @@ func _draw() -> void:
 			if preview_jumpers:
 				_draw_path(jumper_path(spawn), JUMPER_PATH_COLOR)
 			_draw_path(walker_path(spawn), PATH_COLOR)
+	# A route that just changed: drawn bright and thick, then fading out.
+	if _route_flash_time > 0.0:
+		var fade := _route_flash_time / ROUTE_FLASH_TIME
+		for route in _route_flash:
+			_draw_path(route, Color(ROUTE_FLASH_COLOR, 0.9 * fade), 1.0 + 1.5 * fade)
 	# The boss's route goes on top so it's never hidden. It shows even with
 	# the Paths toggle off: players should always see what the boss will do.
 	if preview_boss:

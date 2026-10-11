@@ -466,6 +466,10 @@ Beating the Clown shows the bonus world-cleared screen.
 
 - **Look:** one theme for menus and the in-level screen. Each world has an
   accent color, used for titles, card stripes and the HUD's accent lines.
+- **Heft:** units are drawn 12% bigger, sit on a faint dark pad with a
+  soft shadow, and drop onto their tile when placed (squash on landing,
+  dust puffs, low thud sound). If a placement changes an invader route, the
+  new route flashes bright yellow and fades over 0.7s.
 - **Gridlines:** very faint grey lines between tiles during every build
   phase (hidden during waves), so it's easy to see where a unit will go.
 - **Enemy outline:** every invader has a thin solid red ring around its

@@ -108,7 +108,9 @@ def sfx():
     return {
         "shoot": tone(1400, 0.05, r, 0.18, duty=0.25, slide=-9000, release=0.03),
         "kill": join(tone(700, 0.04, r, 0.25, slide=-4000), noise(0.08, r, 0.18, decay=30, low=2)),
-        "place": join(tone(330, 0.04, r, 0.3, duty=0.25), tone(495, 0.06, r, 0.3, duty=0.25)),
+        # A low, heavy thud: a quick falling bass note plus a soft crunch.
+        "place": mix(tone(150, 0.14, r, 0.45, slide=-500, wave_fn="triangle", release=0.08),
+                     noise(0.09, r, 0.22, decay=35, low=5)),
         "sell": join(tone(495, 0.05, r, 0.3, duty=0.25), tone(330, 0.08, r, 0.3, duty=0.25)),
         "evolve": join(*[tone(note(n), 0.06, r, 0.28, duty=0.25) for n in ("C5", "E5", "G5", "C6")],
                        tone(note("E6"), 0.18, r, 0.25, duty=0.125, vibrato=0.02)),
