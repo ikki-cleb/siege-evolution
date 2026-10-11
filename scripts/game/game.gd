@@ -68,6 +68,13 @@ func _ready() -> void:
 	board.coins_dropped.connect(_on_coins_dropped)
 	board.invader_killed.connect(_on_invader_killed)
 	board.shake_requested.connect(shake)
+	# Mark where the boss will come from for the whole level.
+	var boss_cells: Array[Vector2i] = []
+	for wave in level.waves:
+		for cell in _boss_spawn_cells(wave):
+			if not boss_cells.has(cell):
+				boss_cells.append(cell)
+	board.show_boss_spawns(boss_cells)
 	Audio.play_music(Progress.biome.id)
 
 	base_hp = level.base_hp
@@ -99,6 +106,12 @@ func _enter_build_phase() -> void:
 	board.preview_smashers = _wave_has(next_wave, InvaderData.Movement.SMASHER)
 	board.preview_fliers = _wave_has(next_wave, InvaderData.Movement.FLIER)
 	board.preview_jumpers = next_wave.entries.any(func(entry): return entry.invader.jumps)
+	# Right before the boss wave, show the boss's own route in purple.
+	board.preview_boss = null
+	for entry in next_wave.entries:
+		if entry.invader.is_boss:
+			board.preview_boss = entry.invader
+	board.preview_boss_spawns = _boss_spawn_cells(next_wave)
 	board.queue_redraw()
 	hud.refresh()
 
@@ -107,6 +120,8 @@ func _enter_build_phase() -> void:
 func footnote() -> String:
 	if phase == Phase.BUILD and wave_number < level.wave_tips.size():
 		return level.wave_tips[wave_number]
+	if phase == Phase.BUILD and board.preview_boss:
+		return "Boss wave! If %s reaches your base, you lose. Its route is shown in purple." % board.preview_boss.display_name
 	return ""
 
 
@@ -296,6 +311,7 @@ func start_wave() -> void:
 	selected_type = null
 	_select_cell(Board.NO_CELL)
 	board.show_path_preview = false
+	board.preview_boss = null
 	board.wave_active = true
 	board.queue_redraw()
 
@@ -327,7 +343,9 @@ func _process(delta: float) -> void:
 	while not _spawn_queue.is_empty() and _spawn_queue[0].time <= _wave_time:
 		var spawn: Dictionary = _spawn_queue.pop_front()
 		board.spawn_invader(spawn.invader, spawn.spawn)
-	if _spawn_queue.is_empty() and board.invaders.is_empty():
+	# The wave ends once everything has spawned, died or arrived, and any
+	# falling bomb has landed.
+	if _spawn_queue.is_empty() and board.invaders.is_empty() and not board.has_falling_bombs():
 		_end_wave()
 
 
@@ -369,7 +387,11 @@ func _on_base_hit(invader: InvaderData) -> void:
 	_leaked = true
 	Audio.play("base_hit")
 	shake(3.0 + invader.base_damage)
-	base_hp = max(0, base_hp - invader.base_damage)
+	if invader.is_boss:
+		# A boss reaching the base is always an instant loss.
+		base_hp = 0
+	else:
+		base_hp = max(0, base_hp - invader.base_damage)
 	hud.refresh()
 	if base_hp == 0 and phase == Phase.WAVE:
 		_finish(false)
@@ -551,6 +573,24 @@ func _is_number_part(part: String) -> bool:
 
 func _num(value: float) -> String:
 	return str(snappedf(value, 0.1)).trim_suffix(".0")
+
+
+## The spawn tiles the bosses in a wave come from. Uses the same rule as
+## start_wave(): entries with spawn_point -1 take turns between spawns.
+func _boss_spawn_cells(wave: WaveData) -> Array[Vector2i]:
+	var cells: Array[Vector2i] = []
+	var alternate := 0
+	for entry in wave.entries:
+		for i in entry.count:
+			var spawn: int = entry.spawn_point
+			if spawn < 0:
+				spawn = alternate
+				alternate += 1
+			if entry.invader.is_boss:
+				var cell := board.spawn_cell_for(entry.invader, spawn)
+				if not cells.has(cell):
+					cells.append(cell)
+	return cells
 
 
 func _wave_has(wave: WaveData, movement: InvaderData.Movement) -> bool:

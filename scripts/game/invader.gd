@@ -332,7 +332,7 @@ func _try_bomb() -> void:
 	if best:
 		_has_bombed = true
 		_bomb_timer = data.bomb_interval
-		board.bomb(best.cell, data.bomb_damage)
+		board.drop_bomb(position, best.cell, data.bomb_damage)
 
 
 func _should_burrow() -> bool:

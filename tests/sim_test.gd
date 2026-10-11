@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 108
+const MIN_RULE_CHECKS := 117
 var progress: Node
 
 
@@ -28,6 +28,7 @@ func _run() -> void:
 	await _test_jumping(progress.load_biome(2))
 	await _test_sea_and_bombs(progress.load_biome(3))
 	await _test_space(progress.load_biome(4))
+	await _test_bosses(biome)
 	await _test_kitchen(progress.load_biome(5))
 	await _test_selection(biome)
 	await _test_party(progress.load_biome(6))
@@ -315,6 +316,63 @@ func _test_space(biome: BiomeData) -> void:
 			"Final victory screen %s the bonus worlds" % ("hides" if owned else "suggests"))
 		await _stop(game)
 	store.reset_test_purchases()
+
+
+# --- Bosses: instant loss, spawn marker, purple route; bombs fall -------------
+
+func _test_bosses(biome: BiomeData) -> void:
+	var boss_data: InvaderData = load("res://data/invaders/immune_system/superbug.tres")
+	var minion: InvaderData = load("res://data/invaders/immune_system/rhinovirus.tres")
+
+	# Non-boss levels have no boss marker.
+	var game := await _start(biome, 0, 0)
+	_check(game.board.boss_marker.spots.is_empty(), "Levels without a boss have no boss marker")
+	await _stop(game)
+
+	game = await _start(biome, 0, 4)  # boss level
+	var board: Board = game.board
+	_check(board.boss_marker.spots.size() >= 1, "The boss's spawn tile is marked from the start of the level")
+	_check(board.preview_boss == null, "The boss route isn't shown before the boss wave")
+	# Jump to the boss wave's build phase.
+	game.wave_number = game.level.waves.size() - 1
+	game._enter_build_phase()
+	_check(board.preview_boss == boss_data and not board.preview_boss_spawns.is_empty()
+		and game.footnote().contains("Boss wave"),
+		"Before the boss wave, its route is shown and a footnote warns about it")
+	game.toggle_paths()  # Paths off...
+	_check(board.preview_boss != null, "...and the boss route stays visible with Paths off")
+	game.toggle_paths()
+	game.start_wave()
+	_check(board.preview_boss == null, "The boss route hides once the wave starts")
+	# A minion only does its normal damage...
+	var hp_before: int = game.base_hp
+	game._on_base_hit(minion)
+	_check(game.base_hp == hp_before - minion.base_damage and game.phase == game.Phase.WAVE,
+		"Boss minions reaching the base do normal damage")
+	# ...but the boss itself ends the level at once.
+	game._on_base_hit(boss_data)
+	_check(game.base_hp == 0 and game.phase == game.Phase.LOST, "The boss reaching the base is an instant loss")
+	await _stop(game)
+
+	# Bombs fall for a moment (with a warning) before they hit.
+	game = await _start(progress.load_biome(3), 0, 0)  # Sandbox (Total War)
+	board = game.board
+	var target := board.place_unit(game.unit_types[1], Vector2i(4, 5))
+	board.wave_active = true
+	board.spawn_invader(load("res://data/invaders/total_war/toy_bomber.tres"), 0)
+	var saw_falling := false
+	var hp_while_falling := -1.0
+	for i in 60 * 15:
+		await process_frame
+		if board.has_falling_bombs() and not saw_falling:
+			saw_falling = true
+			hp_while_falling = target.hp
+		if saw_falling and not board.has_falling_bombs():
+			break
+	_check(saw_falling and hp_while_falling == target.data.max_hp,
+		"Bombs fall for a moment before doing damage")
+	_check(target.destroyed or target.hp < target.data.max_hp, "A falling bomb hits when it lands")
+	await _stop(game)
 
 
 # --- Selection and the coin font --------------------------------------------

@@ -97,7 +97,14 @@ screen, in a level or in the menus. The list lives in
    Fast-forward is available (1×/2×/3×).
 3. Survive **8 waves** to clear the level. **Pass/fail only**, no stars.
 4. **Lose:** the base has 20 HP, and each invader does its own base damage
-   when it arrives.
+   when it arrives. **A boss reaching the base is always an instant loss**
+   (its minions only do their normal damage).
+
+**Boss levels:** the boss's spawn tile is marked with a pulsing purple glow
+and a pixel skull for the whole level, so players can plan from wave 1. In
+the build phase right before the boss wave, the boss's own route is drawn as
+a thicker purple line (shown even with Paths off) and the footnote warns
+that the boss reaching the base loses the level.
 
 **Between waves:** all units (even destroyed ones) are **repaired for free**.
 A wave where nothing reaches the base earns a small **clean-wave bonus**.
@@ -165,7 +172,8 @@ becomes "Field-Repaired..." or "Barbed...". Names live in each world's
   appears next to Start Wave; tapping it (or the same unit again) deselects.
 - **Path preview** shows the next wave's routes during every build phase:
   the walker route, plus smasher (red), flier (blue) and jumper (orange)
-  lines when the next wave has them. A "Paths" button next to the speed
+  lines when the next wave has them, and the boss (thick purple) before the
+  boss wave. A "Paths" button next to the speed
   button turns it off; the choice is saved.
 - **Upgrades take two taps.** The first tap previews an option: its
   description in the message line, before → after numbers and new mechanics
@@ -309,7 +317,10 @@ edges proved nearly impossible to defend.
 **New behavior: bombers.** After about 30% of their flight they drop one bomb
 on the most valuable unit within 2.5 tiles (unit plus evolution cost): full
 damage to it, half to the 8 tiles around it. Destroyed units come back after
-the wave as usual.
+the wave as usual. **Bombs are telegraphed:** a bomb sprite falls from the
+bomber for 0.9s while the 3x3 blast area blinks red with brackets on the
+target tile, then it explodes (flash, fireball, shockwave, smoke) and deals
+its damage. The same goes for the Mothership's repeated bombs.
 
 | Invader | Type | Notes |
 |---|---|---|

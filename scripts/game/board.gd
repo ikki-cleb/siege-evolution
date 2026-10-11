@@ -30,6 +30,11 @@ const PATH_COLOR := Color(1, 1, 1, 0.55)
 const SMASHER_PATH_COLOR := Color(1, 0.35, 0.25, 0.7)
 const FLIER_PATH_COLOR := Color(0.5, 0.85, 1, 0.7)
 const JUMPER_PATH_COLOR := Color(1, 0.65, 0.2, 0.75)
+## The boss's route (shown before the boss wave) is purple and thicker.
+const BOSS_PATH_COLOR := Color(0.75, 0.4, 1.0, 0.9)
+const BOSS_PATH_WIDTH := 2.5
+## Seconds a bomb takes to fall. Its target tile shows a warning meanwhile.
+const BOMB_FALL_TIME := 0.9
 ## A bomb's full damage hits its target; the 8 tiles around take this share.
 const BOMB_SPLASH := 0.5
 ## Goo left by spillers (Kitchen Defense).
@@ -77,6 +82,14 @@ var show_path_preview := false
 var preview_smashers := false
 var preview_fliers := false
 var preview_jumpers := false
+## The boss coming in the next wave (null if none) and the spawn tiles it
+## uses. Its route is drawn in purple.
+var preview_boss: InvaderData = null
+var preview_boss_spawns: Array[Vector2i] = []
+## Bombs on their way down: {target, damage, time}. They hit when time runs out.
+## Glow + skull on the boss's spawn tiles (see show_boss_spawns).
+var boss_marker: BossMarker
+var _falling_bombs: Array[Dictionary] = []
 var selected_cell := NO_CELL
 ## While an upgrade is being previewed: its range, drawn as a gold circle
 ## around the selected unit (0 = no preview).
@@ -142,6 +155,8 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 
 	if level.background:
 		_add_background(level.background)
+	boss_marker = BossMarker.new()
+	add_child(boss_marker)
 	fx = ShotEffects.new()
 	fx.z_index = 10
 	add_child(fx)
@@ -462,8 +477,7 @@ func restore_units() -> void:
 func spawn_invader(data: InvaderData, spawn_index: int) -> void:
 	# Boats start at sea spawns; fliers use land spawns, or sea ones if a
 	# level has no land spawns.
-	var spawns := sea_spawn_cells if data.naval or spawn_cells.is_empty() else spawn_cells
-	var start := spawns[spawn_index % spawns.size()]
+	var start := spawn_cell_for(data, spawn_index)
 	var invader := _add_invader(data, cell_center(start), route_for(data, start), 0)
 	if not data.pinata_pool.is_empty():
 		# The 1st, 2nd, 3rd... piñata of the wave always gets the same seed.
@@ -576,13 +590,46 @@ func _play_death(invader: Invader) -> void:
 	player.play_once(sprite, strip)
 
 
-## A bomber's payload: full damage on the target tile, half on the 8 around.
+## Marks the tiles the boss will come from (empty on non-boss levels).
+func show_boss_spawns(cells: Array[Vector2i]) -> void:
+	boss_marker.spots.clear()
+	for cell in cells:
+		boss_marker.spots.append(cell_center(cell))
+	boss_marker.queue_redraw()
+
+
+## Which tile an invader starts on for a wave entry's spawn index.
+func spawn_cell_for(data: InvaderData, spawn_index: int) -> Vector2i:
+	var spawns := sea_spawn_cells if data.naval or spawn_cells.is_empty() else spawn_cells
+	return spawns[spawn_index % spawns.size()]
+
+
+## A bomber lets go of a bomb: it falls from `from` onto `cell` (with a
+## warning on the target tile) and explodes when it lands.
+func drop_bomb(from: Vector2, cell: Vector2i, damage: float) -> void:
+	_falling_bombs.append({"target": cell, "damage": damage, "time": BOMB_FALL_TIME})
+	fx.add_falling_bomb(from, cell_center(cell), BOMB_FALL_TIME)
+
+
+## True while a bomb is still falling (the wave isn't over until it lands).
+func has_falling_bombs() -> bool:
+	return not _falling_bombs.is_empty()
+
+
+func _update_falling_bombs(delta: float) -> void:
+	for falling in _falling_bombs:
+		falling.time -= delta
+	var landed := _falling_bombs.filter(func(falling): return falling.time <= 0.0)
+	_falling_bombs = _falling_bombs.filter(func(falling): return falling.time > 0.0)
+	for falling in landed:
+		bomb(falling.target, falling.damage)
+
+
+## A bomb landing: full damage on the target tile, half on the 8 around.
 func bomb(cell: Vector2i, damage: float) -> void:
 	Sfx.play("bomb", 0.1)
 	shake_requested.emit(4.0)
-	fx.add_puff(cell_center(cell), Color(1, 0.6, 0.2))
-	fx.add_pulse(cell_center(cell), TILE * 1.6, Color(1, 0.55, 0.15))
-	fx.add_pulse(cell_center(cell), TILE * 0.8, Color(1, 0.9, 0.4))
+	fx.add_explosion(cell_center(cell), TILE * 1.5)
 	for dy in [-1, 0, 1]:
 		for dx in [-1, 0, 1]:
 			var unit := intact_unit_at(cell + Vector2i(dx, dy))
@@ -623,6 +670,8 @@ func flash(cell: Vector2i) -> void:
 func _process(delta: float) -> void:
 	if wave_active and not zones.is_empty():
 		_update_zones(delta)
+	if not _falling_bombs.is_empty():
+		_update_falling_bombs(delta)
 	if _flash_time > 0.0:
 		_flash_time -= delta
 		queue_redraw()
@@ -666,6 +715,14 @@ func _draw() -> void:
 			if preview_jumpers:
 				_draw_path(jumper_path(spawn), JUMPER_PATH_COLOR)
 			_draw_path(walker_path(spawn), PATH_COLOR)
+	# The boss's route goes on top so it's never hidden. It shows even with
+	# the Paths toggle off: players should always see what the boss will do.
+	if preview_boss:
+		for spawn in preview_boss_spawns:
+			if preview_boss.movement == InvaderData.Movement.FLIER:
+				draw_dashed_line(cell_center(spawn), cell_center(base_cell), BOSS_PATH_COLOR, BOSS_PATH_WIDTH, 4.0)
+			else:
+				_draw_path(route_for(preview_boss, spawn), BOSS_PATH_COLOR, BOSS_PATH_WIDTH)
 
 	for zone in zones:
 		var color: Color = ZONE_COLORS.get(zone.kind, Color.WHITE)
@@ -685,10 +742,10 @@ func _draw() -> void:
 		draw_rect(Rect2(Vector2(_flash_cell * TILE), Vector2(TILE, TILE)), Color(1, 0, 0, _flash_time))
 
 
-func _draw_path(path: Array[Vector2i], color: Color) -> void:
+func _draw_path(path: Array[Vector2i], color: Color, width := 1.0) -> void:
 	if path.size() < 2:
 		return
 	var points := PackedVector2Array()
 	for cell in path:
 		points.append(cell_center(cell))
-	draw_polyline(points, color, 1.0)
+	draw_polyline(points, color, width)
