@@ -394,6 +394,7 @@ func _on_base_hit(invader: InvaderData) -> void:
 		base_hp = 0
 	else:
 		base_hp = max(0, base_hp - invader.base_damage)
+	board.hit_base(float(base_hp) / level.base_hp)
 	hud.refresh()
 	if base_hp == 0 and phase == Phase.WAVE:
 		_finish(false)

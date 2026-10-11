@@ -143,7 +143,7 @@ func is_flying() -> bool:
 ## Attackers use this to target whoever is most dangerous.
 func distance_to_base() -> float:
 	if is_flying() or path_index >= path.size():
-		return position.distance_to(board.cell_center(board.base_cell)) / Board.TILE
+		return position.distance_to(board.base_center()) / Board.TILE
 	var to_next := position.distance_to(board.cell_center(path[path_index])) / Board.TILE
 	return (path.size() - 1 - path_index) + to_next
 
@@ -290,7 +290,7 @@ func _update_effects(delta: float) -> void:
 
 
 func _fly(tiles: float) -> void:
-	var target := board.cell_center(board.base_cell)
+	var target := board.base_center()
 	position = position.move_toward(target, tiles * Board.TILE)
 	# Bosses with a bomb interval re-arm after each bomb.
 	if _has_bombed and data.bomb_interval > 0.0:
@@ -301,7 +301,9 @@ func _fly(tiles: float) -> void:
 		var flown := _flight_start.distance_to(position) / maxf(1.0, _flight_start.distance_to(target))
 		if flown >= BOMB_AFTER:
 			_try_bomb()
-	if position.distance_to(target) < 0.5:
+	# Arrives as soon as it's over any base tile (like walkers do).
+	var over := Vector2i((position / Board.TILE).floor())
+	if position.distance_to(target) < 0.5 or board.is_base(over):
 		alive = false
 		board.on_invader_reached_base(self)
 

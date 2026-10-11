@@ -49,7 +49,7 @@ func _init(p_game, seed_value := 1) -> void:
 					_boss_flier_points.append_array(_line_points(spawn))
 	for spawn in board.spawn_cells:
 		var from := board.cell_center(spawn)
-		var to := board.cell_center(board.base_cell)
+		var to := board.base_center()
 		var steps := int(from.distance_to(to) / (Board.TILE * 0.5))
 		for i in steps:
 			_flier_points.append(from.lerp(to, float(i) / steps))
@@ -59,7 +59,7 @@ func _init(p_game, seed_value := 1) -> void:
 func _line_points(spawn: Vector2i) -> Array[Vector2]:
 	var points: Array[Vector2] = []
 	var from := board.cell_center(spawn)
-	var to := board.cell_center(board.base_cell)
+	var to := board.base_center()
 	var steps := int(from.distance_to(to) / (Board.TILE * 0.5))
 	for i in steps:
 		points.append(from.lerp(to, float(i) / steps))

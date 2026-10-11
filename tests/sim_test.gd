@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 122
+const MIN_RULE_CHECKS := 123
 var progress: Node
 
 
@@ -29,6 +29,7 @@ func _run() -> void:
 	await _test_sea_and_bombs(progress.load_biome(3))
 	await _test_space(progress.load_biome(4))
 	await _test_bosses(biome)
+	await _test_base_block()
 	await _test_kitchen(progress.load_biome(5))
 	await _test_selection(biome)
 	await _test_party(progress.load_biome(6))
@@ -227,7 +228,7 @@ func _test_sea_and_bombs(biome: BiomeData) -> void:
 	_check(not game.try_place(wall, Vector2i(4, 2)), "A net can't seal a water lane")
 	var boat_data: InvaderData = load("res://data/invaders/total_war/patrol_boat.tres")
 	var route := board.route_for(boat_data, board.sea_spawn_cells[0])
-	var all_water := route.all(func(cell): return board.water.has(cell) or cell == board.base_cell)
+	var all_water := route.all(func(cell): return board.water.has(cell) or board.is_base(cell))
 	_check(not route.is_empty() and all_water and not route.has(Vector2i(5, 2)),
 		"Boats stay on water and steer around nets")
 	var soldier: InvaderData = load("res://data/invaders/total_war/toy_soldier.tres")
@@ -321,6 +322,32 @@ func _test_space(biome: BiomeData) -> void:
 
 
 # --- Bosses: instant loss, spawn marker, purple route; bombs fall -------------
+
+## The base is a 3x2 block: not buildable, routes end on it, and in every
+## level it fits on the board without covering a spawn.
+func _test_base_block() -> void:
+	var ok := true
+	for index in progress.WORLDS.size():
+		var world: BiomeData = progress.load_biome(index)
+		for level_index in world.levels.size():
+			var level: LevelData = world.levels[level_index]
+			var board := Board.new()
+			root.add_child(board)
+			board.setup(level, world)
+			var fits := board.base_cells.size() == 6
+			for cell in board.base_cells:
+				fits = fits and board.is_inside(cell) and not board.spawn_cells.has(cell) \
+					and not board.sea_spawn_cells.has(cell) and not board.is_buildable(cell)
+			for spawn in board.spawn_cells:
+				var route := board.walker_path(spawn)
+				fits = fits and not route.is_empty() and board.is_base(route[-1])
+			if not fits:
+				print("  base block problem: %s level %d" % [world.id, level_index + 1])
+			ok = ok and fits
+			board.queue_free()
+	await process_frame
+	_check(ok, "The 3x2 base fits every level, can't be built on, and routes end on it")
+
 
 func _test_bosses(biome: BiomeData) -> void:
 	var boss_data: InvaderData = load("res://data/invaders/immune_system/superbug.tres")

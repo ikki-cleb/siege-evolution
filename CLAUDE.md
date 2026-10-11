@@ -135,6 +135,13 @@ glow + skull all level (`scripts/game/boss_marker.gd`); the boss route is a
 thick purple line before the boss wave (even with Paths off); bombs fall
 for 0.9s with a red warning before they explode (`Board.drop_bomb`).
 
+**Base (latest round):** 3x2 tiles (`Board.base_cells`, built from the
+layout's "B" by `_make_base_block`). Routes still aim at `base_cell` but
+are trimmed at the first base tile (`_trim_to_base`); fliers aim at
+`base_center()`. Big base art: `python3 tools/draw_bases.py` writes
+`art/tiles/<world>/base_big.png` (96x80); `scripts/game/base_view.gd`
+draws it with cracks and a hit flash.
+
 **Readability (latest round):** enemies get a solid red 1-pixel ring
 (`shaders/enemy_outline.gdshader`, set on each invader sprite; StripPlayer
 passes the strip's frame count to it). Two Compatibility-renderer gotchas

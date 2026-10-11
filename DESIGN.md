@@ -99,7 +99,14 @@ screen, in a level or in the menus. The list lives in
 2. **Wave phase:** invaders spawn and travel to the base. No building.
    Fast-forward is available (1×/2×/3×).
 3. Survive **8 waves** to clear the level. **Pass/fail only**, no stars.
-4. **Lose:** the base has 20 HP, and each invader does its own base damage
+4. **The base** is a 3x2 block on the bottom middle of the board (the "B"
+   in a layout marks its bottom-middle tile; at the sides it shifts inward).
+   Nothing can be built on it, and invaders arrive as soon as they step onto
+   any of its tiles (fliers: as soon as they're over it). Each world draws it
+   as one big sprite with depth (`tools/draw_bases.py`: anthill, farmhouse,
+   heart, toy fort, reactor, cookie jar, cake). It cracks below 2/3 and 1/3
+   HP, and flashes red and shakes when hit.
+5. **Lose:** the base has 20 HP, and each invader does its own base damage
    when it arrives. **A boss reaching the base is always an instant loss**
    (its minions only do their normal damage).
 

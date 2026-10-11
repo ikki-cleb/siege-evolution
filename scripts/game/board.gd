@@ -60,7 +60,15 @@ var spawn_cells: Array[Vector2i] = []
 ## Sea spawn points for boats ("N").
 var sea_spawn_cells: Array[Vector2i] = []
 var water := {}  # Vector2i -> true
+## The base is 3 tiles wide and 2 tall. `base_cell` is the "B" in the level
+## layout (bottom middle of the block); routes are aimed at it, but an
+## invader arrives as soon as it steps onto any tile in `base_cells`.
 var base_cell := NO_CELL
+var base_cells: Array[Vector2i] = []
+const BASE_SIZE := Vector2i(3, 2)
+## 0-1, set by the game: the base shows cracks as it loses health.
+## Draws the big base sprite (see BaseView).
+var base_view: BaseView
 
 var units := {}  # Vector2i -> Unit
 var invaders: Array[Invader] = []
@@ -147,6 +155,7 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 				"N":
 					water[cell] = true
 					sea_spawn_cells.append(cell)
+	_make_base_block()
 
 	for grid in [_walk_grid, _smash_grid, _boat_grid, _boat_smash_grid]:
 		grid.region = Rect2i(Vector2i.ZERO, grid_size)
@@ -161,7 +170,7 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 			var land_blocked := rocks.has(cell) or water.has(cell)
 			_walk_grid.set_point_solid(cell, land_blocked)
 			_smash_grid.set_point_solid(cell, land_blocked)
-			var sea_blocked := not water.has(cell) and cell != base_cell
+			var sea_blocked := not water.has(cell) and not base_cells.has(cell)
 			_boat_grid.set_point_solid(cell, sea_blocked)
 			_boat_smash_grid.set_point_solid(cell, sea_blocked)
 
@@ -173,6 +182,7 @@ func setup(level: LevelData, p_biome: BiomeData) -> void:
 	# invaders, because they're added before any of them.
 	ground_fx = ShotEffects.new()
 	add_child(ground_fx)
+	_add_base_view()
 	fx = ShotEffects.new()
 	fx.z_index = 10
 	add_child(fx)
@@ -219,10 +229,68 @@ func is_inside(cell: Vector2i) -> bool:
 	return cell.x >= 0 and cell.y >= 0 and cell.x < grid_size.x and cell.y < grid_size.y
 
 
+## Grows the base from its "B" tile into a 3x2 block: centered on B and
+## reaching up from the bottom edge (down from the top edge), shifted inward
+## at the sides. Whatever the layout had on those tiles becomes base.
+func _make_base_block() -> void:
+	base_cells.clear()
+	if base_cell == NO_CELL:
+		return
+	var left := clampi(base_cell.x - 1, 0, grid_size.x - BASE_SIZE.x)
+	var top := base_cell.y - (BASE_SIZE.y - 1) if base_cell.y > 0 else base_cell.y
+	for y in range(top, top + BASE_SIZE.y):
+		for x in range(left, left + BASE_SIZE.x):
+			var cell := Vector2i(x, y)
+			base_cells.append(cell)
+			rocks.erase(cell)
+			water.erase(cell)
+
+
+## The big base sprite over the base tiles, sticking up into the row above.
+func _add_base_view() -> void:
+	base_view = BaseView.new()
+	var path := "res://art/tiles/%s/base_big.png" % biome.id
+	base_view.texture = load(path) if ResourceLoader.exists(path) else _tiles.base
+	var top_left := Vector2(base_cells[0] * TILE) if not base_cells.is_empty() else Vector2(base_cell * TILE)
+	var block := Vector2(BASE_SIZE * TILE)
+	# The art is 96x80 for a 96x64 block (2x pixel density): 8 board pixels
+	# of headroom above the tiles.
+	var headroom := block.x * 80.0 / 96.0 - block.y
+	base_view.area = Rect2(top_left - Vector2(0, headroom), Vector2(block.x, block.y + headroom))
+	add_child(base_view)
+
+
+## Called by the game when an invader reaches the base.
+func hit_base(health: float) -> void:
+	base_view.health = health
+	base_view.hit()
+
+
+func is_base(cell: Vector2i) -> bool:
+	return base_cells.has(cell)
+
+
+## The middle of the base block (where fliers and bombers head).
+func base_center() -> Vector2:
+	var total := Vector2.ZERO
+	for cell in base_cells:
+		total += cell_center(cell)
+	return total / base_cells.size() if not base_cells.is_empty() else cell_center(base_cell)
+
+
+## A route cut off at the first base tile it touches (that's where an
+## invader arrives).
+func _trim_to_base(path: Array[Vector2i]) -> Array[Vector2i]:
+	for i in path.size():
+		if is_base(path[i]):
+			return path.slice(0, i + 1)
+	return path
+
+
 ## True if the tile is open land floor with nothing on it.
 func is_buildable(cell: Vector2i) -> bool:
 	return (is_inside(cell) and not rocks.has(cell) and not units.has(cell) and not water.has(cell)
-		and cell != base_cell and not spawn_cells.has(cell))
+		and not is_base(cell) and not spawn_cells.has(cell))
 
 
 ## True if a land unit could go here without sealing off the base from any spawn.
@@ -247,7 +315,7 @@ func boat_paths_if_blocked(cell: Vector2i) -> Array:
 	_boat_grid.set_point_solid(cell, true)
 	var paths := []
 	for spawn in sea_spawn_cells:
-		var path := _boat_grid.get_id_path(spawn, base_cell)
+		var path := _trim_to_base(_boat_grid.get_id_path(spawn, base_cell))
 		if path.is_empty():
 			paths.clear()
 			break
@@ -283,7 +351,7 @@ func walker_paths_if_blocked(cell: Vector2i) -> Array:
 		_walk_grid.set_point_solid(cell, true)
 	var paths := []
 	for spawn in spawn_cells:
-		var path := _walk_grid.get_id_path(spawn, base_cell)
+		var path := _trim_to_base(_walk_grid.get_id_path(spawn, base_cell))
 		if path.is_empty():
 			paths.clear()
 			break
@@ -295,12 +363,12 @@ func walker_paths_if_blocked(cell: Vector2i) -> Array:
 
 ## The route a walking invader takes from `from_cell` to the base.
 func walker_path(from_cell: Vector2i) -> Array[Vector2i]:
-	return _walk_grid.get_id_path(from_cell, base_cell)
+	return _trim_to_base(_walk_grid.get_id_path(from_cell, base_cell))
 
 
 ## The route a smasher takes: shortest path that only avoids rocks.
 func smasher_path(from_cell: Vector2i) -> Array[Vector2i]:
-	return _smash_grid.get_id_path(from_cell, base_cell)
+	return _trim_to_base(_smash_grid.get_id_path(from_cell, base_cell))
 
 
 ## The route a jumper takes: like a walker's, but it may hop over a single
@@ -309,6 +377,7 @@ func smasher_path(from_cell: Vector2i) -> Array[Vector2i]:
 func jumper_path(from_cell: Vector2i) -> Array[Vector2i]:
 	var cost_so_far := {from_cell: 0}
 	var came_from := {}
+	var reached := NO_CELL
 	var frontier: Array = [[0, from_cell]]
 	while not frontier.is_empty():
 		var best := 0
@@ -319,7 +388,8 @@ func jumper_path(from_cell: Vector2i) -> Array[Vector2i]:
 		var cell: Vector2i = item[1]
 		if item[0] > cost_so_far[cell]:
 			continue
-		if cell == base_cell:
+		if is_base(cell):
+			reached = cell
 			break
 		for direction in DIRECTIONS:
 			var next: Vector2i = cell + direction
@@ -337,9 +407,9 @@ func jumper_path(from_cell: Vector2i) -> Array[Vector2i]:
 				came_from[next] = cell
 				frontier.append([new_cost, next])
 	var path: Array[Vector2i] = []
-	if not cost_so_far.has(base_cell):
+	if reached == NO_CELL:
 		return path
-	var cell := base_cell
+	var cell := reached
 	while cell != from_cell:
 		path.push_front(cell)
 		cell = came_from[cell]
@@ -370,7 +440,7 @@ func jumper_paths_if_blocked(cell: Vector2i) -> Array:
 func route_for(data: InvaderData, from_cell: Vector2i) -> Array[Vector2i]:
 	if data.naval:
 		var grid := _boat_smash_grid if data.movement == InvaderData.Movement.SMASHER else _boat_grid
-		return grid.get_id_path(from_cell, base_cell)
+		return _trim_to_base(grid.get_id_path(from_cell, base_cell))
 	match data.movement:
 		InvaderData.Movement.SMASHER:
 			return smasher_path(from_cell)
@@ -574,7 +644,7 @@ func spawn_from(parent: Invader, data: InvaderData, count: int, drops_coins := t
 			# Dropped from a flier: start walking from the open tile below it
 			# (or the first spawn if it's over a rock).
 			var below := Vector2i((parent.position / TILE).floor())
-			path = route_for(data, below if _is_open(below) or below == base_cell else spawn_cells[0])
+			path = route_for(data, below if _is_open(below) or is_base(below) else spawn_cells[0])
 		elif data.movement == InvaderData.Movement.PATHER and from_index < parent.path.size():
 			# Walkers need their own kind of route, even if the parent was a smasher.
 			path = route_for(data, parent.path[from_index])
@@ -758,8 +828,6 @@ func _draw() -> void:
 				texture = _tiles.rock
 			elif spawn_cells.has(cell):
 				texture = _tiles.spawn
-			elif cell == base_cell:
-				texture = _tiles.base
 			if texture:
 				draw_texture(texture, Vector2(cell * TILE))
 
@@ -769,7 +837,7 @@ func _draw() -> void:
 	if show_path_preview:
 		for spawn in spawn_cells:
 			if preview_fliers:
-				draw_dashed_line(cell_center(spawn), cell_center(base_cell), FLIER_PATH_COLOR, 1.0, 3.0)
+				draw_dashed_line(cell_center(spawn), base_center(), FLIER_PATH_COLOR, 1.0, 3.0)
 			if preview_smashers:
 				_draw_path(smasher_path(spawn), SMASHER_PATH_COLOR)
 			if preview_jumpers:
@@ -785,7 +853,7 @@ func _draw() -> void:
 	if preview_boss:
 		for spawn in preview_boss_spawns:
 			if preview_boss.movement == InvaderData.Movement.FLIER:
-				draw_dashed_line(cell_center(spawn), cell_center(base_cell), BOSS_PATH_COLOR, BOSS_PATH_WIDTH, 4.0)
+				draw_dashed_line(cell_center(spawn), base_center(), BOSS_PATH_COLOR, BOSS_PATH_WIDTH, 4.0)
 			else:
 				_draw_path(route_for(preview_boss, spawn), BOSS_PATH_COLOR, BOSS_PATH_WIDTH)
 

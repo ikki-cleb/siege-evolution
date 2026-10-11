@@ -52,7 +52,7 @@ func _print_board(game: Node) -> void:
 				line += "#"
 			elif cell in board.spawn_cells:
 				line += "S"
-			elif cell == board.base_cell:
+			elif board.is_base(cell):
 				line += "B"
 			else:
 				line += "·" if route.has(cell) else " "
