@@ -1265,7 +1265,7 @@
     {
       "name": "2. Counter Top",
       "tiles": "counter",
-      "budget": 24,
+      "budget": 27,
       "hand": [
         10,
         8,
@@ -1295,7 +1295,7 @@
     },
     {
       "name": "3. Top Shelf",
-      "budget": 30,
+      "budget": 34,
       "hand": [
         12,
         8,
@@ -1326,7 +1326,7 @@
     {
       "name": "4. Crumb Trail",
       "tiles": "floor",
-      "budget": 32,
+      "budget": 36,
       "hand": [
         14,
         10,
@@ -1356,7 +1356,7 @@
     },
     {
       "name": "5. Rat King's Feast",
-      "budget": 34,
+      "budget": 38,
       "boss": "rat_king",
       "hand": [
         18,

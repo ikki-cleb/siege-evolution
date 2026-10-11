@@ -1390,7 +1390,7 @@
       ],
       "coins": 20,
       "income": 5,
-      "budget": 9.5,
+      "budget": 10,
       "layout": [
         "S...N...S",
         "....~....",
@@ -1433,7 +1433,7 @@
       ],
       "coins": 20,
       "income": 6,
-      "budget": 21,
+      "budget": 22.5,
       "layout": [
         "S..N....S",
         "...~.....",
@@ -1476,7 +1476,7 @@
       ],
       "coins": 25,
       "income": 6,
-      "budget": 25,
+      "budget": 26.5,
       "layout": [
         "N~..S..~N",
         "~~.....~~",
@@ -1506,7 +1506,7 @@
       ],
       "coins": 30,
       "income": 7,
-      "budget": 29,
+      "budget": 31,
       "boss": "mega_tank",
       "layout": [
         "S...S...S",

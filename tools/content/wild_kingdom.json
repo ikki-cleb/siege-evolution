@@ -1300,7 +1300,7 @@
       ],
       "coins": 15,
       "income": 5,
-      "budget": 14.5,
+      "budget": 15.5,
       "layout": [
         "........S",
         ".........",
@@ -1330,7 +1330,7 @@
       ],
       "coins": 20,
       "income": 6,
-      "budget": 23.5,
+      "budget": 25,
       "layout": [
         "....S....",
         ".........",
@@ -1360,7 +1360,7 @@
       ],
       "coins": 25,
       "income": 6,
-      "budget": 27,
+      "budget": 29,
       "layout": [
         "S...S...S",
         ".........",
@@ -1390,7 +1390,7 @@
       ],
       "coins": 30,
       "income": 7,
-      "budget": 34,
+      "budget": 36,
       "boss": "grizzly",
       "layout": [
         "S...S...S",

@@ -1354,7 +1354,7 @@
     {
       "name": "2. Living Room",
       "tiles": "living",
-      "budget": 21,
+      "budget": 22.5,
       "hand": [
         10,
         8,
@@ -1384,7 +1384,7 @@
     },
     {
       "name": "3. Present Pile",
-      "budget": 29,
+      "budget": 31.5,
       "hand": [
         12,
         8,
@@ -1415,7 +1415,7 @@
     {
       "name": "4. Sugar Rush",
       "tiles": "bouncy",
-      "budget": 32,
+      "budget": 35,
       "hand": [
         14,
         10,
@@ -1445,7 +1445,7 @@
     },
     {
       "name": "5. Clown Time",
-      "budget": 34,
+      "budget": 37,
       "boss": "clown",
       "hand": [
         18,
