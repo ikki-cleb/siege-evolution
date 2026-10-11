@@ -90,14 +90,14 @@ def data_url(path):
 def main():
     rules = [font_face(family, path, letters) for family, (path, letters) in FONTS.items()]
     for index, path in enumerate(MARCHERS):
-        rules.append(f"#parade .inv-{index} {{ background-image: {data_url(path + '_move.png')}; }}")
-        rules.append(f"#parade .inv-{index}.dead {{ background-image: {data_url(path + '_death.png')}; }}")
+        rules.append(f"#parade .inv-{index} b {{ background-image: {data_url(path + '_move.png')}; }}")
+        rules.append(f"#parade .inv-{index}.dead b {{ background-image: {data_url(path + '_death.png')}; }}")
     for index, color in enumerate(PACK_COLORS):
         rules.append(f"#units .unit-{index} {{ --pack: {color}; }}")
     for w, world in enumerate(WORLDS):
         for index, path in enumerate(shooters(world)):
-            rules.append(f"#units .w{w}.unit-{index} {{ background-image: {data_url(path + '_idle.png')}; }}")
-            rules.append(f"#units .w{w}.unit-{index}.firing {{ background-image: {data_url(path + '_attack.png')}; }}")
+            rules.append(f"#units .w{w}.unit-{index} b {{ background-image: {data_url(path + '_idle.png')}; }}")
+            rules.append(f"#units .w{w}.unit-{index}.firing b {{ background-image: {data_url(path + '_attack.png')}; }}")
     block = ("/* PARADE START (made by tools/make_loading_parade.py; don't edit by hand) */\n"
              + "\n".join(rules) + "\n/* PARADE END */")
     text = SHELL.read_text()

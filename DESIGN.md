@@ -409,7 +409,13 @@ returns next lap. A 14-cell pixel bar and a percentage show real download
 progress: the base64 trick that lets the Claude artifact host serve the
 game hid progress from Godot, so the page counts the packed downloads
 itself (`tools/export_web.sh` writes their sizes into the page); the
-itch.io build uses Godot's own progress. Art and fonts are embedded by
+itch.io build uses Godot's own progress. No freeze at 100%: a
+background worker downloads, decodes and un-gzips the packed files and
+also compiles the engine (wasm), which Godot then reuses (decoding and
+compiling on the page froze phones for ~6 s right as the bar filled; now
+the longest pause is ~1 s at 6x CPU throttling). The sprites animate by
+sliding frame strips (transforms), which keep running even while the page
+is busy starting Godot, and "Starting..." breathes. Art and fonts are embedded by
 `python3 tools/make_loading_parade.py`.
 
 ## Microscopic unit names
