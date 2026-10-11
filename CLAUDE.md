@@ -58,7 +58,7 @@ budgets (14/22/28/32) and a 450 HP Giant Centipede; Microscopic got
 **Art handoff state.** The user is making the 35 level backgrounds in
 ChatGPT from drag-and-drop prompt files in `docs/art/chatgpt/` (one per
 world; filenames like `kitchen_defense_level_03.png`). When they send the
-images: `tools/import_backgrounds.py <folder>` (it also softens them: 30%
+images: `tools/import_backgrounds.py <folder>` (it also softens them, and backgrounds listed in its MEDIUM set get a stronger filter; the Total War playmat is one: 30%
 less color, less contrast, a bit brighter, as the user chose), then import +
 content build, then republish. **Imported so far: Backyard Bugs, Wild Kingdom, Microscopic, Total War, Kitchen Defense, Birthday Bash (all 5 each).**
 Images pasted mid-turn in chat don't get saved as files; ask the user to

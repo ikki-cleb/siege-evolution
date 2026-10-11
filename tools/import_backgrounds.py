@@ -30,6 +30,9 @@ QUALITY = 85
 SATURATION = 0.7
 CONTRAST = 0.85
 BRIGHTNESS = 1.04
+# Busy backgrounds can get the stronger "Medium" filter instead: half the
+# color, softer contrast and a pale wash. List them here by file name.
+MEDIUM = {"total_war_level_05"}  # the playroom playmat
 NAME = re.compile(r"^([a-z_]+)_level_(\d\d)$")
 
 
@@ -47,8 +50,13 @@ def fit(image):
     return image.resize((WIDTH, HEIGHT), Image.LANCZOS)
 
 
-def soften(image):
+def soften(image, medium=False):
     """Calms a background down so it doesn't compete with the game."""
+    if medium:
+        image = ImageEnhance.Color(image).enhance(0.5)
+        image = ImageEnhance.Contrast(image).enhance(0.75)
+        image = ImageEnhance.Brightness(image).enhance(1.06)
+        return Image.blend(image, Image.new("RGB", image.size, (236, 232, 228)), 0.12)
     image = ImageEnhance.Color(image).enhance(SATURATION)
     image = ImageEnhance.Contrast(image).enhance(CONTRAST)
     return ImageEnhance.Brightness(image).enhance(BRIGHTNESS)
@@ -94,7 +102,7 @@ def main(folder):
             continue
         out = PROJECT / "art" / "backgrounds" / world / f"level_{number}.webp"
         out.parent.mkdir(parents=True, exist_ok=True)
-        soften(fit(Image.open(path))).save(out, "WEBP", quality=QUALITY)
+        soften(fit(Image.open(path)), path.stem in MEDIUM).save(out, "WEBP", quality=QUALITY)
         write_import_settings(out)
         print(f"{path.name} -> {out.relative_to(PROJECT)} ({out.stat().st_size // 1024} KB)")
         done += 1
