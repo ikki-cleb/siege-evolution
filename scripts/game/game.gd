@@ -8,6 +8,8 @@ extends Node2D
 
 ## Selling a unit from an earlier round refunds this share of what it cost.
 const OLD_UNIT_REFUND := 0.5
+## The most coins the interest relic can pay after one wave.
+const INTEREST_CAP := 15
 const BOARD_POSITION := Vector2(36, 82)
 const BOARD_SCALE := 2.0
 const MENU_SCENE := "res://scenes/menu.tscn"
@@ -47,6 +49,15 @@ var _leaked := false
 var _evolutions := 0
 var _paths_seen := false
 
+# --- Relics (see RelicSet and data/relics.json) ---
+## The three relics on offer right now (empty when nothing is being offered).
+## While an offer is open, the next wave can't start.
+var relic_offer: Array = []
+## True once this wave's relic carrier was killed.
+var _relic_earned := false
+## How many relics have been offered this level (later ones roll better).
+var _relics_offered := 0
+
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
@@ -68,6 +79,8 @@ func _ready() -> void:
 	board.coins_dropped.connect(_on_coins_dropped)
 	board.invader_killed.connect(_on_invader_killed)
 	board.shake_requested.connect(shake)
+	board.relic_dropped.connect(_on_relic_dropped)
+	board.relic_lost.connect(_on_relic_lost)
 	# Mark where the boss will come from for the whole level.
 	var boss_cells: Array[Vector2i] = []
 	for wave in level.waves:
@@ -224,17 +237,28 @@ func sell_value(unit: Unit) -> Dictionary:
 		else:
 			result.coins += unit.base_data.cost
 	else:
-		result.coins += int(unit.base_data.cost * OLD_UNIT_REFUND)
+		result.coins += int(unit.base_data.cost * old_refund())
 	# Each evolution refunds by the same rule, by the round it was bought in.
 	if unit.tier1_data:
-		result.coins += _refund(unit.tier1_data.cost, unit.evolved_round)
+		result.coins += _refund(evolve_cost(unit.tier1_data), unit.evolved_round)
 	if unit.is_capstone():
-		result.coins += _refund(unit.data.cost, unit.capstone_round)
+		result.coins += _refund(evolve_cost(unit.data), unit.capstone_round)
 	return result
 
 
 func _refund(cost: int, bought_round: int) -> int:
-	return cost if bought_round == wave_number else int(cost * OLD_UNIT_REFUND)
+	return cost if bought_round == wave_number else int(cost * old_refund())
+
+
+## Share refunded for units from earlier rounds (a relic can raise it).
+func old_refund() -> float:
+	return maxf(OLD_UNIT_REFUND, board.relics.economy("refund_old"))
+
+
+## What an evolution costs right now (relics can discount it).
+func evolve_cost(into: UnitData) -> int:
+	var discount := minf(0.75, board.relics.economy("evolve_discount"))
+	return roundi(into.cost * (1.0 - discount))
 
 
 func can_sell() -> bool:
@@ -276,14 +300,14 @@ func is_ready_to_evolve(unit: Unit) -> bool:
 func can_evolve(into: UnitData) -> bool:
 	var unit := selected_unit()
 	return (phase == Phase.BUILD and unit != null and unit.data.evolutions.has(into)
-		and is_ready_to_evolve(unit) and coins >= into.cost)
+		and is_ready_to_evolve(unit) and coins >= evolve_cost(into))
 
 
 func evolve_selected(into: UnitData) -> void:
 	if not can_evolve(into):
 		return
 	var unit := selected_unit()
-	coins -= into.cost
+	coins -= evolve_cost(into)
 	unit.evolve(into)
 	Audio.play("evolve", 0.0)
 	_evolutions += 1
@@ -306,7 +330,7 @@ func _select_cell(cell: Vector2i) -> void:
 # --- Waves ------------------------------------------------------------------
 
 func start_wave() -> void:
-	if phase != Phase.BUILD:
+	if phase != Phase.BUILD or not relic_offer.is_empty():
 		return
 	phase = Phase.WAVE
 	selected_type = null
@@ -330,11 +354,16 @@ func start_wave() -> void:
 	_spawn_queue.sort_custom(func(a, b): return a.time < b.time)
 	_wave_time = 0.0
 	_leaked = false
+	_relic_earned = false
+	_activate_relics()
+	if relics_enabled() and RelicSet.RELIC_WAVES.has(wave_number + 1):
+		_pick_relic_carrier()
 	# Same world + level + wave = same piñata surprises.
 	board.start_pinata_seeds("%s/%s/%d" % [Progress.biome.id, level.display_name, wave_number])
 	Audio.play("wave_start", 0.0)
 	wave_number += 1
-	hud.show_message("")
+	hud.show_message("A glowing invader carries a relic! Defeat it to choose an upgrade." \
+		if _spawn_queue.any(func(spawn): return spawn.get("carrier", false)) else "")
 	hud.refresh()
 
 
@@ -344,7 +373,8 @@ func _process(delta: float) -> void:
 	_wave_time += delta
 	while not _spawn_queue.is_empty() and _spawn_queue[0].time <= _wave_time:
 		var spawn: Dictionary = _spawn_queue.pop_front()
-		board.spawn_invader(spawn.invader, spawn.spawn)
+		var invader := board.spawn_invader(spawn.invader, spawn.spawn)
+		invader.carries_relic = spawn.get("carrier", false)
 	# The wave ends once everything has spawned, died or arrived, and any
 	# falling bomb has landed.
 	if _spawn_queue.is_empty() and board.invaders.is_empty() and not board.has_falling_bombs():
@@ -360,10 +390,17 @@ func _end_wave() -> void:
 	if _leaked:
 		hud.show_message("Wave cleared. Units repaired. (No bonus: something got through.)")
 	else:
-		_earn_coins(level.coins_per_wave)
+		var bonus := roundi(level.coins_per_wave * (1.0 + board.relics.economy("clean_bonus_mult")))
+		_earn_coins(bonus)
 		Audio.play("wave_clear", 0.0)
-		hud.show_message("Clean wave! +%s %d bonus. Units repaired." % [Palette.COIN, level.coins_per_wave])
+		hud.show_message("Clean wave! +%s %d bonus. Units repaired." % [Palette.COIN, bonus])
+	# Interest relic: a share of the coins you saved.
+	var interest := board.relics.economy("interest")
+	if interest > 0.0:
+		_earn_coins(mini(INTEREST_CAP, int(coins * interest)))
 	_enter_build_phase()
+	if _relic_earned:
+		_offer_relics()
 
 
 func _on_coins_dropped(amount: int, where: Vector2) -> void:
@@ -381,6 +418,10 @@ func _earn_coins(amount: int) -> void:
 
 func _on_invader_killed(invader: Invader) -> void:
 	Achievements.add_stat("kills", 1)
+	# Coin relics: extra coins per kill.
+	var extra := roundi(board.relics.economy("kill_coins"))
+	if extra > 0 and invader.drops_coins:
+		_on_coins_dropped(extra, board.to_global(invader.position))
 	if not invader.data.pinata_pool.is_empty():
 		Achievements.add_stat("pinatas", 1)
 
@@ -431,6 +472,87 @@ func cycle_speed() -> void:
 		hud.show_message("3x speed can be unlocked in the Store.")
 	Engine.time_scale = speed
 	hud.refresh()
+
+
+# --- Relics -------------------------------------------------------------------
+
+## Relics drop on every level except each world's teaching level (level 1).
+func relics_enabled() -> bool:
+	return level_number > 1
+
+
+## Picks which invader of this wave carries the relic: the toughest one that
+## isn't a boss (the latest of equals), so it's a real target.
+func _pick_relic_carrier() -> void:
+	var best := -1
+	for i in _spawn_queue.size():
+		var invader: InvaderData = _spawn_queue[i].invader
+		if invader.is_boss:
+			continue
+		if best < 0 or invader.max_hp >= _spawn_queue[best].invader.max_hp:
+			best = i
+	if best >= 0:
+		_spawn_queue[best]["carrier"] = true
+
+
+func _on_relic_dropped(where: Vector2) -> void:
+	_relic_earned = true
+	Audio.play("coins")
+	board.fx.add_pulse(where, Board.TILE * 1.6, RelicSet.RARITY_COLORS.epic)
+	board.fx.add_puff(where, Palette.GOLD)
+	hud.show_message("Relic dropped! Choose one when the wave ends.")
+
+
+func _on_relic_lost() -> void:
+	hud.show_message("The relic carrier got through. That relic is lost!")
+
+
+## Rolls three relics and opens the picker. The seed comes from the world,
+## level and wave, so the same run offers the same relics.
+func _offer_relics() -> void:
+	var seed_text := "%s/%s/%d/relic" % [Progress.biome.id, level.display_name, wave_number]
+	relic_offer = board.relics.roll_offer(unit_types, _relics_offered, seed_text.hash())
+	_relics_offered += 1
+	if relic_offer.is_empty():
+		return
+	hud.show_relic_picker(relic_offer)
+	hud.refresh()
+
+
+## The player chose relic `index` from the offer. It starts working when the
+## next wave starts.
+func pick_relic(index: int) -> void:
+	if index < 0 or index >= relic_offer.size():
+		return
+	var relic: Dictionary = relic_offer[index]
+	board.relics.add_pending(relic)
+	relic_offer = []
+	hud.close_relic_picker()
+	Audio.play("evolve", 0.0)
+	hud.show_message("%s: %s It starts working next wave." % [relic.name, relic.desc])
+	hud.refresh()
+
+
+## At the start of a wave: picked relics turn on. One-time relics pay out now,
+## and every unit is topped up to its (possibly higher) health.
+func _activate_relics() -> void:
+	for relic in board.relics.activate_pending():
+		var economy: Dictionary = relic.get("economy", {})
+		if economy.has("gift_coins"):
+			_earn_coins(int(economy.gift_coins))
+		if economy.has("base_heal"):
+			base_hp = mini(level.base_hp, base_hp + int(economy.base_heal))
+			board.set_base_health(float(base_hp) / level.base_hp)
+		if economy.has("free_walls"):
+			var wall := unit_types[0]
+			hand[wall.id] = hand.get(wall.id, 0) + int(economy.free_walls)
+	var per_wave := roundi(board.relics.economy("wave_coins"))
+	if per_wave > 0:
+		_earn_coins(per_wave)
+	for cell in board.units:
+		var unit: Unit = board.units[cell]
+		unit.hp = unit.max_hp()
+		unit.queue_redraw()
 
 
 func is_last_level() -> bool:
@@ -484,35 +606,35 @@ func next_wave_summary() -> String:
 func describe(type: UnitData, unit: Unit = null) -> String:
 	var parts: Array[String] = []
 	if type.role == UnitData.Role.WALL or not type.can_attack():
-		parts.append("%d HP" % type.max_hp)
-	if type.damage > 0.0:
-		parts.append("%s dmg%s" % [_num(type.damage), " to all in range" if type.attack_mode == UnitData.AttackMode.PULSE else ""])
+		parts.append("%d HP" % _stat(type, unit, "max_hp"))
+	if _stat(type, unit, "damage") > 0.0:
+		parts.append("%s dmg%s" % [_num(_stat(type, unit, "damage")), " to all in range" if type.attack_mode == UnitData.AttackMode.PULSE else ""])
 	if type.can_attack():
-		parts.append("range %s" % _num(type.attack_range))
+		parts.append("range %s" % _num(_stat(type, unit, "attack_range")))
 		parts.append(_fire_rate(type, unit))
-	if type.splash_radius > 0.0:
+	if _stat(type, unit, "splash_radius") > 0.0:
 		parts.append("splash")
-	if type.slow > 0.0:
-		parts.append("slows %d%%" % roundi(type.slow * 100))
-	if type.stun_duration > 0.0:
-		parts.append("stuns %ss" % _num(type.stun_duration))
-	if type.poison_dps > 0.0:
-		parts.append("poison %s/s%s" % [_num(type.poison_dps), ", spreads" if type.poison_spreads else ""])
-	if type.mark_bonus > 0.0:
-		parts.append("marks +%d%% dmg" % roundi(type.mark_bonus * 100))
-	if type.pierce:
+	if _stat(type, unit, "slow") > 0.0:
+		parts.append("slows %d%%" % roundi(minf(0.8, _stat(type, unit, "slow")) * 100))
+	if _stat(type, unit, "stun_duration") > 0.0:
+		parts.append("stuns %ss" % _num(_stat(type, unit, "stun_duration")))
+	if _stat(type, unit, "poison_dps") > 0.0:
+		parts.append("poison %s/s%s" % [_num(_stat(type, unit, "poison_dps")), ", spreads" if _has(type, unit, "poison_spreads") else ""])
+	if _stat(type, unit, "mark_bonus") > 0.0:
+		parts.append("marks +%d%% dmg" % roundi(_stat(type, unit, "mark_bonus") * 100))
+	if _has(type, unit, "pierce"):
 		parts.append("pierces armor")
-	if type.reflect > 0.0:
-		parts.append("reflects %d%%" % roundi(type.reflect * 100))
-	if type.regen > 0.0:
-		parts.append("regen %s/s" % _num(type.regen))
+	if _stat(type, unit, "reflect") > 0.0:
+		parts.append("reflects %d%%" % roundi(_stat(type, unit, "reflect") * 100))
+	if _stat(type, unit, "regen") > 0.0:
+		parts.append("regen %s/s" % _num(_stat(type, unit, "regen")))
 	if type.adjacency_bonus > 0.0:
 		parts.append("faster in groups")
 	# Capstone mechanics.
-	if type.chain_count > 0:
-		parts.append("chains to %d" % type.chain_count)
-	if type.multishot > 1:
-		parts.append("hits %d targets" % type.multishot)
+	if roundi(_stat(type, unit, "chain_count")) > 0:
+		parts.append("chains to %d" % roundi(_stat(type, unit, "chain_count")))
+	if roundi(_stat(type, unit, "multishot")) > 1:
+		parts.append("hits %d targets" % roundi(_stat(type, unit, "multishot")))
 	if type.line_pierce:
 		parts.append("pierces the line")
 	if type.execute_below > 0.0:
@@ -529,7 +651,7 @@ func describe(type: UnitData, unit: Unit = null) -> String:
 		parts.append("grabs smashers %ss" % _num(type.grab_stun))
 	if type.explode_damage > 0.0:
 		parts.append("explodes for %s" % _num(type.explode_damage))
-	if type.rebuild:
+	if _has(type, unit, "rebuild"):
 		parts.append("rebuilds once")
 	if type.aura_speed > 0.0:
 		parts.append("neighbors +%d%% speed" % roundi(type.aura_speed * 100))
@@ -538,8 +660,17 @@ func describe(type: UnitData, unit: Unit = null) -> String:
 	if type.aura_cleanse:
 		parts.append("neighbors ignore goo")
 	if type.can_attack():
-		parts.append("hits fliers" if type.hits_air else "ground only")
+		parts.append("hits fliers" if _has(type, unit, "hits_air") else "ground only")
 	return "%s: %s." % [type.display_name, ", ".join(parts)]
+
+
+## A stat for the info line: a placed unit shows it with relics applied.
+func _stat(type: UnitData, unit: Unit, name: String) -> float:
+	return unit.stat(name) if unit else float(type.get(name))
+
+
+func _has(type: UnitData, unit: Unit, ability: String) -> bool:
+	return unit.has_ability(ability) if unit else bool(type.get(ability))
 
 
 ## Fire rate as "1.5 shots/s". For a placed unit whose speed is changed by

@@ -66,8 +66,25 @@ func _line_points(spawn: Vector2i) -> Array[Vector2]:
 	return points
 
 
+## Picks a relic when one is offered: the rarest, preferring unit upgrades
+## over coin relics (a simple but reasonable choice).
+func pick_relic() -> void:
+	if game.relic_offer.is_empty():
+		return
+	var best := 0
+	var best_score := -1
+	for i in game.relic_offer.size():
+		var relic: Dictionary = game.relic_offer[i]
+		var score: int = RelicSet.RARITY_ORDER.find(relic.rarity) * 2 + (0 if relic.filter == "economy" else 1)
+		if score > best_score:
+			best_score = score
+			best = i
+	game.pick_relic(best)
+
+
 ## Spends coins and free units until nothing more is worth doing.
 func build_phase() -> void:
+	pick_relic()
 	for i in 80:
 		if not _take_action():
 			break

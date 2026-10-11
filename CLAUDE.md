@@ -135,6 +135,12 @@ glow + skull all level (`scripts/game/boss_marker.gd`); the boss route is a
 thick purple line before the boss wave (even with Paths off); bombs fall
 for 0.9s with a red warning before they explode (`Board.drop_bomb`).
 
+**Relics (latest round):** see DESIGN.md "Relics". Pool in
+`data/relics.json`; logic in `scripts/game/relic_set.gd`; unit stats go
+through `Unit.stat(name)` / `has_ability(name)` / `max_hp()` (never read
+relic-affected `data.<stat>` directly in unit code); game hooks in
+`game.gd` (# --- Relics section); picker + icon column in `hud.gd`.
+
 **Base (latest round):** 3x2 tiles (`Board.base_cells`, built from the
 layout's "B" by `_make_base_block`). Routes still aim at `base_cell` but
 are trimmed at the first base tile (`_trim_to_base`); fliers aim at

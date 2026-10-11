@@ -50,6 +50,11 @@ var _start_button: Button
 var _root: Control
 ## Coins still flying toward the counter (already added to the game's total).
 var _orb_coins := 0
+## Icons of the relics picked this level, in the board's left margin.
+var _relic_column: VBoxContainer
+var _relic_column_key := ""
+## The 1-of-3 relic picker while it's open.
+var _relic_picker: Control
 
 
 func setup(p_game) -> void:
@@ -63,6 +68,10 @@ func setup(p_game) -> void:
 	add_child(_root)
 	_build_top_bar()
 	_build_bottom_bar()
+	_relic_column = VBoxContainer.new()
+	_relic_column.position = Vector2(5, 88)
+	_relic_column.add_theme_constant_override("separation", 4)
+	_root.add_child(_relic_column)
 
 
 func refresh() -> void:
@@ -111,11 +120,11 @@ func refresh() -> void:
 				button.icon = options[i].icon()
 				button.disabled = true
 			elif i == _armed_option:
-				button.text = "Tap again\nto buy %s %d" % [Palette.COIN, options[i].cost]
+				button.text = "Tap again\nto buy %s %d" % [Palette.COIN, game.evolve_cost(options[i])]
 				button.icon = options[i].icon()
 				button.disabled = not game.can_evolve(options[i])
 			else:
-				button.text = "%s\n%s %d" % [options[i].display_name, Palette.COIN, options[i].cost]
+				button.text = "%s\n%s %d" % [options[i].display_name, Palette.COIN, game.evolve_cost(options[i])]
 				button.icon = options[i].icon()
 				button.disabled = false  # tap to preview, even if it's too expensive yet
 		var value: Dictionary = game.sell_value(unit)
@@ -124,7 +133,8 @@ func refresh() -> void:
 	_cancel_button.visible = game.has_selection()
 	_speed_button.text = "%dx" % game.speed
 	_paths_button.text = "Paths: %s" % ("On" if _progress().show_paths() else "Off")
-	_start_button.disabled = not building
+	_start_button.disabled = not building or not game.relic_offer.is_empty()
+	_refresh_relic_column()
 	_start_button.text = "Start Wave" if building else "Wave %d..." % game.wave_number
 
 
@@ -158,6 +168,111 @@ func spawn_orb(from: Vector2, amount: int) -> void:
 		create_tween().tween_property(_coins_label, "modulate", COIN_COLOR, 0.25)
 		Sfx.play("coins")
 		refresh())
+
+
+# --- Relics -------------------------------------------------------------------
+
+## The picked relics, top to bottom; ones waiting for the next wave are dimmed.
+## Tapping one shows what it does.
+func _refresh_relic_column() -> void:
+	var relics: RelicSet = game.board.relics
+	var key := str(relics.active.map(func(r): return r.id)) + str(relics.pending.map(func(r): return r.id))
+	if key == _relic_column_key:
+		return
+	_relic_column_key = key
+	for child in _relic_column.get_children():
+		child.queue_free()
+	for relic in relics.active + relics.pending:
+		var waiting: bool = relics.pending.has(relic)
+		var button := Button.new()
+		button.custom_minimum_size = Vector2(26, 26)
+		button.flat = true
+		button.focus_mode = Control.FOCUS_NONE
+		button.pressed.connect(func():
+			show_message("%s (%s): %s%s" % [relic.name, relic.rarity, relic.desc,
+				" Starts next wave." if waiting else ""]))
+		var icon := RelicIcon.new().setup(relic.icon, Color(relic.color))
+		icon.dimmed = waiting
+		icon.set_anchors_preset(Control.PRESET_FULL_RECT)
+		button.add_child(icon)
+		_relic_column.add_child(button)
+
+
+## Opens the "choose 1 of 3" relic cards over the board.
+func show_relic_picker(offer: Array) -> void:
+	if _relic_picker:
+		_relic_picker.queue_free()
+	var dim := ColorRect.new()
+	dim.color = Color(Palette.BG, 0.0)
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.mouse_filter = Control.MOUSE_FILTER_STOP  # the board can't be tapped meanwhile
+	_root.add_child(dim)
+	_relic_picker = dim
+	create_tween().tween_property(dim, "color:a", 0.88, 0.25)
+
+	var box := VBoxContainer.new()
+	box.position = Vector2(20, 120)
+	box.custom_minimum_size = Vector2(320, 0)
+	box.add_theme_constant_override("separation", 10)
+	dim.add_child(box)
+	box.add_child(_end_label("Choose a Relic", 28, Palette.GOLD))
+	box.add_child(_end_label("It powers up your units until the end of this level. It starts working when the next wave starts.", 12, Palette.TEXT_DIM))
+	for i in offer.size():
+		box.add_child(_relic_card(offer[i], i))
+	Sfx.play("evolve", 0.0)
+
+
+func close_relic_picker() -> void:
+	if _relic_picker:
+		_relic_picker.queue_free()
+		_relic_picker = null
+
+
+func _relic_card(relic: Dictionary, index: int) -> Button:
+	var rarity_color: Color = RelicSet.RARITY_COLORS[relic.rarity]
+	var card := Button.new()
+	card.custom_minimum_size = Vector2(320, 92)
+	card.focus_mode = Control.FOCUS_NONE
+	for state in ["normal", "hover", "pressed", "hover_pressed"]:
+		var style := Palette.panel(Palette.SURFACE_HI if state == "normal" else Color("#3a2434"), rarity_color, 10)
+		style.set_border_width_all(2 if state == "normal" else 3)
+		card.add_theme_stylebox_override(state, style)
+	card.pressed.connect(func(): game.pick_relic(index))
+	var row := HBoxContainer.new()
+	row.position = Vector2(12, 10)
+	row.size = Vector2(296, 72)
+	row.add_theme_constant_override("separation", 12)
+	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	card.add_child(row)
+	var icon := RelicIcon.new().setup(relic.icon, Color(relic.color))
+	icon.custom_minimum_size = Vector2(56, 56)
+	icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(icon)
+	var text := VBoxContainer.new()
+	text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	text.add_theme_constant_override("separation", 2)
+	text.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(text)
+	var title := Label.new()
+	title.text = relic.name
+	title.theme_type_variation = "TitleLabel"
+	title.add_theme_font_size_override("font_size", 17)
+	title.modulate = rarity_color.lightened(0.3)
+	text.add_child(title)
+	var rarity := Label.new()
+	rarity.text = String(relic.rarity).to_upper()
+	rarity.add_theme_font_size_override("font_size", 9)
+	rarity.modulate = rarity_color
+	text.add_child(rarity)
+	var desc := Label.new()
+	desc.text = relic.desc
+	desc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	desc.custom_minimum_size.x = 220
+	desc.add_theme_font_size_override("font_size", 11)
+	text.add_child(desc)
+	for label in [title, rarity, desc]:
+		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return card
 
 
 func show_end_screen(won: bool) -> void:
@@ -416,7 +531,7 @@ func _on_evolve_pressed(index: int) -> void:
 		return
 	_armed_unit = unit
 	_armed_option = index
-	var cost_note := "" if game.coins >= option.cost else "  (need %s %d)" % [Palette.COIN, option.cost]
+	var cost_note := "" if game.coins >= game.evolve_cost(option) else "  (need %s %d)" % [Palette.COIN, game.evolve_cost(option)]
 	show_message("%s: %s%s" % [option.display_name, option.description, cost_note])
 	refresh()
 	game.board.preview_range = option.attack_range if option.can_attack() else 0.0

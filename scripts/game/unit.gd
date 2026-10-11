@@ -60,7 +60,7 @@ func setup(p_data: UnitData, p_cell: Vector2i, p_board: Board) -> void:
 	base_data = p_data
 	cell = p_cell
 	board = p_board
-	hp = data.max_hp
+	hp = max_hp()
 	position = board.cell_center(cell)
 	_sprite = Sprite2D.new()
 	add_child(_sprite)
@@ -88,6 +88,23 @@ func _land() -> void:
 	board.fx.add_puff(position + Vector2(-3, 6), DUST_COLOR)
 	board.fx.add_puff(position + Vector2(3, 6), DUST_COLOR)
 	board.fx.add_pulse(position + Vector2(0, 6), Board.TILE * 0.9, DUST_COLOR)
+
+
+## A stat with the level's relics applied (see RelicSet). Use this instead
+## of reading data.<stat> directly for anything a relic can change.
+func stat(name: String) -> float:
+	var base = data.get(name)
+	return board.relics.stat(data, name, float(base) if base != null else 0.0)
+
+
+## True if this unit has an ability, from its own data or from a relic.
+func has_ability(name: String) -> bool:
+	return bool(data.get(name)) or board.relics.grants(data, name)
+
+
+## Full health, with relics.
+func max_hp() -> float:
+	return stat("max_hp")
 
 
 ## A quick bounce when the unit evolves.
@@ -138,7 +155,7 @@ func evolve(into: UnitData) -> void:
 	if into.tier == 1:
 		tier1_data = into
 	data = into
-	hp = data.max_hp
+	hp = max_hp()
 	_update_sprite()
 	_pop()
 	board.fx.add_pulse(position, Board.TILE * 1.2, Palette.GOLD)
@@ -152,8 +169,8 @@ func take_damage(amount: float, attacker: Invader = null) -> void:
 	if destroyed:
 		return
 	amount *= 1.0 - board.aura_at(cell).shield
-	if attacker and data.reflect > 0.0:
-		attacker.take_damage(amount * data.reflect, true)
+	if attacker and stat("reflect") > 0.0:
+		attacker.take_damage(amount * stat("reflect"), true)
 	if attacker and data.grab_stun > 0.0 and _grab_cooldown <= 0.0:
 		attacker.apply_stun(data.grab_stun)
 		attacker.show_grabbed(data.grab_stun)
@@ -163,9 +180,9 @@ func take_damage(amount: float, attacker: Invader = null) -> void:
 	_regen_pause = REGEN_PAUSE
 	if hp <= 0.0:
 		# "Rebuild once": springs back the first time it breaks each wave.
-		if data.rebuild and not _rebuilt:
+		if has_ability("rebuild") and not _rebuilt:
 			_rebuilt = true
-			hp = data.max_hp
+			hp = max_hp()
 			board.fx.add_pulse(position, Board.TILE * 1.2, Palette.GOOD)
 			queue_redraw()
 			return
@@ -190,7 +207,7 @@ func make_sticky(amount: float) -> void:
 
 ## Back to full health and clean of goo (called between waves).
 func restore() -> void:
-	hp = data.max_hp
+	hp = max_hp()
 	destroyed = false
 	sticky = 0.0
 	_rebuilt = false
@@ -207,8 +224,8 @@ func _process(delta: float) -> void:
 		return
 	_grab_cooldown = max(0.0, _grab_cooldown - delta)
 	_regen_pause = max(0.0, _regen_pause - delta)
-	if data.regen > 0.0 and hp < data.max_hp and _regen_pause <= 0.0:
-		hp = min(hp + data.regen * delta, data.max_hp)
+	if stat("regen") > 0.0 and hp < max_hp() and _regen_pause <= 0.0:
+		hp = min(hp + stat("regen") * delta, max_hp())
 		queue_redraw()
 	if not data.can_attack():
 		return
@@ -224,9 +241,11 @@ func _process(delta: float) -> void:
 ## Also shown to the player as its current shots per second.
 func speed_multiplier() -> float:
 	# Swarm units attack faster for every unit packed around them.
-	var speed_up := 1.0 + data.adjacency_bonus * board.neighbor_count(cell)
+	var speed_up := 1.0 + stat("adjacency_bonus") * board.neighbor_count(cell)
 	# A neighbor's speed aura (capstones) helps too.
 	speed_up += board.aura_at(cell).speed
+	# Fire-rate relics.
+	speed_up *= board.relics.stat(data, "fire_rate", 1.0)
 	# Goo slows it down (0.4 sticky = attacks at 60% of normal speed).
 	speed_up *= 1.0 - sticky
 	return speed_up
@@ -244,10 +263,10 @@ func _play_attack() -> void:
 ## Attacks if anything is in range. Returns false if there was nothing to hit.
 func _attack() -> bool:
 	if data.attack_mode == UnitData.AttackMode.PULSE:
-		var targets := _invaders_in_range(position, data.attack_range)
+		var targets := _invaders_in_range(position, stat("attack_range"))
 		if targets.is_empty():
 			return false
-		board.fx.add_pulse(position, data.attack_range * Board.TILE, data.shot_color)
+		board.fx.add_pulse(position, stat("attack_range") * Board.TILE, data.shot_color)
 		for invader in targets:
 			_hit(invader)
 		# Pulse units with a zone keep a patch on the ground around themselves.
@@ -256,7 +275,7 @@ func _attack() -> bool:
 		return true
 
 	# Multishot fires at several targets; most units fire at one.
-	var targets := _find_targets(maxi(1, data.multishot))
+	var targets := _find_targets(maxi(1, roundi(stat("multishot"))))
 	if targets.is_empty():
 		return false
 	Sfx.play("shoot", 0.15)
@@ -272,7 +291,7 @@ func _shoot(target: Invader) -> void:
 	if data.line_pierce:
 		# The shot carries on through the target to the end of its range.
 		var direction := position.direction_to(target.position)
-		var end := position + direction * (data.attack_range + 1.0) * Board.TILE
+		var end := position + direction * (stat("attack_range") + 1.0) * Board.TILE
 		board.fx.add_shot(position, end, data.shot_color)
 		for other in board.invaders:
 			if other != target and _can_target(other) \
@@ -280,11 +299,11 @@ func _shoot(target: Invader) -> void:
 				victims.append(other)
 	else:
 		board.fx.add_shot(position, target.position, data.shot_color)
-	if data.splash_radius > 0.0:
+	if stat("splash_radius") > 0.0:
 		# The blast area: a soft filled flash plus the expanding ring.
-		board.fx.add_blast(target.position, data.splash_radius * Board.TILE, data.shot_color)
-		board.fx.add_pulse(target.position, data.splash_radius * Board.TILE, data.shot_color)
-		for other in _invaders_in_range(target.position, data.splash_radius):
+		board.fx.add_blast(target.position, stat("splash_radius") * Board.TILE, data.shot_color)
+		board.fx.add_pulse(target.position, stat("splash_radius") * Board.TILE, data.shot_color)
+		for other in _invaders_in_range(target.position, stat("splash_radius")):
 			if not victims.has(other):
 				victims.append(other)
 	if data.zone_kind != "":
@@ -294,7 +313,7 @@ func _shoot(target: Invader) -> void:
 	# Chain hits jump from the target to the nearest invaders not yet hit.
 	var from := target.position
 	var factor := 1.0
-	for jump in data.chain_count:
+	for jump in roundi(stat("chain_count")):
 		var next: Invader = null
 		for other in _invaders_in_range(from, CHAIN_RANGE):
 			if not victims.has(other) and (next == null or from.distance_to(other.position) < from.distance_to(next.position)):
@@ -312,32 +331,48 @@ func _hit(invader: Invader, factor := 1.0) -> void:
 	if not invader.alive:
 		return
 	invader.last_hitter = self
-	if data.armor_shred > 0:
-		invader.shred_armor(data.armor_shred)
-	if data.mark_bonus > 0.0:
-		invader.apply_mark(data.mark_bonus, data.mark_duration)
-	if data.slow > 0.0:
-		invader.apply_slow(data.slow, data.slow_duration)
-	if data.stun_duration > 0.0:
-		invader.apply_stun(data.stun_duration)
-	if data.poison_dps > 0.0:
-		invader.apply_poison(data.poison_dps * factor, data.poison_duration, data.poison_spreads)
-	if data.damage > 0.0:
-		invader.take_damage(data.damage * factor, data.pierce)
+	if roundi(stat("armor_shred")) > 0:
+		invader.shred_armor(roundi(stat("armor_shred")))
+	if stat("mark_bonus") > 0.0:
+		invader.apply_mark(stat("mark_bonus"), stat("mark_duration"))
+	if minf(stat("slow"), 0.8) > 0.0:
+		invader.apply_slow(minf(stat("slow"), 0.8), stat("slow_duration"))
+	if stat("stun_duration") > 0.0:
+		invader.apply_stun(stat("stun_duration"))
+	if stat("poison_dps") > 0.0:
+		invader.apply_poison(stat("poison_dps") * factor, stat("poison_duration"), has_ability("poison_spreads"))
+	if stat("damage") > 0.0:
+		invader.take_damage(stat("damage") * factor * _bonus_against(invader), has_ability("pierce"))
 	if not invader.alive:
 		return
 	# Execute: finishes off any wounded non-boss.
-	if data.execute_below > 0.0 and not invader.data.is_boss \
-			and invader.hp <= invader.data.max_hp * data.execute_below:
+	if stat("execute_below") > 0.0 and not invader.data.is_boss \
+			and invader.hp <= invader.data.max_hp * stat("execute_below"):
 		board.fx.add_pulse(invader.position, Board.TILE * 0.7, Palette.HEART)
 		invader.take_damage(invader.hp + 1.0, true)
 		return
-	if data.knockback > 0:
-		invader.knock_back(data.knockback)
+	if roundi(stat("knockback")) > 0:
+		invader.knock_back(roundi(stat("knockback")))
+
+
+## Extra damage from relics that depends on the target (bosses, fliers,
+## armored invaders) plus the chance of a double-damage critical hit.
+func _bonus_against(invader: Invader) -> float:
+	var bonus := 1.0
+	if invader.data.is_boss:
+		bonus += stat("boss_damage")
+	if invader.is_flying():
+		bonus += stat("flier_damage")
+	if invader.data.armor > 0:
+		bonus += stat("armored_damage")
+	if randf() < stat("crit"):
+		bonus *= 2.0
+		board.fx.add_puff(invader.position, Palette.GOLD)
+	return bonus
 
 
 func _can_target(invader: Invader) -> bool:
-	return invader.alive and not invader.underground and (data.hits_air or not invader.is_flying())
+	return invader.alive and not invader.underground and (has_ability("hits_air") or not invader.is_flying())
 
 
 func _invaders_in_range(center: Vector2, tiles: float) -> Array[Invader]:
@@ -350,7 +385,7 @@ func _invaders_in_range(center: Vector2, tiles: float) -> Array[Invader]:
 
 ## Picks the `count` invaders in range that are closest to the base.
 func _find_targets(count: int) -> Array[Invader]:
-	var in_range := _invaders_in_range(position, data.attack_range)
+	var in_range := _invaders_in_range(position, stat("attack_range"))
 	in_range.sort_custom(func(a, b): return a.distance_to_base() < b.distance_to_base())
 	return in_range.slice(0, count)
 
@@ -379,9 +414,9 @@ func _draw() -> void:
 		for x in [-5, -1, 3]:
 			draw_rect(Rect2(x, -4, 2, 3 + (x + 5) % 3), goo)
 	# Health bar, only shown while damaged.
-	if hp < data.max_hp:
+	if hp < max_hp():
 		draw_rect(Rect2(-7, -9, 14, 2), Color(0.1, 0.1, 0.1))
-		draw_rect(Rect2(-7, -9, 14.0 * hp / data.max_hp, 2), Color(0.3, 1, 0.4))
+		draw_rect(Rect2(-7, -9, 14.0 * hp / max_hp(), 2), Color(0.3, 1, 0.4))
 
 
 ## A small gold star in the bottom-left corner, for capstones whose animated

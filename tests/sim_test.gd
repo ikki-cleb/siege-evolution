@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 123
+const MIN_RULE_CHECKS := 131
 var progress: Node
 
 
@@ -30,6 +30,7 @@ func _run() -> void:
 	await _test_space(progress.load_biome(4))
 	await _test_bosses(biome)
 	await _test_base_block()
+	await _test_relics(progress.load_biome(2))
 	await _test_kitchen(progress.load_biome(5))
 	await _test_selection(biome)
 	await _test_party(progress.load_biome(6))
@@ -78,6 +79,8 @@ func _play(game: Node, player: AutoPlayer) -> void:
 		if game.phase == game.Phase.BUILD:
 			if player:
 				player.build_phase()
+			elif not game.relic_offer.is_empty():
+				game.pick_relic(0)
 			game.start_wave()
 			wave_frames = 0
 		await process_frame
@@ -347,6 +350,95 @@ func _test_base_block() -> void:
 			board.queue_free()
 	await process_frame
 	_check(ok, "The 3x2 base fits every level, can't be built on, and routes end on it")
+
+
+# --- Relics -------------------------------------------------------------------
+
+const RELIC_STATS := ["damage", "attack_range", "fire_rate", "max_hp", "regen", "reflect",
+	"splash_radius", "slow", "slow_duration", "stun_duration", "poison_dps", "poison_duration",
+	"mark_bonus", "mark_duration", "chain_count", "multishot", "knockback", "armor_shred",
+	"execute_below", "adjacency_bonus", "crit", "boss_damage", "flier_damage", "armored_damage"]
+const RELIC_ABILITIES := ["pierce", "hits_air", "poison_spreads", "rebuild"]
+const RELIC_ECONOMY := ["kill_coins", "wave_coins", "clean_bonus_mult", "evolve_discount",
+	"refund_old", "base_heal", "gift_coins", "free_walls", "interest"]
+const RELIC_FILTERS := ["all", "attackers", "walls", "anti_air", "ground_only", "single", "pulse",
+	"splash", "slow", "stun", "poison", "mark", "swarm", "regen", "reflect", "chain", "multishot",
+	"knockback", "long_range", "short_range", "economy"]
+
+
+func _test_relics(biome: BiomeData) -> void:
+	# Every relic in the pool uses names the code understands (catches typos).
+	var pool := RelicSet.pool()
+	var valid := pool.size() >= 60
+	var ids := {}
+	for relic in pool:
+		var ok: bool = RelicSet.RARITY_ORDER.has(relic.rarity) and RELIC_FILTERS.has(relic.filter) \
+			and RelicIcon.SHAPES.has(relic.icon) and not ids.has(relic.id)
+		for key in relic.get("mult", {}).keys() + relic.get("add", {}).keys():
+			ok = ok and RELIC_STATS.has(key)
+		for ability in relic.get("grant", []):
+			ok = ok and RELIC_ABILITIES.has(ability)
+		for key in relic.get("economy", {}).keys():
+			ok = ok and RELIC_ECONOMY.has(key)
+		if not ok:
+			print("  bad relic: %s" % relic.id)
+		valid = valid and ok
+		ids[relic.id] = true
+	_check(valid, "The relic pool has 60+ relics, all with known stats, filters and icons")
+
+	# No relics on a world's teaching level.
+	var game := await _start(biome, 0, 0)
+	game.start_wave()
+	_check(not game._spawn_queue.any(func(spawn): return spawn.get("carrier", false)),
+		"Teaching levels have no relic carrier")
+	await _stop(game)
+
+	# Wave 1 of level 2 has a glowing carrier; killing it earns a relic.
+	game = await _start(biome, 0, 1)
+	var board: Board = game.board
+	game.start_wave()
+	_check(game._spawn_queue.filter(func(spawn): return spawn.get("carrier", false)).size() == 1,
+		"Relic waves have exactly one carrier")
+	# Spawn the whole wave at once and kill everything.
+	game._wave_time = 999.0
+	await process_frame
+	var carrier: Invader = null
+	for invader in board.invaders:
+		if invader.carries_relic:
+			carrier = invader
+	_check(carrier != null, "The carrier spawns glowing")
+	for invader in board.invaders.duplicate():
+		invader.take_damage(99999.0, true)
+	for i in 10:
+		await process_frame
+	_check(game.phase == game.Phase.BUILD and game.relic_offer.size() == 3,
+		"Killing the carrier offers 3 relics after the wave")
+	var offer_ids: Array = game.relic_offer.map(func(relic): return relic.id)
+	var unique := {}
+	for id in offer_ids:
+		unique[id] = true
+	_check(unique.size() == 3 and game.relic_offer.all(func(relic): return RelicSet.useful_for(relic, game.unit_types)),
+		"The 3 relics are different and all useful for the pack")
+	game.start_wave()
+	_check(game.phase == game.Phase.BUILD, "The next wave can't start until a relic is picked")
+
+	# A picked relic only works from the next wave on.
+	var unit: Unit = board.place_unit(game.unit_types[1], Vector2i(4, 8))
+	var damage_before := unit.stat("damage")
+	game.relic_offer = [RelicSet.find("diamond_edge")]
+	game.pick_relic(0)
+	_check(is_equal_approx(unit.stat("damage"), damage_before), "A relic doesn't work until the next wave")
+	game.start_wave()
+	_check(is_equal_approx(unit.stat("damage"), damage_before * 1.3), "...then it powers up matching units")
+	await _stop(game)
+
+	# Economy relics: evolutions get cheaper.
+	game = await _start(biome, 0, 1)
+	var evolution: UnitData = game.unit_types[1].evolutions[0]
+	game.board.relics.add_pending(RelicSet.find("bargain_scroll"))
+	game.board.relics.activate_pending()
+	_check(game.evolve_cost(evolution) == roundi(evolution.cost * 0.75), "Bargain Scroll makes evolutions 25% cheaper")
+	await _stop(game)
 
 
 func _test_bosses(biome: BiomeData) -> void:

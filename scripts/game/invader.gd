@@ -26,6 +26,9 @@ var _knockback_cooldown := 0.0
 var path: Array[Vector2i] = []
 ## Which tile in `path` it is currently heading toward.
 var path_index := 0
+## Carries a relic: glows gold, and drops the relic when killed.
+var carries_relic := false
+const RELIC_GLOW := Color(1.0, 0.82, 0.3)
 ## True while tunneling (can't be hit). Burrowers dig in only once.
 var underground := false
 var _has_burrowed := false
@@ -515,6 +518,16 @@ func _draw() -> void:
 		_draw_tunneler()
 		return
 	var half := 9.0 if data.is_boss else 6.0
+	if carries_relic:
+		# A pulsing gold aura and a little gem above its head.
+		var pulse := 0.5 + 0.5 * sin(Time.get_ticks_msec() / 160.0)
+		draw_circle(Vector2.ZERO, half + 3.0, Color(RELIC_GLOW, 0.18 + 0.15 * pulse))
+		draw_arc(Vector2.ZERO, half + 3.0 + pulse, 0, TAU, 20, Color(RELIC_GLOW, 0.8), 1.0)
+		var gem := Vector2(0, -half - 5.0 - pulse)
+		draw_colored_polygon(PackedVector2Array([gem + Vector2(0, -3), gem + Vector2(2.5, 0),
+			gem + Vector2(0, 3), gem + Vector2(-2.5, 0)]), RELIC_GLOW)
+		draw_colored_polygon(PackedVector2Array([gem + Vector2(0, -2), gem + Vector2(1, 0),
+			gem + Vector2(0, 0.5), gem + Vector2(-1, 0)]), Color.WHITE)
 	_draw_move_hints(half)
 	if hp < data.max_hp:
 		draw_rect(Rect2(-half, -half - 4, half * 2, 2), Color(0.1, 0.1, 0.1))

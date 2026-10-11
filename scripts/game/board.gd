@@ -11,6 +11,10 @@ signal cell_tapped(cell: Vector2i)
 signal base_hit(invader: InvaderData)
 ## Emitted when a killed invader drops coins. `where` is in screen coordinates.
 signal coins_dropped(amount: int, where: Vector2)
+## A relic carrier was killed (the game then offers a relic after the wave).
+signal relic_dropped(where: Vector2)
+## A relic carrier reached the base: that relic is lost.
+signal relic_lost
 ## Emitted for every invader killed (achievements count them).
 signal invader_killed(invader: Invader)
 ## Asks the game to shake the screen (bombs, base hits).
@@ -69,6 +73,8 @@ const BASE_SIZE := Vector2i(3, 2)
 ## 0-1, set by the game: the base shows cracks as it loses health.
 ## Draws the big base sprite (see BaseView).
 var base_view: BaseView
+## Relics picked this level (they boost units; see RelicSet).
+var relics := RelicSet.new()
 
 var units := {}  # Vector2i -> Unit
 var invaders: Array[Invader] = []
@@ -264,6 +270,12 @@ func _add_base_view() -> void:
 func hit_base(health: float) -> void:
 	base_view.health = health
 	base_view.hit()
+
+
+## Updates the base's cracks without the hit flash (e.g. after healing).
+func set_base_health(health: float) -> void:
+	base_view.health = health
+	base_view.queue_redraw()
 
 
 func is_base(cell: Vector2i) -> bool:
@@ -594,7 +606,7 @@ func restore_units() -> void:
 
 # --- Invaders ---------------------------------------------------------------
 
-func spawn_invader(data: InvaderData, spawn_index: int) -> void:
+func spawn_invader(data: InvaderData, spawn_index: int) -> Invader:
 	# Boats start at sea spawns; fliers use land spawns, or sea ones if a
 	# level has no land spawns.
 	var start := spawn_cell_for(data, spawn_index)
@@ -603,6 +615,7 @@ func spawn_invader(data: InvaderData, spawn_index: int) -> void:
 		# The 1st, 2nd, 3rd... piñata of the wave always gets the same seed.
 		invader.pinata_seed = _pinata_seed_base + _pinatas_spawned
 		_pinatas_spawned += 1
+	return invader
 
 
 ## Called at the start of each wave. Piñata surprises come from this seed,
@@ -684,6 +697,9 @@ func on_invader_killed(invader: Invader) -> void:
 	var hitter = invader.last_hitter
 	if invader.drops_coins and is_instance_valid(hitter) and hitter.data.bounty > 0:
 		coins_dropped.emit(hitter.data.bounty, to_global(invader.position))
+	# Relic carriers drop their relic.
+	if invader.carries_relic:
+		relic_dropped.emit(invader.position)
 	if invader.data.split_into:
 		spawn_from(invader, invader.data.split_into, invader.data.split_count)
 	if not invader.data.pinata_pool.is_empty():
@@ -779,6 +795,8 @@ func spill(cell: Vector2i, slow: float) -> void:
 func on_invader_reached_base(invader: Invader) -> void:
 	invaders.erase(invader)
 	invader.queue_free()
+	if invader.carries_relic:
+		relic_lost.emit()
 	base_hit.emit(invader.data)
 
 
@@ -867,7 +885,7 @@ func _draw() -> void:
 		draw_rect(Rect2(Vector2(selected_cell * TILE), Vector2(TILE, TILE)), Color.WHITE, false, 1.0)
 		var unit: Unit = units.get(selected_cell)
 		if unit and unit.data.can_attack():
-			draw_arc(cell_center(selected_cell), unit.data.attack_range * TILE, 0, TAU, 48, Color(1, 1, 1, 0.6), 1.0)
+			draw_arc(cell_center(selected_cell), unit.stat("attack_range") * TILE, 0, TAU, 48, Color(1, 1, 1, 0.6), 1.0)
 		if preview_range > 0.0:
 			draw_arc(cell_center(selected_cell), preview_range * TILE, 0, TAU, 48, Color(Palette.GOLD, 0.9), 1.5)
 

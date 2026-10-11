@@ -154,6 +154,33 @@ For example, Kitchen's "Stacked Cans" becomes "Self-Stacking Stacked Cans"
 becomes "Field-Repaired..." or "Barbed...". Names live in each world's
 "renames" and can be edited freely.
 
+## Relics
+
+On every level except a world's teaching level, waves **1, 3, 5 and 7** each
+have one **relic carrier**: the toughest non-boss invader of the wave, glowing
+gold with a gem over its head. Kill it and it drops a relic; if it reaches the
+base, that relic is lost. When the wave ends, a **choose 1 of 3** card screen
+opens (the next wave can't start until you pick). The relic **starts working
+when the next wave starts** and lasts until the end of the level (max 4).
+
+- **Pool:** 64 relics in `data/relics.json` (32 common, 22 rare, 10 epic).
+  Each targets all units, a role (attackers, walls, anti-air, ground-only,
+  single-target, pulse, long/short range) or a mechanic (splash, slow, stun,
+  poison, mark, swarm, regen, reflect, chain, multishot, knockback), or is an
+  economy relic (coins per kill, coins per wave, cheaper evolutions, better
+  refunds, base heal, free walls, interest, gift coins, clean-wave bonus).
+  New relics need no code if they use existing filters, stats and keys
+  (a rules test checks every entry).
+- **Offers** only include relics useful for the units you can field this
+  level, never repeat one you have, and later relics in a level roll better
+  rarities (epic chance 3% for the first, 18% for the fourth). Offers are
+  seeded by world, level and wave.
+- **How it works in code:** `scripts/game/relic_set.gd` (pool, filters,
+  offers, stat math), `Unit.stat()` (every relic-affected stat goes through
+  it), `scripts/ui/relic_icon.gd` (38 pixel icons). Picked relics show as
+  icons in the board's left margin (dimmed until active; tap for details).
+  The auto-player picks the rarest relic, preferring unit upgrades.
+
 ## Economy and refunds
 
 - **Coins** are the in-game currency (earned only by playing, never sold;
