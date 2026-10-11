@@ -112,6 +112,7 @@ func _ready() -> void:
 
 func _enter_build_phase() -> void:
 	phase = Phase.BUILD
+	_apply_speed()  # building happens at 1x
 	board.wave_active = false
 	board.show_path_preview = Progress.show_paths()
 	board.show_grid = true
@@ -339,6 +340,7 @@ func start_wave() -> void:
 	board.show_grid = false
 	board.preview_boss = null
 	board.wave_active = true
+	_apply_speed()
 	board.queue_redraw()
 
 	# Turn the wave's groups into a single timeline of spawns.
@@ -455,7 +457,6 @@ func _finish(won: bool) -> void:
 	hud.show_end_screen(won)
 
 
-## 1x -> 2x -> 3x (if bought in the Store) -> 1x.
 ## Shakes the board for a moment (bombs, base hits).
 func shake(strength: float) -> void:
 	var tween := create_tween()
@@ -465,13 +466,26 @@ func shake(strength: float) -> void:
 	tween.tween_property(board, "position", BOARD_POSITION, 0.03)
 
 
+## The speeds the speed button cycles through. The fastest needs the Store
+## upgrade (its product id is still "speed_3x" so old purchases keep working).
+const SPEEDS := [1, 2, 4]
+
+
+## 1x -> 2x -> 4x (if bought in the Store) -> 1x. The chosen speed only runs
+## during waves: building always happens at 1x, so starting a wave visibly
+## speeds things up.
 func cycle_speed() -> void:
-	speed = speed % 3 + 1
-	if speed == 3 and not Store.owns(Store.SPEED_3X):
+	speed = SPEEDS[(SPEEDS.find(speed) + 1) % SPEEDS.size()]
+	if speed == SPEEDS[-1] and not Store.owns(Store.SPEED_3X):
 		speed = 1
-		hud.show_message("3x speed can be unlocked in the Store.")
-	Engine.time_scale = speed
+		hud.show_message("4x speed can be unlocked in the Store.")
+	_apply_speed()
 	hud.refresh()
+
+
+## Waves run at the chosen speed; the build phase always runs at 1x.
+func _apply_speed() -> void:
+	Engine.time_scale = speed if phase == Phase.WAVE else 1
 
 
 # --- Relics -------------------------------------------------------------------

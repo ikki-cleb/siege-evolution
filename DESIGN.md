@@ -97,7 +97,9 @@ screen, in a level or in the menus. The list lives in
 1. **Build phase:** see the next wave's contents. Place units, tap a placed
    unit to evolve or remove it.
 2. **Wave phase:** invaders spawn and travel to the base. No building.
-   Fast-forward is available (1×/2×/3×).
+   Fast-forward is available (1×/2×/4×). The chosen speed only applies
+   during waves; the build phase always runs at 1×, so starting a wave
+   visibly speeds up.
 3. Survive **8 waves** to clear the level. **Pass/fail only**, no stars.
 4. **The base** is a 3x2 block on the bottom middle of the board (the "B"
    in a layout marks its bottom-middle tile; at the sides it shifts inward).
@@ -550,7 +552,7 @@ packs and bonus worlds can also be unlocked right where they appear.
 
 | Item | Price |
 |---|---|
-| 3× speed (1× and 2× are free) | $1 |
+| 4× speed (1× and 2× are free) | $1 |
 | Control pack | $1 |
 | Toxin pack | $1 |
 | Kitchen Defense (bonus world) | $1 |

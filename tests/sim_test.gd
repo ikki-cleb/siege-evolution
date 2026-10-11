@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 131
+const MIN_RULE_CHECKS := 133
 var progress: Node
 
 
@@ -1194,13 +1194,18 @@ func _test_rules(biome: BiomeData) -> void:
 	game = await _start(biome, 0, 0)
 	game.cycle_speed()
 	game.cycle_speed()
-	_check(game.speed == 1, "3x speed is skipped until it's bought")
+	_check(game.speed == 1, "4x speed is skipped until it's bought")
 	store.buy(store.SPEED_3X)
 	game.cycle_speed()
 	game.cycle_speed()
-	_check(game.speed == 3, "3x speed works once bought")
+	_check(game.speed == 4 and Engine.time_scale == 1.0, "4x speed works once bought (but building stays at 1x)")
+	game.start_wave()
+	_check(Engine.time_scale == 4.0, "The chosen speed kicks in when the wave starts")
+	game._enter_build_phase()
+	_check(Engine.time_scale == 1.0, "...and the next build phase is back at 1x")
 	game.cycle_speed()
 	await _stop(game)
+	Engine.time_scale = 1.0
 	var toxin: PackData = biome.find_pack("toxin")
 	_check(not store.owns(toxin.product_id) and store.owns(biome.find_pack("fortress").product_id),
 		"Toxin is locked and Fortress is free")

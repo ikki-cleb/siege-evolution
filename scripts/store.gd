@@ -2,7 +2,7 @@ extends Node
 ## In-app purchases. Loaded automatically at startup as "Store".
 ##
 ## The game is free. Everything below is optional:
-##   3x speed, the Control and Toxin packs, and the Kitchen and Birthday Party
+##   4x speed, the Control and Toxin packs, and the Kitchen and Birthday Party
 ##   bonus worlds cost $1 each, or $3 for all five.
 ##
 ## TEST MODE: the web playtest build and editor runs grant purchases instantly,
@@ -25,8 +25,8 @@ const BUNDLE_ALL := "bundle_all"
 const PRODUCTS: Array[Dictionary] = [
 	{"id": BUNDLE_ALL, "name": "Everything Bundle", "price": "$3.00",
 		"description": "All five items below for $3 instead of $5."},
-	{"id": SPEED_3X, "name": "3x Speed", "price": "$1.00",
-		"description": "Adds a 3x fast-forward option to every level."},
+	{"id": SPEED_3X, "name": "4x Speed", "price": "$1.00",
+		"description": "Adds a 4x fast-forward option to every level."},
 	{"id": PACK_CONTROL, "name": "Control Pack", "price": "$1.00",
 		"description": "Slows, stuns and area damage. Usable in every world."},
 	{"id": PACK_TOXIN, "name": "Toxin Pack", "price": "$1.00",
