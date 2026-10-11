@@ -64,9 +64,11 @@ content build, then republish. **All 35 backgrounds are imported** (web pck b64 
 Images pasted mid-turn in chat don't get saved as files; ask the user to
 attach them in their own message. The user's batches arrive in reverse
 level order (oak roots = Backyard 5, pine forest = Wild Kingdom 5, toy road
-playmat = Total War 5); check each scene against the prompt file. Follow-up once backgrounds exist: obstacle/spawn/base tiles
-have their old floor color baked in and will show as squares on top of the
-art; redraw them with transparency. Two Claude Docs briefs exist for
+playmat = Total War 5); check each scene against the prompt file. On levels with a background the board uses see-through
+`rock_cut.png` / `spawn_cut.png` / `base_cut.png` tiles (floor pixels
+removed, soft shadow added) made by `python3 tools/make_cutout_tiles.py`;
+re-run it after redrawing any tile. Tiles that fill their square (e.g.
+Microscopic's rock) stay solid. Two Claude Docs briefs exist for
 reference: backgrounds https://claude.ai/artifact/Dk8EnbQN1PGpeuyhSoS4xK and
 sprites https://claude.ai/artifact/VnjA9ALpqnN1UNRHhVscKi (the sprite one
 describes 64x64 AI art; the user chose code-drawn 32x32 instead, with

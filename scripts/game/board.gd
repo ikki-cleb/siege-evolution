@@ -179,6 +179,18 @@ func _add_background(texture: Texture2D) -> void:
 	sprite.z_index = -1  # behind the board's own tiles
 	add_child(sprite)
 	_has_background = true
+	# On painted ground, use the see-through rock/spawn/base tiles (made by
+	# tools/make_cutout_tiles.py) so they don't show squares of floor color.
+	for key in ["rock", "spawn", "base"]:
+		_tiles[key] = _cutout(_tiles[key])
+
+
+## The see-through "_cut" version of a tile, or the tile itself if there is none.
+func _cutout(texture: Texture2D) -> Texture2D:
+	if texture == null:
+		return null
+	var path := texture.resource_path.replace(".png", "_cut.png")
+	return load(path) if ResourceLoader.exists(path) else texture
 
 
 # --- Grid helpers -----------------------------------------------------------
