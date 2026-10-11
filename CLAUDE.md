@@ -188,7 +188,9 @@ With relics (the bot picks the rarest, preferring unit upgrades), wave
 budgets were raised: Wild Kingdom 17/28/30/38, Total War 11/25/29/34.5,
 Kitchen 30/38/40/43, Birthday 26/37/41/43. Bot wins now: Backyard 95%,
 Wild Kingdom 90%, Microscopic 93%, Total War 75%, Galactic 70%, Kitchen 83%,
-Birthday 70%. Every check passes. Don't run two balance runs at once: they
+Birthday 70%. Every check passes. After the archetype relics (bot scores
+relics by its board): Total War 75%, Galactic 80%; other worlds not re-run.
+Don't run two balance runs at once: they
 share user://save.json and the save-conversion tests then fail.
 The Mothership went 1100 -> 550 HP and the bot now covers a flying boss's
 marked flight line; Swarm (weakest anti-air) still loses that level in the
