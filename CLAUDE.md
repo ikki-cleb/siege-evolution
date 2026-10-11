@@ -108,7 +108,9 @@ budget. `tools/tune.py <id> key=value` edits stats.
 (any designs to redraw); how capstones feel (prices, strongest mechanics);
 how the bonus worlds feel (bot wins 90% of Kitchen and 70% of Birthday
 levels 2-5; Fortress and Precision struggle most); sounds and music;
-Blinker frequency.
+Blinker frequency; whether bosses feel fair now that they're an instant
+loss (the user chose to playtest before tuning further: Swarm vs the
+Mothership, and the Rat King level, where Kitchen fell from 90% to 80%).
 
 **Bosses (latest playtest round):** a boss reaching the base is an
 instant loss (minions do normal damage); the boss spawn tile has a purple
