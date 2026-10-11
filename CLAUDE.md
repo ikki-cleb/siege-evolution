@@ -192,7 +192,10 @@ Wild Kingdom 90%, Microscopic 93%, Total War 75%, Galactic 70%, Kitchen 83%,
 Birthday 70%. Every check passes. After the archetype relics (bot scores
 relics by its board): Total War 75%, Galactic 80%; other worlds not re-run.
 Don't run two balance runs at once: they
-share user://save.json and the save-conversion tests then fail.
+share user://save.json and the save-conversion tests then fail. To run rules tests
+or screenshots while a balance run is going, give them their own save:
+`XDG_DATA_HOME=/tmp/isolated godot ...` (not for exports: the export
+templates live in the normal data folder).
 The Mothership went 1100 -> 550 HP and the bot now covers a flying boss's
 marked flight line; Swarm (weakest anti-air) still loses that level in the
 bot runs. Comet Tail losses predate the boss change. Path preview now shows on every level
