@@ -208,6 +208,32 @@ func _mark_beaten(run: Dictionary, pack_id: String, index: int) -> void:
 	run["beaten"] = beaten
 
 
+## Endless mode: the furthest wave reached in this world with this pack
+## (0 if never played).
+func endless_best(biome_id: String, pack_id: String) -> int:
+	return int(_run(biome_id).get("endless", {}).get(pack_id, 0))
+
+
+## The furthest endless wave in this world with any pack (for its postcard).
+func endless_best_any(biome_id: String) -> int:
+	var best := 0
+	for wave in _run(biome_id).get("endless", {}).values():
+		best = maxi(best, int(wave))
+	return best
+
+
+## Saves an endless run's wave if it beats the best for this world and pack.
+func record_endless(biome_id: String, pack_id: String, wave: int) -> void:
+	if wave <= endless_best(biome_id, pack_id):
+		return
+	var run := _run(biome_id)
+	var records: Dictionary = run.get("endless", {})
+	records[pack_id] = wave
+	run["endless"] = records
+	_data.biomes[biome_id] = run
+	_save()
+
+
 ## This biome's saved record (a fresh empty one if it's never been played).
 func _run(biome_id: String) -> Dictionary:
 	return _data.biomes.get(biome_id, {})

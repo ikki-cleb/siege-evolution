@@ -10,6 +10,8 @@ extends Node2D
 var data: InvaderData
 var board: Board
 var hp: float
+## Full health (the invader's max HP; endless mode raises it).
+var full_hp := 0.0
 var alive := true
 ## False for boss minions, so bosses can't be farmed for coins.
 var drops_coins := true
@@ -115,6 +117,7 @@ func setup(p_data: InvaderData, p_board: Board, start: Vector2, p_path: Array[Ve
 	data = p_data
 	board = p_board
 	hp = data.max_hp
+	full_hp = data.max_hp
 	position = start
 	path = p_path
 	path_index = p_index
@@ -152,6 +155,12 @@ func distance_to_base() -> float:
 		return position.distance_to(board.base_center()) / Board.TILE
 	var to_next := position.distance_to(board.cell_center(path[path_index])) / Board.TILE
 	return (path.size() - 1 - path_index) + to_next
+
+
+## Multiplies this invader's health (endless mode makes invaders tougher).
+func scale_hp(factor: float) -> void:
+	full_hp = data.max_hp * factor
+	hp = full_hp
 
 
 ## A hit from a unit. Armor reduces each hit unless it pierces.
@@ -264,7 +273,7 @@ func _update_effects(delta: float) -> void:
 	mark_time = max(0.0, mark_time - delta)
 	_knockback_cooldown = max(0.0, _knockback_cooldown - delta)
 	if data.regen > 0.0:
-		hp = min(hp + data.regen * delta, data.max_hp)
+		hp = min(hp + data.regen * delta, full_hp)
 	if poison_time > 0.0:
 		poison_time = max(0.0, poison_time - delta)
 		take_damage(poison_dps * delta, true, false)
@@ -532,9 +541,9 @@ func _draw() -> void:
 		draw_colored_polygon(PackedVector2Array([gem + Vector2(0, -2), gem + Vector2(1, 0),
 			gem + Vector2(0, 0.5), gem + Vector2(-1, 0)]), Color.WHITE)
 	_draw_move_hints(half)
-	if hp < data.max_hp:
+	if hp < full_hp:
 		draw_rect(Rect2(-half, -half - 4, half * 2, 2), Color(0.1, 0.1, 0.1))
-		draw_rect(Rect2(-half, -half - 4, half * 2 * hp / data.max_hp, 2), Color(1, 0.3, 0.3))
+		draw_rect(Rect2(-half, -half - 4, half * 2 * hp / full_hp, 2), Color(1, 0.3, 0.3))
 	_draw_status(half)
 
 

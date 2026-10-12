@@ -736,9 +736,18 @@ func spawn_from(parent: Invader, data: InvaderData, count: int, drops_coins := t
 			_pinatas_tossed += 1
 
 
+## Endless mode: every invader spawned this wave gets this much HP (bosses
+## use boss_hp_scale instead). 1.0 on normal levels.
+var hp_scale := 1.0
+var boss_hp_scale := 1.0
+
+
 func _add_invader(data: InvaderData, pos: Vector2, path: Array[Vector2i], path_index: int) -> Invader:
 	var invader := Invader.new()
 	invader.setup(data, self, pos, path, path_index)
+	var factor := boss_hp_scale if data.is_boss else hp_scale
+	if factor != 1.0:
+		invader.scale_hp(factor)
 	add_child(invader)
 	invaders.append(invader)
 	return invader

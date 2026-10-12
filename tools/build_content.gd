@@ -30,6 +30,9 @@ var _showcase := {}
 ## Each world's boss and a familiar invader (move strips), for the
 ## world-select postcards. Stored in showcase.json under "_cards".
 var _cards := {}
+## Each world's wave rules for endless mode (written to data/endless.json):
+## endless waves are generated in the game from the same rules as level 5.
+var _endless := {}
 
 
 func _initialize() -> void:
@@ -38,6 +41,9 @@ func _initialize() -> void:
 		_content_by_id[content.biome.id] = content
 		_build_world(content)
 	_showcase["_cards"] = _cards
+	var endless_file := FileAccess.open("res://data/endless.json", FileAccess.WRITE)
+	endless_file.store_string(JSON.stringify(_endless, "\t"))
+	endless_file.close()
 	var file := FileAccess.open("res://data/showcase.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(_showcase, "\t"))
 	file.close()
@@ -73,6 +79,12 @@ func _build_world(content: Dictionary) -> void:
 	for i in content.levels.size():
 		biome.levels.append(_level(biome_id, i + 1, content.levels[i], content))
 	_save(biome, "res://data/biomes/%s.tres" % biome_id)
+	# Endless mode continues from the last level's final wave.
+	var last: Dictionary = content.levels[-1]
+	_endless[biome_id] = {"budget": float(last.budget) * (1.0 + content.waves.growth_per_wave * (WAVES_PER_LEVEL - 1)),
+		"sea": last.get("sea", false), "boss": last.get("boss", ""),
+		"mix": content.waves.mix, "sea_mix": content.waves.get("sea_mix", []),
+		"categories": content.waves.categories, "threat": content.waves.threat}
 	# Postcard art: the boss of the last level and the world's second invader.
 	var anim := "res://art/anim/%s/invaders/%s_move.png"
 	var boss_id: String = content.levels[-1].get("boss", "")

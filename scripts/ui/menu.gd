@@ -355,6 +355,9 @@ func _world_card(index: int) -> void:
 	var status_label := _label(status, 13, GOLD, HORIZONTAL_ALIGNMENT_RIGHT, row)
 	status_label.theme_type_variation = "TitleLabel"
 	status_label.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	var best := Progress.endless_best_any(id)
+	if best > 0:
+		_label("Endless best: wave %d" % best, 11, GOLD, HORIZONTAL_ALIGNMENT_LEFT, below)
 	_make_tappable(panel, _open_biome.bind(index))
 	# A newly unlocked world: a NEW tag and a confetti pop (once).
 	if Progress.is_world_new(id):

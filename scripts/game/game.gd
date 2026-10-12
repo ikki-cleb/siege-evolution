@@ -58,6 +58,15 @@ var _relic_earned := false
 ## How many relics have been offered this level (later ones roll better).
 var _relics_offered := 0
 
+# --- Endless mode (see EndlessWaves) ---
+## True once the player chose to keep going after the boss level was won.
+var endless := false
+## Builds the endless waves (wave 9 onward); made when endless starts.
+var _endless_waves: EndlessWaves
+## The best endless wave for this world and pack before this run (for the
+## game-over screen's "NEW BEST").
+var endless_best_before := 0
+
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
@@ -119,7 +128,7 @@ func _enter_build_phase() -> void:
 	board.show_path_preview = Progress.show_paths()
 	board.show_grid = true
 	_paths_seen = _paths_seen or Progress.show_paths()
-	var next_wave := level.waves[wave_number]
+	var next_wave := wave_data(wave_number)
 	board.preview_smashers = _wave_has(next_wave, InvaderData.Movement.SMASHER)
 	board.preview_fliers = _wave_has(next_wave, InvaderData.Movement.FLIER)
 	board.preview_jumpers = next_wave.entries.any(func(entry): return entry.invader.jumps)
@@ -359,7 +368,9 @@ func start_wave() -> void:
 	# Turn the wave's groups into a single timeline of spawns.
 	_spawn_queue.clear()
 	var alternate := 0
-	for entry in level.waves[wave_number].entries:
+	var wave := wave_data(wave_number)
+	_set_endless_hp(wave)
+	for entry in wave.entries:
 		for i in entry.count:
 			var spawn: int = entry.spawn_point
 			if spawn < 0:
@@ -371,7 +382,7 @@ func start_wave() -> void:
 	_leaked = false
 	_relic_earned = false
 	_activate_relics()
-	if RelicSet.RELIC_WAVES.has(wave_number + 1):
+	if is_relic_wave(wave_number + 1):
 		_pick_relic_carrier()
 	# Same world + level + wave = same piñata surprises.
 	board.start_pinata_seeds("%s/%s/%d" % [Progress.biome.id, level.display_name, wave_number])
@@ -404,7 +415,7 @@ func _process(delta: float) -> void:
 func _end_wave() -> void:
 	board.wave_active = false
 	board.restore_units()
-	if wave_number >= level.waves.size():
+	if wave_number >= level.waves.size() and not endless:
 		_finish(true)
 		return
 	if _leaked:
@@ -474,6 +485,13 @@ func _finish(won: bool) -> void:
 	board.wave_active = false
 	board.process_mode = Node.PROCESS_MODE_DISABLED
 	Engine.time_scale = 1.0
+	if endless:
+		# Endless always ends in defeat: save how far the run got.
+		endless_best_before = Progress.endless_best(Progress.biome.id, pack.id)
+		Progress.record_endless(Progress.biome.id, pack.id, wave_number)
+		hud.refresh()
+		hud.show_endless_over(wave_number, endless_best_before)
+		return
 	if won:
 		# How full the pack's symbol was before this win (the victory screen
 		# animates it filling up).
@@ -515,6 +533,51 @@ func cycle_speed() -> void:
 ## Waves run at the chosen speed; the build phase always runs at 1x.
 func _apply_speed() -> void:
 	Engine.time_scale = speed if phase == Phase.WAVE else 1
+
+
+# --- Endless mode -------------------------------------------------------------
+
+## The wave at this index (0-based): the level's own 8 waves, then endless
+## waves made on the fly (the same index always gives the same wave).
+func wave_data(index: int) -> WaveData:
+	if index < level.waves.size():
+		return level.waves[index]
+	if _endless_waves == null:
+		_endless_waves = EndlessWaves.new(Progress.biome.id)
+	return _endless_waves.wave(index - level.waves.size() + 1)
+
+
+## Endless wave number for a 0-based wave index (0 if it's a level wave).
+func endless_number(index: int) -> int:
+	return maxi(0, index - level.waves.size() + 1)
+
+
+## Relic carriers: waves 1, 3, 5, 7, then every 2nd endless wave (9, 11...).
+func is_relic_wave(number: int) -> bool:
+	if number <= level.waves.size():
+		return RelicSet.RELIC_WAVES.has(number)
+	return number % 2 == 1
+
+
+## Endless invaders are tougher each wave (and the boss each time it returns).
+func _set_endless_hp(wave: WaveData) -> void:
+	var n := endless_number(wave_number)
+	board.hp_scale = EndlessWaves.hp_scale(n) * float(wave.get_meta("hp_boost", 1.0)) if n > 0 else 1.0
+	board.boss_hp_scale = EndlessWaves.boss_hp_scale(n) if n > 0 else 1.0
+
+
+## "Continue in Endless" after the boss level: the base is repaired and wave
+## 9 is next, on the same board with the same units and relics.
+func start_endless() -> void:
+	if phase != Phase.WON or not is_last_level():
+		return
+	endless = true
+	hud.close_end_screen()
+	board.process_mode = Node.PROCESS_MODE_INHERIT
+	base_hp = level.base_hp
+	board.set_base_health(1.0)
+	_enter_build_phase()
+	hud.show_message("Endless! Waves keep coming and get tougher. How far can you get?")
 
 
 # --- Relics -------------------------------------------------------------------
@@ -630,7 +693,10 @@ func open_store() -> void:
 
 func quit_to_menu() -> void:
 	Engine.time_scale = 1.0
-	Progress.return_screen = "biomes" if phase == Phase.WON and is_last_level() else "levels"
+	if endless and phase != Phase.LOST:
+		# Leaving an endless run still counts the waves it reached.
+		Progress.record_endless(Progress.biome.id, pack.id, wave_number)
+	Progress.return_screen = "biomes" if (phase == Phase.WON and is_last_level()) or endless else "levels"
 	get_tree().change_scene_to_file(MENU_SCENE)
 
 
@@ -638,11 +704,11 @@ func quit_to_menu() -> void:
 
 ## A short summary of the next wave, e.g. "6 Rhinovirus, 2 Parasite Worm".
 func next_wave_summary() -> String:
-	if wave_number >= level.waves.size() or phase != Phase.BUILD:
+	if (wave_number >= level.waves.size() and not endless) or phase != Phase.BUILD:
 		return ""
 	var counts := {}
 	var order: Array[String] = []
-	for entry in level.waves[wave_number].entries:
+	for entry in wave_data(wave_number).entries:
 		var invader_name := entry.invader.display_name
 		if not counts.has(invader_name):
 			order.append(invader_name)

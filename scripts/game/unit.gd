@@ -388,7 +388,7 @@ func _hit(invader: Invader, factor := 1.0) -> void:
 		return
 	# Execute: finishes off any wounded non-boss.
 	if stat("execute_below") > 0.0 and not invader.data.is_boss \
-			and invader.hp <= invader.data.max_hp * stat("execute_below"):
+			and invader.hp <= invader.full_hp * stat("execute_below"):
 		board.fx.add_pulse(invader.position, Board.TILE * 0.7, Palette.HEART)
 		invader.take_damage(invader.hp + 1.0, true)
 		return

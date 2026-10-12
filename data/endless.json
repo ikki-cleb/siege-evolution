@@ -1,0 +1,672 @@
+{
+	"backyard_bugs": {
+		"boss": "giant_centipede",
+		"budget": 124.064,
+		"categories": {
+			"burrow": {
+				"normal": "mole_cricket"
+			},
+			"fly": {
+				"elite": "hornet",
+				"elite_level": 4.0,
+				"normal": "mosquito"
+			},
+			"smash": {
+				"elite": "hercules_beetle",
+				"elite_level": 3.0,
+				"normal": "rhino_beetle"
+			},
+			"split": {
+				"elite": "scale_colony",
+				"elite_level": 3.0,
+				"normal": "aphid_cluster"
+			},
+			"swarm": {
+				"elite": "soldier_termite",
+				"elite_level": 2.0,
+				"normal": "termite"
+			}
+		},
+		"mix": [
+			{
+				"burrow": 0.3,
+				"swarm": 0.7
+			},
+			{
+				"split": 0.4,
+				"swarm": 0.6
+			},
+			{
+				"burrow": 0.5,
+				"fly": 0.5
+			},
+			{
+				"smash": 0.5,
+				"swarm": 0.5
+			},
+			{
+				"burrow": 0.3,
+				"fly": 0.3,
+				"split": 0.4
+			},
+			{
+				"burrow": 0.5,
+				"smash": 0.5
+			},
+			{
+				"fly": 0.4,
+				"swarm": 0.6
+			},
+			{
+				"burrow": 0.2,
+				"fly": 0.15,
+				"smash": 0.2,
+				"split": 0.2,
+				"swarm": 0.25
+			}
+		],
+		"sea": false,
+		"sea_mix": [],
+		"threat": {
+			"aphid_cluster": 2.8,
+			"hercules_beetle": 9.5,
+			"hornet": 3.4,
+			"mole_cricket": 2.6,
+			"mosquito": 1.4,
+			"rhino_beetle": 5.2,
+			"scale_colony": 4.8,
+			"soldier_termite": 1.9,
+			"termite": 1.0
+		}
+	},
+	"birthday_bash": {
+		"boss": "clown",
+		"budget": 217.279,
+		"categories": {
+			"bomb": {
+				"normal": "water_balloon"
+			},
+			"fly": {
+				"elite": "big_balloon",
+				"elite_level": 4.0,
+				"normal": "balloon"
+			},
+			"jump": {
+				"normal": "bouncy_ball"
+			},
+			"pinata": {
+				"normal": "pinata"
+			},
+			"smash": {
+				"elite": "mega_robot",
+				"elite_level": 4.0,
+				"normal": "toy_robot"
+			},
+			"spill": {
+				"elite": "frosting_blob",
+				"elite_level": 3.0,
+				"normal": "soda_spill"
+			},
+			"split": {
+				"elite": "goodie_bag",
+				"elite_level": 3.0,
+				"normal": "party_bag"
+			},
+			"swarm": {
+				"elite": "windup_racer",
+				"elite_level": 2.0,
+				"normal": "windup_mouse"
+			}
+		},
+		"mix": [
+			{
+				"jump": 0.3,
+				"swarm": 0.7
+			},
+			{
+				"jump": 0.3,
+				"split": 0.3,
+				"swarm": 0.4
+			},
+			{
+				"fly": 0.5,
+				"pinata": 0.5
+			},
+			{
+				"smash": 0.3,
+				"spill": 0.4,
+				"swarm": 0.3
+			},
+			{
+				"jump": 0.3,
+				"pinata": 0.4,
+				"split": 0.3
+			},
+			{
+				"bomb": 0.4,
+				"smash": 0.6
+			},
+			{
+				"fly": 0.3,
+				"pinata": 0.4,
+				"swarm": 0.3
+			},
+			{
+				"bomb": 0.1,
+				"fly": 0.1,
+				"jump": 0.1,
+				"pinata": 0.2,
+				"smash": 0.15,
+				"spill": 0.1,
+				"split": 0.1,
+				"swarm": 0.15
+			}
+		],
+		"sea": false,
+		"sea_mix": [],
+		"threat": {
+			"balloon": 1.7,
+			"big_balloon": 4.0,
+			"bouncy_ball": 2.8,
+			"frosting_blob": 5.4,
+			"goodie_bag": 5.6,
+			"mega_robot": 10.5,
+			"party_bag": 3.4,
+			"pinata": 14.0,
+			"soda_spill": 3.4,
+			"toy_robot": 6.5,
+			"water_balloon": 6.0,
+			"windup_mouse": 1.3,
+			"windup_racer": 2.3
+		}
+	},
+	"galactic_siege": {
+		"boss": "mothership",
+		"budget": 131.818,
+		"categories": {
+			"blink": {
+				"elite": "phase_stalker",
+				"elite_level": 3.0,
+				"normal": "blinker"
+			},
+			"bomb": {
+				"normal": "ufo_bomber"
+			},
+			"burrow": {
+				"normal": "tunneler"
+			},
+			"fly": {
+				"elite": "interceptor",
+				"elite_level": 4.0,
+				"normal": "saucer"
+			},
+			"jump": {
+				"normal": "hopper"
+			},
+			"smash": {
+				"elite": "assault_mech",
+				"elite_level": 4.0,
+				"normal": "crusher"
+			},
+			"split": {
+				"elite": "hive_pod",
+				"elite_level": 3.0,
+				"normal": "brood_pod"
+			},
+			"swarm": {
+				"elite": "drone",
+				"elite_level": 2.0,
+				"normal": "grub"
+			}
+		},
+		"mix": [
+			{
+				"blink": 0.4,
+				"swarm": 0.6
+			},
+			{
+				"split": 0.5,
+				"swarm": 0.5
+			},
+			{
+				"blink": 0.5,
+				"fly": 0.5
+			},
+			{
+				"burrow": 0.3,
+				"smash": 0.4,
+				"swarm": 0.3
+			},
+			{
+				"blink": 0.4,
+				"jump": 0.3,
+				"split": 0.3
+			},
+			{
+				"bomb": 0.4,
+				"smash": 0.6
+			},
+			{
+				"blink": 0.3,
+				"fly": 0.3,
+				"swarm": 0.4
+			},
+			{
+				"blink": 0.2,
+				"bomb": 0.15,
+				"fly": 0.1,
+				"jump": 0.1,
+				"smash": 0.15,
+				"split": 0.15,
+				"swarm": 0.15
+			}
+		],
+		"sea": false,
+		"sea_mix": [],
+		"threat": {
+			"assault_mech": 10.5,
+			"blinker": 3.2,
+			"brood_pod": 3.4,
+			"crusher": 6.5,
+			"drone": 2.3,
+			"grub": 1.3,
+			"hive_pod": 5.6,
+			"hopper": 2.8,
+			"interceptor": 4.0,
+			"phase_stalker": 5.2,
+			"saucer": 1.7,
+			"tunneler": 2.8,
+			"ufo_bomber": 6.0
+		}
+	},
+	"immune_system": {
+		"boss": "superbug",
+		"budget": 139.572,
+		"categories": {
+			"fly": {
+				"elite": "fungal_spore",
+				"elite_level": 4.0,
+				"normal": "spore"
+			},
+			"smash": {
+				"elite": "hookworm",
+				"elite_level": 3.0,
+				"normal": "worm"
+			},
+			"split": {
+				"elite": "biofilm",
+				"elite_level": 3.0,
+				"normal": "bacterium"
+			},
+			"swarm": {
+				"elite": "flu_virus",
+				"elite_level": 2.0,
+				"normal": "rhinovirus"
+			}
+		},
+		"mix": [
+			{
+				"swarm": 1.0
+			},
+			{
+				"split": 0.4,
+				"swarm": 0.6
+			},
+			{
+				"fly": 0.3,
+				"split": 0.7
+			},
+			{
+				"smash": 0.5,
+				"swarm": 0.5
+			},
+			{
+				"fly": 0.6,
+				"swarm": 0.4
+			},
+			{
+				"smash": 0.5,
+				"split": 0.5
+			},
+			{
+				"fly": 0.3,
+				"swarm": 0.7
+			},
+			{
+				"fly": 0.2,
+				"smash": 0.25,
+				"split": 0.25,
+				"swarm": 0.3
+			}
+		],
+		"sea": false,
+		"sea_mix": [],
+		"threat": {
+			"bacterium": 2.6,
+			"biofilm": 4.5,
+			"flu_virus": 1.8,
+			"fungal_spore": 3.2,
+			"hookworm": 9.0,
+			"rhinovirus": 1.0,
+			"spore": 1.4,
+			"worm": 5.0
+		}
+	},
+	"kitchen_defense": {
+		"boss": "rat_king",
+		"budget": 217.279,
+		"categories": {
+			"fly": {
+				"elite": "housefly",
+				"elite_level": 4.0,
+				"normal": "fruit_fly"
+			},
+			"smash": {
+				"elite": "giant_roach",
+				"elite_level": 4.0,
+				"normal": "cockroach"
+			},
+			"spill": {
+				"elite": "honey_ant",
+				"elite_level": 3.0,
+				"normal": "slug"
+			},
+			"split": {
+				"elite": "rat_nest",
+				"elite_level": 3.0,
+				"normal": "mouse_nest"
+			},
+			"swarm": {
+				"elite": "fire_ant",
+				"elite_level": 2.0,
+				"normal": "sugar_ant"
+			}
+		},
+		"mix": [
+			{
+				"spill": 0.4,
+				"swarm": 0.6
+			},
+			{
+				"split": 0.5,
+				"swarm": 0.5
+			},
+			{
+				"fly": 0.5,
+				"spill": 0.5
+			},
+			{
+				"smash": 0.4,
+				"spill": 0.3,
+				"swarm": 0.3
+			},
+			{
+				"spill": 0.6,
+				"split": 0.4
+			},
+			{
+				"fly": 0.5,
+				"smash": 0.5
+			},
+			{
+				"fly": 0.3,
+				"spill": 0.3,
+				"swarm": 0.4
+			},
+			{
+				"fly": 0.15,
+				"smash": 0.2,
+				"spill": 0.25,
+				"split": 0.2,
+				"swarm": 0.2
+			}
+		],
+		"sea": false,
+		"sea_mix": [],
+		"threat": {
+			"cockroach": 6.5,
+			"fire_ant": 2.3,
+			"fruit_fly": 1.7,
+			"giant_roach": 10.5,
+			"honey_ant": 5.4,
+			"housefly": 4.0,
+			"mouse_nest": 3.4,
+			"rat_nest": 5.6,
+			"slug": 3.4,
+			"sugar_ant": 1.3
+		}
+	},
+	"total_war": {
+		"boss": "mega_tank",
+		"budget": 133.7565,
+		"categories": {
+			"battleship": {
+				"normal": "battleship"
+			},
+			"bomb": {
+				"elite": "heavy_bomber",
+				"elite_level": 4.0,
+				"normal": "toy_bomber"
+			},
+			"fly": {
+				"elite": "jet",
+				"elite_level": 3.0,
+				"normal": "paper_plane"
+			},
+			"jump": {
+				"normal": "motorbike"
+			},
+			"navy": {
+				"elite": "destroyer",
+				"elite_level": 3.0,
+				"normal": "patrol_boat"
+			},
+			"smash": {
+				"elite": "heavy_tank",
+				"elite_level": 4.0,
+				"normal": "toy_tank"
+			},
+			"split": {
+				"elite": "armored_carrier",
+				"elite_level": 3.0,
+				"normal": "troop_truck"
+			},
+			"sub": {
+				"normal": "submarine"
+			},
+			"swarm": {
+				"elite": "ranger",
+				"elite_level": 2.0,
+				"normal": "toy_soldier"
+			}
+		},
+		"mix": [
+			{
+				"fly": 0.3,
+				"swarm": 0.7
+			},
+			{
+				"split": 0.5,
+				"swarm": 0.5
+			},
+			{
+				"bomb": 0.5,
+				"jump": 0.5
+			},
+			{
+				"smash": 0.6,
+				"swarm": 0.4
+			},
+			{
+				"fly": 0.3,
+				"jump": 0.3,
+				"split": 0.4
+			},
+			{
+				"bomb": 0.5,
+				"smash": 0.5
+			},
+			{
+				"fly": 0.25,
+				"jump": 0.25,
+				"swarm": 0.5
+			},
+			{
+				"bomb": 0.15,
+				"fly": 0.1,
+				"jump": 0.15,
+				"smash": 0.2,
+				"split": 0.2,
+				"swarm": 0.2
+			}
+		],
+		"sea": false,
+		"sea_mix": [
+			{
+				"navy": 0.6,
+				"swarm": 0.4
+			},
+			{
+				"navy": 0.5,
+				"swarm": 0.5
+			},
+			{
+				"bomb": 0.5,
+				"sub": 0.5
+			},
+			{
+				"battleship": 0.3,
+				"navy": 0.4,
+				"swarm": 0.3
+			},
+			{
+				"fly": 0.3,
+				"navy": 0.3,
+				"sub": 0.4
+			},
+			{
+				"battleship": 0.5,
+				"swarm": 0.5
+			},
+			{
+				"bomb": 0.25,
+				"navy": 0.5,
+				"sub": 0.25
+			},
+			{
+				"battleship": 0.2,
+				"bomb": 0.15,
+				"navy": 0.25,
+				"sub": 0.2,
+				"swarm": 0.2
+			}
+		],
+		"threat": {
+			"armored_carrier": 5.8,
+			"battleship": 8.5,
+			"destroyer": 3.8,
+			"heavy_bomber": 10.0,
+			"heavy_tank": 11.0,
+			"jet": 4.0,
+			"motorbike": 2.8,
+			"paper_plane": 1.7,
+			"patrol_boat": 2.2,
+			"ranger": 2.4,
+			"submarine": 3.0,
+			"toy_bomber": 6.0,
+			"toy_soldier": 1.4,
+			"toy_tank": 6.5,
+			"troop_truck": 3.6
+		}
+	},
+	"wild_kingdom": {
+		"boss": "grizzly",
+		"budget": 147.326,
+		"categories": {
+			"burrow": {
+				"normal": "gopher"
+			},
+			"fly": {
+				"elite": "hawk",
+				"elite_level": 4.0,
+				"normal": "crow"
+			},
+			"jump": {
+				"elite": "red_stag",
+				"elite_level": 3.0,
+				"normal": "deer"
+			},
+			"smash": {
+				"elite": "moose",
+				"elite_level": 4.0,
+				"normal": "wild_boar"
+			},
+			"split": {
+				"elite": "wolf_pack",
+				"elite_level": 3.0,
+				"normal": "coyote_pack"
+			},
+			"swarm": {
+				"elite": "weasel",
+				"elite_level": 2.0,
+				"normal": "rat"
+			}
+		},
+		"mix": [
+			{
+				"jump": 0.4,
+				"swarm": 0.6
+			},
+			{
+				"split": 0.5,
+				"swarm": 0.5
+			},
+			{
+				"fly": 0.5,
+				"jump": 0.5
+			},
+			{
+				"burrow": 0.3,
+				"smash": 0.3,
+				"swarm": 0.4
+			},
+			{
+				"fly": 0.3,
+				"jump": 0.3,
+				"split": 0.4
+			},
+			{
+				"jump": 0.5,
+				"smash": 0.5
+			},
+			{
+				"burrow": 0.25,
+				"fly": 0.25,
+				"swarm": 0.5
+			},
+			{
+				"burrow": 0.1,
+				"fly": 0.15,
+				"jump": 0.15,
+				"smash": 0.2,
+				"split": 0.2,
+				"swarm": 0.2
+			}
+		],
+		"sea": false,
+		"sea_mix": [],
+		"threat": {
+			"coyote_pack": 3.4,
+			"crow": 1.6,
+			"deer": 2.6,
+			"gopher": 2.8,
+			"hawk": 3.8,
+			"moose": 10.5,
+			"rat": 1.3,
+			"red_stag": 4.2,
+			"weasel": 2.2,
+			"wild_boar": 6.0,
+			"wolf_pack": 5.5
+		}
+	}
+}

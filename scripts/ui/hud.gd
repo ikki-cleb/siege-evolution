@@ -53,10 +53,12 @@ var _root: Control
 ## Coins still flying toward the counter (already added to the game's total).
 var _orb_coins := 0
 ## Icons of the relics picked this level, in the board's left margin.
-var _relic_column: VBoxContainer
+var _relic_column: GridContainer
 var _relic_column_key := ""
 ## The 1-of-3 relic picker while it's open.
 var _relic_picker: Control
+## The win / celebration screen (closed when the player continues in endless).
+var _end_screen: Control
 
 
 func setup(p_game) -> void:
@@ -70,15 +72,19 @@ func setup(p_game) -> void:
 	add_child(_root)
 	_build_top_bar()
 	_build_bottom_bar()
-	_relic_column = VBoxContainer.new()
+	_relic_column = GridContainer.new()
 	_relic_column.position = Vector2(5, 88)
-	_relic_column.add_theme_constant_override("separation", 4)
+	_relic_column.add_theme_constant_override("v_separation", 4)
+	_relic_column.add_theme_constant_override("h_separation", 2)
 	_root.add_child(_relic_column)
 
 
 func refresh() -> void:
 	_level_label.text = "%s · %s" % [game.level.display_name, game.pack.display_name]
-	_wave_label.text = "Wave %d/%d" % [game.wave_number, game.level.waves.size()]
+	if game.endless:
+		_wave_label.text = "Wave %d · Endless" % game.wave_number
+	else:
+		_wave_label.text = "Wave %d/%d" % [game.wave_number, game.level.waves.size()]
 	_hp_label.text = "Base %d/%d" % [game.base_hp, game.level.base_hp]
 	_coins_label.text = "%s %d" % [Palette.COIN, game.coins - _orb_coins]
 	_next_label.text = game.next_wave_summary()
@@ -261,19 +267,38 @@ func _refresh_relic_column() -> void:
 	_relic_column_key = key
 	for child in _relic_column.get_children():
 		child.queue_free()
+	# One icon per relic, with a count for stacked copies (endless mode).
+	var shown := []
 	for relic in relics.active + relics.pending:
-		var waiting: bool = relics.pending.has(relic)
+		if not shown.any(func(other): return other.id == relic.id):
+			shown.append(relic)
+	# Lots of relics (long endless runs): smaller icons in two columns.
+	var many := shown.size() > 12
+	_relic_column.columns = 2 if many else 1
+	var side := 22.0 if many else 30.0
+	for relic in shown:
+		var waiting: bool = relics.pending.has(relic) and not relics.active.any(func(r): return r.id == relic.id)
+		var count := relics.copies(relic.id)
 		var button := Button.new()
-		button.custom_minimum_size = Vector2(30, 30)
+		button.custom_minimum_size = Vector2(side, side)
 		button.flat = true
 		button.focus_mode = Control.FOCUS_NONE
 		button.pressed.connect(func():
-			show_message("%s (%s): %s%s" % [relic.name, relic.rarity, relic.desc,
-				" Starts next wave." if waiting else ""]))
+			show_message("%s%s (%s): %s%s" % [relic.name, " x%d" % count if count > 1 else "", relic.rarity,
+				relic.desc, " Starts next wave." if waiting else ""]))
 		var icon := RelicIcon.new().setup(relic)
 		icon.dimmed = waiting
 		icon.set_anchors_preset(Control.PRESET_FULL_RECT)
 		button.add_child(icon)
+		if count > 1:
+			var badge := Label.new()
+			badge.text = "x%d" % count
+			badge.add_theme_font_size_override("font_size", 9)
+			badge.add_theme_color_override("font_outline_color", Color.BLACK)
+			badge.add_theme_constant_override("outline_size", 4)
+			badge.position = Vector2(side - 14, side - 12)
+			badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			button.add_child(badge)
 		_relic_column.add_child(button)
 
 
@@ -333,7 +358,9 @@ func _relic_card(relic: Dictionary, index: int) -> Button:
 	text.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_child(text)
 	var title := Label.new()
-	title.text = relic.name
+	# A relic you already have stacks: this would be your 2nd (x2), 3rd (x3)...
+	var owned: int = game.board.relics.copies(relic.id)
+	title.text = relic.name + (" x%d" % (owned + 1) if owned > 0 else "")
 	title.theme_type_variation = "TitleLabel"
 	title.add_theme_font_size_override("font_size", 17)
 	title.modulate = rarity_color.lightened(0.3)
@@ -370,6 +397,7 @@ func show_end_screen(won: bool) -> void:
 	dim.color = Color(0, 0, 0, 0.0)
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_root.add_child(dim)
+	_end_screen = dim
 	create_tween().tween_property(dim, "color:a", 0.7, 0.3)
 
 	var card := PanelContainer.new()
@@ -408,6 +436,8 @@ func show_end_screen(won: bool) -> void:
 		box.add_child(_make_button("Next Level", game.next_level))
 	if not won:
 		box.add_child(_make_button("Retry", game.retry))
+	if won and game.is_last_level():
+		_add_endless_offer(box)
 	box.add_child(_make_button("Back to Map" if won and game.is_last_level() else "Level Select", game.quit_to_menu))
 	for button in box.get_children():
 		if button is Button:
@@ -455,6 +485,7 @@ func _show_celebration(title_text: String, subtitle_text: String, detail_text: S
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_root.add_child(dim)
 	create_tween().tween_property(dim, "color:a", 0.93, 0.6)
+	_end_screen = dim
 	var confetti := Confetti.new()
 	dim.add_child(confetti)
 
@@ -490,11 +521,82 @@ func _show_celebration(title_text: String, subtitle_text: String, detail_text: S
 		store.custom_minimum_size.y = 48
 		inner.add_child(store)
 
+	_add_endless_offer(box)
 	var back := _make_button("Back to Map", game.quit_to_menu)
 	back.custom_minimum_size.y = 48
 	box.add_child(back)
 	box.modulate.a = 0.0
 	create_tween().tween_property(box, "modulate:a", 1.0, 0.8).set_delay(0.4)
+
+
+## After the boss falls: "Continue in Endless" (keep this board, units and
+## relics; waves never stop and keep getting tougher), with the best so far.
+func _add_endless_offer(box: VBoxContainer) -> void:
+	var best: int = _progress().endless_best(_progress().biome.id, game.pack.id)
+	var note := "Endless: the waves never stop and keep getting tougher."
+	if best > 0:
+		note += " Best: wave %d." % best
+	box.add_child(_end_label(note, 12, Palette.TEXT_DIM))
+	var go := _make_button("Continue in Endless", game.start_endless)
+	go.custom_minimum_size = Vector2(200, 52)
+	go.theme_type_variation = ""
+	go.add_theme_color_override("font_color", Color("#2a1408"))
+	go.add_theme_color_override("font_hover_color", Color("#2a1408"))
+	go.add_theme_color_override("font_pressed_color", Color("#2a1408"))
+	for state in ["normal", "hover", "pressed", "hover_pressed"]:
+		var style := Palette.panel(Palette.GOLD if state == "normal" else Palette.GOLD.lightened(0.15),
+			Color.TRANSPARENT, 10)
+		style.border_color = Palette.GOLD.darkened(0.45)
+		style.set_border_width_all(2)
+		style.border_width_bottom = 5
+		style.set_content_margin_all(6)
+		go.add_theme_stylebox_override(state, style)
+	box.add_child(go)
+
+
+func close_end_screen() -> void:
+	if _end_screen:
+		_end_screen.queue_free()
+		_end_screen = null
+
+
+## The end of an endless run: how far it got, the best so far, and a NEW BEST
+## burst of confetti when it's a record.
+func show_endless_over(wave: int, best_before: int) -> void:
+	Sfx.play("lose")
+	var dim := ColorRect.new()
+	dim.color = Color(0, 0, 0, 0.0)
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_root.add_child(dim)
+	_end_screen = dim
+	create_tween().tween_property(dim, "color:a", 0.75, 0.3)
+	var card := PanelContainer.new()
+	card.add_theme_stylebox_override("panel", Palette.panel(Palette.SURFACE, _accent(), 12))
+	card.position = Vector2(40, 220)
+	card.custom_minimum_size = Vector2(280, 0)
+	dim.add_child(card)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 12)
+	card.add_child(box)
+	box.add_child(_end_label("Endless Over", 26, _accent()))
+	box.add_child(_end_label("You reached wave %d" % wave, 18, Palette.TEXT))
+	var record := wave > best_before
+	if record:
+		var best := _end_label("NEW BEST!", 22, Palette.GOLD)
+		box.add_child(best)
+		var pulse := best.create_tween().set_loops(4)
+		pulse.tween_property(best, "modulate", Palette.HEART, 0.25)
+		pulse.tween_property(best, "modulate", Palette.GOLD, 0.25)
+		get_tree().create_timer(0.35).timeout.connect(func():
+			ConfettiBurst.pop(_root, Vector2(WIDTH / 2.0, 250), 70))
+	else:
+		box.add_child(_end_label("Best: wave %d" % best_before, 14, Palette.TEXT_DIM))
+	var back := _make_button("Back to Map", game.quit_to_menu)
+	back.custom_minimum_size = Vector2(200, 48)
+	box.add_child(back)
+	card.scale = Vector2(0.85, 0.85)
+	card.pivot_offset = Vector2(140, 80)
+	create_tween().tween_property(card, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 func _end_label(text: String, size: int, color: Color) -> Label:

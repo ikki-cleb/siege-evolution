@@ -115,29 +115,53 @@ static func _with_evolutions(types: Array[UnitData]) -> Array[UnitData]:
 
 ## Three different relics to choose from. `number` is which relic of the level
 ## this is (0-3); later ones roll better rarities. Same seed = same offer.
+##
+## Relics you already have aren't offered again until you've taken every
+## relic that helps your units; then the pool "resets" and each can be taken
+## a second time (x2), then a third (x3), and so on. Copies stack: a unit's
+## stats add up every active relic. (Only endless mode lasts long enough.)
 func roll_offer(types: Array[UnitData], number: int, seed_value: int) -> Array:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_value
-	var taken := []
-	for relic in active + pending:
-		taken.append(relic.id)
+	var useful := pool().filter(func(relic): return useful_for(relic, types))
+	if useful.is_empty():
+		return []
+	# The current "round" of the pool: the fewest copies of any useful relic.
+	var round_now := 1000
+	for relic in useful:
+		round_now = mini(round_now, copies(relic.id))
 	var offer := []
 	var odds: Array = ODDS[clampi(number, 0, ODDS.size() - 1)]
 	for card in 3:
-		# Roll a rarity, then fall back to lower rarities if none are left.
+		# Roll a rarity, then try lower rarities, then higher, if none are left.
 		var roll := rng.randf()
 		var rarity := 0
 		if roll > odds[0]:
 			rarity = 1 if roll <= odds[0] + odds[1] else 2
-		for tier in range(rarity, -1, -1):
-			var choices := pool().filter(func(relic): return relic.rarity == RARITY_ORDER[tier] \
-				and not taken.has(relic.id) and useful_for(relic, types))
-			if not choices.is_empty():
-				var pick: Dictionary = choices[rng.randi() % choices.size()]
-				offer.append(pick)
-				taken.append(pick.id)
+		var tiers := range(rarity, -1, -1) + range(rarity + 1, RARITY_ORDER.size())
+		var pick := {}
+		# Prefer this round's relics; if fewer than 3 remain, take from the next.
+		for round_try in [round_now, round_now + 1]:
+			for tier in tiers:
+				var choices := useful.filter(func(relic): return relic.rarity == RARITY_ORDER[tier] \
+					and copies(relic.id) == round_try and not offer.has(relic))
+				if not choices.is_empty():
+					pick = choices[rng.randi() % choices.size()]
+					break
+			if not pick.is_empty():
 				break
+		if not pick.is_empty():
+			offer.append(pick)
 	return offer
+
+
+## How many copies of a relic you have (active or waiting for the next wave).
+func copies(id: String) -> int:
+	var count := 0
+	for relic in active + pending:
+		if relic.id == id:
+			count += 1
+	return count
 
 
 func add_pending(relic: Dictionary) -> void:

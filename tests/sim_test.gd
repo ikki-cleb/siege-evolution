@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 159
+const MIN_RULE_CHECKS := 166
 var progress: Node
 
 
@@ -43,6 +43,7 @@ func _run() -> void:
 	await _test_pack_swapping(biome)
 	await _test_achievements(biome)
 	await _test_background(biome)
+	await _test_endless(progress.load_biome(0))
 	await _test_animations(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index: 0 = Backyard Bugs,
@@ -53,7 +54,10 @@ func _run() -> void:
 			if arg.begins_with("world="):
 				worlds = [int(arg.split("=")[1])]
 		for index in worlds:
-			await _test_balance(progress.load_biome(index))
+			if OS.get_cmdline_user_args().has("endless"):
+				await _test_endless_reach(progress.load_biome(index))
+			else:
+				await _test_balance(progress.load_biome(index))
 	progress.reset()
 	root.get_node("Achievements").reset()
 	if checks_run < MIN_RULE_CHECKS:
@@ -1348,6 +1352,83 @@ func _test_menu_pizazz() -> void:
 	_check(menu._scroll.position.x < 0, "Back slides the previous screen in from the left")
 	menu.queue_free()
 	await process_frame
+
+
+## Endless mode: offered after the boss level, waves keep coming and ramp,
+## relics stack once the pool runs dry, and the best wave is saved.
+func _test_endless(biome: BiomeData) -> void:
+	var game := await _start(biome, 0, biome.levels.size() - 1)
+	game.wave_number = game.level.waves.size()
+	game._finish(true)
+	_check(_all_texts(game.hud).has("Continue in Endless"), "Beating the boss level offers Continue in Endless")
+	game.base_hp = 3
+	game.start_endless()
+	await process_frame
+	_check(game.endless and game.phase == game.Phase.BUILD and game.base_hp == game.level.base_hp
+		and not _all_texts(game.hud).has("Continue in Endless") and game.hud._wave_label.text.contains("Endless"),
+		"Continuing into endless repairs the base and goes back to building")
+	var first: WaveData = game.wave_data(game.wave_number)
+	var tenth: WaveData = game.wave_data(game.wave_number + 9)
+	var threat := func(wave: WaveData) -> int:
+		var total := 0
+		for entry in wave.entries:
+			total += entry.count * maxi(1, entry.invader.max_hp)
+		return total
+	_check(not first.entries.is_empty() and threat.call(tenth) > threat.call(first)
+		and tenth.entries.any(func(entry): return entry.invader.is_boss)
+		and not first.entries.any(func(entry): return entry.invader.is_boss)
+		and game.wave_data(game.wave_number) == first,
+		"Endless waves grow, and the boss returns on the 10th")
+	_check(game.is_relic_wave(9) and not game.is_relic_wave(10) and game.is_relic_wave(11)
+		and EndlessWaves.hp_scale(20) > 2.0 and EndlessWaves.boss_hp_scale(10) == 1.5
+		and EndlessWaves.boss_hp_scale(20) == 2.0,
+		"Endless: relics every 2nd wave, tougher invaders, +50% boss HP per return")
+	game.start_wave()
+	await process_frame
+	await process_frame
+	var tough: bool = game.board.hp_scale > 1.0 and game.board.invaders.all(
+		func(invader): return invader.full_hp > invader.data.max_hp)
+	_check(tough, "Endless invaders spawn with extra HP")
+	# Losing ends the run and saves the best wave for this world and pack.
+	progress.reset()
+	game.wave_number = 13
+	game._finish(false)
+	_check(progress.endless_best(biome.id, game.pack.id) == 13 and _all_texts(game.hud).has("Endless Over")
+		and _all_texts(game.hud).has("NEW BEST!"), "Losing in endless saves the best wave (NEW BEST)")
+	await _stop(game)
+	# Relics stack once every useful relic is taken: offers become x2 copies.
+	game = await _start(biome, 0, 4)
+	var relics: RelicSet = game.board.relics
+	for relic in RelicSet.pool():
+		if RelicSet.useful_for(relic, game.unit_types):
+			relics.active.append(relic)
+	var offer: Array = relics.roll_offer(game.unit_types, 3, 5)
+	_check(offer.size() == 3 and offer.all(func(relic): return relics.copies(relic.id) == 1),
+		"When the relic pool runs dry it resets: relics can be taken again (x2)")
+	relics.active.clear()
+	await _stop(game)
+	progress.reset()
+
+
+## How far the bot gets in endless (after winning the boss level), per pack.
+## Run with: tests/sim_test.gd -- endless [world=N]
+func _test_endless_reach(biome: BiomeData) -> void:
+	print("\nEndless reach in %s: the wave each pack's bot run ended on." % biome.display_name)
+	var line := ""
+	for pack_index in biome.packs.size():
+		var game := await _start(biome, pack_index, biome.levels.size() - 1)
+		await _play(game, AutoPlayer.new(game, 7))
+		if game.phase != game.Phase.WON:
+			line += "%s: lost the boss level  " % biome.packs[pack_index].display_name
+			await _stop(game)
+			continue
+		game.start_endless()
+		await _play(game, AutoPlayer.new(game, 7))
+		line += "%s: wave %d  " % [biome.packs[pack_index].display_name, game.wave_number]
+		_check(game.phase == game.Phase.LOST and game.wave_number < 80,
+			"%s endless with %s ends before wave 80" % [biome.display_name, biome.packs[pack_index].display_name])
+		await _stop(game)
+	print(line)
 
 
 ## Every Label and Button text under a node (for checking screens).
