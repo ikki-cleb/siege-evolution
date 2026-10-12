@@ -82,7 +82,7 @@ func setup(p_game) -> void:
 func refresh() -> void:
 	_level_label.text = "%s · %s" % [game.level.display_name, game.pack.display_name]
 	if game.endless:
-		_wave_label.text = "Wave %d · Endless" % game.wave_number
+		_wave_label.text = "Endless %d" % game.wave_number  # short, so it fits one line
 	else:
 		_wave_label.text = "Wave %d/%d" % [game.wave_number, game.level.waves.size()]
 	_hp_label.text = "Base %d/%d" % [game.base_hp, game.level.base_hp]
@@ -536,7 +536,9 @@ func _add_endless_offer(box: VBoxContainer) -> void:
 	var note := "Endless: the waves never stop and keep getting tougher."
 	if best > 0:
 		note += " Best: wave %d." % best
-	box.add_child(_end_label(note, 12, Palette.TEXT_DIM))
+	var note_label := _end_label(note, 12, Palette.TEXT_DIM)
+	note_label.custom_minimum_size.x = 250  # fits the narrower win card
+	box.add_child(note_label)
 	var go := _make_button("Continue in Endless", game.start_endless)
 	go.custom_minimum_size = Vector2(200, 52)
 	go.theme_type_variation = ""
@@ -584,6 +586,7 @@ func show_endless_over(wave: int, best_before: int) -> void:
 	if record:
 		var best := _end_label("NEW BEST!", 22, Palette.GOLD)
 		box.add_child(best)
+		best.pivot_offset = Vector2(125, 14)
 		var pulse := best.create_tween().set_loops(4)
 		pulse.tween_property(best, "modulate", Palette.HEART, 0.25)
 		pulse.tween_property(best, "modulate", Palette.GOLD, 0.25)
@@ -594,6 +597,9 @@ func show_endless_over(wave: int, best_before: int) -> void:
 	var back := _make_button("Back to Map", game.quit_to_menu)
 	back.custom_minimum_size = Vector2(200, 48)
 	box.add_child(back)
+	for child in box.get_children():
+		if child is Label:
+			child.custom_minimum_size.x = 250  # fits the card
 	card.scale = Vector2(0.85, 0.85)
 	card.pivot_offset = Vector2(140, 80)
 	create_tween().tween_property(card, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
