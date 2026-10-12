@@ -83,6 +83,20 @@ func set_show_paths(on: bool) -> void:
 	_save()
 
 
+## A world counts as "new" until its card has been shown once since it was
+## unlocked (the world select celebrates it with confetti and a NEW tag).
+func is_world_new(biome_id: String) -> bool:
+	return not _data.get("seen_worlds", []).has(biome_id)
+
+
+func mark_world_seen(biome_id: String) -> void:
+	var seen: Array = _data.get("seen_worlds", [])
+	if not seen.has(biome_id):
+		seen.append(biome_id)
+		_data["seen_worlds"] = seen
+		_save()
+
+
 ## The Background filter strength (Settings slider): 0 = off, 1 = Medium
 ## (the default), 1.5 = Strong. Busy maps get a bit more on top.
 const CALM_DEFAULT := 1.0

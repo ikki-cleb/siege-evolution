@@ -23,6 +23,13 @@ const WAVES_PER_LEVEL := 8
 
 var invaders := {}
 var _content_by_id := {}
+## Base units and their evolutions per world, for the title screen's
+## evolution showcase (written to data/showcase.json so the menu doesn't
+## have to load whole worlds, which is slow).
+var _showcase := {}
+## Each world's boss and a familiar invader (move strips), for the
+## world-select postcards. Stored in showcase.json under "_cards".
+var _cards := {}
 
 
 func _initialize() -> void:
@@ -30,6 +37,10 @@ func _initialize() -> void:
 		var content: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(CONTENT_DIR + file_name))
 		_content_by_id[content.biome.id] = content
 		_build_world(content)
+	_showcase["_cards"] = _cards
+	var file := FileAccess.open("res://data/showcase.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(_showcase, "\t"))
+	file.close()
 	print("Content written to data/")
 	quit()
 
@@ -62,6 +73,16 @@ func _build_world(content: Dictionary) -> void:
 	for i in content.levels.size():
 		biome.levels.append(_level(biome_id, i + 1, content.levels[i], content))
 	_save(biome, "res://data/biomes/%s.tres" % biome_id)
+	# Postcard art: the boss of the last level and the world's second invader.
+	var anim := "res://art/anim/%s/invaders/%s_move.png"
+	var boss_id: String = content.levels[-1].get("boss", "")
+	var boss_art := boss_id
+	for row in content.invaders:
+		if row.id == boss_id:
+			boss_art = row.get("art", row.id)
+	var familiar: Dictionary = content.invaders[mini(1, content.invaders.size() - 1)]
+	_cards[biome_id] = {"boss": anim % [biome_id, boss_art],
+		"invader": anim % [biome_id, familiar.get("art", familiar.id)]}
 
 
 ## The packs for a world: its own, or another world's with units renamed.
@@ -208,8 +229,26 @@ func _pack(biome_id: String, row: Dictionary) -> PackData:
 				capstone.tier = 2
 				evolution.evolutions.append(_save(capstone, "%s/%s.tres" % [dir, cap_row.id]))
 			unit.evolutions.append(_save(evolution, "%s/%s.tres" % [dir, evo_row.id]))
+		_add_to_showcase(biome_id, pack, unit)
 		pack.units.append(_save(unit, "%s/%s.tres" % [dir, unit_row.id]))
 	return _save(pack, "%s/%s_pack.tres" % [dir, row.id])
+
+
+## Notes a base unit and its tier-1 evolutions (name + idle strip) for the
+## title screen showcase. Units without animations are skipped.
+func _add_to_showcase(biome_id: String, pack: PackData, unit: UnitData) -> void:
+	if unit.anim_idle == null:
+		return
+	var evolutions := []
+	for evolution in unit.evolutions:
+		if evolution.anim_idle != null:
+			evolutions.append({"name": evolution.display_name, "idle": evolution.anim_idle.resource_path})
+	if evolutions.is_empty():
+		return
+	if not _showcase.has(biome_id):
+		_showcase[biome_id] = []
+	_showcase[biome_id].append({"name": unit.display_name, "idle": unit.anim_idle.resource_path,
+		"color": pack.color.to_html(false), "evolutions": evolutions})
 
 
 ## Animation strips, if they exist: <unit id>_idle.png and <unit id>_attack.png.

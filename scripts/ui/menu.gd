@@ -18,6 +18,17 @@ var _pressing := false
 var _dragged := false
 ## The screen being shown, so it can redraw itself after a purchase.
 var _current_screen: Callable
+## The title screen's drifting world-map backdrop (hidden on other screens).
+var _stripes: WorldStripes
+## True while a Back button is changing screens (the new one slides in
+## from the left instead of the right).
+var _going_back := false
+## How far and how long a new screen slides in.
+const SLIDE_DISTANCE := 120.0
+const SLIDE_TIME := 0.22
+const GRAYSCALE := preload("res://shaders/grayscale.gdshader")
+## Boss/invader strips per world for the postcards (loaded once).
+var _cards_cache := {}
 
 
 func _ready() -> void:
@@ -26,6 +37,9 @@ func _ready() -> void:
 	bg.color = BG_COLOR
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
+	_stripes = WorldStripes.new().setup(_stripe_slices(), BG_COLOR)
+	_stripes.set_anchors_preset(Control.PRESET_FULL_RECT)
+	add_child(_stripes)
 
 	var scroll := ScrollContainer.new()
 	scroll.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -57,10 +71,22 @@ func _ready() -> void:
 
 
 func _show(screen: Callable) -> void:
+	var same_screen := _current_screen == screen
 	_current_screen = screen
 	_clear()
+	_stripes.visible = screen == _show_title
 	screen.call()
 	_let_drags_through(_content)
+	# Slide the new screen in: from the right going deeper, from the left
+	# going back. (Redrawing the same screen, e.g. after a toggle, doesn't slide.)
+	if not same_screen:
+		_scroll.scroll_vertical = 0
+		_scroll.position.x = -SLIDE_DISTANCE if _going_back else SLIDE_DISTANCE
+		_scroll.modulate.a = 0.0
+		var tween := create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		tween.tween_property(_scroll, "position:x", 0.0, SLIDE_TIME)
+		tween.tween_property(_scroll, "modulate:a", 1.0, SLIDE_TIME * 0.8)
+	_going_back = false
 
 
 ## Cards and buttons normally swallow a finger press, so only the screen's
@@ -90,26 +116,72 @@ func _input(event: InputEvent) -> void:
 
 # --- Screens ----------------------------------------------------------------
 
+## Title: the logo over drifting world maps, a unit evolving in the middle
+## (random units from unlocked worlds), then the buttons.
 func _show_title() -> void:
-	_spacer(120)
-	_label("SIEGE", 54, Look.TEXT, HORIZONTAL_ALIGNMENT_CENTER)
-	var evolution := _label("EVOLUTION", 30, Look.HEART, HORIZONTAL_ALIGNMENT_CENTER)
+	_spacer(24)
+	_logo_label("SIEGE", 58, Look.TEXT)
+	var evolution := _logo_label("EVOLUTION", 30, Look.HEART)
 	# The subtitle color cycles through every world's accent.
 	var tween := evolution.create_tween().set_loops()
 	for color in Look.ACCENTS.values():
 		tween.tween_property(evolution, "modulate", color, 0.4)
 		tween.tween_interval(1.4)
-	_label("From the backyard to the stars.", 14, DIM_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
-	_spacer(36)
+	var tagline := _label("From the backyard to the stars.", 13, Look.TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	tagline.add_theme_color_override("font_outline_color", BG_COLOR)
+	tagline.add_theme_constant_override("outline_size", 6)
+	_content.add_child(EvolutionShowcase.new().setup(_showcase_pool()))
 	var play := _button("Play", _show.bind(_show_biomes))
-	play.custom_minimum_size.y = 56
-	play.add_theme_font_size_override("font_size", 20)
-	_button("Store", _show.bind(_show_store))
-	_button("Achievements (%d/%d)" % [Achievements.earned_count(), Achievements.list.size()],
-		_show.bind(_show_achievements))
-	_button("Settings", _show.bind(_show_settings))
-	_spacer(80)
+	play.custom_minimum_size = Vector2(0, 62)
+	play.add_theme_font_size_override("font_size", 24)
+	_juice(play, Look.HEART, Color("#8a1f36"), Color.WHITE, 7)
+	for button in [
+		_button("Store", _show.bind(_show_store)),
+		_button("Achievements  %d/%d" % [Achievements.earned_count(), Achievements.list.size()],
+			_show.bind(_show_achievements)),
+		_button("Settings", _show.bind(_show_settings))]:
+		button.custom_minimum_size.y = 42
+	_spacer(30)
 	_label("Fonts: Coiny and Space Mono (SIL Open Font License)", 10, Color(Look.TEXT_DIM, 0.6), HORIZONTAL_ALIGNMENT_CENTER)
+
+
+## A big logo word with a dark outline and a drop shadow.
+func _logo_label(text: String, font_size: int, color: Color) -> Label:
+	var label := _label(text, font_size, color, HORIZONTAL_ALIGNMENT_CENTER)
+	label.add_theme_color_override("font_outline_color", Color("#28101e"))
+	label.add_theme_constant_override("outline_size", 10)
+	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.75))
+	label.add_theme_constant_override("shadow_offset_x", 3)
+	label.add_theme_constant_override("shadow_offset_y", 5)
+	label.add_theme_constant_override("shadow_outline_size", 10)
+	label.add_theme_constant_override("line_spacing", -8)
+	return label
+
+
+## One slice per world for the title backdrop: [painted map, accent color].
+func _stripe_slices() -> Array:
+	var slices := []
+	for index in Progress.WORLDS.size():
+		if not Progress.has_content(index):
+			continue
+		var id := Progress.world_id(index)
+		var path := "res://art/backgrounds/%s/level_03.webp" % id
+		if ResourceLoader.exists(path):
+			slices.append([load(path), Look.accent(id)])
+	return slices
+
+
+## Units the title showcase can pick from: every base unit (with its
+## evolutions) of the worlds the player has unlocked. See data/showcase.json.
+func _showcase_pool() -> Array:
+	var showcase = JSON.parse_string(FileAccess.get_file_as_string("res://data/showcase.json"))
+	var pool := []
+	if not showcase is Dictionary:
+		return pool
+	for index in Progress.WORLDS.size():
+		if Progress.has_content(index) and Progress.is_biome_unlocked(index):
+			pool.append_array(showcase.get(Progress.world_id(index), []))
+	return pool
 
 
 ## Settings: sound, music and the Background filter (with a live preview).
@@ -225,40 +297,194 @@ func _show_biomes() -> void:
 		_world_card(index)
 
 
+## A world "postcard": a painted banner of the world with its boss and one of
+## its invaders on it, then pack progress. Tap an unlocked card to enter.
+## Locked worlds are grey; bonus worlds you don't own show their price.
 func _world_card(index: int) -> void:
 	var world: Dictionary = Progress.WORLDS[index]
-	var edge := Look.accent(Progress.world_id(index)) if Progress.has_content(index) else Look.BORDER
-	var card := _card(CARD_COLOR, edge)
-	var title: String = world.name
-	if not Progress.is_bonus(index):
-		title = "World %d: %s" % [Progress.main_number(index), world.name]
-	_label(title, 18, Color.WHITE, HORIZONTAL_ALIGNMENT_LEFT, card)
-	_label(world.theme, 12, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, card)
+	var id := Progress.world_id(index) if Progress.has_content(index) else ""
+	var unlocked := Progress.is_biome_unlocked(index) and id != ""
+	var accent := Look.accent(id) if id != "" else Look.BORDER
+	var panel := PanelContainer.new()
+	var style := Look.panel(CARD_COLOR, Color.TRANSPARENT, 12)
+	style.set_content_margin_all(0)
+	style.border_color = accent if unlocked else Look.BORDER
+	style.set_border_width_all(2)
+	style.border_width_bottom = 5  # 3D edge, like the buttons
+	panel.add_theme_stylebox_override("panel", style)
+	_content.add_child(panel)
+	var card := VBoxContainer.new()
+	card.add_theme_constant_override("separation", 0)
+	panel.add_child(card)
+	var banner := _postcard_banner(index, id, unlocked, accent)
+	card.add_child(banner)
+	var below := VBoxContainer.new()
+	below.add_theme_constant_override("separation", 6)
+	var margin := MarginContainer.new()
+	for side in ["left", "right", "top", "bottom"]:
+		margin.add_theme_constant_override("margin_" + side, 10)
+	margin.add_child(below)
+	card.add_child(margin)
 
-	var unlocked := Progress.is_biome_unlocked(index)
-	if Progress.is_bonus(index) and not unlocked:
+	if Progress.is_bonus(index) and not Progress.is_biome_unlocked(index):
+		_label(world.theme, 11, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, below)
 		var product: String = world.product
-		# Warn before buying here too, not just in the Store.
-		_warning(Store.product(product), card)
-		_button("Unlock for %s" % Store.price(product), Store.buy.bind(product), card)
+		_warning(Store.product(product), below)  # warn before buying here too
+		_button("Unlock for %s" % Store.price(product), Store.buy.bind(product), below)
 		return
-	if not Progress.has_content(index):
+	if id == "":
 		_label("Coming soon" + (" (owned)" if Progress.is_bonus(index) else ""), 12, GOLD,
-			HORIZONTAL_ALIGNMENT_LEFT, card)
+			HORIZONTAL_ALIGNMENT_LEFT, below)
 		return
-	var id := Progress.world_id(index)
-	if Progress.cleared(id) > 0:
-		_label("%d/%d levels cleared" % [Progress.cleared(id), Progress.LEVELS_PER_BIOME],
-			12, GOLD, HORIZONTAL_ALIGNMENT_LEFT, card)
+	if not unlocked:
+		_label("Beat World %d's boss to unlock." % index, 11, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, below)
+		return
 	# One symbol per pack, filling up as that pack beats this world's levels.
+	var row := _symbol_row(below)
+	for pack_id in PackSymbol.ORDER:
+		var beaten := Progress.levels_beaten_by(id, pack_id)
+		row.add_child(PackSymbol.new().setup(pack_id, float(beaten) / Progress.LEVELS_PER_BIOME, 24))
+	var spacer := Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(spacer)
+	var cleared := Progress.cleared(id)
+	var status := "%d/%d cleared" % [cleared, Progress.LEVELS_PER_BIOME] if cleared > 0 else "Tap to play"
+	var status_label := _label(status, 13, GOLD, HORIZONTAL_ALIGNMENT_RIGHT, row)
+	status_label.theme_type_variation = "TitleLabel"
+	status_label.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_make_tappable(panel, _open_biome.bind(index))
+	# A newly unlocked world: a NEW tag and a confetti pop (once).
+	if Progress.is_world_new(id):
+		Progress.mark_world_seen(id)
+		var tag := _outlined("NEW!", 18, Look.GOLD)
+		_pin_right(tag, 104, 60, 8, 26)
+		tag.rotation = 0.12
+		banner.add_child(tag)
+		var pulse := tag.create_tween().set_loops()
+		pulse.tween_property(tag, "modulate", Look.HEART, 0.5)
+		pulse.tween_property(tag, "modulate", Color.WHITE, 0.5)
+		var pop := func():
+			ConfettiBurst.pop(self, panel.global_position + Vector2(panel.size.x / 2, 40),
+				50, [accent, GOLD, Color.WHITE, accent.lightened(0.3)])
+			Audio.play("evolve")
+		get_tree().create_timer(SLIDE_TIME + 0.1).timeout.connect(pop)
+
+
+## The postcard's picture: a slice of the world's painted map, its name in
+## big outlined letters, and (if unlocked) the boss and an invader walking.
+func _postcard_banner(index: int, id: String, unlocked: bool, accent: Color) -> Control:
+	var world: Dictionary = Progress.WORLDS[index]
+	var banner := Control.new()
+	banner.custom_minimum_size.y = 100
+	banner.clip_contents = true
+	var path := "res://art/backgrounds/%s/level_02.webp" % id
+	if id != "" and ResourceLoader.exists(path):
+		var picture: Texture2D = load(path)
+		var slice := AtlasTexture.new()  # a band from the middle of the map
+		slice.atlas = picture
+		var band := picture.get_width() * 100.0 / 320.0
+		slice.region = Rect2(0, picture.get_height() * 0.42, picture.get_width(), band)
+		var rect := TextureRect.new()
+		rect.texture = slice
+		rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+		rect.modulate = Color(0.78, 0.74, 0.78) if unlocked else Color.WHITE
+		if not unlocked:
+			var grey := ShaderMaterial.new()
+			grey.shader = GRAYSCALE
+			rect.material = grey
+		banner.add_child(rect)
+	else:
+		var flat := ColorRect.new()
+		flat.color = Look.SURFACE_HI
+		flat.set_anchors_preset(Control.PRESET_FULL_RECT)
+		banner.add_child(flat)
+	# Darken the top-left behind the name so it always reads.
+	var shade := TextureRect.new()
+	var gradient := GradientTexture2D.new()
+	gradient.gradient = Gradient.new()
+	gradient.gradient.set_color(0, Color(0, 0, 0, 0.55))
+	gradient.gradient.set_color(1, Color(0, 0, 0, 0.0))
+	gradient.fill_to = Vector2(0.8, 0.9)
+	shade.texture = gradient
+	shade.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	shade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	banner.add_child(shade)
 	if unlocked:
-		var symbols := _symbol_row(card)
-		for pack_id in PackSymbol.ORDER:
-			var beaten := Progress.levels_beaten_by(id, pack_id)
-			symbols.add_child(PackSymbol.new().setup(pack_id, float(beaten) / Progress.LEVELS_PER_BIOME, 26))
-	var enter := _button("Enter" if unlocked else "Locked: beat World %d first" % index,
-		_open_biome.bind(index), card)
-	enter.disabled = not unlocked
+		var art: Dictionary = _card_art().get(id, {})
+		if art.has("invader") and ResourceLoader.exists(art.invader):
+			var walker := AnimIcon.new().setup(load(art.invader), 8.0)
+			_pin_right(walker, 104, 48, 50)
+			banner.add_child(walker)
+		if art.has("boss") and ResourceLoader.exists(art.boss):
+			var boss := AnimIcon.new().setup(load(art.boss), 6.0)
+			_pin_right(boss, 6, 94, 4)
+			banner.add_child(boss)
+	var number := "BONUS WORLD" if Progress.is_bonus(index) else "WORLD %d" % Progress.main_number(index)
+	var small := _outlined(number, 12, accent if unlocked else DIM_TEXT)
+	small.position = Vector2(12, 10)
+	banner.add_child(small)
+	var name := _outlined(world.name, 25, Look.TEXT if unlocked else DIM_TEXT)
+	name.position = Vector2(12, 26)
+	banner.add_child(name)
+	if not unlocked and id != "" and not Progress.is_bonus(index):
+		var lock := _outlined("LOCKED", 16, DIM_TEXT)
+		_pin_right(lock, 14, 80, 66, 24)
+		lock.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		banner.add_child(lock)
+	return banner
+
+
+## Places `control` inside its parent, measured from the parent's right
+## edge (so it stays put whatever the screen width): `right` pixels in from
+## the edge, `width` wide, `top` down, `height` tall (default: square).
+func _pin_right(control: Control, right: float, width: float, top: float, height := -1.0) -> void:
+	control.anchor_left = 1.0
+	control.anchor_right = 1.0
+	control.offset_left = -right - width
+	control.offset_right = -right
+	control.offset_top = top
+	control.offset_bottom = top + (width if height < 0 else height)
+
+
+## A free-floating title-font label with a thick dark outline.
+func _outlined(text: String, font_size: int, color: Color) -> Label:
+	var label := Label.new()
+	label.text = text
+	label.theme_type_variation = "TitleLabel"
+	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_color_override("font_color", color)
+	label.add_theme_color_override("font_outline_color", Color("#1a0a12"))
+	label.add_theme_constant_override("outline_size", 8)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return label
+
+
+## Each world's boss and familiar invader strips (from data/showcase.json).
+func _card_art() -> Dictionary:
+	if _cards_cache.is_empty():
+		var showcase = JSON.parse_string(FileAccess.get_file_as_string("res://data/showcase.json"))
+		if showcase is Dictionary:
+			_cards_cache = showcase.get("_cards", {})
+	return _cards_cache
+
+
+## Makes a whole card act like a button: squashes when pressed, and a tap
+## (not a drag) calls `action`.
+func _make_tappable(card: Control, action: Callable) -> void:
+	card.resized.connect(func(): card.pivot_offset = card.size / 2)
+	card.gui_input.connect(func(event: InputEvent):
+		if not (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
+			return
+		var tween := card.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		if event.pressed:
+			tween.tween_property(card, "scale", Vector2(0.97, 0.97), 0.06)
+		else:
+			tween.tween_property(card, "scale", Vector2.ONE, 0.25)
+			if not _dragged and card.get_global_rect().has_point(event.global_position):
+				Audio.play("button")
+				action.call())
 
 
 ## Enters a world with the pack picked there last time (or the first pack).
@@ -427,8 +653,11 @@ func _header(title: String, back: Callable) -> void:
 	back_button.custom_minimum_size = Vector2(64, 36)
 	back_button.pressed.connect(func():
 		if not _dragged:
+			Audio.play("button")
+			_going_back = true
 			back.call())
 	row.add_child(back_button)
+	_juice(back_button)
 	var label := _label(title, 20, Color.WHITE, HORIZONTAL_ALIGNMENT_LEFT, row)
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
@@ -480,7 +709,55 @@ func _button(text: String, action: Callable, parent: Control = null) -> Button:
 		Audio.play("button")
 		action.call())
 	(parent if parent else _content).add_child(button)
+	_juice(button)
 	return button
+
+
+## Button juice: a chunky 3D edge that presses down, and a little squash
+## when pressed that springs back on release.
+func _juice(button: Button, fill := Look.SURFACE_HI, edge := Color("#120a10"), ink := Color.TRANSPARENT,
+		depth := 5) -> void:
+	var up := Look.panel(fill, Color.TRANSPARENT, 10)
+	up.border_color = edge
+	up.set_border_width_all(2)
+	up.border_width_bottom = depth
+	up.border_color = edge
+	var hover := up.duplicate()
+	hover.bg_color = fill.lightened(0.08)
+	var down := up.duplicate()
+	down.bg_color = fill.darkened(0.1)
+	down.border_width_bottom = 2
+	down.expand_margin_top = -float(depth - 2)  # the face moves down, the edge stays
+	for style in [up, hover, down]:
+		style.content_margin_top = 6
+		style.content_margin_bottom = 6
+	down.content_margin_top = 6 + depth - 2  # the label moves down with the face
+	var off := up.duplicate()
+	off.bg_color = Color("#1a1016")
+	off.border_color = Color("#0e080c")
+	button.add_theme_stylebox_override("normal", up)
+	button.add_theme_stylebox_override("hover", hover)
+	button.add_theme_stylebox_override("pressed", down)
+	button.add_theme_stylebox_override("hover_pressed", down)
+	button.add_theme_stylebox_override("disabled", off)
+	if ink != Color.TRANSPARENT:
+		for key in ["font_color", "font_hover_color", "font_pressed_color"]:
+			button.add_theme_color_override(key, ink)
+		button.add_theme_color_override("font_outline_color", edge)
+		button.add_theme_constant_override("outline_size", 6)
+	if button.has_meta("juiced"):
+		return  # already squashes (restyled again, e.g. the Play button)
+	button.set_meta("juiced", true)
+	# Squash and spring back (scaled around the middle).
+	button.resized.connect(func(): button.pivot_offset = button.size / 2)
+	button.button_down.connect(func():
+		if button.disabled:
+			return
+		var tween := button.create_tween()
+		tween.tween_property(button, "scale", Vector2(0.96, 0.92), 0.06))
+	button.button_up.connect(func():
+		var tween := button.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		tween.tween_property(button, "scale", Vector2.ONE, 0.25))
 
 
 func _spacer(height: float) -> void:

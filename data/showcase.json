@@ -1,0 +1,3196 @@
+{
+	"_cards": {
+		"backyard_bugs": {
+			"boss": "res://art/anim/backyard_bugs/invaders/giant_centipede_move.png",
+			"invader": "res://art/anim/backyard_bugs/invaders/termite_move.png"
+		},
+		"birthday_bash": {
+			"boss": "res://art/anim/birthday_bash/invaders/clown_move.png",
+			"invader": "res://art/anim/birthday_bash/invaders/windup_mouse_move.png"
+		},
+		"galactic_siege": {
+			"boss": "res://art/anim/galactic_siege/invaders/mothership_move.png",
+			"invader": "res://art/anim/galactic_siege/invaders/grub_move.png"
+		},
+		"immune_system": {
+			"boss": "res://art/anim/immune_system/invaders/superbug_move.png",
+			"invader": "res://art/anim/immune_system/invaders/rhinovirus_move.png"
+		},
+		"kitchen_defense": {
+			"boss": "res://art/anim/kitchen_defense/invaders/rat_king_move.png",
+			"invader": "res://art/anim/kitchen_defense/invaders/rat_move.png"
+		},
+		"total_war": {
+			"boss": "res://art/anim/total_war/invaders/mega_tank_move.png",
+			"invader": "res://art/anim/total_war/invaders/toy_soldier_move.png"
+		},
+		"wild_kingdom": {
+			"boss": "res://art/anim/wild_kingdom/invaders/grizzly_move.png",
+			"invader": "res://art/anim/wild_kingdom/invaders/wolf_move.png"
+		}
+	},
+	"backyard_bugs": [
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/cobblestone_idle.png",
+					"name": "Cobblestone"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/thorned_pebble_idle.png",
+					"name": "Thorned Pebble"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/fortress/pebble_wall_idle.png",
+			"name": "Pebble Wall"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/goliath_stag_idle.png",
+					"name": "Goliath Stag"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/sweeping_stag_idle.png",
+					"name": "Sweeping Stag"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/fortress/stag_beetle_idle.png",
+			"name": "Stag Beetle"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/blast_bombardier_idle.png",
+					"name": "Blast Bombardier"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/longshot_bombardier_idle.png",
+					"name": "Long-Shot Bombardier"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/fortress/bombardier_beetle_idle.png",
+			"name": "Bombardier Beetle"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/dense_moss_idle.png",
+					"name": "Dense Moss"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/lush_moss_idle.png",
+					"name": "Lush Moss"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/fortress/moss_clump_idle.png",
+			"name": "Moss Clump"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/giant_mantis_idle.png",
+					"name": "Giant Mantis"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/orchid_mantis_idle.png",
+					"name": "Orchid Mantis"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/fortress/praying_mantis_idle.png",
+			"name": "Praying Mantis"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/petrified_stump_idle.png",
+					"name": "Petrified Stump"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/fortress/thorny_stump_idle.png",
+					"name": "Thorny Stump"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/fortress/tree_stump_idle.png",
+			"name": "Tree Stump"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/twig_bundle_idle.png",
+					"name": "Twig Bundle"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/bramble_twig_idle.png",
+					"name": "Bramble Twig"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/swarm/twig_idle.png",
+			"name": "Twig"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/fire_ant_idle.png",
+					"name": "Fire Ant"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/scout_ant_idle.png",
+					"name": "Scout Ant"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/swarm/worker_ant_idle.png",
+			"name": "Worker Ant"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/volley_ant_idle.png",
+					"name": "Volley Ant"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/sentry_ant_idle.png",
+					"name": "Sentry Ant"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/swarm/acid_ant_idle.png",
+			"name": "Acid Ant"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/angry_bee_idle.png",
+					"name": "Angry Bee"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/buzzing_bee_idle.png",
+					"name": "Buzzing Bee"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/swarm/honeybee_idle.png",
+			"name": "Honeybee"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/bullet_ant_major_idle.png",
+					"name": "Bullet Ant Major"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/hunting_ant_idle.png",
+					"name": "Hunting Ant"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/swarm/bullet_ant_idle.png",
+			"name": "Bullet Ant"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/thick_sap_idle.png",
+					"name": "Thick Sap"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/swarm/spreading_sap_idle.png",
+					"name": "Spreading Sap"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/swarm/sap_blob_idle.png",
+			"name": "Sap Blob"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/walnut_shell_idle.png",
+					"name": "Walnut Shell"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/chestnut_burr_idle.png",
+					"name": "Chestnut Burr"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/precision/acorn_shell_idle.png",
+			"name": "Acorn Shell"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/venom_spitter_idle.png",
+					"name": "Venom Spitter"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/sharpshooter_spider_idle.png",
+					"name": "Sharpshooter Spider"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/precision/spitting_spider_idle.png",
+			"name": "Spitting Spider"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/bright_firefly_idle.png",
+					"name": "Bright Firefly"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/signal_firefly_idle.png",
+					"name": "Signal Firefly"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/precision/firefly_idle.png",
+			"name": "Firefly"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/masked_hunter_idle.png",
+					"name": "Masked Hunter"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/patrol_assassin_idle.png",
+					"name": "Patrol Assassin"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/precision/assassin_bug_idle.png",
+			"name": "Assassin Bug"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/heavy_jumper_idle.png",
+					"name": "Heavy Jumper"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/quick_jumper_idle.png",
+					"name": "Quick Jumper"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/precision/jumping_spider_idle.png",
+			"name": "Jumping Spider"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/blazing_lantern_idle.png",
+					"name": "Blazing Lantern"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/precision/tall_lantern_idle.png",
+					"name": "Tall Lantern"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/precision/glowworm_lantern_idle.png",
+			"name": "Glowworm Lantern"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/thick_web_idle.png",
+					"name": "Thick Web"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/sticky_web_idle.png",
+					"name": "Sticky Web"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/control/spiderweb_idle.png",
+			"name": "Spiderweb"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/pungent_stink_bug_idle.png",
+					"name": "Pungent Stink Bug"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/wafting_stink_bug_idle.png",
+					"name": "Wafting Stink Bug"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/control/stink_bug_idle.png",
+			"name": "Stink Bug"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/froth_spittlebug_idle.png",
+					"name": "Froth Spittlebug"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/long_spittlebug_idle.png",
+					"name": "Long Spittlebug"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/control/spittlebug_idle.png",
+			"name": "Spittlebug"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/focused_lens_idle.png",
+					"name": "Focused Lens"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/wide_lens_idle.png",
+					"name": "Wide Lens"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/control/magnifying_glass_idle.png",
+			"name": "Magnifying Glass"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/thunder_click_beetle_idle.png",
+					"name": "Thunder Click Beetle"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/shockwave_click_beetle_idle.png",
+					"name": "Shockwave Click Beetle"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/control/click_beetle_idle.png",
+			"name": "Click Beetle"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/power_sprinkler_idle.png",
+					"name": "Power Sprinkler"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/control/wide_sprinkler_idle.png",
+					"name": "Wide Sprinkler"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/control/sprinkler_idle.png",
+			"name": "Sprinkler"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/dense_nettles_idle.png",
+					"name": "Dense Nettles"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/stinging_nettles_idle.png",
+					"name": "Stinging Nettles"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/toxin/nettle_patch_idle.png",
+			"name": "Nettle Patch"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/yellowjacket_idle.png",
+					"name": "Yellowjacket"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/long_sting_wasp_idle.png",
+					"name": "Long-Sting Wasp"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/toxin/paper_wasp_idle.png",
+			"name": "Paper Wasp"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/caustic_blister_beetle_idle.png",
+					"name": "Caustic Blister Beetle"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/misting_blister_beetle_idle.png",
+					"name": "Misting Blister Beetle"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/toxin/blister_beetle_idle.png",
+			"name": "Blister Beetle"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/deathcap_idle.png",
+					"name": "Deathcap"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/spore_puff_idle.png",
+					"name": "Spore Puff"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/toxin/toxic_mushroom_idle.png",
+			"name": "Toxic Mushroom"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/deathstalker_idle.png",
+					"name": "Deathstalker"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/long_tail_scorpion_idle.png",
+					"name": "Long-Tail Scorpion"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/toxin/scorpion_idle.png",
+			"name": "Scorpion"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/woody_ivy_idle.png",
+					"name": "Woody Ivy"
+				},
+				{
+					"idle": "res://art/anim/backyard_bugs/units/toxin/virulent_ivy_idle.png",
+					"name": "Virulent Ivy"
+				}
+			],
+			"idle": "res://art/anim/backyard_bugs/units/toxin/poison_ivy_idle.png",
+			"name": "Poison Ivy"
+		}
+	],
+	"birthday_bash": [
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/big_gift_box_idle.png",
+					"name": "Big Gift Box"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/prickly_present_idle.png",
+					"name": "Prickly Present"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/fortress/gift_box_idle.png",
+			"name": "Gift Box"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/giant_mallet_idle.png",
+					"name": "Giant Mallet"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/wide_mallet_idle.png",
+					"name": "Wide Mallet"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/fortress/party_mallet_idle.png",
+			"name": "Party Mallet"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/mega_confetti_cannon_idle.png",
+					"name": "Mega Confetti Cannon"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/long_confetti_cannon_idle.png",
+					"name": "Long Confetti Cannon"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/fortress/confetti_cannon_idle.png",
+			"name": "Confetti Cannon"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/thick_balloon_arch_idle.png",
+					"name": "Thick Balloon Arch"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/self_inflating_arch_idle.png",
+					"name": "Self-Inflating Arch"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/fortress/balloon_arch_idle.png",
+			"name": "Balloon Arch"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/big_fireworks_idle.png",
+					"name": "Big Fireworks"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/long_fireworks_idle.png",
+					"name": "Long Fireworks"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/fortress/fireworks_launcher_idle.png",
+			"name": "Fireworks Launcher"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/frozen_cake_idle.png",
+					"name": "Frozen Cake"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/fortress/sprinkle_spike_cake_idle.png",
+					"name": "Sprinkle Spike Cake"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/fortress/ice_cream_cake_idle.png",
+			"name": "Ice Cream Cake"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/stacked_cups_idle.png",
+					"name": "Stacked Cups"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/pointy_cup_idle.png",
+					"name": "Pointy Cup"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/swarm/paper_cup_idle.png",
+			"name": "Paper Cup"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/loud_blower_idle.png",
+					"name": "Loud Blower"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/long_blower_idle.png",
+					"name": "Long Blower"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/swarm/party_blower_idle.png",
+			"name": "Party Blower"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/twin_water_pistol_idle.png",
+					"name": "Twin Water Pistol"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/super_soaker_idle.png",
+					"name": "Super Soaker"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/swarm/water_pistol_idle.png",
+			"name": "Water Pistol"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/loud_noisemaker_idle.png",
+					"name": "Loud Noisemaker"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/wide_noisemaker_idle.png",
+					"name": "Wide Noisemaker"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/swarm/noisemaker_idle.png",
+			"name": "Noisemaker"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/hot_sparkler_idle.png",
+					"name": "Hot Sparkler"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/long_sparkler_idle.png",
+					"name": "Long Sparkler"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/swarm/sparkler_idle.png",
+			"name": "Sparkler"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/thick_streamers_idle.png",
+					"name": "Thick Streamers"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/swarm/wide_streamers_idle.png",
+					"name": "Wide Streamers"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/swarm/streamer_tangle_idle.png",
+			"name": "Streamer Tangle"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/stacked_chairs_idle.png",
+					"name": "Stacked Chairs"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/spiky_chair_idle.png",
+					"name": "Spiky Chair"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/precision/folding_chair_idle.png",
+			"name": "Folding Chair"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/heavy_dart_blaster_idle.png",
+					"name": "Heavy Dart Blaster"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/long_dart_blaster_idle.png",
+					"name": "Long Dart Blaster"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/precision/dart_blaster_idle.png",
+			"name": "Dart Blaster"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/bright_spotlight_idle.png",
+					"name": "Bright Spotlight"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/long_spotlight_idle.png",
+					"name": "Long Spotlight"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/precision/spotlight_idle.png",
+			"name": "Spotlight"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/big_foam_sword_idle.png",
+					"name": "Big Foam Sword"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/long_foam_sword_idle.png",
+					"name": "Long Foam Sword"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/precision/foam_sword_idle.png",
+			"name": "Foam Sword"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/heavy_bottle_rocket_idle.png",
+					"name": "Heavy Bottle Rocket"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/rapid_bottle_rocket_idle.png",
+					"name": "Rapid Bottle Rocket"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/precision/bottle_rocket_idle.png",
+			"name": "Bottle Rocket"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/bright_disco_ball_idle.png",
+					"name": "Bright Disco Ball"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/precision/tall_disco_ball_idle.png",
+					"name": "Tall Disco Ball"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/precision/disco_ball_idle.png",
+			"name": "Disco Ball"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/thick_jelly_idle.png",
+					"name": "Thick Jelly"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/extra_wobbly_jelly_idle.png",
+					"name": "Extra-Wobbly Jelly"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/control/jelly_wall_idle.png",
+			"name": "Jelly Wall"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/fast_bubble_machine_idle.png",
+					"name": "Fast Bubble Machine"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/wide_bubble_machine_idle.png",
+					"name": "Wide Bubble Machine"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/control/bubble_machine_idle.png",
+			"name": "Bubble Machine"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/cream_pie_launcher_idle.png",
+					"name": "Cream Pie Launcher"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/long_pie_launcher_idle.png",
+					"name": "Long Pie Launcher"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/control/pie_launcher_idle.png",
+			"name": "Pie Launcher"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/tall_flame_candles_idle.png",
+					"name": "Tall Flame Candles"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/wide_candle_ring_idle.png",
+					"name": "Wide Candle Ring"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/control/candle_stand_idle.png",
+			"name": "Candle Stand"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/air_horn_idle.png",
+					"name": "Air Horn"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/chain_horns_idle.png",
+					"name": "Chain Horns"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/control/party_horn_idle.png",
+			"name": "Party Horn"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/hot_foam_machine_idle.png",
+					"name": "Hot Foam Machine"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/control/big_foam_machine_idle.png",
+					"name": "Big Foam Machine"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/control/foam_machine_idle.png",
+			"name": "Foam Machine"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/big_sour_wall_idle.png",
+					"name": "Big Sour Wall"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/super_sour_wall_idle.png",
+					"name": "Super Sour Wall"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/toxin/sour_candy_wall_idle.png",
+			"name": "Sour Candy Wall"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/extra_sour_squirter_idle.png",
+					"name": "Extra-Sour Squirter"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/long_lemon_squirter_idle.png",
+					"name": "Long Lemon Squirter"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/toxin/lemon_squirter_idle.png",
+			"name": "Lemon Squirter"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/sticky_silly_string_idle.png",
+					"name": "Sticky Silly String"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/long_silly_string_idle.png",
+					"name": "Long Silly String"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/toxin/silly_string_idle.png",
+			"name": "Silly String"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/sour_punch_bowl_idle.png",
+					"name": "Sour Punch Bowl"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/overflowing_punch_bowl_idle.png",
+					"name": "Overflowing Punch Bowl"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/toxin/punch_bowl_idle.png",
+			"name": "Punch Bowl"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/super_stink_bomb_idle.png",
+					"name": "Super Stink Bomb"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/long_stink_bomb_idle.png",
+					"name": "Long Stink Bomb"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/toxin/stink_bomb_idle.png",
+			"name": "Stink Bomb"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/stale_moldy_cake_idle.png",
+					"name": "Stale Moldy Cake"
+				},
+				{
+					"idle": "res://art/anim/birthday_bash/units/toxin/fuzzy_moldy_cake_idle.png",
+					"name": "Fuzzy Moldy Cake"
+				}
+			],
+			"idle": "res://art/anim/birthday_bash/units/toxin/moldy_cake_idle.png",
+			"name": "Moldy Cake"
+		}
+	],
+	"galactic_siege": [
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/armored_plate_idle.png",
+					"name": "Armored Plate"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/spiked_plate_idle.png",
+					"name": "Spiked Plate"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/fortress/hull_plate_idle.png",
+			"name": "Hull Plate"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/heavy_mech_idle.png",
+					"name": "Heavy Mech"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/shockwave_mech_idle.png",
+					"name": "Shockwave Mech"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/fortress/mech_brawler_idle.png",
+			"name": "Mech Brawler"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/overcharged_cannon_idle.png",
+					"name": "Overcharged Cannon"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/long_plasma_cannon_idle.png",
+					"name": "Long Plasma Cannon"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/fortress/plasma_cannon_idle.png",
+			"name": "Plasma Cannon"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/dense_nanites_idle.png",
+					"name": "Dense Nanites"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/rapid_nanites_idle.png",
+					"name": "Rapid Nanites"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/fortress/nanite_wall_idle.png",
+			"name": "Nanite Wall"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/heavy_rail_cannon_idle.png",
+					"name": "Heavy Rail Cannon"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/long_rail_cannon_idle.png",
+					"name": "Long Rail Cannon"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/fortress/rail_cannon_idle.png",
+			"name": "Rail Cannon"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/hardened_core_idle.png",
+					"name": "Hardened Core"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/fortress/spiked_core_idle.png",
+					"name": "Spiked Core"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/fortress/fortress_core_idle.png",
+			"name": "Fortress Core"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/welded_scrap_idle.png",
+					"name": "Welded Scrap"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/spiked_scrap_idle.png",
+					"name": "Spiked Scrap"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/swarm/scrap_barrier_idle.png",
+			"name": "Scrap Barrier"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/frenzy_bot_idle.png",
+					"name": "Frenzy Bot"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/scout_bot_idle.png",
+					"name": "Scout Bot"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/swarm/buzz_bot_idle.png",
+			"name": "Buzz Bot"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/twin_drone_idle.png",
+					"name": "Twin Drone"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/sentry_drone_idle.png",
+					"name": "Sentry Drone"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/swarm/gun_drone_idle.png",
+			"name": "Gun Drone"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/high_voltage_coil_idle.png",
+					"name": "High-Voltage Coil"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/wide_tesla_coil_idle.png",
+					"name": "Wide Tesla Coil"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/swarm/tesla_coil_idle.png",
+			"name": "Tesla Coil"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/razor_bot_idle.png",
+					"name": "Razor Bot"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/hunter_bot_idle.png",
+					"name": "Hunter Bot"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/swarm/blade_bot_idle.png",
+			"name": "Blade Bot"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/dense_gravity_well_idle.png",
+					"name": "Dense Gravity Well"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/swarm/wide_gravity_well_idle.png",
+					"name": "Wide Gravity Well"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/swarm/gravity_well_idle.png",
+			"name": "Gravity Well"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/reinforced_barrier_idle.png",
+					"name": "Reinforced Barrier"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/reflector_barrier_idle.png",
+					"name": "Reflector Barrier"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/precision/energy_barrier_idle.png",
+			"name": "Energy Barrier"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/pulse_laser_idle.png",
+					"name": "Pulse Laser"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/long_laser_idle.png",
+					"name": "Long Laser"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/precision/laser_turret_idle.png",
+			"name": "Laser Turret"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/lock_on_beacon_idle.png",
+					"name": "Lock-On Beacon"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/long_beacon_idle.png",
+					"name": "Long Beacon"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/precision/targeting_beacon_idle.png",
+			"name": "Targeting Beacon"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/heavy_ion_cannon_idle.png",
+					"name": "Heavy Ion Cannon"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/patrol_ion_cannon_idle.png",
+					"name": "Patrol Ion Cannon"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/precision/ion_cannon_idle.png",
+			"name": "Ion Cannon"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/heavy_orbital_lance_idle.png",
+					"name": "Heavy Orbital Lance"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/rapid_orbital_lance_idle.png",
+					"name": "Rapid Orbital Lance"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/precision/orbital_lance_idle.png",
+			"name": "Orbital Lance"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/deep_scanner_idle.png",
+					"name": "Deep Scanner"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/precision/tall_scanner_idle.png",
+					"name": "Tall Scanner"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/precision/scanner_array_idle.png",
+			"name": "Scanner Array"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/thick_force_field_idle.png",
+					"name": "Thick Force Field"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/stasis_field_idle.png",
+					"name": "Stasis Field"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/control/force_field_idle.png",
+			"name": "Force Field"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/deep_cryo_emitter_idle.png",
+					"name": "Deep Cryo Emitter"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/wide_cryo_emitter_idle.png",
+					"name": "Wide Cryo Emitter"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/control/cryo_emitter_idle.png",
+			"name": "Cryo Emitter"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/heavy_arc_thrower_idle.png",
+					"name": "Heavy Arc Thrower"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/long_arc_thrower_idle.png",
+					"name": "Long Arc Thrower"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/control/arc_thrower_idle.png",
+			"name": "Arc Thrower"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/hot_plasma_vent_idle.png",
+					"name": "Hot Plasma Vent"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/wide_plasma_vent_idle.png",
+					"name": "Wide Plasma Vent"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/control/plasma_vent_idle.png",
+			"name": "Plasma Vent"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/overloaded_emp_idle.png",
+					"name": "Overloaded EMP"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/chain_emp_idle.png",
+					"name": "Chain EMP"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/control/emp_tower_idle.png",
+			"name": "EMP Tower"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/strong_tractor_beam_idle.png",
+					"name": "Strong Tractor Beam"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/control/wide_tractor_beam_idle.png",
+					"name": "Wide Tractor Beam"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/control/tractor_beam_idle.png",
+			"name": "Tractor Beam"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/shielded_rad_plate_idle.png",
+					"name": "Shielded Rad Plate"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/hot_rad_plate_idle.png",
+					"name": "Hot Rad Plate"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/toxin/rad_plate_idle.png",
+			"name": "Radioactive Plate"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/corrosive_bot_idle.png",
+					"name": "Corrosive Bot"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/long_acid_bot_idle.png",
+					"name": "Long Acid Bot"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/toxin/acid_bot_idle.png",
+			"name": "Acid Bot"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/swarming_nanites_idle.png",
+					"name": "Swarming Nanites"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/misting_nanites_idle.png",
+					"name": "Misting Nanites"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/toxin/nanite_sprayer_idle.png",
+			"name": "Nanite Sprayer"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/meltdown_reactor_idle.png",
+					"name": "Meltdown Reactor"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/leaking_reactor_idle.png",
+					"name": "Leaking Reactor"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/toxin/toxic_reactor_idle.png",
+			"name": "Toxic Reactor"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/plague_swarm_idle.png",
+					"name": "Plague Swarm"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/long_plague_drone_idle.png",
+					"name": "Long Plague Drone"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/toxin/plague_drone_idle.png",
+			"name": "Plague Drone"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/hardened_zone_idle.png",
+					"name": "Hardened Zone"
+				},
+				{
+					"idle": "res://art/anim/galactic_siege/units/toxin/virulent_zone_idle.png",
+					"name": "Virulent Zone"
+				}
+			],
+			"idle": "res://art/anim/galactic_siege/units/toxin/contamination_zone_idle.png",
+			"name": "Contamination Zone"
+		}
+	],
+	"immune_system": [
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/fibrin_mesh_idle.png",
+					"name": "Thick Scab"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/thrombus_spike_idle.png",
+					"name": "Spiky Scab"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/fortress/platelet_clot_idle.png",
+			"name": "Scab"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/giant_macrophage_idle.png",
+					"name": "Giant Germ Eater"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/foam_macrophage_idle.png",
+					"name": "Wide Germ Eater"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/fortress/macrophage_idle.png",
+			"name": "Germ Eater"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/mature_dendrite_idle.png",
+					"name": "Strong Scout Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/roaming_dendrite_idle.png",
+					"name": "Far Scout Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/fortress/dendritic_cell_idle.png",
+			"name": "Scout Cell"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/scar_fibroblast_idle.png",
+					"name": "Tough Scar Tissue"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/healing_fibroblast_idle.png",
+					"name": "Quick-Heal Tissue"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/fortress/fibroblast_idle.png",
+			"name": "Scar Tissue"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/eosinophil_burst_idle.png",
+					"name": "Big Blaster Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/eosinophil_lancer_idle.png",
+					"name": "Long Blaster Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/fortress/eosinophil_idle.png",
+			"name": "Blaster Cell"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/calcified_granuloma_idle.png",
+					"name": "Rock-Hard Lump"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/fortress/caseous_granuloma_idle.png",
+					"name": "Spiky Lump"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/fortress/granuloma_idle.png",
+			"name": "Hard Lump"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/keratinized_cell_idle.png",
+					"name": "Tough Skin Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/ciliated_cell_idle.png",
+					"name": "Prickly Skin Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/swarm/epithelial_cell_idle.png",
+			"name": "Skin Cell"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/frenzied_neutrophil_idle.png",
+					"name": "Angry White Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/scout_neutrophil_idle.png",
+					"name": "Long-Reach White Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/swarm/neutrophil_idle.png",
+			"name": "White Blood Cell"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/volley_monocyte_idle.png",
+					"name": "Double Spike Shooter"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/lookout_monocyte_idle.png",
+					"name": "Long Spike Shooter"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/swarm/monocyte_idle.png",
+			"name": "Spike Shooter"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/degranulating_basophil_idle.png",
+					"name": "Extra-Itchy Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/wide_basophil_idle.png",
+					"name": "Wide Itch Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/swarm/basophil_idle.png",
+			"name": "Itch Cell"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/killer_nk_cell_idle.png",
+					"name": "Fierce Killer Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/hunting_nk_cell_idle.png",
+					"name": "Hunter Killer Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/swarm/nk_cell_idle.png",
+			"name": "Killer Cell"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/dense_net_idle.png",
+					"name": "Thick Sticky Net"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/swarm/wide_net_idle.png",
+					"name": "Wide Sticky Net"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/swarm/net_trap_idle.png",
+			"name": "Sticky Net"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/precision/layered_plate_idle.png",
+					"name": "Thick Nail Plate"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/precision/spined_plate_idle.png",
+					"name": "Spiked Nail Plate"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/precision/keratin_plate_idle.png",
+			"name": "Nail Plate"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/precision/plasma_cell_idle.png",
+					"name": "Heavy Antibody Shooter"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/precision/memory_b_cell_idle.png",
+					"name": "Long Antibody Shooter"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/precision/b_cell_idle.png",
+			"name": "Antibody Shooter"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/precision/opsonizer_idle.png",
+					"name": "Strong Germ Tagger"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/precision/long_tagger_idle.png",
+					"name": "Long Germ Tagger"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/precision/antibody_tagger_idle.png",
+			"name": "Germ Tagger"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/precision/effector_t_idle.png",
+					"name": "Strong Germ Stabber"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/precision/patrol_t_idle.png",
+					"name": "Patrol Germ Stabber"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/precision/cytotoxic_t_idle.png",
+			"name": "Germ Stabber"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/precision/heavy_lance_idle.png",
+					"name": "Heavy Antibody Sniper"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/precision/rapid_lance_idle.png",
+					"name": "Rapid Antibody Sniper"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/precision/opsonin_lance_idle.png",
+			"name": "Antibody Sniper"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/precision/alarm_beacon_idle.png",
+					"name": "Loud Alarm Signal"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/precision/tall_beacon_idle.png",
+					"name": "Tall Alarm Signal"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/precision/interferon_beacon_idle.png",
+			"name": "Alarm Signal"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/control/thick_mucus_idle.png",
+					"name": "Thick Mucus"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/control/sticky_mucus_idle.png",
+					"name": "Sticky Mucus"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/control/mucus_wall_idle.png",
+			"name": "Mucus Wall"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/control/reactive_mast_cell_idle.png",
+					"name": "Strong Allergy Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/control/spreading_mast_cell_idle.png",
+					"name": "Wide Allergy Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/control/mast_cell_idle.png",
+			"name": "Allergy Cell"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/control/acid_spitter_idle.png",
+					"name": "Big Sneeze Blaster"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/control/far_spitter_idle.png",
+					"name": "Far Sneeze Blaster"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/control/histamine_spitter_idle.png",
+			"name": "Sneeze Blaster"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/control/high_fever_idle.png",
+					"name": "High Fever Spot"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/control/wide_fever_idle.png",
+					"name": "Wide Fever Spot"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/control/fever_node_idle.png",
+			"name": "Fever Spot"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/control/paralyzing_storm_idle.png",
+					"name": "Long Stun Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/control/rolling_storm_idle.png",
+					"name": "Wide Stun Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/control/cytokine_storm_idle.png",
+			"name": "Stun Cell"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/control/searing_zone_idle.png",
+					"name": "Hot Swelling"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/control/swollen_zone_idle.png",
+					"name": "Big Swelling"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/control/inflammation_zone_idle.png",
+			"name": "Swelling"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/thick_membrane_idle.png",
+					"name": "Thick Toxic Skin"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/venom_membrane_idle.png",
+					"name": "Venom Skin"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/toxin/toxic_membrane_idle.png",
+			"name": "Toxic Skin"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/venomous_t_idle.png",
+					"name": "Strong Poison Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/reaching_t_idle.png",
+					"name": "Long Poison Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/toxin/killer_t_idle.png",
+			"name": "Poison Cell"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/caustic_sprayer_idle.png",
+					"name": "Strong Poison Sprayer"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/misting_sprayer_idle.png",
+					"name": "Misting Poison Sprayer"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/toxin/complement_sprayer_idle.png",
+			"name": "Poison Sprayer"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/acid_pool_idle.png",
+					"name": "Strong Acid Puddle"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/spilling_pool_idle.png",
+					"name": "Spilling Acid Puddle"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/toxin/lysozyme_pool_idle.png",
+			"name": "Acid Puddle"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/plague_lancer_idle.png",
+					"name": "Strong Plague Cell"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/long_lancer_idle.png",
+					"name": "Long Plague Cell"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/toxin/perforin_lancer_idle.png",
+			"name": "Plague Cell"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/hardened_bloom_idle.png",
+					"name": "Hard Rot Patch"
+				},
+				{
+					"idle": "res://art/anim/immune_system/units/toxin/virulent_bloom_idle.png",
+					"name": "Nasty Rot Patch"
+				}
+			],
+			"idle": "res://art/anim/immune_system/units/toxin/necrosis_bloom_idle.png",
+			"name": "Rot Patch"
+		}
+	],
+	"kitchen_defense": [
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/stacked_cans_idle.png",
+					"name": "Stacked Cans"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/jagged_can_idle.png",
+					"name": "Jagged Can"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/fortress/tin_can_idle.png",
+			"name": "Tin Can"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/marble_rolling_pin_idle.png",
+					"name": "Marble Rolling Pin"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/wide_rolling_pin_idle.png",
+					"name": "Wide Rolling Pin"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/fortress/rolling_pin_idle.png",
+			"name": "Rolling Pin"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/champagne_popper_idle.png",
+					"name": "Champagne Popper"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/long_cork_popper_idle.png",
+					"name": "Long Cork Popper"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/fortress/cork_popper_idle.png",
+			"name": "Cork Popper"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/dense_sponge_idle.png",
+					"name": "Dense Sponge"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/soaked_sponge_idle.png",
+					"name": "Soaked Sponge"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/fortress/sponge_idle.png",
+			"name": "Sponge"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/big_pressure_cooker_idle.png",
+					"name": "Big Pressure Cooker"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/steam_jet_cooker_idle.png",
+					"name": "Steam Jet Cooker"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/fortress/pressure_cooker_idle.png",
+			"name": "Pressure Cooker"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/seasoned_pan_idle.png",
+					"name": "Seasoned Pan"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/fortress/spiked_grill_pan_idle.png",
+					"name": "Spiked Grill Pan"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/fortress/cast_iron_pan_idle.png",
+			"name": "Cast-Iron Pan"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/sugar_lump_idle.png",
+					"name": "Sugar Lump"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/rock_candy_idle.png",
+					"name": "Rock Candy"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/swarm/sugar_cube_idle.png",
+			"name": "Sugar Cube"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/sharp_fork_idle.png",
+					"name": "Sharp Fork"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/long_fork_idle.png",
+					"name": "Long Fork"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/swarm/fork_idle.png",
+			"name": "Fork"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/twin_spray_idle.png",
+					"name": "Twin Spray"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/jet_spray_idle.png",
+					"name": "Jet Spray"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/swarm/spray_bottle_idle.png",
+			"name": "Spray Bottle"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/power_beater_idle.png",
+					"name": "Power Beater"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/wide_whisk_idle.png",
+					"name": "Wide Whisk"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/swarm/egg_beater_idle.png",
+			"name": "Egg Beater"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/sharp_pizza_cutter_idle.png",
+					"name": "Sharp Pizza Cutter"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/rolling_pizza_cutter_idle.png",
+					"name": "Rolling Pizza Cutter"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/swarm/pizza_cutter_idle.png",
+			"name": "Pizza Cutter"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/double_wrap_idle.png",
+					"name": "Double Wrap"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/swarm/wide_wrap_idle.png",
+					"name": "Wide Wrap"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/swarm/cling_wrap_idle.png",
+			"name": "Cling Wrap"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/butcher_block_idle.png",
+					"name": "Butcher Block"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/cheese_grater_idle.png",
+					"name": "Cheese Grater"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/precision/cutting_board_idle.png",
+			"name": "Cutting Board"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/ghost_pepper_grinder_idle.png",
+					"name": "Ghost Pepper Grinder"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/tall_pepper_grinder_idle.png",
+					"name": "Tall Pepper Grinder"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/precision/pepper_grinder_idle.png",
+			"name": "Pepper Grinder"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/heavy_sifter_idle.png",
+					"name": "Heavy Sifter"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/long_sifter_idle.png",
+					"name": "Long Sifter"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/precision/flour_sifter_idle.png",
+			"name": "Flour Sifter"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/rat_trap_idle.png",
+					"name": "Rat Trap"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/swatter_trap_idle.png",
+					"name": "Swatter Trap"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/precision/mousetrap_idle.png",
+			"name": "Mousetrap"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/four_slice_toaster_idle.png",
+					"name": "Four-Slice Toaster"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/turbo_toaster_idle.png",
+					"name": "Turbo Toaster"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/precision/toaster_idle.png",
+			"name": "Toaster"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/bright_lamp_idle.png",
+					"name": "Bright Lamp"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/precision/tall_lamp_idle.png",
+					"name": "Tall Lamp"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/precision/kitchen_lamp_idle.png",
+			"name": "Kitchen Lamp"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/thick_flypaper_idle.png",
+					"name": "Thick Flypaper"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/extra_sticky_flypaper_idle.png",
+					"name": "Extra-Sticky Flypaper"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/control/flypaper_idle.png",
+			"name": "Flypaper"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/frosty_ice_tray_idle.png",
+					"name": "Frosty Ice Tray"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/wide_ice_tray_idle.png",
+					"name": "Wide Ice Tray"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/control/ice_tray_idle.png",
+			"name": "Ice Tray"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/hot_sauce_squirter_idle.png",
+					"name": "Hot Sauce Squirter"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/long_squirter_idle.png",
+					"name": "Long Squirter"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/control/ketchup_squirter_idle.png",
+			"name": "Ketchup Squirter"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/high_flame_burner_idle.png",
+					"name": "High Flame Burner"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/wide_burner_idle.png",
+					"name": "Wide Burner"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/control/stove_burner_idle.png",
+			"name": "Stove Burner"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/mega_zapper_idle.png",
+					"name": "Mega Zapper"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/chain_zapper_idle.png",
+					"name": "Chain Zapper"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/control/bug_zapper_idle.png",
+			"name": "Bug Zapper"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/searing_griddle_idle.png",
+					"name": "Searing Griddle"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/control/big_griddle_idle.png",
+					"name": "Big Griddle"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/control/hot_griddle_idle.png",
+			"name": "Hot Griddle"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/big_soap_bar_idle.png",
+					"name": "Big Soap Bar"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/lye_soap_idle.png",
+					"name": "Lye Soap"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/toxin/soap_bar_idle.png",
+			"name": "Soap Bar"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/extra_strength_spray_idle.png",
+					"name": "Extra-Strength Spray"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/long_spray_idle.png",
+					"name": "Long Spray"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/toxin/bug_spray_idle.png",
+			"name": "Bug Spray"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/caustic_mister_idle.png",
+					"name": "Caustic Mister"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/fine_mister_idle.png",
+					"name": "Fine Mister"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/toxin/pest_mister_idle.png",
+			"name": "Pest Mister"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/pickling_bowl_idle.png",
+					"name": "Pickling Bowl"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/overflowing_bowl_idle.png",
+					"name": "Overflowing Bowl"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/toxin/vinegar_bowl_idle.png",
+			"name": "Vinegar Bowl"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/super_bait_station_idle.png",
+					"name": "Super Bait Station"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/long_bait_station_idle.png",
+					"name": "Long Bait Station"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/toxin/ant_bait_station_idle.png",
+			"name": "Ant Bait Station"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/stale_moldy_bread_idle.png",
+					"name": "Stale Moldy Bread"
+				},
+				{
+					"idle": "res://art/anim/kitchen_defense/units/toxin/fuzzy_mold_loaf_idle.png",
+					"name": "Fuzzy Mold Loaf"
+				}
+			],
+			"idle": "res://art/anim/kitchen_defense/units/toxin/moldy_bread_idle.png",
+			"name": "Moldy Bread"
+		}
+	],
+	"total_war": [
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/fortress/reinforced_sandbags_idle.png",
+					"name": "Reinforced Sandbags"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/fortress/spiked_barricade_idle.png",
+					"name": "Spiked Barricade"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/fortress/sandbags_idle.png",
+			"name": "Sandbags"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/fortress/heavy_turret_idle.png",
+					"name": "Heavy Turret"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/fortress/siege_turret_idle.png",
+					"name": "Siege Turret"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/fortress/toy_tank_turret_idle.png",
+			"name": "Tank Turret"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/fortress/big_field_gun_idle.png",
+					"name": "Big Field Gun"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/fortress/long_field_gun_idle.png",
+					"name": "Long Field Gun"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/fortress/field_gun_idle.png",
+			"name": "Field Gun"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/fortress/armored_depot_idle.png",
+					"name": "Armored Depot"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/fortress/rapid_depot_idle.png",
+					"name": "Rapid Depot"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/fortress/repair_depot_idle.png",
+			"name": "Repair Depot"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/fortress/heavy_howitzer_idle.png",
+					"name": "Heavy Howitzer"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/fortress/long_howitzer_idle.png",
+					"name": "Long Howitzer"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/fortress/howitzer_idle.png",
+			"name": "Howitzer"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/fortress/reinforced_bunker_idle.png",
+					"name": "Reinforced Bunker"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/fortress/spiked_bunker_idle.png",
+					"name": "Spiked Bunker"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/fortress/concrete_bunker_idle.png",
+			"name": "Concrete Bunker"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/swarm/double_wire_idle.png",
+					"name": "Double Wire"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/swarm/razor_wire_idle.png",
+					"name": "Razor Wire"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/swarm/barbed_wire_idle.png",
+			"name": "Barbed Wire"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/swarm/veteran_rifleman_idle.png",
+					"name": "Veteran Rifleman"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/swarm/scout_rifleman_idle.png",
+					"name": "Scout Rifleman"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/swarm/rifleman_idle.png",
+			"name": "Rifleman"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/swarm/twin_aa_gunner_idle.png",
+					"name": "Twin AA Gunner"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/swarm/sentry_aa_gunner_idle.png",
+					"name": "Sentry AA Gunner"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/swarm/aa_gunner_idle.png",
+			"name": "AA Gunner"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/swarm/heavy_grenadier_idle.png",
+					"name": "Heavy Grenadier"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/swarm/wide_grenadier_idle.png",
+					"name": "Wide Grenadier"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/swarm/grenadier_idle.png",
+			"name": "Grenadier"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/swarm/elite_commando_idle.png",
+					"name": "Elite Commando"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/swarm/ranger_commando_idle.png",
+					"name": "Ranger Commando"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/swarm/commando_idle.png",
+			"name": "Commando"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/swarm/steel_tank_trap_idle.png",
+					"name": "Steel Tank Trap"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/swarm/wide_tank_trap_idle.png",
+					"name": "Wide Tank Trap"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/swarm/tank_trap_idle.png",
+			"name": "Tank Trap"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/precision/thick_barrier_idle.png",
+					"name": "Thick Barrier"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/precision/spiked_barrier_idle.png",
+					"name": "Spiked Barrier"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/precision/concrete_barrier_idle.png",
+			"name": "Concrete Barrier"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/precision/veteran_sniper_idle.png",
+					"name": "Veteran Sniper"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/precision/marksman_idle.png",
+					"name": "Marksman"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/precision/sniper_idle.png",
+			"name": "Sniper"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/precision/laser_spotter_idle.png",
+					"name": "Laser Spotter"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/precision/long_range_spotter_idle.png",
+					"name": "Long-Range Spotter"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/precision/spotter_idle.png",
+			"name": "Spotter"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/precision/heavy_bazooka_idle.png",
+					"name": "Heavy Bazooka"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/precision/roaming_bazooka_idle.png",
+					"name": "Roaming Bazooka"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/precision/bazooka_trooper_idle.png",
+			"name": "Bazooka Trooper"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/precision/heavy_long_tom_idle.png",
+					"name": "Heavy Long Tom"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/precision/rapid_long_tom_idle.png",
+					"name": "Rapid Long Tom"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/precision/long_tom_idle.png",
+			"name": "Long Tom Cannon"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/precision/advanced_radar_idle.png",
+					"name": "Advanced Radar"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/precision/tall_radar_idle.png",
+					"name": "Tall Radar"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/precision/radar_tower_idle.png",
+			"name": "Radar Tower"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/control/thick_barricade_idle.png",
+					"name": "Thick Barricade"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/control/gluey_barricade_idle.png",
+					"name": "Gluey Barricade"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/control/sticky_barricade_idle.png",
+			"name": "Sticky Barricade"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/control/dense_smoke_launcher_idle.png",
+					"name": "Dense Smoke Launcher"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/control/wide_smoke_launcher_idle.png",
+					"name": "Wide Smoke Launcher"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/control/smoke_launcher_idle.png",
+			"name": "Smoke Launcher"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/control/heavy_mortar_idle.png",
+					"name": "Heavy Mortar"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/control/long_mortar_idle.png",
+					"name": "Long Mortar"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/control/mortar_team_idle.png",
+			"name": "Mortar Team"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/control/hot_flame_turret_idle.png",
+					"name": "Hot Flame Turret"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/control/wide_flame_turret_idle.png",
+					"name": "Wide Flame Turret"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/control/flame_turret_idle.png",
+			"name": "Flame Turret"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/control/overcharged_turret_idle.png",
+					"name": "Overcharged Turret"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/control/chain_shock_turret_idle.png",
+					"name": "Chain Shock Turret"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/control/shock_turret_idle.png",
+			"name": "Shock Turret"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/control/power_water_cannon_idle.png",
+					"name": "Power Water Cannon"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/control/wide_water_cannon_idle.png",
+					"name": "Wide Water Cannon"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/control/water_cannon_idle.png",
+			"name": "Water Cannon"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/toxin/stacked_barrels_idle.png",
+					"name": "Stacked Barrels"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/toxin/leaky_barrels_idle.png",
+					"name": "Leaky Barrels"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/toxin/barrel_wall_idle.png",
+			"name": "Barrel Wall"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/toxin/hazard_trooper_idle.png",
+					"name": "Hazard Trooper"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/toxin/long_chem_trooper_idle.png",
+					"name": "Long Chem Trooper"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/toxin/chem_trooper_idle.png",
+			"name": "Chem Trooper"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/toxin/caustic_mortar_idle.png",
+					"name": "Caustic Mortar"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/toxin/misting_mortar_idle.png",
+					"name": "Misting Mortar"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/toxin/gas_mortar_idle.png",
+			"name": "Gas Mortar"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/toxin/leaking_canister_idle.png",
+					"name": "Leaking Canister"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/toxin/spreading_canister_idle.png",
+					"name": "Spreading Canister"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/toxin/gas_canister_idle.png",
+			"name": "Gas Canister"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/toxin/venom_drone_idle.png",
+					"name": "Venom Drone"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/toxin/long_range_drone_idle.png",
+					"name": "Long-Range Drone"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/toxin/toxic_drone_idle.png",
+			"name": "Toxic Drone"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/total_war/units/toxin/hardened_sludge_idle.png",
+					"name": "Hardened Sludge"
+				},
+				{
+					"idle": "res://art/anim/total_war/units/toxin/virulent_sludge_idle.png",
+					"name": "Virulent Sludge"
+				}
+			],
+			"idle": "res://art/anim/total_war/units/toxin/sludge_pit_idle.png",
+			"name": "Sludge Pit"
+		}
+	],
+	"wild_kingdom": [
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/fieldstone_wall_idle.png",
+					"name": "Fieldstone Wall"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/spiked_stone_wall_idle.png",
+					"name": "Spiked Stone Wall"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/fortress/stone_wall_idle.png",
+			"name": "Stone Wall"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/prize_bull_idle.png",
+					"name": "Prize Bull"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/stampeding_bull_idle.png",
+					"name": "Stampeding Bull"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/fortress/bull_idle.png",
+			"name": "Bull"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/alpha_llama_idle.png",
+					"name": "Alpha Llama"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/long_spit_llama_idle.png",
+					"name": "Long-Spit Llama"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/fortress/llama_idle.png",
+			"name": "Llama"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/thick_hedge_idle.png",
+					"name": "Thick Hedge"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/growing_hedge_idle.png",
+					"name": "Growing Hedge"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/fortress/hedge_idle.png",
+			"name": "Hedge"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/clydesdale_idle.png",
+					"name": "Clydesdale"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/rearing_horse_idle.png",
+					"name": "Rearing Horse"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/fortress/draft_horse_idle.png",
+			"name": "Draft Horse"
+		},
+		{
+			"color": "d1603d",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/reinforced_silo_idle.png",
+					"name": "Reinforced Silo"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/fortress/thorned_silo_idle.png",
+					"name": "Thorned Silo"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/fortress/stone_silo_idle.png",
+			"name": "Stone Silo"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/packed_hay_idle.png",
+					"name": "Packed Hay"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/thistle_hay_idle.png",
+					"name": "Thistle Hay"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/swarm/hay_bale_idle.png",
+			"name": "Hay Bale"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/angry_hen_idle.png",
+					"name": "Angry Hen"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/scout_hen_idle.png",
+					"name": "Scout Hen"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/swarm/hen_idle.png",
+			"name": "Hen"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/diving_swallow_idle.png",
+					"name": "Diving Swallow"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/sentry_swallow_idle.png",
+					"name": "Sentry Swallow"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/swarm/barn_swallow_idle.png",
+			"name": "Barn Swallow"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/angry_skep_idle.png",
+					"name": "Angry Skep"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/buzzing_skep_idle.png",
+					"name": "Buzzing Skep"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/swarm/bee_skep_idle.png",
+			"name": "Bee Skep"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/tomcat_idle.png",
+					"name": "Tomcat"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/prowling_cat_idle.png",
+					"name": "Prowling Cat"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/swarm/barn_cat_idle.png",
+			"name": "Barn Cat"
+		},
+		{
+			"color": "e9c46a",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/deep_mud_idle.png",
+					"name": "Deep Mud"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/swarm/wide_mud_idle.png",
+					"name": "Wide Mud"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/swarm/muddy_pen_idle.png",
+			"name": "Muddy Pen"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/picket_fence_idle.png",
+					"name": "Picket Fence"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/barbed_fence_idle.png",
+					"name": "Barbed Fence"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/precision/wooden_fence_idle.png",
+			"name": "Wooden Fence"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/great_horned_owl_idle.png",
+					"name": "Great Horned Owl"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/far_sighted_owl_idle.png",
+					"name": "Far-Sighted Owl"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/precision/barn_owl_idle.png",
+			"name": "Barn Owl"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/howling_watchdog_idle.png",
+					"name": "Howling Watchdog"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/patrol_watchdog_idle.png",
+					"name": "Patrol Watchdog"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/precision/watchdog_idle.png",
+			"name": "Watchdog"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/fierce_ferret_idle.png",
+					"name": "Fierce Ferret"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/roaming_ferret_idle.png",
+					"name": "Roaming Ferret"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/precision/ferret_idle.png",
+			"name": "Ferret"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/peregrine_falcon_idle.png",
+					"name": "Peregrine Falcon"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/swift_falcon_idle.png",
+					"name": "Swift Falcon"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/precision/falcon_idle.png",
+			"name": "Falcon"
+		},
+		{
+			"color": "4ea8de",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/spooky_scarecrow_idle.png",
+					"name": "Spooky Scarecrow"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/precision/tall_scarecrow_idle.png",
+					"name": "Tall Scarecrow"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/precision/scarecrow_idle.png",
+			"name": "Scarecrow"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/thick_mud_wall_idle.png",
+					"name": "Thick Mud Wall"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/sludge_wall_idle.png",
+					"name": "Sludge Wall"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/control/mud_wall_idle.png",
+			"name": "Mud Wall"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/pungent_skunk_idle.png",
+					"name": "Pungent Skunk"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/wafting_skunk_idle.png",
+					"name": "Wafting Skunk"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/control/skunk_idle.png",
+			"name": "Skunk"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/furious_goose_idle.png",
+					"name": "Furious Goose"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/loud_goose_idle.png",
+					"name": "Loud Goose"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/control/honking_goose_idle.png",
+			"name": "Honking Goose"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/roaring_bonfire_idle.png",
+					"name": "Roaring Bonfire"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/wide_bonfire_idle.png",
+					"name": "Wide Bonfire"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/control/bonfire_idle.png",
+			"name": "Bonfire"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/stubborn_mule_idle.png",
+					"name": "Stubborn Mule"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/kicking_mule_idle.png",
+					"name": "Kicking Mule"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/control/mule_idle.png",
+			"name": "Mule"
+		},
+		{
+			"color": "9d79d6",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/thick_smoke_idle.png",
+					"name": "Thick Smoke"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/control/wide_smoke_idle.png",
+					"name": "Wide Smoke"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/control/smoke_pot_idle.png",
+			"name": "Smoke Pot"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/thick_brambles_idle.png",
+					"name": "Thick Brambles"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/poison_brambles_idle.png",
+					"name": "Poison Brambles"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/toxin/bramble_fence_idle.png",
+			"name": "Bramble Fence"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/diamondback_idle.png",
+					"name": "Diamondback"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/long_rattler_idle.png",
+					"name": "Long Rattler"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/toxin/rattlesnake_idle.png",
+			"name": "Rattlesnake"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/cane_toad_idle.png",
+					"name": "Cane Toad"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/spitting_toad_idle.png",
+					"name": "Spitting Toad"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/toxin/toad_idle.png",
+			"name": "Toad"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/rotting_manure_idle.png",
+					"name": "Rotting Manure"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/spreading_manure_idle.png",
+					"name": "Spreading Manure"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/toxin/manure_pile_idle.png",
+			"name": "Manure Pile"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/venomous_gila_idle.png",
+					"name": "Venomous Gila"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/long_gila_idle.png",
+					"name": "Long Gila"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/toxin/gila_monster_idle.png",
+			"name": "Gila Monster"
+		},
+		{
+			"color": "6cc551",
+			"evolutions": [
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/woody_hemlock_idle.png",
+					"name": "Woody Hemlock"
+				},
+				{
+					"idle": "res://art/anim/wild_kingdom/units/toxin/virulent_hemlock_idle.png",
+					"name": "Virulent Hemlock"
+				}
+			],
+			"idle": "res://art/anim/wild_kingdom/units/toxin/hemlock_patch_idle.png",
+			"name": "Hemlock Patch"
+		}
+	]
+}
