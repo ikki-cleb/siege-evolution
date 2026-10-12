@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 158
+const MIN_RULE_CHECKS := 159
 var progress: Node
 
 
@@ -559,6 +559,10 @@ func _test_bosses(biome: BiomeData) -> void:
 
 	game = await _start(biome, 0, 4)  # boss level
 	var board: Board = game.board
+	# Level 5 has all six units: their buttons must fit across the screen.
+	var row: HBoxContainer = game.hud._unit_row
+	_check(row.get_child_count() == 6 and row.position.x + row.size.x <= Hud.WIDTH - 4,
+		"All six unit buttons fit on screen (row ends at %d of %d)" % [row.position.x + row.size.x, Hud.WIDTH])
 	_check(board.boss_marker.spots.size() >= 1, "The boss's spawn tile is marked from the start of the level")
 	_check(board.preview_boss == null, "The boss route isn't shown before the boss wave")
 	# Jump to the boss wave's build phase.

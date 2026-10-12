@@ -593,6 +593,13 @@ func _build_bottom_bar() -> void:
 		button.add_theme_font_size_override("font_size", 10)
 		button.pressed.connect(game.select_type.bind(type))
 		_unit_row.add_child(button)
+		# Slim side padding so six buttons ("x7 free") fit across the screen.
+		# (Done after adding it, so it copies the game theme's button look.)
+		for state in ["normal", "hover", "pressed", "hover_pressed", "disabled"]:
+			var style := button.get_theme_stylebox(state).duplicate() as StyleBox
+			style.content_margin_left = 3
+			style.content_margin_right = 3
+			button.add_theme_stylebox_override(state, style)
 		_unit_buttons[type] = button
 
 	_selection_row = HBoxContainer.new()
