@@ -247,7 +247,7 @@ func _add_to_showcase(biome_id: String, pack: PackData, unit: UnitData) -> void:
 		return
 	if not _showcase.has(biome_id):
 		_showcase[biome_id] = []
-	_showcase[biome_id].append({"name": unit.display_name, "idle": unit.anim_idle.resource_path,
+	_showcase[biome_id].append({"id": unit.id, "name": unit.display_name, "idle": unit.anim_idle.resource_path,
 		"color": pack.color.to_html(false), "evolutions": evolutions})
 
 

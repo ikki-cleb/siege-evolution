@@ -42,6 +42,7 @@
 					"name": "Thorned Pebble"
 				}
 			],
+			"id": "pebble_wall",
 			"idle": "res://art/anim/backyard_bugs/units/fortress/pebble_wall_idle.png",
 			"name": "Pebble Wall"
 		},
@@ -57,6 +58,7 @@
 					"name": "Sweeping Stag"
 				}
 			],
+			"id": "stag_beetle",
 			"idle": "res://art/anim/backyard_bugs/units/fortress/stag_beetle_idle.png",
 			"name": "Stag Beetle"
 		},
@@ -72,6 +74,7 @@
 					"name": "Long-Shot Bombardier"
 				}
 			],
+			"id": "bombardier_beetle",
 			"idle": "res://art/anim/backyard_bugs/units/fortress/bombardier_beetle_idle.png",
 			"name": "Bombardier Beetle"
 		},
@@ -87,6 +90,7 @@
 					"name": "Lush Moss"
 				}
 			],
+			"id": "moss_clump",
 			"idle": "res://art/anim/backyard_bugs/units/fortress/moss_clump_idle.png",
 			"name": "Moss Clump"
 		},
@@ -102,6 +106,7 @@
 					"name": "Orchid Mantis"
 				}
 			],
+			"id": "praying_mantis",
 			"idle": "res://art/anim/backyard_bugs/units/fortress/praying_mantis_idle.png",
 			"name": "Praying Mantis"
 		},
@@ -117,6 +122,7 @@
 					"name": "Thorny Stump"
 				}
 			],
+			"id": "tree_stump",
 			"idle": "res://art/anim/backyard_bugs/units/fortress/tree_stump_idle.png",
 			"name": "Tree Stump"
 		},
@@ -132,6 +138,7 @@
 					"name": "Bramble Twig"
 				}
 			],
+			"id": "twig",
 			"idle": "res://art/anim/backyard_bugs/units/swarm/twig_idle.png",
 			"name": "Twig"
 		},
@@ -147,6 +154,7 @@
 					"name": "Scout Ant"
 				}
 			],
+			"id": "worker_ant",
 			"idle": "res://art/anim/backyard_bugs/units/swarm/worker_ant_idle.png",
 			"name": "Worker Ant"
 		},
@@ -162,6 +170,7 @@
 					"name": "Sentry Ant"
 				}
 			],
+			"id": "acid_ant",
 			"idle": "res://art/anim/backyard_bugs/units/swarm/acid_ant_idle.png",
 			"name": "Acid Ant"
 		},
@@ -177,6 +186,7 @@
 					"name": "Buzzing Bee"
 				}
 			],
+			"id": "honeybee",
 			"idle": "res://art/anim/backyard_bugs/units/swarm/honeybee_idle.png",
 			"name": "Honeybee"
 		},
@@ -192,6 +202,7 @@
 					"name": "Hunting Ant"
 				}
 			],
+			"id": "bullet_ant",
 			"idle": "res://art/anim/backyard_bugs/units/swarm/bullet_ant_idle.png",
 			"name": "Bullet Ant"
 		},
@@ -207,6 +218,7 @@
 					"name": "Spreading Sap"
 				}
 			],
+			"id": "sap_blob",
 			"idle": "res://art/anim/backyard_bugs/units/swarm/sap_blob_idle.png",
 			"name": "Sap Blob"
 		},
@@ -222,6 +234,7 @@
 					"name": "Chestnut Burr"
 				}
 			],
+			"id": "acorn_shell",
 			"idle": "res://art/anim/backyard_bugs/units/precision/acorn_shell_idle.png",
 			"name": "Acorn Shell"
 		},
@@ -237,6 +250,7 @@
 					"name": "Sharpshooter Spider"
 				}
 			],
+			"id": "spitting_spider",
 			"idle": "res://art/anim/backyard_bugs/units/precision/spitting_spider_idle.png",
 			"name": "Spitting Spider"
 		},
@@ -252,6 +266,7 @@
 					"name": "Signal Firefly"
 				}
 			],
+			"id": "firefly",
 			"idle": "res://art/anim/backyard_bugs/units/precision/firefly_idle.png",
 			"name": "Firefly"
 		},
@@ -267,6 +282,7 @@
 					"name": "Patrol Assassin"
 				}
 			],
+			"id": "assassin_bug",
 			"idle": "res://art/anim/backyard_bugs/units/precision/assassin_bug_idle.png",
 			"name": "Assassin Bug"
 		},
@@ -282,6 +298,7 @@
 					"name": "Quick Jumper"
 				}
 			],
+			"id": "jumping_spider",
 			"idle": "res://art/anim/backyard_bugs/units/precision/jumping_spider_idle.png",
 			"name": "Jumping Spider"
 		},
@@ -297,6 +314,7 @@
 					"name": "Tall Lantern"
 				}
 			],
+			"id": "glowworm_lantern",
 			"idle": "res://art/anim/backyard_bugs/units/precision/glowworm_lantern_idle.png",
 			"name": "Glowworm Lantern"
 		},
@@ -312,6 +330,7 @@
 					"name": "Sticky Web"
 				}
 			],
+			"id": "spiderweb",
 			"idle": "res://art/anim/backyard_bugs/units/control/spiderweb_idle.png",
 			"name": "Spiderweb"
 		},
@@ -327,6 +346,7 @@
 					"name": "Wafting Stink Bug"
 				}
 			],
+			"id": "stink_bug",
 			"idle": "res://art/anim/backyard_bugs/units/control/stink_bug_idle.png",
 			"name": "Stink Bug"
 		},
@@ -342,6 +362,7 @@
 					"name": "Long Spittlebug"
 				}
 			],
+			"id": "spittlebug",
 			"idle": "res://art/anim/backyard_bugs/units/control/spittlebug_idle.png",
 			"name": "Spittlebug"
 		},
@@ -357,6 +378,7 @@
 					"name": "Wide Lens"
 				}
 			],
+			"id": "magnifying_glass",
 			"idle": "res://art/anim/backyard_bugs/units/control/magnifying_glass_idle.png",
 			"name": "Magnifying Glass"
 		},
@@ -372,6 +394,7 @@
 					"name": "Shockwave Click Beetle"
 				}
 			],
+			"id": "click_beetle",
 			"idle": "res://art/anim/backyard_bugs/units/control/click_beetle_idle.png",
 			"name": "Click Beetle"
 		},
@@ -387,6 +410,7 @@
 					"name": "Wide Sprinkler"
 				}
 			],
+			"id": "sprinkler",
 			"idle": "res://art/anim/backyard_bugs/units/control/sprinkler_idle.png",
 			"name": "Sprinkler"
 		},
@@ -402,6 +426,7 @@
 					"name": "Stinging Nettles"
 				}
 			],
+			"id": "nettle_patch",
 			"idle": "res://art/anim/backyard_bugs/units/toxin/nettle_patch_idle.png",
 			"name": "Nettle Patch"
 		},
@@ -417,6 +442,7 @@
 					"name": "Long-Sting Wasp"
 				}
 			],
+			"id": "paper_wasp",
 			"idle": "res://art/anim/backyard_bugs/units/toxin/paper_wasp_idle.png",
 			"name": "Paper Wasp"
 		},
@@ -432,6 +458,7 @@
 					"name": "Misting Blister Beetle"
 				}
 			],
+			"id": "blister_beetle",
 			"idle": "res://art/anim/backyard_bugs/units/toxin/blister_beetle_idle.png",
 			"name": "Blister Beetle"
 		},
@@ -447,6 +474,7 @@
 					"name": "Spore Puff"
 				}
 			],
+			"id": "toxic_mushroom",
 			"idle": "res://art/anim/backyard_bugs/units/toxin/toxic_mushroom_idle.png",
 			"name": "Toxic Mushroom"
 		},
@@ -462,6 +490,7 @@
 					"name": "Long-Tail Scorpion"
 				}
 			],
+			"id": "scorpion",
 			"idle": "res://art/anim/backyard_bugs/units/toxin/scorpion_idle.png",
 			"name": "Scorpion"
 		},
@@ -477,6 +506,7 @@
 					"name": "Virulent Ivy"
 				}
 			],
+			"id": "poison_ivy",
 			"idle": "res://art/anim/backyard_bugs/units/toxin/poison_ivy_idle.png",
 			"name": "Poison Ivy"
 		}
@@ -494,6 +524,7 @@
 					"name": "Prickly Present"
 				}
 			],
+			"id": "gift_box",
 			"idle": "res://art/anim/birthday_bash/units/fortress/gift_box_idle.png",
 			"name": "Gift Box"
 		},
@@ -509,6 +540,7 @@
 					"name": "Wide Mallet"
 				}
 			],
+			"id": "party_mallet",
 			"idle": "res://art/anim/birthday_bash/units/fortress/party_mallet_idle.png",
 			"name": "Party Mallet"
 		},
@@ -524,6 +556,7 @@
 					"name": "Long Confetti Cannon"
 				}
 			],
+			"id": "confetti_cannon",
 			"idle": "res://art/anim/birthday_bash/units/fortress/confetti_cannon_idle.png",
 			"name": "Confetti Cannon"
 		},
@@ -539,6 +572,7 @@
 					"name": "Self-Inflating Arch"
 				}
 			],
+			"id": "balloon_arch",
 			"idle": "res://art/anim/birthday_bash/units/fortress/balloon_arch_idle.png",
 			"name": "Balloon Arch"
 		},
@@ -554,6 +588,7 @@
 					"name": "Long Fireworks"
 				}
 			],
+			"id": "fireworks_launcher",
 			"idle": "res://art/anim/birthday_bash/units/fortress/fireworks_launcher_idle.png",
 			"name": "Fireworks Launcher"
 		},
@@ -569,6 +604,7 @@
 					"name": "Sprinkle Spike Cake"
 				}
 			],
+			"id": "ice_cream_cake",
 			"idle": "res://art/anim/birthday_bash/units/fortress/ice_cream_cake_idle.png",
 			"name": "Ice Cream Cake"
 		},
@@ -584,6 +620,7 @@
 					"name": "Pointy Cup"
 				}
 			],
+			"id": "paper_cup",
 			"idle": "res://art/anim/birthday_bash/units/swarm/paper_cup_idle.png",
 			"name": "Paper Cup"
 		},
@@ -599,6 +636,7 @@
 					"name": "Long Blower"
 				}
 			],
+			"id": "party_blower",
 			"idle": "res://art/anim/birthday_bash/units/swarm/party_blower_idle.png",
 			"name": "Party Blower"
 		},
@@ -614,6 +652,7 @@
 					"name": "Super Soaker"
 				}
 			],
+			"id": "water_pistol",
 			"idle": "res://art/anim/birthday_bash/units/swarm/water_pistol_idle.png",
 			"name": "Water Pistol"
 		},
@@ -629,6 +668,7 @@
 					"name": "Wide Noisemaker"
 				}
 			],
+			"id": "noisemaker",
 			"idle": "res://art/anim/birthday_bash/units/swarm/noisemaker_idle.png",
 			"name": "Noisemaker"
 		},
@@ -644,6 +684,7 @@
 					"name": "Long Sparkler"
 				}
 			],
+			"id": "sparkler",
 			"idle": "res://art/anim/birthday_bash/units/swarm/sparkler_idle.png",
 			"name": "Sparkler"
 		},
@@ -659,6 +700,7 @@
 					"name": "Wide Streamers"
 				}
 			],
+			"id": "streamer_tangle",
 			"idle": "res://art/anim/birthday_bash/units/swarm/streamer_tangle_idle.png",
 			"name": "Streamer Tangle"
 		},
@@ -674,6 +716,7 @@
 					"name": "Spiky Chair"
 				}
 			],
+			"id": "folding_chair",
 			"idle": "res://art/anim/birthday_bash/units/precision/folding_chair_idle.png",
 			"name": "Folding Chair"
 		},
@@ -689,6 +732,7 @@
 					"name": "Long Dart Blaster"
 				}
 			],
+			"id": "dart_blaster",
 			"idle": "res://art/anim/birthday_bash/units/precision/dart_blaster_idle.png",
 			"name": "Dart Blaster"
 		},
@@ -704,6 +748,7 @@
 					"name": "Long Spotlight"
 				}
 			],
+			"id": "spotlight",
 			"idle": "res://art/anim/birthday_bash/units/precision/spotlight_idle.png",
 			"name": "Spotlight"
 		},
@@ -719,6 +764,7 @@
 					"name": "Long Foam Sword"
 				}
 			],
+			"id": "foam_sword",
 			"idle": "res://art/anim/birthday_bash/units/precision/foam_sword_idle.png",
 			"name": "Foam Sword"
 		},
@@ -734,6 +780,7 @@
 					"name": "Rapid Bottle Rocket"
 				}
 			],
+			"id": "bottle_rocket",
 			"idle": "res://art/anim/birthday_bash/units/precision/bottle_rocket_idle.png",
 			"name": "Bottle Rocket"
 		},
@@ -749,6 +796,7 @@
 					"name": "Tall Disco Ball"
 				}
 			],
+			"id": "disco_ball",
 			"idle": "res://art/anim/birthday_bash/units/precision/disco_ball_idle.png",
 			"name": "Disco Ball"
 		},
@@ -764,6 +812,7 @@
 					"name": "Extra-Wobbly Jelly"
 				}
 			],
+			"id": "jelly_wall",
 			"idle": "res://art/anim/birthday_bash/units/control/jelly_wall_idle.png",
 			"name": "Jelly Wall"
 		},
@@ -779,6 +828,7 @@
 					"name": "Wide Bubble Machine"
 				}
 			],
+			"id": "bubble_machine",
 			"idle": "res://art/anim/birthday_bash/units/control/bubble_machine_idle.png",
 			"name": "Bubble Machine"
 		},
@@ -794,6 +844,7 @@
 					"name": "Long Pie Launcher"
 				}
 			],
+			"id": "pie_launcher",
 			"idle": "res://art/anim/birthday_bash/units/control/pie_launcher_idle.png",
 			"name": "Pie Launcher"
 		},
@@ -809,6 +860,7 @@
 					"name": "Wide Candle Ring"
 				}
 			],
+			"id": "candle_stand",
 			"idle": "res://art/anim/birthday_bash/units/control/candle_stand_idle.png",
 			"name": "Candle Stand"
 		},
@@ -824,6 +876,7 @@
 					"name": "Chain Horns"
 				}
 			],
+			"id": "party_horn",
 			"idle": "res://art/anim/birthday_bash/units/control/party_horn_idle.png",
 			"name": "Party Horn"
 		},
@@ -839,6 +892,7 @@
 					"name": "Big Foam Machine"
 				}
 			],
+			"id": "foam_machine",
 			"idle": "res://art/anim/birthday_bash/units/control/foam_machine_idle.png",
 			"name": "Foam Machine"
 		},
@@ -854,6 +908,7 @@
 					"name": "Super Sour Wall"
 				}
 			],
+			"id": "sour_candy_wall",
 			"idle": "res://art/anim/birthday_bash/units/toxin/sour_candy_wall_idle.png",
 			"name": "Sour Candy Wall"
 		},
@@ -869,6 +924,7 @@
 					"name": "Long Lemon Squirter"
 				}
 			],
+			"id": "lemon_squirter",
 			"idle": "res://art/anim/birthday_bash/units/toxin/lemon_squirter_idle.png",
 			"name": "Lemon Squirter"
 		},
@@ -884,6 +940,7 @@
 					"name": "Long Silly String"
 				}
 			],
+			"id": "silly_string",
 			"idle": "res://art/anim/birthday_bash/units/toxin/silly_string_idle.png",
 			"name": "Silly String"
 		},
@@ -899,6 +956,7 @@
 					"name": "Overflowing Punch Bowl"
 				}
 			],
+			"id": "punch_bowl",
 			"idle": "res://art/anim/birthday_bash/units/toxin/punch_bowl_idle.png",
 			"name": "Punch Bowl"
 		},
@@ -914,6 +972,7 @@
 					"name": "Long Stink Bomb"
 				}
 			],
+			"id": "stink_bomb",
 			"idle": "res://art/anim/birthday_bash/units/toxin/stink_bomb_idle.png",
 			"name": "Stink Bomb"
 		},
@@ -929,6 +988,7 @@
 					"name": "Fuzzy Moldy Cake"
 				}
 			],
+			"id": "moldy_cake",
 			"idle": "res://art/anim/birthday_bash/units/toxin/moldy_cake_idle.png",
 			"name": "Moldy Cake"
 		}
@@ -946,6 +1006,7 @@
 					"name": "Spiked Plate"
 				}
 			],
+			"id": "hull_plate",
 			"idle": "res://art/anim/galactic_siege/units/fortress/hull_plate_idle.png",
 			"name": "Hull Plate"
 		},
@@ -961,6 +1022,7 @@
 					"name": "Shockwave Mech"
 				}
 			],
+			"id": "mech_brawler",
 			"idle": "res://art/anim/galactic_siege/units/fortress/mech_brawler_idle.png",
 			"name": "Mech Brawler"
 		},
@@ -976,6 +1038,7 @@
 					"name": "Long Plasma Cannon"
 				}
 			],
+			"id": "plasma_cannon",
 			"idle": "res://art/anim/galactic_siege/units/fortress/plasma_cannon_idle.png",
 			"name": "Plasma Cannon"
 		},
@@ -991,6 +1054,7 @@
 					"name": "Rapid Nanites"
 				}
 			],
+			"id": "nanite_wall",
 			"idle": "res://art/anim/galactic_siege/units/fortress/nanite_wall_idle.png",
 			"name": "Nanite Wall"
 		},
@@ -1006,6 +1070,7 @@
 					"name": "Long Rail Cannon"
 				}
 			],
+			"id": "rail_cannon",
 			"idle": "res://art/anim/galactic_siege/units/fortress/rail_cannon_idle.png",
 			"name": "Rail Cannon"
 		},
@@ -1021,6 +1086,7 @@
 					"name": "Spiked Core"
 				}
 			],
+			"id": "fortress_core",
 			"idle": "res://art/anim/galactic_siege/units/fortress/fortress_core_idle.png",
 			"name": "Fortress Core"
 		},
@@ -1036,6 +1102,7 @@
 					"name": "Spiked Scrap"
 				}
 			],
+			"id": "scrap_barrier",
 			"idle": "res://art/anim/galactic_siege/units/swarm/scrap_barrier_idle.png",
 			"name": "Scrap Barrier"
 		},
@@ -1051,6 +1118,7 @@
 					"name": "Scout Bot"
 				}
 			],
+			"id": "buzz_bot",
 			"idle": "res://art/anim/galactic_siege/units/swarm/buzz_bot_idle.png",
 			"name": "Buzz Bot"
 		},
@@ -1066,6 +1134,7 @@
 					"name": "Sentry Drone"
 				}
 			],
+			"id": "gun_drone",
 			"idle": "res://art/anim/galactic_siege/units/swarm/gun_drone_idle.png",
 			"name": "Gun Drone"
 		},
@@ -1081,6 +1150,7 @@
 					"name": "Wide Tesla Coil"
 				}
 			],
+			"id": "tesla_coil",
 			"idle": "res://art/anim/galactic_siege/units/swarm/tesla_coil_idle.png",
 			"name": "Tesla Coil"
 		},
@@ -1096,6 +1166,7 @@
 					"name": "Hunter Bot"
 				}
 			],
+			"id": "blade_bot",
 			"idle": "res://art/anim/galactic_siege/units/swarm/blade_bot_idle.png",
 			"name": "Blade Bot"
 		},
@@ -1111,6 +1182,7 @@
 					"name": "Wide Gravity Well"
 				}
 			],
+			"id": "gravity_well",
 			"idle": "res://art/anim/galactic_siege/units/swarm/gravity_well_idle.png",
 			"name": "Gravity Well"
 		},
@@ -1126,6 +1198,7 @@
 					"name": "Reflector Barrier"
 				}
 			],
+			"id": "energy_barrier",
 			"idle": "res://art/anim/galactic_siege/units/precision/energy_barrier_idle.png",
 			"name": "Energy Barrier"
 		},
@@ -1141,6 +1214,7 @@
 					"name": "Long Laser"
 				}
 			],
+			"id": "laser_turret",
 			"idle": "res://art/anim/galactic_siege/units/precision/laser_turret_idle.png",
 			"name": "Laser Turret"
 		},
@@ -1156,6 +1230,7 @@
 					"name": "Long Beacon"
 				}
 			],
+			"id": "targeting_beacon",
 			"idle": "res://art/anim/galactic_siege/units/precision/targeting_beacon_idle.png",
 			"name": "Targeting Beacon"
 		},
@@ -1171,6 +1246,7 @@
 					"name": "Patrol Ion Cannon"
 				}
 			],
+			"id": "ion_cannon",
 			"idle": "res://art/anim/galactic_siege/units/precision/ion_cannon_idle.png",
 			"name": "Ion Cannon"
 		},
@@ -1186,6 +1262,7 @@
 					"name": "Rapid Orbital Lance"
 				}
 			],
+			"id": "orbital_lance",
 			"idle": "res://art/anim/galactic_siege/units/precision/orbital_lance_idle.png",
 			"name": "Orbital Lance"
 		},
@@ -1201,6 +1278,7 @@
 					"name": "Tall Scanner"
 				}
 			],
+			"id": "scanner_array",
 			"idle": "res://art/anim/galactic_siege/units/precision/scanner_array_idle.png",
 			"name": "Scanner Array"
 		},
@@ -1216,6 +1294,7 @@
 					"name": "Stasis Field"
 				}
 			],
+			"id": "force_field",
 			"idle": "res://art/anim/galactic_siege/units/control/force_field_idle.png",
 			"name": "Force Field"
 		},
@@ -1231,6 +1310,7 @@
 					"name": "Wide Cryo Emitter"
 				}
 			],
+			"id": "cryo_emitter",
 			"idle": "res://art/anim/galactic_siege/units/control/cryo_emitter_idle.png",
 			"name": "Cryo Emitter"
 		},
@@ -1246,6 +1326,7 @@
 					"name": "Long Arc Thrower"
 				}
 			],
+			"id": "arc_thrower",
 			"idle": "res://art/anim/galactic_siege/units/control/arc_thrower_idle.png",
 			"name": "Arc Thrower"
 		},
@@ -1261,6 +1342,7 @@
 					"name": "Wide Plasma Vent"
 				}
 			],
+			"id": "plasma_vent",
 			"idle": "res://art/anim/galactic_siege/units/control/plasma_vent_idle.png",
 			"name": "Plasma Vent"
 		},
@@ -1276,6 +1358,7 @@
 					"name": "Chain EMP"
 				}
 			],
+			"id": "emp_tower",
 			"idle": "res://art/anim/galactic_siege/units/control/emp_tower_idle.png",
 			"name": "EMP Tower"
 		},
@@ -1291,6 +1374,7 @@
 					"name": "Wide Tractor Beam"
 				}
 			],
+			"id": "tractor_beam",
 			"idle": "res://art/anim/galactic_siege/units/control/tractor_beam_idle.png",
 			"name": "Tractor Beam"
 		},
@@ -1306,6 +1390,7 @@
 					"name": "Hot Rad Plate"
 				}
 			],
+			"id": "rad_plate",
 			"idle": "res://art/anim/galactic_siege/units/toxin/rad_plate_idle.png",
 			"name": "Radioactive Plate"
 		},
@@ -1321,6 +1406,7 @@
 					"name": "Long Acid Bot"
 				}
 			],
+			"id": "acid_bot",
 			"idle": "res://art/anim/galactic_siege/units/toxin/acid_bot_idle.png",
 			"name": "Acid Bot"
 		},
@@ -1336,6 +1422,7 @@
 					"name": "Misting Nanites"
 				}
 			],
+			"id": "nanite_sprayer",
 			"idle": "res://art/anim/galactic_siege/units/toxin/nanite_sprayer_idle.png",
 			"name": "Nanite Sprayer"
 		},
@@ -1351,6 +1438,7 @@
 					"name": "Leaking Reactor"
 				}
 			],
+			"id": "toxic_reactor",
 			"idle": "res://art/anim/galactic_siege/units/toxin/toxic_reactor_idle.png",
 			"name": "Toxic Reactor"
 		},
@@ -1366,6 +1454,7 @@
 					"name": "Long Plague Drone"
 				}
 			],
+			"id": "plague_drone",
 			"idle": "res://art/anim/galactic_siege/units/toxin/plague_drone_idle.png",
 			"name": "Plague Drone"
 		},
@@ -1381,6 +1470,7 @@
 					"name": "Virulent Zone"
 				}
 			],
+			"id": "contamination_zone",
 			"idle": "res://art/anim/galactic_siege/units/toxin/contamination_zone_idle.png",
 			"name": "Contamination Zone"
 		}
@@ -1398,6 +1488,7 @@
 					"name": "Spiky Scab"
 				}
 			],
+			"id": "platelet_clot",
 			"idle": "res://art/anim/immune_system/units/fortress/platelet_clot_idle.png",
 			"name": "Scab"
 		},
@@ -1413,6 +1504,7 @@
 					"name": "Wide Germ Eater"
 				}
 			],
+			"id": "macrophage",
 			"idle": "res://art/anim/immune_system/units/fortress/macrophage_idle.png",
 			"name": "Germ Eater"
 		},
@@ -1428,6 +1520,7 @@
 					"name": "Far Scout Cell"
 				}
 			],
+			"id": "dendritic_cell",
 			"idle": "res://art/anim/immune_system/units/fortress/dendritic_cell_idle.png",
 			"name": "Scout Cell"
 		},
@@ -1443,6 +1536,7 @@
 					"name": "Quick-Heal Tissue"
 				}
 			],
+			"id": "fibroblast",
 			"idle": "res://art/anim/immune_system/units/fortress/fibroblast_idle.png",
 			"name": "Scar Tissue"
 		},
@@ -1458,6 +1552,7 @@
 					"name": "Long Blaster Cell"
 				}
 			],
+			"id": "eosinophil",
 			"idle": "res://art/anim/immune_system/units/fortress/eosinophil_idle.png",
 			"name": "Blaster Cell"
 		},
@@ -1473,6 +1568,7 @@
 					"name": "Spiky Lump"
 				}
 			],
+			"id": "granuloma",
 			"idle": "res://art/anim/immune_system/units/fortress/granuloma_idle.png",
 			"name": "Hard Lump"
 		},
@@ -1488,6 +1584,7 @@
 					"name": "Prickly Skin Cell"
 				}
 			],
+			"id": "epithelial_cell",
 			"idle": "res://art/anim/immune_system/units/swarm/epithelial_cell_idle.png",
 			"name": "Skin Cell"
 		},
@@ -1503,6 +1600,7 @@
 					"name": "Long-Reach White Cell"
 				}
 			],
+			"id": "neutrophil",
 			"idle": "res://art/anim/immune_system/units/swarm/neutrophil_idle.png",
 			"name": "White Blood Cell"
 		},
@@ -1518,6 +1616,7 @@
 					"name": "Long Spike Shooter"
 				}
 			],
+			"id": "monocyte",
 			"idle": "res://art/anim/immune_system/units/swarm/monocyte_idle.png",
 			"name": "Spike Shooter"
 		},
@@ -1533,6 +1632,7 @@
 					"name": "Wide Itch Cell"
 				}
 			],
+			"id": "basophil",
 			"idle": "res://art/anim/immune_system/units/swarm/basophil_idle.png",
 			"name": "Itch Cell"
 		},
@@ -1548,6 +1648,7 @@
 					"name": "Hunter Killer Cell"
 				}
 			],
+			"id": "nk_cell",
 			"idle": "res://art/anim/immune_system/units/swarm/nk_cell_idle.png",
 			"name": "Killer Cell"
 		},
@@ -1563,6 +1664,7 @@
 					"name": "Wide Sticky Net"
 				}
 			],
+			"id": "net_trap",
 			"idle": "res://art/anim/immune_system/units/swarm/net_trap_idle.png",
 			"name": "Sticky Net"
 		},
@@ -1578,6 +1680,7 @@
 					"name": "Spiked Nail Plate"
 				}
 			],
+			"id": "keratin_plate",
 			"idle": "res://art/anim/immune_system/units/precision/keratin_plate_idle.png",
 			"name": "Nail Plate"
 		},
@@ -1593,6 +1696,7 @@
 					"name": "Long Antibody Shooter"
 				}
 			],
+			"id": "b_cell",
 			"idle": "res://art/anim/immune_system/units/precision/b_cell_idle.png",
 			"name": "Antibody Shooter"
 		},
@@ -1608,6 +1712,7 @@
 					"name": "Long Germ Tagger"
 				}
 			],
+			"id": "antibody_tagger",
 			"idle": "res://art/anim/immune_system/units/precision/antibody_tagger_idle.png",
 			"name": "Germ Tagger"
 		},
@@ -1623,6 +1728,7 @@
 					"name": "Patrol Germ Stabber"
 				}
 			],
+			"id": "cytotoxic_t",
 			"idle": "res://art/anim/immune_system/units/precision/cytotoxic_t_idle.png",
 			"name": "Germ Stabber"
 		},
@@ -1638,6 +1744,7 @@
 					"name": "Rapid Antibody Sniper"
 				}
 			],
+			"id": "opsonin_lance",
 			"idle": "res://art/anim/immune_system/units/precision/opsonin_lance_idle.png",
 			"name": "Antibody Sniper"
 		},
@@ -1653,6 +1760,7 @@
 					"name": "Tall Alarm Signal"
 				}
 			],
+			"id": "interferon_beacon",
 			"idle": "res://art/anim/immune_system/units/precision/interferon_beacon_idle.png",
 			"name": "Alarm Signal"
 		},
@@ -1668,6 +1776,7 @@
 					"name": "Sticky Mucus"
 				}
 			],
+			"id": "mucus_wall",
 			"idle": "res://art/anim/immune_system/units/control/mucus_wall_idle.png",
 			"name": "Mucus Wall"
 		},
@@ -1683,6 +1792,7 @@
 					"name": "Wide Allergy Cell"
 				}
 			],
+			"id": "mast_cell",
 			"idle": "res://art/anim/immune_system/units/control/mast_cell_idle.png",
 			"name": "Allergy Cell"
 		},
@@ -1698,6 +1808,7 @@
 					"name": "Far Sneeze Blaster"
 				}
 			],
+			"id": "histamine_spitter",
 			"idle": "res://art/anim/immune_system/units/control/histamine_spitter_idle.png",
 			"name": "Sneeze Blaster"
 		},
@@ -1713,6 +1824,7 @@
 					"name": "Wide Fever Spot"
 				}
 			],
+			"id": "fever_node",
 			"idle": "res://art/anim/immune_system/units/control/fever_node_idle.png",
 			"name": "Fever Spot"
 		},
@@ -1728,6 +1840,7 @@
 					"name": "Wide Stun Cell"
 				}
 			],
+			"id": "cytokine_storm",
 			"idle": "res://art/anim/immune_system/units/control/cytokine_storm_idle.png",
 			"name": "Stun Cell"
 		},
@@ -1743,6 +1856,7 @@
 					"name": "Big Swelling"
 				}
 			],
+			"id": "inflammation_zone",
 			"idle": "res://art/anim/immune_system/units/control/inflammation_zone_idle.png",
 			"name": "Swelling"
 		},
@@ -1758,6 +1872,7 @@
 					"name": "Venom Skin"
 				}
 			],
+			"id": "toxic_membrane",
 			"idle": "res://art/anim/immune_system/units/toxin/toxic_membrane_idle.png",
 			"name": "Toxic Skin"
 		},
@@ -1773,6 +1888,7 @@
 					"name": "Long Poison Cell"
 				}
 			],
+			"id": "killer_t",
 			"idle": "res://art/anim/immune_system/units/toxin/killer_t_idle.png",
 			"name": "Poison Cell"
 		},
@@ -1788,6 +1904,7 @@
 					"name": "Misting Poison Sprayer"
 				}
 			],
+			"id": "complement_sprayer",
 			"idle": "res://art/anim/immune_system/units/toxin/complement_sprayer_idle.png",
 			"name": "Poison Sprayer"
 		},
@@ -1803,6 +1920,7 @@
 					"name": "Spilling Acid Puddle"
 				}
 			],
+			"id": "lysozyme_pool",
 			"idle": "res://art/anim/immune_system/units/toxin/lysozyme_pool_idle.png",
 			"name": "Acid Puddle"
 		},
@@ -1818,6 +1936,7 @@
 					"name": "Long Plague Cell"
 				}
 			],
+			"id": "perforin_lancer",
 			"idle": "res://art/anim/immune_system/units/toxin/perforin_lancer_idle.png",
 			"name": "Plague Cell"
 		},
@@ -1833,6 +1952,7 @@
 					"name": "Nasty Rot Patch"
 				}
 			],
+			"id": "necrosis_bloom",
 			"idle": "res://art/anim/immune_system/units/toxin/necrosis_bloom_idle.png",
 			"name": "Rot Patch"
 		}
@@ -1850,6 +1970,7 @@
 					"name": "Jagged Can"
 				}
 			],
+			"id": "tin_can",
 			"idle": "res://art/anim/kitchen_defense/units/fortress/tin_can_idle.png",
 			"name": "Tin Can"
 		},
@@ -1865,6 +1986,7 @@
 					"name": "Wide Rolling Pin"
 				}
 			],
+			"id": "rolling_pin",
 			"idle": "res://art/anim/kitchen_defense/units/fortress/rolling_pin_idle.png",
 			"name": "Rolling Pin"
 		},
@@ -1880,6 +2002,7 @@
 					"name": "Long Cork Popper"
 				}
 			],
+			"id": "cork_popper",
 			"idle": "res://art/anim/kitchen_defense/units/fortress/cork_popper_idle.png",
 			"name": "Cork Popper"
 		},
@@ -1895,6 +2018,7 @@
 					"name": "Soaked Sponge"
 				}
 			],
+			"id": "sponge",
 			"idle": "res://art/anim/kitchen_defense/units/fortress/sponge_idle.png",
 			"name": "Sponge"
 		},
@@ -1910,6 +2034,7 @@
 					"name": "Steam Jet Cooker"
 				}
 			],
+			"id": "pressure_cooker",
 			"idle": "res://art/anim/kitchen_defense/units/fortress/pressure_cooker_idle.png",
 			"name": "Pressure Cooker"
 		},
@@ -1925,6 +2050,7 @@
 					"name": "Spiked Grill Pan"
 				}
 			],
+			"id": "cast_iron_pan",
 			"idle": "res://art/anim/kitchen_defense/units/fortress/cast_iron_pan_idle.png",
 			"name": "Cast-Iron Pan"
 		},
@@ -1940,6 +2066,7 @@
 					"name": "Rock Candy"
 				}
 			],
+			"id": "sugar_cube",
 			"idle": "res://art/anim/kitchen_defense/units/swarm/sugar_cube_idle.png",
 			"name": "Sugar Cube"
 		},
@@ -1955,6 +2082,7 @@
 					"name": "Long Fork"
 				}
 			],
+			"id": "fork",
 			"idle": "res://art/anim/kitchen_defense/units/swarm/fork_idle.png",
 			"name": "Fork"
 		},
@@ -1970,6 +2098,7 @@
 					"name": "Jet Spray"
 				}
 			],
+			"id": "spray_bottle",
 			"idle": "res://art/anim/kitchen_defense/units/swarm/spray_bottle_idle.png",
 			"name": "Spray Bottle"
 		},
@@ -1985,6 +2114,7 @@
 					"name": "Wide Whisk"
 				}
 			],
+			"id": "egg_beater",
 			"idle": "res://art/anim/kitchen_defense/units/swarm/egg_beater_idle.png",
 			"name": "Egg Beater"
 		},
@@ -2000,6 +2130,7 @@
 					"name": "Rolling Pizza Cutter"
 				}
 			],
+			"id": "pizza_cutter",
 			"idle": "res://art/anim/kitchen_defense/units/swarm/pizza_cutter_idle.png",
 			"name": "Pizza Cutter"
 		},
@@ -2015,6 +2146,7 @@
 					"name": "Wide Wrap"
 				}
 			],
+			"id": "cling_wrap",
 			"idle": "res://art/anim/kitchen_defense/units/swarm/cling_wrap_idle.png",
 			"name": "Cling Wrap"
 		},
@@ -2030,6 +2162,7 @@
 					"name": "Cheese Grater"
 				}
 			],
+			"id": "cutting_board",
 			"idle": "res://art/anim/kitchen_defense/units/precision/cutting_board_idle.png",
 			"name": "Cutting Board"
 		},
@@ -2045,6 +2178,7 @@
 					"name": "Tall Pepper Grinder"
 				}
 			],
+			"id": "pepper_grinder",
 			"idle": "res://art/anim/kitchen_defense/units/precision/pepper_grinder_idle.png",
 			"name": "Pepper Grinder"
 		},
@@ -2060,6 +2194,7 @@
 					"name": "Long Sifter"
 				}
 			],
+			"id": "flour_sifter",
 			"idle": "res://art/anim/kitchen_defense/units/precision/flour_sifter_idle.png",
 			"name": "Flour Sifter"
 		},
@@ -2075,6 +2210,7 @@
 					"name": "Swatter Trap"
 				}
 			],
+			"id": "mousetrap",
 			"idle": "res://art/anim/kitchen_defense/units/precision/mousetrap_idle.png",
 			"name": "Mousetrap"
 		},
@@ -2090,6 +2226,7 @@
 					"name": "Turbo Toaster"
 				}
 			],
+			"id": "toaster",
 			"idle": "res://art/anim/kitchen_defense/units/precision/toaster_idle.png",
 			"name": "Toaster"
 		},
@@ -2105,6 +2242,7 @@
 					"name": "Tall Lamp"
 				}
 			],
+			"id": "kitchen_lamp",
 			"idle": "res://art/anim/kitchen_defense/units/precision/kitchen_lamp_idle.png",
 			"name": "Kitchen Lamp"
 		},
@@ -2120,6 +2258,7 @@
 					"name": "Extra-Sticky Flypaper"
 				}
 			],
+			"id": "flypaper",
 			"idle": "res://art/anim/kitchen_defense/units/control/flypaper_idle.png",
 			"name": "Flypaper"
 		},
@@ -2135,6 +2274,7 @@
 					"name": "Wide Ice Tray"
 				}
 			],
+			"id": "ice_tray",
 			"idle": "res://art/anim/kitchen_defense/units/control/ice_tray_idle.png",
 			"name": "Ice Tray"
 		},
@@ -2150,6 +2290,7 @@
 					"name": "Long Squirter"
 				}
 			],
+			"id": "ketchup_squirter",
 			"idle": "res://art/anim/kitchen_defense/units/control/ketchup_squirter_idle.png",
 			"name": "Ketchup Squirter"
 		},
@@ -2165,6 +2306,7 @@
 					"name": "Wide Burner"
 				}
 			],
+			"id": "stove_burner",
 			"idle": "res://art/anim/kitchen_defense/units/control/stove_burner_idle.png",
 			"name": "Stove Burner"
 		},
@@ -2180,6 +2322,7 @@
 					"name": "Chain Zapper"
 				}
 			],
+			"id": "bug_zapper",
 			"idle": "res://art/anim/kitchen_defense/units/control/bug_zapper_idle.png",
 			"name": "Bug Zapper"
 		},
@@ -2195,6 +2338,7 @@
 					"name": "Big Griddle"
 				}
 			],
+			"id": "hot_griddle",
 			"idle": "res://art/anim/kitchen_defense/units/control/hot_griddle_idle.png",
 			"name": "Hot Griddle"
 		},
@@ -2210,6 +2354,7 @@
 					"name": "Lye Soap"
 				}
 			],
+			"id": "soap_bar",
 			"idle": "res://art/anim/kitchen_defense/units/toxin/soap_bar_idle.png",
 			"name": "Soap Bar"
 		},
@@ -2225,6 +2370,7 @@
 					"name": "Long Spray"
 				}
 			],
+			"id": "bug_spray",
 			"idle": "res://art/anim/kitchen_defense/units/toxin/bug_spray_idle.png",
 			"name": "Bug Spray"
 		},
@@ -2240,6 +2386,7 @@
 					"name": "Fine Mister"
 				}
 			],
+			"id": "pest_mister",
 			"idle": "res://art/anim/kitchen_defense/units/toxin/pest_mister_idle.png",
 			"name": "Pest Mister"
 		},
@@ -2255,6 +2402,7 @@
 					"name": "Overflowing Bowl"
 				}
 			],
+			"id": "vinegar_bowl",
 			"idle": "res://art/anim/kitchen_defense/units/toxin/vinegar_bowl_idle.png",
 			"name": "Vinegar Bowl"
 		},
@@ -2270,6 +2418,7 @@
 					"name": "Long Bait Station"
 				}
 			],
+			"id": "ant_bait_station",
 			"idle": "res://art/anim/kitchen_defense/units/toxin/ant_bait_station_idle.png",
 			"name": "Ant Bait Station"
 		},
@@ -2285,6 +2434,7 @@
 					"name": "Fuzzy Mold Loaf"
 				}
 			],
+			"id": "moldy_bread",
 			"idle": "res://art/anim/kitchen_defense/units/toxin/moldy_bread_idle.png",
 			"name": "Moldy Bread"
 		}
@@ -2302,6 +2452,7 @@
 					"name": "Spiked Barricade"
 				}
 			],
+			"id": "sandbags",
 			"idle": "res://art/anim/total_war/units/fortress/sandbags_idle.png",
 			"name": "Sandbags"
 		},
@@ -2317,6 +2468,7 @@
 					"name": "Siege Turret"
 				}
 			],
+			"id": "toy_tank_turret",
 			"idle": "res://art/anim/total_war/units/fortress/toy_tank_turret_idle.png",
 			"name": "Tank Turret"
 		},
@@ -2332,6 +2484,7 @@
 					"name": "Long Field Gun"
 				}
 			],
+			"id": "field_gun",
 			"idle": "res://art/anim/total_war/units/fortress/field_gun_idle.png",
 			"name": "Field Gun"
 		},
@@ -2347,6 +2500,7 @@
 					"name": "Rapid Depot"
 				}
 			],
+			"id": "repair_depot",
 			"idle": "res://art/anim/total_war/units/fortress/repair_depot_idle.png",
 			"name": "Repair Depot"
 		},
@@ -2362,6 +2516,7 @@
 					"name": "Long Howitzer"
 				}
 			],
+			"id": "howitzer",
 			"idle": "res://art/anim/total_war/units/fortress/howitzer_idle.png",
 			"name": "Howitzer"
 		},
@@ -2377,6 +2532,7 @@
 					"name": "Spiked Bunker"
 				}
 			],
+			"id": "concrete_bunker",
 			"idle": "res://art/anim/total_war/units/fortress/concrete_bunker_idle.png",
 			"name": "Concrete Bunker"
 		},
@@ -2392,6 +2548,7 @@
 					"name": "Razor Wire"
 				}
 			],
+			"id": "barbed_wire",
 			"idle": "res://art/anim/total_war/units/swarm/barbed_wire_idle.png",
 			"name": "Barbed Wire"
 		},
@@ -2407,6 +2564,7 @@
 					"name": "Scout Rifleman"
 				}
 			],
+			"id": "rifleman",
 			"idle": "res://art/anim/total_war/units/swarm/rifleman_idle.png",
 			"name": "Rifleman"
 		},
@@ -2422,6 +2580,7 @@
 					"name": "Sentry AA Gunner"
 				}
 			],
+			"id": "aa_gunner",
 			"idle": "res://art/anim/total_war/units/swarm/aa_gunner_idle.png",
 			"name": "AA Gunner"
 		},
@@ -2437,6 +2596,7 @@
 					"name": "Wide Grenadier"
 				}
 			],
+			"id": "grenadier",
 			"idle": "res://art/anim/total_war/units/swarm/grenadier_idle.png",
 			"name": "Grenadier"
 		},
@@ -2452,6 +2612,7 @@
 					"name": "Ranger Commando"
 				}
 			],
+			"id": "commando",
 			"idle": "res://art/anim/total_war/units/swarm/commando_idle.png",
 			"name": "Commando"
 		},
@@ -2467,6 +2628,7 @@
 					"name": "Wide Tank Trap"
 				}
 			],
+			"id": "tank_trap",
 			"idle": "res://art/anim/total_war/units/swarm/tank_trap_idle.png",
 			"name": "Tank Trap"
 		},
@@ -2482,6 +2644,7 @@
 					"name": "Spiked Barrier"
 				}
 			],
+			"id": "concrete_barrier",
 			"idle": "res://art/anim/total_war/units/precision/concrete_barrier_idle.png",
 			"name": "Concrete Barrier"
 		},
@@ -2497,6 +2660,7 @@
 					"name": "Marksman"
 				}
 			],
+			"id": "sniper",
 			"idle": "res://art/anim/total_war/units/precision/sniper_idle.png",
 			"name": "Sniper"
 		},
@@ -2512,6 +2676,7 @@
 					"name": "Long-Range Spotter"
 				}
 			],
+			"id": "spotter",
 			"idle": "res://art/anim/total_war/units/precision/spotter_idle.png",
 			"name": "Spotter"
 		},
@@ -2527,6 +2692,7 @@
 					"name": "Roaming Bazooka"
 				}
 			],
+			"id": "bazooka_trooper",
 			"idle": "res://art/anim/total_war/units/precision/bazooka_trooper_idle.png",
 			"name": "Bazooka Trooper"
 		},
@@ -2542,6 +2708,7 @@
 					"name": "Rapid Long Tom"
 				}
 			],
+			"id": "long_tom",
 			"idle": "res://art/anim/total_war/units/precision/long_tom_idle.png",
 			"name": "Long Tom Cannon"
 		},
@@ -2557,6 +2724,7 @@
 					"name": "Tall Radar"
 				}
 			],
+			"id": "radar_tower",
 			"idle": "res://art/anim/total_war/units/precision/radar_tower_idle.png",
 			"name": "Radar Tower"
 		},
@@ -2572,6 +2740,7 @@
 					"name": "Gluey Barricade"
 				}
 			],
+			"id": "sticky_barricade",
 			"idle": "res://art/anim/total_war/units/control/sticky_barricade_idle.png",
 			"name": "Sticky Barricade"
 		},
@@ -2587,6 +2756,7 @@
 					"name": "Wide Smoke Launcher"
 				}
 			],
+			"id": "smoke_launcher",
 			"idle": "res://art/anim/total_war/units/control/smoke_launcher_idle.png",
 			"name": "Smoke Launcher"
 		},
@@ -2602,6 +2772,7 @@
 					"name": "Long Mortar"
 				}
 			],
+			"id": "mortar_team",
 			"idle": "res://art/anim/total_war/units/control/mortar_team_idle.png",
 			"name": "Mortar Team"
 		},
@@ -2617,6 +2788,7 @@
 					"name": "Wide Flame Turret"
 				}
 			],
+			"id": "flame_turret",
 			"idle": "res://art/anim/total_war/units/control/flame_turret_idle.png",
 			"name": "Flame Turret"
 		},
@@ -2632,6 +2804,7 @@
 					"name": "Chain Shock Turret"
 				}
 			],
+			"id": "shock_turret",
 			"idle": "res://art/anim/total_war/units/control/shock_turret_idle.png",
 			"name": "Shock Turret"
 		},
@@ -2647,6 +2820,7 @@
 					"name": "Wide Water Cannon"
 				}
 			],
+			"id": "water_cannon",
 			"idle": "res://art/anim/total_war/units/control/water_cannon_idle.png",
 			"name": "Water Cannon"
 		},
@@ -2662,6 +2836,7 @@
 					"name": "Leaky Barrels"
 				}
 			],
+			"id": "barrel_wall",
 			"idle": "res://art/anim/total_war/units/toxin/barrel_wall_idle.png",
 			"name": "Barrel Wall"
 		},
@@ -2677,6 +2852,7 @@
 					"name": "Long Chem Trooper"
 				}
 			],
+			"id": "chem_trooper",
 			"idle": "res://art/anim/total_war/units/toxin/chem_trooper_idle.png",
 			"name": "Chem Trooper"
 		},
@@ -2692,6 +2868,7 @@
 					"name": "Misting Mortar"
 				}
 			],
+			"id": "gas_mortar",
 			"idle": "res://art/anim/total_war/units/toxin/gas_mortar_idle.png",
 			"name": "Gas Mortar"
 		},
@@ -2707,6 +2884,7 @@
 					"name": "Spreading Canister"
 				}
 			],
+			"id": "gas_canister",
 			"idle": "res://art/anim/total_war/units/toxin/gas_canister_idle.png",
 			"name": "Gas Canister"
 		},
@@ -2722,6 +2900,7 @@
 					"name": "Long-Range Drone"
 				}
 			],
+			"id": "toxic_drone",
 			"idle": "res://art/anim/total_war/units/toxin/toxic_drone_idle.png",
 			"name": "Toxic Drone"
 		},
@@ -2737,6 +2916,7 @@
 					"name": "Virulent Sludge"
 				}
 			],
+			"id": "sludge_pit",
 			"idle": "res://art/anim/total_war/units/toxin/sludge_pit_idle.png",
 			"name": "Sludge Pit"
 		}
@@ -2754,6 +2934,7 @@
 					"name": "Spiked Stone Wall"
 				}
 			],
+			"id": "stone_wall",
 			"idle": "res://art/anim/wild_kingdom/units/fortress/stone_wall_idle.png",
 			"name": "Stone Wall"
 		},
@@ -2769,6 +2950,7 @@
 					"name": "Stampeding Bull"
 				}
 			],
+			"id": "bull",
 			"idle": "res://art/anim/wild_kingdom/units/fortress/bull_idle.png",
 			"name": "Bull"
 		},
@@ -2784,6 +2966,7 @@
 					"name": "Long-Spit Llama"
 				}
 			],
+			"id": "llama",
 			"idle": "res://art/anim/wild_kingdom/units/fortress/llama_idle.png",
 			"name": "Llama"
 		},
@@ -2799,6 +2982,7 @@
 					"name": "Growing Hedge"
 				}
 			],
+			"id": "hedge",
 			"idle": "res://art/anim/wild_kingdom/units/fortress/hedge_idle.png",
 			"name": "Hedge"
 		},
@@ -2814,6 +2998,7 @@
 					"name": "Rearing Horse"
 				}
 			],
+			"id": "draft_horse",
 			"idle": "res://art/anim/wild_kingdom/units/fortress/draft_horse_idle.png",
 			"name": "Draft Horse"
 		},
@@ -2829,6 +3014,7 @@
 					"name": "Thorned Silo"
 				}
 			],
+			"id": "stone_silo",
 			"idle": "res://art/anim/wild_kingdom/units/fortress/stone_silo_idle.png",
 			"name": "Stone Silo"
 		},
@@ -2844,6 +3030,7 @@
 					"name": "Thistle Hay"
 				}
 			],
+			"id": "hay_bale",
 			"idle": "res://art/anim/wild_kingdom/units/swarm/hay_bale_idle.png",
 			"name": "Hay Bale"
 		},
@@ -2859,6 +3046,7 @@
 					"name": "Scout Hen"
 				}
 			],
+			"id": "hen",
 			"idle": "res://art/anim/wild_kingdom/units/swarm/hen_idle.png",
 			"name": "Hen"
 		},
@@ -2874,6 +3062,7 @@
 					"name": "Sentry Swallow"
 				}
 			],
+			"id": "barn_swallow",
 			"idle": "res://art/anim/wild_kingdom/units/swarm/barn_swallow_idle.png",
 			"name": "Barn Swallow"
 		},
@@ -2889,6 +3078,7 @@
 					"name": "Buzzing Skep"
 				}
 			],
+			"id": "bee_skep",
 			"idle": "res://art/anim/wild_kingdom/units/swarm/bee_skep_idle.png",
 			"name": "Bee Skep"
 		},
@@ -2904,6 +3094,7 @@
 					"name": "Prowling Cat"
 				}
 			],
+			"id": "barn_cat",
 			"idle": "res://art/anim/wild_kingdom/units/swarm/barn_cat_idle.png",
 			"name": "Barn Cat"
 		},
@@ -2919,6 +3110,7 @@
 					"name": "Wide Mud"
 				}
 			],
+			"id": "muddy_pen",
 			"idle": "res://art/anim/wild_kingdom/units/swarm/muddy_pen_idle.png",
 			"name": "Muddy Pen"
 		},
@@ -2934,6 +3126,7 @@
 					"name": "Barbed Fence"
 				}
 			],
+			"id": "wooden_fence",
 			"idle": "res://art/anim/wild_kingdom/units/precision/wooden_fence_idle.png",
 			"name": "Wooden Fence"
 		},
@@ -2949,6 +3142,7 @@
 					"name": "Far-Sighted Owl"
 				}
 			],
+			"id": "barn_owl",
 			"idle": "res://art/anim/wild_kingdom/units/precision/barn_owl_idle.png",
 			"name": "Barn Owl"
 		},
@@ -2964,6 +3158,7 @@
 					"name": "Patrol Watchdog"
 				}
 			],
+			"id": "watchdog",
 			"idle": "res://art/anim/wild_kingdom/units/precision/watchdog_idle.png",
 			"name": "Watchdog"
 		},
@@ -2979,6 +3174,7 @@
 					"name": "Roaming Ferret"
 				}
 			],
+			"id": "ferret",
 			"idle": "res://art/anim/wild_kingdom/units/precision/ferret_idle.png",
 			"name": "Ferret"
 		},
@@ -2994,6 +3190,7 @@
 					"name": "Swift Falcon"
 				}
 			],
+			"id": "falcon",
 			"idle": "res://art/anim/wild_kingdom/units/precision/falcon_idle.png",
 			"name": "Falcon"
 		},
@@ -3009,6 +3206,7 @@
 					"name": "Tall Scarecrow"
 				}
 			],
+			"id": "scarecrow",
 			"idle": "res://art/anim/wild_kingdom/units/precision/scarecrow_idle.png",
 			"name": "Scarecrow"
 		},
@@ -3024,6 +3222,7 @@
 					"name": "Sludge Wall"
 				}
 			],
+			"id": "mud_wall",
 			"idle": "res://art/anim/wild_kingdom/units/control/mud_wall_idle.png",
 			"name": "Mud Wall"
 		},
@@ -3039,6 +3238,7 @@
 					"name": "Wafting Skunk"
 				}
 			],
+			"id": "skunk",
 			"idle": "res://art/anim/wild_kingdom/units/control/skunk_idle.png",
 			"name": "Skunk"
 		},
@@ -3054,6 +3254,7 @@
 					"name": "Loud Goose"
 				}
 			],
+			"id": "honking_goose",
 			"idle": "res://art/anim/wild_kingdom/units/control/honking_goose_idle.png",
 			"name": "Honking Goose"
 		},
@@ -3069,6 +3270,7 @@
 					"name": "Wide Bonfire"
 				}
 			],
+			"id": "bonfire",
 			"idle": "res://art/anim/wild_kingdom/units/control/bonfire_idle.png",
 			"name": "Bonfire"
 		},
@@ -3084,6 +3286,7 @@
 					"name": "Kicking Mule"
 				}
 			],
+			"id": "mule",
 			"idle": "res://art/anim/wild_kingdom/units/control/mule_idle.png",
 			"name": "Mule"
 		},
@@ -3099,6 +3302,7 @@
 					"name": "Wide Smoke"
 				}
 			],
+			"id": "smoke_pot",
 			"idle": "res://art/anim/wild_kingdom/units/control/smoke_pot_idle.png",
 			"name": "Smoke Pot"
 		},
@@ -3114,6 +3318,7 @@
 					"name": "Poison Brambles"
 				}
 			],
+			"id": "bramble_fence",
 			"idle": "res://art/anim/wild_kingdom/units/toxin/bramble_fence_idle.png",
 			"name": "Bramble Fence"
 		},
@@ -3129,6 +3334,7 @@
 					"name": "Long Rattler"
 				}
 			],
+			"id": "rattlesnake",
 			"idle": "res://art/anim/wild_kingdom/units/toxin/rattlesnake_idle.png",
 			"name": "Rattlesnake"
 		},
@@ -3144,6 +3350,7 @@
 					"name": "Spitting Toad"
 				}
 			],
+			"id": "toad",
 			"idle": "res://art/anim/wild_kingdom/units/toxin/toad_idle.png",
 			"name": "Toad"
 		},
@@ -3159,6 +3366,7 @@
 					"name": "Spreading Manure"
 				}
 			],
+			"id": "manure_pile",
 			"idle": "res://art/anim/wild_kingdom/units/toxin/manure_pile_idle.png",
 			"name": "Manure Pile"
 		},
@@ -3174,6 +3382,7 @@
 					"name": "Long Gila"
 				}
 			],
+			"id": "gila_monster",
 			"idle": "res://art/anim/wild_kingdom/units/toxin/gila_monster_idle.png",
 			"name": "Gila Monster"
 		},
@@ -3189,6 +3398,7 @@
 					"name": "Virulent Hemlock"
 				}
 			],
+			"id": "hemlock_patch",
 			"idle": "res://art/anim/wild_kingdom/units/toxin/hemlock_patch_idle.png",
 			"name": "Hemlock Patch"
 		}

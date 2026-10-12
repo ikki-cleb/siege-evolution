@@ -429,13 +429,16 @@ foreground"; world select: "Postcards"; all four polish options).
   sideways behind the logo (`scripts/ui/world_stripes.gd`), each edged in
   its world's accent color, fading into the menu color at the bottom. The
   logo has a thick outline and drop shadow; EVOLUTION cycles world colors.
-  In the middle, an **evolution showcase** (`scripts/ui/evolution_showcase.gd`)
-  picks a random unit from the worlds the player has **unlocked**, shows it,
-  lights three arrows, then flashes it into one of its evolutions (bigger,
-  name in gold, pack-color glow, sparkles), about 4.6 s per unit. Units come
-  from `data/showcase.json`, which the content build writes (so the menu never
-  loads whole worlds). Big pink 3D Play button, then Store / Achievements /
-  Settings.
+  In the middle, an **evolution tree** (`scripts/ui/evolution_showcase.gd`):
+  a base unit appears at the bottom, gold lines fork upward, and both of its
+  evolutions flash in at once (power branch left, utility right, names in
+  gold, pack-color glows, sparkles), about 5.2 s per unit. It cycles a
+  **hand-picked pool of 40** base units (`data/title_pool.json`: the user
+  chose them from contact sheets; walls and look-alike branches left out,
+  weighted toward the earlier worlds), shown whatever is unlocked, in a
+  shuffled order with no repeats until all 40 have shown. Art comes from
+  `data/showcase.json` (written by the content build). Big pink 3D Play
+  button, then Store / Achievements / Settings.
 - **World select = postcards:** each card has a banner cut from the world's
   level-2 painted map with the boss and a familiar invader walking on it
   (animated, `AnimIcon`), the world name in big outlined letters, then pack

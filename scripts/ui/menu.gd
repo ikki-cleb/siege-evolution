@@ -171,16 +171,19 @@ func _stripe_slices() -> Array:
 	return slices
 
 
-## Units the title showcase can pick from: every base unit (with its
-## evolutions) of the worlds the player has unlocked. See data/showcase.json.
+## Units the title showcase can pick from: the 40 hand-picked base units in
+## data/title_pool.json (the user chose them), shown whatever is unlocked.
+## Their art comes from data/showcase.json (written by the content build).
 func _showcase_pool() -> Array:
 	var showcase = JSON.parse_string(FileAccess.get_file_as_string("res://data/showcase.json"))
+	var picks = JSON.parse_string(FileAccess.get_file_as_string("res://data/title_pool.json"))
 	var pool := []
-	if not showcase is Dictionary:
+	if not (showcase is Dictionary and picks is Dictionary):
 		return pool
-	for index in Progress.WORLDS.size():
-		if Progress.has_content(index) and Progress.is_biome_unlocked(index):
-			pool.append_array(showcase.get(Progress.world_id(index), []))
+	for pick in picks.get("units", []):
+		for entry in showcase.get(pick.world, []):
+			if entry.get("id", "") == pick.unit:
+				pool.append(entry)
 	return pool
 
 

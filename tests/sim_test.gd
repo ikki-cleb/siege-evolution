@@ -1324,14 +1324,15 @@ func _test_menu_pizazz() -> void:
 	for child in menu._content.get_children():
 		if child is EvolutionShowcase:
 			hero = child
+	var picks: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/title_pool.json"))
 	_check(menu._stripes.visible and menu._stripes._slices.size() == progress.WORLDS.size()
-		and hero != null and not hero._pool.is_empty()
-		and hero._pool.all(func(unit): return unit.idle.contains("/backyard_bugs/")),
-		"The title shows every world's map and evolves units from unlocked worlds only")
+		and hero != null and picks.units.size() == 40 and hero._pool.size() == 40,
+		"The title shows every world's map and a showcase pool of the 40 hand-picked units")
 	hero._time = EvolutionShowcase.EVOLVE_AT + 0.5
 	await process_frame
-	_check(hero._evolved.strip != null and hero._evolved.modulate.a > 0.5 and hero._evolved_name.text != "",
-		"The showcase unit evolves into one of its evolutions")
+	_check(hero._branches.all(func(icon): return icon.strip != null and icon.modulate.a > 0.5)
+		and hero._branch_names.all(func(label): return label.text != ""),
+		"The showcase unit branches into both of its evolutions at once")
 
 	# World select: postcards, slid in from the right; Backyard is new once.
 	var new_before: bool = progress.is_world_new("backyard_bugs")

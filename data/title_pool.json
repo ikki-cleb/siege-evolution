@@ -1,0 +1,165 @@
+{
+ "_about": "The 40 base units the title screen shows evolving (the user picked them from a contact sheet). Each entry is a world id and a base unit id; the showcase draws the unit and both of its evolutions.",
+ "units": [
+  {
+   "world": "backyard_bugs",
+   "unit": "praying_mantis"
+  },
+  {
+   "world": "backyard_bugs",
+   "unit": "bombardier_beetle"
+  },
+  {
+   "world": "backyard_bugs",
+   "unit": "click_beetle"
+  },
+  {
+   "world": "backyard_bugs",
+   "unit": "toxic_mushroom"
+  },
+  {
+   "world": "backyard_bugs",
+   "unit": "scorpion"
+  },
+  {
+   "world": "backyard_bugs",
+   "unit": "spittlebug"
+  },
+  {
+   "world": "backyard_bugs",
+   "unit": "honeybee"
+  },
+  {
+   "world": "backyard_bugs",
+   "unit": "jumping_spider"
+  },
+  {
+   "world": "wild_kingdom",
+   "unit": "scarecrow"
+  },
+  {
+   "world": "wild_kingdom",
+   "unit": "draft_horse"
+  },
+  {
+   "world": "wild_kingdom",
+   "unit": "ferret"
+  },
+  {
+   "world": "wild_kingdom",
+   "unit": "toad"
+  },
+  {
+   "world": "wild_kingdom",
+   "unit": "barn_cat"
+  },
+  {
+   "world": "wild_kingdom",
+   "unit": "bull"
+  },
+  {
+   "world": "wild_kingdom",
+   "unit": "honking_goose"
+  },
+  {
+   "world": "wild_kingdom",
+   "unit": "hen"
+  },
+  {
+   "world": "immune_system",
+   "unit": "neutrophil"
+  },
+  {
+   "world": "immune_system",
+   "unit": "cytokine_storm"
+  },
+  {
+   "world": "immune_system",
+   "unit": "dendritic_cell"
+  },
+  {
+   "world": "immune_system",
+   "unit": "perforin_lancer"
+  },
+  {
+   "world": "immune_system",
+   "unit": "inflammation_zone"
+  },
+  {
+   "world": "immune_system",
+   "unit": "nk_cell"
+  },
+  {
+   "world": "immune_system",
+   "unit": "fever_node"
+  },
+  {
+   "world": "total_war",
+   "unit": "shock_turret"
+  },
+  {
+   "world": "total_war",
+   "unit": "radar_tower"
+  },
+  {
+   "world": "total_war",
+   "unit": "chem_trooper"
+  },
+  {
+   "world": "total_war",
+   "unit": "smoke_launcher"
+  },
+  {
+   "world": "total_war",
+   "unit": "toxic_drone"
+  },
+  {
+   "world": "galactic_siege",
+   "unit": "tesla_coil"
+  },
+  {
+   "world": "galactic_siege",
+   "unit": "blade_bot"
+  },
+  {
+   "world": "galactic_siege",
+   "unit": "tractor_beam"
+  },
+  {
+   "world": "galactic_siege",
+   "unit": "toxic_reactor"
+  },
+  {
+   "world": "galactic_siege",
+   "unit": "buzz_bot"
+  },
+  {
+   "world": "galactic_siege",
+   "unit": "cryo_emitter"
+  },
+  {
+   "world": "kitchen_defense",
+   "unit": "toaster"
+  },
+  {
+   "world": "birthday_bash",
+   "unit": "party_horn"
+  },
+  {
+   "world": "birthday_bash",
+   "unit": "bottle_rocket"
+  },
+  {
+   "world": "birthday_bash",
+   "unit": "sparkler"
+  },
+  {
+   "world": "birthday_bash",
+   "unit": "water_pistol"
+  },
+  {
+   "world": "birthday_bash",
+   "unit": "fireworks_launcher"
+  }
+ ]
+}
