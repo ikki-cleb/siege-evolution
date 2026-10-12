@@ -1423,8 +1423,10 @@ func _test_endless_reach(biome: BiomeData) -> void:
 			await _stop(game)
 			continue
 		game.start_endless()
+		game.speed = 4  # endless runs are long; 4x (a speed players can pick) keeps the test quick
 		await _play(game, AutoPlayer.new(game, 7))
 		line += "%s: wave %d  " % [biome.packs[pack_index].display_name, game.wave_number]
+		print("  %s: endless run ended on wave %d" % [biome.packs[pack_index].display_name, game.wave_number])
 		_check(game.phase == game.Phase.LOST and game.wave_number < 80,
 			"%s endless with %s ends before wave 80" % [biome.display_name, biome.packs[pack_index].display_name])
 		await _stop(game)
