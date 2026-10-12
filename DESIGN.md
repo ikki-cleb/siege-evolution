@@ -405,12 +405,19 @@ falls (or a boss reaches it). The user's choices:
 
 - **Ramp** (`scripts/game/endless_waves.gd`): waves use the world's level-5
   wave rules (`data/endless.json`, written by the content build), starting
-  from level 5's final-wave budget and growing **6% per wave**, with the
+  from level 5's final-wave budget and growing **8% per wave**, with the
   later wave mixes and elites at their maximum share. Invader **HP** grows
-  too: 1 + 0.04n + 0.0015n^2 for endless wave n (2.4x by n = 20), applied to
+  **x1.16 per wave**, compounding (4.4x by endless wave 10), applied to
   everything spawned that wave (minions and split pieces included). More
   than 90 invaders in a wave would slow phones, so bigger waves send fewer,
-  tougher invaders instead. Aim: a strong defense falls around wave 25-35.
+  tougher invaders instead. Target (the user's "Medium"): a strong defense
+  falls around wave 25-35. A first, gentler curve (6% budget, slow HP curve)
+  let the bot reach waves 58-98; with this one its runs end around 20-40.
+- **No stalls:** in endless, a stunned invader can't be stunned again for 1 s
+  after the stun ends; no slow goes above 80% (all modes); and a wave that
+  runs over 3 minutes **enrages** its invaders (no more stuns, slows or
+  knockback, with a message). The bot's Control runs used to freeze tough
+  invaders forever with chained stuns and knockback.
 - **Boss returns** every 10th endless wave (game waves 18, 28...), with a
   BOSS INCOMING banner, at +50% HP each time (1.5x, 2x...). Reaching the base
   is still an instant loss.
