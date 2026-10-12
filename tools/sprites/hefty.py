@@ -134,7 +134,9 @@ def spider(c, p, body, x=16, y=19, r=7.5, eyes4=False, fuzz=None, legs_color=Non
 
 def glow(c, x, y, r, color, alpha=34):
     """A soft glow behind the art. Kept faint (under the outline's 40 alpha
-    cut-off) so it stays a haze instead of becoming a solid outlined disc."""
+    cut-off) so it stays a haze instead of becoming a solid outlined disc.
+    Draw it FIRST: shapes replace the pixels under them (no blending), so a
+    glow drawn on top would wipe out the art."""
     c.ellipse(x, y, r, r, color[:3] + (min(alpha, 38),))
 
 
@@ -288,3 +290,63 @@ def antibody(c, x, y, color, size=1.0):
     c.line([(x, y + 3 * s), (x, y)], color, 2)
     c.line([(x, y), (x - 2.5 * s, y - 3 * s)], color, 2)
     c.line([(x, y), (x + 2.5 * s, y - 3 * s)], color, 2)
+
+
+def plastic(pc):
+    """Toy-soldier plastic in a pack's color: a bit muted, like molded toys."""
+    return mix_colors(pc, hexc("#6a7a40"), 0.3)
+
+
+def mix_colors(a, b, t):
+    return tuple(int(a[i] + (b[i] - a[i]) * t) for i in range(3)) + (255,)
+
+
+def army_man(c, p, color, x=16, y=17, weapon="rifle", helmet="round", base=True, size=1.0):
+    """A stocky plastic army man on a little base: big helmet, dot eyes,
+    oversized toy weapon. Returns the top of the helmet."""
+    s = size
+    dark = shade(color, -0.22)
+    fire = p.get("act") == "fire"
+    if base:
+        c.ellipse(x, y + 13 * s, 8.5 * s, 2.6 * s, shade(color, -0.35))
+        c.ellipse(x, y + 12.5 * s, 8 * s, 2.2 * s, dark)
+    step = (0, 1, 0, -1)[phase(p)] * 0.5
+    c.rect(x - 4.5 * s, y + 6 * s, x - 0.8 * s, y + 12.5 * s + step, dark)  # legs
+    c.rect(x + 0.8 * s, y + 6 * s, x + 4.5 * s, y + 12.5 * s - step, dark)
+    c.block(x - 6 * s, y - 1 * s, x + 6 * s, y + 7 * s, color)  # chunky torso
+    c.rect(x - 6 * s, y + 4.5 * s, x + 6 * s, y + 5.5 * s, shade(color, -0.3))  # belt
+    for side in (-1, 1):  # arms
+        c.rect(x + side * 6 * s - 1.6 * s, y, x + side * 6 * s + 1.6 * s, y + 5 * s, shade(color, -0.08))
+    hy = y - 4.5 * s
+    c.blob(x, hy, 5 * s, 4.6 * s, shade(color, 0.08))  # head
+    if helmet == "round":
+        c.ellipse(x, hy - 2 * s, 6.2 * s, 3.8 * s, shade(color, -0.12))
+        c.rect(x - 6.5 * s, hy - 1.5 * s, x + 6.5 * s, hy - 0.5 * s, shade(color, -0.3))
+    elif helmet == "beret":
+        c.ellipse(x - 1, hy - 3.5 * s, 5.5 * s, 2.4 * s, shade(color, -0.35))
+    elif helmet == "cap":
+        c.ellipse(x, hy - 3 * s, 5 * s, 2.6 * s, shade(color, -0.12))
+        c.rect(x - 1, hy - 2.5 * s, x + 6 * s, hy - 1.5 * s, shade(color, -0.3))
+    elif helmet == "mask":  # a gas mask
+        c.ellipse(x, hy - 2 * s, 6 * s, 3.6 * s, shade(color, -0.12))
+        c.ellipse(x, hy + 2 * s, 2 * s, 1.6 * s, shade(color, -0.4))
+    c.px(x - 2 * s, hy + 0.5 * s, OUTLINE)  # dot eyes
+    c.px(x + 2 * s, hy + 0.5 * s, OUTLINE)
+    gun = shade(color, -0.45)
+    if weapon == "rifle":
+        c.rect(x + 5 * s, y - 6 * s - fire, x + 7 * s, y + 6 * s, gun)
+        c.rect(x + 4.5 * s, y + 2 * s, x + 7.5 * s, y + 4 * s, gun)
+    elif weapon == "long_rifle":
+        c.rect(x + 5 * s, y - 11 * s - fire, x + 6.8 * s, y + 6 * s, gun)
+        c.rect(x + 4 * s, y - 5 * s, x + 8 * s, y - 3.5 * s, shade(gun, 0.25))  # scope
+    elif weapon == "bazooka":
+        c.rect(x + 3 * s, y - 7 * s - fire, x + 8 * s, y + 5 * s, gun)
+        c.ellipse(x + 5.5 * s, y - 7 * s - fire, 2.5 * s, 1.2 * s, shade(gun, -0.3))
+    elif weapon == "grenade":
+        c.ellipse(x + 7 * s, y - 4 * s - fire * 2, 2.2 * s, 2.2 * s, gun)
+        c.px(x + 7 * s, y - 6.5 * s - fire * 2, shade(gun, 0.4))
+    elif weapon == "knife":
+        c.poly([(x + 6 * s, y + 3 * s), (x + 8 * s, y + 3 * s), (x + 7 * s, y - 4 * s - fire)], hexc("#d8dce4"))
+    elif weapon == "binoculars":
+        c.rect(x - 3 * s, hy - 0.5 * s, x + 3 * s, hy + 2 * s, gun)
+    return (x, hy - 5.5 * s)

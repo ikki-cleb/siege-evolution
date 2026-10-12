@@ -292,13 +292,13 @@ def spitting_spider(c, p):
 def firefly(c, p):
     b = tier(p)
     lit = p.get("act") != "idle"
+    if b == 0:  # Bright: a huge glow around the tail (drawn first)
+        glow(c, 16, 26, 10, hexc("#f8f080"))
     wings(c, p, 16, 14, 5, 3.5, hexc("#c8d0d8", 200), 8)
     body = hexc("#5a4a3a")
     shell(c, 16, 19, 8.5, 7, body)
     lamp = hexc("#f0f070") if not lit else p["pc"]
     lamp_r = 6 if b == 0 else 4.5
-    if b == 0:  # Bright: a huge glowing tail
-        glow(c, 16, 27, 9, hexc("#f8f080"), 70)
     c.ellipse(16, 26, lamp_r, lamp_r * 0.7, lamp)
     c.ellipse(15, 25, lamp_r * 0.4, lamp_r * 0.25, WHITE)
     head(c, p, 16, 10, 4.8, hexc("#c04030"))
