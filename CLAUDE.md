@@ -99,6 +99,7 @@ them; they upload it themselves.
 - Map objects (32x32 obstacles, 3 looks per world/variant, plus animated water): `python3 tools/draw_objects.py [--preview out.png]`; designs in `tools/objects/designs.py`; `ObstacleLayer` draws them. Obstacles must never resemble units (terrain/clutter only, muted style; see DESIGN.md).
 - Web loading screen (`web/shell.html`): `python3 tools/make_loading_parade.py` embeds its invaders, units and font subsets; see DESIGN.md "Web loading screen". To see it, serve `build/web` and load it in Playwright with network throttling (locally it loads too fast to show).
 - Animated sprites (the user generates them): `python3 tools/import_sprites.py <folder>` (files named `<world>_<id>_<anim>.png` strips or `_<anim>_<n>.png` frames), then import + content build. Placeholder strips: `python3 tools/make_placeholder_anims.py` (never overwrites).
+- App icon / store art: `python3 tools/draw_icon.py [--preview out.png]` (writes `art/icons/` and `store/play-icon-512.png`); store screenshots: `bash tools/screenshots/make_screenshots.sh`; store text limits: `python3 tools/check_listing.py`.
 - Painted level backgrounds (the user generates them): `python3 tools/import_backgrounds.py <folder>` (files named `<world_id>_level_NN.png`), then `godot --headless --import` and the content build. Levels without one keep their floor tiles. On top of the importer's softening, an in-game fog + mute shader calms every background (`CalmBackground`, stronger on busy maps; player slider in Settings, default Medium); tune it there rather than re-baking images.
 
 **How content works.** Pack stats live once in `tools/content/immune_system.json`.
@@ -216,8 +217,20 @@ bot runs. Comet Tail losses predate the boss change. Path preview now shows on e
 
 **Endless mode (latest round):** see DESIGN.md "Endless mode". After a boss level win, "Continue in Endless" (`Game.start_endless`); waves past 8 come from `EndlessWaves` (`Game.wave_data(i)` is the one place to get any wave); `Board.hp_scale` / `boss_hp_scale` toughen spawns (`Invader.full_hp`, never `data.max_hp`, for an invader's max); `RelicSet.roll_offer` stacks copies once the useful pool is exhausted (`RelicSet.copies`). Bot reach: `tests/sim_test.gd -- endless world=N`.
 
-**Next steps (user's call):** import the user's backgrounds when they
-arrive (and make obstacle tiles transparent); playtest feedback (sprites,
-capstones, bonus worlds); cosmetic unlocks; real billing (Apple StoreKit and
-Google Play Billing plugins, see the TODOs in `scripts/store.gd`); native
-iOS/Android builds and TestFlight / Play internal testing.
+**Store packaging (latest round):** see DESIGN.md "Store release" and
+`LAUNCH.md` (the user's step-by-step checklist). Done here: app icon
+(`python3 tools/draw_icon.py`, Grizzly over the castle) + splash, Android/iOS
+export presets (`com.siegeevolution.app`, v1.0.0, iPhone only), billing
+wrappers (`scripts/billing/`) wired into `Store` with tests using fake
+plugins, $0.99/$2.99 prices, notch offset (`Look.safe_top`), Codemagic
+workflows (`codemagic.yaml`, `tools/ci/`), GitHub Pages site (`docs/*.html`),
+store copy + IAP table + age-rating answers (`store/`), framed screenshots
+(`bash tools/screenshots/make_screenshots.sh`). This container's network
+blocks github.com and dl.google.com, so phone builds can't run here; the
+Codemagic config is untested until the user has accounts (first runs may
+need fixes: plugin release names, Godot editor-settings file name).
+
+**Next steps (user's call):** create the store accounts and follow
+`LAUNCH.md` (fill [PUBLISHER]/[SUPPORT_EMAIL]/[DATE], GitHub Pages, Codemagic
+setup, first builds); playtest feedback (sprites, capstones, bonus worlds,
+endless); cosmetic unlocks.

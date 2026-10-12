@@ -22,7 +22,7 @@ the next one.
 | Animation | Units and invaders can have **animation strips**: one PNG per animation, square 64×64 frames side by side (`art/anim/<world>/...`). Units: idle (loops, 4 fps) and attack (plays once per shot at 10 fps, sped up so it ends before the next shot; plain walls have none). Invaders: move (loops, 10 fps) and death (plays once where it died, replacing the white puff). Base units and tier-1 evolutions have their own strips; capstones reuse tier 1's and the game draws a gold star. Without strips the still sprite is used. **All sprites are drawn in code** at 32×32 per frame (`tools/draw_sprites.py`, designs in `tools/sprites/`): bulky, detailed designs (the user found the first ones flimsy): creatures and fighters look bigger, cooler and more threatening, silly things (objects, gadgets, party gear) get more detail instead. Every world's evolutions are drawn bespoke per branch (module flag `TIERED = True`, branch read with `hefty.tier(p)`): the **power** branch is bigger and more armored / pro-grade / over the top, the **utility** branch adds visible gear matching its ability (longer barrels, scopes, spikes, pumps). Evolutions are also scaled 1.12x around the feet (`TIER_SCALE`), and capstones (which reuse tier-1 art) are drawn 1.1x bigger in game (`Unit.CAPSTONE_BOOST`). Shared beefy parts live in `tools/sprites/hefty.py`. Faces stay cute. Only living things have faces (cells, bugs, animals, army men, mech pilots' LED visors, pests, the clown), plus the living kitchen helpers (sponge, sugar cube, egg beater, toaster, soap, moldy bread) and party characters (cake, balloon arch, disco ball, jelly, sour candy, lemon, moldy cake); other objects and gear don't. Final art can replace any strip via `tools/import_sprites.py`. Unit buttons show the first idle frame. |
 | Art | 16×16 pixel tiles, integer-scaled. Placeholders for now; the user draws the final art. Each level can also have a painted **ground background** (detailed pixel art, 1152×1792, 9:14 portrait, no obstacles baked in) that replaces its floor tiles; rocks, spawns, base and water still draw on top. The importer softens every background (30% less color, a bit less contrast, slightly brighter) so the art stays calm and sprites stand out. On top, an in-game **Background filter** (`shaders/background_calm.gdshader`, set up by `scripts/game/calm_background.gd`; the user picked "Fog + Mute") mutes color 40%, softens contrast 15% and fades 35% toward the picture's own average color at Medium. Busy pictures get more automatically: each background's busyness (edges + contrast on a small copy, ~25 ms at level start) divided by 38 (the middle of the 35 backgrounds) scales the strength between 0.75x and 1.4x. Players set the base strength with the **Settings > Background** slider (Off to Strong, default Medium, saved; live preview on the busiest map). Sound and Music toggles also live on the Settings screen. |
 | Menus | Clean dark style with two fonts (chosen from two rounds of screenshot comparisons): **Coiny** for titles, buttons and any label 18px or bigger, and **Space Mono** for all other text (both SIL OFL). `tools/make_font.py` builds `SiegeTitle.ttf` / `SiegeText.ttf` from them, adding the coin, arrow and star icons, shrinking Space Mono 12% to fit the layouts, mirroring Coiny's "/" (it leans the wrong way) and redrawing its V and v as pointed Vs (its rounded V made "EVOLUTION" read as "EUOLUTION"). Each world has an accent color (`scripts/look.gd`, `scripts/palette.gd`). |
-| Business model | Free, no ads. Optional $1 purchases (see Monetization). |
+| Business model | Free, no ads. Optional $0.99 purchases (see Monetization). |
 
 ## Structure
 
@@ -309,8 +309,8 @@ for power, blue ring for reach.
 | **Fortress** | Massive walls and slow, heavy hitters. Holds the line against smashers. | Free |
 | **Swarm** | Cheap units that attack faster when packed together. | Free |
 | **Precision** | Long range, big single hits, and marks that make targets take extra damage. | Free |
-| **Control** | Slows, stuns and area damage. Deadly inside a long maze. | $1 |
-| **Toxin** | Stacking poison that ignores armor and spreads when a victim dies. | $1 |
+| **Control** | Slows, stuns and area damage. Deadly inside a long maze. | $0.99 |
+| **Toxin** | Stacking poison that ignores armor and spreads when a victim dies. | $0.99 |
 
 A bought pack unlocks in **every** world, including bonus worlds.
 
@@ -812,22 +812,44 @@ packs and bonus worlds can also be unlocked right where they appear.
 
 | Item | Price |
 |---|---|
-| 4× speed (1× and 2× are free) | $1 |
-| Control pack | $1 |
-| Toxin pack | $1 |
-| Kitchen Defense (bonus world) | $1 |
-| Birthday Bash (bonus world) | $1 |
-| **Everything bundle** (all five) | **$3** instead of $5 |
+| 4× speed (1× and 2× are free) | $0.99 |
+| Control pack | $0.99 |
+| Toxin pack | $0.99 |
+| Kitchen Defense (bonus world) | $0.99 |
+| Birthday Bash (bonus world) | $0.99 |
+| **Everything bundle** (all five) | **$2.99** instead of $4.95 |
 
-There's also a Restore Purchases button (Apple requires it). Prices shown
-in-game are placeholders; the real localized prices come from the App
-Store / Google Play.
+Prices are on the stores' price tiers (the user chose $0.99 / $2.99; $1.00
+isn't a tier). There's also a Restore Purchases button (Apple requires it).
+In-game prices come from the App Store / Google Play (in the player's
+currency) once the store answers; the prices in `Store.PRODUCTS` are only the
+fallback.
 
-**Implementation status:** `scripts/store.gd` handles ownership, the bundle,
-and saving. Web and debug builds run in **test mode** (purchases are free and
-instant). Phone release builds still need the Apple StoreKit and Google Play
-Billing plugins connected (marked TODO), and the matching product ids set up
-in App Store Connect and Google Play Console.
+**Implementation:** `scripts/store.gd` handles ownership, the bundle and
+saving. Web, editor and debug builds run in **test mode** (purchases are free
+and instant). Phone release builds buy through Godot's official billing
+plugins, wrapped by `scripts/billing/google_play_billing.gd` and
+`scripts/billing/app_store_billing.gd` (no RevenueCat: it has no Godot
+plugin). The plugins are fetched during the Codemagic builds
+(`tools/ci/fetch_plugins.sh`). Product ids and store setup: `store/in-app-products.md`.
+
+## Store release
+
+The user's packaging answers carry over from their Trivia Ladder app: no
+store accounts yet (the goal is "ready to upload once they exist"), publisher
+and support email are placeholders, privacy/support pages on GitHub Pages
+(`docs/`), icon generated in code, store copy, screenshots, age-rating answers
+and a launch checklist prepared (`LAUNCH.md`, `store/`). Here they also chose:
+
+- **Name:** Siege Evolution, bundle id `com.siegeevolution.app` (both stores).
+- **Builds:** Codemagic (`codemagic.yaml`), so no Mac is needed: Android
+  `.aab` to Google Play's internal track, iOS `.ipa` to TestFlight.
+- **Audience:** 13+ (like Trivia), outside Google's Families program;
+  expected rating Apple 9+ / ESRB E10+ / PEGI 7 for mild cartoon violence.
+- **Icon:** the Grizzly looming over the Total War castle
+  (`tools/draw_icon.py`; the user rejected an evolving-unit design and
+  picked this from boss options).
+- **iPhone only** (no iPad), portrait, notch-safe (`Look.safe_top`).
 
 ## Level generation
 
