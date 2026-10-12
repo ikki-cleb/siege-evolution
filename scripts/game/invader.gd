@@ -190,6 +190,8 @@ func take_damage(amount: float, pierce := false, flash := true) -> void:
 
 
 func apply_slow(amount: float, duration: float) -> void:
+	if board.enraged:
+		return
 	# A weaker slow never replaces a stronger one that's still running.
 	amount = minf(amount, MAX_SLOW)
 	if amount >= slow_amount or slow_time <= 0.0:
@@ -198,7 +200,7 @@ func apply_slow(amount: float, duration: float) -> void:
 
 
 func apply_stun(duration: float) -> void:
-	if stun_guard > 0.0:
+	if stun_guard > 0.0 or board.enraged:
 		return
 	# Bosses shrug off most of a stun.
 	stun_time = max(stun_time, duration * (0.3 if data.is_boss else 1.0))
@@ -222,7 +224,8 @@ func shred_armor(amount: int) -> void:
 ## Shoves a ground invader back along its route. Bosses, fliers and
 ## tunneling invaders can't be shoved, and nothing gets shoved twice in a row.
 func knock_back(tiles: int) -> void:
-	if data.is_boss or is_flying() or underground or _knockback_cooldown > 0.0 or path.is_empty():
+	if data.is_boss or is_flying() or underground or _knockback_cooldown > 0.0 or path.is_empty() \
+			or board.enraged:
 		return
 	_knockback_cooldown = KNOCKBACK_COOLDOWN
 	var landing := maxi(0, mini(path_index, path.size()) - 1 - tiles)

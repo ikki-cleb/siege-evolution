@@ -66,6 +66,9 @@ var _endless_waves: EndlessWaves
 ## The best endless wave for this world and pack before this run (for the
 ## game-over screen's "NEW BEST").
 var endless_best_before := 0
+## Endless: after this many seconds a wave's invaders become enraged (see
+## Board.enraged), so control effects can't stall a wave forever.
+const ENRAGE_AFTER := 180.0
 
 
 func _ready() -> void:
@@ -370,6 +373,7 @@ func start_wave() -> void:
 	var alternate := 0
 	var wave := wave_data(wave_number)
 	_set_endless_hp(wave)
+	board.enraged = false
 	for entry in wave.entries:
 		for i in entry.count:
 			var spawn: int = entry.spawn_point
@@ -402,6 +406,9 @@ func _process(delta: float) -> void:
 	if phase != Phase.WAVE:
 		return
 	_wave_time += delta
+	if endless and not board.enraged and _wave_time > ENRAGE_AFTER:
+		board.enraged = true
+		hud.show_message("The invaders are enraged! Stuns, slows and knockback no longer work this wave.")
 	while not _spawn_queue.is_empty() and _spawn_queue[0].time <= _wave_time:
 		var spawn: Dictionary = _spawn_queue.pop_front()
 		var invader := board.spawn_invader(spawn.invader, spawn.spawn)

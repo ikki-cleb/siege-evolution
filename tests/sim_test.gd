@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 167
+const MIN_RULE_CHECKS := 168
 var progress: Node
 
 
@@ -1405,6 +1405,16 @@ func _test_endless(biome: BiomeData) -> void:
 		target.apply_slow(3.0, 1.0)
 		_check(guarded and target.slow_amount <= Invader.MAX_SLOW,
 			"Endless invaders get a short stun guard; slows are capped at 80%")
+		# A wave that drags on enrages its invaders: no more stuns or slows.
+		game._wave_time = game.ENRAGE_AFTER + 1.0
+		await process_frame
+		target.stun_guard = 0.0
+		target.stun_time = 0.0
+		target.slow_time = 0.0
+		target.apply_stun(2.0)
+		target.apply_slow(0.5, 2.0)
+		_check(game.board.enraged and target.stun_time == 0.0 and target.slow_time == 0.0,
+			"Endless waves that drag on enrage their invaders (no stuns or slows)")
 	else:
 		_check(false, "Endless invaders get a short stun guard; slows are capped at 80%")
 	# Losing ends the run and saves the best wave for this world and pack.

@@ -740,6 +740,9 @@ func spawn_from(parent: Invader, data: InvaderData, count: int, drops_coins := t
 ## use boss_hp_scale instead). 1.0 on normal levels.
 var hp_scale := 1.0
 var boss_hp_scale := 1.0
+## Endless mode: a wave that drags on too long enrages its invaders, so
+## stuns, slows and knockback stop working and the wave can't stall forever.
+var enraged := false
 
 
 func _add_invader(data: InvaderData, pos: Vector2, path: Array[Vector2i], path_index: int) -> Invader:
