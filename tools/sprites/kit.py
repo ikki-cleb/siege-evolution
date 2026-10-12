@@ -34,14 +34,17 @@ def mix(a, b, t):
 
 
 class Canvas:
-    def __init__(self, sx=1.0, sy=1.0, dx=0.0, dy=0.0):
-        self.img = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
+    def __init__(self, sx=1.0, sy=1.0, dx=0.0, dy=0.0, size=SIZE):
+        # `size`: 32 for normal sprites; bosses use 64 (twice the detail).
+        self.size = size
+        self.feet = (FEET[0] * size / SIZE, FEET[1] * size / SIZE)
+        self.img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
         self.draw = ImageDraw.Draw(self.img)
         self.sx, self.sy, self.dx, self.dy = sx, sy, dx, dy
 
     # --- transforms ---
     def T(self, x, y):
-        fx, fy = FEET
+        fx, fy = self.feet
         return (fx + (x - fx) * self.sx + self.dx, fy + (y - fy) * self.sy + self.dy)
 
     # --- shapes (all in design space) ---
@@ -67,7 +70,7 @@ class Canvas:
     def px(self, x, y, color):
         x, y = self.T(x, y)
         x, y = int(round(x)), int(round(y))
-        if 0 <= x < SIZE and 0 <= y < SIZE:
+        if 0 <= x < self.size and 0 <= y < self.size:
             self.img.putpixel((x, y), color)
 
     # --- shaded parts ---

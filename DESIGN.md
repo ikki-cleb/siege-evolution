@@ -395,6 +395,31 @@ Art: `python3 tools/draw_objects.py` (designs in `tools/objects/designs.py`)
 writes `obstacle.png` (3 looks x 1 or 4 frames) and `water_anim.png` next
 to each world's tiles; `scripts/game/obstacle_layer.gd` draws them.
 
+## Bosses (look)
+
+Bosses star on the world postcards, so the user asked for threatening,
+detailed designs: **menacing but still cartoony** (glowing angry eyes,
+fangs, scars, spikes, battle damage; nothing gory). They're drawn on a
+**64x64** canvas (twice the detail of other sprites) and shown **2x** the
+size of a normal invader on the board (their hit area is unchanged).
+
+- Giant Centipede: rearing up, armored segments, huge pincers, four eyes.
+- Grizzly: standing and roaring, claws out, a scar over one eye.
+- Superbug: a spiked virus king, glowing spike tips, fanged mouth, crown.
+- Mega Tank: no face (toys have none); twin cannons, skull emblem, red
+  headlights and viewport slit that read as angry eyes, spiked treads.
+- Mothership: armored saucer, alien pilot with red eyes, tractor beam.
+- Rat King: fat rat in a cape and tilted crown, scepter, scarred tail.
+- The Clown: a mischievous villain, wicked grin, juggling lit bombs.
+
+Each has its **own death** (6 frames): the centipede crumbles, the grizzly
+topples with dizzy stars, the superbug swells and bursts into goo, the tank
+explodes and its turret flies off, the mothership sparks and blows apart,
+the rat king poofs and leaves his crown, the clown pops into confetti.
+When the boss wave starts, a **BOSS INCOMING** banner with hazard stripes
+slides across the board with the boss walking, its name and description,
+and a low horn sound.
+
 ## Menus (pizazz pass)
 
 The user picked these from mockups (title: "B's background with C's

@@ -157,6 +157,78 @@ func show_message(text: String) -> void:
 		_message_label.add_theme_font_size_override("font_size", MESSAGE_SMALL_FONT)
 
 
+## "BOSS INCOMING": a banner slides across the board with the boss's portrait
+## (walking), its name and what it does, then slides away. Doesn't block taps.
+func show_boss_intro(boss: InvaderData) -> void:
+	const HEIGHT := 128.0
+	const HOLD := 2.4
+	var band := Control.new()
+	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	band.size = Vector2(WIDTH, HEIGHT)
+	band.position = Vector2(-WIDTH, 230)
+	band.z_index = 20
+	_root.add_child(band)
+	var back := ColorRect.new()
+	back.color = Color("#2a0810", 0.94)
+	back.size = band.size
+	back.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	band.add_child(back)
+	for y in [0.0, HEIGHT - 6.0]:  # hazard stripes along both edges
+		var stripes := HazardStripes.new()
+		stripes.position = Vector2(0, y)
+		stripes.size = Vector2(WIDTH, 6)
+		band.add_child(stripes)
+	if boss.anim_move:
+		var portrait := AnimIcon.new().setup(boss.anim_move, 8.0)
+		portrait.position = Vector2(4, 12)
+		portrait.size = Vector2(108, 108)
+		band.add_child(portrait)
+	var warning := _band_label("BOSS INCOMING!", 13, Palette.HEART, Vector2(116, 14))
+	band.add_child(warning)
+	band.add_child(_band_label(boss.display_name, 24, Palette.TEXT, Vector2(116, 32)))
+	var about := _band_label(boss.description, 10, Palette.TEXT_DIM, Vector2(116, 66))
+	about.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	about.custom_minimum_size.x = WIDTH - 124  # wraps inside the banner
+	about.theme_type_variation = ""
+	band.add_child(about)
+	Sfx.play("boss", 0.0)
+	var flash := warning.create_tween().set_loops(6)
+	flash.tween_property(warning, "modulate", Palette.GOLD, 0.2)
+	flash.tween_property(warning, "modulate", Color.WHITE, 0.2)
+	var tween := band.create_tween()
+	tween.tween_property(band, "position:x", 0.0, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_interval(HOLD)
+	tween.tween_property(band, "position:x", WIDTH, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_callback(band.queue_free)
+
+
+func _band_label(text: String, font_size: int, color: Color, where: Vector2) -> Label:
+	var label := Label.new()
+	label.text = text
+	label.position = where
+	label.theme_type_variation = "TitleLabel"
+	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_color_override("font_color", color)
+	label.add_theme_color_override("font_outline_color", Color("#12040a"))
+	label.add_theme_constant_override("outline_size", 6)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return label
+
+
+## Diagonal black-and-yellow warning stripes (for the boss banner).
+class HazardStripes extends Control:
+	func _ready() -> void:
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	func _draw() -> void:
+		draw_rect(Rect2(Vector2.ZERO, size), Palette.GOLD)
+		var x := -size.y
+		while x < size.x:
+			draw_colored_polygon(PackedVector2Array([Vector2(x, size.y), Vector2(x + size.y, 0),
+				Vector2(x + size.y + 6, 0), Vector2(x + 6, size.y)]), Color("#1a1016"))
+			x += 12
+
+
 ## Launches a coin orb from a screen position to the coin counter. The counter
 ## only counts it once it lands.
 func spawn_orb(from: Vector2, amount: int) -> void:

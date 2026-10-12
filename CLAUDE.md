@@ -139,6 +139,12 @@ instant loss (minions do normal damage); the boss spawn tile has a purple
 glow + skull all level (`scripts/game/boss_marker.gd`); the boss route is a
 thick purple line before the boss wave (even with Paths off); bombs fall
 for 0.9s with a red warning before they explode (`Board.drop_bomb`).
+**Boss art (latest round):** the 7 bosses are drawn on a 64x64 canvas in
+`tools/sprites/bosses.py` (menacing but cartoony, angry glowing eyes; each
+has its own 6-frame death: crumble, topple, burst, explode, pop...), shown
+2x a normal invader (`Invader.BOSS_SCALE`), rising out of the top of their
+world postcards, and announced by a sliding BOSS INCOMING banner with a
+"boss" horn sound (`Hud.show_boss_intro`). `Canvas(size=64)` in kit.py.
 
 **Relics (latest round):** see DESIGN.md "Relics". Pool in
 `data/relics.json`; logic in `scripts/game/relic_set.gd`; unit stats go

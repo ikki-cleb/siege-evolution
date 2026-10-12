@@ -24,6 +24,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from sprites.kit import SIZE, Canvas, death_frames, hexc, shade  # noqa: E402
 from make_placeholder_anims import pack_rows  # noqa: E402
+from sprites import bosses  # noqa: E402
 
 PROJECT = Path(__file__).resolve().parent.parent
 ANIM = PROJECT / "art" / "anim"
@@ -128,9 +129,10 @@ def save_strip(frames, path, imported):
     if frames is None or str(path.relative_to(PROJECT)) in imported:
         return 0
     path.parent.mkdir(parents=True, exist_ok=True)
-    sheet = Image.new("RGBA", (SIZE * len(frames), SIZE), (0, 0, 0, 0))
+    side = frames[0].width  # 32, or 64 for bosses
+    sheet = Image.new("RGBA", (side * len(frames), side), (0, 0, 0, 0))
     for i, frame in enumerate(frames):
-        sheet.alpha_composite(frame, (i * SIZE, 0))
+        sheet.alpha_composite(frame, (i * side, 0))
     sheet.save(path)
     return 1
 
@@ -164,7 +166,10 @@ def main(worlds):
                     made += save_strip(idle, out / f"{uid}_idle.png", imported)
                     made += save_strip(attack, out / f"{uid}_attack.png", imported)
         for invader in content["invaders"]:
-            move, death = enemy_frames(module.ENEMIES[invader["id"]])
+            if invader["id"] in bosses.BOSSES:  # 64x64 bosses with their own deaths
+                move, death = bosses.frames(invader["id"])
+            else:
+                move, death = enemy_frames(module.ENEMIES[invader["id"]])
             out = ANIM / world / "invaders"
             made += save_strip(move, out / f"{invader['id']}_move.png", imported)
             made += save_strip(death, out / f"{invader['id']}_death.png", imported)

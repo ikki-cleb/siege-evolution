@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 156
+const MIN_RULE_CHECKS := 158
 var progress: Node
 
 
@@ -572,6 +572,17 @@ func _test_bosses(biome: BiomeData) -> void:
 	game.toggle_paths()
 	game.start_wave()
 	_check(board.preview_boss == null, "The boss route hides once the wave starts")
+	_check(_all_texts(game.hud).has("BOSS INCOMING!"), "The boss wave opens with a BOSS INCOMING banner")
+	# Every boss has detailed 64x64 art, its own 6-frame death, and is drawn 2x.
+	var art_ok := true
+	for index in progress.WORLDS.size():
+		for level in progress.load_biome(index).levels:
+			for wave in level.waves:
+				for entry in wave.entries:
+					if entry.invader.is_boss:
+						art_ok = art_ok and entry.invader.anim_move.get_height() == 64 \
+							and entry.invader.anim_death.get_width() == 64 * 6
+	_check(art_ok and Invader.BOSS_SCALE == 2.0, "Bosses have 64x64 art with their own death, shown 2x")
 	# A minion only does its normal damage...
 	var hp_before: int = game.base_hp
 	game._on_base_hit(minion)

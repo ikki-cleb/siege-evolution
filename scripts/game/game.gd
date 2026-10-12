@@ -379,6 +379,11 @@ func start_wave() -> void:
 	wave_number += 1
 	hud.show_message("A glowing invader carries a relic! Defeat it to choose an upgrade." \
 		if _spawn_queue.any(func(spawn): return spawn.get("carrier", false)) else "")
+	# The boss wave: a "BOSS INCOMING" banner with the boss's portrait.
+	for spawn in _spawn_queue:
+		if spawn.invader.is_boss:
+			hud.show_boss_intro(spawn.invader)
+			break
 	hud.refresh()
 
 

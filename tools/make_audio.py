@@ -132,6 +132,10 @@ def sfx():
                       (("C5", 0.12), ("E5", 0.12), ("G5", 0.12), ("C6", 0.3), ("G5", 0.12), ("C6", 0.5))]),
         "lose": join(*[tone(note(n), d, r, 0.3, duty=0.5) for n, d in
                        (("G4", 0.2), ("F#4", 0.2), ("F4", 0.2), ("E4", 0.6))]),
+        # The boss arrives: two low, brassy horn blasts over a rumble.
+        "boss": mix(join(tone(note("D3"), 0.32, r, 0.32, duty=0.25, vibrato=0.015), silence(0.06, r),
+                         tone(note("A2"), 0.6, r, 0.34, duty=0.25, slide=-20, vibrato=0.02, release=0.25)),
+                    noise(1.0, r, 0.18, decay=3, low=14)),
         "victory": join(*[tone(note(n), d, r, 0.3, duty=0.25, vibrato=0.01) for n, d in
                           (("C5", 0.15), ("C5", 0.15), ("C5", 0.15), ("C5", 0.4), ("G#4", 0.4), ("A#4", 0.4),
                            ("C5", 0.2), ("A#4", 0.1), ("C5", 0.8))]),

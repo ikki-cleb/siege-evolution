@@ -780,7 +780,7 @@ func _play_death(invader: Invader) -> void:
 	var sprite := Sprite2D.new()
 	sprite.position = invader.position
 	sprite.z_index = 4
-	var size := (1.75 if invader.data.is_boss else 1.0) * TILE / strip.get_height()
+	var size := (Invader.BOSS_SCALE if invader.data.is_boss else 1.0) * TILE / strip.get_height()
 	sprite.scale = Vector2(size, size)
 	var player := StripPlayer.new()
 	sprite.add_child(player)

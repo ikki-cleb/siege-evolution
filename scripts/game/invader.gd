@@ -20,6 +20,9 @@ var last_hitter: Node = null
 ## Armor stripped by shredding capstones.
 var armor_lost := 0
 ## Knockback can't shove the same invader again for this long.
+## Bosses are drawn this many times bigger than a normal invader (their
+## 64x64 strips are scaled by height, so they keep the same detail).
+const BOSS_SCALE := 2.0
 const KNOCKBACK_COOLDOWN := 2.0
 var _knockback_cooldown := 0.0
 ## The tiles this invader will walk through, ending at the base.
@@ -125,7 +128,7 @@ func setup(p_data: InvaderData, p_board: Board, start: Vector2, p_path: Array[Ve
 	_outline.shader = OUTLINE_SHADER
 	_outline.set_shader_parameter("outline_color", Color(1.0, 0.18, 0.18, OUTLINE_STRENGTH))
 	_sprite.material = _outline
-	var size := 1.75 if data.is_boss else 1.0
+	var size := BOSS_SCALE if data.is_boss else 1.0
 	if data.anim_move:
 		# Strips are drawn at 64x64 per frame; shrink them to the 16x16 tile.
 		add_child(_strips)
@@ -517,7 +520,7 @@ func _draw() -> void:
 	if underground and _dig_time <= 0.0:
 		_draw_tunneler()
 		return
-	var half := 9.0 if data.is_boss else 6.0
+	var half := 10.5 if data.is_boss else 6.0
 	if carries_relic:
 		# A pulsing gold aura and a little gem above its head.
 		var pulse := 0.5 + 0.5 * sin(Time.get_ticks_msec() / 160.0)

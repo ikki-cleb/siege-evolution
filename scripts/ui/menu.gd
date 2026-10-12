@@ -357,7 +357,7 @@ func _world_card(index: int) -> void:
 	if Progress.is_world_new(id):
 		Progress.mark_world_seen(id)
 		var tag := _outlined("NEW!", 18, Look.GOLD)
-		_pin_right(tag, 104, 60, 8, 26)
+		_pin_right(tag, 150, 60, 8, 26)
 		tag.rotation = 0.12
 		banner.add_child(tag)
 		var pulse := tag.create_tween().set_loops()
@@ -376,7 +376,7 @@ func _postcard_banner(index: int, id: String, unlocked: bool, accent: Color) -> 
 	var world: Dictionary = Progress.WORLDS[index]
 	var banner := Control.new()
 	banner.custom_minimum_size.y = 100
-	banner.clip_contents = true
+	# No clipping: the boss is big and breaks out over the top of its card.
 	var path := "res://art/backgrounds/%s/level_02.webp" % id
 	if id != "" and ResourceLoader.exists(path):
 		var picture: Texture2D = load(path)
@@ -415,11 +415,11 @@ func _postcard_banner(index: int, id: String, unlocked: bool, accent: Color) -> 
 		var art: Dictionary = _card_art().get(id, {})
 		if art.has("invader") and ResourceLoader.exists(art.invader):
 			var walker := AnimIcon.new().setup(load(art.invader), 8.0)
-			_pin_right(walker, 104, 48, 50)
+			_pin_right(walker, 118, 48, 50)
 			banner.add_child(walker)
 		if art.has("boss") and ResourceLoader.exists(art.boss):
 			var boss := AnimIcon.new().setup(load(art.boss), 6.0)
-			_pin_right(boss, 6, 94, 4)
+			_pin_right(boss, 0, 124, -26)
 			banner.add_child(boss)
 	var number := "BONUS WORLD" if Progress.is_bonus(index) else "WORLD %d" % Progress.main_number(index)
 	var small := _outlined(number, 12, accent if unlocked else DIM_TEXT)
