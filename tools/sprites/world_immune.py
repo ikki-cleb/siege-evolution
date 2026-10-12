@@ -1,16 +1,26 @@
-"""World 1 (Microscopic): friendly cells and their germy invaders.
+"""World 3 (Microscopic): friendly cells and their germy invaders.
 
 Each unit design draws one pose on a Canvas. `p` carries the pose:
   p["mood"]   eyes (calm, angry, squint, closed, wide)
   p["mouth"]  mouth shape
   p["pc"]     the pack color (an accent on every unit)
   p["act"]    "idle", "wind" (about to attack) or "fire"
-Each returns the point at the top of its head, for evolution decorations.
+  p["branch"] None (base), 0 (power evolution) or 1 (utility evolution)
 Enemy designs get p["phase"] 0-3 for their walk cycle.
+
+Redesigned (see world_backyard.py): every cell has the silhouette of the
+real cell it's based on, with cute faces and soft colors. Power evolutions
+get an armored membrane, a glowing nucleus and receptor spikes; utility
+evolutions reach further (pseudopods, flagella, long receptors).
 """
 import math
 
-from .kit import hexc, shade
+from .hefty import antibody, cell_body, glow, pc_mark, pseudopods, ring, tier
+from .kit import OUTLINE, hexc, shade
+from .parts import WHITE, phase
+
+# draw_sprites.py: these designs draw their own evolutions.
+TIERED = True
 
 
 def _face(c, x, y, p, gap=3, size=2):
@@ -18,320 +28,521 @@ def _face(c, x, y, p, gap=3, size=2):
     c.mouth(x, y + 3, p["mouth"])
 
 
+def receptors(c, x, y, rx, ry, color, count=8, length=3.5):
+    """Receptor spikes around a cell (power evolutions)."""
+    for k in range(count):
+        a = k * math.tau / count + 0.2
+        bx, by = x + math.cos(a) * rx, y + math.sin(a) * ry
+        c.line([(bx, by), (bx + math.cos(a) * length, by + math.sin(a) * length)], color, 2)
+        c.px(bx + math.cos(a) * (length + 0.5), by + math.sin(a) * (length + 0.5), shade(color, 0.3))
+
+
+def flagella(c, p, x, y, color, count=2, length=10):
+    """Wavy tails (utility evolutions that reach further)."""
+    wave = (0, 1, 0, -1)[phase(p)]
+    for k in range(count):
+        side = -1 if k == 0 else 1
+        pts = [(x + side * (4 + i * length / 5), y + math.sin(i * 1.3 + wave) * 2 + i * 0.6) for i in range(6)]
+        c.line(pts, color)
+
+
+def tissue_wall(c, top, color, rows=3):
+    """A fleshy wall block of rounded tissue lumps."""
+    c.block(3, top, 29, 30, shade(color, -0.2))
+    h = (30 - top) / rows
+    for r in range(rows):
+        for k in range(4):
+            x = 6.5 + k * 6.3 + (r % 2) * 2
+            c.blob(min(26.5, x), top + h * (r + 0.5), 3.4, h / 2 - 0.2, shade(color, ((k + r) % 3 - 1) * 0.05))
+
+
 # --- Fortress -----------------------------------------------------------------
 
-def scab(c, p):  # crusty dark-red wall
-    c.block(4, 9, 28, 30, hexc("#8a2c2c"))
-    for x0, y0 in ((7, 12), (17, 11), (11, 19), (21, 20), (6, 24)):
-        c.ellipse(x0 + 2, y0 + 2, 2.6, 2.0, hexc("#a8463c"))
-    c.line([(9, 17), (13, 15), (16, 18)], hexc("#5a1818"))
-    c.line([(18, 24), (22, 26), (25, 24)], hexc("#5a1818"))
-    c.rect(4, 9, 27, 10, p["pc"])
-    return (16, 9)
+def scab(c, p):
+    b = tier(p)
+    crust = hexc("#8a2a2a") if b != 0 else hexc("#6a1e22")
+    top = 9 if b == 0 else 12
+    tissue_wall(c, top, crust, 4 if b == 0 else 3)
+    for x, y in ((8, 16), (19, 20), (25, 26), (12, 26)):
+        c.ellipse(x, y + top - 12, 2, 1.2, shade(crust, 0.2))
+    if b == 1:  # Spiky Scab: hard crystal spikes
+        for x in (6, 12, 18, 24):
+            c.poly([(x - 2, top + 1), (x + 2, top + 1), (x + 0.5, top - 6)], hexc("#d8a0a0"))
+    pc_mark(c, 16, 27, p, 1.3)
+    return (16, top - 2)
 
 
-def germ_eater(c, p):  # big hungry amoeba
-    body = hexc("#f2d38a")
-    for lx, ly in ((7, 24), (25, 23), (9, 14), (24, 13)):
-        c.ellipse(lx, ly, 3.5, 3.2, shade(body, -0.06))
-    c.blob(16, 19, 10.5, 10, body)
-    c.ellipse(21, 23, 2.5, 2.2, p["pc"])
-    c.eyes(14, 15, 3, p["mood"], 3)
-    c.mouth(14, 21, "open" if p["act"] != "idle" else "smile", 5)
-    return (16, 9)
+def germ_eater(c, p):
+    b = tier(p)
+    body = hexc("#e8c070")
+    chomp = p.get("act") == "fire"
+    pseudopods(c, 16, 19, shade(body, -0.05), reach=1.25 if b == 1 else 0.95, count=5 if b == 1 else 4, p=p)
+    top = cell_body(c, p, body, rx=11 if b == 0 else 9.5, ry=9.5 if b == 0 else 8.5, nucleus=hexc("#b07a3a"),
+                    granules=hexc("#c89a50"), armored=b == 0, face_y=16)
+    if chomp or b == 0:  # Giant: germs it has swallowed, inside
+        for x, y in ((12, 22), (20, 23)):
+            c.ellipse(x, y, 1.8, 1.2, hexc("#9ad040"))
+    if chomp:
+        c.mouth(16, 20, "open", 3)
+    pc_mark(c, 16, 25, p, 1.4)
+    return top
 
 
-def scout_cell(c, p):  # star-shaped cell with branching arms
-    body = hexc("#c9b4f0")
-    for a in range(5):
-        ang = -math.pi / 2 + a * math.tau / 5
-        tip = (16 + math.cos(ang) * 12, 19 + math.sin(ang) * 10)
-        c.line([(16, 19), tip], shade(body, -0.1), 3)
-        c.ellipse(tip[0], tip[1], 1.8, 1.8, p["pc"])
-    c.blob(16, 19, 7, 7, body)
-    _face(c, 16, 17, p)
-    return (16, 9)
+def scout_cell(c, p):
+    b = tier(p)
+    body = hexc("#c890f0")
+    arms = 5
+    reach = 1.35 if b == 1 else 1.0
+    for k in range(arms):  # branching dendrite arms
+        a = -math.pi / 2 + k * math.tau / arms
+        tip = (16 + math.cos(a) * 12 * reach, 19 + math.sin(a) * 11 * reach)
+        c.line([(16, 19), tip], shade(body, -0.1), 3 if b == 0 else 2)
+        for side in (-0.5, 0.5):
+            c.line([tip, (tip[0] + math.cos(a + side) * 3, tip[1] + math.sin(a + side) * 3)], shade(body, -0.1))
+    top = cell_body(c, p, body, rx=7.5, ry=7, nucleus=hexc("#8a5ab0"), armored=b == 0)
+    pc_mark(c, 16, 23, p, 1.3)
+    return top
 
 
-def scar_tissue(c, p):  # pink fibrous wall with stitches
-    c.block(4, 9, 28, 30, hexc("#e48aa0"))
-    for y in (13, 18, 23):
-        c.line([(6, y), (26, y + 1)], hexc("#c86a82"))
-    c.line([(16, 11), (16, 27)], hexc("#7a2a3c"))
-    for y in (12, 16, 20, 24):
-        c.line([(14, y), (18, y + 1)], hexc("#7a2a3c"))
-    c.ellipse(9, 26, 1.6, 1.4, p["pc"])
-    return (16, 9)
+def scar_tissue(c, p):
+    b = tier(p)
+    pink = hexc("#e8a0b0")
+    top = 9 if b == 0 else 12
+    c.block(3, top, 29, 30, pink)
+    for y in range(top + 2, 30, 3):  # fibers
+        c.line([(4, y), (28, y + (1 if y % 2 else -1))], shade(pink, -0.12))
+    stitches = (8, 16, 24) if b != 0 else (6, 11, 16, 21, 26)
+    for x in stitches:  # stitches
+        c.line([(x, top + 3), (x, 27)], hexc("#5a3a4a"))
+        for y in range(top + 4, 27, 4):
+            c.line([(x - 1.5, y), (x + 1.5, y + 1)], hexc("#5a3a4a"))
+    if b == 1:  # Quick-Heal: a plaster with a green cross
+        c.block(10, top + 4, 22, top + 12, hexc("#f4e8d0"))
+        c.rect(15, top + 5, 17, top + 11, hexc("#5ac060"))
+        c.rect(13, top + 7, 19, top + 9, hexc("#5ac060"))
+    pc_mark(c, 26, 27, p, 1.3)
+    return (16, top - 2)
 
 
-def blaster_cell(c, p):  # round cell full of orange granules, cannon snout
-    body = hexc("#f07a8a")
-    c.rect(13, 4 if p["act"] == "fire" else 6, 19, 12, shade(p["pc"], -0.1))
-    c.blob(16, 20, 10, 9.5, body)
-    for gx, gy in ((9, 20), (12, 25), (20, 25), (23, 20), (16, 27)):
-        c.ellipse(gx, gy, 1.4, 1.4, hexc("#ffb040"))
-    _face(c, 16, 18, p)
-    return (16, 6)
+def blaster_cell(c, p):
+    b = tier(p)
+    body = hexc("#f0a080")
+    barrel = 4 if b == 0 else 3
+    length = 11 if b == 1 else 7
+    recoil = 2 if p.get("act") == "fire" else 0
+    c.rect(16 - barrel / 2 - 1, 11 - length + recoil, 16 + barrel / 2 + 1, 14, shade(body, -0.35))  # cannon snout
+    c.rect(16 - barrel / 2, 11 - length + recoil, 16 + barrel / 2, 13, shade(body, -0.15))
+    top = cell_body(c, p, body, rx=10.5 if b == 0 else 9.5, ry=9, nucleus=hexc("#c05a50"), lobes=2,
+                    granules=hexc("#e86a30"), n_granules=9, armored=b == 0, face_y=18)
+    pc_mark(c, 16, 25, p, 1.4)
+    return (16, 11 - length)
 
 
-def hard_lump(c, p):  # big knobbly lump that zaps neighbors
-    body = hexc("#9a8a78")
-    for kx, ky in ((7, 14), (25, 14), (10, 9), (22, 9), (5, 22), (27, 22)):
-        c.ellipse(kx, ky, 3.4, 3.2, shade(body, -0.05))
-    c.blob(16, 19, 12, 11, body)
-    c.ellipse(16, 20, 4, 3.4, p["pc"] if p["act"] != "idle" else shade(p["pc"], -0.25))
+def hard_lump(c, p):
+    b = tier(p)
+    lump = hexc("#b08a7a") if b != 0 else hexc("#8a8a92")
+    for x, y, r in ((9, 23, 6), (23, 23, 6), (16, 16, 7.5), (16, 25, 6.5), (7, 15, 4), (25, 15, 4)):
+        c.blob(x, y, r, r * 0.9, shade(lump, ((x + y) % 3 - 1) * 0.05))
+    if b == 1:  # Spiky Lump: spikes
+        for x, y, dx, dy in ((4, 12, -2, -3), (28, 12, 2, -3), (16, 7, 0, -4), (3, 24, -3, 0), (29, 24, 3, 0)):
+            c.poly([(x - 1.5, y), (x + 1.5, y), (x + dx, y + dy)], hexc("#e8d8d0"))
+    zap = p.get("act") != "idle"
+    if zap:
+        ring(c, 16, 20, 14, 12, hexc("#fff080"))
+    c.eyes(16, 15, 3, p.get("mood", "calm"), 2)
+    c.mouth(16, 18.5, "smile", 3)
+    pc_mark(c, 16, 25, p, 1.4)
     return (16, 8)
 
 
 # --- Swarm --------------------------------------------------------------------
 
-def skin_cell(c, p):  # hexagonal skin tile
-    body = hexc("#f0c8a0")
-    pts = [(16 + math.cos(a) * 12, 19 + math.sin(a) * 10.5) for a in [i * math.tau / 6 for i in range(6)]]
-    c.poly(pts, shade(body, -0.14))
-    c.poly([(x - 0.8, y - 1) for x, y in pts], body)
-    c.ellipse(16, 19, 3.5, 3.2, p["pc"])
-    c.px(15, 18, shade(p["pc"], 0.3))
-    return (16, 9)
-
-
-def white_blood_cell(c, p):  # round white cell, three-lobed nucleus
-    body = hexc("#f4f0f6")
-    c.blob(16, 20, 9.5, 9.5, body)
-    for nx, ny in ((12, 23), (16, 25), (20, 23)):
-        c.ellipse(nx, ny, 2.2, 2.0, p["pc"])
-    _face(c, 16, 17, p)
-    return (16, 10)
-
-
-def spike_shooter(c, p):  # pale cell with a launching spike on its head
-    body = hexc("#a8d8f0")
-    if p["act"] != "fire":
-        c.poly([(14, 11), (18, 11), (16, 4)], p["pc"])
-    c.blob(16, 20, 9, 9, body)
-    _face(c, 16, 18, p)
-    return (16, 6)
-
-
-def itch_cell(c, p):  # purple cell peppered with dark granules
-    body = hexc("#9a70c8")
-    c.blob(16, 20, 10, 9.5, body)
-    for gx, gy in ((9, 16), (23, 16), (8, 23), (24, 23), (12, 27), (20, 27), (16, 12)):
-        c.ellipse(gx, gy, 1.3, 1.3, hexc("#3a2058"))
-    _face(c, 16, 19, p)
-    c.ellipse(16, 13, 1.5, 1.5, p["pc"])
-    return (16, 10)
-
-
-def killer_cell(c, p):  # dark cell with claws
-    body = hexc("#58688a")
-    for side in (-1, 1):
-        c.poly([(16 + side * 9, 20), (16 + side * 13, 15), (16 + side * 11, 22)], p["pc"])
-    c.blob(16, 20, 9, 9, body)
-    c.eyes(16, 18, 3, "angry" if p["mood"] == "calm" else p["mood"])
-    c.mouth(16, 22, "fangs")
-    return (16, 11)
-
-
-def sticky_net(c, p):  # web of sticky strands
-    strand = hexc("#e8d070")
-    for y in (10, 16, 22, 28):
-        c.line([(4, y), (28, y - 1)], strand)
-    for x in (6, 12, 18, 24):
-        c.line([(x, 8), (x + 2, 30)], strand)
-    for dx, dy in ((7, 12), (19, 19), (13, 25), (24, 11)):
-        c.ellipse(dx, dy, 1.5, 1.8, p["pc"])
+def skin_cell(c, p):
+    b = tier(p)
+    skin = hexc("#f0c8a8")
+    rows = ((9, 13), (16, 13), (23, 13), (12.5, 20), (19.5, 20), (9, 27), (16, 27), (23, 27))
+    for x, y in rows:
+        pts = [(x + math.cos(a * math.pi / 3) * 4.2, y + math.sin(a * math.pi / 3) * 3.8) for a in range(6)]
+        c.poly(pts, shade(skin, ((int(x) + int(y)) % 3 - 1) * 0.05))
+        c.ellipse(x + 0.5, y + 0.5, 1, 0.8, shade(skin, -0.25))  # little nucleus
+    if b == 0:  # Tough: a thick outer layer
+        c.rect(3, 29, 29, 31, shade(skin, -0.3))
+        c.rect(3, 8, 29, 9.5, shade(skin, -0.3))
+    if b == 1:  # Prickly: hairs
+        for x in (6, 12, 18, 24):
+            c.line([(x, 9), (x + 1, 4)], hexc("#a07a5a"))
+    pc_mark(c, 16, 20, p, 1.3)
     return (16, 8)
+
+
+def white_blood_cell(c, p):
+    b = tier(p)
+    body = hexc("#f4f0f8")
+    if b == 1:  # Long-Reach: a long pseudopod arm
+        pseudopods(c, 16, 19, shade(body, -0.05), reach=1.3, count=2, start=-0.3, p=p)
+    if b == 0:
+        receptors(c, 16, 19, 11, 10, hexc("#c8b8e8"))
+    top = cell_body(c, p, body, rx=10.5 if b == 0 else 9.5, ry=9.5 if b == 0 else 8.5, nucleus=hexc("#9a7ac8"),
+                    lobes=3, granules=hexc("#d8d0e8"), armored=b == 0, face_y=15.5)
+    pc_mark(c, 16, 26, p, 1.4)
+    return top
+
+
+def spike_shooter(c, p):
+    b = tier(p)
+    body = hexc("#d8e0f0")
+    fire = p.get("act") == "fire"
+    spikes = 2 if b == 0 else 1
+    long_ = b == 1
+    for k in range(spikes):
+        x = 16 + (k - (spikes - 1) / 2) * 6
+        c.poly([(x - 2, 11), (x + 2, 11), (x, 11 - (12 if long_ else 8) - fire * 2)], hexc("#a0b8d8"))
+        c.line([(x, 10), (x, 4 if long_ else 6)], WHITE)
+    top = cell_body(c, p, body, rx=9.5, ry=8.5, nucleus=hexc("#7a8ab0"), armored=b == 0, face_y=18)
+    pc_mark(c, 16, 25, p, 1.4)
+    return (16, 3)
+
+
+def itch_cell(c, p):
+    b = tier(p)
+    body = hexc("#b08ad8")
+    if b == 1:  # Wide: an itchy ring
+        ring(c, 16, 19, 14.5, 12, hexc("#e0c0ff"), 24)
+    top = cell_body(c, p, body, rx=10.5 if b == 0 else 9.5, ry=9, granules=hexc("#4a2a6a"),
+                    n_granules=12 if b == 0 else 8, armored=b == 0, nucleus=None)
+    pc_mark(c, 16, 25, p, 1.4)
+    return top
+
+
+def killer_cell(c, p):
+    b = tier(p)
+    body = hexc("#4a4a6a")
+    if b == 1:  # Hunter: a tail to chase germs
+        flagella(c, p, 16, 27, shade(body, 0.2), count=2, length=9)
+    claw = 1.4 if b == 0 else 1.0
+    for side in (-1, 1):  # claws
+        c.line([(16 + side * 8, 17), (16 + side * 12 * claw, 12), (16 + side * 11 * claw, 8)], hexc("#d8d8e8"), 2)
+        c.line([(16 + side * 12 * claw, 12), (16 + side * 14 * claw, 9)], hexc("#d8d8e8"))
+    top = cell_body(c, p, body, rx=9.5 if b != 0 else 10.5, ry=9, nucleus=hexc("#2a2a40"), granules=hexc("#8a8ab0"),
+                    armored=b == 0)
+    pc_mark(c, 16, 26, p, 1.4)
+    return top
+
+
+def sticky_net(c, p):
+    b = tier(p)
+    strand = hexc("#e8d090")
+    spread = 14 if b == 1 else 12
+    for k in range(9 if b == 0 else 7):
+        a = k * math.pi / (8 if b == 0 else 6)
+        c.line([(16 - math.cos(a) * spread, 19 - math.sin(a) * 10), (16 + math.cos(a) * spread, 19 + math.sin(a) * 10)], strand)
+    for r in (4, 8, 12) if b != 0 else (3, 6, 9, 12):
+        pts = [(16 + math.cos(a * math.pi / 6) * r * spread / 12, 19 + math.sin(a * math.pi / 6) * r * 0.85) for a in range(13)]
+        c.line(pts, strand)
+    for x, y in ((10, 15), (22, 22), (14, 25), (21, 13)):  # trapped germ bits
+        c.ellipse(x, y, 1.6, 1.3, hexc("#9ad040"))
+    pc_mark(c, 16, 19, p, 1.4)
+    return (16, 7)
 
 
 # --- Precision ----------------------------------------------------------------
 
-def nail_plate(c, p):  # glossy nail-like plate
-    body = hexc("#f2e0c8")
-    c.block(5, 9, 27, 30, body)
-    c.rect(7, 11, 10, 27, shade(body, 0.14))
-    c.rect(5, 26, 26, 28, p["pc"])
-    return (16, 9)
+def nail_plate(c, p):
+    b = tier(p)
+    nail = hexc("#f4e8e0")
+    top = 9 if b == 0 else 12
+    c.ellipse(16, top + 2, 13, 4, shade(nail, -0.1))
+    c.block(3, top + 2, 29, 30, nail)
+    c.rect(3, top + 2, 29, top + 5, hexc("#fff8f4"))  # the white tip
+    for x in (8, 14, 20, 25):  # glossy streaks
+        c.line([(x, top + 7), (x + 1, 27)], (255, 255, 255, 200))
+    if b == 0:  # Thick: layered plates
+        c.line([(3, top + 12), (29, top + 12)], shade(nail, -0.2))
+    if b == 1:  # Spiked: ridges
+        for x in (6, 12, 18, 24):
+            c.poly([(x - 2, top + 2), (x + 2, top + 2), (x, top - 5)], hexc("#e0d0c8"))
+    pc_mark(c, 16, 26, p, 1.3)
+    return (16, top - 2)
 
 
-def antibody_shooter(c, p):  # blue cell wearing Y-shaped antibodies
-    body = hexc("#7ab0f0")
-    for ax in (10, 16, 22):
-        top = 6 if (p["act"] == "fire" and ax == 16) else 8
-        c.line([(ax, 13), (ax, top + 3)], p["pc"], 1)
-        c.line([(ax, top + 3), (ax - 2, top)], p["pc"], 1)
-        c.line([(ax, top + 3), (ax + 2, top)], p["pc"], 1)
-    c.blob(16, 21, 9, 8.5, body)
-    _face(c, 16, 19, p)
-    return (16, 8)
+def antibody_shooter(c, p):
+    b = tier(p)
+    body = hexc("#8ab8f0")
+    for k in range(7 if b != 0 else 9):  # antibodies on the surface
+        a = math.pi + k * math.pi / (6 if b != 0 else 8)
+        antibody(c, 16 + math.cos(a) * 11, 19 + math.sin(a) * 10, hexc("#f0e070"), 0.8)
+    if b == 0:  # Heavy: a big antibody cannon on top
+        antibody(c, 16, 5, hexc("#f0e070"), 1.6)
+    if b == 1:  # Long: a long launcher tube
+        c.rect(14, 1, 18, 11, hexc("#5a7ab0"))
+    top = cell_body(c, p, body, rx=9.5, ry=8.5, nucleus=hexc("#4a6aa0"), armored=b == 0, face_y=18)
+    pc_mark(c, 16, 25, p, 1.4)
+    return (16, 3)
 
 
-def germ_tagger(c, p):  # cell waving a little flag
+def germ_tagger(c, p):
+    b = tier(p)
     body = hexc("#90e0c0")
-    c.line([(24, 22), (25, 7)], hexc("#6a4a30"), 1)
-    wave = 1 if p["act"] == "fire" else 0
-    c.poly([(25, 7), (30, 9 + wave), (25, 11)], p["pc"])
-    c.blob(15, 21, 9, 8.5, body)
-    _face(c, 15, 19, p)
-    return (15, 12)
+    pole = 16 if b == 1 else 10
+    wave = phase(p) % 2
+    c.line([(24, 19), (24, 19 - pole)], hexc("#7a6a5a"), 2)  # flag pole
+    flag = p["pc"]
+    c.poly([(25, 19 - pole), (31, 21 - pole + wave), (25, 24 - pole)], flag)
+    if b == 0:  # Strong: a bigger flag and a sash
+        c.poly([(25, 19 - pole), (31, 22 - pole + wave), (25, 26 - pole)], flag)
+    top = cell_body(c, p, body, rx=9, ry=8.5, nucleus=hexc("#4aa080"), armored=b == 0)
+    if b == 0:
+        c.line([(9, 15), (23, 25)], hexc("#e05a5a"), 2)
+    return top
 
 
-def germ_stabber(c, p):  # teal cell with a lance
-    body = hexc("#5ac0b0")
-    reach = 3 if p["act"] == "fire" else 7
-    c.poly([(22, 20), (24, 20), (23, reach)], hexc("#e8e8f0"))
-    c.blob(15, 21, 9, 8.5, body)
-    c.eyes(15, 19, 3, "angry" if p["act"] != "idle" else p["mood"])
-    c.mouth(15, 23, p["mouth"])
-    c.rect(21, 19, 26, 21, p["pc"])
-    return (15, 12)
+def germ_stabber(c, p):
+    b = tier(p)
+    body = hexc("#60c8c0")
+    thrust = -3 if p.get("act") == "fire" else 0
+    lance = 13 if b == 0 else 10
+    c.line([(23, 25), (23, 25 - lance - 8 + thrust)], hexc("#c8c8d8"), 2 if b != 0 else 3)  # lance
+    c.poly([(21, 25 - lance - 8 + thrust), (25, 25 - lance - 8 + thrust), (23, 25 - lance - 13 + thrust)], hexc("#f0f0f8"))
+    if b == 1:  # Patrol: little flagella feet
+        flagella(c, p, 16, 28, shade(body, -0.2), 2, 6)
+    if b == 0:
+        receptors(c, 16, 19, 10, 9, shade(body, -0.3), 6, 3)
+    top = cell_body(c, p, body, rx=9.5, ry=9, nucleus=hexc("#2a7a78"), armored=b == 0)
+    pc_mark(c, 12, 25, p, 1.3)
+    return top
 
 
-def antibody_sniper(c, p):  # one big eye and a long barrel
-    body = hexc("#88a0e8")
-    c.rect(14, 2 if p["act"] == "fire" else 4, 18, 13, shade(p["pc"], -0.15))
-    c.blob(16, 21, 9, 8.5, body)
-    c.ellipse(16, 19, 3.5, 3.5, (250, 250, 250, 255))
-    c.ellipse(16, 19, 1.6, 1.6, (24, 14, 22, 255) if p["mood"] != "closed" else (250, 250, 250, 255))
-    return (16, 4)
+def antibody_sniper(c, p):
+    b = tier(p)
+    body = hexc("#5a8ad0")
+    recoil = 2 if p.get("act") == "fire" else 0
+    barrels = (16,) if b != 1 else (13.5, 18.5)
+    for x in barrels:  # long barrel(s)
+        c.rect(x - 2.5 if b == 0 else x - 1.5, 0 + recoil, x + 2.5 if b == 0 else x + 1.5, 12, shade(body, -0.35))
+        c.rect(x - 1, 0 + recoil, x + 1, 11, shade(body, -0.1))
+    cell_body(c, p, body, rx=10, ry=9, nucleus=None, armored=b == 0, face=False)
+    c.ellipse(16, 18, 5.5, 5.5, WHITE)  # one big eye
+    c.ellipse(16, 18, 3, 3, hexc("#3a5aa0"))
+    c.ellipse(16, 18, 1.4, 1.4, OUTLINE)
+    c.px(14.5, 16.5, WHITE)
+    pc_mark(c, 16, 26, p, 1.4)
+    return (16, 0)
 
 
-def alarm_signal(c, p):  # bell-shaped beacon cell
-    body = hexc("#f0e070")
-    c.poly([(9, 27), (11, 13), (16, 10), (21, 13), (23, 27)], shade(body, -0.14))
-    c.poly([(10, 26), (12, 13), (16, 11), (20, 13), (22, 26)], body)
-    c.rect(8, 26, 24, 29, p["pc"])
-    c.ellipse(16, 8, 2, 2, p["pc"])
-    _face(c, 16, 19, p)
-    return (16, 7)
+def alarm_signal(c, p):
+    b = tier(p)
+    body = hexc("#f0d050")
+    tall = 5 if b == 1 else 0
+    if b == 1:  # Tall: on a stalk
+        c.rect(14.5, 22, 17.5, 31, shade(body, -0.35))
+    c.poly([(9, 25 - tall), (11, 11 - tall), (21, 11 - tall), (23, 25 - tall)], body)  # bell
+    c.ellipse(16, 11 - tall, 5.5, 3.5, body)
+    c.rect(8, 24 - tall, 24, 26.5 - tall, shade(body, -0.25))
+    c.ellipse(16, 28 - tall, 2.2, 2, shade(body, -0.35))  # clapper
+    c.eyes(16, 16 - tall, 2.5, p.get("mood", "calm"), 2)
+    c.mouth(16, 19.5 - tall, "open" if p.get("act") != "idle" else "smile", 3)
+    if b == 0 or p.get("act") != "idle":  # Loud: sound rings
+        for r in (12, 15):
+            ring(c, 16, 17 - tall, r, r * 0.8, hexc("#fff4a0"), 18)
+    pc_mark(c, 20, 22 - tall, p, 1.3)
+    return (16, 6 - tall)
 
 
 # --- Control ------------------------------------------------------------------
 
-def mucus_wall(c, p):  # translucent green goo with bubbles and drips
-    goo = hexc("#88c860", 230)
-    c.ellipse(16, 21, 13, 10, shade(goo, -0.15))
-    c.ellipse(15, 20, 12, 9, goo)
-    for bx, by in ((10, 18), (20, 22), (15, 15)):
-        c.ellipse(bx, by, 1.6, 1.6, shade(goo, 0.2))
-    c.rect(7, 27, 9, 31, goo)
-    c.rect(22, 27, 24, 30, goo)
-    c.ellipse(21, 16, 1.5, 1.5, p["pc"])
-    return (16, 11)
+def mucus_wall(c, p):
+    b = tier(p)
+    goo = hexc("#a0d070", 235) if b != 1 else hexc("#c0e070", 240)
+    top = 9 if b == 0 else 12
+    c.ellipse(16, top + 3, 13, 4.5, goo)
+    c.block(3, top + 2, 29, 29, goo)
+    for x, y, r in ((8, 18, 2), (19, 22, 2.5), (24, 15, 1.6), (12, 26, 1.8)):
+        c.ellipse(x, y + top - 12, r, r, shade(goo, 0.2))  # bubbles
+        c.px(x - 0.5, y + top - 12.5, WHITE)
+    drips = (7, 15, 24) if b != 1 else (5, 10, 15, 20, 25)
+    for x in drips:
+        c.rect(x, 28, x + 2, 31 - (x % 2), goo)
+    pc_mark(c, 16, 26, p, 1.3)
+    return (16, top - 2)
 
 
-def allergy_cell(c, p):  # puffy pink cell
-    body = hexc("#f4a0c0")
-    for px_, py_ in ((8, 15), (24, 15), (16, 11), (9, 25), (23, 25)):
-        c.ellipse(px_, py_, 4, 3.6, shade(body, -0.05))
-    c.blob(16, 20, 10, 9.5, body)
-    _face(c, 16, 19, p)
-    c.ellipse(16, 13, 1.5, 1.5, p["pc"])
-    return (16, 8)
+def allergy_cell(c, p):
+    b = tier(p)
+    body = hexc("#f4a0c8")
+    puff = 1 if p.get("act") != "idle" else 0
+    for k in range(7):  # puffy lobes
+        a = k * math.tau / 7
+        c.blob(16 + math.cos(a) * 8, 19 + math.sin(a) * 7, 4 + puff, 3.6 + puff, body)
+    if b == 1:  # Wide: pollen puffs around
+        for x, y in ((3, 10), (29, 12), (4, 28), (28, 28)):
+            c.ellipse(x, y, 1.8, 1.8, hexc("#f8e070"))
+    top = cell_body(c, p, body, rx=8, ry=7.5, granules=hexc("#c05a8a"), n_granules=7, armored=b == 0)
+    pc_mark(c, 16, 25, p, 1.3)
+    return top
 
 
-def sneeze_blaster(c, p):  # a big nose that blasts goo
-    body = hexc("#f0b090")
-    c.blob(16, 21, 10, 9, body)
-    c.ellipse(16, 12 if p["act"] != "fire" else 11, 5, 5, shade(body, -0.05))
-    c.ellipse(14, 13, 1.2, 1.4, hexc("#6a2a2a"))
-    c.ellipse(18, 13, 1.2, 1.4, hexc("#6a2a2a"))
-    c.eyes(16, 21, 4, p["mood"])
-    c.rect(10, 26, 22, 27, p["pc"])
-    return (16, 7)
-
-
-def fever_spot(c, p):  # hot glowing blob with a flame tuft
-    body = hexc("#f06a40")
-    flick = 1 if p["act"] == "fire" else 0
-    c.poly([(12, 13), (16, 3 - flick), (20, 13)], hexc("#ffd23c"))
-    c.blob(16, 20, 10, 9.5, body)
-    c.ellipse(16, 22, 5, 4, hexc("#ffa040"))
-    _face(c, 16, 18, p)
-    c.ellipse(9, 26, 1.4, 1.4, p["pc"])
-    return (16, 5)
-
-
-def stun_cell(c, p):  # yellow cell with lightning antennae
-    body = hexc("#f0e050")
+def sneeze_blaster(c, p):
+    b = tier(p)
+    skin = hexc("#f0b8a0")
+    big = 1.2 if b == 0 else 1.0
+    if b == 1:  # Far: a long nozzle
+        c.rect(13, 0, 19, 8, shade(skin, -0.1))
+    c.blob(16, 20, 11 * big, 9 * big, skin)
+    c.blob(16, 12, 6 * big, 7 * big, shade(skin, 0.05))  # the nose
     for side in (-1, 1):
-        x = 16 + side * 5
-        c.line([(x, 13), (x + side * 2, 9), (x - side, 8), (x + side * 2, 3)], p["pc"], 1)
-    c.blob(16, 21, 9, 8.5, body)
-    _face(c, 16, 19, p)
-    return (16, 4)
+        c.ellipse(16 + side * 3, 17 * (1 if big == 1 else 1.02), 2.2 * big, 1.6 * big, hexc("#8a4a4a"))  # nostrils
+    c.eyes(16, 22 if b != 0 else 24, 4, p.get("mood", "calm"), 2)
+    if p.get("act") == "fire":
+        for x, y in ((12, 4), (20, 4), (16, 1)):
+            c.ellipse(x, y, 2, 1.6, hexc("#d0f0a0"))
+    pc_mark(c, 16, 28, p, 1.3)
+    return (16, 3)
 
 
-def swelling(c, p):  # throbbing red bump
-    body = hexc("#e05050")
-    puff = 1.08 if p["act"] == "fire" else 1.0
-    c.blob(16, 21, 12 * puff, 9 * puff, body)
-    for a in (-0.6, 0, 0.6):
-        c.line([(16 + math.sin(a) * 9, 11 - math.cos(a) * 2), (16 + math.sin(a) * 11, 9 - math.cos(a) * 3)], p["pc"])
-    _face(c, 16, 20, p)
-    return (16, 10)
+def fever_spot(c, p):
+    b = tier(p)
+    body = hexc("#f07850")
+    flick = phase(p) % 2
+    glow(c, 16, 18, 14 if b == 0 else 11, hexc("#ffb060"))
+    if b == 1:  # Wide: heat waves
+        for x in (4, 28):
+            c.line([(x, 26), (x - 1, 22), (x + 1, 18), (x - 1, 14)], hexc("#ffb060"))
+    c.poly([(11, 13), (16, 2 - (4 if b == 0 else 0) - flick), (21, 13)], hexc("#f0c030"))  # flame tuft
+    c.poly([(13, 13), (16, 7 - (3 if b == 0 else 0) + flick), (19, 13)], hexc("#fff080"))
+    top = cell_body(c, p, body, rx=10 if b == 0 else 9, ry=9 if b == 0 else 8, nucleus=None, armored=b == 0,
+                    granules=hexc("#ffb060"), n_granules=5)
+    if b == 0:  # High Fever: a thermometer
+        c.rect(25, 16, 27, 28, WHITE)
+        c.ellipse(26, 28, 2, 2, hexc("#e03030"))
+        c.rect(25.5, 19, 26.5, 28, hexc("#e03030"))
+    return (16, 2)
+
+
+def stun_cell(c, p):
+    b = tier(p)
+    body = hexc("#f0e060")
+    zap = p.get("act") != "idle" or b == 0
+    length = 9 if b == 0 else 6
+    for side in (-1, 1):  # lightning tendrils
+        c.line([(16 + side * 4, 12), (16 + side * 7, 12 - length * 0.5), (16 + side * 5, 12 - length * 0.7),
+                (16 + side * 9, 12 - length)], hexc("#c8a020") if not zap else hexc("#fff8a0"), 2)
+    if b == 1:  # Wide: shock rings
+        ring(c, 16, 19, 14, 12, hexc("#fff8a0"), 22)
+    top = cell_body(c, p, body, rx=9.5, ry=9, nucleus=hexc("#c8a020"), armored=b == 0)
+    pc_mark(c, 16, 25, p, 1.4)
+    return (16, 12 - length)
+
+
+def swelling(c, p):
+    b = tier(p)
+    red = hexc("#e05a5a") if b != 0 else hexc("#f04030")
+    big = 1.18 if b == 1 else 1.0
+    throb = (0, 0.6, 1, 0.6)[phase(p)] if p.get("act") != "idle" else 0
+    if b == 0:  # Hot: a glow
+        glow(c, 16, 20, 14, hexc("#ffa060"))
+    c.ellipse(16, 27, 13 * big, 3.5, shade(red, -0.3))
+    c.blob(16, 20, (10 + throb) * big, (8.5 + throb) * big, red)
+    c.ellipse(13, 16, 3 * big, 1.8, shade(red, 0.25))
+    c.eyes(16, 19, 3, p.get("mood", "calm"), 2)
+    c.mouth(16, 22.5, "smile", 3)
+    pc_mark(c, 16, 26, p, 1.3)
+    return (16, 11)
 
 
 # --- Toxin --------------------------------------------------------------------
 
-def toxic_skin(c, p):  # purple-green skin patch with pores and drips
-    c.block(4, 10, 28, 30, hexc("#7a8a50"))
-    for px_, py_ in ((8, 14), (15, 13), (22, 15), (11, 21), (19, 22), (25, 25)):
-        c.ellipse(px_, py_, 1.5, 1.3, hexc("#4a3a5a"))
-    c.rect(9, 29, 11, 31, p["pc"])
-    c.rect(20, 29, 22, 32, p["pc"])
-    return (16, 10)
+def toxic_skin(c, p):
+    b = tier(p)
+    skin = hexc("#8a6aa0")
+    top = 9 if b == 0 else 12
+    tissue_wall(c, top, skin, 4 if b == 0 else 3)
+    for x, y in ((8, 17), (16, 21), (23, 16), (12, 26), (22, 26)):  # pores
+        c.ellipse(x, y + top - 12, 1.6, 1.2, hexc("#9ad050"))
+    if b == 1:  # Venom: dripping
+        for x in (7, 16, 25):
+            c.rect(x, 29, x + 1.5, 32, hexc("#9ad050"))
+    pc_mark(c, 16, 27, p, 1.3)
+    return (16, top - 2)
 
 
-def poison_cell(c, p):  # green cell with dripping fangs
-    body = hexc("#80d070")
-    c.blob(16, 20, 9.5, 9, body)
-    c.eyes(16, 17, 3, "angry" if p["act"] != "idle" else p["mood"])
-    c.mouth(16, 22, "fangs", 5)
-    c.rect(19, 24, 20, 26, p["pc"])
-    return (16, 11)
+def poison_cell(c, p):
+    b = tier(p)
+    body = hexc("#8ad060")
+    if b == 1:  # Long: a long spitting tube
+        c.rect(14.5, 1, 17.5, 10, shade(body, -0.25))
+    if b == 0:
+        receptors(c, 16, 19, 10.5, 9.5, shade(body, -0.35), 8, 3)
+    top = cell_body(c, p, body, rx=10 if b == 0 else 9.5, ry=9, nucleus=hexc("#4a8a3a"), armored=b == 0, face_y=16)
+    for side in (-1, 1):  # dripping fangs
+        c.poly([(16 + side * 2.5, 20), (16 + side * 1, 20), (16 + side * 1.8, 23)], WHITE)
+    c.px(17.8, 24, hexc("#c0f060"))
+    pc_mark(c, 16, 26, p, 1.3)
+    return (16, 1) if b == 1 else top
 
 
-def poison_sprayer(c, p):  # cell with a squeeze bulb and nozzle
-    body = hexc("#b0e080")
-    c.rect(14, 6, 18, 12, hexc("#c0c0c8"))
-    c.ellipse(16, 5, 2.4, 1.6 if p["act"] != "wind" else 1.0, p["pc"])
-    c.blob(16, 21, 9, 8.5, body)
-    _face(c, 16, 19, p)
-    return (16, 4)
+def poison_sprayer(c, p):
+    b = tier(p)
+    body = hexc("#a0e080")
+    squeeze = 1 if p.get("act") != "idle" else 0
+    c.rect(14.5, 2, 17.5, 11, hexc("#707a80"))  # nozzle
+    c.rect(13, 1, 19, 3, hexc("#505a60"))
+    if b == 1 or p.get("act") == "fire":  # Misting: a mist cloud
+        for x, y in ((10, 0), (16, -1), (22, 0)):
+            c.ellipse(x, y + 2, 3, 2, hexc("#d0f0b0", 200))
+    c.blob(16, 20, (10.5 if b == 0 else 9.5) - squeeze, 9, body)  # squeeze bulb
+    c.ellipse(13, 15, 3, 1.8, shade(body, 0.25))
+    c.eyes(16, 18, 3, p.get("mood", "calm"), 2)
+    c.mouth(16, 21.5, "smile", 3)
+    if b == 0:  # Strong: a reinforced band
+        c.rect(6, 23, 26, 25, hexc("#5a7a4a"))
+    pc_mark(c, 16, 26, p, 1.3)
+    return (16, 1)
 
 
-def acid_puddle(c, p):  # wide bubbling puddle
-    acid = hexc("#a0e040")
-    c.ellipse(16, 25, 14, 6, shade(acid, -0.18))
-    c.ellipse(15, 24, 13, 5, acid)
-    pop = 2 if p["act"] == "fire" else 0
-    for bx, by, r in ((10, 22, 2), (19, 21 - pop, 2.4), (24, 24, 1.5)):
-        c.ellipse(bx, by, r, r, shade(acid, 0.2))
-    c.eyes(15, 25, 3, p["mood"])
-    c.ellipse(6, 25, 1.4, 1.2, p["pc"])
-    return (16, 18)
+def acid_puddle(c, p):
+    b = tier(p)
+    acid = hexc("#b8f040") if b != 0 else hexc("#90e020")
+    wide = 14.5 if b == 1 else 12
+    c.ellipse(16, 23, wide + 1, 7.5, shade(acid, -0.35))
+    c.ellipse(16, 22.5, wide, 6.5, acid)
+    for k, (x, y) in enumerate(((10, 21), (20, 23), (15, 25), (23, 20))):
+        c.ellipse(x, y - (phase(p) + k) % 2, 1.8, 1.8, shade(acid, 0.25))  # bubbles
+    if b == 1:  # Spilling: spill fingers
+        for x in (2, 30):
+            c.ellipse(x, 25, 2.5, 1.5, acid)
+    c.eyes(16, 21, 3, p.get("mood", "calm"), 2)
+    pc_mark(c, 16, 26, p, 1.3)
+    return (16, 15)
 
 
-def plague_cell(c, p):  # spiky purple cell with needle spines
-    body = hexc("#8a5ab0")
-    c.spikes(16, 20, 8, 8, p["pc"], 3.5 if p["act"] != "fire" else 4.5, start=0.2)
-    c.blob(16, 20, 8.5, 8.5, body)
-    _face(c, 16, 19, p)
-    return (16, 8)
+def plague_cell(c, p):
+    b = tier(p)
+    body = hexc("#9a6ac0")
+    length = 6 if b == 1 else 4
+    c.spikes(16, 19, 9, 12 if b == 0 else 10, hexc("#d8c0f0"), length)
+    top = cell_body(c, p, body, rx=9.5, ry=9, nucleus=hexc("#5a3a80"), granules=hexc("#c0e060"), n_granules=5,
+                    armored=b == 0)
+    pc_mark(c, 16, 25, p, 1.3)
+    return (16, 19 - 9 - length)
 
 
-def rot_patch(c, p):  # moldy patch with little mushrooms
-    c.block(4, 14, 28, 30, hexc("#6a5038"))
-    for mx, my in ((9, 13), (21, 12), (15, 18)):
-        c.rect(mx - 0.5, my, mx + 1.5, my + 4, hexc("#e8e0c8"))
-        c.ellipse(mx + 0.5, my, 3, 2, p["pc"])
-    for fx, fy in ((7, 24), (14, 26), (22, 23), (25, 27)):
-        c.ellipse(fx, fy, 1.6, 1.2, hexc("#9aa060"))
-    return (16, 10)
+def rot_patch(c, p):
+    b = tier(p)
+    mold = hexc("#6a7a4a")
+    wide = 14 if b == 1 else 12
+    c.ellipse(16, 25, wide + 1, 6, shade(mold, -0.3))
+    c.ellipse(16, 24.5, wide, 5.5, mold)
+    for x, y in ((9, 24), (19, 26), (23, 23)):
+        c.ellipse(x, y, 2, 1.2, hexc("#a8b870"))
+    shrooms = ((10, 19, 4), (19, 15, 5), (24, 21, 3)) if b != 0 else ((9, 18, 4.5), (17, 12, 6), (25, 19, 4))
+    for x, y, r in shrooms:  # little mushrooms
+        c.rect(x - 1, y, x + 1, y + 6, hexc("#e8e0c8"))
+        c.ellipse(x, y, r, r * 0.6, hexc("#c86a4a") if b != 1 else hexc("#a04ac0"))
+        c.px(x - 1, y - 1, WHITE)
+    pc_mark(c, 16, 27, p, 1.3)
+    return (16, 7)
 
 
-# unit id: (design, style). Styles: wall, melee, ranged, pulse, support.
 UNITS = {
     "platelet_clot": (scab, "wall"), "macrophage": (germ_eater, "melee"), "dendritic_cell": (scout_cell, "ranged"),
     "fibroblast": (scar_tissue, "wall"), "eosinophil": (blaster_cell, "ranged"), "granuloma": (hard_lump, "pulse"),

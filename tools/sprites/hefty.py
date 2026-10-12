@@ -234,3 +234,57 @@ def plump_bird(c, p, feathers, beak, x=16, y=18, size=1.0, tuft=None, feet=None,
     c.poly([(x - 2.2, y - 0.5), (x + 2.2, y - 0.5), (x, y + 3.5)], beak)
     c.eyes(x, y - 3.5 * s, 3 * s, p.get("mood", "calm"), 2)
     return (x, y - 9 * s)
+
+
+def cell_body(c, p, color, x=16, y=19, rx=10, ry=9, nucleus=None, lobes=1, granules=None, n_granules=6,
+              armored=False, face=True, face_y=None):
+    """A living cell: a double membrane, cytoplasm, a nucleus and granules.
+    armored=True gives it a thick plated membrane (power evolutions)."""
+    membrane = shade(color, -0.25)
+    if armored:
+        c.ellipse(x, y + 0.5, rx + 2, ry + 2, shade(color, -0.4))
+        for k in range(10):  # armor plates around the rim
+            a = k * math.tau / 10
+            c.ellipse(x + math.cos(a) * (rx + 1), y + math.sin(a) * (ry + 1), 2.2, 2, shade(color, -0.1))
+    c.ellipse(x, y + 0.5, rx + 0.8, ry + 0.8, membrane)
+    c.blob(x, y, rx, ry, color)
+    c.ellipse(x - rx * 0.4, y - ry * 0.5, rx * 0.3, ry * 0.18, shade(color, 0.25))
+    if granules:
+        for k in range(n_granules):
+            a = k * 2.4 + 0.5
+            d = 0.55 + 0.25 * ((k * 7) % 3) / 2
+            c.ellipse(x + math.cos(a) * rx * d, y + math.sin(a) * ry * d, 1.2, 1.1, granules)
+    if nucleus:
+        if lobes == 1:
+            c.ellipse(x + rx * 0.25, y + ry * 0.3, rx * 0.32, ry * 0.3, nucleus)
+        else:
+            for k in range(lobes):
+                a = math.pi * 0.15 + k * math.pi * 0.35
+                c.ellipse(x + math.cos(a) * rx * 0.35, y + ry * 0.25 + math.sin(a) * ry * 0.2, rx * 0.2, ry * 0.2, nucleus)
+    if face:
+        fy = face_y if face_y is not None else y - ry * 0.2
+        c.eyes(x, fy, rx * 0.3, p.get("mood", "calm"), 2)
+        if p.get("mouth") == "open":
+            c.mouth(x, fy + 3, "open", 2)
+        else:
+            c.mouth(x, fy + 3, "smile", 3)
+    return (x, y - ry)
+
+
+def pseudopods(c, x, y, color, reach=1.0, count=4, start=0.6, p=None):
+    """Blobby arms reaching out of an amoeba-like cell."""
+    wave = (0, 1, 0, -1)[phase(p or {})]
+    for k in range(count):
+        a = start + k * (math.tau / count)
+        tip = (x + math.cos(a) * 13 * reach, y + math.sin(a) * 11 * reach + wave * 0.5)
+        mid = (x + math.cos(a) * 8 * reach, y + math.sin(a) * 7 * reach)
+        c.ellipse(mid[0], mid[1], 3.2, 2.8, color)
+        c.ellipse(tip[0], tip[1], 2.6, 2.4, color)
+
+
+def antibody(c, x, y, color, size=1.0):
+    """A Y-shaped antibody."""
+    s = size
+    c.line([(x, y + 3 * s), (x, y)], color, 2)
+    c.line([(x, y), (x - 2.5 * s, y - 3 * s)], color, 2)
+    c.line([(x, y), (x + 2.5 * s, y - 3 * s)], color, 2)
