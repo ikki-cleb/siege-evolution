@@ -55,11 +55,11 @@ def glowing_eye(c, x, y, r, color, angry_side=0):
     c.ellipse(x, y, r, r * 0.8, shade(color, 0.25))
     c.ellipse(x, y, r * 0.6, r * 0.5, WHITE)
     c.rect(x - 0.5, y - r * 0.5, x + 0.8, y + r * 0.5, BLACK)
-    if angry_side:  # a thick brow: high at the outer side, low over the nose
+    if angry_side:  # a slim, gently slanted brow (the user found the first ones too angry)
         s = angry_side  # -1 = left eye, 1 = right eye
-        c.poly([(x + s * r * 1.5, y - r * 2.3), (x + s * r * 1.5, y - r * 1.6),
-                (x - s * r * 1.3, y - r * 0.5), (x - s * r * 1.3, y - r * 1.2)], BLACK)
-    post(c, lambda img, x=x, y=y, r=r, col=color: halo(img, c.T(x, y)[0], c.T(x, y)[1], r * 2.2, col, 70))
+        c.poly([(x + s * r * 1.4, y - r * 1.9), (x + s * r * 1.4, y - r * 1.5),
+                (x - s * r * 1.2, y - r * 1.0), (x - s * r * 1.2, y - r * 1.4)], BLACK)
+    post(c, lambda img, x=x, y=y, r=r, col=color: halo(img, c.T(x, y)[0], c.T(x, y)[1], r * 1.6, col, 35))
 
 
 def fang(c, x, y, length, color=WHITE, down=True):
@@ -300,7 +300,7 @@ def mega_tank(c, p):
     # glowing red headlights and a viewport slit (they read as angry eyes)
     for x in (8, 15):
         c.ellipse(x, 39 + b, 2.4, 1.8, hexc("#ff3020"))
-        post(c, lambda img, x=x: halo(img, c.T(x, 39 + b)[0], c.T(x, 39 + b)[1], 5, hexc("#ff3020"), 80))
+        post(c, lambda img, x=x: halo(img, c.T(x, 39 + b)[0], c.T(x, 39 + b)[1], 4, hexc("#ff3020"), 50))
     c.poly([(20, 37 + b), (30, 38.5 + b), (30, 40 + b), (20, 39 + b)], hexc("#ff6040"))
     # scorch marks and dents
     for x, y, r in ((40, 38, 3), (49, 36, 2), (24, 42, 2)):
@@ -562,7 +562,7 @@ def clown(c, p):
         c.poly([(ex - 2, hy - 6), (ex + 2, hy - 6), (ex, hy - 11)], hexc("#7ac0ff"))  # paint above the eye
         c.ellipse(ex, hy - 3.5, 2.2, 2.2, WHITE)
         c.ellipse(ex - side * 0.6, hy - 3, 1.2, 1.4, BLACK)  # looking sideways, scheming
-        c.line([(ex + side * 3, hy - 9), (ex - side * 2.5, hy - 5.5)], BLACK, 2)  # angry brows
+        c.line([(ex + side * 3, hy - 8.5), (ex - side * 2.5, hy - 6.5)], BLACK)  # sly brows
     c.ellipse(32, hy + 0.5, 3, 2.8, hexc("#ff2a2a"))  # nose
     c.px(31, hy - 0.5, hexc("#ffa0a0"))
     # a wide wicked grin curling up into the cheeks, teeth showing
