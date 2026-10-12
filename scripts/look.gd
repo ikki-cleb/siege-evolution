@@ -28,9 +28,33 @@ const ACCENTS := Palette.ACCENTS
 var theme := Theme.new()
 
 
+## Phones with a notch or camera hole: how far (in game pixels) everything
+## is moved down so the top bar isn't hidden behind it. 0 elsewhere.
+var safe_top := 0.0
+signal safe_area_changed
+
+
 func _ready() -> void:
 	_build_theme()
 	get_tree().root.theme = theme
+	get_tree().root.size_changed.connect(_apply_safe_area)
+	_apply_safe_area.call_deferred()
+
+
+## Moves the whole game down by the notch's height. The game is 360 wide and
+## grows taller on tall phones, so that extra height absorbs the shift.
+## (The HUD and banners are CanvasLayers and read safe_top themselves.)
+func _apply_safe_area() -> void:
+	if not OS.has_feature("mobile"):
+		return
+	var window := DisplayServer.window_get_size()
+	var safe := DisplayServer.get_display_safe_area()
+	var top_pixels := maxi(0, safe.position.y - DisplayServer.window_get_position().y)
+	var visible := get_tree().root.get_visible_rect().size
+	var extra := maxf(0.0, visible.y - 720.0)  # 720 = the game's design height
+	safe_top = minf(top_pixels * visible.y / maxf(1.0, window.y), extra)
+	get_tree().root.canvas_transform = Transform2D(0.0, Vector2(0, safe_top))
+	safe_area_changed.emit()
 
 
 func accent(world_id: String) -> Color:

@@ -68,6 +68,10 @@ func setup(p_game) -> void:
 	_root = Control.new()
 	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Below a phone's notch, like everything else (see Look.safe_top).
+	var look := get_node_or_null("/root/Look")
+	if look:
+		offset.y = look.safe_top
 	_root.theme = get_node("/root/Look").theme
 	add_child(_root)
 	_build_top_bar()

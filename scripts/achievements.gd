@@ -31,6 +31,10 @@ func _ready() -> void:
 	_layer = CanvasLayer.new()
 	_layer.layer = 50
 	add_child(_layer)
+	# Banners stay below a phone's notch (see Look.safe_top).
+	var look := get_node_or_null("/root/Look")
+	if look:
+		look.safe_area_changed.connect(func(): _layer.offset.y = look.safe_top)
 	# Credit anything already earned through saved progress (e.g. old saves).
 	check_progress.call_deferred(false)
 

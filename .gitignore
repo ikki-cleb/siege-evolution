@@ -6,3 +6,9 @@ playtest/
 
 # Python caches from the art tools
 __pycache__/
+
+# Store billing plugins and the Android build template: fetched on CI
+# (tools/ci/fetch_plugins.sh, tools/ci/export_android.sh), never committed.
+addons/GodotGooglePlayBilling/
+ios/plugins/
+android/

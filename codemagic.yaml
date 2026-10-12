@@ -1,0 +1,74 @@
+# Codemagic builds the phone versions in the cloud (no Mac needed):
+#   android-release -> signed .aab, uploaded to Google Play's internal track
+#   ios-release     -> signed .ipa, uploaded to TestFlight
+# Start a build from codemagic.io (Start new build -> pick the workflow).
+# One-time setup in Codemagic (see LAUNCH.md):
+#   - Teams -> Integrations -> App Store Connect: add an API key, name it
+#     "siege_asc_key" (used by ios-release below).
+#   - Code signing identities -> Android keystores: upload the upload key,
+#     reference name "siege_upload_key".
+#   - Environment variables: group "google_play" with
+#     GCLOUD_SERVICE_ACCOUNT_CREDENTIALS (the Play service account JSON), and
+#     group "apple" with APPLE_TEAM_ID.
+
+workflows:
+  android-release:
+    name: Android release (Google Play)
+    instance_type: linux_x2
+    max_build_duration: 60
+    environment:
+      android_signing:
+        - siege_upload_key
+      groups:
+        - google_play
+      java: 17
+      vars:
+        GODOT_VERSION: "4.7.2"
+    scripts:
+      - name: Install Godot and export templates
+        script: bash tools/ci/install_godot.sh
+      - name: Add the Google Play Billing plugin
+        script: bash tools/ci/fetch_plugins.sh android
+      - name: Export the signed app bundle
+        script: PATH="$HOME/bin:$PATH" bash tools/ci/export_android.sh
+    artifacts:
+      - build/android/*.aab
+    publishing:
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+        submit_as_draft: true
+
+  ios-release:
+    name: iOS release (TestFlight)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    integrations:
+      app_store_connect: siege_asc_key
+    environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.siegeevolution.app
+      groups:
+        - apple
+      vars:
+        GODOT_VERSION: "4.7.2"
+        XCODE_PROJECT: build/ios/SiegeEvolution.xcodeproj
+        XCODE_SCHEME: SiegeEvolution
+    scripts:
+      - name: Install Godot and export templates
+        script: bash tools/ci/install_godot.sh
+      - name: Add the StoreKit plugin
+        script: bash tools/ci/fetch_plugins.sh ios
+      - name: Export the Xcode project
+        script: PATH="$HOME/bin:$PATH" bash tools/ci/export_ios.sh
+      - name: Use the App Store signing profiles
+        script: xcode-project use-profiles --project "$XCODE_PROJECT"
+      - name: Build the signed .ipa
+        script: xcode-project build-ipa --project "$XCODE_PROJECT" --scheme "$XCODE_SCHEME"
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
