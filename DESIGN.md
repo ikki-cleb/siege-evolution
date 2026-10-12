@@ -395,6 +395,38 @@ Art: `python3 tools/draw_objects.py` (designs in `tools/objects/designs.py`)
 writes `obstacle.png` (3 looks x 1 or 4 frames) and `water_anim.png` next
 to each world's tiles; `scripts/game/obstacle_layer.gd` draws them.
 
+## Endless mode
+
+Offered **only after a world's boss level is won**: the win (or celebration)
+screen shows a gold **Continue in Endless** button next to Back to Map.
+Continuing keeps the same board, units, evolutions and relics; the base is
+**repaired to full** once, then wave 9, 10, 11... keep coming until the base
+falls (or a boss reaches it). The user's choices:
+
+- **Ramp** (`scripts/game/endless_waves.gd`): waves use the world's level-5
+  wave rules (`data/endless.json`, written by the content build), starting
+  from level 5's final-wave budget and growing **6% per wave**, with the
+  later wave mixes and elites at their maximum share. Invader **HP** grows
+  too: 1 + 0.04n + 0.0015n^2 for endless wave n (2.4x by n = 20), applied to
+  everything spawned that wave (minions and split pieces included). More
+  than 90 invaders in a wave would slow phones, so bigger waves send fewer,
+  tougher invaders instead. Aim: a strong defense falls around wave 25-35.
+- **Boss returns** every 10th endless wave (game waves 18, 28...), with a
+  BOSS INCOMING banner, at +50% HP each time (1.5x, 2x...). Reaching the base
+  is still an instant loss.
+- **Relics** every 2nd wave (carriers on waves 9, 11, 13...), no cap, at the
+  best rarity odds. Relics you have aren't offered again until you've taken
+  every relic useful to your units; then the pool resets and each can be
+  taken again (**x2**, then x3...). Copies stack (stats add up); the picker
+  shows "Name x2" and the relic column groups copies with a count (two
+  columns of smaller icons past 12 relics).
+- **Best wave** is saved per world and pack (`Progress.endless_best`): the
+  game-over card shows "You reached wave N" plus NEW BEST (confetti) or the
+  best so far, and the world postcard shows "Endless best: wave N".
+  Quitting mid-run still records the wave reached.
+- Bot check: `tests/sim_test.gd -- endless [world=N]` prints the wave each
+  pack's bot run ends on and checks every run ends before wave 80.
+
 ## Bosses (look)
 
 Bosses star on the world postcards, so the user asked for threatening,

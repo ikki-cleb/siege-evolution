@@ -214,6 +214,8 @@ bot runs. Comet Tail losses predate the boss change. Path preview now shows on e
 
 **Balance after relics on every level + base middle entry (levels 2-5 bot wins):** Backyard 95%, Wild Kingdom 90%, Microscopic 95%, Total War 78%, Galactic 93%, Kitchen 83%, Birthday 83%. Every check passes.
 
+**Endless mode (latest round):** see DESIGN.md "Endless mode". After a boss level win, "Continue in Endless" (`Game.start_endless`); waves past 8 come from `EndlessWaves` (`Game.wave_data(i)` is the one place to get any wave); `Board.hp_scale` / `boss_hp_scale` toughen spawns (`Invader.full_hp`, never `data.max_hp`, for an invader's max); `RelicSet.roll_offer` stacks copies once the useful pool is exhausted (`RelicSet.copies`). Bot reach: `tests/sim_test.gd -- endless world=N`.
+
 **Next steps (user's call):** import the user's backgrounds when they
 arrive (and make obstacle tiles transparent); playtest feedback (sprites,
 capstones, bonus worlds); cosmetic unlocks; real billing (Apple StoreKit and
