@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 168
+const MIN_RULE_CHECKS := 171
 var progress: Node
 
 
@@ -44,6 +44,7 @@ func _run() -> void:
 	await _test_achievements(biome)
 	await _test_background(biome)
 	await _test_endless(progress.load_biome(0))
+	_test_billing()
 	await _test_animations(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index: 0 = Backyard Bugs,
@@ -1459,6 +1460,83 @@ func _test_endless_reach(biome: BiomeData) -> void:
 			"%s endless with %s ends before wave 80" % [biome.display_name, biome.packs[pack_index].display_name])
 		await _stop(game)
 	print(line)
+
+
+## Real-store billing, driven by fake plugins (the real ones only exist in
+## phone builds): purchases, restores, acknowledgements and local prices.
+func _test_billing() -> void:
+	var store: Node = root.get_node("Store")
+	var ids := ["speed_3x", "bundle_all"]
+	# Google Play (new-style plugin API).
+	var google := FakeGooglePlay.new()
+	var gp := GooglePlayBilling.new(google, ids)
+	var got := []
+	gp.owned.connect(func(id): got.append(id))
+	google.connected.emit()
+	google.query_product_details_response.emit({"response_code": 0, "product_details": [
+		{"product_id": "speed_3x", "one_time_purchase_offer_details": {"formatted_price": "0,99 €"}}]})
+	gp.buy("speed_3x")
+	google.on_purchase_updated.emit({"response_code": 0, "purchases": [
+		{"product_ids": ["speed_3x"], "purchase_state": 1, "purchase_token": "tok1", "is_acknowledged": false},
+		{"product_ids": ["bundle_all"], "purchase_state": 2, "purchase_token": "tok2", "is_acknowledged": false}]})
+	_check(gp.connected and google.calls.has("start_connection") and google.calls.has("query_product_details")
+		and google.calls.has("purchase:speed_3x") and got == ["speed_3x"] and google.calls.has("acknowledge:tok1")
+		and not google.calls.has("acknowledge:tok2") and gp.prices.get("speed_3x", "") == "0,99 €",
+		"Google Play: buys, acknowledges, skips pending purchases and shows local prices")
+	# App Store (StoreKit plugin: queued events).
+	var apple := FakeAppStore.new()
+	var ap := AppStoreBilling.new(apple, ids)
+	var apple_got := []
+	ap.owned.connect(func(id): apple_got.append(id))
+	apple.events.append({"type": "product_info", "result": "ok", "ids": ["speed_3x"], "localized_prices": ["$0.99"]})
+	ap.buy("speed_3x")
+	apple.events.append({"type": "purchase", "result": "ok", "product_id": "speed_3x"})
+	ap.restore()
+	apple.events.append({"type": "restore", "result": "ok", "product_id": "bundle_all"})
+	ap.poll()
+	_check(apple_got == ["speed_3x", "bundle_all"] and ap.prices.get("speed_3x", "") == "$0.99"
+		and apple.calls.has("purchase:speed_3x") and apple.calls.has("restore"),
+		"App Store: buys, restores and shows local prices")
+	# The Store grants what the billing wrapper reports, and prices are on tiers.
+	store.reset_test_purchases()
+	var was_test: bool = store.test_mode
+	store.test_mode = false
+	var fake := FakeAppStore.new()
+	store.use_billing(AppStoreBilling.new(fake, ids))
+	store.buy("speed_3x")
+	fake.events.append({"type": "purchase", "result": "ok", "product_id": "speed_3x"})
+	store.billing.poll()
+	var owns_it: bool = store.owns("speed_3x")
+	store.billing = null
+	store.test_mode = was_test
+	store.reset_test_purchases()
+	_check(owns_it and fake.calls.has("purchase:speed_3x") and store.price("bundle_all") == "$2.99"
+		and store.price("speed_3x") == "$0.99", "The Store buys through the billing plugin ($0.99 items, $2.99 bundle)")
+
+
+class FakeGooglePlay extends Object:
+	signal connected
+	signal disconnected
+	signal query_product_details_response(reply)
+	signal on_purchase_updated(reply)
+	signal query_purchases_response(reply)
+	var calls := []
+	func start_connection() -> void: calls.append("start_connection")
+	func query_product_details(_ids, _type) -> void: calls.append("query_product_details")
+	func purchase(id) -> void: calls.append("purchase:%s" % id)
+	func query_purchases(_type) -> void: calls.append("query_purchases")
+	func acknowledge_purchase(token) -> void: calls.append("acknowledge:%s" % token)
+
+
+class FakeAppStore extends Object:
+	var calls := []
+	var events := []
+	func set_auto_finish_transaction(_on) -> void: pass
+	func request_product_info(_info) -> void: calls.append("request_product_info")
+	func purchase(info) -> void: calls.append("purchase:%s" % info.product_id)
+	func restore_purchases() -> void: calls.append("restore")
+	func get_pending_event_count() -> int: return events.size()
+	func pop_pending_event() -> Dictionary: return events.pop_front()
 
 
 ## Every Label and Button text under a node (for checking screens).

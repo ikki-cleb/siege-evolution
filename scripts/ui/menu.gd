@@ -57,6 +57,7 @@ func _ready() -> void:
 	margin.add_child(_content)
 
 	Store.purchases_changed.connect(func(): _show(_current_screen))
+	Store.notice.connect(_toast)
 	Audio.play_music("menu")
 	_biome = Progress.biome
 	match Progress.return_screen:
@@ -615,6 +616,8 @@ func _show_store() -> void:
 	_label("Siege Evolution is free with no ads. These optional extras support development.", 12, DIM_TEXT)
 	if Store.test_mode:
 		_label("TEST MODE: purchases are free and instant in this build.", 12, GOLD)
+	elif not Store.is_available():
+		_label("The store isn't available right now. Check your connection and try again.", 12, Look.HEART)
 	for item in Store.PRODUCTS:
 		var is_bundle: bool = item.id == Store.BUNDLE_ALL
 		var card := _card(Color(0.3, 0.22, 0.08) if is_bundle else CARD_COLOR)
@@ -624,7 +627,7 @@ func _show_store() -> void:
 		if Store.owns(item.id):
 			_label("Owned", 14, Color(0.5, 1, 0.6), HORIZONTAL_ALIGNMENT_LEFT, card)
 		else:
-			var buy := _button("Buy · %s" % item.price, Store.buy.bind(item.id), card)
+			var buy := _button("Buy · %s" % Store.price(item.id), Store.buy.bind(item.id), card)
 			buy.disabled = not Store.is_available()
 	_button("Restore Purchases", Store.restore_purchases)
 	if Store.test_mode:
@@ -635,6 +638,27 @@ func _show_store() -> void:
 
 
 # --- Building blocks --------------------------------------------------------
+
+## A short message that pops up at the bottom of the screen and fades out
+## (e.g. "Purchase failed").
+func _toast(text: String) -> void:
+	var label := Label.new()
+	label.text = text
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", 13)
+	label.add_theme_stylebox_override("normal", Look.panel(Look.SURFACE_HI, Look.HEART, 10))
+	label.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	label.offset_left = 20
+	label.offset_right = -20
+	label.offset_top = -90
+	label.offset_bottom = -30
+	add_child(label)
+	var tween := label.create_tween()
+	tween.tween_interval(2.5)
+	tween.tween_property(label, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(label.queue_free)
+
 
 ## A red "POST-GAME: HARD" tag plus one line, for store items that have a
 ## "warning" (the bonus worlds). Does nothing for other items.
