@@ -162,3 +162,75 @@ def puffs(c, points, color):
 def pc_mark(c, x, y, p, r=1.6):
     """The small pack-color mark every unit carries."""
     c.ellipse(x, y, r, r, p["pc"])
+
+
+def quadruped(c, p, fur, x=16, y=17, size=1.0, ears="point", snout=None, horns=None, mane=None,
+              hoof=None, tail=None, belly=None, head_y=None, spots=None):
+    """A full-body chibi four-legged animal, 3/4 from the front: a sturdy
+    body with four stubby legs, and a big head in front of it."""
+    s = size
+    dark = shade(fur, -0.22)
+    hoof = hoof or shade(fur, -0.45)
+    step = (0, 1, 0, -1)[phase(p)]
+    # Legs: back pair (darker, behind), front pair (in front).
+    for lx, col, lift in ((-7, dark, step), (7, dark, -step), (-4.5, fur, -step), (4.5, fur, step)):
+        top, bottom = y + 6 * s, y + 13 * s + (lift if p.get("act") != "idle" else 0) * 0.5
+        c.rect(x + lx * s - 1.8 * s, top, x + lx * s + 1.8 * s, bottom, col)
+        c.rect(x + lx * s - 1.8 * s, bottom - 1.5 * s, x + lx * s + 1.8 * s, bottom, hoof)
+    if tail:
+        c.line([(x + 9 * s, y + 4 * s), (x + 12 * s, y + 1 * s)], tail, 2)
+    c.ellipse(x, y + 5 * s, 10.5 * s, 7 * s, shade(fur, -0.15))  # body
+    c.blob(x, y + 4.5 * s, 10 * s, 6.5 * s, fur)
+    if belly:
+        c.ellipse(x, y + 7.5 * s, 6 * s, 3 * s, belly)
+    if spots:
+        for sx_, sy_ in ((-6, 3), (5, 6), (7, 1)):
+            c.ellipse(x + sx_ * s, y + sy_ * s, 2.2 * s, 1.6 * s, spots)
+    hy = head_y if head_y is not None else y - 2 * s
+    r = 6.5 * s
+    if mane:
+        c.ellipse(x, hy + 1, r + 2.5, r + 2, mane)
+    if horns:
+        for side in (-1, 1):
+            c.line([(x + side * r * 0.55, hy - r * 0.55), (x + side * r * 1.25, hy - r * 0.95), (x + side * r * 1.2, hy - r * 1.5)],
+                   horns, 2)
+    if ears == "point":
+        for side in (-1, 1):
+            c.poly([(x + side * r * 0.3, hy - r * 0.65), (x + side * r * 0.95, hy - r * 0.5), (x + side * r * 0.8, hy - r * 1.3)], dark)
+    elif ears == "long":
+        for side in (-1, 1):
+            c.ellipse(x + side * r * 0.5, hy - r * 1.05, 1.9 * s, 4 * s, dark)
+    elif ears == "round":
+        for side in (-1, 1):
+            c.ellipse(x + side * r * 0.75, hy - r * 0.7, 2.6 * s, 2.6 * s, dark)
+    elif ears == "side":
+        for side in (-1, 1):
+            c.ellipse(x + side * r * 1.05, hy - r * 0.2, 3 * s, 1.6 * s, dark)
+    c.blob(x, hy, r, r * 0.9, fur)
+    if snout:
+        c.ellipse(x, hy + r * 0.42, r * 0.5, r * 0.34, snout)
+        c.px(x - 1.2, hy + r * 0.38, OUTLINE)
+        c.px(x + 1.2, hy + r * 0.38, OUTLINE)
+    c.eyes(x, hy - r * 0.18, r * 0.36, p.get("mood", "calm"), 2)
+    return (x, hy - r)
+
+
+def plump_bird(c, p, feathers, beak, x=16, y=18, size=1.0, tuft=None, feet=None, belly=None, wing=None):
+    """A round, full-bodied bird with wings, feet and a beak."""
+    s = size
+    flap = (0, -1, 0, 1)[phase(p)] + (-2 if p.get("act") == "fire" else 0)
+    feet = feet or hexc("#e8a030")
+    for side in (-1, 1):
+        c.line([(x + side * 3 * s, y + 8 * s), (x + side * 3 * s, y + 11.5 * s)], feet, 2)
+        c.line([(x + side * 1.5 * s, y + 11.5 * s), (x + side * 4.5 * s, y + 11.5 * s)], feet)
+    wing = wing or shade(feathers, -0.15)
+    for side in (-1, 1):
+        c.ellipse(x + side * 9 * s, y + 1 * s + flap, 3.5 * s, 5.5 * s, wing)
+    c.blob(x, y, 9 * s, 9 * s, feathers)
+    if belly:
+        c.ellipse(x, y + 3.5 * s, 5.5 * s, 4.5 * s, belly)
+    if tuft:
+        c.poly([(x - 2.5, y - 8.5 * s), (x, y - 13 * s), (x + 2.5, y - 8.5 * s)], tuft)
+    c.poly([(x - 2.2, y - 0.5), (x + 2.2, y - 0.5), (x, y + 3.5)], beak)
+    c.eyes(x, y - 3.5 * s, 3 * s, p.get("mood", "calm"), 2)
+    return (x, y - 9 * s)
