@@ -204,6 +204,10 @@ marked flight line; Swarm (weakest anti-air) still loses that level in the
 bot runs. Comet Tail losses predate the boss change. Path preview now shows on every level
 (saved "Paths" toggle in the HUD).
 
+**Menus (latest round):** see DESIGN.md "Menus": drifting world stripes + an evolution showcase on the title, world postcards with animated bosses, 3D squashy buttons, slide transitions, confetti (`ConfettiBurst`). `data/showcase.json` (written by the content build) lists base units + evolutions per world and each world's postcard boss/invader (`_cards`); new `class_name` UI scripts need `godot --headless --import` before scripts can see them.
+
+**Balance after relics on every level + base middle entry (levels 2-5 bot wins):** Backyard 95%, Wild Kingdom 90%, Microscopic 95%, Total War 78%, Galactic 93%, Kitchen 83%, Birthday 83%. Every check passes.
+
 **Next steps (user's call):** import the user's backgrounds when they
 arrive (and make obstacle tiles transparent); playtest feedback (sprites,
 capstones, bonus worlds); cosmetic unlocks; real billing (Apple StoreKit and

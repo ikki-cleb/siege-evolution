@@ -395,6 +395,37 @@ Art: `python3 tools/draw_objects.py` (designs in `tools/objects/designs.py`)
 writes `obstacle.png` (3 looks x 1 or 4 frames) and `water_anim.png` next
 to each world's tiles; `scripts/game/obstacle_layer.gd` draws them.
 
+## Menus (pizazz pass)
+
+The user picked these from mockups (title: "B's background with C's
+foreground"; world select: "Postcards"; all four polish options).
+
+- **Title:** slanted slices of all 7 worlds' painted maps drift slowly
+  sideways behind the logo (`scripts/ui/world_stripes.gd`), each edged in
+  its world's accent color, fading into the menu color at the bottom. The
+  logo has a thick outline and drop shadow; EVOLUTION cycles world colors.
+  In the middle, an **evolution showcase** (`scripts/ui/evolution_showcase.gd`)
+  picks a random unit from the worlds the player has **unlocked**, shows it,
+  lights three arrows, then flashes it into one of its evolutions (bigger,
+  name in gold, pack-color glow, sparkles), about 4.6 s per unit. Units come
+  from `data/showcase.json`, which the content build writes (so the menu never
+  loads whole worlds). Big pink 3D Play button, then Store / Achievements /
+  Settings.
+- **World select = postcards:** each card has a banner cut from the world's
+  level-2 painted map with the boss and a familiar invader walking on it
+  (animated, `AnimIcon`), the world name in big outlined letters, then pack
+  symbols and "x/5 cleared". The whole card is tappable. Locked worlds are
+  grey (`shaders/grayscale.gdshader`) with LOCKED; unowned bonus worlds show
+  the warning and price. A newly unlocked world gets a pulsing **NEW!** tag
+  and a confetti pop the first time its card is shown (`Progress.is_world_new`).
+- **Button juice:** menu buttons have a chunky 3D bottom edge; pressing moves
+  the face down and squashes the button, which springs back on release
+  (`menu.gd _juice()`).
+- **Slides:** going deeper slides the new screen in from the right, Back
+  slides it in from the left (0.22 s, with a fade).
+- **Celebrations:** `ConfettiBurst.pop()` (scripts/ui/confetti_burst.gd): new
+  worlds, and on the win screen when a pack finishes every level of a world.
+
 ## Web loading screen
 
 The HTML page shown while the web build downloads (`web/shell.html`) is

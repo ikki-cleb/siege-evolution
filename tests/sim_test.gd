@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 151
+const MIN_RULE_CHECKS := 156
 var progress: Node
 
 
@@ -37,6 +37,7 @@ func _run() -> void:
 	await _test_capstones(biome)
 	await _test_upgrade_preview(biome)
 	await _test_menu_scrolling()
+	await _test_menu_pizazz()
 	_test_level_counts()
 	await _test_path_toggle(biome)
 	await _test_pack_swapping(biome)
@@ -1280,6 +1281,56 @@ func _test_menu_scrolling() -> void:
 	_check(menu._current_screen != shown[0], "A plain tap still presses it")
 	menu.queue_free()
 	progress.return_screen = "title"
+	await process_frame
+
+
+## The title showcase, world stripes, postcards and screen slides.
+func _test_menu_pizazz() -> void:
+	var showcase: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/showcase.json"))
+	var art_ok := true
+	for index in progress.WORLDS.size():
+		var id: String = progress.world_id(index)
+		var units: Array = showcase.get(id, [])
+		var card: Dictionary = showcase._cards.get(id, {})
+		art_ok = art_ok and units.size() >= 10 and ResourceLoader.exists(card.get("boss", "")) \
+			and ResourceLoader.exists(card.get("invader", ""))
+		for unit in units:
+			art_ok = art_ok and ResourceLoader.exists(unit.idle) and not unit.evolutions.is_empty()
+			for evolution in unit.evolutions:
+				art_ok = art_ok and ResourceLoader.exists(evolution.idle)
+	_check(art_ok, "Every world has showcase units (with evolutions) and postcard boss/invader art")
+
+	progress.reset()
+	progress.return_screen = "title"
+	var menu: Control = load("res://scenes/menu.tscn").instantiate()
+	root.add_child(menu)
+	await process_frame
+	var hero: EvolutionShowcase = null
+	for child in menu._content.get_children():
+		if child is EvolutionShowcase:
+			hero = child
+	_check(menu._stripes.visible and menu._stripes._slices.size() == progress.WORLDS.size()
+		and hero != null and not hero._pool.is_empty()
+		and hero._pool.all(func(unit): return unit.idle.contains("/backyard_bugs/")),
+		"The title shows every world's map and evolves units from unlocked worlds only")
+	hero._time = EvolutionShowcase.EVOLVE_AT + 0.5
+	await process_frame
+	_check(hero._evolved.strip != null and hero._evolved.modulate.a > 0.5 and hero._evolved_name.text != "",
+		"The showcase unit evolves into one of its evolutions")
+
+	# World select: postcards, slid in from the right; Backyard is new once.
+	var new_before: bool = progress.is_world_new("backyard_bugs")
+	menu._show(menu._show_biomes)
+	var slid_right: bool = menu._scroll.position.x > 0
+	await process_frame  # the old screen's nodes are freed at the end of the frame
+	var icons: Array = menu._content.find_children("*", "AnimIcon", true, false)
+	_check(new_before and not progress.is_world_new("backyard_bugs") and not menu._stripes.visible
+		and icons.size() == 2 and slid_right,
+		"World postcards: unlocked worlds show their boss and an invader; a new world celebrates once")
+	menu._going_back = true
+	menu._show(menu._show_title)
+	_check(menu._scroll.position.x < 0, "Back slides the previous screen in from the left")
+	menu.queue_free()
 	await process_frame
 
 

@@ -364,6 +364,11 @@ func _pack_progress() -> Control:
 		tween.tween_property(symbol, "fill", float(now) / levels, 0.8) \
 			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tween.tween_callback(func(): Sfx.play("evolve", 0.0))
+		# The pack just beat every level of this world: confetti from its symbol.
+		if now >= levels:
+			tween.tween_callback(func():
+				ConfettiBurst.pop(_root, symbol.global_position - _root.global_position + symbol.size / 2,
+					60, [game.pack.color, game.pack.color.lightened(0.4), Palette.GOLD, Color.WHITE]))
 	return row
 
 
