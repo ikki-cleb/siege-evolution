@@ -92,6 +92,11 @@ func _play(game: Node, player: AutoPlayer) -> void:
 		wave_frames += 1
 		if wave_frames > 60 * 60 * 4:
 			_check(false, "Wave %d of %s never ended (stalemate?)" % [game.wave_number, game.level.display_name])
+			for invader in game.board.invaders:  # what's still alive, for debugging
+				print("    still alive: %s at %s, hp %.0f/%.0f, underground %s" % [invader.data.id,
+					game.board.cell_of(invader.position) if game.board.has_method("cell_of") else invader.position,
+					invader.hp, invader.full_hp, invader.underground])
+			print("    spawns left: %d, bombs falling: %s" % [game._spawn_queue.size(), game.board.has_falling_bombs()])
 			return
 
 

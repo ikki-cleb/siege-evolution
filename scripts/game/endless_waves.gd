@@ -7,16 +7,17 @@ extends RefCounted
 ## Waves are built in the game from the same rules as the world's level 5
 ## (data/endless.json, written by the content build):
 ##   - the threat budget starts at level 5's final wave and grows each wave,
-##   - invaders get more HP each wave (faster and faster),
+##   - invaders get 16% more HP each wave (it compounds),
 ##   - every 10th endless wave the world's boss returns, +50% HP each time.
 ## `n` below is the endless wave number: 1 for the first one (game wave 9).
 
 const RULES_PATH := "res://data/endless.json"
 ## Each endless wave's budget is this many times the one before.
-const BUDGET_GROWTH := 1.06
-## Invader HP: 1 + HP_LINEAR * n + HP_CURVE * n * n (wave 20: about 2.4x).
-const HP_LINEAR := 0.04
-const HP_CURVE := 0.0015
+const BUDGET_GROWTH := 1.08
+## Invader HP is this many times the wave before's (wave 10: about 4.4x).
+## Tuned with the bot (tests/sim_test.gd -- endless): the first, gentler
+## curve let strong bot defenses reach wave 60-100; the target is 25-35.
+const HP_GROWTH := 1.16
 ## The boss returns every this many endless waves.
 const BOSS_EVERY := 10
 ## Each return the boss has this much more HP (1.5x, 2x, 2.5x...).
@@ -40,7 +41,7 @@ func _init(biome_id: String) -> void:
 
 
 static func hp_scale(n: int) -> float:
-	return 1.0 + HP_LINEAR * n + HP_CURVE * n * n
+	return pow(HP_GROWTH, n)
 
 
 static func is_boss_wave(n: int) -> bool:
