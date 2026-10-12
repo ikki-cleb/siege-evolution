@@ -231,8 +231,8 @@ def superbug(c, p):
         c.ellipse(cx + x, cy + y, r, r, hexc("#b070e0"))
         c.px(cx + x - 1, cy + y - 1, hexc("#e0b0ff"))
     # the face: angry glowing eyes and a big fanged mouth
-    glowing_eye(c, cx - 6, cy - 3, 3.2, hexc("#ffe040"), -1)
-    glowing_eye(c, cx + 6, cy - 3, 3.2, hexc("#ffe040"), 1)
+    glowing_eye(c, cx - 6, cy - 3, 3.2, hexc("#ffe040"))  # no brows (user)
+    glowing_eye(c, cx + 6, cy - 3, 3.2, hexc("#ffe040"))
     c.ellipse(cx, cy + 7, 9, 4.5, hexc("#2a0a20"))
     c.ellipse(cx, cy + 9, 6, 2, hexc("#a03060"))
     for x in (-6, -3, 0, 3, 6):
@@ -362,8 +362,8 @@ def mothership(c, p):
     for side in (-1, 1):
         c.ellipse(32 + side * 6, 18 + b, 1.2, 1.2, hexc("#6ad070"))  # antenna bulbs
         c.line([(32 + side * 3, 21 + b), (32 + side * 6, 18 + b)], hexc("#4aa050"))
-    glowing_eye(c, 29, 25 + b, 2, hexc("#ff3050"), -1)
-    glowing_eye(c, 35, 25 + b, 2, hexc("#ff3050"), 1)
+    glowing_eye(c, 29, 25 + b, 2, hexc("#ff3050"))  # no brows (user)
+    glowing_eye(c, 35, 25 + b, 2, hexc("#ff3050"))
     c.line([(30, 29 + b), (32, 28.5 + b), (34, 29 + b)], BLACK)
     c.px(26, 16 + b, WHITE)  # glass glint
     c.px(27, 15 + b, WHITE)
