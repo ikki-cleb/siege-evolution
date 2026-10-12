@@ -91,6 +91,8 @@ screen, in a level or in the menus. The list lives in
 - Introduces every invader type in the world, about one idea per wave.
 - Shows a tip in a footnote under the board before each wave (never a pop-up).
 - Gives extra coins so players can try an evolution.
+- Has relic carriers like every other level (the user wants relics introduced
+  early). Backyard's first tip explains them.
 
 ## Core loop
 
@@ -161,7 +163,7 @@ becomes "Field-Repaired..." or "Barbed...". Names live in each world's
 
 ## Relics
 
-On every level except a world's teaching level, waves **1, 3, 5 and 7** each
+On **every level** (teaching levels too, since the user wants them introduced early), waves **1, 3, 5 and 7** each
 have one **relic carrier**: the toughest non-boss invader of the wave, glowing
 gold with a gem over its head. Kill it and it drops a relic; if it reaches the
 base, that relic is lost. When the wave ends, a **choose 1 of 3** card screen

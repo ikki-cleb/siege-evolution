@@ -371,7 +371,7 @@ func start_wave() -> void:
 	_leaked = false
 	_relic_earned = false
 	_activate_relics()
-	if relics_enabled() and RelicSet.RELIC_WAVES.has(wave_number + 1):
+	if RelicSet.RELIC_WAVES.has(wave_number + 1):
 		_pick_relic_carrier()
 	# Same world + level + wave = same piñata surprises.
 	board.start_pinata_seeds("%s/%s/%d" % [Progress.biome.id, level.display_name, wave_number])
@@ -513,11 +513,8 @@ func _apply_speed() -> void:
 
 
 # --- Relics -------------------------------------------------------------------
-
-## Relics drop on every level except each world's teaching level (level 1).
-func relics_enabled() -> bool:
-	return level_number > 1
-
+## Relics drop on every level, teaching levels included (the user wants
+## them introduced early; a weak pick never hurts).
 
 ## Picks which invader of this wave carries the relic: the toughest one that
 ## isn't a boss (the latest of equals), so it's a real target.

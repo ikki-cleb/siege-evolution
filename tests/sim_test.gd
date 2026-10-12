@@ -394,11 +394,11 @@ func _test_relics(biome: BiomeData) -> void:
 		ids[relic.id] = true
 	_check(valid, "The relic pool has 60+ relics, all with known stats, filters and icons")
 
-	# No relics on a world's teaching level.
+	# Relics are on every level, teaching levels too.
 	var game := await _start(biome, 0, 0)
 	game.start_wave()
-	_check(not game._spawn_queue.any(func(spawn): return spawn.get("carrier", false)),
-		"Teaching levels have no relic carrier")
+	_check(game._spawn_queue.filter(func(spawn): return spawn.get("carrier", false)).size() == 1,
+		"Teaching levels have a relic carrier on wave 1 too")
 	await _stop(game)
 
 	# Wave 1 of level 2 has a glowing carrier; killing it earns a relic.
