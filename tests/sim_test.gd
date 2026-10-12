@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 166
+const MIN_RULE_CHECKS := 167
 var progress: Node
 
 
@@ -1394,6 +1394,19 @@ func _test_endless(biome: BiomeData) -> void:
 	var tough: bool = game.board.hp_scale > 1.0 and game.board.invaders.all(
 		func(invader): return invader.full_hp > invader.data.max_hp)
 	_check(tough, "Endless invaders spawn with extra HP")
+	# Stuns can't chain forever in endless, and no slow stops an invader.
+	var target: Invader = game.board.invaders[0] if not game.board.invaders.is_empty() else null
+	if target:
+		target.apply_stun(0.2)
+		for i in 20:
+			await process_frame
+		target.apply_stun(2.0)
+		var guarded := target.stun_time == 0.0
+		target.apply_slow(3.0, 1.0)
+		_check(guarded and target.slow_amount <= Invader.MAX_SLOW,
+			"Endless invaders get a short stun guard; slows are capped at 80%")
+	else:
+		_check(false, "Endless invaders get a short stun guard; slows are capped at 80%")
 	# Losing ends the run and saves the best wave for this world and pack.
 	progress.reset()
 	game.wave_number = 13

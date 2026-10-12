@@ -89,6 +89,12 @@ var _hop_length := 0.0
 var slow_amount := 0.0
 var slow_time := 0.0
 var stun_time := 0.0
+## Endless mode: after a stun wears off, the invader can't be stunned again
+## for a moment, so stuns can't chain forever on invaders too tough to kill.
+var stun_guard := 0.0
+const STUN_GUARD := 1.0
+## No slow can stop an invader completely (stacked endless relics add up).
+const MAX_SLOW := 0.8
 var poison_dps := 0.0
 var poison_time := 0.0
 var poison_spreads := false
@@ -185,12 +191,15 @@ func take_damage(amount: float, pierce := false, flash := true) -> void:
 
 func apply_slow(amount: float, duration: float) -> void:
 	# A weaker slow never replaces a stronger one that's still running.
+	amount = minf(amount, MAX_SLOW)
 	if amount >= slow_amount or slow_time <= 0.0:
 		slow_amount = amount
 	slow_time = max(slow_time, duration)
 
 
 func apply_stun(duration: float) -> void:
+	if stun_guard > 0.0:
+		return
 	# Bosses shrug off most of a stun.
 	stun_time = max(stun_time, duration * (0.3 if data.is_boss else 1.0))
 
@@ -269,6 +278,10 @@ func _process(delta: float) -> void:
 
 func _update_effects(delta: float) -> void:
 	slow_time = max(0.0, slow_time - delta)
+	# In endless (tougher invaders), a stun that just ended leaves a short guard.
+	if stun_time > 0.0 and stun_time <= delta and full_hp > data.max_hp:
+		stun_guard = STUN_GUARD
+	stun_guard = max(0.0, stun_guard - delta)
 	stun_time = max(0.0, stun_time - delta)
 	mark_time = max(0.0, mark_time - delta)
 	_knockback_cooldown = max(0.0, _knockback_cooldown - delta)
