@@ -215,7 +215,7 @@ bot runs. Comet Tail losses predate the boss change. Path preview now shows on e
 
 **Balance after relics on every level + base middle entry (levels 2-5 bot wins):** Backyard 95%, Wild Kingdom 90%, Microscopic 95%, Total War 78%, Galactic 93%, Kitchen 83%, Birthday 83%. Every check passes.
 
-**Endless mode (latest round):** see DESIGN.md "Endless mode". After a boss level win, "Continue in Endless" (`Game.start_endless`); waves past 8 come from `EndlessWaves` (`Game.wave_data(i)` is the one place to get any wave); `Board.hp_scale` / `boss_hp_scale` toughen spawns (`Invader.full_hp`, never `data.max_hp`, for an invader's max); `RelicSet.roll_offer` stacks copies once the useful pool is exhausted (`RelicSet.copies`). Bot reach: `tests/sim_test.gd -- endless world=N`.
+**Endless mode (latest round):** see DESIGN.md "Endless mode". After a boss level win, "Continue in Endless" (`Game.start_endless`); waves past 8 come from `EndlessWaves` (`Game.wave_data(i)` is the one place to get any wave); `Board.hp_scale` / `boss_hp_scale` toughen spawns (`Invader.full_hp`, never `data.max_hp`, for an invader's max); `RelicSet.roll_offer` stacks copies once the useful pool is exhausted (`RelicSet.copies`). Bot reach: `tests/sim_test.gd -- endless world=N`. Tuned (budget +8%/wave, HP x1.16/wave, stun guard, 80% slow cap, enrage after 3 min): bot runs end on wave 17-35 (median ~26; target 25-35), Control lasts longest (35-43); no stalls.
 
 **Store packaging (latest round):** see DESIGN.md "Store release" and
 `LAUNCH.md` (the user's step-by-step checklist). Done here: app icon
