@@ -134,6 +134,11 @@ var fx: ShotEffects
 ## The current pack's color: tints the pad under every unit, so units never
 ## get mistaken for map objects.
 var pack_color := Color.TRANSPARENT
+## The player's Background filter strength (Settings; 0 = off, 1 = Medium).
+## Set by the game before setup().
+var calm_strength := 1.0
+## The painted background's filter, so Settings can change it live.
+var calm_material: ShaderMaterial
 ## Effects that sit on the ground, under units and invaders.
 var ground_fx: ShotEffects
 ## Tile art comes from the world (biome) being played, unless the level
@@ -223,6 +228,9 @@ func _add_background(texture: Texture2D) -> void:
 	sprite.scale = Vector2(grid_size * TILE) / Vector2(image.get_size())
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	sprite.z_index = -1  # behind the board's own tiles
+	# Calm the picture down (fog + mute), more on busy pictures.
+	calm_material = CalmBackground.make_material(image, calm_strength)
+	sprite.material = calm_material
 	add_child(sprite)
 	_has_background = true
 	# On painted ground, use the see-through rock/spawn/base tiles (made by

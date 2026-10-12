@@ -67,7 +67,8 @@ func _show(screen: Callable) -> void:
 ## edges could scroll. Passing presses on lets a drag anywhere scroll the list.
 func _let_drags_through(node: Node) -> void:
 	for child in node.get_children():
-		if child is Control and not child is Label:
+		# Sliders keep their presses (dragging one shouldn't scroll the list).
+		if child is Control and not child is Label and not child is Range:
 			child.mouse_filter = Control.MOUSE_FILTER_PASS
 		_let_drags_through(child)
 
@@ -106,19 +107,113 @@ func _show_title() -> void:
 	_button("Store", _show.bind(_show_store))
 	_button("Achievements (%d/%d)" % [Achievements.earned_count(), Achievements.list.size()],
 		_show.bind(_show_achievements))
+	_button("Settings", _show.bind(_show_settings))
+	_spacer(80)
+	_label("Fonts: Coiny and Space Mono (SIL Open Font License)", 10, Color(Look.TEXT_DIM, 0.6), HORIZONTAL_ALIGNMENT_CENTER)
+
+
+## Settings: sound, music and the Background filter (with a live preview).
+func _show_settings() -> void:
+	_header("Settings", _show.bind(_show_title))
 	var toggles := HBoxContainer.new()
 	toggles.add_theme_constant_override("separation", 8)
 	_content.add_child(toggles)
 	var sound := _button("Sound: %s" % ("On" if Audio.sound_on else "Off"), func():
 		Audio.set_sound(not Audio.sound_on)
-		_show(_show_title), toggles)
+		_show(_show_settings), toggles)
 	var music := _button("Music: %s" % ("On" if Audio.music_on else "Off"), func():
 		Audio.set_music(not Audio.music_on)
-		_show(_show_title), toggles)
+		_show(_show_settings), toggles)
 	for button in [sound, music]:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_spacer(80)
-	_label("Fonts: Coiny and Space Mono (SIL Open Font License)", 10, Color(Look.TEXT_DIM, 0.6), HORIZONTAL_ALIGNMENT_CENTER)
+	_spacer(8)
+	_label("Background", 18)
+	_label("Calms the painted maps so units and invaders stand out. Busy maps get a little extra.",
+		12, DIM_TEXT)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 10)
+	_content.add_child(row)
+	var slider := HSlider.new()
+	slider.min_value = 0.0
+	slider.max_value = Progress.CALM_MAX
+	slider.step = 0.05
+	slider.value = Progress.calm_strength()
+	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	slider.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	slider.custom_minimum_size.y = 32
+	row.add_child(slider)
+	var name_label := _label(_calm_name(slider.value), 14, GOLD, HORIZONTAL_ALIGNMENT_RIGHT, row)
+	name_label.custom_minimum_size.x = 80
+	var material := _calm_preview()
+	slider.value_changed.connect(func(value: float):
+		Progress.set_calm_strength(value)
+		name_label.text = _calm_name(value)
+		if material:
+			CalmBackground.set_strength(material, value))
+
+
+## A name for a Background strength: Off, Light, Medium or Strong.
+func _calm_name(value: float) -> String:
+	if value < 0.05:
+		return "Off"
+	if value < 0.75:
+		return "Light"
+	if value < 1.25:
+		return "Medium"
+	return "Strong"
+
+
+## A slice of one of the busiest maps with a few units and invaders on it,
+## filtered like in a level. Returns its filter so the slider can change it.
+func _calm_preview() -> ShaderMaterial:
+	var path := "res://art/backgrounds/backyard_bugs/level_04.webp"
+	if not ResourceLoader.exists(path):
+		return null
+	var image := (load(path) as Texture2D).get_image()
+	if image.is_compressed():
+		image.decompress()
+	var material := CalmBackground.make_material(image, Progress.calm_strength())
+	var slice := image.get_region(Rect2i(0, image.get_height() / 4, image.get_width(), image.get_width() * 3 / 4))
+	var frame := PanelContainer.new()
+	frame.add_theme_stylebox_override("panel", Look.panel(CARD_COLOR))
+	_content.add_child(frame)
+	var preview := Control.new()
+	preview.custom_minimum_size.y = 230
+	preview.clip_contents = true
+	frame.add_child(preview)
+	var picture := TextureRect.new()
+	picture.texture = ImageTexture.create_from_image(slice)
+	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	picture.set_anchors_preset(Control.PRESET_FULL_RECT)
+	picture.material = material
+	preview.add_child(picture)
+	# Sprites on top, placed by fractions of the preview's size.
+	for spot in [["units/fortress/bombardier_beetle_idle", 0.2, 0.3],
+			["units/precision/assassin_bug_idle", 0.62, 0.55],
+			["invaders/aphid_cluster_move", 0.4, 0.12], ["invaders/aphid_cluster_move", 0.78, 0.18]]:
+		_preview_sprite(preview, "res://art/anim/backyard_bugs/%s.png" % spot[0], spot[1], spot[2])
+	return material
+
+
+func _preview_sprite(parent: Control, path: String, x: float, y: float) -> void:
+	if not ResourceLoader.exists(path):
+		return
+	var strip: Texture2D = load(path)
+	var frame := AtlasTexture.new()  # the strip's first frame (frames are square)
+	frame.atlas = strip
+	frame.region = Rect2(0, 0, strip.get_height(), strip.get_height())
+	var sprite := TextureRect.new()
+	sprite.texture = frame
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	sprite.anchor_left = x
+	sprite.anchor_right = x
+	sprite.anchor_top = y
+	sprite.anchor_bottom = y
+	sprite.offset_right = 64
+	sprite.offset_bottom = 64
+	parent.add_child(sprite)
 
 
 func _show_biomes() -> void:

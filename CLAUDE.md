@@ -99,7 +99,7 @@ them; they upload it themselves.
 - Map objects (32x32 obstacles, 3 looks per world/variant, plus animated water): `python3 tools/draw_objects.py [--preview out.png]`; designs in `tools/objects/designs.py`; `ObstacleLayer` draws them. Obstacles must never resemble units (terrain/clutter only, muted style; see DESIGN.md).
 - Web loading screen (`web/shell.html`): `python3 tools/make_loading_parade.py` embeds its invaders, units and font subsets; see DESIGN.md "Web loading screen". To see it, serve `build/web` and load it in Playwright with network throttling (locally it loads too fast to show).
 - Animated sprites (the user generates them): `python3 tools/import_sprites.py <folder>` (files named `<world>_<id>_<anim>.png` strips or `_<anim>_<n>.png` frames), then import + content build. Placeholder strips: `python3 tools/make_placeholder_anims.py` (never overwrites).
-- Painted level backgrounds (the user generates them): `python3 tools/import_backgrounds.py <folder>` (files named `<world_id>_level_NN.png`), then `godot --headless --import` and the content build. Levels without one keep their floor tiles.
+- Painted level backgrounds (the user generates them): `python3 tools/import_backgrounds.py <folder>` (files named `<world_id>_level_NN.png`), then `godot --headless --import` and the content build. Levels without one keep their floor tiles. On top of the importer's softening, an in-game fog + mute shader calms every background (`CalmBackground`, stronger on busy maps; player slider in Settings, default Medium); tune it there rather than re-baking images.
 
 **How content works.** Pack stats live once in `tools/content/immune_system.json`.
 Every other world reuses them via `"packs_from"` + `"renames"`, so packs play

@@ -83,6 +83,21 @@ func set_show_paths(on: bool) -> void:
 	_save()
 
 
+## The Background filter strength (Settings slider): 0 = off, 1 = Medium
+## (the default), 1.5 = Strong. Busy maps get a bit more on top.
+const CALM_DEFAULT := 1.0
+const CALM_MAX := 1.5
+
+
+func calm_strength() -> float:
+	return clamp(float(_data.get("calm_strength", CALM_DEFAULT)), 0.0, CALM_MAX)
+
+
+func set_calm_strength(value: float) -> void:
+	_data["calm_strength"] = clamp(value, 0.0, CALM_MAX)
+	_save()
+
+
 ## True if this biome id belongs to a bonus world.
 func is_bonus_biome(biome_id: String) -> bool:
 	for index in WORLDS.size():

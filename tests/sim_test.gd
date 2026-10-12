@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 148
+const MIN_RULE_CHECKS := 151
 var progress: Node
 
 
@@ -1003,6 +1003,32 @@ func _test_background(biome: BiomeData) -> void:
 		looks[ObstacleLayer.look_for(cell)] = true
 	_check(game.board.obstacle_layer.obstacles != null and (game.board.rocks.size() < 4 or looks.size() > 1),
 		"Obstacles are drawn from the world's map-object art, in mixed looks")
+	# The background is calmed by the fog + mute filter, at the player's
+	# strength times the picture's busyness factor (a flat picture: the minimum).
+	var material := sprite.material as ShaderMaterial
+	_check(material != null and material.shader == CalmBackground.SHADER
+		and is_equal_approx(material.get_shader_parameter("strength"),
+			game.board.calm_strength * CalmBackground.BUSY_MIN),
+		"Painted backgrounds get the calming filter (flat pictures get the least)")
+	# A busy picture (fine checkerboard) gets a stronger filter than a flat one.
+	var busy := Image.create(360, 560, false, Image.FORMAT_RGBA8)
+	for y in 560:
+		for x in 360:
+			busy.set_pixel(x, y, Color.WHITE if (x / 2 + y / 2) % 2 == 0 else Color.BLACK)
+	var busy_material := CalmBackground.make_material(busy, 1.0)
+	_check(busy_material.get_meta("busy_factor") == CalmBackground.BUSY_MAX
+		and material.get_meta("busy_factor") == CalmBackground.BUSY_MIN,
+		"Busy backgrounds get a stronger filter than calm ones")
+	# The Background setting is saved, clamped, and 0 turns the filter off.
+	var progress = root.get_node("Progress")
+	progress.set_calm_strength(9.0)
+	var clamped: float = progress.calm_strength()
+	progress.set_calm_strength(0.0)
+	CalmBackground.set_strength(busy_material, progress.calm_strength())
+	_check(is_equal_approx(clamped, progress.CALM_MAX)
+		and busy_material.get_shader_parameter("strength") == 0.0,
+		"The Background setting is clamped, and Off removes the filter")
+	progress.set_calm_strength(progress.CALM_DEFAULT)
 	level.background = null
 	await _stop(game)
 
