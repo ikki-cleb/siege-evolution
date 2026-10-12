@@ -38,6 +38,9 @@ var _strips := StripPlayer.new()
 var _art_scale := 1.0
 ## Units are drawn a bit bigger than their tile's art box, so they fill it.
 const ART_BOOST := 1.12
+## Capstones reuse their tier-1 art; drawn this much bigger they still look
+## like the strongest version.
+const CAPSTONE_BOOST := 1.1
 ## How far above its tile a new unit starts before it drops into place.
 const DROP_HEIGHT := 7.0
 const SHADOW_COLOR := Color(0, 0, 0, 0.45)
@@ -155,6 +158,8 @@ func _update_sprite() -> void:
 		_sprite.hframes = 1
 		_sprite.frame = 0
 		_art_scale = ART_BOOST
+	if is_capstone():
+		_art_scale *= CAPSTONE_BOOST
 	_sprite.scale = Vector2.ONE * _art_scale
 	_star.visible = animated and is_capstone()
 

@@ -61,21 +61,37 @@ def decorate(c, top, branch, style, pc):
         c.px(x + 9, y - 5, (255, 255, 255, 255))
 
 
-def draw(design, p, branch, style, pc, sx=1.0, sy=1.0, dx=0.0, dy=0.0, effect=None):
+# Tier-1 evolutions are drawn this much bigger than their base unit (the
+# canvas scales around the unit's feet), so upgrades look more powerful.
+TIER_SCALE = 1.12
+
+
+def _draw(design, p, branch, style, pc, sx=1.0, sy=1.0, dx=0.0, dy=0.0, effect=None, tiered=False):
+    if tiered and branch is not None:
+        sx, sy = sx * TIER_SCALE, sy * TIER_SCALE
     c = Canvas(sx, sy, dx, dy)
-    p = dict(p, pc=pc)
-    if branch == 0 and style != "wall":
-        p["mood"] = "angry" if p["mood"] == "calm" else p["mood"]
-    top = design(c, p)
-    decorate(c, top, branch, style, pc)
+    p = dict(p, pc=pc, branch=branch)
+    if tiered:
+        # New-style designs draw each evolution themselves (p["branch"]:
+        # None = base, 0 = power branch, 1 = utility branch); faces stay cute.
+        top = design(c, p)
+    else:
+        if branch == 0 and style != "wall":
+            p["mood"] = "angry" if p["mood"] == "calm" else p["mood"]
+        top = design(c, p)
+        decorate(c, top, branch, style, pc)
     c.finish()
     if effect:
         effect(c, top)
     return c.img
 
 
-def unit_frames(design, style, branch, pc, can_attack):
+def unit_frames(design, style, branch, pc, can_attack, tiered=False):
     light = shade(pc, 0.3)
+
+    def draw(*args, **kwargs):  # every frame of this unit uses the same style
+        return _draw(*args, tiered=tiered, **kwargs)
+
     idle = [draw(design, pose(), branch, style, pc), draw(design, pose(), branch, style, pc, 1.04, 0.95)]
     if not can_attack:
         return idle, None
@@ -142,7 +158,8 @@ def main(worlds):
                     merged = dict(unit, **row) if branch is not None else unit
                     can_attack = any(merged.get(k) for k in ("damage", "slow", "poison", "mark", "stun"))
                     uid = renames.get(row["id"], [row["id"]])[0]
-                    idle, attack = unit_frames(design, style, branch, pc, can_attack)
+                    idle, attack = unit_frames(design, style, branch, pc, can_attack,
+                                               tiered=getattr(module, "TIERED", False))
                     out = ANIM / world / "units" / pack["id"]
                     made += save_strip(idle, out / f"{uid}_idle.png", imported)
                     made += save_strip(attack, out / f"{uid}_attack.png", imported)
