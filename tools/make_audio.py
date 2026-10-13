@@ -180,7 +180,7 @@ def music():
         # Calm, a little mysterious.
         "menu": song([("A4", "C5", "E5"), ("F4", "A4", "C5"), ("C4", "E4", "G4"), ("G4", "B4", "D5")] * 2,
                      ["E5", "G5", "A5", "C6"], 96, seed=1, drums=False),
-        # Microscopic: minor and floaty.
+        # Immune Defense: minor and floaty.
         "immune_system": song([("D4", "F4", "A4"), ("A#3", "D4", "F4"), ("C4", "E4", "G4"), ("A3", "C#4", "E4")] * 2,
                               ["D5", "F5", "A5", "E5"], 110, seed=2),
         # Backyard: bouncy major.

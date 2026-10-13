@@ -1,5 +1,5 @@
 """World 1 (Backyard Bugs): bugs defend the anthill. Bugs have faces; plants and
-objects don't. Attack styles come from Microscopic's slots (draw_sprites.py).
+objects don't. Attack styles come from Immune Defense's slots (draw_sprites.py).
 
 Redesigned to look bigger and tougher (the user found the first designs
 flimsy): every unit draws its own two evolutions (p["branch"] 0 = power,

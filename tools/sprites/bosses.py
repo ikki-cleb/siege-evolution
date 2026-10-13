@@ -202,7 +202,7 @@ def grizzly_death(frames_move):
     return frames
 
 
-# --- 3. Superbug (Microscopic): spiked virus king -------------------------------
+# --- 3. Superbug (Immune Defense): spiked virus king -------------------------------
 
 def superbug(c, p):
     body = hexc("#5a2a8a")

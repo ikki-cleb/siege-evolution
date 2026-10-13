@@ -101,7 +101,7 @@ def farm_obstacle(c, v, t):
             c.rect(x - 1, y - r * 0.8 - 2, x + 1, y - r * 0.8, hexc("#4a8a2a"))
 
 
-# --- Microscopic: cells (they pulse gently) -----------------------------------
+# --- Immune Defense: cells (they pulse gently) -----------------------------------
 
 @obstacle("immune_system/obstacle.png", animated=True)
 def tissue_deposit(c, v, t):

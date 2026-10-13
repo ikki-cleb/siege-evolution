@@ -1,7 +1,7 @@
 {
   "biome": {
     "id": "immune_system",
-    "name": "Microscopic",
+    "name": "Immune Defense",
     "description": "Inside the body. Hold back viruses, bacteria, parasites and spores before they reach the heart.",
     "tiles": "immune_system"
   },

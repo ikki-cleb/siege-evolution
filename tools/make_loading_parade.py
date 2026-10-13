@@ -66,7 +66,7 @@ def _has_brotli():
 
 # Units that stand under the track and shoot at the parade: the same five
 # units (one per pack) in every world; each load picks a world at random.
-# Ids are Microscopic's (where pack stats live); other worlds rename them.
+# Ids are Immune Defense's (where pack stats live); other worlds rename them.
 SHOOTER_IDS = ["dendritic_cell", "basophil", "antibody_tagger", "cytokine_storm", "killer_t"]
 PACKS = ["fortress", "swarm", "precision", "control", "toxin"]
 PACK_COLORS = ["#d1603d", "#e9c46a", "#4ea8de", "#9d79d6", "#6cc551"]

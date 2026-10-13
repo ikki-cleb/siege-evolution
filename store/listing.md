@@ -39,7 +39,7 @@ EVOLVE EVERYTHING
 • Over 600 pixel-art units to discover
 
 7 WORLDS, GIANT BOSSES
-• Backyard Bugs, Wild Kingdom, Microscopic, Total War and Galactic Siege
+• Backyard Bugs, Wild Kingdom, Immune Defense, Total War and Galactic Siege
 • Bonus worlds: Kitchen Defense and Birthday Bash
 • Every world ends with a boss fight: the Giant Centipede, the Grizzly, the Superbug, the Mega Tank, the Mothership, and more
 

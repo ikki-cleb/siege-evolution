@@ -3,6 +3,8 @@
 Status: **v1.2, all 5 main worlds plus both bonus worlds** (35 levels,
 5 packs, evolutions, saved progress, sound, music, store in test mode). Balance is tuned against an automated player, not real play yet.
 
+World 3 is called **Immune Defense** (renamed from "Microscopic" at the user's request; its id stays `immune_system`, so saves are unaffected).
+
 ## Pitch
 
 A puzzle tower defense played in portrait on phones. Each level is a grid
@@ -39,11 +41,11 @@ Title → World select → Level select with pack picker (5 levels) → Level (8
 
 - **Worlds (biomes):** 5 levels each, at one scale. Beating level 5 (the boss)
   unlocks the next world. The five main worlds, in order (since v1.1;
-  Microscopic used to be first, but its body-tissue art was too unsettling
+  Immune Defense used to be first, but its body-tissue art was too unsettling
   for a first world):
   1. **Backyard Bugs** (defend the queen's anthill), built
   2. **Wild Kingdom** (human and animal scale: defend the farmhouse), built
-  3. **Microscopic** (the immune system), built
+  3. **Immune Defense** (the immune system), built
   4. **Total War** (a toy war across the playroom and the bathtub), built
   5. **Galactic Siege** (moon, space station and asteroid levels), built
 - **Bonus worlds** (bought separately, playable as soon as they're bought):
@@ -351,7 +353,7 @@ the board is drawn at 2x, so every pixel shows). Each has something alive
 in it so it reads as "invaders come from here": glinting eyes that blink,
 a swirling portal, a hopping lid. Designs (one per world plus variants):
 Backyard dirt-mound burrow; Wild Kingdom den under a rustling thicket;
-Microscopic pulsing pore with a rising spore; Total War red toy chest whose
+Immune Defense pulsing pore with a rising spore; Total War red toy chest whose
 lid lifts (and a bathtub drain with swirling water for sea spawns);
 Galactic warp gate, asteroid crater and station hatch (all with a swirling
 vortex); Kitchen mouse hole in wood, plaster or tiled wall (nose twitches);
@@ -370,7 +372,7 @@ obstacles are mixed. Two rules from the user:
 - **Obstacles must never look like units:** terrain and clutter only,
   never devices, containers, plants or materials a world's units are made
   of (Backyard has pebble, stump and mushroom units; Wild Kingdom has hay
-  bales, fences and bushes; Microscopic has round smiling cells).
+  bales, fences and bushes; Immune Defense has round smiling cells).
 - **Obstacles must not camouflage into their backgrounds:** no pebbles on
   pebbly ground, craters on a cratered moon, brown asteroids on an
   asteroid field, red cells on red-cell tissue, hay on straw.
@@ -382,7 +384,7 @@ backgrounds are toned down an extra step (`WORLD_TONE` in
 `tools/import_backgrounds.py`), because its art is so busy.
 
 Looks: Backyard broken flower pot / silver bottle cap / coiled hose; Wild
-Kingdom granite boulder / wagon wheel / pumpkins; Microscopic salt
+Kingdom granite boulder / wagon wheel / pumpkins; Immune Defense salt
 crystals / bone spicules / plaque smear (they shimmer); Total War letter
 block / brick / toy drum; Galactic moon rock / meteorite with glowing lava
 cracks / crystals, icy blue asteroids (twinkle), station crate / sparking
@@ -518,9 +520,9 @@ sliding frame strips (transforms), which keep running even while the page
 is busy starting Godot, and "Starting..." breathes. Art and fonts are embedded by
 `python3 tools/make_loading_parade.py`.
 
-## Microscopic unit names
+## Immune Defense unit names
 
-Microscopic uses plain body words, not biology terms, so the
+Immune Defense uses plain body words, not biology terms, so the
 theme reads instantly: Scab, Germ Eater, Scout Cell, White Blood Cell,
 Skin Cell, Killer Cell, Antibody Shooter, Germ Tagger, Mucus Wall,
 Sneeze Blaster, Fever Spot, Poison Cell, Acid Puddle, Rot Patch, and so on.
@@ -539,7 +541,7 @@ Kingdom, walls are farm materials (stone walls, hay bales, fences, mud,
 brambles) and attackers are farm animals (bulls, hens, owls, skunks,
 rattlesnakes).
 
-## Invaders (Microscopic, World 3)
+## Invaders (Immune Defense, World 3)
 
 | Invader | Type | Notes |
 |---|---|---|

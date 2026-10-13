@@ -46,13 +46,13 @@ move/death) in all 7 worlds; only living things have faces. Levels can take
 painted backgrounds (game support done, none delivered yet).
 `DESIGN.md` has every design decision; read it before changing gameplay.
 
-**World order (v1.1):** Backyard Bugs, Wild Kingdom, Microscopic, Total
-War, Galactic Siege (Microscopic moved from 1st to 3rd; the user found its
+**World order (v1.1):** Backyard Bugs, Wild Kingdom, Immune Defense, Total
+War, Galactic Siege (Immune Defense moved from 1st to 3rd; the user found its
 body-tissue art unsettling for a first world). Saves are keyed by world id.
-`Progress.WORLDS` sets the order; tests use `load_biome(2)` for Microscopic
+`Progress.WORLDS` sets the order; tests use `load_biome(2)` for Immune Defense
 (where pack stats live). Backyard's tutorial has the beginner tips.
-Difficulty was retuned to rise in order: Backyard got Microscopic's old
-budgets (14/22/28/32) and a 450 HP Giant Centipede; Microscopic got
+Difficulty was retuned to rise in order: Backyard got Immune Defense's old
+budgets (14/22/28/32) and a 450 HP Giant Centipede; Immune Defense got
 17/28/28/36 and a 600 HP Superbug (Precision limits how high L4-5 can go).
 
 **Art handoff state.** The user is making the 35 level backgrounds in
@@ -68,7 +68,7 @@ playmat = Total War 5); check each scene against the prompt file. On levels with
 `rock_cut.png` / `spawn_cut.png` / `base_cut.png` tiles (floor pixels
 removed, soft shadow added) made by `python3 tools/make_cutout_tiles.py`;
 re-run it after redrawing any tile. Rocks also get a dark outline and a
-stronger shadow so they don't blend with painted pebbles; Microscopic's
+stronger shadow so they don't blend with painted pebbles; Immune Defense's
 square rock is cut into a round blob (ROUND_ROCKS). Two Claude Docs briefs exist for
 reference: backgrounds https://claude.ai/artifact/Dk8EnbQN1PGpeuyhSoS4xK and
 sprites https://claude.ai/artifact/VnjA9ALpqnN1UNRHhVscKi (the sprite one
@@ -189,16 +189,16 @@ in the .import files or the WIDTH/HEIGHT in `tools/import_backgrounds.py`.
 **Latest balance (5 levels x 8 waves, bot wins on levels 2-5), after
 bosses became an instant loss:** World 1 95%, World 2 95%, World 3 88%,
 World 4 88%, World 5 75%, Kitchen 80%, Birthday 70%. Every check passes.
-After the reorder: Backyard 100%, Wild Kingdom 90%, Microscopic 95% (the
+After the reorder: Backyard 100%, Wild Kingdom 90%, Immune Defense 95% (the
 bot can't separate W2/W3 finely; Precision is the binding pack).
 After the 3x2 base (the user chose to keep it harder): Backyard 90%,
-Wild Kingdom 85%, Microscopic 93%, Total War 78%, Galactic 68% (Crater Base
+Wild Kingdom 85%, Immune Defense 93%, Total War 78%, Galactic 68% (Crater Base
 and Comet Tail budgets lowered 24->22 and 29->26 so every pack still beats
 4 of 5), Kitchen 80%, Birthday 60%. Every check passes.
 With relics (the bot picks the rarest, preferring unit upgrades), wave
 budgets were raised: Wild Kingdom 17/28/30/38, Total War 11/25/29/34.5,
 Kitchen 30/38/40/43, Birthday 26/37/41/43. Bot wins now: Backyard 95%,
-Wild Kingdom 90%, Microscopic 93%, Total War 75%, Galactic 70%, Kitchen 83%,
+Wild Kingdom 90%, Immune Defense 93%, Total War 75%, Galactic 70%, Kitchen 83%,
 Birthday 70%. Every check passes. After the archetype relics (bot scores
 relics by its board): Total War 75%, Galactic 80%; other worlds not re-run.
 Don't run two balance runs at once: they
@@ -213,7 +213,7 @@ bot runs. Comet Tail losses predate the boss change. Path preview now shows on e
 
 **Menus (latest round):** see DESIGN.md "Menus": drifting world stripes + a branching evolution tree on the title (40 hand-picked units in `data/title_pool.json`), world postcards with animated bosses, 3D squashy buttons, slide transitions, confetti (`ConfettiBurst`). `data/showcase.json` (written by the content build) lists base units + evolutions per world and each world's postcard boss/invader (`_cards`); new `class_name` UI scripts need `godot --headless --import` before scripts can see them.
 
-**Balance after relics on every level + base middle entry (levels 2-5 bot wins):** Backyard 95%, Wild Kingdom 90%, Microscopic 95%, Total War 78%, Galactic 93%, Kitchen 83%, Birthday 83%. Every check passes.
+**Balance after relics on every level + base middle entry (levels 2-5 bot wins):** Backyard 95%, Wild Kingdom 90%, Immune Defense 95%, Total War 78%, Galactic 93%, Kitchen 83%, Birthday 83%. Every check passes.
 
 **Endless mode (latest round):** see DESIGN.md "Endless mode". After a boss level win, "Continue in Endless" (`Game.start_endless`); waves past 8 come from `EndlessWaves` (`Game.wave_data(i)` is the one place to get any wave); `Board.hp_scale` / `boss_hp_scale` toughen spawns (`Invader.full_hp`, never `data.max_hp`, for an invader's max); `RelicSet.roll_offer` stacks copies once the useful pool is exhausted (`RelicSet.copies`). Bot reach: `tests/sim_test.gd -- endless world=N`. Tuned (budget +8%/wave, HP x1.16/wave, stun guard, 80% slow cap, enrage after 3 min): bot runs end on wave 17-35 (median ~26; target 25-35), Control lasts longest (35-43); no stalls.
 

@@ -20,7 +20,7 @@ const WORLDS: Array[Dictionary] = [
 		"theme": "Protect the anthill from termites, beetles, mosquitoes and burrowing mole crickets."},
 	{"name": "Wild Kingdom", "path": "res://data/biomes/wild_kingdom.tres",
 		"theme": "Keep foxes, wolves, boars, crows and leaping deer away from the farmhouse."},
-	{"name": "Microscopic", "path": "res://data/biomes/immune_system.tres",
+	{"name": "Immune Defense", "path": "res://data/biomes/immune_system.tres",
 		"theme": "Inside the body: viruses, bacteria, parasites and spores."},
 	{"name": "Total War", "path": "res://data/biomes/total_war.tres",
 		"theme": "A toy war across the playroom and the bathtub: tanks, boats and bombers."},

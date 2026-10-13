@@ -22,7 +22,7 @@ func _initialize() -> void:
 
 func _run() -> void:
 	progress = root.get_node("Progress")
-	var biome: BiomeData = progress.load_biome(2)  # Microscopic (World 3)
+	var biome: BiomeData = progress.load_biome(2)  # Immune Defense (World 3)
 	await _test_rules(biome)
 	await _test_burrowing(progress.load_biome(0))
 	await _test_jumping(progress.load_biome(1))
@@ -48,7 +48,7 @@ func _run() -> void:
 	await _test_animations(biome)
 	if not OS.get_cmdline_user_args().has("rules"):
 		# "-- world=2" balances just one world (0-based index: 0 = Backyard Bugs,
-		# 1 = Wild Kingdom, 2 = Microscopic, 3 = Total War, 4 = Galactic Siege,
+		# 1 = Wild Kingdom, 2 = Immune Defense, 3 = Total War, 4 = Galactic Siege,
 		# 5 = Kitchen, 6 = Birthday).
 		var worlds := [0, 1, 2, 3, 4, 5, 6]
 		for arg in OS.get_cmdline_user_args():
@@ -948,7 +948,7 @@ func _test_capstones(biome: BiomeData) -> void:
 	await _stop(game)
 
 	# Every world gives its capstones their own themed names (compared with
-	# Microscopic, where the pack stats and base names live).
+	# Immune Defense, where the pack stats and base names live).
 	var base_names := {}
 	for name in _capstone_names(biome):
 		base_names[name] = true
@@ -959,7 +959,7 @@ func _test_capstones(biome: BiomeData) -> void:
 		for name in _capstone_names(progress.load_biome(index)):
 			if base_names.has(name):
 				reused += 1
-	_check(reused == 0, "Every world has its own capstone names (%d reused from Microscopic)" % reused)
+	_check(reused == 0, "Every world has its own capstone names (%d reused from Immune Defense)" % reused)
 
 
 func _capstone_names(world: BiomeData) -> Array[String]:

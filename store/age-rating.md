@@ -22,7 +22,7 @@ blood, no realistic violence, no human death, no text chat and no ads.
 | Profanity or crude humor | None |
 | Mature or suggestive themes | None |
 | Horror or fear themes | None (bosses are cartoony) |
-| Medical or treatment information | None (the Microscopic world shows cartoon cells, no treatment info) |
+| Medical or treatment information | None (the Immune Defense world shows cartoon cells, no treatment info) |
 | Alcohol, tobacco or drug use or references | None |
 | Sexual content or nudity | None |
 | Simulated gambling | None |

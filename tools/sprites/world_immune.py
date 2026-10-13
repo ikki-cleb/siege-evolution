@@ -1,4 +1,4 @@
-"""World 3 (Microscopic): friendly cells and their germy invaders.
+"""World 3 (Immune Defense): friendly cells and their germy invaders.
 
 Each unit design draws one pose on a Canvas. `p` carries the pose:
   p["mood"]   eyes (calm, angry, squint, closed, wide)

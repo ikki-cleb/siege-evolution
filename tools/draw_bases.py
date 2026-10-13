@@ -141,7 +141,7 @@ def farmhouse():
 
 
 def heart():
-    """Microscopic: a big, glossy heart (no face: it's an organ)."""
+    """Immune Defense: a big, glossy heart (no face: it's an organ)."""
     b = Base()
     red = hexc("#e0405a")
     for i, amount in enumerate([-0.35, -0.15, 0.0]):
