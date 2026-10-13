@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/loud_blower_attack.png" id="1_k8xbo"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/loud_blower_idle.png" id="2_c4smr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_o6umq"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/double_loud_blower.tres" id="4_esc83"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/grand_finale_loud_blower.tres" id="5_enk0e"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/loud_blower.png" id="6_5kbu7"]
+
+[resource]
+script = ExtResource("3_o6umq")
+id = "loud_blower"
+display_name = "Loud Blower"
+role = 1
+cost = 8
+damage = 3.5
+attack_interval = 0.45
+adjacency_bonus = 0.15
+tier = 1
+evolutions = Array[ExtResource("3_o6umq")]([ExtResource("4_esc83"), ExtResource("5_enk0e")])
+texture = ExtResource("6_5kbu7")
+anim_idle = ExtResource("2_c4smr")
+anim_attack = ExtResource("1_k8xbo")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "More damage."

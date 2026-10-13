@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_02g11"]
-[ext_resource type="Resource" path="res://data/invaders/backyard_bugs/aphid.tres" id="2_ckegu"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/aphid_cluster.png" id="3_3v0wx"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/aphid_cluster_death.png" id="1_3v0wx"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/aphid_cluster_move.png" id="2_q5vrt"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_emu0k"]
+[ext_resource type="Resource" path="res://data/invaders/backyard_bugs/aphid.tres" id="4_ktc7r"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/aphid_cluster.png" id="5_apqhq"]
 
 [resource]
-script = ExtResource("1_02g11")
+script = ExtResource("3_emu0k")
 id = "aphid_cluster"
 display_name = "Aphid Cluster"
 max_hp = 15
 base_damage = 2
-split_into = ExtResource("2_ckegu")
+split_into = ExtResource("4_ktc7r")
 split_count = 3
-texture = ExtResource("3_3v0wx")
+texture = ExtResource("5_apqhq")
+anim_move = ExtResource("2_q5vrt")
+anim_death = ExtResource("1_3v0wx")
 description = "Bursts into three aphids when killed."

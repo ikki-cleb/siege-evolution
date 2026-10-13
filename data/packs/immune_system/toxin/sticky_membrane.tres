@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/thick_membrane_idle.png" id="1_ogn7x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_2kpbs"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/sticky_membrane.png" id="3_yhpjl"]
+
+[resource]
+script = ExtResource("2_2kpbs")
+id = "sticky_membrane"
+display_name = "Grabbing Thick Toxic Skin"
+cost = 22
+max_hp = 60
+reflect = 0.3
+tier = 2
+grab_stun = 0.8
+can_place_on_water = true
+texture = ExtResource("3_yhpjl")
+anim_idle = ExtResource("1_ogn7x")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Smashers that bite it get stuck."

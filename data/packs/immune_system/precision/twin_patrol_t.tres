@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/patrol_t_attack.png" id="1_1gsae"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/patrol_t_idle.png" id="2_gewkc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qy108"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/twin_patrol_t.png" id="4_mm2c7"]
+
+[resource]
+script = ExtResource("3_qy108")
+id = "twin_patrol_t"
+display_name = "Multi Patrol Germ Stabber"
+role = 1
+cost = 68
+max_hp = 25
+damage = 12.0
+attack_range = 3.5
+attack_interval = 1.6
+hits_air = true
+pierce = true
+tier = 2
+multishot = 2
+texture = ExtResource("4_mm2c7")
+anim_idle = ExtResource("2_gewkc")
+anim_attack = ExtResource("1_1gsae")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Strikes 2 targets at once."

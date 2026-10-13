@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4846i"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/long_range_drone.png" id="2_wwts6"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/long_range_drone_attack.png" id="1_wpgol"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/long_range_drone_idle.png" id="2_21byr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gc8mb"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/twin_barrel_long_range_drone.tres" id="4_r7u6h"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/railgun_long_range_drone.tres" id="5_kaxel"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/long_range_drone.png" id="6_d78om"]
 
 [resource]
-script = ExtResource("1_4846i")
+script = ExtResource("3_gc8mb")
 id = "long_range_drone"
 display_name = "Long-Range Drone"
 role = 1
@@ -16,6 +20,10 @@ hits_air = true
 poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
-texture = ExtResource("2_wwts6")
+tier = 1
+evolutions = Array[ExtResource("3_gc8mb")]([ExtResource("4_r7u6h"), ExtResource("5_kaxel")])
+texture = ExtResource("6_d78om")
+anim_idle = ExtResource("2_21byr")
+anim_attack = ExtResource("1_wpgol")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

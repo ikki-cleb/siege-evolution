@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/fast_bubble_machine_attack.png" id="1_ravik"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/fast_bubble_machine_idle.png" id="2_tor7y"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_t1h2w"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/fiery_fast_bubble_machine.png" id="4_snh2k"]
+
+[resource]
+script = ExtResource("3_t1h2w")
+id = "fiery_fast_bubble_machine"
+display_name = "Fiery Fast Bubble Machine"
+role = 1
+cost = 46
+max_hp = 25
+attack_mode = 1
+damage = 3.5
+attack_range = 1.8
+slow = 0.35
+slow_duration = 1.2
+tier = 2
+zone_kind = "burn"
+zone_power = 4.0
+texture = ExtResource("4_snh2k")
+anim_idle = ExtResource("2_tor7y")
+anim_attack = ExtResource("1_ravik")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Leaves a burning patch around itself."

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/scout_rifleman_attack.png" id="1_58dch"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/scout_rifleman_idle.png" id="2_ehwgf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_063qc"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/relay_scout_rifleman.png" id="4_opco2"]
+
+[resource]
+script = ExtResource("3_063qc")
+id = "relay_scout_rifleman"
+display_name = "Relay Scout Rifleman"
+role = 1
+cost = 32
+damage = 2.3
+attack_range = 2.3
+attack_interval = 0.45
+adjacency_bonus = 0.15
+tier = 2
+chain_count = 2
+texture = ExtResource("4_opco2")
+anim_idle = ExtResource("2_ehwgf")
+anim_attack = ExtResource("1_58dch")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Jabs chain to 2 more invaders."

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/heavy_lance_attack.png" id="1_ygc0v"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/heavy_lance_idle.png" id="2_dehlx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gnkby"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/finishing_lance.png" id="4_knya5"]
+
+[resource]
+script = ExtResource("3_gnkby")
+id = "finishing_lance"
+display_name = "Finishing Heavy Antibody Sniper"
+role = 1
+cost = 92
+max_hp = 15
+damage = 55.0
+attack_range = 5.0
+attack_interval = 3.0
+hits_air = true
+pierce = true
+tier = 2
+execute_below = 0.35
+texture = ExtResource("4_knya5")
+anim_idle = ExtResource("2_dehlx")
+anim_attack = ExtResource("1_ygc0v")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Finishes off invaders below 35% HP."

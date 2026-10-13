@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_q1g40"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/thick_mucus.png" id="2_yl31y"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/thick_mucus_attack.png" id="1_8jxdq"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/thick_mucus_idle.png" id="2_v88tf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_aodop"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/mucus_plug.tres" id="4_4ra08"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/grasping_mucus.tres" id="5_lnywa"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/thick_mucus.png" id="6_se3q0"]
 
 [resource]
-script = ExtResource("1_q1g40")
+script = ExtResource("3_aodop")
 id = "thick_mucus"
 display_name = "Thick Mucus"
 cost = 6
@@ -14,7 +18,11 @@ attack_range = 1.2
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
+tier = 1
+evolutions = Array[ExtResource("3_aodop")]([ExtResource("4_4ra08"), ExtResource("5_lnywa")])
 can_place_on_water = true
-texture = ExtResource("2_yl31y")
+texture = ExtResource("6_se3q0")
+anim_idle = ExtResource("2_v88tf")
+anim_attack = ExtResource("1_8jxdq")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More HP."

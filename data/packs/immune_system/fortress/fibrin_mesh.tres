@@ -1,15 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kqfuy"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/fibrin_mesh.png" id="2_ojq2s"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/fibrin_mesh_idle.png" id="1_d7b5v"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_03ql4"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/fibrin_bastion.tres" id="3_8apvo"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/clotting_snare.tres" id="4_bd1un"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/fibrin_mesh.png" id="5_xwe2n"]
 
 [resource]
-script = ExtResource("1_kqfuy")
+script = ExtResource("2_03ql4")
 id = "fibrin_mesh"
-display_name = "Fibrin Mesh"
+display_name = "Thick Scab"
 cost = 10
 max_hp = 220
+tier = 1
+evolutions = Array[ExtResource("2_03ql4")]([ExtResource("3_8apvo"), ExtResource("4_bd1un")])
 can_place_on_water = true
-texture = ExtResource("2_ojq2s")
+texture = ExtResource("5_xwe2n")
+anim_idle = ExtResource("1_d7b5v")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

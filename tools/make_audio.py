@@ -108,23 +108,34 @@ def sfx():
     return {
         "shoot": tone(1400, 0.05, r, 0.18, duty=0.25, slide=-9000, release=0.03),
         "kill": join(tone(700, 0.04, r, 0.25, slide=-4000), noise(0.08, r, 0.18, decay=30, low=2)),
-        "place": join(tone(330, 0.04, r, 0.3, duty=0.25), tone(495, 0.06, r, 0.3, duty=0.25)),
+        # A low, heavy thud: a quick falling bass note plus a soft crunch.
+        "place": mix(tone(150, 0.14, r, 0.45, slide=-500, wave_fn="triangle", release=0.08),
+                     noise(0.09, r, 0.22, decay=35, low=5)),
         "sell": join(tone(495, 0.05, r, 0.3, duty=0.25), tone(330, 0.08, r, 0.3, duty=0.25)),
         "evolve": join(*[tone(note(n), 0.06, r, 0.28, duty=0.25) for n in ("C5", "E5", "G5", "C6")],
                        tone(note("E6"), 0.18, r, 0.25, duty=0.125, vibrato=0.02)),
-        "atp": join(tone(note("E6"), 0.04, r, 0.2, duty=0.25), tone(note("B6"), 0.08, r, 0.2, duty=0.25)),
+        "coins": join(tone(note("E6"), 0.04, r, 0.2, duty=0.25), tone(note("B6"), 0.08, r, 0.2, duty=0.25)),
         "wave_start": join(tone(note("G4"), 0.12, r, 0.3), silence(0.03, r), tone(note("C5"), 0.25, r, 0.3)),
         "wave_clear": join(*[tone(note(n), 0.09, r, 0.28, duty=0.25) for n in ("C5", "E5", "G5")],
                            tone(note("C6"), 0.25, r, 0.28, duty=0.25)),
         "base_hit": mix(tone(110, 0.25, r, 0.4, slide=-200, wave_fn="triangle"), noise(0.2, r, 0.3, decay=15, low=6)),
         "bomb": mix(noise(0.6, r, 0.45, decay=5, low=10), tone(90, 0.5, r, 0.35, slide=-120, wave_fn="triangle")),
         "blink": tone(300, 0.12, r, 0.2, duty=0.125, slide=5000),
+        # A papery pop and a little jingle when a piñata bursts.
+        "pinata": join(noise(0.06, r, 0.3, decay=40, low=1), tone(note("C6"), 0.05, r, 0.18, duty=0.25),
+                       tone(note("G6"), 0.07, r, 0.18, duty=0.25)),
+        # A wet squelch when a spiller gums up a unit.
+        "spill": join(noise(0.07, r, 0.22, decay=25, low=8), tone(180, 0.1, r, 0.2, slide=-500, wave_fn="triangle")),
         "deny": join(tone(140, 0.08, r, 0.3), silence(0.03, r), tone(140, 0.1, r, 0.3)),
         "button": tone(880, 0.03, r, 0.15, duty=0.25, release=0.02),
         "win": join(*[tone(note(n), d, r, 0.3, duty=0.25) for n, d in
                       (("C5", 0.12), ("E5", 0.12), ("G5", 0.12), ("C6", 0.3), ("G5", 0.12), ("C6", 0.5))]),
         "lose": join(*[tone(note(n), d, r, 0.3, duty=0.5) for n, d in
                        (("G4", 0.2), ("F#4", 0.2), ("F4", 0.2), ("E4", 0.6))]),
+        # The boss arrives: two low, brassy horn blasts over a rumble.
+        "boss": mix(join(tone(note("D3"), 0.32, r, 0.32, duty=0.25, vibrato=0.015), silence(0.06, r),
+                         tone(note("A2"), 0.6, r, 0.34, duty=0.25, slide=-20, vibrato=0.02, release=0.25)),
+                    noise(1.0, r, 0.18, decay=3, low=14)),
         "victory": join(*[tone(note(n), d, r, 0.3, duty=0.25, vibrato=0.01) for n, d in
                           (("C5", 0.15), ("C5", 0.15), ("C5", 0.15), ("C5", 0.4), ("G#4", 0.4), ("A#4", 0.4),
                            ("C5", 0.2), ("A#4", 0.1), ("C5", 0.8))]),
@@ -169,7 +180,7 @@ def music():
         # Calm, a little mysterious.
         "menu": song([("A4", "C5", "E5"), ("F4", "A4", "C5"), ("C4", "E4", "G4"), ("G4", "B4", "D5")] * 2,
                      ["E5", "G5", "A5", "C6"], 96, seed=1, drums=False),
-        # Microscopic: minor and floaty.
+        # Immune Defense: minor and floaty.
         "immune_system": song([("D4", "F4", "A4"), ("A#3", "D4", "F4"), ("C4", "E4", "G4"), ("A3", "C#4", "E4")] * 2,
                               ["D5", "F5", "A5", "E5"], 110, seed=2),
         # Backyard: bouncy major.
@@ -182,6 +193,12 @@ def music():
         "total_war": song([("C4", "E4", "G4"), ("G3", "B3", "D4"), ("A3", "C4", "E4"), ("F3", "A3", "C4")] * 2,
                           ["C5", "D5", "E5", "G5"], 132, seed=5, lead_duty=0.5),
         # Space: minor arpeggios.
+        # Kitchen: a jaunty, busy little tune.
+        "kitchen_defense": song([("D4", "F#4", "A4"), ("G3", "B3", "D4"), ("E4", "G4", "B4"), ("A3", "C#4", "E4")] * 2,
+                                ["D5", "E5", "F#5", "A5"], 138, seed=7, lead_duty=0.25),
+        # Birthday: a bouncy major waltz-ish party tune.
+        "birthday_bash": song([("C4", "E4", "G4"), ("F4", "A4", "C5"), ("G4", "B4", "D5"), ("C4", "E4", "G4")] * 2,
+                              ["C5", "E5", "G5", "C6"], 144, seed=8, lead_duty=0.125),
         "galactic_siege": song([("E4", "G4", "B4"), ("C4", "E4", "G4"), ("A3", "C4", "E4"), ("B3", "D#4", "F#4")] * 2,
                                ["E5", "F#5", "G5", "B5"], 124, seed=6, lead_duty=0.125),
     }

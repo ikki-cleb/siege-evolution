@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_klaeh"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/paper_plane.png" id="2_4ds3t"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/paper_plane_death.png" id="1_oavc0"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/paper_plane_move.png" id="2_mg7yv"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_vljnq"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/paper_plane.png" id="4_ltt4l"]
 
 [resource]
-script = ExtResource("1_klaeh")
+script = ExtResource("3_vljnq")
 id = "paper_plane"
 display_name = "Paper Plane"
 movement = 2
 max_hp = 8
 speed = 1.3
-texture = ExtResource("2_4ds3t")
+texture = ExtResource("4_ltt4l")
+anim_move = ExtResource("2_mg7yv")
+anim_death = ExtResource("1_oavc0")
 description = "Flies straight over everything."

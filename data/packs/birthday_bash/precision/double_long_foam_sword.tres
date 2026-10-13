@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_foam_sword_attack.png" id="1_ysuav"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_foam_sword_idle.png" id="2_t4e5c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_73agu"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/double_long_foam_sword.png" id="4_lfsob"]
+
+[resource]
+script = ExtResource("3_73agu")
+id = "double_long_foam_sword"
+display_name = "Double Long Foam Sword"
+role = 1
+cost = 68
+max_hp = 25
+damage = 12.0
+attack_range = 3.5
+attack_interval = 1.6
+hits_air = true
+pierce = true
+tier = 2
+multishot = 2
+texture = ExtResource("4_lfsob")
+anim_idle = ExtResource("2_t4e5c")
+anim_attack = ExtResource("1_ysuav")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Strikes 2 targets at once."

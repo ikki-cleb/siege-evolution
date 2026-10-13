@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/chain_emp_attack.png" id="1_oxq2b"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/chain_emp_idle.png" id="2_1ny5s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1j7i5"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/repulsor_chain_emp.png" id="4_bl3ab"]
+
+[resource]
+script = ExtResource("3_1j7i5")
+id = "repulsor_chain_emp"
+display_name = "Repulsor Chain EMP"
+role = 1
+cost = 68
+damage = 4.0
+attack_range = 2.5
+attack_interval = 1.6
+hits_air = true
+splash_radius = 1.2
+stun_duration = 0.6
+tier = 2
+knockback = 2
+texture = ExtResource("4_bl3ab")
+anim_idle = ExtResource("2_1ny5s")
+anim_attack = ExtResource("1_oxq2b")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Hits shove invaders 2 tiles back."

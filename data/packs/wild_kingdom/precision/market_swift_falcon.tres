@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/swift_falcon_attack.png" id="1_jexgu"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/swift_falcon_idle.png" id="2_pkfjq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ajm6k"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/market_swift_falcon.png" id="4_u8idg"]
+
+[resource]
+script = ExtResource("3_ajm6k")
+id = "market_swift_falcon"
+display_name = "Market Swift Falcon"
+role = 1
+cost = 92
+max_hp = 15
+damage = 30.0
+attack_range = 5.0
+attack_interval = 1.9
+hits_air = true
+pierce = true
+tier = 2
+bounty = 2
+texture = ExtResource("4_u8idg")
+anim_idle = ExtResource("2_pkfjq")
+anim_attack = ExtResource("1_jexgu")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Its kills drop 2 extra coins."

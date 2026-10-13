@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_eyd0w"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/bullet_ant_major.png" id="2_7go16"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/bullet_ant_major_attack.png" id="1_sgd40"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/bullet_ant_major_idle.png" id="2_oow46"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_itydk"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/predator_bullet_ant_major.tres" id="4_ouvjb"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/swarming_bullet_ant_major.tres" id="5_ha3j4"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/bullet_ant_major.png" id="6_d1hjm"]
 
 [resource]
-script = ExtResource("1_eyd0w")
+script = ExtResource("3_itydk")
 id = "bullet_ant_major"
 display_name = "Bullet Ant Major"
 role = 1
@@ -14,6 +18,10 @@ damage = 7.0
 attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_7go16")
+tier = 1
+evolutions = Array[ExtResource("3_itydk")]([ExtResource("4_ouvjb"), ExtResource("5_ha3j4")])
+texture = ExtResource("6_d1hjm")
+anim_idle = ExtResource("2_oow46")
+anim_attack = ExtResource("1_sgd40")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

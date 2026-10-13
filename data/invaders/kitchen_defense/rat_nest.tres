@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/rat_nest_death.png" id="1_jx81o"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/rat_nest_move.png" id="2_k6fv5"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_tkd36"]
+[ext_resource type="Resource" path="res://data/invaders/kitchen_defense/mouse.tres" id="4_5vp0m"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/rat_nest.png" id="5_bnn16"]
+
+[resource]
+script = ExtResource("3_tkd36")
+id = "rat_nest"
+display_name = "Rat Nest"
+max_hp = 30
+armor = 2
+speed = 0.9
+base_damage = 2
+coin_drop = 2
+is_elite = true
+split_into = ExtResource("4_5vp0m")
+split_count = 3
+texture = ExtResource("5_bnn16")
+anim_move = ExtResource("2_k6fv5")
+anim_death = ExtResource("1_jx81o")
+description = "Elite: an armored nest."

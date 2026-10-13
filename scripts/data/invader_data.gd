@@ -22,8 +22,8 @@ enum Movement {
 @export var base_damage: int = 1
 ## Damage per second dealt to units blocking its way (smashers only).
 @export var smash_damage: float = 0.0
-## ATP dropped when killed (boss minions never drop any).
-@export var atp_drop: int = 1
+## Coins dropped when killed (boss minions never drop any).
+@export var coin_drop: int = 1
 ## Elite and boss invaders are drawn larger.
 @export var is_elite: bool = false
 @export var is_boss: bool = false
@@ -57,17 +57,40 @@ enum Movement {
 ## invaders can't be hit and smashers don't chew while tunneling.
 @export var burrow_length: int = 0
 
+@export_group("Spilling")
+## Spillers splash goo on the units beside their route every this many
+## tiles walked (0 = never). Sticky units attack slower until the free
+## repair after the wave.
+@export var spill_every: int = 0
+## How much slower sticky units attack (0.4 = 40% slower).
+@export var spill_slow: float = 0.0
+
 @export_group("Splitting")
 ## If set, this invader splits into copies of another invader when killed.
 @export var split_into: InvaderData
 @export var split_count: int = 0
+
+@export_group("Pinata")
+## Piñatas burst into a "surprise" of invaders from this list when broken.
+## The surprise looks random but is the same every time a wave is replayed
+## (see Board.start_pinata_seeds).
+@export var pinata_pool: Array[InvaderData] = []
+@export var pinata_min: int = 0
+@export var pinata_max: int = 0
 
 @export_group("Minions")
 ## If set, this invader releases minions while it walks (used by bosses).
 @export var minion: InvaderData
 @export var minion_count: int = 0
 @export var minion_interval: float = 0.0
+## Minions land this many tiles further along the route (0 = at its feet).
+## The Clown tosses its mini piñatas ahead of itself.
+@export var minion_throw: int = 0
 
 @export_group("Looks")
 @export var texture: Texture2D
+## Optional animations: horizontal strips of square frames. Move loops while
+## it walks or flies; death plays once where it was killed.
+@export var anim_move: Texture2D
+@export var anim_death: Texture2D
 @export_multiline var description: String = ""

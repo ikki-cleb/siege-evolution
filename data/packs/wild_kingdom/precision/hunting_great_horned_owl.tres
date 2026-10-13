@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/great_horned_owl_attack.png" id="1_s8ic3"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/great_horned_owl_idle.png" id="2_cfkrx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0x4x1"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/hunting_great_horned_owl.png" id="4_e2cm4"]
+
+[resource]
+script = ExtResource("3_0x4x1")
+id = "hunting_great_horned_owl"
+display_name = "Hunting Great Horned Owl"
+role = 1
+cost = 56
+max_hp = 15
+damage = 8.0
+attack_range = 3.0
+hits_air = true
+tier = 2
+execute_below = 0.2
+texture = ExtResource("4_e2cm4")
+anim_idle = ExtResource("2_cfkrx")
+anim_attack = ExtResource("1_s8ic3")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Finishes off invaders below 20% HP."

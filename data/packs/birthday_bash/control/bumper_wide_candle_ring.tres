@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/wide_candle_ring_attack.png" id="1_u07g7"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/wide_candle_ring_idle.png" id="2_r0t5c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pfp8q"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/bumper_wide_candle_ring.png" id="4_mabqu"]
+
+[resource]
+script = ExtResource("3_pfp8q")
+id = "bumper_wide_candle_ring"
+display_name = "Bumper Wide Candle Ring"
+role = 1
+cost = 60
+max_hp = 25
+attack_mode = 1
+damage = 3.5
+attack_range = 3.0
+hits_air = true
+tier = 2
+knockback = 1
+texture = ExtResource("4_mabqu")
+anim_idle = ExtResource("2_r0t5c")
+anim_attack = ExtResource("1_u07g7")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Pulses shove invaders back."

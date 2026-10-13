@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/walnut_shell_idle.png" id="1_ert44"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_daklv"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/regrowing_walnut_shell.png" id="3_ffnpe"]
+
+[resource]
+script = ExtResource("2_daklv")
+id = "regrowing_walnut_shell"
+display_name = "Regrowing Walnut Shell"
+cost = 22
+max_hp = 70
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("3_ffnpe")
+anim_idle = ExtResource("1_ert44")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Rebuilds itself once per wave."

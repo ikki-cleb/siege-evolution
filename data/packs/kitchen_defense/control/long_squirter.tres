@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/long_squirter_attack.png" id="1_7kdkk"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/long_squirter_idle.png" id="2_kb3nj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qlgsi"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/two_handed_long_squirter.tres" id="4_ydwsu"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/splattering_long_squirter.tres" id="5_y4awa"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/long_squirter.png" id="6_w03r2"]
+
+[resource]
+script = ExtResource("3_qlgsi")
+id = "long_squirter"
+display_name = "Long Squirter"
+role = 1
+cost = 12
+max_hp = 15
+damage = 3.5
+attack_range = 4.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+tier = 1
+evolutions = Array[ExtResource("3_qlgsi")]([ExtResource("4_ydwsu"), ExtResource("5_y4awa")])
+texture = ExtResource("6_w03r2")
+anim_idle = ExtResource("2_kb3nj")
+anim_attack = ExtResource("1_7kdkk")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "More range."

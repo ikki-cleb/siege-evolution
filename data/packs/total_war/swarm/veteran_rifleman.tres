@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dylp6"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/veteran_rifleman.png" id="2_meddr"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/veteran_rifleman_attack.png" id="1_jnoj5"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/veteran_rifleman_idle.png" id="2_hn1si"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5mihc"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/twin_barrel_veteran_rifleman.tres" id="4_wj08h"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/commando_veteran_rifleman.tres" id="5_7qqrt"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/veteran_rifleman.png" id="6_8tlh2"]
 
 [resource]
-script = ExtResource("1_dylp6")
+script = ExtResource("3_5mihc")
 id = "veteran_rifleman"
 display_name = "Veteran Rifleman"
 role = 1
@@ -12,6 +16,10 @@ cost = 8
 damage = 3.5
 attack_interval = 0.45
 adjacency_bonus = 0.15
-texture = ExtResource("2_meddr")
+tier = 1
+evolutions = Array[ExtResource("3_5mihc")]([ExtResource("4_wj08h"), ExtResource("5_7qqrt")])
+texture = ExtResource("6_8tlh2")
+anim_idle = ExtResource("2_hn1si")
+anim_attack = ExtResource("1_jnoj5")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

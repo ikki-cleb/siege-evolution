@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ox6ak"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/chestnut_burr.png" id="2_at28e"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/chestnut_burr_idle.png" id="1_8puew"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_c7yxr"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/bursting_chestnut_burr.tres" id="3_egfbh"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/sticky_chestnut_burr.tres" id="4_l0wtj"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/chestnut_burr.png" id="5_knigo"]
 
 [resource]
-script = ExtResource("1_ox6ak")
+script = ExtResource("2_c7yxr")
 id = "chestnut_burr"
 display_name = "Chestnut Burr"
 cost = 6
 max_hp = 35
 reflect = 0.5
+tier = 1
+evolutions = Array[ExtResource("2_c7yxr")]([ExtResource("3_egfbh"), ExtResource("4_l0wtj")])
 can_place_on_water = true
-texture = ExtResource("2_at28e")
+texture = ExtResource("5_knigo")
+anim_idle = ExtResource("1_8puew")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Reflects 50% of smasher damage."

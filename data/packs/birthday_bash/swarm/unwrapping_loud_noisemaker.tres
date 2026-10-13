@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/loud_noisemaker_attack.png" id="1_nxsgw"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/loud_noisemaker_idle.png" id="2_idbcn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_r2tbm"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/unwrapping_loud_noisemaker.png" id="4_6u73x"]
+
+[resource]
+script = ExtResource("3_r2tbm")
+id = "unwrapping_loud_noisemaker"
+display_name = "Unwrapping Loud Noisemaker"
+role = 1
+cost = 36
+max_hp = 15
+attack_mode = 1
+damage = 2.2
+attack_interval = 0.6
+adjacency_bonus = 0.15
+tier = 2
+armor_shred = 1
+texture = ExtResource("4_6u73x")
+anim_idle = ExtResource("2_idbcn")
+anim_attack = ExtResource("1_nxsgw")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Each pulse strips 1 armor."

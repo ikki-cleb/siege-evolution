@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ggm4v"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/wide_gravity_well.png" id="2_810dy"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/wide_gravity_well_attack.png" id="1_1hceu"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/wide_gravity_well_idle.png" id="2_k1qoo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ahfg7"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/cryo_wide_gravity_well.tres" id="4_qgf1k"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/overload_wide_gravity_well.tres" id="5_yf2b2"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/wide_gravity_well.png" id="6_aj46c"]
 
 [resource]
-script = ExtResource("1_ggm4v")
+script = ExtResource("3_ahfg7")
 id = "wide_gravity_well"
 display_name = "Wide Gravity Well"
 cost = 6
@@ -15,6 +19,10 @@ attack_range = 2.2
 attack_interval = 0.5
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_810dy")
+tier = 1
+evolutions = Array[ExtResource("3_ahfg7")]([ExtResource("4_qgf1k"), ExtResource("5_yf2b2")])
+texture = ExtResource("6_aj46c")
+anim_idle = ExtResource("2_k1qoo")
+anim_attack = ExtResource("1_1hceu")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Stronger, wider slow."

@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_wh0gp"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/twig_bundle.tres" id="2_grkpu"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/bramble_twig.tres" id="3_r4cl0"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/twig.png" id="4_37rpe"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/twig_idle.png" id="1_grkpu"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_r4cl0"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/twig_bundle.tres" id="3_37rpe"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/bramble_twig.tres" id="4_d4br5"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/twig.png" id="5_q4h3x"]
 
 [resource]
-script = ExtResource("1_wh0gp")
+script = ExtResource("2_r4cl0")
 id = "twig"
 display_name = "Twig"
 cost = 3
 max_hp = 18
-evolutions = Array[ExtResource("1_wh0gp")]([ExtResource("2_grkpu"), ExtResource("3_r4cl0")])
+evolutions = Array[ExtResource("2_r4cl0")]([ExtResource("3_37rpe"), ExtResource("4_d4br5")])
 can_place_on_water = true
-texture = ExtResource("4_37rpe")
+texture = ExtResource("5_q4h3x")
+anim_idle = ExtResource("1_grkpu")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Dirt-cheap wall."

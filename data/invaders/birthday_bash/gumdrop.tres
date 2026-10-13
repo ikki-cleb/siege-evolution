@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/gumdrop_death.png" id="1_fdras"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/gumdrop_move.png" id="2_2lmuk"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_gu0yw"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/gumdrop.png" id="4_11txv"]
+
+[resource]
+script = ExtResource("3_gu0yw")
+id = "gumdrop"
+display_name = "Gumdrop"
+max_hp = 5
+speed = 1.5
+texture = ExtResource("4_11txv")
+anim_move = ExtResource("2_2lmuk")
+anim_death = ExtResource("1_fdras")

@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_einu6"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/bear_cub.png" id="2_s1era"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/bear_cub_death.png" id="1_hghhi"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/bear_cub_move.png" id="2_2yx4j"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_10fnw"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/bear_cub.png" id="4_v6drc"]
 
 [resource]
-script = ExtResource("1_einu6")
+script = ExtResource("3_10fnw")
 id = "bear_cub"
 display_name = "Bear Cub"
 max_hp = 14
 speed = 1.3
-atp_drop = 0
-texture = ExtResource("2_s1era")
+coin_drop = 0
+texture = ExtResource("4_v6drc")
+anim_move = ExtResource("2_2yx4j")
+anim_death = ExtResource("1_hghhi")

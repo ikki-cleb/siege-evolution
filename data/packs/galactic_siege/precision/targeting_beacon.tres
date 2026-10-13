@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3t4ue"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/lock_on_beacon.tres" id="2_nepop"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/long_beacon.tres" id="3_aw3ou"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/targeting_beacon.png" id="4_yn1hs"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/targeting_beacon_attack.png" id="1_aw3ou"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/targeting_beacon_idle.png" id="2_yn1hs"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_67r3n"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/lock_on_beacon.tres" id="4_em7q5"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/long_beacon.tres" id="5_ag44r"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/targeting_beacon.png" id="6_ci8yi"]
 
 [resource]
-script = ExtResource("1_3t4ue")
+script = ExtResource("3_67r3n")
 id = "targeting_beacon"
 display_name = "Targeting Beacon"
 role = 2
@@ -17,7 +19,9 @@ attack_range = 3.0
 hits_air = true
 mark_bonus = 0.3
 mark_duration = 3.0
-evolutions = Array[ExtResource("1_3t4ue")]([ExtResource("2_nepop"), ExtResource("3_aw3ou")])
-texture = ExtResource("4_yn1hs")
+evolutions = Array[ExtResource("3_67r3n")]([ExtResource("4_em7q5"), ExtResource("5_ag44r")])
+texture = ExtResource("6_ci8yi")
+anim_idle = ExtResource("2_yn1hs")
+anim_attack = ExtResource("1_aw3ou")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks targets: they take 40% more damage from everything."

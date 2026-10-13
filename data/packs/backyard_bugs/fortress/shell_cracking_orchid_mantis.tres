@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/orchid_mantis_attack.png" id="1_dcu5s"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/orchid_mantis_idle.png" id="2_ipvlh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_diytk"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/shell_cracking_orchid_mantis.png" id="4_x635t"]
+
+[resource]
+script = ExtResource("3_diytk")
+id = "shell_cracking_orchid_mantis"
+display_name = "Shell-Cracking Orchid Mantis"
+role = 1
+cost = 84
+max_hp = 40
+damage = 30.0
+attack_range = 3.2
+attack_interval = 2.6
+hits_air = true
+pierce = true
+tier = 2
+knockback = 1
+armor_shred = 2
+texture = ExtResource("4_x635t")
+anim_idle = ExtResource("2_ipvlh")
+anim_attack = ExtResource("1_dcu5s")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Strips 2 armor and shoves back."

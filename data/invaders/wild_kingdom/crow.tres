@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_867h6"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/crow.png" id="2_1mwo6"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/crow_death.png" id="1_xpjty"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/crow_move.png" id="2_tel7n"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_tukcv"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/crow.png" id="4_bv8kn"]
 
 [resource]
-script = ExtResource("1_867h6")
+script = ExtResource("3_tukcv")
 id = "crow"
 display_name = "Crow"
 movement = 2
 max_hp = 9
 speed = 1.2
-texture = ExtResource("2_1mwo6")
+texture = ExtResource("4_bv8kn")
+anim_move = ExtResource("2_tel7n")
+anim_death = ExtResource("1_xpjty")
 description = "Flies straight over everything."

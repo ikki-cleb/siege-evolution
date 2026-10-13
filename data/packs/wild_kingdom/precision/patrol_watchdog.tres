@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_luqt5"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/patrol_watchdog.png" id="2_g2fs7"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/patrol_watchdog_attack.png" id="1_i58cc"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/patrol_watchdog_idle.png" id="2_juvl7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_e3o1n"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/flurry_patrol_watchdog.tres" id="4_ij8bh"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/roosters_patrol_watchdog.tres" id="5_xj7h5"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/patrol_watchdog.png" id="6_o1uyp"]
 
 [resource]
-script = ExtResource("1_luqt5")
+script = ExtResource("3_e3o1n")
 id = "patrol_watchdog"
 display_name = "Patrol Watchdog"
 role = 2
@@ -15,6 +19,10 @@ attack_range = 4.5
 hits_air = true
 mark_bonus = 0.3
 mark_duration = 3.0
-texture = ExtResource("2_g2fs7")
+tier = 1
+evolutions = Array[ExtResource("3_e3o1n")]([ExtResource("4_ij8bh"), ExtResource("5_xj7h5")])
+texture = ExtResource("6_o1uyp")
+anim_idle = ExtResource("2_juvl7")
+anim_attack = ExtResource("1_i58cc")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

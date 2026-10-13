@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_6vaab"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/hornet.png" id="2_8n2oi"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/hornet_death.png" id="1_ivwui"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/hornet_move.png" id="2_p5pvw"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_4k58e"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/hornet.png" id="4_n4lps"]
 
 [resource]
-script = ExtResource("1_6vaab")
+script = ExtResource("3_4k58e")
 id = "hornet"
 display_name = "Hornet"
 movement = 2
@@ -12,5 +14,7 @@ max_hp = 20
 armor = 1
 base_damage = 2
 is_elite = true
-texture = ExtResource("2_8n2oi")
+texture = ExtResource("4_n4lps")
+anim_move = ExtResource("2_p5pvw")
+anim_death = ExtResource("1_ivwui")
 description = "Elite: a tough armored flier."

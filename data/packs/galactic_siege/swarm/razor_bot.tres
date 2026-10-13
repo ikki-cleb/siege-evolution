@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3huev"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/razor_bot.png" id="2_x7bfg"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/razor_bot_attack.png" id="1_18hyi"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/razor_bot_idle.png" id="2_usc3c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5lx52"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/terminator_razor_bot.tres" id="4_d4b6c"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/arc_razor_bot.tres" id="5_giihr"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/razor_bot.png" id="6_5uk21"]
 
 [resource]
-script = ExtResource("1_3huev")
+script = ExtResource("3_5lx52")
 id = "razor_bot"
 display_name = "Razor Bot"
 role = 1
@@ -14,6 +18,10 @@ damage = 7.0
 attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_x7bfg")
+tier = 1
+evolutions = Array[ExtResource("3_5lx52")]([ExtResource("4_d4b6c"), ExtResource("5_giihr")])
+texture = ExtResource("6_5uk21")
+anim_idle = ExtResource("2_usc3c")
+anim_attack = ExtResource("1_18hyi")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/gluey_barricade_attack.png" id="1_ht05y"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/gluey_barricade_idle.png" id="2_xvob3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_esd83"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/frost_gluey_barricade.png" id="4_2kvcd"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/frost_gluey_barricade_water.png" id="5_0jj2m"]
+
+[resource]
+script = ExtResource("3_esd83")
+id = "frost_gluey_barricade"
+display_name = "Frost Gluey Barricade"
+cost = 22
+max_hp = 25
+attack_mode = 1
+attack_range = 1.2
+attack_interval = 0.5
+slow = 0.5
+slow_duration = 1.0
+tier = 2
+zone_kind = "freeze"
+zone_power = 0.6
+can_place_on_water = true
+water_texture = ExtResource("5_0jj2m")
+texture = ExtResource("4_2kvcd")
+anim_idle = ExtResource("2_xvob3")
+anim_attack = ExtResource("1_ht05y")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Leaves a freezing patch around itself."

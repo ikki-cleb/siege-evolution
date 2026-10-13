@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lep8p"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/killer_nk_cell.png" id="2_cf0ke"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/killer_nk_cell_attack.png" id="1_yl0t5"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/killer_nk_cell_idle.png" id="2_n3rsw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_av3u0"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/executioner_nk.tres" id="4_8n1kn"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/chain_nk.tres" id="5_8e1ue"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/killer_nk_cell.png" id="6_33paw"]
 
 [resource]
-script = ExtResource("1_lep8p")
+script = ExtResource("3_av3u0")
 id = "killer_nk_cell"
-display_name = "Killer NK Cell"
+display_name = "Fierce Killer Cell"
 role = 1
 cost = 12
 max_hp = 25
@@ -14,6 +18,10 @@ damage = 7.0
 attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_cf0ke")
+tier = 1
+evolutions = Array[ExtResource("3_av3u0")]([ExtResource("4_8n1kn"), ExtResource("5_8e1ue")])
+texture = ExtResource("6_33paw")
+anim_idle = ExtResource("2_n3rsw")
+anim_attack = ExtResource("1_yl0t5")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

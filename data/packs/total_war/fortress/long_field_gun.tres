@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_15q1l"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/long_field_gun.png" id="2_ab44c"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/long_field_gun_attack.png" id="1_r1dr0"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/long_field_gun_idle.png" id="2_38slx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_blywj"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/railgun_long_field_gun.tres" id="4_p47av"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/loot_long_field_gun.tres" id="5_h5m4q"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/long_field_gun.png" id="6_bo6cy"]
 
 [resource]
-script = ExtResource("1_15q1l")
+script = ExtResource("3_blywj")
 id = "long_field_gun"
 display_name = "Long Field Gun"
 role = 1
@@ -14,6 +18,10 @@ damage = 8.0
 attack_range = 3.6
 attack_interval = 1.4
 hits_air = true
-texture = ExtResource("2_ab44c")
+tier = 1
+evolutions = Array[ExtResource("3_blywj")]([ExtResource("4_p47av"), ExtResource("5_h5m4q")])
+texture = ExtResource("6_bo6cy")
+anim_idle = ExtResource("2_38slx")
+anim_attack = ExtResource("1_r1dr0")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

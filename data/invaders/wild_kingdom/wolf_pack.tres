@@ -1,19 +1,23 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_kctyc"]
-[ext_resource type="Resource" path="res://data/invaders/wild_kingdom/wolf.tres" id="2_prbui"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/wolf_pack.png" id="3_efffg"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/wolf_pack_death.png" id="1_efffg"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/wolf_pack_move.png" id="2_oj7rf"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_0ft18"]
+[ext_resource type="Resource" path="res://data/invaders/wild_kingdom/wolf.tres" id="4_rw1aw"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/wolf_pack.png" id="5_gjj14"]
 
 [resource]
-script = ExtResource("1_kctyc")
+script = ExtResource("3_0ft18")
 id = "wolf_pack"
 display_name = "Wolf Pack"
 max_hp = 30
 armor = 2
 base_damage = 2
-atp_drop = 2
+coin_drop = 2
 is_elite = true
-split_into = ExtResource("2_prbui")
+split_into = ExtResource("4_rw1aw")
 split_count = 3
-texture = ExtResource("3_efffg")
+texture = ExtResource("5_gjj14")
+anim_move = ExtResource("2_oj7rf")
+anim_death = ExtResource("1_efffg")
 description = "Elite: an armored pack that scatters into wolves."

@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_viyv6"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/overcharged_turret.png" id="2_ulbpj"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/overcharged_turret_attack.png" id="1_mgkch"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/overcharged_turret_idle.png" id="2_t313n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6rmm0"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/relay_overcharged_turret.tres" id="4_b7ffb"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/twin_barrel_overcharged_turret.tres" id="5_7bk8t"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/overcharged_turret.png" id="6_r3u30"]
 
 [resource]
-script = ExtResource("1_viyv6")
+script = ExtResource("3_6rmm0")
 id = "overcharged_turret"
 display_name = "Overcharged Turret"
 role = 1
@@ -14,6 +18,10 @@ attack_range = 2.5
 attack_interval = 1.6
 hits_air = true
 stun_duration = 1.1
-texture = ExtResource("2_ulbpj")
+tier = 1
+evolutions = Array[ExtResource("3_6rmm0")]([ExtResource("4_b7ffb"), ExtResource("5_7bk8t")])
+texture = ExtResource("6_r3u30")
+anim_idle = ExtResource("2_t313n")
+anim_attack = ExtResource("1_mgkch")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Longer stun."

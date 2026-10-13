@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_tosvk"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_03oi2"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/soap_bar.tres" id="3_pqn2o"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/bug_spray.tres" id="4_qkdfp"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/pest_mister.tres" id="5_hj65n"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/vinegar_bowl.tres" id="6_f70ar"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/ant_bait_station.tres" id="7_1fpwf"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/moldy_bread.tres" id="8_0dhi8"]
+
+[resource]
+script = ExtResource("1_tosvk")
+id = "toxin"
+display_name = "Toxin"
+description = "Poison that ignores armor and spreads between invaders. Slow to start, brutal on crowds."
+color = Color(0.42352942, 0.77254903, 0.31764707, 1)
+product_id = "pack_toxin"
+units = Array[ExtResource("2_03oi2")]([ExtResource("3_pqn2o"), ExtResource("4_qkdfp"), ExtResource("5_hj65n"), ExtResource("6_f70ar"), ExtResource("7_1fpwf"), ExtResource("8_0dhi8")])

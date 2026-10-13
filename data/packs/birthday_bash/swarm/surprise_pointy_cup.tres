@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/pointy_cup_idle.png" id="1_7upw0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_nrerm"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/surprise_pointy_cup.png" id="3_d21p0"]
+
+[resource]
+script = ExtResource("2_nrerm")
+id = "surprise_pointy_cup"
+display_name = "Surprise Pointy Cup"
+cost = 14
+max_hp = 22
+reflect = 0.4
+tier = 2
+explode_damage = 25.0
+can_place_on_water = true
+texture = ExtResource("3_d21p0")
+anim_idle = ExtResource("1_7upw0")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Pops when it breaks, hurting nearby invaders."

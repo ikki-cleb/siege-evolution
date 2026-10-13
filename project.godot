@@ -7,7 +7,13 @@ config_version=5
 
 config/name="Siege Evolution"
 run/main_scene="res://scenes/menu.tscn"
+config/version="1.0.0"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://art/icons/icon_192.png"
+boot_splash/bg_color=Color(0.0784, 0.0471, 0.0706, 1)
+boot_splash/image="res://art/icons/splash.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=true
 
 [autoload]
 
@@ -15,6 +21,7 @@ Look="*res://scripts/look.gd"
 Audio="*res://scripts/audio.gd"
 Store="*res://scripts/store.gd"
 Progress="*res://scripts/progress.gd"
+Achievements="*res://scripts/achievements.gd"
 
 [display]
 

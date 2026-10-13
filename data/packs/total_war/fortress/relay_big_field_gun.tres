@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/big_field_gun_attack.png" id="1_bpcaa"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/big_field_gun_idle.png" id="2_xkk2j"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_3sbqj"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/relay_big_field_gun.png" id="4_mgvqx"]
+
+[resource]
+script = ExtResource("3_3sbqj")
+id = "relay_big_field_gun"
+display_name = "Relay Big Field Gun"
+role = 1
+cost = 56
+max_hp = 30
+damage = 15.0
+attack_range = 2.5
+attack_interval = 1.4
+hits_air = true
+tier = 2
+chain_count = 2
+texture = ExtResource("4_mgvqx")
+anim_idle = ExtResource("2_xkk2j")
+anim_attack = ExtResource("1_bpcaa")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Shots chain to 2 more invaders."

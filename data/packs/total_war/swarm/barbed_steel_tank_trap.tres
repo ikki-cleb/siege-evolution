@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/steel_tank_trap_attack.png" id="1_pgp1i"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/steel_tank_trap_idle.png" id="2_id0f7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pctfm"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/barbed_steel_tank_trap.png" id="4_ddrgt"]
+
+[resource]
+script = ExtResource("3_pctfm")
+id = "barbed_steel_tank_trap"
+display_name = "Barbed Steel Tank Trap"
+cost = 24
+max_hp = 60
+attack_mode = 1
+damage = 0.5
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+tier = 2
+grab_stun = 0.8
+texture = ExtResource("4_ddrgt")
+anim_idle = ExtResource("2_id0f7")
+anim_attack = ExtResource("1_pgp1i")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Smashers that bite it get stuck."

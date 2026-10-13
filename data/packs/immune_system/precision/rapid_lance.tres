@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_rq503"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/rapid_lance.png" id="2_nidf8"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/rapid_lance_attack.png" id="1_dbju7"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/rapid_lance_idle.png" id="2_q1dnb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_q5gyy"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/bounty_lance.tres" id="4_0rwrb"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/ricochet_lance.tres" id="5_jss51"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/rapid_lance.png" id="6_k3ikr"]
 
 [resource]
-script = ExtResource("1_rq503")
+script = ExtResource("3_q5gyy")
 id = "rapid_lance"
-display_name = "Rapid Lance"
+display_name = "Rapid Antibody Sniper"
 role = 1
 cost = 22
 max_hp = 15
@@ -15,6 +19,10 @@ attack_range = 5.0
 attack_interval = 1.9
 hits_air = true
 pierce = true
-texture = ExtResource("2_nidf8")
+tier = 1
+evolutions = Array[ExtResource("3_q5gyy")]([ExtResource("4_0rwrb"), ExtResource("5_jss51")])
+texture = ExtResource("6_k3ikr")
+anim_idle = ExtResource("2_q1dnb")
+anim_attack = ExtResource("1_dbju7")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Fires much faster."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yct75"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/great_horned_owl.tres" id="2_qjiu4"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/far_sighted_owl.tres" id="3_1fxej"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/barn_owl.png" id="4_hgb1k"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/barn_owl_attack.png" id="1_1fxej"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/barn_owl_idle.png" id="2_hgb1k"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_48fry"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/great_horned_owl.tres" id="4_n185g"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/far_sighted_owl.tres" id="5_8lwku"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/barn_owl.png" id="6_lkvw5"]
 
 [resource]
-script = ExtResource("1_yct75")
+script = ExtResource("3_48fry")
 id = "barn_owl"
 display_name = "Barn Owl"
 role = 1
@@ -15,7 +17,9 @@ max_hp = 15
 damage = 4.5
 attack_range = 3.0
 hits_air = true
-evolutions = Array[ExtResource("1_yct75")]([ExtResource("2_qjiu4"), ExtResource("3_1fxej")])
-texture = ExtResource("4_hgb1k")
+evolutions = Array[ExtResource("3_48fry")]([ExtResource("4_n185g"), ExtResource("5_8lwku")])
+texture = ExtResource("6_lkvw5")
+anim_idle = ExtResource("2_hgb1k")
+anim_attack = ExtResource("1_1fxej")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Long-range antibodies. Hits fliers."

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/super_soaker_attack.png" id="1_mq2n2"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/super_soaker_idle.png" id="2_6df4x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ui8f0"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/laser_super_soaker.png" id="4_ugngj"]
+
+[resource]
+script = ExtResource("3_ui8f0")
+id = "laser_super_soaker"
+display_name = "Laser Super Soaker"
+role = 1
+cost = 36
+max_hp = 12
+damage = 2.8
+attack_range = 3.5
+attack_interval = 0.7
+hits_air = true
+adjacency_bonus = 0.15
+tier = 2
+line_pierce = true
+texture = ExtResource("4_ugngj")
+anim_idle = ExtResource("2_6df4x")
+anim_attack = ExtResource("1_mq2n2")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Pokes pierce every invader in a line."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cb0p2"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/bullet_ant_major.tres" id="2_rybp5"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/hunting_ant.tres" id="3_mah66"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/bullet_ant.png" id="4_ytnan"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/bullet_ant_attack.png" id="1_mah66"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/bullet_ant_idle.png" id="2_ytnan"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_7s7nf"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/bullet_ant_major.tres" id="4_0hsj2"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/hunting_ant.tres" id="5_bymcp"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/bullet_ant.png" id="6_kxh5i"]
 
 [resource]
-script = ExtResource("1_cb0p2")
+script = ExtResource("3_7s7nf")
 id = "bullet_ant"
 display_name = "Bullet Ant"
 role = 1
@@ -16,7 +18,9 @@ damage = 4.0
 attack_interval = 0.45
 pierce = true
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_cb0p2")]([ExtResource("2_rybp5"), ExtResource("3_mah66")])
-texture = ExtResource("4_ytnan")
+evolutions = Array[ExtResource("3_7s7nf")]([ExtResource("4_0hsj2"), ExtResource("5_bymcp")])
+texture = ExtResource("6_kxh5i")
+anim_idle = ExtResource("2_ytnan")
+anim_attack = ExtResource("1_mah66")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Armor-piercing melee flurries."

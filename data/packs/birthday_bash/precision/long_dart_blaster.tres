@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_dart_blaster_attack.png" id="1_trcbq"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_dart_blaster_idle.png" id="2_gy5u5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_hvroh"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/laser_long_dart_blaster.tres" id="4_lo5xy"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/prize_long_dart_blaster.tres" id="5_5853t"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/long_dart_blaster.png" id="6_lc4i6"]
+
+[resource]
+script = ExtResource("3_hvroh")
+id = "long_dart_blaster"
+display_name = "Long Dart Blaster"
+role = 1
+cost = 13
+max_hp = 15
+damage = 4.5
+attack_range = 4.5
+hits_air = true
+tier = 1
+evolutions = Array[ExtResource("3_hvroh")]([ExtResource("4_lo5xy"), ExtResource("5_5853t")])
+texture = ExtResource("6_lc4i6")
+anim_idle = ExtResource("2_gy5u5")
+anim_attack = ExtResource("1_trcbq")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Much more range."

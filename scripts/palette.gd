@@ -12,6 +12,10 @@ const GOLD := Color("#ffd23c")
 const HEART := Color("#ff4d6d")
 const GOOD := Color("#7fe08a")
 
+## The in-game currency's icon: a coin drawn into the game font (see
+## tools/make_font.py), so it can sit right inside any text: "%s 25" % Palette.COIN
+const COIN := "\uE000"
+
 ## One accent color per world, used for titles and highlights.
 const ACCENTS := {
 	"immune_system": Color("#ff5a7a"),
@@ -19,7 +23,11 @@ const ACCENTS := {
 	"wild_kingdom": Color("#e8a03a"),
 	"total_war": Color("#6fb3e8"),
 	"galactic_siege": Color("#b07aff"),
+	"kitchen_defense": Color("#5ad1b8"),
+	"birthday_bash": Color("#ff7ac8"),
 }
+## The red tag that warns a bonus world is post-game hard.
+const WARNING := Color("#ff5a4a")
 
 
 static func accent(world_id: String) -> Color:

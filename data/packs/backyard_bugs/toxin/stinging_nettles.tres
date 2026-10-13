@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_blgaf"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/stinging_nettles.png" id="2_wvu4e"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/stinging_nettles_idle.png" id="1_f02d5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_upd4q"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/bursting_stinging_nettles.tres" id="3_6k01h"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/rain_washed_stinging_nettles.tres" id="4_cofxk"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/stinging_nettles.png" id="5_sbsok"]
 
 [resource]
-script = ExtResource("1_blgaf")
+script = ExtResource("2_upd4q")
 id = "stinging_nettles"
 display_name = "Stinging Nettles"
 cost = 6
 max_hp = 25
 reflect = 0.8
+tier = 1
+evolutions = Array[ExtResource("2_upd4q")]([ExtResource("3_6k01h"), ExtResource("4_cofxk")])
 can_place_on_water = true
-texture = ExtResource("2_wvu4e")
+texture = ExtResource("5_sbsok")
+anim_idle = ExtResource("1_f02d5")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

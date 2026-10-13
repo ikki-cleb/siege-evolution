@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u0gwh"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/reflector_barrier.png" id="2_j48pk"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/reflector_barrier_idle.png" id="1_ex38h"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_y1vup"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/overload_reflector_barrier.tres" id="3_hy7ti"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/tractor_reflector_barrier.tres" id="4_3fi0n"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/reflector_barrier.png" id="5_v5d2h"]
 
 [resource]
-script = ExtResource("1_u0gwh")
+script = ExtResource("2_y1vup")
 id = "reflector_barrier"
 display_name = "Reflector Barrier"
 cost = 6
 max_hp = 35
 reflect = 0.5
+tier = 1
+evolutions = Array[ExtResource("2_y1vup")]([ExtResource("3_hy7ti"), ExtResource("4_3fi0n")])
 can_place_on_water = true
-texture = ExtResource("2_j48pk")
+texture = ExtResource("5_v5d2h")
+anim_idle = ExtResource("1_ex38h")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Reflects 50% of smasher damage."

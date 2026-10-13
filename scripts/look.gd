@@ -5,7 +5,13 @@ extends Node
 ##   Look.accent("galactic_siege")    -> that world's accent color
 ##   Look.panel(color)                -> a rounded panel style
 
-const FONT := preload("res://assets/fonts/PixelifySans.ttf")
+## Two fonts (built by tools/make_font.py): a bubbly one for titles and
+## buttons, and a clean one for everything else. Labels opt into the title
+## font with `label.theme_type_variation = "TitleLabel"`.
+const FONT := preload("res://assets/fonts/SiegeText.ttf")
+const TITLE_FONT := preload("res://assets/fonts/SiegeTitle.ttf")
+## Labels at least this big use the title font (see use_title_font).
+const TITLE_SIZE := 18
 
 # Colors live in Palette (scripts/palette.gd) so every script can use them.
 const BG := Palette.BG
@@ -22,9 +28,33 @@ const ACCENTS := Palette.ACCENTS
 var theme := Theme.new()
 
 
+## Phones with a notch or camera hole: how far (in game pixels) everything
+## is moved down so the top bar isn't hidden behind it. 0 elsewhere.
+var safe_top := 0.0
+signal safe_area_changed
+
+
 func _ready() -> void:
 	_build_theme()
 	get_tree().root.theme = theme
+	get_tree().root.size_changed.connect(_apply_safe_area)
+	_apply_safe_area.call_deferred()
+
+
+## Moves the whole game down by the notch's height. The game is 360 wide and
+## grows taller on tall phones, so that extra height absorbs the shift.
+## (The HUD and banners are CanvasLayers and read safe_top themselves.)
+func _apply_safe_area() -> void:
+	if not OS.has_feature("mobile"):
+		return
+	var window := DisplayServer.window_get_size()
+	var safe := DisplayServer.get_display_safe_area()
+	var top_pixels := maxi(0, safe.position.y - DisplayServer.window_get_position().y)
+	var visible := get_tree().root.get_visible_rect().size
+	var extra := maxf(0.0, visible.y - 720.0)  # 720 = the game's design height
+	safe_top = minf(top_pixels * visible.y / maxf(1.0, window.y), extra)
+	get_tree().root.canvas_transform = Transform2D(0.0, Vector2(0, safe_top))
+	safe_area_changed.emit()
 
 
 func accent(world_id: String) -> Color:
@@ -33,6 +63,14 @@ func accent(world_id: String) -> Color:
 
 func panel(color := SURFACE, edge := Color.TRANSPARENT, radius := 8) -> StyleBoxFlat:
 	return Palette.panel(color, edge, radius)
+
+
+## Ligatures off: fancy letter joins (like "fi") don't suit game text.
+func _no_ligatures(base: Font) -> FontVariation:
+	var font := FontVariation.new()
+	font.base_font = base
+	font.opentype_features = {TextServerManager.get_primary_interface().name_to_tag("liga"): 0}
+	return font
 
 
 func _button_style(bg: Color, border: Color) -> StyleBoxFlat:
@@ -50,12 +88,12 @@ func _button_style(bg: Color, border: Color) -> StyleBoxFlat:
 
 
 func _build_theme() -> void:
-	# Ligatures off: this font's "fi" ligature draws incorrectly.
-	var font := FontVariation.new()
-	font.base_font = FONT
-	font.opentype_features = {TextServerManager.get_primary_interface().name_to_tag("liga"): 0}
-	theme.default_font = font
+	theme.default_font = _no_ligatures(FONT)
 	theme.default_font_size = 14
+	var title := _no_ligatures(TITLE_FONT)
+	theme.set_font("font", "Button", title)
+	theme.set_type_variation("TitleLabel", "Label")
+	theme.set_font("font", "TitleLabel", title)
 
 	theme.set_stylebox("normal", "Button", _button_style(SURFACE_HI, BORDER))
 	theme.set_stylebox("hover", "Button", _button_style(Color("#3a2434"), Color("#6a4258")))

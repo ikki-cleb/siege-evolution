@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/veteran_sniper_attack.png" id="1_0hrwk"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/veteran_sniper_idle.png" id="2_88d7p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_e23cn"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/twin_barrel_veteran_sniper.png" id="4_ax2tn"]
+
+[resource]
+script = ExtResource("3_e23cn")
+id = "twin_barrel_veteran_sniper"
+display_name = "Twin-Barrel Veteran Sniper"
+role = 1
+cost = 56
+max_hp = 15
+damage = 8.0
+attack_range = 3.0
+hits_air = true
+tier = 2
+multishot = 3
+texture = ExtResource("4_ax2tn")
+anim_idle = ExtResource("2_88d7p")
+anim_attack = ExtResource("1_0hrwk")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Fires at 3 targets at once."

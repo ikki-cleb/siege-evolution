@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/four_slice_toaster_attack.png" id="1_q0122"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/four_slice_toaster_idle.png" id="2_qknw2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_rtxeq"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/skewering_four_slice_toaster.tres" id="4_4mqur"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/chopping_four_slice_toaster.tres" id="5_esp52"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/four_slice_toaster.png" id="6_uhx6p"]
+
+[resource]
+script = ExtResource("3_rtxeq")
+id = "four_slice_toaster"
+display_name = "Four-Slice Toaster"
+role = 1
+cost = 22
+max_hp = 15
+damage = 55.0
+attack_range = 5.0
+attack_interval = 3.0
+hits_air = true
+pierce = true
+tier = 1
+evolutions = Array[ExtResource("3_rtxeq")]([ExtResource("4_4mqur"), ExtResource("5_esp52")])
+texture = ExtResource("6_uhx6p")
+anim_idle = ExtResource("2_qknw2")
+anim_attack = ExtResource("1_q0122")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Much more damage."

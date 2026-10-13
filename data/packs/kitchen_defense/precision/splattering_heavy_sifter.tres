@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/heavy_sifter_attack.png" id="1_vjcjl"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/heavy_sifter_idle.png" id="2_bvg8n"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_wkefl"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/splattering_heavy_sifter.png" id="4_h1si6"]
+
+[resource]
+script = ExtResource("3_wkefl")
+id = "splattering_heavy_sifter"
+display_name = "Splattering Heavy Sifter"
+role = 2
+cost = 48
+max_hp = 15
+damage = 1.0
+attack_range = 3.0
+hits_air = true
+mark_bonus = 0.7
+mark_duration = 3.0
+tier = 2
+chain_count = 3
+texture = ExtResource("4_h1si6")
+anim_idle = ExtResource("2_bvg8n")
+anim_attack = ExtResource("1_vjcjl")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Tags chain to 3 more invaders."

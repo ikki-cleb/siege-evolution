@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/plasma_cell_attack.png" id="1_nsaq0"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/plasma_cell_idle.png" id="2_lsq85"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_b5ia1"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/antibody_storm.png" id="4_jp4so"]
+
+[resource]
+script = ExtResource("3_b5ia1")
+id = "antibody_storm"
+display_name = "Multi Heavy Antibody Shooter"
+role = 1
+cost = 56
+max_hp = 15
+damage = 8.0
+attack_range = 3.0
+hits_air = true
+tier = 2
+multishot = 3
+texture = ExtResource("4_jp4so")
+anim_idle = ExtResource("2_lsq85")
+anim_attack = ExtResource("1_nsaq0")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Fires at 3 targets at once."

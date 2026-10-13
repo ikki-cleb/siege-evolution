@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_skb4p"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/thick_hedge.tres" id="2_a8t0u"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/growing_hedge.tres" id="3_67neb"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/hedge.png" id="4_5iogo"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/hedge_idle.png" id="1_a8t0u"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_67neb"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/thick_hedge.tres" id="3_5iogo"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/growing_hedge.tres" id="4_vtjxx"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/hedge.png" id="5_mnnmd"]
 
 [resource]
-script = ExtResource("1_skb4p")
+script = ExtResource("2_67neb")
 id = "hedge"
 display_name = "Hedge"
 cost = 10
 max_hp = 70
 regen = 6.0
-evolutions = Array[ExtResource("1_skb4p")]([ExtResource("2_a8t0u"), ExtResource("3_67neb")])
-texture = ExtResource("4_5iogo")
+evolutions = Array[ExtResource("2_67neb")]([ExtResource("3_5iogo"), ExtResource("4_vtjxx")])
+texture = ExtResource("5_mnnmd")
+anim_idle = ExtResource("1_a8t0u")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Wall that heals itself when not under attack."

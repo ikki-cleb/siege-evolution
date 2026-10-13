@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/spotlight_attack.png" id="1_uaiop"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/spotlight_idle.png" id="2_vpr2i"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_c3ctw"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bright_spotlight.tres" id="4_egksy"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/long_spotlight.tres" id="5_n7ura"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/spotlight.png" id="6_u1s16"]
+
+[resource]
+script = ExtResource("3_c3ctw")
+id = "spotlight"
+display_name = "Spotlight"
+role = 2
+cost = 12
+max_hp = 15
+damage = 1.0
+attack_range = 3.0
+hits_air = true
+mark_bonus = 0.3
+mark_duration = 3.0
+evolutions = Array[ExtResource("3_c3ctw")]([ExtResource("4_egksy"), ExtResource("5_n7ura")])
+texture = ExtResource("6_u1s16")
+anim_idle = ExtResource("2_vpr2i")
+anim_attack = ExtResource("1_uaiop")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Marks targets: they take 40% more damage from everything."

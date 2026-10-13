@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lflyf"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/heavy_grenadier.tres" id="2_annln"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/wide_grenadier.tres" id="3_y78vi"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/grenadier.png" id="4_l6ov2"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/grenadier_attack.png" id="1_y78vi"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/grenadier_idle.png" id="2_l6ov2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_b6wwr"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/heavy_grenadier.tres" id="4_g064y"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/wide_grenadier.tres" id="5_3vnni"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/grenadier.png" id="6_gkbo5"]
 
 [resource]
-script = ExtResource("1_lflyf")
+script = ExtResource("3_b6wwr")
 id = "grenadier"
 display_name = "Grenadier"
 role = 1
@@ -16,7 +18,9 @@ attack_mode = 1
 damage = 1.2
 attack_interval = 0.6
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_lflyf")]([ExtResource("2_annln"), ExtResource("3_y78vi")])
-texture = ExtResource("4_l6ov2")
+evolutions = Array[ExtResource("3_b6wwr")]([ExtResource("4_g064y"), ExtResource("5_3vnni")])
+texture = ExtResource("6_gkbo5")
+anim_idle = ExtResource("2_l6ov2")
+anim_attack = ExtResource("1_y78vi")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Damages everything around it."

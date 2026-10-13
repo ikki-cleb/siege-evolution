@@ -8,7 +8,7 @@ See `DESIGN.md` for the game design.
 | Folder | What's in it |
 |---|---|
 | `scenes/` | `menu.tscn` (starts the game) and `game.tscn` (plays one level) |
-| `scripts/game/` | Gameplay: `game.gd` (rules, waves, ATP, refunds, evolving), `board.gd` (grid and pathfinding), `unit.gd`, `invader.gd` |
+| `scripts/game/` | Gameplay: `game.gd` (rules, waves, coins, refunds, evolving), `board.gd` (grid and pathfinding), `unit.gd`, `invader.gd` |
 | `scripts/ui/` | `menu.gd` (world/pack/level select) and `hud.gd` (in-level buttons and labels) |
 | `scripts/progress.gd` | Saved progress and menu choices (available everywhere as `Progress`) |
 | `scripts/data/` | Definitions of what a unit, invader, pack, wave, level and biome contain |

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_spotlight_attack.png" id="1_gkxeu"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_spotlight_idle.png" id="2_lgpux"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_tmghi"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/double_long_spotlight.tres" id="4_brs0k"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/sugar_rush_long_spotlight.tres" id="5_1sad0"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/long_spotlight.png" id="6_f1hme"]
+
+[resource]
+script = ExtResource("3_tmghi")
+id = "long_spotlight"
+display_name = "Long Spotlight"
+role = 2
+cost = 12
+max_hp = 15
+damage = 1.0
+attack_range = 4.5
+hits_air = true
+mark_bonus = 0.3
+mark_duration = 3.0
+tier = 1
+evolutions = Array[ExtResource("3_tmghi")]([ExtResource("4_brs0k"), ExtResource("5_1sad0")])
+texture = ExtResource("6_f1hme")
+anim_idle = ExtResource("2_lgpux")
+anim_attack = ExtResource("1_gkxeu")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Much more range."

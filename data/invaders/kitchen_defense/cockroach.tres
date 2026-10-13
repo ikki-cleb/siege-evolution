@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/cockroach_death.png" id="1_6302h"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/cockroach_move.png" id="2_4elpp"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_4iet8"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/cockroach.png" id="4_fj8fr"]
+
+[resource]
+script = ExtResource("3_4iet8")
+id = "cockroach"
+display_name = "Cockroach"
+movement = 1
+max_hp = 55
+speed = 0.7
+base_damage = 3
+smash_damage = 8.0
+coin_drop = 3
+texture = ExtResource("4_fj8fr")
+anim_move = ExtResource("2_4elpp")
+anim_death = ExtResource("1_6302h")
+description = "Chews straight through units."

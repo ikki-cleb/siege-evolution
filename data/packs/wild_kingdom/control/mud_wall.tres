@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_53j6u"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/thick_mud_wall.tres" id="2_mwbe1"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/sludge_wall.tres" id="3_g2i3r"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/mud_wall.png" id="4_fohp8"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/mud_wall_attack.png" id="1_g2i3r"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/mud_wall_idle.png" id="2_fohp8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_fhu24"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/thick_mud_wall.tres" id="4_f35mv"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/sludge_wall.tres" id="5_svgsb"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/mud_wall.png" id="6_jq7lr"]
 
 [resource]
-script = ExtResource("1_53j6u")
+script = ExtResource("3_fhu24")
 id = "mud_wall"
 display_name = "Mud Wall"
 max_hp = 25
@@ -15,8 +17,10 @@ attack_range = 1.2
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_53j6u")]([ExtResource("2_mwbe1"), ExtResource("3_g2i3r")])
+evolutions = Array[ExtResource("3_fhu24")]([ExtResource("4_f35mv"), ExtResource("5_svgsb")])
 can_place_on_water = true
-texture = ExtResource("4_fohp8")
+texture = ExtResource("6_jq7lr")
+anim_idle = ExtResource("2_fohp8")
+anim_attack = ExtResource("1_g2i3r")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Wall that slows invaders walking past it."

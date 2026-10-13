@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2to81"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/overloaded_emp.png" id="2_vb5k4"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/overloaded_emp_attack.png" id="1_5kwho"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/overloaded_emp_idle.png" id="2_csuio"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_eqvtg"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/arc_overloaded_emp.tres" id="4_yg05a"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/multi_target_overloaded_emp.tres" id="5_qfswf"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/overloaded_emp.png" id="6_fr06u"]
 
 [resource]
-script = ExtResource("1_2to81")
+script = ExtResource("3_eqvtg")
 id = "overloaded_emp"
 display_name = "Overloaded EMP"
 role = 1
@@ -14,6 +18,10 @@ attack_range = 2.5
 attack_interval = 1.6
 hits_air = true
 stun_duration = 1.1
-texture = ExtResource("2_vb5k4")
+tier = 1
+evolutions = Array[ExtResource("3_eqvtg")]([ExtResource("4_yg05a"), ExtResource("5_qfswf")])
+texture = ExtResource("6_fr06u")
+anim_idle = ExtResource("2_csuio")
+anim_attack = ExtResource("1_5kwho")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Longer stun."

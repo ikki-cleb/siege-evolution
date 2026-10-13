@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/caustic_mortar_attack.png" id="1_5tje7"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/caustic_mortar_idle.png" id="2_ryg5o"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_a8c0w"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/armor_piercing_caustic_mortar.png" id="4_7u7sc"]
+
+[resource]
+script = ExtResource("3_a8c0w")
+id = "armor_piercing_caustic_mortar"
+display_name = "Armor-Piercing Caustic Mortar"
+role = 1
+cost = 54
+max_hp = 15
+damage = 1.0
+attack_range = 2.5
+attack_interval = 1.2
+hits_air = true
+splash_radius = 1.0
+poison_dps = 4.5
+poison_duration = 3.0
+tier = 2
+armor_shred = 1
+texture = ExtResource("4_7u7sc")
+anim_idle = ExtResource("2_ryg5o")
+anim_attack = ExtResource("1_5tje7")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Spray strips 1 armor."

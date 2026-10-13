@@ -1,15 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_eqctg"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/growing_hedge.png" id="2_6gcsp"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/growing_hedge_idle.png" id="1_tyek0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_rmtik"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/roosters_growing_hedge.tres" id="3_8m7fd"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hooked_growing_hedge.tres" id="4_424nv"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/growing_hedge.png" id="5_4owry"]
 
 [resource]
-script = ExtResource("1_eqctg")
+script = ExtResource("2_rmtik")
 id = "growing_hedge"
 display_name = "Growing Hedge"
 cost = 10
 max_hp = 70
 regen = 16.0
-texture = ExtResource("2_6gcsp")
+tier = 1
+evolutions = Array[ExtResource("2_rmtik")]([ExtResource("3_8m7fd"), ExtResource("4_424nv")])
+texture = ExtResource("5_4owry")
+anim_idle = ExtResource("1_tyek0")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/reinforced_bunker_attack.png" id="1_8n5nd"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/reinforced_bunker_idle.png" id="2_dygvl"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_y47f2"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/waterproof_reinforced_bunker.png" id="4_ii0nq"]
+
+[resource]
+script = ExtResource("3_y47f2")
+id = "waterproof_reinforced_bunker"
+display_name = "Waterproof Reinforced Bunker"
+cost = 68
+max_hp = 480
+attack_mode = 1
+damage = 3.0
+tier = 2
+aura_shield = 0.3
+aura_cleanse = true
+texture = ExtResource("4_ii0nq")
+anim_idle = ExtResource("2_dygvl")
+anim_attack = ExtResource("1_8n5nd")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Neighbors take 30% less damage and ignore goo."

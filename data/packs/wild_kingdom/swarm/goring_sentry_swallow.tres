@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/sentry_swallow_attack.png" id="1_blhp7"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/sentry_swallow_idle.png" id="2_q2r30"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_nqlck"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/goring_sentry_swallow.png" id="4_5iyjs"]
+
+[resource]
+script = ExtResource("3_nqlck")
+id = "goring_sentry_swallow"
+display_name = "Goring Sentry Swallow"
+role = 1
+cost = 36
+max_hp = 12
+damage = 2.8
+attack_range = 3.5
+attack_interval = 0.7
+hits_air = true
+adjacency_bonus = 0.15
+tier = 2
+line_pierce = true
+texture = ExtResource("4_5iyjs")
+anim_idle = ExtResource("2_q2r30")
+anim_attack = ExtResource("1_blhp7")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Pokes pierce every invader in a line."

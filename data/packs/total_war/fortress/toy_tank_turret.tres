@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ajbkx"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/heavy_turret.tres" id="2_cdy2k"]
-[ext_resource type="Resource" path="res://data/packs/total_war/fortress/siege_turret.tres" id="3_ya1tv"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/toy_tank_turret.png" id="4_3kqrv"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/toy_tank_turret_attack.png" id="1_ya1tv"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/toy_tank_turret_idle.png" id="2_3kqrv"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gqopq"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/heavy_turret.tres" id="4_pal8f"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/siege_turret.tres" id="5_wnrti"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/toy_tank_turret.png" id="6_l5ikw"]
 
 [resource]
-script = ExtResource("1_ajbkx")
+script = ExtResource("3_gqopq")
 id = "toy_tank_turret"
 display_name = "Tank Turret"
 role = 1
@@ -14,7 +16,9 @@ cost = 14
 max_hp = 60
 damage = 9.0
 attack_interval = 1.1
-evolutions = Array[ExtResource("1_ajbkx")]([ExtResource("2_cdy2k"), ExtResource("3_ya1tv")])
-texture = ExtResource("4_3kqrv")
+evolutions = Array[ExtResource("3_gqopq")]([ExtResource("4_pal8f"), ExtResource("5_wnrti")])
+texture = ExtResource("6_l5ikw")
+anim_idle = ExtResource("2_3kqrv")
+anim_attack = ExtResource("1_ya1tv")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Slow, crushing melee hits."

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/cutting_board_idle.png" id="1_areoi"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_hun8s"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/butcher_block.tres" id="3_l4hvr"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/cheese_grater.tres" id="4_0k6vd"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/cutting_board.png" id="5_ukgo6"]
+
+[resource]
+script = ExtResource("2_hun8s")
+id = "cutting_board"
+display_name = "Cutting Board"
+max_hp = 30
+evolutions = Array[ExtResource("2_hun8s")]([ExtResource("3_l4hvr"), ExtResource("4_0k6vd")])
+can_place_on_water = true
+texture = ExtResource("5_ukgo6")
+anim_idle = ExtResource("1_areoi")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Sturdy wall."

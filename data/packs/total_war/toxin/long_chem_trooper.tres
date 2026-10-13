@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_n2a7w"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/long_chem_trooper.png" id="2_spvbm"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/long_chem_trooper_attack.png" id="1_6fvmy"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/long_chem_trooper_idle.png" id="2_ojigs"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_s5ojy"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/relay_long_chem_trooper.tres" id="4_gwxx7"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/railgun_long_chem_trooper.tres" id="5_4n6sv"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/long_chem_trooper.png" id="6_4wkjj"]
 
 [resource]
-script = ExtResource("1_n2a7w")
+script = ExtResource("3_s5ojy")
 id = "long_chem_trooper"
 display_name = "Long Chem Trooper"
 role = 1
@@ -14,6 +18,10 @@ attack_range = 3.0
 attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
-texture = ExtResource("2_spvbm")
+tier = 1
+evolutions = Array[ExtResource("3_s5ojy")]([ExtResource("4_gwxx7"), ExtResource("5_4n6sv")])
+texture = ExtResource("6_4wkjj")
+anim_idle = ExtResource("2_ojigs")
+anim_attack = ExtResource("1_6fvmy")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

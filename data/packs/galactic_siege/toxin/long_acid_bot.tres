@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fkuop"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_acid_bot.png" id="2_upqgh"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/long_acid_bot_attack.png" id="1_ny7tm"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/long_acid_bot_idle.png" id="2_pkhd4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_tr60u"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/arc_long_acid_bot.tres" id="4_0cvds"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/beam_long_acid_bot.tres" id="5_ly7re"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/long_acid_bot.png" id="6_ymu2d"]
 
 [resource]
-script = ExtResource("1_fkuop")
+script = ExtResource("3_tr60u")
 id = "long_acid_bot"
 display_name = "Long Acid Bot"
 role = 1
@@ -14,6 +18,10 @@ attack_range = 3.0
 attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
-texture = ExtResource("2_upqgh")
+tier = 1
+evolutions = Array[ExtResource("3_tr60u")]([ExtResource("4_0cvds"), ExtResource("5_ly7re")])
+texture = ExtResource("6_ymu2d")
+anim_idle = ExtResource("2_pkhd4")
+anim_attack = ExtResource("1_ny7tm")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

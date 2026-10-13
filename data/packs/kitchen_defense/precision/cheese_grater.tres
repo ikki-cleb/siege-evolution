@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/cheese_grater_idle.png" id="1_ljsrv"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_rbyaw"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/popping_cheese_grater.tres" id="3_erh8x"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/sticky_cheese_grater.tres" id="4_rhy2a"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/cheese_grater.png" id="5_oh72e"]
+
+[resource]
+script = ExtResource("2_rbyaw")
+id = "cheese_grater"
+display_name = "Cheese Grater"
+cost = 6
+max_hp = 35
+reflect = 0.5
+tier = 1
+evolutions = Array[ExtResource("2_rbyaw")]([ExtResource("3_erh8x"), ExtResource("4_rhy2a")])
+can_place_on_water = true
+texture = ExtResource("5_oh72e")
+anim_idle = ExtResource("1_ljsrv")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Reflects 50% of smasher damage."

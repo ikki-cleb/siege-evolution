@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/bug_spray_attack.png" id="1_n218o"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/bug_spray_idle.png" id="2_rk222"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vfman"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/extra_strength_spray.tres" id="4_xmi34"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/long_spray.tres" id="5_pgryk"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/bug_spray.png" id="6_scxmt"]
+
+[resource]
+script = ExtResource("3_vfman")
+id = "bug_spray"
+display_name = "Bug Spray"
+role = 1
+cost = 12
+damage = 1.0
+attack_range = 2.0
+attack_interval = 0.9
+poison_dps = 3.5
+poison_duration = 4.0
+evolutions = Array[ExtResource("3_vfman")]([ExtResource("4_xmi34"), ExtResource("5_pgryk")])
+texture = ExtResource("6_scxmt")
+anim_idle = ExtResource("2_rk222")
+anim_attack = ExtResource("1_n218o")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poisons its target. Ground only."

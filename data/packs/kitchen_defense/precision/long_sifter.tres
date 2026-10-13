@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/long_sifter_attack.png" id="1_38g55"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/long_sifter_idle.png" id="2_q5h4l"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_c82vq"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/two_handed_long_sifter.tres" id="4_e342a"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/espresso_long_sifter.tres" id="5_lurv1"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/long_sifter.png" id="6_4o2p5"]
+
+[resource]
+script = ExtResource("3_c82vq")
+id = "long_sifter"
+display_name = "Long Sifter"
+role = 2
+cost = 12
+max_hp = 15
+damage = 1.0
+attack_range = 4.5
+hits_air = true
+mark_bonus = 0.3
+mark_duration = 3.0
+tier = 1
+evolutions = Array[ExtResource("3_c82vq")]([ExtResource("4_e342a"), ExtResource("5_lurv1")])
+texture = ExtResource("6_4o2p5")
+anim_idle = ExtResource("2_q5h4l")
+anim_attack = ExtResource("1_38g55")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Much more range."

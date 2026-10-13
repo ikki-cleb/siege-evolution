@@ -12,7 +12,7 @@ const VOICES := 10
 ## wave doesn't turn into noise.
 const MIN_GAP := 0.06
 ## Quieter sounds that happen constantly.
-const VOLUME := {"shoot": -14.0, "atp": -8.0, "kill": -6.0, "button": -6.0}
+const VOLUME := {"shoot": -14.0, "coins": -8.0, "kill": -6.0, "button": -6.0}
 
 var sound_on := true
 var music_on := true

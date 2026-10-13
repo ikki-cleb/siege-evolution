@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/long_lancer_attack.png" id="1_qllca"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/long_lancer_idle.png" id="2_pq37s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_j5qlf"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/plague_volley.png" id="4_crxe5"]
+
+[resource]
+script = ExtResource("3_j5qlf")
+id = "plague_volley"
+display_name = "Multi Long Plague Cell"
+role = 1
+cost = 76
+damage = 2.0
+attack_range = 3.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 4.5
+poison_duration = 5.0
+poison_spreads = true
+tier = 2
+multishot = 2
+texture = ExtResource("4_crxe5")
+anim_idle = ExtResource("2_pq37s")
+anim_attack = ExtResource("1_qllca")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Infects 2 targets at once."

@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2sxwo"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/heavy_mech.png" id="2_00p6y"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/heavy_mech_attack.png" id="1_2kqdm"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/heavy_mech_idle.png" id="2_eljwb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_wguyh"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/terminator_heavy_mech.tres" id="4_grwkg"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/repulsor_heavy_mech.tres" id="5_b0vtg"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/heavy_mech.png" id="6_nrdjr"]
 
 [resource]
-script = ExtResource("1_2sxwo")
+script = ExtResource("3_wguyh")
 id = "heavy_mech"
 display_name = "Heavy Mech"
 role = 1
@@ -12,6 +16,10 @@ cost = 16
 max_hp = 80
 damage = 17.0
 attack_interval = 1.1
-texture = ExtResource("2_00p6y")
+tier = 1
+evolutions = Array[ExtResource("3_wguyh")]([ExtResource("4_grwkg"), ExtResource("5_b0vtg")])
+texture = ExtResource("6_nrdjr")
+anim_idle = ExtResource("2_eljwb")
+anim_attack = ExtResource("1_2kqdm")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Hits far harder."

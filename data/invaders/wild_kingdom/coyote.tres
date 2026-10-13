@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_3stix"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/coyote.png" id="2_w44rf"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/coyote_death.png" id="1_gc7p7"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/coyote_move.png" id="2_cj40m"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_lgq5p"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/coyote.png" id="4_2empx"]
 
 [resource]
-script = ExtResource("1_3stix")
+script = ExtResource("3_lgq5p")
 id = "coyote"
 display_name = "Coyote"
 max_hp = 6
 speed = 1.5
-texture = ExtResource("2_w44rf")
+texture = ExtResource("4_2empx")
+anim_move = ExtResource("2_cj40m")
+anim_death = ExtResource("1_gc7p7")

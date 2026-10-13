@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pfk5j"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/long_mortar.png" id="2_tqfcb"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/long_mortar_attack.png" id="1_drimj"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/long_mortar_idle.png" id="2_7nint"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vmdx0"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/twin_barrel_long_mortar.tres" id="4_7tcsw"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/relay_long_mortar.tres" id="5_3isv6"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/long_mortar.png" id="6_xrbt2"]
 
 [resource]
-script = ExtResource("1_pfk5j")
+script = ExtResource("3_vmdx0")
 id = "long_mortar"
 display_name = "Long Mortar"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 4.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_tqfcb")
+tier = 1
+evolutions = Array[ExtResource("3_vmdx0")]([ExtResource("4_7tcsw"), ExtResource("5_3isv6")])
+texture = ExtResource("6_xrbt2")
+anim_idle = ExtResource("2_7nint")
+anim_attack = ExtResource("1_drimj")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

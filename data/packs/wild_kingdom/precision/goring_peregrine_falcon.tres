@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/peregrine_falcon_attack.png" id="1_38byt"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/peregrine_falcon_idle.png" id="2_shc70"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pdod5"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/goring_peregrine_falcon.png" id="4_uuqhs"]
+
+[resource]
+script = ExtResource("3_pdod5")
+id = "goring_peregrine_falcon"
+display_name = "Goring Peregrine Falcon"
+role = 1
+cost = 92
+max_hp = 15
+damage = 55.0
+attack_range = 5.0
+attack_interval = 3.0
+hits_air = true
+pierce = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_uuqhs")
+anim_idle = ExtResource("2_shc70")
+anim_attack = ExtResource("1_38byt")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Shots pierce every invader in a line."

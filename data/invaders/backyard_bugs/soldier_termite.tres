@@ -1,15 +1,19 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_ioeqn"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/soldier_termite.png" id="2_rifmg"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/soldier_termite_death.png" id="1_6tdnt"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/soldier_termite_move.png" id="2_kd806"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_gggp2"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/soldier_termite.png" id="4_te4lm"]
 
 [resource]
-script = ExtResource("1_ioeqn")
+script = ExtResource("3_gggp2")
 id = "soldier_termite"
 display_name = "Soldier Termite"
 max_hp = 12
 armor = 1
 speed = 1.8
 is_elite = true
-texture = ExtResource("2_rifmg")
+texture = ExtResource("4_te4lm")
+anim_move = ExtResource("2_kd806")
+anim_death = ExtResource("1_6tdnt")
 description = "Elite: a faster, armored termite."

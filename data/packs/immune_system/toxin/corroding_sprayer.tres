@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/caustic_sprayer_attack.png" id="1_syepi"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/caustic_sprayer_idle.png" id="2_l8wkv"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_45jq4"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/corroding_sprayer.png" id="4_o5n3d"]
+
+[resource]
+script = ExtResource("3_45jq4")
+id = "corroding_sprayer"
+display_name = "Armor-Eating Strong Poison Sprayer"
+role = 1
+cost = 54
+max_hp = 15
+damage = 1.0
+attack_range = 2.5
+attack_interval = 1.2
+hits_air = true
+splash_radius = 1.0
+poison_dps = 4.5
+poison_duration = 3.0
+tier = 2
+armor_shred = 1
+texture = ExtResource("4_o5n3d")
+anim_idle = ExtResource("2_l8wkv")
+anim_attack = ExtResource("1_syepi")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Spray strips 1 armor."

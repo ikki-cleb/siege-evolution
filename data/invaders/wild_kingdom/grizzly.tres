@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Resource" path="res://data/invaders/wild_kingdom/bear_cub.tres" id="1_eb3hq"]
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="2_xt3iy"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/grizzly.png" id="3_k4xn1"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/grizzly_death.png" id="1_k4xn1"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/grizzly_move.png" id="2_q1rlv"]
+[ext_resource type="Resource" path="res://data/invaders/wild_kingdom/bear_cub.tres" id="3_eumbi"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="4_xcmf5"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/grizzly.png" id="5_mx1mg"]
 
 [resource]
-script = ExtResource("2_xt3iy")
+script = ExtResource("4_xcmf5")
 id = "grizzly"
 display_name = "Grizzly Bear"
 movement = 1
@@ -14,10 +16,12 @@ armor = 2
 speed = 0.4
 base_damage = 10
 smash_damage = 18.0
-atp_drop = 20
+coin_drop = 20
 is_boss = true
-minion = ExtResource("1_eb3hq")
+minion = ExtResource("3_eumbi")
 minion_count = 1
 minion_interval = 4.0
-texture = ExtResource("3_k4xn1")
+texture = ExtResource("5_mx1mg")
+anim_move = ExtResource("2_q1rlv")
+anim_death = ExtResource("1_k4xn1")
 description = "Boss: smashes through anything and brings her cubs."

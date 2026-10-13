@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/howling_watchdog_attack.png" id="1_p633j"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/howling_watchdog_idle.png" id="2_wrb5u"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_7w37n"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/herding_howling_watchdog.png" id="4_j6pj8"]
+
+[resource]
+script = ExtResource("3_7w37n")
+id = "herding_howling_watchdog"
+display_name = "Herding Howling Watchdog"
+role = 2
+cost = 48
+max_hp = 15
+damage = 1.0
+attack_range = 3.0
+hits_air = true
+mark_bonus = 0.7
+mark_duration = 3.0
+tier = 2
+chain_count = 3
+texture = ExtResource("4_j6pj8")
+anim_idle = ExtResource("2_wrb5u")
+anim_attack = ExtResource("1_p633j")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Tags chain to 3 more invaders."

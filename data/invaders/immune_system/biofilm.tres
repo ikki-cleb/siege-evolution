@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_4lk8i"]
-[ext_resource type="Resource" path="res://data/invaders/immune_system/bacterium_half.tres" id="2_p5g22"]
-[ext_resource type="Texture2D" path="res://art/invaders/immune_system/biofilm.png" id="3_jt1ng"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/biofilm_death.png" id="1_jt1ng"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/biofilm_move.png" id="2_6di6b"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_b43nw"]
+[ext_resource type="Resource" path="res://data/invaders/immune_system/bacterium_half.tres" id="4_w4lys"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/biofilm.png" id="5_sxr7x"]
 
 [resource]
-script = ExtResource("1_4lk8i")
+script = ExtResource("3_b43nw")
 id = "biofilm"
 display_name = "Biofilm Colony"
 max_hp = 24
@@ -13,7 +15,9 @@ armor = 2
 speed = 0.9
 base_damage = 2
 is_elite = true
-split_into = ExtResource("2_p5g22")
+split_into = ExtResource("4_w4lys")
 split_count = 2
-texture = ExtResource("3_jt1ng")
+texture = ExtResource("5_sxr7x")
+anim_move = ExtResource("2_6di6b")
+anim_death = ExtResource("1_jt1ng")
 description = "Elite: armored bacteria. Armor reduces every hit by 2."

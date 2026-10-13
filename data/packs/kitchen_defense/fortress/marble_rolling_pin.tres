@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/marble_rolling_pin_attack.png" id="1_jtnud"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/marble_rolling_pin_idle.png" id="2_rchq0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qcepg"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/chopping_marble_rolling_pin.tres" id="4_0fk36"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/swatting_marble_rolling_pin.tres" id="5_m20p3"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/marble_rolling_pin.png" id="6_4ijdt"]
+
+[resource]
+script = ExtResource("3_qcepg")
+id = "marble_rolling_pin"
+display_name = "Marble Rolling Pin"
+role = 1
+cost = 16
+max_hp = 80
+damage = 17.0
+attack_interval = 1.1
+tier = 1
+evolutions = Array[ExtResource("3_qcepg")]([ExtResource("4_0fk36"), ExtResource("5_m20p3")])
+texture = ExtResource("6_4ijdt")
+anim_idle = ExtResource("2_rchq0")
+anim_attack = ExtResource("1_jtnud")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Hits far harder."

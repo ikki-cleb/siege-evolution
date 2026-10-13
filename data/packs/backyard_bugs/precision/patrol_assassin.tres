@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kb63o"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/patrol_assassin.png" id="2_45orh"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/patrol_assassin_attack.png" id="1_ctppb"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/patrol_assassin_idle.png" id="2_w5j00"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_44i57"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/swarming_patrol_assassin.tres" id="4_bkkks"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/many_legged_patrol_assassin.tres" id="5_155ct"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/patrol_assassin.png" id="6_8tk1r"]
 
 [resource]
-script = ExtResource("1_kb63o")
+script = ExtResource("3_44i57")
 id = "patrol_assassin"
 display_name = "Patrol Assassin"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 3.5
 attack_interval = 1.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_45orh")
+tier = 1
+evolutions = Array[ExtResource("3_44i57")]([ExtResource("4_bkkks"), ExtResource("5_155ct")])
+texture = ExtResource("6_8tk1r")
+anim_idle = ExtResource("2_w5j00")
+anim_attack = ExtResource("1_ctppb")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More range, hits fliers."

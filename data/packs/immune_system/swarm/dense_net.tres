@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_7dtwg"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/dense_net.png" id="2_6cd4f"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/dense_net_attack.png" id="1_qeuot"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/dense_net_idle.png" id="2_cx4lo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_s7stq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/snaring_net.tres" id="4_k3l7n"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/regrowing_net.tres" id="5_x6inp"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/dense_net.png" id="6_f8qdx"]
 
 [resource]
-script = ExtResource("1_7dtwg")
+script = ExtResource("3_s7stq")
 id = "dense_net"
-display_name = "Dense NET"
+display_name = "Thick Sticky Net"
 cost = 6
 max_hp = 60
 attack_mode = 1
@@ -14,6 +18,10 @@ damage = 0.5
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
-texture = ExtResource("2_6cd4f")
+tier = 1
+evolutions = Array[ExtResource("3_s7stq")]([ExtResource("4_k3l7n"), ExtResource("5_x6inp")])
+texture = ExtResource("6_f8qdx")
+anim_idle = ExtResource("2_cx4lo")
+anim_attack = ExtResource("1_qeuot")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More HP."

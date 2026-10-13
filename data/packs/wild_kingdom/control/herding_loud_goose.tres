@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/loud_goose_attack.png" id="1_aghh2"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/loud_goose_idle.png" id="2_fbec4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0bd34"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/herding_loud_goose.png" id="4_bbag8"]
+
+[resource]
+script = ExtResource("3_0bd34")
+id = "herding_loud_goose"
+display_name = "Herding Loud Goose"
+role = 1
+cost = 50
+max_hp = 15
+damage = 3.5
+attack_range = 4.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+tier = 2
+chain_count = 2
+texture = ExtResource("4_bbag8")
+anim_idle = ExtResource("2_fbec4")
+anim_attack = ExtResource("1_aghh2")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Spit bounces to 2 more invaders."

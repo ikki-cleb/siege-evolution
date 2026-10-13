@@ -5,7 +5,7 @@ extends RefCounted
 ##   - walls go where they lengthen the invaders' route the most,
 ##   - attackers go where they cover the most route (plus smasher lanes and
 ##     flier lines when those invaders appear in the level),
-##   - leftover ATP goes into evolutions.
+##   - leftover coins go into evolutions.
 ## It doesn't plan ahead like a person would, so a level it beats with every
 ## pack should be fair; a level it loses badly may be too hard.
 
@@ -19,6 +19,11 @@ var _has_jumpers := false
 var _has_flying_boss := false
 var _boat_cells := {}  # water tiles boats use, for coverage scoring
 var _flier_points: Array[Vector2] = []
+## Points along a flying boss's flight line (from its marked spawn tile).
+## Like a player who sees the skull marker, the bot covers this line first.
+var _boss_flier_points: Array[Vector2] = []
+## Coins kept back when buying a capstone, so the bot still builds.
+const CAPSTONE_RESERVE := 10
 
 
 func _init(p_game, seed_value := 1) -> void:
@@ -37,16 +42,78 @@ func _init(p_game, seed_value := 1) -> void:
 				for spawn in board.sea_spawn_cells:
 					for cell in board.route_for(entry.invader, spawn):
 						_boat_cells[cell] = 1
+	for wave in game.level.waves:
+		for entry in wave.entries:
+			if entry.invader.is_boss and entry.invader.movement == InvaderData.Movement.FLIER:
+				for spawn in game._boss_spawn_cells(wave):
+					_boss_flier_points.append_array(_line_points(spawn))
 	for spawn in board.spawn_cells:
 		var from := board.cell_center(spawn)
-		var to := board.cell_center(board.base_cell)
+		var to := board.base_center()
 		var steps := int(from.distance_to(to) / (Board.TILE * 0.5))
 		for i in steps:
 			_flier_points.append(from.lerp(to, float(i) / steps))
 
 
-## Spends ATP and free units until nothing more is worth doing.
+## Points every half tile on the straight line from a spawn to the base.
+func _line_points(spawn: Vector2i) -> Array[Vector2]:
+	var points: Array[Vector2] = []
+	var from := board.cell_center(spawn)
+	var to := board.base_center()
+	var steps := int(from.distance_to(to) / (Board.TILE * 0.5))
+	for i in steps:
+		points.append(from.lerp(to, float(i) / steps))
+	return points
+
+
+## Picks a relic when one is offered: the rarest, preferring unit upgrades
+## over coin relics (a simple but reasonable choice).
+func pick_relic() -> void:
+	if game.relic_offer.is_empty():
+		return
+	var best := 0
+	var best_score := -INF
+	for i in game.relic_offer.size():
+		var score := _relic_score(game.relic_offer[i])
+		if score > best_score:
+			best_score = score
+			best = i
+	game.pick_relic(best)
+
+
+## How much a relic would help the bot's current board. Relics that change
+## its units' damage, speed or range are measured directly (so a Lone Wolf
+## in a packed maze scores badly); others get a guess by rarity.
+func _relic_score(relic: Dictionary) -> float:
+	var rarity := RelicSet.RARITY_ORDER.find(relic.rarity)
+	var guess: float = [0.08, 0.15, 0.25][rarity]
+	if relic.filter == "economy":
+		return guess * 0.8
+	var before := _army_power()
+	board.relics.active.append(relic)
+	var after := _army_power()
+	board.relics.active.erase(relic)
+	if before <= 0.0 or is_equal_approx(before, after):
+		return guess
+	return after / before - 1.0
+
+
+## A rough measure of the bot's firepower: damage x fire rate x relic
+## bonuses x range, added up over its attacking units.
+func _army_power() -> float:
+	var total := 0.0
+	for cell in board.units:
+		var unit: Unit = board.units[cell]
+		if unit.destroyed or not unit.data.can_attack():
+			continue
+		total += unit.stat("damage") * unit.speed_multiplier() / unit.data.attack_interval \
+			* maxf(0.1, 1.0 + unit.self_bonus()) * (0.5 + unit.stat("attack_range") * 0.25)
+	return total
+
+
+## Spends coins and free units until nothing more is worth doing.
 func build_phase() -> void:
+	pick_relic()
 	for i in 80:
 		if not _take_action():
 			break
@@ -73,7 +140,7 @@ func _take_action() -> bool:
 
 
 func _affordable(type: UnitData) -> bool:
-	return game.hand.get(type.id, 0) > 0 or game.atp >= type.cost
+	return game.hand.get(type.id, 0) > 0 or game.coins >= game.unit_cost(type)
 
 
 ## Free units first, then whichever affordable type we've spent least on.
@@ -218,21 +285,25 @@ func _evolve() -> bool:
 	var best: Unit = null
 	for cell in board.units:
 		var unit: Unit = board.units[cell]
-		if unit.is_evolved() or unit.base_data.evolutions.is_empty() or not game.is_veteran(unit):
+		if unit.data.evolutions.is_empty() or not game.is_ready_to_evolve(unit):
 			continue
 		if unit.base_data.role == UnitData.Role.WALL and not _has_smashers:
 			continue
-		if best == null or unit.base_data.cost > best.base_data.cost:
+		# First evolutions before capstones, then the priciest unit.
+		if best == null or unit.data.tier < best.data.tier \
+				or (unit.data.tier == best.data.tier and unit.base_data.cost > best.base_data.cost):
 			best = unit
 	if best == null:
 		return false
-	var into: UnitData = best.base_data.evolutions[rng.randi() % best.base_data.evolutions.size()]
-	if game.atp < into.cost:
+	var into: UnitData = best.data.evolutions[rng.randi() % best.data.evolutions.size()]
+	# Capstones only with coins to spare (it keeps a little for new units).
+	var reserve := CAPSTONE_RESERVE if into.tier == 2 else 0
+	if game.coins < into.cost + reserve:
 		return false
 	game._select_cell(best.cell)
 	game.evolve_selected(into)
 	game._select_cell(Board.NO_CELL)
-	return best.is_evolved()
+	return best.data == into
 
 
 func _coverage(cell: Vector2i, type: UnitData, walker: Dictionary, smasher: Dictionary) -> float:
@@ -252,6 +323,9 @@ func _coverage(cell: Vector2i, type: UnitData, walker: Dictionary, smasher: Dict
 		for point in _flier_points:
 			if center.distance_to(point) <= reach:
 				score += 0.5
+		for point in _boss_flier_points:
+			if center.distance_to(point) <= reach:
+				score += 2.0
 	return score
 
 

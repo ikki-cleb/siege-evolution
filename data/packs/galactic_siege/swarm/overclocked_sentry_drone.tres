@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/sentry_drone_attack.png" id="1_a3qg7"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/sentry_drone_idle.png" id="2_yghk3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_rrs0o"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/overclocked_sentry_drone.png" id="4_54bn6"]
+
+[resource]
+script = ExtResource("3_rrs0o")
+id = "overclocked_sentry_drone"
+display_name = "Overclocked Sentry Drone"
+role = 1
+cost = 36
+max_hp = 12
+damage = 2.8
+attack_range = 3.5
+attack_interval = 0.7
+hits_air = true
+adjacency_bonus = 0.15
+tier = 2
+aura_speed = 0.15
+texture = ExtResource("4_54bn6")
+anim_idle = ExtResource("2_yghk3")
+anim_attack = ExtResource("1_a3qg7")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Neighbors attack 15% faster."

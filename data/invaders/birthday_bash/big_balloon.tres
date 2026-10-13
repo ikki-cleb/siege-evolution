@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/big_balloon_death.png" id="1_k5yvk"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/big_balloon_move.png" id="2_pvp1x"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_yj2s2"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/big_balloon.png" id="4_22cj2"]
+
+[resource]
+script = ExtResource("3_yj2s2")
+id = "big_balloon"
+display_name = "Big Balloon"
+movement = 2
+max_hp = 20
+armor = 1
+speed = 1.4
+base_damage = 2
+coin_drop = 2
+is_elite = true
+texture = ExtResource("4_22cj2")
+anim_move = ExtResource("2_pvp1x")
+anim_death = ExtResource("1_k5yvk")
+description = "Elite: a tough, fast balloon."

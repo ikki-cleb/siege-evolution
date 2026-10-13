@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_mfbr8"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/spawnling.png" id="2_06pm7"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/spawnling_death.png" id="1_uu3yk"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/spawnling_move.png" id="2_i5bj0"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_ev31x"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/spawnling.png" id="4_3jahi"]
 
 [resource]
-script = ExtResource("1_mfbr8")
+script = ExtResource("3_ev31x")
 id = "spawnling"
 display_name = "Spawnling"
 max_hp = 5
 speed = 1.5
-texture = ExtResource("2_06pm7")
+texture = ExtResource("4_3jahi")
+anim_move = ExtResource("2_i5bj0")
+anim_death = ExtResource("1_uu3yk")

@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kj6qd"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/misting_blister_beetle.png" id="2_vslhc"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/misting_blister_beetle_attack.png" id="1_j6544"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/misting_blister_beetle_idle.png" id="2_asm35"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_2glxi"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/many_legged_misting_blister_beetle.tres" id="4_c5e8t"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/foraging_misting_blister_beetle.tres" id="5_xoyl6"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/misting_blister_beetle.png" id="6_bbl22"]
 
 [resource]
-script = ExtResource("1_kj6qd")
+script = ExtResource("3_2glxi")
 id = "misting_blister_beetle"
 display_name = "Misting Blister Beetle"
 role = 1
@@ -17,6 +21,10 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 2.5
 poison_duration = 3.0
-texture = ExtResource("2_vslhc")
+tier = 1
+evolutions = Array[ExtResource("3_2glxi")]([ExtResource("4_c5e8t"), ExtResource("5_xoyl6")])
+texture = ExtResource("6_bbl22")
+anim_idle = ExtResource("2_asm35")
+anim_attack = ExtResource("1_j6544")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

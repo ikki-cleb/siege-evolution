@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_okyit"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/heavy_bomber.png" id="2_lo6hu"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/heavy_bomber_death.png" id="1_a53ja"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/heavy_bomber_move.png" id="2_px4gh"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_b52g7"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/heavy_bomber.png" id="4_wvoeu"]
 
 [resource]
-script = ExtResource("1_okyit")
+script = ExtResource("3_b52g7")
 id = "heavy_bomber"
 display_name = "Heavy Bomber"
 movement = 2
@@ -12,8 +14,10 @@ max_hp = 40
 armor = 2
 speed = 0.75
 base_damage = 3
-atp_drop = 3
+coin_drop = 3
 is_elite = true
 bomb_damage = 60.0
-texture = ExtResource("2_lo6hu")
+texture = ExtResource("4_wvoeu")
+anim_move = ExtResource("2_px4gh")
+anim_death = ExtResource("1_a53ja")
 description = "Elite: a bigger bomb and more armor."

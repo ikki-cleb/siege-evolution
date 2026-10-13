@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/big_gift_box_idle.png" id="1_wh82p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_jvuyc"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/re_inflating_big_gift_box.png" id="3_tyyso"]
+
+[resource]
+script = ExtResource("2_jvuyc")
+id = "re_inflating_big_gift_box"
+display_name = "Re-Inflating Big Gift Box"
+cost = 34
+max_hp = 260
+tier = 2
+rebuild = true
+can_place_on_water = true
+texture = ExtResource("3_tyyso")
+anim_idle = ExtResource("1_wh82p")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Rebuilds itself once per wave at full HP."

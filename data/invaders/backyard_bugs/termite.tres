@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_xkmg6"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/termite.png" id="2_igj06"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/termite_death.png" id="1_ntgcq"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/termite_move.png" id="2_od425"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_uc8r3"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/termite.png" id="4_gledh"]
 
 [resource]
-script = ExtResource("1_xkmg6")
+script = ExtResource("3_uc8r3")
 id = "termite"
 display_name = "Termite"
 max_hp = 7
 speed = 1.6
-texture = ExtResource("2_igj06")
+texture = ExtResource("4_gledh")
+anim_move = ExtResource("2_od425")
+anim_death = ExtResource("1_ntgcq")
 description = "Fast and weak, comes in swarms."

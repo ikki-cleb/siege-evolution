@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_cjoo8"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorned_pebble.png" id="2_up22o"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/thorned_pebble_idle.png" id="1_ewrm2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_on64v"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/bursting_thorned_pebble.tres" id="3_3vssl"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sticky_thorned_pebble.tres" id="4_ifpvi"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/thorned_pebble.png" id="5_30bcr"]
 
 [resource]
-script = ExtResource("1_cjoo8")
+script = ExtResource("2_on64v")
 id = "thorned_pebble"
 display_name = "Thorned Pebble"
 cost = 10
 max_hp = 120
 reflect = 0.6
+tier = 1
+evolutions = Array[ExtResource("2_on64v")]([ExtResource("3_3vssl"), ExtResource("4_ifpvi")])
 can_place_on_water = true
-texture = ExtResource("2_up22o")
+texture = ExtResource("5_30bcr")
+anim_idle = ExtResource("1_ewrm2")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 60% of smasher damage."

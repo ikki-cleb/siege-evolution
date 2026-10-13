@@ -365,6 +365,486 @@
     "virulent_bloom": [
       "virulent_hemlock",
       "Virulent Hemlock"
+    ],
+    "fibrin_bastion": [
+      "mended_fieldstone_wall",
+      "Mended Fieldstone Wall"
+    ],
+    "clotting_snare": [
+      "hooked_fieldstone_wall",
+      "Hooked Fieldstone Wall"
+    ],
+    "thrombus_mine": [
+      "exploding_spiked_stone_wall",
+      "Exploding Spiked Stone Wall"
+    ],
+    "barbed_thrombus": [
+      "hooked_spiked_stone_wall",
+      "Hooked Spiked Stone Wall"
+    ],
+    "devouring_macrophage": [
+      "hunting_prize_bull",
+      "Hunting Prize Bull"
+    ],
+    "titan_macrophage": [
+      "bucking_prize_bull",
+      "Bucking Prize Bull"
+    ],
+    "engulfing_foam": [
+      "tusked_stampeding_bull",
+      "Tusked Stampeding Bull"
+    ],
+    "foam_eruption": [
+      "bonfire_stampeding_bull",
+      "Bonfire Stampeding Bull"
+    ],
+    "presenting_dendrite": [
+      "herding_alpha_llama",
+      "Herding Alpha Llama"
+    ],
+    "dendrite_volley": [
+      "flurry_alpha_llama",
+      "Flurry Alpha Llama"
+    ],
+    "sentinel_dendrite": [
+      "goring_long_spit_llama",
+      "Goring Long-Spit Llama"
+    ],
+    "harvesting_dendrite": [
+      "market_long_spit_llama",
+      "Market Long-Spit Llama"
+    ],
+    "keloid_wall": [
+      "mended_thick_hedge",
+      "Mended Thick Hedge"
+    ],
+    "scar_lattice": [
+      "sheltering_thick_hedge",
+      "Sheltering Thick Hedge"
+    ],
+    "signaling_fibroblast": [
+      "roosters_growing_hedge",
+      "Rooster's Growing Hedge"
+    ],
+    "granulation_tissue": [
+      "hooked_growing_hedge",
+      "Hooked Growing Hedge"
+    ],
+    "eosinophil_barrage": [
+      "flurry_clydesdale",
+      "Flurry Clydesdale"
+    ],
+    "major_basic_protein": [
+      "hunting_clydesdale",
+      "Hunting Clydesdale"
+    ],
+    "eosinophil_spear": [
+      "goring_rearing_horse",
+      "Goring Rearing Horse"
+    ],
+    "eosinophil_shredder": [
+      "tusked_rearing_horse",
+      "Tusked Rearing Horse"
+    ],
+    "fortress_granuloma": [
+      "scrubbed_reinforced_silo",
+      "Scrubbed Reinforced Silo"
+    ],
+    "bone_granuloma": [
+      "mended_reinforced_silo",
+      "Mended Reinforced Silo"
+    ],
+    "bursting_granuloma": [
+      "exploding_thorned_silo",
+      "Exploding Thorned Silo"
+    ],
+    "grasping_granuloma": [
+      "hooked_thorned_silo",
+      "Hooked Thorned Silo"
+    ],
+    "cornified_layer": [
+      "mended_packed_hay",
+      "Mended Packed Hay"
+    ],
+    "mucosal_barrier": [
+      "scrubbed_packed_hay",
+      "Scrubbed Packed Hay"
+    ],
+    "cilia_trap": [
+      "hooked_thistle_hay",
+      "Hooked Thistle Hay"
+    ],
+    "bursting_cell": [
+      "exploding_thistle_hay",
+      "Exploding Thistle Hay"
+    ],
+    "frenzied_horde": [
+      "flurry_angry_hen",
+      "Flurry Angry Hen"
+    ],
+    "killer_neutrophil": [
+      "hunting_angry_hen",
+      "Hunting Angry Hen"
+    ],
+    "net_neutrophil": [
+      "herding_scout_hen",
+      "Herding Scout Hen"
+    ],
+    "scavenger_neutrophil": [
+      "market_scout_hen",
+      "Market Scout Hen"
+    ],
+    "barrage_monocyte": [
+      "flurry_diving_swallow",
+      "Flurry Diving Swallow"
+    ],
+    "piercing_monocyte": [
+      "tusked_diving_swallow",
+      "Tusked Diving Swallow"
+    ],
+    "sniper_monocyte": [
+      "goring_sentry_swallow",
+      "Goring Sentry Swallow"
+    ],
+    "signal_monocyte": [
+      "roosters_sentry_swallow",
+      "Rooster's Sentry Swallow"
+    ],
+    "histamine_burst": [
+      "bonfire_angry_skep",
+      "Bonfire Angry Skep"
+    ],
+    "shredding_basophil": [
+      "tusked_angry_skep",
+      "Tusked Angry Skep"
+    ],
+    "shockwave_basophil": [
+      "bucking_buzzing_skep",
+      "Bucking Buzzing Skep"
+    ],
+    "rallying_basophil": [
+      "roosters_buzzing_skep",
+      "Rooster's Buzzing Skep"
+    ],
+    "executioner_nk": [
+      "hunting_tomcat",
+      "Hunting Tomcat"
+    ],
+    "chain_nk": [
+      "herding_tomcat",
+      "Herding Tomcat"
+    ],
+    "stalker_nk": [
+      "market_prowling_cat",
+      "Market Prowling Cat"
+    ],
+    "whirling_nk": [
+      "flurry_prowling_cat",
+      "Flurry Prowling Cat"
+    ],
+    "snaring_net": [
+      "hooked_deep_mud",
+      "Hooked Deep Mud"
+    ],
+    "regrowing_net": [
+      "mended_deep_mud",
+      "Mended Deep Mud"
+    ],
+    "freezing_net": [
+      "frosty_wide_mud",
+      "Frosty Wide Mud"
+    ],
+    "bursting_net": [
+      "exploding_wide_mud",
+      "Exploding Wide Mud"
+    ],
+    "armored_keratin": [
+      "sheltering_picket_fence",
+      "Sheltering Picket Fence"
+    ],
+    "rebuilt_plate": [
+      "mended_picket_fence",
+      "Mended Picket Fence"
+    ],
+    "spike_trap_plate": [
+      "exploding_barbed_fence",
+      "Exploding Barbed Fence"
+    ],
+    "hooked_plate": [
+      "hooked_barbed_fence",
+      "Hooked Barbed Fence"
+    ],
+    "antibody_storm": [
+      "flurry_great_horned_owl",
+      "Flurry Great Horned Owl"
+    ],
+    "neutralizing_plasma": [
+      "hunting_great_horned_owl",
+      "Hunting Great Horned Owl"
+    ],
+    "memory_lance": [
+      "goring_far_sighted_owl",
+      "Goring Far-Sighted Owl"
+    ],
+    "long_lived_b_cell": [
+      "market_far_sighted_owl",
+      "Market Far-Sighted Owl"
+    ],
+    "complement_tagger": [
+      "tusked_howling_watchdog",
+      "Tusked Howling Watchdog"
+    ],
+    "chain_tagger": [
+      "herding_howling_watchdog",
+      "Herding Howling Watchdog"
+    ],
+    "multi_tagger": [
+      "flurry_patrol_watchdog",
+      "Flurry Patrol Watchdog"
+    ],
+    "coordinator_tagger": [
+      "roosters_patrol_watchdog",
+      "Rooster's Patrol Watchdog"
+    ],
+    "executioner_t": [
+      "hunting_fierce_ferret",
+      "Hunting Fierce Ferret"
+    ],
+    "hammer_t": [
+      "bucking_fierce_ferret",
+      "Bucking Fierce Ferret"
+    ],
+    "hunter_t": [
+      "herding_roaming_ferret",
+      "Herding Roaming Ferret"
+    ],
+    "twin_patrol_t": [
+      "flurry_roaming_ferret",
+      "Flurry Roaming Ferret"
+    ],
+    "railgun_lance": [
+      "goring_peregrine_falcon",
+      "Goring Peregrine Falcon"
+    ],
+    "finishing_lance": [
+      "hunting_peregrine_falcon",
+      "Hunting Peregrine Falcon"
+    ],
+    "bounty_lance": [
+      "market_swift_falcon",
+      "Market Swift Falcon"
+    ],
+    "ricochet_lance": [
+      "herding_swift_falcon",
+      "Herding Swift Falcon"
+    ],
+    "interferon_storm": [
+      "tusked_spooky_scarecrow",
+      "Tusked Spooky Scarecrow"
+    ],
+    "rallying_beacon": [
+      "roosters_spooky_scarecrow",
+      "Rooster's Spooky Scarecrow"
+    ],
+    "shield_beacon": [
+      "scrubbed_tall_scarecrow",
+      "Scrubbed Tall Scarecrow"
+    ],
+    "pulse_beacon": [
+      "bucking_tall_scarecrow",
+      "Bucking Tall Scarecrow"
+    ],
+    "mucus_plug": [
+      "mended_thick_mud_wall",
+      "Mended Thick Mud Wall"
+    ],
+    "grasping_mucus": [
+      "hooked_thick_mud_wall",
+      "Hooked Thick Mud Wall"
+    ],
+    "glue_mucus": [
+      "frosty_sludge_wall",
+      "Frosty Sludge Wall"
+    ],
+    "bursting_mucus": [
+      "exploding_sludge_wall",
+      "Exploding Sludge Wall"
+    ],
+    "shredding_mast_cell": [
+      "tusked_pungent_skunk",
+      "Tusked Pungent Skunk"
+    ],
+    "degranulation_burst": [
+      "bonfire_pungent_skunk",
+      "Bonfire Pungent Skunk"
+    ],
+    "shoving_mast_cell": [
+      "bucking_wafting_skunk",
+      "Bucking Wafting Skunk"
+    ],
+    "alarm_mast_cell": [
+      "roosters_wafting_skunk",
+      "Rooster's Wafting Skunk"
+    ],
+    "corrosive_spitter": [
+      "tusked_furious_goose",
+      "Tusked Furious Goose"
+    ],
+    "burning_spitter": [
+      "bonfire_furious_goose",
+      "Bonfire Furious Goose"
+    ],
+    "twin_spitter": [
+      "flurry_loud_goose",
+      "Flurry Loud Goose"
+    ],
+    "bouncing_spitter": [
+      "herding_loud_goose",
+      "Herding Loud Goose"
+    ],
+    "inferno_node": [
+      "super_roaring_bonfire",
+      "Super Roaring Bonfire"
+    ],
+    "heatstroke_node": [
+      "hunting_roaring_bonfire",
+      "Hunting Roaring Bonfire"
+    ],
+    "heatwave_node": [
+      "bucking_wide_bonfire",
+      "Bucking Wide Bonfire"
+    ],
+    "warming_node": [
+      "roosters_wide_bonfire",
+      "Rooster's Wide Bonfire"
+    ],
+    "chain_storm": [
+      "herding_stubborn_mule",
+      "Herding Stubborn Mule"
+    ],
+    "storm_volley": [
+      "flurry_stubborn_mule",
+      "Flurry Stubborn Mule"
+    ],
+    "shockwave_storm": [
+      "bucking_kicking_mule",
+      "Bucking Kicking Mule"
+    ],
+    "freezing_storm": [
+      "frosty_kicking_mule",
+      "Frosty Kicking Mule"
+    ],
+    "scorched_zone": [
+      "tusked_thick_smoke",
+      "Tusked Thick Smoke"
+    ],
+    "sepsis_zone": [
+      "hunting_thick_smoke",
+      "Hunting Thick Smoke"
+    ],
+    "edema_zone": [
+      "bucking_wide_smoke",
+      "Bucking Wide Smoke"
+    ],
+    "fevered_zone": [
+      "market_wide_smoke",
+      "Market Wide Smoke"
+    ],
+    "regrowing_membrane": [
+      "mended_thick_brambles",
+      "Mended Thick Brambles"
+    ],
+    "sticky_membrane": [
+      "hooked_thick_brambles",
+      "Hooked Thick Brambles"
+    ],
+    "toxic_burst_membrane": [
+      "exploding_poison_brambles",
+      "Exploding Poison Brambles"
+    ],
+    "antitoxin_membrane": [
+      "scrubbed_poison_brambles",
+      "Scrubbed Poison Brambles"
+    ],
+    "necrotizing_t": [
+      "hunting_diamondback",
+      "Hunting Diamondback"
+    ],
+    "twin_venom_t": [
+      "flurry_diamondback",
+      "Flurry Diamondback"
+    ],
+    "chain_venom_t": [
+      "herding_long_rattler",
+      "Herding Long Rattler"
+    ],
+    "venom_sniper_t": [
+      "goring_long_rattler",
+      "Goring Long Rattler"
+    ],
+    "corroding_sprayer": [
+      "tusked_cane_toad",
+      "Tusked Cane Toad"
+    ],
+    "toxic_cloud_sprayer": [
+      "stinging_cane_toad",
+      "Stinging Cane Toad"
+    ],
+    "fanning_sprayer": [
+      "flurry_spitting_toad",
+      "Flurry Spitting Toad"
+    ],
+    "harvest_sprayer": [
+      "market_spitting_toad",
+      "Market Spitting Toad"
+    ],
+    "dissolving_pool": [
+      "tusked_rotting_manure",
+      "Tusked Rotting Manure"
+    ],
+    "boiling_pool": [
+      "stinging_rotting_manure",
+      "Stinging Rotting Manure"
+    ],
+    "flooding_pool": [
+      "bucking_spreading_manure",
+      "Bucking Spreading Manure"
+    ],
+    "rich_pool": [
+      "market_spreading_manure",
+      "Market Spreading Manure"
+    ],
+    "pandemic_lancer": [
+      "herding_venomous_gila",
+      "Herding Venomous Gila"
+    ],
+    "plague_executioner": [
+      "hunting_venomous_gila",
+      "Hunting Venomous Gila"
+    ],
+    "plague_volley": [
+      "flurry_long_gila",
+      "Flurry Long Gila"
+    ],
+    "plague_spear": [
+      "goring_long_gila",
+      "Goring Long Gila"
+    ],
+    "undying_bloom": [
+      "mended_woody_hemlock",
+      "Mended Woody Hemlock"
+    ],
+    "choking_bloom": [
+      "hooked_woody_hemlock",
+      "Hooked Woody Hemlock"
+    ],
+    "spore_burst_bloom": [
+      "exploding_virulent_hemlock",
+      "Exploding Virulent Hemlock"
+    ],
+    "blight_field": [
+      "stinging_virulent_hemlock",
+      "Stinging Virulent Hemlock"
     ]
   },
   "art_style": "animals",
@@ -587,17 +1067,17 @@
       "split": {
         "normal": "coyote_pack",
         "elite": "wolf_pack",
-        "elite_level": 4
+        "elite_level": 3
       },
       "smash": {
         "normal": "wild_boar",
         "elite": "moose",
-        "elite_level": 5
+        "elite_level": 4
       },
       "fly": {
         "normal": "crow",
         "elite": "hawk",
-        "elite_level": 6
+        "elite_level": 4
       },
       "burrow": {
         "normal": "gopher"
@@ -636,16 +1116,6 @@
         "burrow": 0.25
       },
       {
-        "smash": 0.35,
-        "split": 0.3,
-        "jump": 0.35
-      },
-      {
-        "swarm": 0.4,
-        "jump": 0.3,
-        "burrow": 0.3
-      },
-      {
         "swarm": 0.2,
         "split": 0.2,
         "smash": 0.2,
@@ -654,7 +1124,7 @@
         "burrow": 0.1
       }
     ],
-    "growth_per_wave": 0.32
+    "growth_per_wave": 0.411
   },
   "tutorial": {
     "waves": [
@@ -748,34 +1218,6 @@
         [
           "wild_boar",
           3,
-          5.0,
-          0
-        ],
-        [
-          "crow",
-          6,
-          1.2,
-          3
-        ]
-      ],
-      [
-        [
-          "rat",
-          20,
-          0.45,
-          0
-        ],
-        [
-          "deer",
-          5,
-          2.0,
-          4
-        ]
-      ],
-      [
-        [
-          "wild_boar",
-          3,
           4.0,
           0
         ],
@@ -806,22 +1248,19 @@
       ]
     ],
     "tips": [
-      "Welcome to the farm! Your pack plays exactly the same at this scale. Rats walk around your units; every kill drops ATP.",
+      "Welcome to the farm! Your pack plays exactly the same at this scale. Rats walk around your units; every kill drops coins.",
       "Units that survived a wave can evolve. Anything placed this round refunds in full.",
       "NEW: Deer leap over any single unit tile (orange line). Build walls two tiles thick where you don't want them jumping.",
       "Coyote Packs scatter into three coyotes when killed.",
       "Wild Boars ignore your maze and charge through any unit in their way (red line).",
       "Crows fly straight to the farmhouse (blue dashes). Only some units can hit fliers.",
       "Gophers tunnel under part of the route, like the mole crickets. Guard the end of the route too.",
-      "Chargers and fliers together: cover the red line and the blue dashes.",
-      "Rat swarm with deer mixed in. Thick walls keep the deer on the long route.",
       "Final wave! Later levels bring elite versions, and the boss brings her cubs."
     ]
   },
   "levels": [
     {
       "name": "1. Cornfield",
-      "preview": true,
       "hand": [
         12,
         15,
@@ -830,7 +1269,7 @@
         0,
         0
       ],
-      "atp": 26,
+      "coins": 26,
       "income": 5,
       "layout": [
         "....S....",
@@ -859,9 +1298,9 @@
         0,
         0
       ],
-      "atp": 15,
+      "coins": 15,
       "income": 5,
-      "budget": 14.5,
+      "budget": 17,
       "layout": [
         "........S",
         ".........",
@@ -880,37 +1319,7 @@
       ]
     },
     {
-      "name": "3. Orchard",
-      "hand": [
-        12,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "atp": 20,
-      "income": 5,
-      "budget": 16,
-      "layout": [
-        "S.......S",
-        ".........",
-        ".#..#..#.",
-        ".........",
-        ".........",
-        "..#...#..",
-        ".........",
-        ".#..#..#.",
-        ".........",
-        ".........",
-        "..#...#..",
-        ".........",
-        ".........",
-        "....B...."
-      ]
-    },
-    {
-      "name": "4. Pig Pen",
+      "name": "3. Pig Pen",
       "hand": [
         14,
         8,
@@ -919,9 +1328,9 @@
         10,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 6,
-      "budget": 23.5,
+      "budget": 28,
       "layout": [
         "....S....",
         ".........",
@@ -940,37 +1349,7 @@
       ]
     },
     {
-      "name": "5. Duck Pond",
-      "hand": [
-        16,
-        12,
-        7,
-        5,
-        10,
-        0
-      ],
-      "atp": 25,
-      "income": 6,
-      "budget": 25,
-      "layout": [
-        "S........",
-        ".........",
-        ".........",
-        "...###...",
-        "...###...",
-        ".........",
-        "S........",
-        ".........",
-        "......##.",
-        "......##.",
-        ".........",
-        "..#......",
-        ".........",
-        "........B"
-      ]
-    },
-    {
-      "name": "6. Hay Barn",
+      "name": "4. Hay Barn",
       "hand": [
         16,
         12,
@@ -979,9 +1358,9 @@
         10,
         7
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
-      "budget": 27,
+      "budget": 30,
       "layout": [
         "S...S...S",
         ".........",
@@ -1000,7 +1379,7 @@
       ]
     },
     {
-      "name": "7. Bear Woods",
+      "name": "5. Bear Woods",
       "hand": [
         20,
         12,
@@ -1009,9 +1388,9 @@
         10,
         7
       ],
-      "atp": 30,
+      "coins": 30,
       "income": 7,
-      "budget": 34,
+      "budget": 38,
       "boss": "grizzly",
       "layout": [
         "S...S...S",

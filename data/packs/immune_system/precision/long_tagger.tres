@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ac8ep"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/long_tagger.png" id="2_dwb0q"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/long_tagger_attack.png" id="1_ius3i"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/long_tagger_idle.png" id="2_jdde7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ny0dj"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/multi_tagger.tres" id="4_bbli7"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/coordinator_tagger.tres" id="5_e773b"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/long_tagger.png" id="6_uylfc"]
 
 [resource]
-script = ExtResource("1_ac8ep")
+script = ExtResource("3_ny0dj")
 id = "long_tagger"
-display_name = "Long Tagger"
+display_name = "Long Germ Tagger"
 role = 2
 cost = 12
 max_hp = 15
@@ -15,6 +19,10 @@ attack_range = 4.5
 hits_air = true
 mark_bonus = 0.3
 mark_duration = 3.0
-texture = ExtResource("2_dwb0q")
+tier = 1
+evolutions = Array[ExtResource("3_ny0dj")]([ExtResource("4_bbli7"), ExtResource("5_e773b")])
+texture = ExtResource("6_uylfc")
+anim_idle = ExtResource("2_jdde7")
+anim_attack = ExtResource("1_ius3i")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

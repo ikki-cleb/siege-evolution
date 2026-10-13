@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/stale_moldy_cake_attack.png" id="1_m1pje"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/stale_moldy_cake_idle.png" id="2_jaq6m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vctw8"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/gooey_stale_moldy_cake.png" id="4_oi6mi"]
+
+[resource]
+script = ExtResource("3_vctw8")
+id = "gooey_stale_moldy_cake"
+display_name = "Gooey Stale Moldy Cake"
+cost = 52
+max_hp = 100
+attack_mode = 1
+poison_dps = 3.0
+poison_duration = 2.0
+poison_spreads = true
+tier = 2
+grab_stun = 1.0
+texture = ExtResource("4_oi6mi")
+anim_idle = ExtResource("2_jaq6m")
+anim_attack = ExtResource("1_m1pje")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Smashers that bite it get stuck."

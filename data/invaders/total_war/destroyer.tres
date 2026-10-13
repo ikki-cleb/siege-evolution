@@ -1,18 +1,22 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_wexki"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/destroyer.png" id="2_s3g42"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/destroyer_death.png" id="1_8c01k"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/destroyer_move.png" id="2_l86yw"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_54nna"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/destroyer.png" id="4_gk6th"]
 
 [resource]
-script = ExtResource("1_wexki")
+script = ExtResource("3_54nna")
 id = "destroyer"
 display_name = "Destroyer"
 max_hp = 22
 armor = 1
 speed = 1.6
 base_damage = 2
-atp_drop = 2
+coin_drop = 2
 is_elite = true
 naval = true
-texture = ExtResource("2_s3g42")
+texture = ExtResource("4_gk6th")
+anim_move = ExtResource("2_l86yw")
+anim_death = ExtResource("1_8c01k")
 description = "Elite: a fast armored boat."

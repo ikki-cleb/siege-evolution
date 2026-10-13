@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_e1spc"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/woody_ivy.png" id="2_ewjbl"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/woody_ivy_attack.png" id="1_kuywe"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/woody_ivy_idle.png" id="2_eabis"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5hi8b"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/regrowing_woody_ivy.tres" id="4_lgghe"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/sticky_woody_ivy.tres" id="5_mtgml"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/woody_ivy.png" id="6_gqwbx"]
 
 [resource]
-script = ExtResource("1_e1spc")
+script = ExtResource("3_5hi8b")
 id = "woody_ivy"
 display_name = "Woody Ivy"
 cost = 12
@@ -13,6 +17,10 @@ attack_mode = 1
 poison_dps = 3.0
 poison_duration = 2.0
 poison_spreads = true
-texture = ExtResource("2_ewjbl")
+tier = 1
+evolutions = Array[ExtResource("3_5hi8b")]([ExtResource("4_lgghe"), ExtResource("5_mtgml")])
+texture = ExtResource("6_gqwbx")
+anim_idle = ExtResource("2_eabis")
+anim_attack = ExtResource("1_kuywe")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

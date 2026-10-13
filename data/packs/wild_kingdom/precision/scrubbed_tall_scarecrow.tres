@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/tall_scarecrow_attack.png" id="1_4fc1u"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/tall_scarecrow_idle.png" id="2_rft57"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_hlkqt"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/scrubbed_tall_scarecrow.png" id="4_d317n"]
+
+[resource]
+script = ExtResource("3_hlkqt")
+id = "scrubbed_tall_scarecrow"
+display_name = "Scrubbed Tall Scarecrow"
+role = 2
+cost = 52
+max_hp = 35
+attack_mode = 1
+attack_range = 3.5
+hits_air = true
+mark_bonus = 0.25
+mark_duration = 1.5
+tier = 2
+aura_shield = 0.3
+aura_cleanse = true
+texture = ExtResource("4_d317n")
+anim_idle = ExtResource("2_rft57")
+anim_attack = ExtResource("1_4fc1u")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Neighbors take 30% less damage and ignore goo."

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/thick_mud_wall_attack.png" id="1_b657r"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/thick_mud_wall_idle.png" id="2_1krue"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ml1iu"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/hooked_thick_mud_wall.png" id="4_l6tr6"]
+
+[resource]
+script = ExtResource("3_ml1iu")
+id = "hooked_thick_mud_wall"
+display_name = "Hooked Thick Mud Wall"
+cost = 22
+max_hp = 60
+attack_mode = 1
+attack_range = 1.2
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+tier = 2
+grab_stun = 0.8
+can_place_on_water = true
+texture = ExtResource("4_l6tr6")
+anim_idle = ExtResource("2_1krue")
+anim_attack = ExtResource("1_b657r")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Smashers that bite it get stuck."

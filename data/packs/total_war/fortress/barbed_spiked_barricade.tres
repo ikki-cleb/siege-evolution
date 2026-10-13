@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/spiked_barricade_idle.png" id="1_bwiqx"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_0621b"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/barbed_spiked_barricade.png" id="3_xgf4r"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/barbed_spiked_barricade_water.png" id="4_8s6uu"]
+
+[resource]
+script = ExtResource("2_0621b")
+id = "barbed_spiked_barricade"
+display_name = "Barbed Spiked Barricade"
+cost = 34
+max_hp = 120
+reflect = 0.9
+tier = 2
+grab_stun = 0.6
+can_place_on_water = true
+water_texture = ExtResource("4_8s6uu")
+texture = ExtResource("3_xgf4r")
+anim_idle = ExtResource("1_bwiqx")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Reflects 90% and snags smashers."

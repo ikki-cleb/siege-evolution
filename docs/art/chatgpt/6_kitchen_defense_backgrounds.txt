@@ -1,0 +1,33 @@
+SIEGE EVOLUTION - LEVEL BACKGROUNDS - KITCHEN DEFENSE
+
+You are making background images for a mobile tower-defense game. Follow these rules for EVERY image:
+- Portrait image, 1024x1536 (taller than wide).
+- Straight top-down view of the GROUND ONLY, flat, no perspective, no horizon.
+- Detailed pixel art with a crisp, visible pixel grid and a limited, harmonious palette.
+- No walls, rocks, buildings, furniture, characters, creatures, text, UI, frames or borders.
+- Evenly detailed across the whole image with no single focal point; detail runs to every edge.
+- Soft even lighting from the top-left. Slightly muted, low-to-medium contrast, so small game sprites stay readable on top.
+
+How we'll work: when I say "next" (or "start"), make the next image in the list below, one image per reply.
+After each image, tell me the exact file name to save it as.
+World setting: Bonus world (post-game). Ants, slugs, mice and roaches raid the kitchen. Defend the cookie jar.
+
+IMAGE 1 of 5 - 1. Pantry Raid
+Save as: kitchen_defense_level_01.png
+Scene: wooden pantry shelf planks with flour dust and spilled grains.
+
+IMAGE 2 of 5 - 2. Counter Top
+Save as: kitchen_defense_level_02.png
+Scene: white kitchen tile counter with grout lines and crumbs.
+
+IMAGE 3 of 5 - 3. Top Shelf
+Save as: kitchen_defense_level_03.png
+Scene: dusty high pantry shelf, old wood grain and sugar sprinkles.
+
+IMAGE 4 of 5 - 4. Crumb Trail
+Save as: kitchen_defense_level_04.png
+Scene: checkered kitchen floor linoleum with a trail of crumbs.
+
+IMAGE 5 of 5 - 5. Rat King's Feast
+Save as: kitchen_defense_level_05.png
+Scene: messy pantry floor with spilled cereal, cheese crumbs and grease spots.

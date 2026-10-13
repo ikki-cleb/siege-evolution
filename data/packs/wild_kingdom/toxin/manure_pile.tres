@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_o6qjm"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/rotting_manure.tres" id="2_x8nwf"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/spreading_manure.tres" id="3_kkquj"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/manure_pile.png" id="4_tyu4i"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/manure_pile_attack.png" id="1_kkquj"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/manure_pile_idle.png" id="2_tyu4i"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_r1kj5"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/rotting_manure.tres" id="4_66nds"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/spreading_manure.tres" id="5_j3hd3"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/manure_pile.png" id="6_88si7"]
 
 [resource]
-script = ExtResource("1_o6qjm")
+script = ExtResource("3_r1kj5")
 id = "manure_pile"
 display_name = "Manure Pile"
 role = 1
@@ -15,7 +17,9 @@ attack_mode = 1
 attack_range = 1.6
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_o6qjm")]([ExtResource("2_x8nwf"), ExtResource("3_kkquj")])
-texture = ExtResource("4_tyu4i")
+evolutions = Array[ExtResource("3_r1kj5")]([ExtResource("4_66nds"), ExtResource("5_j3hd3")])
+texture = ExtResource("6_88si7")
+anim_idle = ExtResource("2_tyu4i")
+anim_attack = ExtResource("1_kkquj")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poisons everything around it."

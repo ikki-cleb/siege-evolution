@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_issjq"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/caustic_blister_beetle.tres" id="2_qvhq2"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/misting_blister_beetle.tres" id="3_g17cl"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/blister_beetle.png" id="4_6br47"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/blister_beetle_attack.png" id="1_g17cl"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/blister_beetle_idle.png" id="2_6br47"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_kvej7"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/caustic_blister_beetle.tres" id="4_eaigq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/misting_blister_beetle.tres" id="5_kf473"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/blister_beetle.png" id="6_x2rpt"]
 
 [resource]
-script = ExtResource("1_issjq")
+script = ExtResource("3_kvej7")
 id = "blister_beetle"
 display_name = "Blister Beetle"
 role = 1
@@ -19,7 +21,9 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_issjq")]([ExtResource("2_qvhq2"), ExtResource("3_g17cl")])
-texture = ExtResource("4_6br47")
+evolutions = Array[ExtResource("3_kvej7")]([ExtResource("4_eaigq"), ExtResource("5_kf473")])
+texture = ExtResource("6_x2rpt")
+anim_idle = ExtResource("2_6br47")
+anim_attack = ExtResource("1_g17cl")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison splash. Hits fliers."

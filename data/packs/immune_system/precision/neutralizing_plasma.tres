@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/plasma_cell_attack.png" id="1_kiiwb"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/plasma_cell_idle.png" id="2_gmkib"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_dn3ww"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/neutralizing_plasma.png" id="4_4xbmt"]
+
+[resource]
+script = ExtResource("3_dn3ww")
+id = "neutralizing_plasma"
+display_name = "Finishing Heavy Antibody Shooter"
+role = 1
+cost = 56
+max_hp = 15
+damage = 8.0
+attack_range = 3.0
+hits_air = true
+tier = 2
+execute_below = 0.2
+texture = ExtResource("4_4xbmt")
+anim_idle = ExtResource("2_gmkib")
+anim_attack = ExtResource("1_kiiwb")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Finishes off invaders below 20% HP."

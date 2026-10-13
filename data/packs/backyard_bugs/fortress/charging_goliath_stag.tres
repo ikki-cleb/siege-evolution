@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/goliath_stag_attack.png" id="1_qw2ll"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/goliath_stag_idle.png" id="2_agb6k"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_2v6pd"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/charging_goliath_stag.png" id="4_8n5ma"]
+
+[resource]
+script = ExtResource("3_2v6pd")
+id = "charging_goliath_stag"
+display_name = "Charging Goliath Stag"
+role = 1
+cost = 60
+max_hp = 80
+damage = 24.0
+attack_interval = 1.1
+tier = 2
+knockback = 1
+texture = ExtResource("4_8n5ma")
+anim_idle = ExtResource("2_agb6k")
+anim_attack = ExtResource("1_qw2ll")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Crushing hits shove invaders back."

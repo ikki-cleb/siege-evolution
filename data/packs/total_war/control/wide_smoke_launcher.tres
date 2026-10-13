@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_nvfvx"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/wide_smoke_launcher.png" id="2_hqfk7"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/wide_smoke_launcher_attack.png" id="1_0vmdf"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/wide_smoke_launcher_idle.png" id="2_4hjdw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pt5ja"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/recoil_wide_smoke_launcher.tres" id="4_px1xa"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/rallying_wide_smoke_launcher.tres" id="5_0yrq1"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/wide_smoke_launcher.png" id="6_lyfup"]
 
 [resource]
-script = ExtResource("1_nvfvx")
+script = ExtResource("3_pt5ja")
 id = "wide_smoke_launcher"
 display_name = "Wide Smoke Launcher"
 role = 1
@@ -15,6 +19,10 @@ damage = 2.0
 attack_range = 2.6
 slow = 0.35
 slow_duration = 1.2
-texture = ExtResource("2_hqfk7")
+tier = 1
+evolutions = Array[ExtResource("3_pt5ja")]([ExtResource("4_px1xa"), ExtResource("5_0yrq1")])
+texture = ExtResource("6_lyfup")
+anim_idle = ExtResource("2_4hjdw")
+anim_attack = ExtResource("1_0vmdf")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

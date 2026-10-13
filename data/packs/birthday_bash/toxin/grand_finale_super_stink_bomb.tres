@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/super_stink_bomb_attack.png" id="1_2lmuo"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/super_stink_bomb_idle.png" id="2_b350e"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pdqkk"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/grand_finale_super_stink_bomb.png" id="4_w1amw"]
+
+[resource]
+script = ExtResource("3_pdqkk")
+id = "grand_finale_super_stink_bomb"
+display_name = "Grand-Finale Super Stink Bomb"
+role = 1
+cost = 76
+damage = 2.0
+attack_range = 2.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 8.0
+poison_duration = 5.0
+poison_spreads = true
+tier = 2
+execute_below = 0.2
+texture = ExtResource("4_w1amw")
+anim_idle = ExtResource("2_b350e")
+anim_attack = ExtResource("1_2lmuo")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Finishes off invaders below 20% HP."

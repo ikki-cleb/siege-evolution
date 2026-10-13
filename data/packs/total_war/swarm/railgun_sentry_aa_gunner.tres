@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/sentry_aa_gunner_attack.png" id="1_us44i"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/sentry_aa_gunner_idle.png" id="2_86fl6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_13ahr"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/railgun_sentry_aa_gunner.png" id="4_1rtc2"]
+
+[resource]
+script = ExtResource("3_13ahr")
+id = "railgun_sentry_aa_gunner"
+display_name = "Railgun Sentry AA Gunner"
+role = 1
+cost = 36
+max_hp = 12
+damage = 2.8
+attack_range = 3.5
+attack_interval = 0.7
+hits_air = true
+adjacency_bonus = 0.15
+tier = 2
+line_pierce = true
+texture = ExtResource("4_1rtc2")
+anim_idle = ExtResource("2_86fl6")
+anim_attack = ExtResource("1_us44i")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Pokes pierce every invader in a line."

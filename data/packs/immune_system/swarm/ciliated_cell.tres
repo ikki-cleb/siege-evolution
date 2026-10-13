@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lahdb"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/ciliated_cell.png" id="2_tvy0e"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/ciliated_cell_idle.png" id="1_ym3a3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_tcvrx"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/cilia_trap.tres" id="3_m5hwc"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/bursting_cell.tres" id="4_50lvk"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/ciliated_cell.png" id="5_qulwq"]
 
 [resource]
-script = ExtResource("1_lahdb")
+script = ExtResource("2_tcvrx")
 id = "ciliated_cell"
-display_name = "Ciliated Cell"
+display_name = "Prickly Skin Cell"
 cost = 4
 max_hp = 22
 reflect = 0.4
+tier = 1
+evolutions = Array[ExtResource("2_tcvrx")]([ExtResource("3_m5hwc"), ExtResource("4_50lvk")])
 can_place_on_water = true
-texture = ExtResource("2_tvy0e")
+texture = ExtResource("5_qulwq")
+anim_idle = ExtResource("1_ym3a3")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Reflects 40% of smasher damage."

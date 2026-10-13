@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/long_range_drone_attack.png" id="1_f77ub"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/long_range_drone_idle.png" id="2_57yqe"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_t7ere"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/railgun_long_range_drone.png" id="4_t2phl"]
+
+[resource]
+script = ExtResource("3_t7ere")
+id = "railgun_long_range_drone"
+display_name = "Railgun Long-Range Drone"
+role = 1
+cost = 76
+damage = 2.0
+attack_range = 3.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 4.5
+poison_duration = 5.0
+poison_spreads = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_t2phl")
+anim_idle = ExtResource("2_57yqe")
+anim_attack = ExtResource("1_f77ub")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Plague pierces every invader in a line."

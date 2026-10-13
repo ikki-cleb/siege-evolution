@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_016bb"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/angry_skep.png" id="2_nufay"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/angry_skep_attack.png" id="1_mqeec"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/angry_skep_idle.png" id="2_aiiyi"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_v7t00"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/bonfire_angry_skep.tres" id="4_h0iaf"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/tusked_angry_skep.tres" id="5_1q8ei"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/angry_skep.png" id="6_wp5uo"]
 
 [resource]
-script = ExtResource("1_016bb")
+script = ExtResource("3_v7t00")
 id = "angry_skep"
 display_name = "Angry Skep"
 role = 1
@@ -14,6 +18,10 @@ attack_mode = 1
 damage = 2.2
 attack_interval = 0.6
 adjacency_bonus = 0.15
-texture = ExtResource("2_nufay")
+tier = 1
+evolutions = Array[ExtResource("3_v7t00")]([ExtResource("4_h0iaf"), ExtResource("5_1q8ei")])
+texture = ExtResource("6_wp5uo")
+anim_idle = ExtResource("2_aiiyi")
+anim_attack = ExtResource("1_mqeec")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More damage."

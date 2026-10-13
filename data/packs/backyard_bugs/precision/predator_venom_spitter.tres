@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/venom_spitter_attack.png" id="1_3ewrg"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/venom_spitter_idle.png" id="2_a54tr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_35431"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/predator_venom_spitter.png" id="4_gsf63"]
+
+[resource]
+script = ExtResource("3_35431")
+id = "predator_venom_spitter"
+display_name = "Predator Venom Spitter"
+role = 1
+cost = 56
+max_hp = 15
+damage = 8.0
+attack_range = 3.0
+hits_air = true
+tier = 2
+execute_below = 0.2
+texture = ExtResource("4_gsf63")
+anim_idle = ExtResource("2_a54tr")
+anim_attack = ExtResource("1_3ewrg")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Finishes off invaders below 20% HP."

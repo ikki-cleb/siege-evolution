@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_p6dfu"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/aphid.png" id="2_and1a"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/aphid_death.png" id="1_2vr6k"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/aphid_move.png" id="2_54bcr"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_vum8v"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/aphid.png" id="4_8gcb6"]
 
 [resource]
-script = ExtResource("1_p6dfu")
+script = ExtResource("3_vum8v")
 id = "aphid"
 display_name = "Aphid"
 max_hp = 4
 speed = 1.3
-atp_drop = 0
-texture = ExtResource("2_and1a")
+coin_drop = 0
+texture = ExtResource("4_8gcb6")
+anim_move = ExtResource("2_54bcr")
+anim_death = ExtResource("1_2vr6k")

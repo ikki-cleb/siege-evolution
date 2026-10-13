@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/spiky_chair_idle.png" id="1_2of2m"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_1pewt"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/surprise_spiky_chair.tres" id="3_3eld0"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/gooey_spiky_chair.tres" id="4_oo5qe"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/spiky_chair.png" id="5_sein6"]
+
+[resource]
+script = ExtResource("2_1pewt")
+id = "spiky_chair"
+display_name = "Spiky Chair"
+cost = 6
+max_hp = 35
+reflect = 0.5
+tier = 1
+evolutions = Array[ExtResource("2_1pewt")]([ExtResource("3_3eld0"), ExtResource("4_oo5qe")])
+can_place_on_water = true
+texture = ExtResource("5_sein6")
+anim_idle = ExtResource("1_2of2m")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Reflects 50% of smasher damage."

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/tall_lantern_attack.png" id="1_7plb8"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/tall_lantern_idle.png" id="2_b54ma"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0fi6s"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/charging_tall_lantern.png" id="4_qaedx"]
+
+[resource]
+script = ExtResource("3_0fi6s")
+id = "charging_tall_lantern"
+display_name = "Charging Tall Lantern"
+role = 2
+cost = 52
+max_hp = 35
+attack_mode = 1
+attack_range = 3.5
+hits_air = true
+mark_bonus = 0.25
+mark_duration = 1.5
+tier = 2
+knockback = 1
+texture = ExtResource("4_qaedx")
+anim_idle = ExtResource("2_b54ma")
+anim_attack = ExtResource("1_7plb8")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Pulses shove invaders back."

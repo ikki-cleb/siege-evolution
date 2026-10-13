@@ -1,20 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u7cft"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/double_wire.tres" id="2_jxq68"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/razor_wire.tres" id="3_aflb0"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/barbed_wire.png" id="4_ksf1y"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/barbed_wire_water.png" id="5_bkrl5"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/barbed_wire_idle.png" id="1_jxq68"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_aflb0"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/double_wire.tres" id="3_ksf1y"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/razor_wire.tres" id="4_bkrl5"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/barbed_wire.png" id="5_82fiy"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/barbed_wire_water.png" id="6_rqxic"]
 
 [resource]
-script = ExtResource("1_u7cft")
+script = ExtResource("2_aflb0")
 id = "barbed_wire"
 display_name = "Barbed Wire"
 cost = 3
 max_hp = 18
-evolutions = Array[ExtResource("1_u7cft")]([ExtResource("2_jxq68"), ExtResource("3_aflb0")])
+evolutions = Array[ExtResource("2_aflb0")]([ExtResource("3_ksf1y"), ExtResource("4_bkrl5")])
 can_place_on_water = true
-water_texture = ExtResource("5_bkrl5")
-texture = ExtResource("4_ksf1y")
+water_texture = ExtResource("6_rqxic")
+texture = ExtResource("5_82fiy")
+anim_idle = ExtResource("1_jxq68")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Dirt-cheap wall."

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/stacked_chairs_idle.png" id="1_6m2gd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_w3j1l"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/cushioned_stacked_chairs.tres" id="3_567en"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/re_inflating_stacked_chairs.tres" id="4_nugpg"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/stacked_chairs.png" id="5_feqwr"]
+
+[resource]
+script = ExtResource("2_w3j1l")
+id = "stacked_chairs"
+display_name = "Stacked Chairs"
+cost = 6
+max_hp = 70
+tier = 1
+evolutions = Array[ExtResource("2_w3j1l")]([ExtResource("3_567en"), ExtResource("4_nugpg")])
+can_place_on_water = true
+texture = ExtResource("5_feqwr")
+anim_idle = ExtResource("1_6m2gd")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "More HP."

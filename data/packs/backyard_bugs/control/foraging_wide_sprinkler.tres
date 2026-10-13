@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/wide_sprinkler_attack.png" id="1_svi8i"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/wide_sprinkler_idle.png" id="2_pr7uj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_2uh1y"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/foraging_wide_sprinkler.png" id="4_pqr26"]
+
+[resource]
+script = ExtResource("3_2uh1y")
+id = "foraging_wide_sprinkler"
+display_name = "Foraging Wide Sprinkler"
+role = 1
+cost = 68
+max_hp = 30
+attack_mode = 1
+damage = 1.5
+attack_range = 3.5
+attack_interval = 0.5
+hits_air = true
+slow = 0.5
+slow_duration = 1.0
+tier = 2
+bounty = 1
+texture = ExtResource("4_pqr26")
+anim_idle = ExtResource("2_pr7uj")
+anim_attack = ExtResource("1_svi8i")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Its kills drop an extra coin."

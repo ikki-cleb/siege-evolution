@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/jet_spray_attack.png" id="1_pjnah"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/jet_spray_idle.png" id="2_2q7jg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_i2ggc"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/skewering_jet_spray.png" id="4_gx1e4"]
+
+[resource]
+script = ExtResource("3_i2ggc")
+id = "skewering_jet_spray"
+display_name = "Skewering Jet Spray"
+role = 1
+cost = 36
+max_hp = 12
+damage = 2.8
+attack_range = 3.5
+attack_interval = 0.7
+hits_air = true
+adjacency_bonus = 0.15
+tier = 2
+line_pierce = true
+texture = ExtResource("4_gx1e4")
+anim_idle = ExtResource("2_2q7jg")
+anim_attack = ExtResource("1_pjnah")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Pokes pierce every invader in a line."

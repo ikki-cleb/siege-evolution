@@ -1,19 +1,23 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_47rbg"]
-[ext_resource type="Resource" path="res://data/invaders/total_war/toy_recruit.tres" id="2_7g04q"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/armored_carrier.png" id="3_iedtr"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/armored_carrier_death.png" id="1_iedtr"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/armored_carrier_move.png" id="2_m06lp"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_nuwus"]
+[ext_resource type="Resource" path="res://data/invaders/total_war/toy_recruit.tres" id="4_adb2a"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/armored_carrier.png" id="5_lgvq1"]
 
 [resource]
-script = ExtResource("1_47rbg")
+script = ExtResource("3_nuwus")
 id = "armored_carrier"
 display_name = "Armored Carrier"
 max_hp = 30
 armor = 2
 base_damage = 2
-atp_drop = 2
+coin_drop = 2
 is_elite = true
-split_into = ExtResource("2_7g04q")
+split_into = ExtResource("4_adb2a")
 split_count = 3
-texture = ExtResource("3_iedtr")
+texture = ExtResource("5_lgvq1")
+anim_move = ExtResource("2_m06lp")
+anim_death = ExtResource("1_iedtr")
 description = "Elite: an armored troop carrier."

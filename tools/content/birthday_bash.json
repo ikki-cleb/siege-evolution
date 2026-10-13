@@ -1,0 +1,1478 @@
+{
+  "biome": {
+    "id": "birthday_bash",
+    "name": "Birthday Bash",
+    "description": "Bonus world (post-game). Party crashers invade a birthday party: wind-up toys, balloons, piñatas and a clown. Defend the cake."
+  },
+  "packs_from": "immune_system",
+  "renames": {
+    "platelet_clot": [
+      "gift_box",
+      "Gift Box"
+    ],
+    "fibrin_mesh": [
+      "big_gift_box",
+      "Big Gift Box"
+    ],
+    "thrombus_spike": [
+      "prickly_present",
+      "Prickly Present"
+    ],
+    "macrophage": [
+      "party_mallet",
+      "Party Mallet"
+    ],
+    "giant_macrophage": [
+      "giant_mallet",
+      "Giant Mallet"
+    ],
+    "foam_macrophage": [
+      "wide_mallet",
+      "Wide Mallet"
+    ],
+    "dendritic_cell": [
+      "confetti_cannon",
+      "Confetti Cannon"
+    ],
+    "mature_dendrite": [
+      "mega_confetti_cannon",
+      "Mega Confetti Cannon"
+    ],
+    "roaming_dendrite": [
+      "long_confetti_cannon",
+      "Long Confetti Cannon"
+    ],
+    "fibroblast": [
+      "balloon_arch",
+      "Balloon Arch"
+    ],
+    "scar_fibroblast": [
+      "thick_balloon_arch",
+      "Thick Balloon Arch"
+    ],
+    "healing_fibroblast": [
+      "self_inflating_arch",
+      "Self-Inflating Arch"
+    ],
+    "eosinophil": [
+      "fireworks_launcher",
+      "Fireworks Launcher"
+    ],
+    "eosinophil_burst": [
+      "big_fireworks",
+      "Big Fireworks"
+    ],
+    "eosinophil_lancer": [
+      "long_fireworks",
+      "Long Fireworks"
+    ],
+    "granuloma": [
+      "ice_cream_cake",
+      "Ice Cream Cake"
+    ],
+    "calcified_granuloma": [
+      "frozen_cake",
+      "Frozen Cake"
+    ],
+    "caseous_granuloma": [
+      "sprinkle_spike_cake",
+      "Sprinkle Spike Cake"
+    ],
+    "epithelial_cell": [
+      "paper_cup",
+      "Paper Cup"
+    ],
+    "keratinized_cell": [
+      "stacked_cups",
+      "Stacked Cups"
+    ],
+    "ciliated_cell": [
+      "pointy_cup",
+      "Pointy Cup"
+    ],
+    "neutrophil": [
+      "party_blower",
+      "Party Blower"
+    ],
+    "frenzied_neutrophil": [
+      "loud_blower",
+      "Loud Blower"
+    ],
+    "scout_neutrophil": [
+      "long_blower",
+      "Long Blower"
+    ],
+    "monocyte": [
+      "water_pistol",
+      "Water Pistol"
+    ],
+    "volley_monocyte": [
+      "twin_water_pistol",
+      "Twin Water Pistol"
+    ],
+    "lookout_monocyte": [
+      "super_soaker",
+      "Super Soaker"
+    ],
+    "basophil": [
+      "noisemaker",
+      "Noisemaker"
+    ],
+    "degranulating_basophil": [
+      "loud_noisemaker",
+      "Loud Noisemaker"
+    ],
+    "wide_basophil": [
+      "wide_noisemaker",
+      "Wide Noisemaker"
+    ],
+    "nk_cell": [
+      "sparkler",
+      "Sparkler"
+    ],
+    "killer_nk_cell": [
+      "hot_sparkler",
+      "Hot Sparkler"
+    ],
+    "hunting_nk_cell": [
+      "long_sparkler",
+      "Long Sparkler"
+    ],
+    "net_trap": [
+      "streamer_tangle",
+      "Streamer Tangle"
+    ],
+    "dense_net": [
+      "thick_streamers",
+      "Thick Streamers"
+    ],
+    "wide_net": [
+      "wide_streamers",
+      "Wide Streamers"
+    ],
+    "keratin_plate": [
+      "folding_chair",
+      "Folding Chair"
+    ],
+    "layered_plate": [
+      "stacked_chairs",
+      "Stacked Chairs"
+    ],
+    "spined_plate": [
+      "spiky_chair",
+      "Spiky Chair"
+    ],
+    "b_cell": [
+      "dart_blaster",
+      "Dart Blaster"
+    ],
+    "plasma_cell": [
+      "heavy_dart_blaster",
+      "Heavy Dart Blaster"
+    ],
+    "memory_b_cell": [
+      "long_dart_blaster",
+      "Long Dart Blaster"
+    ],
+    "antibody_tagger": [
+      "spotlight",
+      "Spotlight"
+    ],
+    "opsonizer": [
+      "bright_spotlight",
+      "Bright Spotlight"
+    ],
+    "long_tagger": [
+      "long_spotlight",
+      "Long Spotlight"
+    ],
+    "cytotoxic_t": [
+      "foam_sword",
+      "Foam Sword"
+    ],
+    "effector_t": [
+      "big_foam_sword",
+      "Big Foam Sword"
+    ],
+    "patrol_t": [
+      "long_foam_sword",
+      "Long Foam Sword"
+    ],
+    "opsonin_lance": [
+      "bottle_rocket",
+      "Bottle Rocket"
+    ],
+    "heavy_lance": [
+      "heavy_bottle_rocket",
+      "Heavy Bottle Rocket"
+    ],
+    "rapid_lance": [
+      "rapid_bottle_rocket",
+      "Rapid Bottle Rocket"
+    ],
+    "interferon_beacon": [
+      "disco_ball",
+      "Disco Ball"
+    ],
+    "alarm_beacon": [
+      "bright_disco_ball",
+      "Bright Disco Ball"
+    ],
+    "tall_beacon": [
+      "tall_disco_ball",
+      "Tall Disco Ball"
+    ],
+    "mucus_wall": [
+      "jelly_wall",
+      "Jelly Wall"
+    ],
+    "thick_mucus": [
+      "thick_jelly",
+      "Thick Jelly"
+    ],
+    "sticky_mucus": [
+      "extra_wobbly_jelly",
+      "Extra-Wobbly Jelly"
+    ],
+    "mast_cell": [
+      "bubble_machine",
+      "Bubble Machine"
+    ],
+    "reactive_mast_cell": [
+      "fast_bubble_machine",
+      "Fast Bubble Machine"
+    ],
+    "spreading_mast_cell": [
+      "wide_bubble_machine",
+      "Wide Bubble Machine"
+    ],
+    "histamine_spitter": [
+      "pie_launcher",
+      "Pie Launcher"
+    ],
+    "acid_spitter": [
+      "cream_pie_launcher",
+      "Cream Pie Launcher"
+    ],
+    "far_spitter": [
+      "long_pie_launcher",
+      "Long Pie Launcher"
+    ],
+    "fever_node": [
+      "candle_stand",
+      "Candle Stand"
+    ],
+    "high_fever": [
+      "tall_flame_candles",
+      "Tall Flame Candles"
+    ],
+    "wide_fever": [
+      "wide_candle_ring",
+      "Wide Candle Ring"
+    ],
+    "cytokine_storm": [
+      "party_horn",
+      "Party Horn"
+    ],
+    "paralyzing_storm": [
+      "air_horn",
+      "Air Horn"
+    ],
+    "rolling_storm": [
+      "chain_horns",
+      "Chain Horns"
+    ],
+    "inflammation_zone": [
+      "foam_machine",
+      "Foam Machine"
+    ],
+    "searing_zone": [
+      "hot_foam_machine",
+      "Hot Foam Machine"
+    ],
+    "swollen_zone": [
+      "big_foam_machine",
+      "Big Foam Machine"
+    ],
+    "toxic_membrane": [
+      "sour_candy_wall",
+      "Sour Candy Wall"
+    ],
+    "thick_membrane": [
+      "big_sour_wall",
+      "Big Sour Wall"
+    ],
+    "venom_membrane": [
+      "super_sour_wall",
+      "Super Sour Wall"
+    ],
+    "killer_t": [
+      "lemon_squirter",
+      "Lemon Squirter"
+    ],
+    "venomous_t": [
+      "extra_sour_squirter",
+      "Extra-Sour Squirter"
+    ],
+    "reaching_t": [
+      "long_lemon_squirter",
+      "Long Lemon Squirter"
+    ],
+    "complement_sprayer": [
+      "silly_string",
+      "Silly String"
+    ],
+    "caustic_sprayer": [
+      "sticky_silly_string",
+      "Sticky Silly String"
+    ],
+    "misting_sprayer": [
+      "long_silly_string",
+      "Long Silly String"
+    ],
+    "lysozyme_pool": [
+      "punch_bowl",
+      "Punch Bowl"
+    ],
+    "acid_pool": [
+      "sour_punch_bowl",
+      "Sour Punch Bowl"
+    ],
+    "spilling_pool": [
+      "overflowing_punch_bowl",
+      "Overflowing Punch Bowl"
+    ],
+    "perforin_lancer": [
+      "stink_bomb",
+      "Stink Bomb"
+    ],
+    "plague_lancer": [
+      "super_stink_bomb",
+      "Super Stink Bomb"
+    ],
+    "long_lancer": [
+      "long_stink_bomb",
+      "Long Stink Bomb"
+    ],
+    "necrosis_bloom": [
+      "moldy_cake",
+      "Moldy Cake"
+    ],
+    "hardened_bloom": [
+      "stale_moldy_cake",
+      "Stale Moldy Cake"
+    ],
+    "virulent_bloom": [
+      "fuzzy_moldy_cake",
+      "Fuzzy Moldy Cake"
+    ],
+    "fibrin_bastion": [
+      "re_inflating_big_gift_box",
+      "Re-Inflating Big Gift Box"
+    ],
+    "clotting_snare": [
+      "gooey_big_gift_box",
+      "Gooey Big Gift Box"
+    ],
+    "thrombus_mine": [
+      "surprise_prickly_present",
+      "Surprise Prickly Present"
+    ],
+    "barbed_thrombus": [
+      "gooey_prickly_present",
+      "Gooey Prickly Present"
+    ],
+    "devouring_macrophage": [
+      "grand_finale_giant_mallet",
+      "Grand-Finale Giant Mallet"
+    ],
+    "titan_macrophage": [
+      "bumper_giant_mallet",
+      "Bumper Giant Mallet"
+    ],
+    "engulfing_foam": [
+      "unwrapping_wide_mallet",
+      "Unwrapping Wide Mallet"
+    ],
+    "foam_eruption": [
+      "fiery_wide_mallet",
+      "Fiery Wide Mallet"
+    ],
+    "presenting_dendrite": [
+      "bouncing_mega_confetti_cannon",
+      "Bouncing Mega Confetti Cannon"
+    ],
+    "dendrite_volley": [
+      "double_mega_confetti_cannon",
+      "Double Mega Confetti Cannon"
+    ],
+    "sentinel_dendrite": [
+      "laser_long_confetti_cannon",
+      "Laser Long Confetti Cannon"
+    ],
+    "harvesting_dendrite": [
+      "prize_long_confetti_cannon",
+      "Prize Long Confetti Cannon"
+    ],
+    "keloid_wall": [
+      "re_inflating_thick_balloon_arch",
+      "Re-Inflating Thick Balloon Arch"
+    ],
+    "scar_lattice": [
+      "cushioned_thick_balloon_arch",
+      "Cushioned Thick Balloon Arch"
+    ],
+    "signaling_fibroblast": [
+      "sugar_rush_self_inflating_arch",
+      "Sugar-Rush Self-Inflating Arch"
+    ],
+    "granulation_tissue": [
+      "gooey_self_inflating_arch",
+      "Gooey Self-Inflating Arch"
+    ],
+    "eosinophil_barrage": [
+      "double_big_fireworks",
+      "Double Big Fireworks"
+    ],
+    "major_basic_protein": [
+      "grand_finale_big_fireworks",
+      "Grand-Finale Big Fireworks"
+    ],
+    "eosinophil_spear": [
+      "laser_long_fireworks",
+      "Laser Long Fireworks"
+    ],
+    "eosinophil_shredder": [
+      "unwrapping_long_fireworks",
+      "Unwrapping Long Fireworks"
+    ],
+    "fortress_granuloma": [
+      "party_proof_frozen_cake",
+      "Party-Proof Frozen Cake"
+    ],
+    "bone_granuloma": [
+      "re_inflating_frozen_cake",
+      "Re-Inflating Frozen Cake"
+    ],
+    "bursting_granuloma": [
+      "surprise_sprinkle_spike_cake",
+      "Surprise Sprinkle Spike Cake"
+    ],
+    "grasping_granuloma": [
+      "gooey_sprinkle_spike_cake",
+      "Gooey Sprinkle Spike Cake"
+    ],
+    "cornified_layer": [
+      "re_inflating_stacked_cups",
+      "Re-Inflating Stacked Cups"
+    ],
+    "mucosal_barrier": [
+      "party_proof_stacked_cups",
+      "Party-Proof Stacked Cups"
+    ],
+    "cilia_trap": [
+      "gooey_pointy_cup",
+      "Gooey Pointy Cup"
+    ],
+    "bursting_cell": [
+      "surprise_pointy_cup",
+      "Surprise Pointy Cup"
+    ],
+    "frenzied_horde": [
+      "double_loud_blower",
+      "Double Loud Blower"
+    ],
+    "killer_neutrophil": [
+      "grand_finale_loud_blower",
+      "Grand-Finale Loud Blower"
+    ],
+    "net_neutrophil": [
+      "bouncing_long_blower",
+      "Bouncing Long Blower"
+    ],
+    "scavenger_neutrophil": [
+      "prize_long_blower",
+      "Prize Long Blower"
+    ],
+    "barrage_monocyte": [
+      "double_twin_water_pistol",
+      "Double Twin Water Pistol"
+    ],
+    "piercing_monocyte": [
+      "unwrapping_twin_water_pistol",
+      "Unwrapping Twin Water Pistol"
+    ],
+    "sniper_monocyte": [
+      "laser_super_soaker",
+      "Laser Super Soaker"
+    ],
+    "signal_monocyte": [
+      "sugar_rush_super_soaker",
+      "Sugar-Rush Super Soaker"
+    ],
+    "histamine_burst": [
+      "fiery_loud_noisemaker",
+      "Fiery Loud Noisemaker"
+    ],
+    "shredding_basophil": [
+      "unwrapping_loud_noisemaker",
+      "Unwrapping Loud Noisemaker"
+    ],
+    "shockwave_basophil": [
+      "bumper_wide_noisemaker",
+      "Bumper Wide Noisemaker"
+    ],
+    "rallying_basophil": [
+      "sugar_rush_wide_noisemaker",
+      "Sugar-Rush Wide Noisemaker"
+    ],
+    "executioner_nk": [
+      "grand_finale_hot_sparkler",
+      "Grand-Finale Hot Sparkler"
+    ],
+    "chain_nk": [
+      "bouncing_hot_sparkler",
+      "Bouncing Hot Sparkler"
+    ],
+    "stalker_nk": [
+      "prize_long_sparkler",
+      "Prize Long Sparkler"
+    ],
+    "whirling_nk": [
+      "double_long_sparkler",
+      "Double Long Sparkler"
+    ],
+    "snaring_net": [
+      "gooey_thick_streamers",
+      "Gooey Thick Streamers"
+    ],
+    "regrowing_net": [
+      "super_thick_streamers",
+      "Super Thick Streamers"
+    ],
+    "freezing_net": [
+      "slushie_wide_streamers",
+      "Slushie Wide Streamers"
+    ],
+    "bursting_net": [
+      "surprise_wide_streamers",
+      "Surprise Wide Streamers"
+    ],
+    "armored_keratin": [
+      "cushioned_stacked_chairs",
+      "Cushioned Stacked Chairs"
+    ],
+    "rebuilt_plate": [
+      "re_inflating_stacked_chairs",
+      "Re-Inflating Stacked Chairs"
+    ],
+    "spike_trap_plate": [
+      "surprise_spiky_chair",
+      "Surprise Spiky Chair"
+    ],
+    "hooked_plate": [
+      "gooey_spiky_chair",
+      "Gooey Spiky Chair"
+    ],
+    "antibody_storm": [
+      "double_heavy_dart_blaster",
+      "Double Heavy Dart Blaster"
+    ],
+    "neutralizing_plasma": [
+      "grand_finale_heavy_dart_blaster",
+      "Grand-Finale Heavy Dart Blaster"
+    ],
+    "memory_lance": [
+      "laser_long_dart_blaster",
+      "Laser Long Dart Blaster"
+    ],
+    "long_lived_b_cell": [
+      "prize_long_dart_blaster",
+      "Prize Long Dart Blaster"
+    ],
+    "complement_tagger": [
+      "unwrapping_bright_spotlight",
+      "Unwrapping Bright Spotlight"
+    ],
+    "chain_tagger": [
+      "bouncing_bright_spotlight",
+      "Bouncing Bright Spotlight"
+    ],
+    "multi_tagger": [
+      "double_long_spotlight",
+      "Double Long Spotlight"
+    ],
+    "coordinator_tagger": [
+      "sugar_rush_long_spotlight",
+      "Sugar-Rush Long Spotlight"
+    ],
+    "executioner_t": [
+      "grand_finale_big_foam_sword",
+      "Grand-Finale Big Foam Sword"
+    ],
+    "hammer_t": [
+      "bumper_big_foam_sword",
+      "Bumper Big Foam Sword"
+    ],
+    "hunter_t": [
+      "bouncing_long_foam_sword",
+      "Bouncing Long Foam Sword"
+    ],
+    "twin_patrol_t": [
+      "double_long_foam_sword",
+      "Double Long Foam Sword"
+    ],
+    "railgun_lance": [
+      "laser_heavy_bottle_rocket",
+      "Laser Heavy Bottle Rocket"
+    ],
+    "finishing_lance": [
+      "grand_finale_heavy_bottle_rocket",
+      "Grand-Finale Heavy Bottle Rocket"
+    ],
+    "bounty_lance": [
+      "prize_rapid_bottle_rocket",
+      "Prize Rapid Bottle Rocket"
+    ],
+    "ricochet_lance": [
+      "bouncing_rapid_bottle_rocket",
+      "Bouncing Rapid Bottle Rocket"
+    ],
+    "interferon_storm": [
+      "unwrapping_bright_disco_ball",
+      "Unwrapping Bright Disco Ball"
+    ],
+    "rallying_beacon": [
+      "sugar_rush_bright_disco_ball",
+      "Sugar-Rush Bright Disco Ball"
+    ],
+    "shield_beacon": [
+      "party_proof_tall_disco_ball",
+      "Party-Proof Tall Disco Ball"
+    ],
+    "pulse_beacon": [
+      "bumper_tall_disco_ball",
+      "Bumper Tall Disco Ball"
+    ],
+    "mucus_plug": [
+      "re_inflating_thick_jelly",
+      "Re-Inflating Thick Jelly"
+    ],
+    "grasping_mucus": [
+      "gooey_thick_jelly",
+      "Gooey Thick Jelly"
+    ],
+    "glue_mucus": [
+      "slushie_extra_wobbly_jelly",
+      "Slushie Extra-Wobbly Jelly"
+    ],
+    "bursting_mucus": [
+      "surprise_extra_wobbly_jelly",
+      "Surprise Extra-Wobbly Jelly"
+    ],
+    "shredding_mast_cell": [
+      "unwrapping_fast_bubble_machine",
+      "Unwrapping Fast Bubble Machine"
+    ],
+    "degranulation_burst": [
+      "fiery_fast_bubble_machine",
+      "Fiery Fast Bubble Machine"
+    ],
+    "shoving_mast_cell": [
+      "bumper_wide_bubble_machine",
+      "Bumper Wide Bubble Machine"
+    ],
+    "alarm_mast_cell": [
+      "sugar_rush_wide_bubble_machine",
+      "Sugar-Rush Wide Bubble Machine"
+    ],
+    "corrosive_spitter": [
+      "unwrapping_cream_pie_launcher",
+      "Unwrapping Cream Pie Launcher"
+    ],
+    "burning_spitter": [
+      "fiery_cream_pie_launcher",
+      "Fiery Cream Pie Launcher"
+    ],
+    "twin_spitter": [
+      "double_long_pie_launcher",
+      "Double Long Pie Launcher"
+    ],
+    "bouncing_spitter": [
+      "bouncing_long_pie_launcher",
+      "Bouncing Long Pie Launcher"
+    ],
+    "inferno_node": [
+      "fiery_tall_flame_candles",
+      "Fiery Tall Flame Candles"
+    ],
+    "heatstroke_node": [
+      "grand_finale_tall_flame_candles",
+      "Grand-Finale Tall Flame Candles"
+    ],
+    "heatwave_node": [
+      "bumper_wide_candle_ring",
+      "Bumper Wide Candle Ring"
+    ],
+    "warming_node": [
+      "sugar_rush_wide_candle_ring",
+      "Sugar-Rush Wide Candle Ring"
+    ],
+    "chain_storm": [
+      "bouncing_air_horn",
+      "Bouncing Air Horn"
+    ],
+    "storm_volley": [
+      "double_air_horn",
+      "Double Air Horn"
+    ],
+    "shockwave_storm": [
+      "bumper_chain_horns",
+      "Bumper Chain Horns"
+    ],
+    "freezing_storm": [
+      "slushie_chain_horns",
+      "Slushie Chain Horns"
+    ],
+    "scorched_zone": [
+      "unwrapping_hot_foam_machine",
+      "Unwrapping Hot Foam Machine"
+    ],
+    "sepsis_zone": [
+      "grand_finale_hot_foam_machine",
+      "Grand-Finale Hot Foam Machine"
+    ],
+    "edema_zone": [
+      "bumper_big_foam_machine",
+      "Bumper Big Foam Machine"
+    ],
+    "fevered_zone": [
+      "prize_big_foam_machine",
+      "Prize Big Foam Machine"
+    ],
+    "regrowing_membrane": [
+      "re_inflating_big_sour_wall",
+      "Re-Inflating Big Sour Wall"
+    ],
+    "sticky_membrane": [
+      "gooey_big_sour_wall",
+      "Gooey Big Sour Wall"
+    ],
+    "toxic_burst_membrane": [
+      "surprise_super_sour_wall",
+      "Surprise Super Sour Wall"
+    ],
+    "antitoxin_membrane": [
+      "party_proof_super_sour_wall",
+      "Party-Proof Super Sour Wall"
+    ],
+    "necrotizing_t": [
+      "grand_finale_extra_sour_squirter",
+      "Grand-Finale Extra-Sour Squirter"
+    ],
+    "twin_venom_t": [
+      "double_extra_sour_squirter",
+      "Double Extra-Sour Squirter"
+    ],
+    "chain_venom_t": [
+      "bouncing_long_lemon_squirter",
+      "Bouncing Long Lemon Squirter"
+    ],
+    "venom_sniper_t": [
+      "laser_long_lemon_squirter",
+      "Laser Long Lemon Squirter"
+    ],
+    "corroding_sprayer": [
+      "unwrapping_sticky_silly_string",
+      "Unwrapping Sticky Silly String"
+    ],
+    "toxic_cloud_sprayer": [
+      "stinky_sticky_silly_string",
+      "Stinky Sticky Silly String"
+    ],
+    "fanning_sprayer": [
+      "double_long_silly_string",
+      "Double Long Silly String"
+    ],
+    "harvest_sprayer": [
+      "prize_long_silly_string",
+      "Prize Long Silly String"
+    ],
+    "dissolving_pool": [
+      "unwrapping_sour_punch_bowl",
+      "Unwrapping Sour Punch Bowl"
+    ],
+    "boiling_pool": [
+      "stinky_sour_punch_bowl",
+      "Stinky Sour Punch Bowl"
+    ],
+    "flooding_pool": [
+      "bumper_overflowing_punch_bowl",
+      "Bumper Overflowing Punch Bowl"
+    ],
+    "rich_pool": [
+      "prize_overflowing_punch_bowl",
+      "Prize Overflowing Punch Bowl"
+    ],
+    "pandemic_lancer": [
+      "bouncing_super_stink_bomb",
+      "Bouncing Super Stink Bomb"
+    ],
+    "plague_executioner": [
+      "grand_finale_super_stink_bomb",
+      "Grand-Finale Super Stink Bomb"
+    ],
+    "plague_volley": [
+      "double_long_stink_bomb",
+      "Double Long Stink Bomb"
+    ],
+    "plague_spear": [
+      "laser_long_stink_bomb",
+      "Laser Long Stink Bomb"
+    ],
+    "undying_bloom": [
+      "re_inflating_stale_moldy_cake",
+      "Re-Inflating Stale Moldy Cake"
+    ],
+    "choking_bloom": [
+      "gooey_stale_moldy_cake",
+      "Gooey Stale Moldy Cake"
+    ],
+    "spore_burst_bloom": [
+      "surprise_fuzzy_moldy_cake",
+      "Surprise Fuzzy Moldy Cake"
+    ],
+    "blight_field": [
+      "stinky_fuzzy_moldy_cake",
+      "Stinky Fuzzy Moldy Cake"
+    ]
+  },
+  "art_style": "party",
+  "invaders": [
+    {
+      "id": "gumdrop",
+      "name": "Gumdrop",
+      "movement": "pather",
+      "hp": 5,
+      "speed": 1.5,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "gumdrop"
+    },
+    {
+      "id": "windup_mouse",
+      "name": "Wind-up Mouse",
+      "movement": "pather",
+      "hp": 8,
+      "speed": 1.6,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "windup_mouse",
+      "desc": "Scurries in swarms."
+    },
+    {
+      "id": "windup_racer",
+      "name": "Wind-up Racer",
+      "movement": "pather",
+      "hp": 15,
+      "armor": 1,
+      "speed": 1.9,
+      "base_damage": 1,
+      "elite": true,
+      "drop": 2,
+      "art": "windup_racer",
+      "desc": "Elite: fast and armored."
+    },
+    {
+      "id": "party_bag",
+      "name": "Party Bag",
+      "movement": "pather",
+      "hp": 18,
+      "speed": 1.0,
+      "base_damage": 2,
+      "split_into": "gumdrop",
+      "split_count": 3,
+      "drop": 1,
+      "art": "party_bag",
+      "desc": "Bursts into three gumdrops."
+    },
+    {
+      "id": "goodie_bag",
+      "name": "Goodie Bag",
+      "movement": "pather",
+      "hp": 30,
+      "armor": 2,
+      "speed": 0.9,
+      "base_damage": 2,
+      "split_into": "gumdrop",
+      "split_count": 3,
+      "elite": true,
+      "drop": 2,
+      "art": "goodie_bag",
+      "desc": "Elite: an armored party bag."
+    },
+    {
+      "id": "bouncy_ball",
+      "name": "Bouncy Ball",
+      "movement": "pather",
+      "hp": 18,
+      "speed": 1.4,
+      "base_damage": 2,
+      "jumps": true,
+      "drop": 2,
+      "art": "bouncy_ball",
+      "desc": "Bounces over any single unit tile."
+    },
+    {
+      "id": "toy_car",
+      "name": "Toy Car",
+      "movement": "smasher",
+      "hp": 24,
+      "speed": 1.0,
+      "base_damage": 2,
+      "smash": 5,
+      "drop": 2,
+      "art": "toy_car",
+      "desc": "A small smasher that rams through units."
+    },
+    {
+      "id": "toy_robot",
+      "name": "Toy Robot",
+      "movement": "smasher",
+      "hp": 55,
+      "speed": 0.7,
+      "base_damage": 3,
+      "smash": 8,
+      "drop": 3,
+      "art": "toy_robot",
+      "desc": "Stomps straight through units."
+    },
+    {
+      "id": "mega_robot",
+      "name": "Mega Robot",
+      "movement": "smasher",
+      "hp": 90,
+      "armor": 2,
+      "speed": 0.65,
+      "base_damage": 4,
+      "smash": 11,
+      "elite": true,
+      "drop": 4,
+      "art": "mega_robot",
+      "desc": "Elite: heavily armored."
+    },
+    {
+      "id": "balloon",
+      "name": "Balloon",
+      "movement": "flier",
+      "hp": 9,
+      "speed": 1.2,
+      "base_damage": 1,
+      "drop": 1,
+      "art": "balloon",
+      "desc": "Floats straight over everything."
+    },
+    {
+      "id": "big_balloon",
+      "name": "Big Balloon",
+      "movement": "flier",
+      "hp": 20,
+      "armor": 1,
+      "speed": 1.4,
+      "base_damage": 2,
+      "elite": true,
+      "drop": 2,
+      "art": "big_balloon",
+      "desc": "Elite: a tough, fast balloon."
+    },
+    {
+      "id": "water_balloon",
+      "name": "Water Balloon",
+      "movement": "flier",
+      "hp": 24,
+      "armor": 1,
+      "speed": 0.8,
+      "base_damage": 2,
+      "bomb": 35,
+      "drop": 2,
+      "art": "water_balloon",
+      "desc": "Splashes your most valuable unit near its flight line, and the tiles around it."
+    },
+    {
+      "id": "soda_spill",
+      "name": "Soda Spill",
+      "movement": "pather",
+      "hp": 30,
+      "speed": 0.6,
+      "base_damage": 2,
+      "spill_every": 2,
+      "spill_slow": 0.4,
+      "drop": 2,
+      "art": "soda_spill",
+      "desc": "Spiller: soaks the units beside its route. Sticky units attack 40% slower until the wave ends."
+    },
+    {
+      "id": "frosting_blob",
+      "name": "Frosting Blob",
+      "movement": "pather",
+      "hp": 26,
+      "armor": 1,
+      "speed": 1.0,
+      "base_damage": 2,
+      "spill_every": 2,
+      "spill_slow": 0.4,
+      "elite": true,
+      "drop": 3,
+      "art": "frosting_blob",
+      "desc": "Elite spiller: faster and armored."
+    },
+    {
+      "id": "pinata",
+      "name": "Piñata",
+      "movement": "pather",
+      "hp": 40,
+      "speed": 0.7,
+      "base_damage": 2,
+      "pinata_pool": [
+        "windup_mouse",
+        "windup_mouse",
+        "bouncy_ball",
+        "balloon",
+        "toy_car"
+      ],
+      "pinata_min": 3,
+      "pinata_max": 5,
+      "drop": 2,
+      "art": "pinata",
+      "desc": "Bursts into a surprise when broken. Same wave, same surprise."
+    },
+    {
+      "id": "mini_pinata",
+      "name": "Mini Piñata",
+      "movement": "pather",
+      "hp": 15,
+      "speed": 0.8,
+      "base_damage": 1,
+      "pinata_pool": [
+        "windup_mouse",
+        "windup_mouse",
+        "bouncy_ball",
+        "balloon",
+        "toy_car"
+      ],
+      "pinata_min": 2,
+      "pinata_max": 3,
+      "drop": 1,
+      "art": "mini_pinata",
+      "desc": "A small piñata the Clown tosses ahead."
+    },
+    {
+      "id": "clown",
+      "name": "The Clown",
+      "movement": "smasher",
+      "hp": 800,
+      "armor": 1,
+      "speed": 0.4,
+      "base_damage": 10,
+      "smash": 18,
+      "boss": true,
+      "minion": "mini_pinata",
+      "minion_count": 1,
+      "minion_interval": 6.0,
+      "minion_throw": 3,
+      "drop": 20,
+      "art": "clown",
+      "desc": "Boss: smashes through anything and tosses mini piñatas ahead onto its route."
+    }
+  ],
+  "waves": {
+    "threat": {
+      "windup_mouse": 1.3,
+      "windup_racer": 2.3,
+      "party_bag": 3.4,
+      "goodie_bag": 5.6,
+      "bouncy_ball": 2.8,
+      "toy_robot": 6.5,
+      "mega_robot": 10.5,
+      "balloon": 1.7,
+      "big_balloon": 4.0,
+      "water_balloon": 6.0,
+      "soda_spill": 3.4,
+      "frosting_blob": 5.4,
+      "pinata": 14.0
+    },
+    "categories": {
+      "swarm": {
+        "normal": "windup_mouse",
+        "elite": "windup_racer",
+        "elite_level": 2
+      },
+      "split": {
+        "normal": "party_bag",
+        "elite": "goodie_bag",
+        "elite_level": 3
+      },
+      "spill": {
+        "normal": "soda_spill",
+        "elite": "frosting_blob",
+        "elite_level": 3
+      },
+      "smash": {
+        "normal": "toy_robot",
+        "elite": "mega_robot",
+        "elite_level": 4
+      },
+      "fly": {
+        "normal": "balloon",
+        "elite": "big_balloon",
+        "elite_level": 4
+      },
+      "jump": {
+        "normal": "bouncy_ball"
+      },
+      "bomb": {
+        "normal": "water_balloon"
+      },
+      "pinata": {
+        "normal": "pinata"
+      }
+    },
+    "mix": [
+      {
+        "swarm": 0.7,
+        "jump": 0.3
+      },
+      {
+        "swarm": 0.4,
+        "split": 0.3,
+        "jump": 0.3
+      },
+      {
+        "pinata": 0.5,
+        "fly": 0.5
+      },
+      {
+        "spill": 0.4,
+        "smash": 0.3,
+        "swarm": 0.3
+      },
+      {
+        "pinata": 0.4,
+        "jump": 0.3,
+        "split": 0.3
+      },
+      {
+        "bomb": 0.4,
+        "smash": 0.6
+      },
+      {
+        "swarm": 0.3,
+        "pinata": 0.4,
+        "fly": 0.3
+      },
+      {
+        "swarm": 0.15,
+        "split": 0.1,
+        "smash": 0.15,
+        "pinata": 0.2,
+        "jump": 0.1,
+        "fly": 0.1,
+        "bomb": 0.1,
+        "spill": 0.1
+      }
+    ],
+    "growth_per_wave": 0.579
+  },
+  "tutorial": {
+    "waves": [
+      [
+        [
+          "windup_mouse",
+          8,
+          1.1,
+          0
+        ]
+      ],
+      [
+        [
+          "windup_mouse",
+          6,
+          1.0,
+          0
+        ],
+        [
+          "pinata",
+          1,
+          4.0,
+          3
+        ]
+      ],
+      [
+        [
+          "pinata",
+          2,
+          4.0,
+          0
+        ],
+        [
+          "windup_mouse",
+          5,
+          1.0,
+          3
+        ]
+      ],
+      [
+        [
+          "party_bag",
+          3,
+          2.4,
+          0
+        ],
+        [
+          "bouncy_ball",
+          2,
+          3.0,
+          3
+        ]
+      ],
+      [
+        [
+          "toy_robot",
+          2,
+          6.0,
+          0
+        ],
+        [
+          "windup_mouse",
+          6,
+          1.0,
+          2
+        ]
+      ],
+      [
+        [
+          "balloon",
+          7,
+          1.3,
+          0
+        ],
+        [
+          "water_balloon",
+          2,
+          5.0,
+          3
+        ]
+      ],
+      [
+        [
+          "soda_spill",
+          3,
+          2.5,
+          0
+        ],
+        [
+          "pinata",
+          1,
+          3.0,
+          3
+        ]
+      ],
+      [
+        [
+          "toy_robot",
+          2,
+          4.0,
+          0
+        ],
+        [
+          "party_bag",
+          4,
+          1.8,
+          2
+        ],
+        [
+          "pinata",
+          2,
+          3.0,
+          5
+        ],
+        [
+          "balloon",
+          5,
+          1.2,
+          8
+        ],
+        [
+          "water_balloon",
+          1,
+          4.0,
+          9
+        ]
+      ]
+    ],
+    "tips": [
+      "Bonus world! This party is post-game: tight maps and wild waves. Wind-up mice scurry around your units; every kill drops coins.",
+      "NEW: Piñatas burst into a surprise when broken. It looks random, but the same wave always hides the same surprise.",
+      "Break piñatas early, far from the cake, so their surprise has a long way to go.",
+      "Party Bags burst into gumdrops. Bouncy Balls hop single walls, so build them two thick.",
+      "Toy Robots ignore your maze and stomp through units (red line).",
+      "Balloons float straight in. Water Balloons splash your most valuable units.",
+      "Soda Spills soak the units beside their route: sticky units attack slower until the wave ends.",
+      "Final wave! The Clown waits at the end of this world."
+    ]
+  },
+  "levels": [
+    {
+      "name": "1. Party Time",
+      "hand": [
+        12,
+        12,
+        7,
+        0,
+        0,
+        0
+      ],
+      "coins": 45,
+      "income": 5,
+      "layout": [
+        "....S....",
+        ".........",
+        "..#...#..",
+        ".........",
+        "#...#...#",
+        ".........",
+        "..#...#..",
+        ".........",
+        "#...#...#",
+        ".........",
+        "..#...#..",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "2. Living Room",
+      "tiles": "living",
+      "budget": 26,
+      "hand": [
+        10,
+        8,
+        7,
+        5,
+        0,
+        0
+      ],
+      "coins": 18,
+      "income": 5,
+      "layout": [
+        "S.......S",
+        ".........",
+        ".###.###.",
+        ".........",
+        ".........",
+        "...#.#...",
+        "#.......#",
+        "...#.#...",
+        ".........",
+        ".###.###.",
+        ".........",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "3. Present Pile",
+      "budget": 37,
+      "hand": [
+        12,
+        8,
+        7,
+        5,
+        8,
+        0
+      ],
+      "coins": 18,
+      "income": 5,
+      "layout": [
+        "S...S...S",
+        ".........",
+        "..#...#..",
+        ".#.#.#.#.",
+        ".........",
+        ".........",
+        "##.###.##",
+        ".........",
+        ".........",
+        ".#.#.#.#.",
+        "..#...#..",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "4. Sugar Rush",
+      "tiles": "bouncy",
+      "budget": 41,
+      "hand": [
+        14,
+        10,
+        7,
+        8,
+        8,
+        6
+      ],
+      "coins": 20,
+      "income": 6,
+      "layout": [
+        "S...S...S",
+        ".........",
+        "...#.#...",
+        ".#.....#.",
+        ".........",
+        "##.#.#.##",
+        ".........",
+        ".........",
+        "..#...#..",
+        "#...#...#",
+        ".........",
+        "...#.#...",
+        ".........",
+        "....B...."
+      ]
+    },
+    {
+      "name": "5. Clown Time",
+      "budget": 43,
+      "boss": "clown",
+      "hand": [
+        18,
+        12,
+        12,
+        8,
+        8,
+        6
+      ],
+      "coins": 22,
+      "income": 6,
+      "layout": [
+        "S...S...S",
+        ".........",
+        "#.#...#.#",
+        ".........",
+        "..#.#.#..",
+        ".........",
+        ".#.....#.",
+        ".........",
+        "..#.#.#..",
+        ".........",
+        "#.#...#.#",
+        ".........",
+        ".........",
+        "....B...."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/sharp_fork_attack.png" id="1_rgeb3"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/sharp_fork_idle.png" id="2_1jraj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_g1a70"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/two_handed_sharp_fork.png" id="4_6h5k8"]
+
+[resource]
+script = ExtResource("3_g1a70")
+id = "two_handed_sharp_fork"
+display_name = "Two-Handed Sharp Fork"
+role = 1
+cost = 32
+damage = 3.5
+attack_interval = 0.45
+adjacency_bonus = 0.15
+tier = 2
+multishot = 2
+texture = ExtResource("4_6h5k8")
+anim_idle = ExtResource("2_1jraj")
+anim_attack = ExtResource("1_rgeb3")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Jabs 2 targets at once."

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/roaming_bazooka_attack.png" id="1_xaunn"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/roaming_bazooka_idle.png" id="2_qeavh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_u62m7"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/relay_roaming_bazooka.png" id="4_h70ag"]
+
+[resource]
+script = ExtResource("3_u62m7")
+id = "relay_roaming_bazooka"
+display_name = "Relay Roaming Bazooka"
+role = 1
+cost = 68
+max_hp = 25
+damage = 12.0
+attack_range = 3.5
+attack_interval = 1.6
+hits_air = true
+pierce = true
+tier = 2
+chain_count = 2
+texture = ExtResource("4_h70ag")
+anim_idle = ExtResource("2_qeavh")
+anim_attack = ExtResource("1_xaunn")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Strikes chain to 2 more invaders."

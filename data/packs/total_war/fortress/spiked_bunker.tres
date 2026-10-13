@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_oixrc"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/spiked_bunker.png" id="2_fyonr"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/spiked_bunker_attack.png" id="1_ovxsq"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/spiked_bunker_idle.png" id="2_n1232"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_hjajh"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/booby_trapped_spiked_bunker.tres" id="4_o0huq"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/barbed_spiked_bunker.tres" id="5_mcdev"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/spiked_bunker.png" id="6_w6a4m"]
 
 [resource]
-script = ExtResource("1_oixrc")
+script = ExtResource("3_hjajh")
 id = "spiked_bunker"
 display_name = "Spiked Bunker"
 cost = 16
@@ -12,6 +16,10 @@ max_hp = 260
 reflect = 0.8
 attack_mode = 1
 damage = 5.0
-texture = ExtResource("2_fyonr")
+tier = 1
+evolutions = Array[ExtResource("3_hjajh")]([ExtResource("4_o0huq"), ExtResource("5_mcdev")])
+texture = ExtResource("6_w6a4m")
+anim_idle = ExtResource("2_n1232")
+anim_attack = ExtResource("1_ovxsq")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 80% of smasher damage."

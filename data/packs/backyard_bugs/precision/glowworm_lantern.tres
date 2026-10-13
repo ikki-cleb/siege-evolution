@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_l0cbd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/blazing_lantern.tres" id="2_eejg7"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/tall_lantern.tres" id="3_y4f47"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/glowworm_lantern.png" id="4_83ylu"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/glowworm_lantern_attack.png" id="1_y4f47"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/glowworm_lantern_idle.png" id="2_83ylu"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lmhwi"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/blazing_lantern.tres" id="4_37eqc"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/tall_lantern.tres" id="5_nidpq"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/glowworm_lantern.png" id="6_ebsw4"]
 
 [resource]
-script = ExtResource("1_l0cbd")
+script = ExtResource("3_lmhwi")
 id = "glowworm_lantern"
 display_name = "Glowworm Lantern"
 role = 2
@@ -17,7 +19,9 @@ attack_range = 2.5
 hits_air = true
 mark_bonus = 0.25
 mark_duration = 1.5
-evolutions = Array[ExtResource("1_l0cbd")]([ExtResource("2_eejg7"), ExtResource("3_y4f47")])
-texture = ExtResource("4_83ylu")
+evolutions = Array[ExtResource("3_lmhwi")]([ExtResource("4_37eqc"), ExtResource("5_nidpq")])
+texture = ExtResource("6_ebsw4")
+anim_idle = ExtResource("2_83ylu")
+anim_attack = ExtResource("1_y4f47")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks everything around it for +25% damage."

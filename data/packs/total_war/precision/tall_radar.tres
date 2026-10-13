@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_pn0lg"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/tall_radar.png" id="2_7c6de"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/tall_radar_attack.png" id="1_und6t"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/tall_radar_idle.png" id="2_w0136"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_2whi7"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/waterproof_tall_radar.tres" id="4_ajuh6"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/recoil_tall_radar.tres" id="5_fa8nw"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/tall_radar.png" id="6_6mqjt"]
 
 [resource]
-script = ExtResource("1_pn0lg")
+script = ExtResource("3_2whi7")
 id = "tall_radar"
 display_name = "Tall Radar"
 role = 2
@@ -15,6 +19,10 @@ attack_range = 3.5
 hits_air = true
 mark_bonus = 0.25
 mark_duration = 1.5
-texture = ExtResource("2_7c6de")
+tier = 1
+evolutions = Array[ExtResource("3_2whi7")]([ExtResource("4_ajuh6"), ExtResource("5_fa8nw")])
+texture = ExtResource("6_6mqjt")
+anim_idle = ExtResource("2_w0136")
+anim_attack = ExtResource("1_und6t")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

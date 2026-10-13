@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_nwitr"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/quick_jumper.png" id="2_ya2uf"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/quick_jumper_attack.png" id="1_hoerd"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/quick_jumper_idle.png" id="2_by20s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ay20e"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/foraging_quick_jumper.tres" id="4_kh716"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/swarming_quick_jumper.tres" id="5_81khq"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/quick_jumper.png" id="6_07juq"]
 
 [resource]
-script = ExtResource("1_nwitr")
+script = ExtResource("3_ay20e")
 id = "quick_jumper"
 display_name = "Quick Jumper"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 5.0
 attack_interval = 1.9
 hits_air = true
 pierce = true
-texture = ExtResource("2_ya2uf")
+tier = 1
+evolutions = Array[ExtResource("3_ay20e")]([ExtResource("4_kh716"), ExtResource("5_81khq")])
+texture = ExtResource("6_07juq")
+anim_idle = ExtResource("2_by20s")
+anim_attack = ExtResource("1_hoerd")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Fires much faster."

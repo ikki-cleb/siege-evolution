@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_spotlight_attack.png" id="1_sgmdn"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_spotlight_idle.png" id="2_8x7qy"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_irr7r"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/double_long_spotlight.png" id="4_hapwr"]
+
+[resource]
+script = ExtResource("3_irr7r")
+id = "double_long_spotlight"
+display_name = "Double Long Spotlight"
+role = 2
+cost = 48
+max_hp = 15
+damage = 1.0
+attack_range = 4.5
+hits_air = true
+mark_bonus = 0.3
+mark_duration = 3.0
+tier = 2
+multishot = 3
+texture = ExtResource("4_hapwr")
+anim_idle = ExtResource("2_8x7qy")
+anim_attack = ExtResource("1_sgmdn")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Tags 3 targets at once."

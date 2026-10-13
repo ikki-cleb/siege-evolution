@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/elite_commando_attack.png" id="1_vv7gq"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/elite_commando_idle.png" id="2_e7tnr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qc7he"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/relay_elite_commando.png" id="4_fee78"]
+
+[resource]
+script = ExtResource("3_qc7he")
+id = "relay_elite_commando"
+display_name = "Relay Elite Commando"
+role = 1
+cost = 52
+max_hp = 25
+damage = 7.0
+attack_interval = 0.45
+pierce = true
+adjacency_bonus = 0.15
+tier = 2
+chain_count = 2
+texture = ExtResource("4_fee78")
+anim_idle = ExtResource("2_e7tnr")
+anim_attack = ExtResource("1_vv7gq")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Strikes chain to 2 more invaders."

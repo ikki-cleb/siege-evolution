@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/wide_net_attack.png" id="1_42ioo"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/wide_net_idle.png" id="2_1olbn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6evls"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/bursting_net.png" id="4_utj3a"]
+
+[resource]
+script = ExtResource("3_6evls")
+id = "bursting_net"
+display_name = "Bursting Wide Sticky Net"
+cost = 24
+max_hp = 25
+attack_mode = 1
+damage = 0.5
+attack_range = 2.2
+attack_interval = 0.5
+slow = 0.5
+slow_duration = 1.0
+tier = 2
+explode_damage = 30.0
+texture = ExtResource("4_utj3a")
+anim_idle = ExtResource("2_1olbn")
+anim_attack = ExtResource("1_42ioo")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Bursts when it breaks, hurting nearby invaders."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_b820l"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/deathstalker.tres" id="2_rhnh6"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/long_tail_scorpion.tres" id="3_8c2vt"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/scorpion.png" id="4_u58c2"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/scorpion_attack.png" id="1_8c2vt"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/scorpion_idle.png" id="2_u58c2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_g0gso"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/deathstalker.tres" id="4_laufg"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/long_tail_scorpion.tres" id="5_flify"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/scorpion.png" id="6_uj4av"]
 
 [resource]
-script = ExtResource("1_b820l")
+script = ExtResource("3_g0gso")
 id = "scorpion"
 display_name = "Scorpion"
 role = 1
@@ -18,7 +20,9 @@ hits_air = true
 poison_dps = 4.5
 poison_duration = 5.0
 poison_spreads = true
-evolutions = Array[ExtResource("1_b820l")]([ExtResource("2_rhnh6"), ExtResource("3_8c2vt")])
-texture = ExtResource("4_u58c2")
+evolutions = Array[ExtResource("3_g0gso")]([ExtResource("4_laufg"), ExtResource("5_flify")])
+texture = ExtResource("6_uj4av")
+anim_idle = ExtResource("2_u58c2")
+anim_attack = ExtResource("1_8c2vt")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison that jumps to nearby invaders when its victim dies."

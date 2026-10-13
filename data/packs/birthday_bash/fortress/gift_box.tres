@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/gift_box_idle.png" id="1_gw5qq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_t222q"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/big_gift_box.tres" id="3_xatg7"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/prickly_present.tres" id="4_blwbh"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/gift_box.png" id="5_1ulq8"]
+
+[resource]
+script = ExtResource("2_t222q")
+id = "gift_box"
+display_name = "Gift Box"
+cost = 7
+max_hp = 90
+evolutions = Array[ExtResource("2_t222q")]([ExtResource("3_xatg7"), ExtResource("4_blwbh")])
+can_place_on_water = true
+texture = ExtResource("5_1ulq8")
+anim_idle = ExtResource("1_gw5qq")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Very tough wall."

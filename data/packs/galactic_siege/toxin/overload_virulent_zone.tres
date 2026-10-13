@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/virulent_zone_attack.png" id="1_uwtx2"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/virulent_zone_idle.png" id="2_i8tpn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_v1m7l"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/overload_virulent_zone.png" id="4_pfeju"]
+
+[resource]
+script = ExtResource("3_v1m7l")
+id = "overload_virulent_zone"
+display_name = "Overload Virulent Zone"
+cost = 52
+max_hp = 40
+attack_mode = 1
+poison_dps = 6.0
+poison_duration = 2.0
+poison_spreads = true
+tier = 2
+zone_kind = "toxic"
+zone_power = 4.0
+explode_damage = 60.0
+texture = ExtResource("4_pfeju")
+anim_idle = ExtResource("2_i8tpn")
+anim_attack = ExtResource("1_uwtx2")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Bursts into a toxic cloud when it breaks."

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/balloon_arch_idle.png" id="1_fypwr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_dwy7y"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/thick_balloon_arch.tres" id="3_7du6m"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/self_inflating_arch.tres" id="4_pdfyn"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/balloon_arch.png" id="5_s53rb"]
+
+[resource]
+script = ExtResource("2_dwy7y")
+id = "balloon_arch"
+display_name = "Balloon Arch"
+cost = 10
+max_hp = 70
+regen = 6.0
+evolutions = Array[ExtResource("2_dwy7y")]([ExtResource("3_7du6m"), ExtResource("4_pdfyn")])
+texture = ExtResource("5_s53rb")
+anim_idle = ExtResource("1_fypwr")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Wall that heals itself when not under attack."

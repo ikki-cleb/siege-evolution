@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/soap_bar_idle.png" id="1_bnq2a"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_wjyxe"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/big_soap_bar.tres" id="3_qyjht"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/lye_soap.tres" id="4_jat2d"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/soap_bar.png" id="5_chwae"]
+
+[resource]
+script = ExtResource("2_wjyxe")
+id = "soap_bar"
+display_name = "Soap Bar"
+max_hp = 25
+reflect = 0.3
+evolutions = Array[ExtResource("2_wjyxe")]([ExtResource("3_qyjht"), ExtResource("4_jat2d")])
+can_place_on_water = true
+texture = ExtResource("5_chwae")
+anim_idle = ExtResource("1_bnq2a")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Wall that hurts smashers biting it."

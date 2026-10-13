@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/long_sting_wasp_attack.png" id="1_hbuhr"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/long_sting_wasp_idle.png" id="2_ikprj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1er0w"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/swarming_long_sting_wasp.png" id="4_e4df2"]
+
+[resource]
+script = ExtResource("3_1er0w")
+id = "swarming_long_sting_wasp"
+display_name = "Swarming Long-Sting Wasp"
+role = 1
+cost = 48
+damage = 1.0
+attack_range = 3.0
+attack_interval = 0.9
+poison_dps = 3.5
+poison_duration = 4.0
+tier = 2
+chain_count = 2
+texture = ExtResource("4_e4df2")
+anim_idle = ExtResource("2_ikprj")
+anim_attack = ExtResource("1_hbuhr")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poison chains to 2 more invaders."

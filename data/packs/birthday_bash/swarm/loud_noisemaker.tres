@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/loud_noisemaker_attack.png" id="1_wkydx"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/loud_noisemaker_idle.png" id="2_xubiw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_clh04"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/fiery_loud_noisemaker.tres" id="4_323hw"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/unwrapping_loud_noisemaker.tres" id="5_rcvy2"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/loud_noisemaker.png" id="6_vbmcj"]
+
+[resource]
+script = ExtResource("3_clh04")
+id = "loud_noisemaker"
+display_name = "Loud Noisemaker"
+role = 1
+cost = 9
+max_hp = 15
+attack_mode = 1
+damage = 2.2
+attack_interval = 0.6
+adjacency_bonus = 0.15
+tier = 1
+evolutions = Array[ExtResource("3_clh04")]([ExtResource("4_323hw"), ExtResource("5_rcvy2")])
+texture = ExtResource("6_vbmcj")
+anim_idle = ExtResource("2_xubiw")
+anim_attack = ExtResource("1_wkydx")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "More damage."

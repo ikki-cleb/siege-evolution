@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0drhv"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/heavy_rail_cannon.png" id="2_4otsn"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/heavy_rail_cannon_attack.png" id="1_k1xx8"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/heavy_rail_cannon_idle.png" id="2_kuxoa"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qv8b7"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/multi_target_heavy_rail_cannon.tres" id="4_6hgdb"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/terminator_heavy_rail_cannon.tres" id="5_4j1ov"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/heavy_rail_cannon.png" id="6_ro0f3"]
 
 [resource]
-script = ExtResource("1_0drhv")
+script = ExtResource("3_qv8b7")
 id = "heavy_rail_cannon"
 display_name = "Heavy Rail Cannon"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 2.0
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_4otsn")
+tier = 1
+evolutions = Array[ExtResource("3_qv8b7")]([ExtResource("4_6hgdb"), ExtResource("5_4j1ov")])
+texture = ExtResource("6_ro0f3")
+anim_idle = ExtResource("2_kuxoa")
+anim_attack = ExtResource("1_k1xx8")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Even bigger blasts."

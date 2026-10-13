@@ -1,15 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_mkjal"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/healing_fibroblast.png" id="2_yyemp"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/healing_fibroblast_idle.png" id="1_4bt0t"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_g78bq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/signaling_fibroblast.tres" id="3_hi0oq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/granulation_tissue.tres" id="4_6rr53"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/healing_fibroblast.png" id="5_ji1n0"]
 
 [resource]
-script = ExtResource("1_mkjal")
+script = ExtResource("2_g78bq")
 id = "healing_fibroblast"
-display_name = "Healing Fibroblast"
+display_name = "Quick-Heal Tissue"
 cost = 10
 max_hp = 70
 regen = 16.0
-texture = ExtResource("2_yyemp")
+tier = 1
+evolutions = Array[ExtResource("2_g78bq")]([ExtResource("3_hi0oq"), ExtResource("4_6rr53")])
+texture = ExtResource("5_ji1n0")
+anim_idle = ExtResource("1_4bt0t")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

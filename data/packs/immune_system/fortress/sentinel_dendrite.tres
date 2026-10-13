@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/roaming_dendrite_attack.png" id="1_kaqv7"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/roaming_dendrite_idle.png" id="2_htjvv"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lx676"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/sentinel_dendrite.png" id="4_6lxxj"]
+
+[resource]
+script = ExtResource("3_lx676")
+id = "sentinel_dendrite"
+display_name = "Piercing Far Scout Cell"
+role = 1
+cost = 56
+max_hp = 30
+damage = 8.0
+attack_range = 3.6
+attack_interval = 1.4
+hits_air = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_6lxxj")
+anim_idle = ExtResource("2_htjvv")
+anim_attack = ExtResource("1_kaqv7")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Shots pierce every invader in a line."

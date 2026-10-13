@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/giant_macrophage_attack.png" id="1_kqxo2"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/giant_macrophage_idle.png" id="2_74idd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_re0sw"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/devouring_macrophage.png" id="4_bkfrc"]
+
+[resource]
+script = ExtResource("3_re0sw")
+id = "devouring_macrophage"
+display_name = "Finishing Giant Germ Eater"
+role = 1
+cost = 60
+max_hp = 80
+damage = 22.0
+attack_interval = 1.1
+tier = 2
+execute_below = 0.25
+texture = ExtResource("4_bkfrc")
+anim_idle = ExtResource("2_74idd")
+anim_attack = ExtResource("1_kqxo2")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Swallows wounded invaders whole (below 25% HP)."

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/tall_lamp_attack.png" id="1_mgg0e"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/tall_lamp_idle.png" id="2_obw6v"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ijbuf"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/wipe_clean_tall_lamp.tres" id="4_r7ok5"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/swatting_tall_lamp.tres" id="5_qcdd7"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/tall_lamp.png" id="6_8r221"]
+
+[resource]
+script = ExtResource("3_ijbuf")
+id = "tall_lamp"
+display_name = "Tall Lamp"
+role = 2
+cost = 12
+max_hp = 35
+attack_mode = 1
+attack_range = 3.5
+hits_air = true
+mark_bonus = 0.25
+mark_duration = 1.5
+tier = 1
+evolutions = Array[ExtResource("3_ijbuf")]([ExtResource("4_r7ok5"), ExtResource("5_qcdd7")])
+texture = ExtResource("6_8r221")
+anim_idle = ExtResource("2_obw6v")
+anim_attack = ExtResource("1_mgg0e")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Much more range."

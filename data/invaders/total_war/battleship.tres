@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_p0tn4"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/battleship.png" id="2_ku3lc"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/battleship_death.png" id="1_kt4ap"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/battleship_move.png" id="2_ee8jg"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_y44mc"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/battleship.png" id="4_8j1il"]
 
 [resource]
-script = ExtResource("1_p0tn4")
+script = ExtResource("3_y44mc")
 id = "battleship"
 display_name = "Battleship"
 movement = 1
@@ -13,7 +15,9 @@ armor = 1
 speed = 0.65
 base_damage = 3
 smash_damage = 10.0
-atp_drop = 4
+coin_drop = 4
 naval = true
-texture = ExtResource("2_ku3lc")
+texture = ExtResource("4_8j1il")
+anim_move = ExtResource("2_ee8jg")
+anim_death = ExtResource("1_kt4ap")
 description = "Rams straight through nets and mines."

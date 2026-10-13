@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_y0bk0"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/chain_emp.png" id="2_5jupd"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/chain_emp_attack.png" id="1_38otg"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/chain_emp_idle.png" id="2_yyvjk"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lmrpa"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/repulsor_chain_emp.tres" id="4_oi48n"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/cryo_chain_emp.tres" id="5_k06ml"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/chain_emp.png" id="6_0170d"]
 
 [resource]
-script = ExtResource("1_y0bk0")
+script = ExtResource("3_lmrpa")
 id = "chain_emp"
 display_name = "Chain EMP"
 role = 1
@@ -15,6 +19,10 @@ attack_interval = 1.6
 hits_air = true
 splash_radius = 1.2
 stun_duration = 0.6
-texture = ExtResource("2_5jupd")
+tier = 1
+evolutions = Array[ExtResource("3_lmrpa")]([ExtResource("4_oi48n"), ExtResource("5_k06ml")])
+texture = ExtResource("6_0170d")
+anim_idle = ExtResource("2_yyvjk")
+anim_attack = ExtResource("1_38otg")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns a whole area."

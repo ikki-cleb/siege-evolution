@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ispnx"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/long_range_spotter.png" id="2_pgvpb"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/long_range_spotter_attack.png" id="1_uggnc"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/long_range_spotter_idle.png" id="2_spti4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_cqrxp"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/twin_barrel_long_range_spotter.tres" id="4_3ov8i"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/rallying_long_range_spotter.tres" id="5_qkcld"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/long_range_spotter.png" id="6_oauen"]
 
 [resource]
-script = ExtResource("1_ispnx")
+script = ExtResource("3_cqrxp")
 id = "long_range_spotter"
 display_name = "Long-Range Spotter"
 role = 2
@@ -15,6 +19,10 @@ attack_range = 4.5
 hits_air = true
 mark_bonus = 0.3
 mark_duration = 3.0
-texture = ExtResource("2_pgvpb")
+tier = 1
+evolutions = Array[ExtResource("3_cqrxp")]([ExtResource("4_3ov8i"), ExtResource("5_qkcld")])
+texture = ExtResource("6_oauen")
+anim_idle = ExtResource("2_spti4")
+anim_attack = ExtResource("1_uggnc")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

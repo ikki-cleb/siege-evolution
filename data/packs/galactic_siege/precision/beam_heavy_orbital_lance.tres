@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/heavy_orbital_lance_attack.png" id="1_nofo3"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/heavy_orbital_lance_idle.png" id="2_w0sh2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0o2j2"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/beam_heavy_orbital_lance.png" id="4_7opjg"]
+
+[resource]
+script = ExtResource("3_0o2j2")
+id = "beam_heavy_orbital_lance"
+display_name = "Beam Heavy Orbital Lance"
+role = 1
+cost = 92
+max_hp = 15
+damage = 55.0
+attack_range = 5.0
+attack_interval = 3.0
+hits_air = true
+pierce = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_7opjg")
+anim_idle = ExtResource("2_w0sh2")
+anim_attack = ExtResource("1_nofo3")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Shots pierce every invader in a line."

@@ -1,17 +1,25 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_4wdta"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/giant_macrophage.png" id="2_fbthm"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/giant_macrophage_attack.png" id="1_g0kv1"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/giant_macrophage_idle.png" id="2_1q1ss"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_g53at"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/devouring_macrophage.tres" id="4_i68qw"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/titan_macrophage.tres" id="5_me1kw"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/giant_macrophage.png" id="6_sb0tm"]
 
 [resource]
-script = ExtResource("1_4wdta")
+script = ExtResource("3_g53at")
 id = "giant_macrophage"
-display_name = "Giant Macrophage"
+display_name = "Giant Germ Eater"
 role = 1
 cost = 16
 max_hp = 80
 damage = 17.0
 attack_interval = 1.1
-texture = ExtResource("2_fbthm")
+tier = 1
+evolutions = Array[ExtResource("3_g53at")]([ExtResource("4_i68qw"), ExtResource("5_me1kw")])
+texture = ExtResource("6_sb0tm")
+anim_idle = ExtResource("2_1q1ss")
+anim_attack = ExtResource("1_g0kv1")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Hits far harder."

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/clown_death.png" id="1_f7mfg"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/invaders/clown_move.png" id="2_hep60"]
+[ext_resource type="Resource" path="res://data/invaders/birthday_bash/mini_pinata.tres" id="3_6rwu8"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="4_qkfgj"]
+[ext_resource type="Texture2D" path="res://art/invaders/birthday_bash/clown.png" id="5_t8to3"]
+
+[resource]
+script = ExtResource("4_qkfgj")
+id = "clown"
+display_name = "The Clown"
+movement = 1
+max_hp = 800
+armor = 1
+speed = 0.4
+base_damage = 10
+smash_damage = 18.0
+coin_drop = 20
+is_boss = true
+minion = ExtResource("3_6rwu8")
+minion_count = 1
+minion_interval = 6.0
+minion_throw = 3
+texture = ExtResource("5_t8to3")
+anim_move = ExtResource("2_hep60")
+anim_death = ExtResource("1_f7mfg")
+description = "Boss: smashes through anything and tosses mini piñatas ahead onto its route."

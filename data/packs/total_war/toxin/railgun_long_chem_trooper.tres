@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/long_chem_trooper_attack.png" id="1_4gko1"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/long_chem_trooper_idle.png" id="2_w5th8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_eeuj1"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/railgun_long_chem_trooper.png" id="4_jg2b8"]
+
+[resource]
+script = ExtResource("3_eeuj1")
+id = "railgun_long_chem_trooper"
+display_name = "Railgun Long Chem Trooper"
+role = 1
+cost = 48
+damage = 1.0
+attack_range = 3.0
+attack_interval = 0.9
+poison_dps = 3.5
+poison_duration = 4.0
+tier = 2
+line_pierce = true
+texture = ExtResource("4_jg2b8")
+anim_idle = ExtResource("2_w5th8")
+anim_attack = ExtResource("1_4gko1")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poison pierces every invader in a line."

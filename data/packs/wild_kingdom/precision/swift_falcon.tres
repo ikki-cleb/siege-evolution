@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_06dni"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/swift_falcon.png" id="2_o13vr"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/swift_falcon_attack.png" id="1_pxkwj"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/swift_falcon_idle.png" id="2_u2u2y"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ly2v3"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/market_swift_falcon.tres" id="4_3g1ov"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/herding_swift_falcon.tres" id="5_84irg"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/swift_falcon.png" id="6_bu7s4"]
 
 [resource]
-script = ExtResource("1_06dni")
+script = ExtResource("3_ly2v3")
 id = "swift_falcon"
 display_name = "Swift Falcon"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 5.0
 attack_interval = 1.9
 hits_air = true
 pierce = true
-texture = ExtResource("2_o13vr")
+tier = 1
+evolutions = Array[ExtResource("3_ly2v3")]([ExtResource("4_3g1ov"), ExtResource("5_84irg")])
+texture = ExtResource("6_bu7s4")
+anim_idle = ExtResource("2_u2u2y")
+anim_attack = ExtResource("1_pxkwj")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Fires much faster."

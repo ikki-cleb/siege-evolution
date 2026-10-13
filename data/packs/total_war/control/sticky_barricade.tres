@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_77pv6"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/thick_barricade.tres" id="2_hc5qc"]
-[ext_resource type="Resource" path="res://data/packs/total_war/control/gluey_barricade.tres" id="3_v3f3r"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/sticky_barricade.png" id="4_r8f6o"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/control/sticky_barricade_water.png" id="5_pkial"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/sticky_barricade_attack.png" id="1_v3f3r"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/sticky_barricade_idle.png" id="2_r8f6o"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pkial"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/thick_barricade.tres" id="4_s3qxu"]
+[ext_resource type="Resource" path="res://data/packs/total_war/control/gluey_barricade.tres" id="5_3g0g1"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/sticky_barricade.png" id="6_xkyxh"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/sticky_barricade_water.png" id="7_bpb3g"]
 
 [resource]
-script = ExtResource("1_77pv6")
+script = ExtResource("3_pkial")
 id = "sticky_barricade"
 display_name = "Sticky Barricade"
 max_hp = 25
@@ -16,9 +18,11 @@ attack_range = 1.2
 attack_interval = 0.5
 slow = 0.3
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_77pv6")]([ExtResource("2_hc5qc"), ExtResource("3_v3f3r")])
+evolutions = Array[ExtResource("3_pkial")]([ExtResource("4_s3qxu"), ExtResource("5_3g0g1")])
 can_place_on_water = true
-water_texture = ExtResource("5_pkial")
-texture = ExtResource("4_r8f6o")
+water_texture = ExtResource("7_bpb3g")
+texture = ExtResource("6_xkyxh")
+anim_idle = ExtResource("2_r8f6o")
+anim_attack = ExtResource("1_v3f3r")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Wall that slows invaders walking past it."

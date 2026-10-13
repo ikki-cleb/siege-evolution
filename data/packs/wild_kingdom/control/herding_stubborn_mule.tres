@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/stubborn_mule_attack.png" id="1_a814f"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/stubborn_mule_idle.png" id="2_hc43j"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_exn23"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/herding_stubborn_mule.png" id="4_q6du2"]
+
+[resource]
+script = ExtResource("3_exn23")
+id = "herding_stubborn_mule"
+display_name = "Herding Stubborn Mule"
+role = 1
+cost = 68
+damage = 4.0
+attack_range = 2.5
+attack_interval = 1.6
+hits_air = true
+stun_duration = 1.1
+tier = 2
+chain_count = 3
+texture = ExtResource("4_q6du2")
+anim_idle = ExtResource("2_hc43j")
+anim_attack = ExtResource("1_a814f")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Stuns chain to 3 more invaders."

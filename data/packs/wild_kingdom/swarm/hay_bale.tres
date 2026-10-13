@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_i3h70"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/packed_hay.tres" id="2_ray20"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/thistle_hay.tres" id="3_tg21u"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/hay_bale.png" id="4_bca74"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/hay_bale_idle.png" id="1_ray20"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_tg21u"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/packed_hay.tres" id="3_bca74"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/thistle_hay.tres" id="4_72613"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/hay_bale.png" id="5_ir7ir"]
 
 [resource]
-script = ExtResource("1_i3h70")
+script = ExtResource("2_tg21u")
 id = "hay_bale"
 display_name = "Hay Bale"
 cost = 3
 max_hp = 18
-evolutions = Array[ExtResource("1_i3h70")]([ExtResource("2_ray20"), ExtResource("3_tg21u")])
+evolutions = Array[ExtResource("2_tg21u")]([ExtResource("3_bca74"), ExtResource("4_72613")])
 can_place_on_water = true
-texture = ExtResource("4_bca74")
+texture = ExtResource("5_ir7ir")
+anim_idle = ExtResource("1_ray20")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Dirt-cheap wall."

@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_22jdh"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/thrombus_spike.png" id="2_vtpdo"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/thrombus_spike_idle.png" id="1_xslk2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_axrfd"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/thrombus_mine.tres" id="3_q24ki"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/barbed_thrombus.tres" id="4_f066j"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/thrombus_spike.png" id="5_uamn0"]
 
 [resource]
-script = ExtResource("1_22jdh")
+script = ExtResource("2_axrfd")
 id = "thrombus_spike"
-display_name = "Thrombus Spike"
+display_name = "Spiky Scab"
 cost = 10
 max_hp = 120
 reflect = 0.6
+tier = 1
+evolutions = Array[ExtResource("2_axrfd")]([ExtResource("3_q24ki"), ExtResource("4_f066j")])
 can_place_on_water = true
-texture = ExtResource("2_vtpdo")
+texture = ExtResource("5_uamn0")
+anim_idle = ExtResource("1_xslk2")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 60% of smasher damage."

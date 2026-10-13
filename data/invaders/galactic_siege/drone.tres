@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_v4ak7"]
-[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/drone.png" id="2_myb7f"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/drone_death.png" id="1_vyk7d"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/invaders/drone_move.png" id="2_ft863"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_mqd2b"]
+[ext_resource type="Texture2D" path="res://art/invaders/galactic_siege/drone.png" id="4_oq2qc"]
 
 [resource]
-script = ExtResource("1_v4ak7")
+script = ExtResource("3_mqd2b")
 id = "drone"
 display_name = "Alien Drone"
 max_hp = 15
 armor = 1
 speed = 1.9
-atp_drop = 2
+coin_drop = 2
 is_elite = true
-texture = ExtResource("2_myb7f")
+texture = ExtResource("4_oq2qc")
+anim_move = ExtResource("2_ft863")
+anim_death = ExtResource("1_vyk7d")
 description = "Elite: fast and armored."

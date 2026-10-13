@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_albij"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/veteran_rifleman.tres" id="2_u5wm8"]
-[ext_resource type="Resource" path="res://data/packs/total_war/swarm/scout_rifleman.tres" id="3_qb543"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/rifleman.png" id="4_ljo0j"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/rifleman_attack.png" id="1_qb543"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/rifleman_idle.png" id="2_ljo0j"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_rdnj5"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/veteran_rifleman.tres" id="4_yo0li"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/scout_rifleman.tres" id="5_2fsoa"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/rifleman.png" id="6_jhnwd"]
 
 [resource]
-script = ExtResource("1_albij")
+script = ExtResource("3_rdnj5")
 id = "rifleman"
 display_name = "Rifleman"
 role = 1
@@ -14,7 +16,9 @@ cost = 8
 damage = 2.3
 attack_interval = 0.45
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_albij")]([ExtResource("2_u5wm8"), ExtResource("3_qb543")])
-texture = ExtResource("4_ljo0j")
+evolutions = Array[ExtResource("3_rdnj5")]([ExtResource("4_yo0li"), ExtResource("5_2fsoa")])
+texture = ExtResource("6_jhnwd")
+anim_idle = ExtResource("2_ljo0j")
+anim_attack = ExtResource("1_qb543")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Fast melee jabs, faster in groups."

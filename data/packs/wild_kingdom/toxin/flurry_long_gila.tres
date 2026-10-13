@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/long_gila_attack.png" id="1_lksx6"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/long_gila_idle.png" id="2_tqvpp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_kf5c4"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/flurry_long_gila.png" id="4_tgxlo"]
+
+[resource]
+script = ExtResource("3_kf5c4")
+id = "flurry_long_gila"
+display_name = "Flurry Long Gila"
+role = 1
+cost = 76
+damage = 2.0
+attack_range = 3.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 4.5
+poison_duration = 5.0
+poison_spreads = true
+tier = 2
+multishot = 2
+texture = ExtResource("4_tgxlo")
+anim_idle = ExtResource("2_tqvpp")
+anim_attack = ExtResource("1_lksx6")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Infects 2 targets at once."

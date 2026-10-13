@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/tall_disco_ball_attack.png" id="1_2ht3j"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/tall_disco_ball_idle.png" id="2_x62wg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ffn8c"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/party_proof_tall_disco_ball.tres" id="4_ns2ap"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bumper_tall_disco_ball.tres" id="5_pbhgs"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/tall_disco_ball.png" id="6_gbinv"]
+
+[resource]
+script = ExtResource("3_ffn8c")
+id = "tall_disco_ball"
+display_name = "Tall Disco Ball"
+role = 2
+cost = 12
+max_hp = 35
+attack_mode = 1
+attack_range = 3.5
+hits_air = true
+mark_bonus = 0.25
+mark_duration = 1.5
+tier = 1
+evolutions = Array[ExtResource("3_ffn8c")]([ExtResource("4_ns2ap"), ExtResource("5_pbhgs")])
+texture = ExtResource("6_gbinv")
+anim_idle = ExtResource("2_x62wg")
+anim_attack = ExtResource("1_2ht3j")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Much more range."

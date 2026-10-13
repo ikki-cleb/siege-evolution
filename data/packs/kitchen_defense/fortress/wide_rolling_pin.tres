@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/wide_rolling_pin_attack.png" id="1_sc0rj"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/wide_rolling_pin_idle.png" id="2_myvbs"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_e501t"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/peeling_wide_rolling_pin.tres" id="4_x73sy"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/sizzling_wide_rolling_pin.tres" id="5_c2xo8"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/wide_rolling_pin.png" id="6_qp26h"]
+
+[resource]
+script = ExtResource("3_e501t")
+id = "wide_rolling_pin"
+display_name = "Wide Rolling Pin"
+role = 1
+cost = 16
+max_hp = 60
+damage = 9.0
+attack_range = 1.8
+attack_interval = 1.1
+splash_radius = 1.0
+tier = 1
+evolutions = Array[ExtResource("3_e501t")]([ExtResource("4_x73sy"), ExtResource("5_c2xo8")])
+texture = ExtResource("6_qp26h")
+anim_idle = ExtResource("2_myvbs")
+anim_attack = ExtResource("1_sc0rj")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Longer reach and hits splash."

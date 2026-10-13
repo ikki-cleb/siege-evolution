@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xlxcm"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/stubborn_mule.tres" id="2_27ua8"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/kicking_mule.tres" id="3_lfvr3"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/mule.png" id="4_4img2"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/mule_attack.png" id="1_lfvr3"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/mule_idle.png" id="2_4img2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_nqjou"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/stubborn_mule.tres" id="4_c74pe"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/kicking_mule.tres" id="5_hf6ge"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/mule.png" id="6_u2psk"]
 
 [resource]
-script = ExtResource("1_xlxcm")
+script = ExtResource("3_nqjou")
 id = "mule"
 display_name = "Mule"
 role = 1
@@ -16,7 +18,9 @@ attack_range = 2.5
 attack_interval = 1.6
 hits_air = true
 stun_duration = 0.6
-evolutions = Array[ExtResource("1_xlxcm")]([ExtResource("2_27ua8"), ExtResource("3_lfvr3")])
-texture = ExtResource("4_4img2")
+evolutions = Array[ExtResource("3_nqjou")]([ExtResource("4_c74pe"), ExtResource("5_hf6ge")])
+texture = ExtResource("6_u2psk")
+anim_idle = ExtResource("2_4img2")
+anim_attack = ExtResource("1_lfvr3")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Stuns its target in place."

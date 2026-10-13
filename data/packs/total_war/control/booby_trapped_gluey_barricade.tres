@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/gluey_barricade_attack.png" id="1_podp2"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/control/gluey_barricade_idle.png" id="2_043eu"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_7a1oi"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/booby_trapped_gluey_barricade.png" id="4_bjnqm"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/control/booby_trapped_gluey_barricade_water.png" id="5_tax3k"]
+
+[resource]
+script = ExtResource("3_7a1oi")
+id = "booby_trapped_gluey_barricade"
+display_name = "Booby-Trapped Gluey Barricade"
+cost = 22
+max_hp = 25
+attack_mode = 1
+attack_range = 1.2
+attack_interval = 0.5
+slow = 0.5
+slow_duration = 1.0
+tier = 2
+explode_damage = 30.0
+can_place_on_water = true
+water_texture = ExtResource("5_tax3k")
+texture = ExtResource("4_bjnqm")
+anim_idle = ExtResource("2_043eu")
+anim_attack = ExtResource("1_podp2")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Bursts when it breaks, hurting nearby invaders."

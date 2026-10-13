@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_35xcn"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/caustic_sprayer.tres" id="2_v57s4"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/misting_sprayer.tres" id="3_6p53y"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/complement_sprayer.png" id="4_pixnj"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/complement_sprayer_attack.png" id="1_6p53y"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/complement_sprayer_idle.png" id="2_pixnj"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_bwnrv"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/caustic_sprayer.tres" id="4_8n1xc"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/misting_sprayer.tres" id="5_fkgqh"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/complement_sprayer.png" id="6_35sag"]
 
 [resource]
-script = ExtResource("1_35xcn")
+script = ExtResource("3_bwnrv")
 id = "complement_sprayer"
-display_name = "Complement Sprayer"
+display_name = "Poison Sprayer"
 role = 1
 cost = 14
 max_hp = 15
@@ -19,7 +21,9 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_35xcn")]([ExtResource("2_v57s4"), ExtResource("3_6p53y")])
-texture = ExtResource("4_pixnj")
+evolutions = Array[ExtResource("3_bwnrv")]([ExtResource("4_8n1xc"), ExtResource("5_fkgqh")])
+texture = ExtResource("6_35sag")
+anim_idle = ExtResource("2_pixnj")
+anim_attack = ExtResource("1_6p53y")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison splash. Hits fliers."

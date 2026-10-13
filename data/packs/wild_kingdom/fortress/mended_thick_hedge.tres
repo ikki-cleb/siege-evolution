@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/thick_hedge_idle.png" id="1_yuijp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_jdky1"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/mended_thick_hedge.png" id="3_pylhe"]
+
+[resource]
+script = ExtResource("2_jdky1")
+id = "mended_thick_hedge"
+display_name = "Mended Thick Hedge"
+cost = 40
+max_hp = 200
+regen = 6.0
+tier = 2
+rebuild = true
+texture = ExtResource("3_pylhe")
+anim_idle = ExtResource("1_yuijp")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Rebuilds itself once per wave."

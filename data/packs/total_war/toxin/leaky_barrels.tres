@@ -1,18 +1,24 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3wnyn"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/leaky_barrels.png" id="2_6b6jo"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/leaky_barrels_water.png" id="3_0ul56"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/leaky_barrels_idle.png" id="1_hml3v"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_bjytq"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/booby_trapped_leaky_barrels.tres" id="3_xqq4j"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/waterproof_leaky_barrels.tres" id="4_qrlp4"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/leaky_barrels.png" id="5_1ngx4"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/leaky_barrels_water.png" id="6_ami7w"]
 
 [resource]
-script = ExtResource("1_3wnyn")
+script = ExtResource("2_bjytq")
 id = "leaky_barrels"
 display_name = "Leaky Barrels"
 cost = 6
 max_hp = 25
 reflect = 0.8
+tier = 1
+evolutions = Array[ExtResource("2_bjytq")]([ExtResource("3_xqq4j"), ExtResource("4_qrlp4")])
 can_place_on_water = true
-water_texture = ExtResource("3_0ul56")
-texture = ExtResource("2_6b6jo")
+water_texture = ExtResource("6_ami7w")
+texture = ExtResource("5_1ngx4")
+anim_idle = ExtResource("1_hml3v")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

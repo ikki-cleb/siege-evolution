@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/venomous_gila_attack.png" id="1_ojjhv"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/venomous_gila_idle.png" id="2_h1mwp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_omaik"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/hunting_venomous_gila.png" id="4_5xxlw"]
+
+[resource]
+script = ExtResource("3_omaik")
+id = "hunting_venomous_gila"
+display_name = "Hunting Venomous Gila"
+role = 1
+cost = 76
+damage = 2.0
+attack_range = 2.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 8.0
+poison_duration = 5.0
+poison_spreads = true
+tier = 2
+execute_below = 0.2
+texture = ExtResource("4_5xxlw")
+anim_idle = ExtResource("2_h1mwp")
+anim_attack = ExtResource("1_ojjhv")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Finishes off invaders below 20% HP."

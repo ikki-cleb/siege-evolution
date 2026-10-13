@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/heavy_jumper_attack.png" id="1_b0wdr"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/heavy_jumper_idle.png" id="2_7vd5g"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_tqgh4"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/lancing_heavy_jumper.png" id="4_te2kt"]
+
+[resource]
+script = ExtResource("3_tqgh4")
+id = "lancing_heavy_jumper"
+display_name = "Lancing Heavy Jumper"
+role = 1
+cost = 92
+max_hp = 15
+damage = 55.0
+attack_range = 5.0
+attack_interval = 3.0
+hits_air = true
+pierce = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_te2kt")
+anim_idle = ExtResource("2_7vd5g")
+anim_attack = ExtResource("1_b0wdr")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Shots pierce every invader in a line."

@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3ifq0"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/sentry_aa_gunner.png" id="2_q2h5v"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/sentry_aa_gunner_attack.png" id="1_654p0"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/sentry_aa_gunner_idle.png" id="2_j5lxq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_po1wu"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/railgun_sentry_aa_gunner.tres" id="4_p5faa"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/rallying_sentry_aa_gunner.tres" id="5_06eyk"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/sentry_aa_gunner.png" id="6_y7s0j"]
 
 [resource]
-script = ExtResource("1_3ifq0")
+script = ExtResource("3_po1wu")
 id = "sentry_aa_gunner"
 display_name = "Sentry AA Gunner"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 3.5
 attack_interval = 0.7
 hits_air = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_q2h5v")
+tier = 1
+evolutions = Array[ExtResource("3_po1wu")]([ExtResource("4_p5faa"), ExtResource("5_06eyk")])
+texture = ExtResource("6_y7s0j")
+anim_idle = ExtResource("2_j5lxq")
+anim_attack = ExtResource("1_654p0")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range."

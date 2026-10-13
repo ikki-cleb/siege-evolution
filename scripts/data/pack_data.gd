@@ -5,8 +5,9 @@ extends Resource
 ## just gives its units new names and art to fit the scale.
 
 ## Pack slots unlock as the player clears levels in the biome:
-## slots 0-2 on level 1, slot 3 on level 2, slot 4 on level 4, slot 5 on level 6.
-const UNLOCK_LEVELS: Array[int] = [1, 1, 1, 2, 4, 6]
+## slots 0-2 on level 1, then one new unit on each of levels 2, 3 and 4
+## (so the boss level, level 5, has the full pack).
+const UNLOCK_LEVELS: Array[int] = [1, 1, 1, 2, 3, 4]
 
 @export var id: String = ""
 @export var display_name: String = ""

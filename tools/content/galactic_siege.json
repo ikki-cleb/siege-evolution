@@ -365,6 +365,486 @@
     "virulent_bloom": [
       "virulent_zone",
       "Virulent Zone"
+    ],
+    "fibrin_bastion": [
+      "self_repairing_armored_plate",
+      "Self-Repairing Armored Plate"
+    ],
+    "clotting_snare": [
+      "tractor_armored_plate",
+      "Tractor Armored Plate"
+    ],
+    "thrombus_mine": [
+      "overload_spiked_plate",
+      "Overload Spiked Plate"
+    ],
+    "barbed_thrombus": [
+      "tractor_spiked_plate",
+      "Tractor Spiked Plate"
+    ],
+    "devouring_macrophage": [
+      "terminator_heavy_mech",
+      "Terminator Heavy Mech"
+    ],
+    "titan_macrophage": [
+      "repulsor_heavy_mech",
+      "Repulsor Heavy Mech"
+    ],
+    "engulfing_foam": [
+      "phase_shred_shockwave_mech",
+      "Phase-Shred Shockwave Mech"
+    ],
+    "foam_eruption": [
+      "plasma_fire_shockwave_mech",
+      "Plasma-Fire Shockwave Mech"
+    ],
+    "presenting_dendrite": [
+      "arc_overcharged_cannon",
+      "Arc Overcharged Cannon"
+    ],
+    "dendrite_volley": [
+      "multi_target_overcharged_cannon",
+      "Multi-Target Overcharged Cannon"
+    ],
+    "sentinel_dendrite": [
+      "beam_long_plasma_cannon",
+      "Beam Long Plasma Cannon"
+    ],
+    "harvesting_dendrite": [
+      "salvage_long_plasma_cannon",
+      "Salvage Long Plasma Cannon"
+    ],
+    "keloid_wall": [
+      "self_repairing_dense_nanites",
+      "Self-Repairing Dense Nanites"
+    ],
+    "scar_lattice": [
+      "deflector_dense_nanites",
+      "Deflector Dense Nanites"
+    ],
+    "signaling_fibroblast": [
+      "overclocked_rapid_nanites",
+      "Overclocked Rapid Nanites"
+    ],
+    "granulation_tissue": [
+      "tractor_rapid_nanites",
+      "Tractor Rapid Nanites"
+    ],
+    "eosinophil_barrage": [
+      "multi_target_heavy_rail_cannon",
+      "Multi-Target Heavy Rail Cannon"
+    ],
+    "major_basic_protein": [
+      "terminator_heavy_rail_cannon",
+      "Terminator Heavy Rail Cannon"
+    ],
+    "eosinophil_spear": [
+      "beam_long_rail_cannon",
+      "Beam Long Rail Cannon"
+    ],
+    "eosinophil_shredder": [
+      "phase_shred_long_rail_cannon",
+      "Phase-Shred Long Rail Cannon"
+    ],
+    "fortress_granuloma": [
+      "sealed_hardened_core",
+      "Sealed Hardened Core"
+    ],
+    "bone_granuloma": [
+      "self_repairing_hardened_core",
+      "Self-Repairing Hardened Core"
+    ],
+    "bursting_granuloma": [
+      "overload_spiked_core",
+      "Overload Spiked Core"
+    ],
+    "grasping_granuloma": [
+      "tractor_spiked_core",
+      "Tractor Spiked Core"
+    ],
+    "cornified_layer": [
+      "self_repairing_welded_scrap",
+      "Self-Repairing Welded Scrap"
+    ],
+    "mucosal_barrier": [
+      "sealed_welded_scrap",
+      "Sealed Welded Scrap"
+    ],
+    "cilia_trap": [
+      "tractor_spiked_scrap",
+      "Tractor Spiked Scrap"
+    ],
+    "bursting_cell": [
+      "overload_spiked_scrap",
+      "Overload Spiked Scrap"
+    ],
+    "frenzied_horde": [
+      "multi_target_frenzy_bot",
+      "Multi-Target Frenzy Bot"
+    ],
+    "killer_neutrophil": [
+      "terminator_frenzy_bot",
+      "Terminator Frenzy Bot"
+    ],
+    "net_neutrophil": [
+      "arc_scout_bot",
+      "Arc Scout Bot"
+    ],
+    "scavenger_neutrophil": [
+      "salvage_scout_bot",
+      "Salvage Scout Bot"
+    ],
+    "barrage_monocyte": [
+      "multi_target_twin_drone",
+      "Multi-Target Twin Drone"
+    ],
+    "piercing_monocyte": [
+      "phase_shred_twin_drone",
+      "Phase-Shred Twin Drone"
+    ],
+    "sniper_monocyte": [
+      "beam_sentry_drone",
+      "Beam Sentry Drone"
+    ],
+    "signal_monocyte": [
+      "overclocked_sentry_drone",
+      "Overclocked Sentry Drone"
+    ],
+    "histamine_burst": [
+      "plasma_fire_high_voltage_coil",
+      "Plasma-Fire High-Voltage Coil"
+    ],
+    "shredding_basophil": [
+      "phase_shred_high_voltage_coil",
+      "Phase-Shred High-Voltage Coil"
+    ],
+    "shockwave_basophil": [
+      "repulsor_wide_tesla_coil",
+      "Repulsor Wide Tesla Coil"
+    ],
+    "rallying_basophil": [
+      "overclocked_wide_tesla_coil",
+      "Overclocked Wide Tesla Coil"
+    ],
+    "executioner_nk": [
+      "terminator_razor_bot",
+      "Terminator Razor Bot"
+    ],
+    "chain_nk": [
+      "arc_razor_bot",
+      "Arc Razor Bot"
+    ],
+    "stalker_nk": [
+      "salvage_hunter_bot",
+      "Salvage Hunter Bot"
+    ],
+    "whirling_nk": [
+      "multi_target_hunter_bot",
+      "Multi-Target Hunter Bot"
+    ],
+    "snaring_net": [
+      "tractor_dense_gravity_well",
+      "Tractor Dense Gravity Well"
+    ],
+    "regrowing_net": [
+      "self_repairing_dense_gravity_well",
+      "Self-Repairing Dense Gravity Well"
+    ],
+    "freezing_net": [
+      "cryo_wide_gravity_well",
+      "Cryo Wide Gravity Well"
+    ],
+    "bursting_net": [
+      "overload_wide_gravity_well",
+      "Overload Wide Gravity Well"
+    ],
+    "armored_keratin": [
+      "deflector_reinforced_barrier",
+      "Deflector Reinforced Barrier"
+    ],
+    "rebuilt_plate": [
+      "self_repairing_reinforced_barrier",
+      "Self-Repairing Reinforced Barrier"
+    ],
+    "spike_trap_plate": [
+      "overload_reflector_barrier",
+      "Overload Reflector Barrier"
+    ],
+    "hooked_plate": [
+      "tractor_reflector_barrier",
+      "Tractor Reflector Barrier"
+    ],
+    "antibody_storm": [
+      "multi_target_pulse_laser",
+      "Multi-Target Pulse Laser"
+    ],
+    "neutralizing_plasma": [
+      "terminator_pulse_laser",
+      "Terminator Pulse Laser"
+    ],
+    "memory_lance": [
+      "beam_long_laser",
+      "Beam Long Laser"
+    ],
+    "long_lived_b_cell": [
+      "salvage_long_laser",
+      "Salvage Long Laser"
+    ],
+    "complement_tagger": [
+      "phase_shred_lock_on_beacon",
+      "Phase-Shred Lock-On Beacon"
+    ],
+    "chain_tagger": [
+      "arc_lock_on_beacon",
+      "Arc Lock-On Beacon"
+    ],
+    "multi_tagger": [
+      "multi_target_long_beacon",
+      "Multi-Target Long Beacon"
+    ],
+    "coordinator_tagger": [
+      "overclocked_long_beacon",
+      "Overclocked Long Beacon"
+    ],
+    "executioner_t": [
+      "terminator_heavy_ion_cannon",
+      "Terminator Heavy Ion Cannon"
+    ],
+    "hammer_t": [
+      "repulsor_heavy_ion_cannon",
+      "Repulsor Heavy Ion Cannon"
+    ],
+    "hunter_t": [
+      "arc_patrol_ion_cannon",
+      "Arc Patrol Ion Cannon"
+    ],
+    "twin_patrol_t": [
+      "multi_target_patrol_ion_cannon",
+      "Multi-Target Patrol Ion Cannon"
+    ],
+    "railgun_lance": [
+      "beam_heavy_orbital_lance",
+      "Beam Heavy Orbital Lance"
+    ],
+    "finishing_lance": [
+      "terminator_heavy_orbital_lance",
+      "Terminator Heavy Orbital Lance"
+    ],
+    "bounty_lance": [
+      "salvage_rapid_orbital_lance",
+      "Salvage Rapid Orbital Lance"
+    ],
+    "ricochet_lance": [
+      "arc_rapid_orbital_lance",
+      "Arc Rapid Orbital Lance"
+    ],
+    "interferon_storm": [
+      "phase_shred_deep_scanner",
+      "Phase-Shred Deep Scanner"
+    ],
+    "rallying_beacon": [
+      "overclocked_deep_scanner",
+      "Overclocked Deep Scanner"
+    ],
+    "shield_beacon": [
+      "sealed_tall_scanner",
+      "Sealed Tall Scanner"
+    ],
+    "pulse_beacon": [
+      "repulsor_tall_scanner",
+      "Repulsor Tall Scanner"
+    ],
+    "mucus_plug": [
+      "self_repairing_thick_force_field",
+      "Self-Repairing Thick Force Field"
+    ],
+    "grasping_mucus": [
+      "tractor_thick_force_field",
+      "Tractor Thick Force Field"
+    ],
+    "glue_mucus": [
+      "cryo_stasis_field",
+      "Cryo Stasis Field"
+    ],
+    "bursting_mucus": [
+      "overload_stasis_field",
+      "Overload Stasis Field"
+    ],
+    "shredding_mast_cell": [
+      "phase_shred_deep_cryo_emitter",
+      "Phase-Shred Deep Cryo Emitter"
+    ],
+    "degranulation_burst": [
+      "plasma_fire_deep_cryo_emitter",
+      "Plasma-Fire Deep Cryo Emitter"
+    ],
+    "shoving_mast_cell": [
+      "repulsor_wide_cryo_emitter",
+      "Repulsor Wide Cryo Emitter"
+    ],
+    "alarm_mast_cell": [
+      "overclocked_wide_cryo_emitter",
+      "Overclocked Wide Cryo Emitter"
+    ],
+    "corrosive_spitter": [
+      "phase_shred_heavy_arc_thrower",
+      "Phase-Shred Heavy Arc Thrower"
+    ],
+    "burning_spitter": [
+      "plasma_fire_heavy_arc_thrower",
+      "Plasma-Fire Heavy Arc Thrower"
+    ],
+    "twin_spitter": [
+      "multi_target_long_arc_thrower",
+      "Multi-Target Long Arc Thrower"
+    ],
+    "bouncing_spitter": [
+      "super_long_arc_thrower",
+      "Super Long Arc Thrower"
+    ],
+    "inferno_node": [
+      "super_hot_plasma_vent",
+      "Super Hot Plasma Vent"
+    ],
+    "heatstroke_node": [
+      "terminator_hot_plasma_vent",
+      "Terminator Hot Plasma Vent"
+    ],
+    "heatwave_node": [
+      "repulsor_wide_plasma_vent",
+      "Repulsor Wide Plasma Vent"
+    ],
+    "warming_node": [
+      "overclocked_wide_plasma_vent",
+      "Overclocked Wide Plasma Vent"
+    ],
+    "chain_storm": [
+      "arc_overloaded_emp",
+      "Arc Overloaded EMP"
+    ],
+    "storm_volley": [
+      "multi_target_overloaded_emp",
+      "Multi-Target Overloaded EMP"
+    ],
+    "shockwave_storm": [
+      "repulsor_chain_emp",
+      "Repulsor Chain EMP"
+    ],
+    "freezing_storm": [
+      "cryo_chain_emp",
+      "Cryo Chain EMP"
+    ],
+    "scorched_zone": [
+      "phase_shred_strong_tractor_beam",
+      "Phase-Shred Strong Tractor Beam"
+    ],
+    "sepsis_zone": [
+      "terminator_strong_tractor_beam",
+      "Terminator Strong Tractor Beam"
+    ],
+    "edema_zone": [
+      "repulsor_wide_tractor_beam",
+      "Repulsor Wide Tractor Beam"
+    ],
+    "fevered_zone": [
+      "salvage_wide_tractor_beam",
+      "Salvage Wide Tractor Beam"
+    ],
+    "regrowing_membrane": [
+      "self_repairing_shielded_rad_plate",
+      "Self-Repairing Shielded Rad Plate"
+    ],
+    "sticky_membrane": [
+      "tractor_shielded_rad_plate",
+      "Tractor Shielded Rad Plate"
+    ],
+    "toxic_burst_membrane": [
+      "overload_hot_rad_plate",
+      "Overload Hot Rad Plate"
+    ],
+    "antitoxin_membrane": [
+      "sealed_hot_rad_plate",
+      "Sealed Hot Rad Plate"
+    ],
+    "necrotizing_t": [
+      "terminator_corrosive_bot",
+      "Terminator Corrosive Bot"
+    ],
+    "twin_venom_t": [
+      "multi_target_corrosive_bot",
+      "Multi-Target Corrosive Bot"
+    ],
+    "chain_venom_t": [
+      "arc_long_acid_bot",
+      "Arc Long Acid Bot"
+    ],
+    "venom_sniper_t": [
+      "beam_long_acid_bot",
+      "Beam Long Acid Bot"
+    ],
+    "corroding_sprayer": [
+      "phase_shred_swarming_nanites",
+      "Phase-Shred Swarming Nanites"
+    ],
+    "toxic_cloud_sprayer": [
+      "radioactive_swarming_nanites",
+      "Radioactive Swarming Nanites"
+    ],
+    "fanning_sprayer": [
+      "multi_target_misting_nanites",
+      "Multi-Target Misting Nanites"
+    ],
+    "harvest_sprayer": [
+      "salvage_misting_nanites",
+      "Salvage Misting Nanites"
+    ],
+    "dissolving_pool": [
+      "phase_shred_meltdown_reactor",
+      "Phase-Shred Meltdown Reactor"
+    ],
+    "boiling_pool": [
+      "radioactive_meltdown_reactor",
+      "Radioactive Meltdown Reactor"
+    ],
+    "flooding_pool": [
+      "repulsor_leaking_reactor",
+      "Repulsor Leaking Reactor"
+    ],
+    "rich_pool": [
+      "salvage_leaking_reactor",
+      "Salvage Leaking Reactor"
+    ],
+    "pandemic_lancer": [
+      "arc_plague_swarm",
+      "Arc Plague Swarm"
+    ],
+    "plague_executioner": [
+      "terminator_plague_swarm",
+      "Terminator Plague Swarm"
+    ],
+    "plague_volley": [
+      "multi_target_long_plague_drone",
+      "Multi-Target Long Plague Drone"
+    ],
+    "plague_spear": [
+      "beam_long_plague_drone",
+      "Beam Long Plague Drone"
+    ],
+    "undying_bloom": [
+      "self_repairing_hardened_zone",
+      "Self-Repairing Hardened Zone"
+    ],
+    "choking_bloom": [
+      "tractor_hardened_zone",
+      "Tractor Hardened Zone"
+    ],
+    "spore_burst_bloom": [
+      "overload_virulent_zone",
+      "Overload Virulent Zone"
+    ],
+    "blight_field": [
+      "radioactive_virulent_zone",
+      "Radioactive Virulent Zone"
     ]
   },
   "art_style": "tech",
@@ -551,7 +1031,7 @@
       "id": "mothership",
       "name": "Mothership",
       "movement": "flier",
-      "hp": 1100,
+      "hp": 550,
       "armor": 0,
       "speed": 0.22,
       "base_damage": 10,
@@ -596,17 +1076,17 @@
       "blink": {
         "normal": "blinker",
         "elite": "phase_stalker",
-        "elite_level": 4
+        "elite_level": 3
       },
       "smash": {
         "normal": "crusher",
         "elite": "assault_mech",
-        "elite_level": 5
+        "elite_level": 4
       },
       "fly": {
         "normal": "saucer",
         "elite": "interceptor",
-        "elite_level": 6
+        "elite_level": 4
       },
       "jump": {
         "normal": "hopper"
@@ -651,17 +1131,6 @@
         "fly": 0.3
       },
       {
-        "smash": 0.3,
-        "split": 0.2,
-        "jump": 0.2,
-        "bomb": 0.3
-      },
-      {
-        "swarm": 0.3,
-        "blink": 0.4,
-        "burrow": 0.3
-      },
-      {
         "swarm": 0.15,
         "split": 0.15,
         "smash": 0.15,
@@ -671,7 +1140,7 @@
         "bomb": 0.15
       }
     ],
-    "growth_per_wave": 0.32
+    "growth_per_wave": 0.411
   },
   "tutorial": {
     "waves": [
@@ -680,14 +1149,6 @@
           "grub",
           7,
           1.1,
-          0
-        ]
-      ],
-      [
-        [
-          "grub",
-          10,
-          0.9,
           0
         ]
       ],
@@ -777,20 +1238,6 @@
       ],
       [
         [
-          "grub",
-          18,
-          0.45,
-          0
-        ],
-        [
-          "blinker",
-          4,
-          2.0,
-          4
-        ]
-      ],
-      [
-        [
           "crusher",
           3,
           4.0,
@@ -823,22 +1270,19 @@
       ]
     ],
     "tips": [
-      "The final frontier! Your pack plays exactly the same out here. Alien grubs crawl around your units; every kill drops ATP.",
-      "Units that survived a wave can evolve. Anything placed this round refunds in full.",
+      "The final frontier! Your pack plays exactly the same out here. Alien grubs crawl around your units; every kill drops coins.",
       "NEW: Blinkers teleport 3 tiles forward along their route every few seconds. Spread your attackers along the whole route, not one kill zone.",
       "Brood Pods burst into three spawnlings.",
       "Crusher Mechs ignore your maze and stomp through units (red line).",
       "Saucers fly straight in. Hoppers leap single walls, so build them two thick.",
       "Tunnelers dig under part of the route. Every trick you've learned comes together here.",
       "UFO Bombers target your most valuable units. Keep anti-air nearby.",
-      "Blinker swarm! Coverage along the whole route matters most.",
       "Final wave! The Mothership waits at the end of this world."
     ]
   },
   "levels": [
     {
       "name": "1. Moon Landing",
-      "preview": true,
       "hand": [
         12,
         15,
@@ -847,7 +1291,7 @@
         0,
         0
       ],
-      "atp": 40,
+      "coins": 40,
       "income": 5,
       "layout": [
         "....S....",
@@ -877,7 +1321,7 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
       "budget": 20,
       "layout": [
@@ -898,38 +1342,7 @@
       ]
     },
     {
-      "name": "3. Asteroid Belt",
-      "tiles": "asteroid",
-      "hand": [
-        12,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "atp": 20,
-      "income": 5,
-      "budget": 23,
-      "layout": [
-        "S........",
-        ".........",
-        ".##...#..",
-        ".##......",
-        "......##.",
-        "..#...##.",
-        ".........",
-        ".#.......",
-        ".....#...",
-        "..##.....",
-        "..##..#..",
-        ".........",
-        ".......#.",
-        "........B"
-      ]
-    },
-    {
-      "name": "4. Crater Base",
+      "name": "3. Crater Base",
       "hand": [
         14,
         8,
@@ -938,9 +1351,9 @@
         10,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 6,
-      "budget": 24.0,
+      "budget": 22.0,
       "layout": [
         "S.......S",
         ".........",
@@ -959,38 +1372,7 @@
       ]
     },
     {
-      "name": "5. Reactor Deck",
-      "tiles": "station",
-      "hand": [
-        16,
-        12,
-        7,
-        5,
-        10,
-        0
-      ],
-      "atp": 25,
-      "income": 6,
-      "budget": 28,
-      "layout": [
-        "S...S...S",
-        ".........",
-        "#.##.##.#",
-        ".........",
-        ".........",
-        "##.....##",
-        ".........",
-        ".........",
-        "##.....##",
-        ".........",
-        ".........",
-        "#.##.##.#",
-        ".........",
-        "....B...."
-      ]
-    },
-    {
-      "name": "6. Comet Tail",
+      "name": "4. Comet Tail",
       "tiles": "asteroid",
       "hand": [
         16,
@@ -1000,9 +1382,9 @@
         10,
         7
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
-      "budget": 29.0,
+      "budget": 26.0,
       "layout": [
         "S.......S",
         ".........",
@@ -1021,7 +1403,7 @@
       ]
     },
     {
-      "name": "7. Mothership Assault",
+      "name": "5. Mothership Assault",
       "hand": [
         20,
         12,
@@ -1030,7 +1412,7 @@
         10,
         7
       ],
-      "atp": 30,
+      "coins": 30,
       "income": 7,
       "budget": 34.0,
       "boss": "mothership",

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/reflector_barrier_idle.png" id="1_8qi2l"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_cqisw"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/tractor_reflector_barrier.png" id="3_vgpa4"]
+
+[resource]
+script = ExtResource("2_cqisw")
+id = "tractor_reflector_barrier"
+display_name = "Tractor Reflector Barrier"
+cost = 22
+max_hp = 35
+reflect = 0.5
+tier = 2
+grab_stun = 0.8
+can_place_on_water = true
+texture = ExtResource("3_vgpa4")
+anim_idle = ExtResource("1_8qi2l")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Smashers that bite it get stuck."

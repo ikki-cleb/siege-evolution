@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_urhl0"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/cane_toad.tres" id="2_5cw6k"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/spitting_toad.tres" id="3_2484j"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/toad.png" id="4_302b4"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/toad_attack.png" id="1_2484j"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/toad_idle.png" id="2_302b4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gumyp"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/cane_toad.tres" id="4_24iql"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/toxin/spitting_toad.tres" id="5_gl7hi"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/toad.png" id="6_d7f4u"]
 
 [resource]
-script = ExtResource("1_urhl0")
+script = ExtResource("3_gumyp")
 id = "toad"
 display_name = "Toad"
 role = 1
@@ -19,7 +21,9 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_urhl0")]([ExtResource("2_5cw6k"), ExtResource("3_2484j")])
-texture = ExtResource("4_302b4")
+evolutions = Array[ExtResource("3_gumyp")]([ExtResource("4_24iql"), ExtResource("5_gl7hi")])
+texture = ExtResource("6_d7f4u")
+anim_idle = ExtResource("2_302b4")
+anim_attack = ExtResource("1_2484j")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poison splash. Hits fliers."

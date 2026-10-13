@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ylcur"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/hot_plasma_vent.tres" id="2_dbsof"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/wide_plasma_vent.tres" id="3_iwa7t"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/plasma_vent.png" id="4_1hykp"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/plasma_vent_attack.png" id="1_iwa7t"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/plasma_vent_idle.png" id="2_1hykp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_f23wu"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/hot_plasma_vent.tres" id="4_o13cl"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/wide_plasma_vent.tres" id="5_we8qg"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/plasma_vent.png" id="6_h71ka"]
 
 [resource]
-script = ExtResource("1_ylcur")
+script = ExtResource("3_f23wu")
 id = "plasma_vent"
 display_name = "Plasma Vent"
 role = 1
@@ -16,7 +18,9 @@ attack_mode = 1
 damage = 3.5
 attack_range = 2.0
 hits_air = true
-evolutions = Array[ExtResource("1_ylcur")]([ExtResource("2_dbsof"), ExtResource("3_iwa7t")])
-texture = ExtResource("4_1hykp")
+evolutions = Array[ExtResource("3_f23wu")]([ExtResource("4_o13cl"), ExtResource("5_we8qg")])
+texture = ExtResource("6_h71ka")
+anim_idle = ExtResource("2_1hykp")
+anim_attack = ExtResource("1_iwa7t")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Burns everything in range, fliers too."

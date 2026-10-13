@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_14tkl"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/fieldstone_wall.tres" id="2_tabh6"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/spiked_stone_wall.tres" id="3_6xyyr"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/stone_wall.png" id="4_wpsi5"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/stone_wall_idle.png" id="1_tabh6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_6xyyr"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/fieldstone_wall.tres" id="3_wpsi5"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/spiked_stone_wall.tres" id="4_mtykg"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/stone_wall.png" id="5_64ynm"]
 
 [resource]
-script = ExtResource("1_14tkl")
+script = ExtResource("2_6xyyr")
 id = "stone_wall"
 display_name = "Stone Wall"
 cost = 7
 max_hp = 90
-evolutions = Array[ExtResource("1_14tkl")]([ExtResource("2_tabh6"), ExtResource("3_6xyyr")])
+evolutions = Array[ExtResource("2_6xyyr")]([ExtResource("3_wpsi5"), ExtResource("4_mtykg")])
 can_place_on_water = true
-texture = ExtResource("4_wpsi5")
+texture = ExtResource("5_64ynm")
+anim_idle = ExtResource("1_tabh6")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Very tough wall."

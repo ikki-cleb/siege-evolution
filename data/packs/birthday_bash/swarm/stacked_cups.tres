@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/stacked_cups_idle.png" id="1_lq4bg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_txii8"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/re_inflating_stacked_cups.tres" id="3_nkynw"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/party_proof_stacked_cups.tres" id="4_jji0v"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/stacked_cups.png" id="5_nli8m"]
+
+[resource]
+script = ExtResource("2_txii8")
+id = "stacked_cups"
+display_name = "Stacked Cups"
+cost = 4
+max_hp = 40
+tier = 1
+evolutions = Array[ExtResource("2_txii8")]([ExtResource("3_nkynw"), ExtResource("4_jji0v")])
+can_place_on_water = true
+texture = ExtResource("5_nli8m")
+anim_idle = ExtResource("1_lq4bg")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "More HP."

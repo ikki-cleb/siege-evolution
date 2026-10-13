@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8se4j"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/spooky_scarecrow.tres" id="2_yl7qh"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/tall_scarecrow.tres" id="3_laspe"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/scarecrow.png" id="4_23a82"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/scarecrow_attack.png" id="1_laspe"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/scarecrow_idle.png" id="2_23a82"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_crk3r"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/spooky_scarecrow.tres" id="4_jo4bs"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/precision/tall_scarecrow.tres" id="5_s0njb"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/scarecrow.png" id="6_c3x58"]
 
 [resource]
-script = ExtResource("1_8se4j")
+script = ExtResource("3_crk3r")
 id = "scarecrow"
 display_name = "Scarecrow"
 role = 2
@@ -17,7 +19,9 @@ attack_range = 2.5
 hits_air = true
 mark_bonus = 0.25
 mark_duration = 1.5
-evolutions = Array[ExtResource("1_8se4j")]([ExtResource("2_yl7qh"), ExtResource("3_laspe")])
-texture = ExtResource("4_23a82")
+evolutions = Array[ExtResource("3_crk3r")]([ExtResource("4_jo4bs"), ExtResource("5_s0njb")])
+texture = ExtResource("6_c3x58")
+anim_idle = ExtResource("2_23a82")
+anim_attack = ExtResource("1_laspe")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks everything around it for +25% damage."

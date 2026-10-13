@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/angry_bee_attack.png" id="1_6psto"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/angry_bee_idle.png" id="2_q74vd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_thdx7"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/smoldering_angry_bee.png" id="4_5rhme"]
+
+[resource]
+script = ExtResource("3_thdx7")
+id = "smoldering_angry_bee"
+display_name = "Smoldering Angry Bee"
+role = 1
+cost = 36
+max_hp = 15
+attack_mode = 1
+damage = 2.2
+attack_interval = 0.6
+adjacency_bonus = 0.15
+tier = 2
+zone_kind = "burn"
+zone_power = 3.0
+texture = ExtResource("4_5rhme")
+anim_idle = ExtResource("2_q74vd")
+anim_attack = ExtResource("1_6psto")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Leaves a burning patch around itself."

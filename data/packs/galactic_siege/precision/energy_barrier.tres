@@ -1,17 +1,19 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_obulk"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/reinforced_barrier.tres" id="2_3wt1u"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/reflector_barrier.tres" id="3_nywc8"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/energy_barrier.png" id="4_xhuah"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/energy_barrier_idle.png" id="1_3wt1u"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_nywc8"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/reinforced_barrier.tres" id="3_xhuah"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/reflector_barrier.tres" id="4_8vhfp"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/energy_barrier.png" id="5_68mj8"]
 
 [resource]
-script = ExtResource("1_obulk")
+script = ExtResource("2_nywc8")
 id = "energy_barrier"
 display_name = "Energy Barrier"
 max_hp = 30
-evolutions = Array[ExtResource("1_obulk")]([ExtResource("2_3wt1u"), ExtResource("3_nywc8")])
+evolutions = Array[ExtResource("2_nywc8")]([ExtResource("3_xhuah"), ExtResource("4_8vhfp")])
 can_place_on_water = true
-texture = ExtResource("4_xhuah")
+texture = ExtResource("5_68mj8")
+anim_idle = ExtResource("1_3wt1u")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sturdy wall."

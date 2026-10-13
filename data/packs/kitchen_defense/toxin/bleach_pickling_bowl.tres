@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/pickling_bowl_attack.png" id="1_usqbm"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/pickling_bowl_idle.png" id="2_ipyb3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5k7bu"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/bleach_pickling_bowl.png" id="4_j1sdh"]
+
+[resource]
+script = ExtResource("3_5k7bu")
+id = "bleach_pickling_bowl"
+display_name = "Bleach Pickling Bowl"
+role = 1
+cost = 54
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 4.5
+poison_duration = 3.0
+tier = 2
+zone_kind = "toxic"
+zone_power = 3.0
+texture = ExtResource("4_j1sdh")
+anim_idle = ExtResource("2_ipyb3")
+anim_attack = ExtResource("1_usqbm")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Leaves a toxic patch around itself."

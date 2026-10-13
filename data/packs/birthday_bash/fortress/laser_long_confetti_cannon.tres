@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/long_confetti_cannon_attack.png" id="1_3hbb1"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/long_confetti_cannon_idle.png" id="2_onwb5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_tw4i4"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/laser_long_confetti_cannon.png" id="4_e3yg5"]
+
+[resource]
+script = ExtResource("3_tw4i4")
+id = "laser_long_confetti_cannon"
+display_name = "Laser Long Confetti Cannon"
+role = 1
+cost = 56
+max_hp = 30
+damage = 8.0
+attack_range = 3.6
+attack_interval = 1.4
+hits_air = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_e3yg5")
+anim_idle = ExtResource("2_onwb5")
+anim_attack = ExtResource("1_3hbb1")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Shots pierce every invader in a line."

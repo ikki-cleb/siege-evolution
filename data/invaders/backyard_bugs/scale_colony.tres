@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_rm3bk"]
-[ext_resource type="Resource" path="res://data/invaders/backyard_bugs/aphid.tres" id="2_h6x8h"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/scale_colony.png" id="3_uickh"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/scale_colony_death.png" id="1_uickh"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/scale_colony_move.png" id="2_fl1pf"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_yy6s3"]
+[ext_resource type="Resource" path="res://data/invaders/backyard_bugs/aphid.tres" id="4_d2834"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/scale_colony.png" id="5_43jt1"]
 
 [resource]
-script = ExtResource("1_rm3bk")
+script = ExtResource("3_yy6s3")
 id = "scale_colony"
 display_name = "Scale Colony"
 max_hp = 26
@@ -13,7 +15,9 @@ armor = 2
 speed = 0.9
 base_damage = 2
 is_elite = true
-split_into = ExtResource("2_h6x8h")
+split_into = ExtResource("4_d2834")
 split_count = 3
-texture = ExtResource("3_uickh")
+texture = ExtResource("5_43jt1")
+anim_move = ExtResource("2_fl1pf")
+anim_death = ExtResource("1_uickh")
 description = "Elite: an armored colony that bursts into aphids."

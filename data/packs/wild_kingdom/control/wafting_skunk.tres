@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lv2q6"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/wafting_skunk.png" id="2_388m4"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/wafting_skunk_attack.png" id="1_ocegn"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/wafting_skunk_idle.png" id="2_6yyx8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_55eew"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bucking_wafting_skunk.tres" id="4_sl6ax"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/roosters_wafting_skunk.tres" id="5_snynd"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/wafting_skunk.png" id="6_x6ljo"]
 
 [resource]
-script = ExtResource("1_lv2q6")
+script = ExtResource("3_55eew")
 id = "wafting_skunk"
 display_name = "Wafting Skunk"
 role = 1
@@ -15,6 +19,10 @@ damage = 2.0
 attack_range = 2.6
 slow = 0.35
 slow_duration = 1.2
-texture = ExtResource("2_388m4")
+tier = 1
+evolutions = Array[ExtResource("3_55eew")]([ExtResource("4_sl6ax"), ExtResource("5_snynd")])
+texture = ExtResource("6_x6ljo")
+anim_idle = ExtResource("2_6yyx8")
+anim_attack = ExtResource("1_ocegn")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

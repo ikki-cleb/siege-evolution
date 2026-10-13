@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/seasoned_pan_attack.png" id="1_xk7j3"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/seasoned_pan_idle.png" id="2_b5kyt"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6eynk"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/wipe_clean_seasoned_pan.png" id="4_xxf75"]
+
+[resource]
+script = ExtResource("3_6eynk")
+id = "wipe_clean_seasoned_pan"
+display_name = "Wipe-Clean Seasoned Pan"
+cost = 68
+max_hp = 480
+attack_mode = 1
+damage = 3.0
+tier = 2
+aura_shield = 0.3
+aura_cleanse = true
+texture = ExtResource("4_xxf75")
+anim_idle = ExtResource("2_b5kyt")
+anim_attack = ExtResource("1_xk7j3")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Neighbors take 30% less damage and ignore goo."

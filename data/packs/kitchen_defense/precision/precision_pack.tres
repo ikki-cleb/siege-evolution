@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_c0fps"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_mgc83"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/cutting_board.tres" id="3_ws5fk"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/pepper_grinder.tres" id="4_rsiva"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/flour_sifter.tres" id="5_b3v4h"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/mousetrap.tres" id="6_x7tif"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/toaster.tres" id="7_873hk"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/precision/kitchen_lamp.tres" id="8_nqwmo"]
+
+[resource]
+script = ExtResource("1_c0fps")
+id = "precision"
+display_name = "Precision"
+description = "Long range and big single hits. Marks targets so everything hits harder."
+color = Color(0.30588236, 0.65882355, 0.87058824, 1)
+units = Array[ExtResource("2_mgc83")]([ExtResource("3_ws5fk"), ExtResource("4_rsiva"), ExtResource("5_b3v4h"), ExtResource("6_x7tif"), ExtResource("7_873hk"), ExtResource("8_nqwmo")])

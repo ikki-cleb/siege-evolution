@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_v73tx"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/long_howitzer.png" id="2_gwr1e"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/long_howitzer_attack.png" id="1_jn4rv"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/long_howitzer_idle.png" id="2_xdqan"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_b6awl"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/railgun_long_howitzer.tres" id="4_el4k4"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/armor_piercing_long_howitzer.tres" id="5_f2hhd"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/long_howitzer.png" id="6_gschl"]
 
 [resource]
-script = ExtResource("1_v73tx")
+script = ExtResource("3_b6awl")
 id = "long_howitzer"
 display_name = "Long Howitzer"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 3.2
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_gwr1e")
+tier = 1
+evolutions = Array[ExtResource("3_b6awl")]([ExtResource("4_el4k4"), ExtResource("5_f2hhd")])
+texture = ExtResource("6_gschl")
+anim_idle = ExtResource("2_xdqan")
+anim_attack = ExtResource("1_jn4rv")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

@@ -1,18 +1,26 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_xbhyg"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/plasma_cell.png" id="2_tosue"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/plasma_cell_attack.png" id="1_ae18d"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/plasma_cell_idle.png" id="2_je1at"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_sx0ke"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/antibody_storm.tres" id="4_tatp0"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/neutralizing_plasma.tres" id="5_jdfmp"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/plasma_cell.png" id="6_gwbxf"]
 
 [resource]
-script = ExtResource("1_xbhyg")
+script = ExtResource("3_sx0ke")
 id = "plasma_cell"
-display_name = "Plasma Cell"
+display_name = "Heavy Antibody Shooter"
 role = 1
 cost = 13
 max_hp = 15
 damage = 8.0
 attack_range = 3.0
 hits_air = true
-texture = ExtResource("2_tosue")
+tier = 1
+evolutions = Array[ExtResource("3_sx0ke")]([ExtResource("4_tatp0"), ExtResource("5_jdfmp")])
+texture = ExtResource("6_gwbxf")
+anim_idle = ExtResource("2_je1at")
+anim_attack = ExtResource("1_ae18d")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More damage."

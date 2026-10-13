@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_aihp4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_tnunl"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/folding_chair.tres" id="3_k03w4"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/dart_blaster.tres" id="4_ep8v0"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/spotlight.tres" id="5_3jgcr"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/foam_sword.tres" id="6_jr5mt"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bottle_rocket.tres" id="7_bjvif"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/disco_ball.tres" id="8_rysky"]
+
+[resource]
+script = ExtResource("1_aihp4")
+id = "precision"
+display_name = "Precision"
+description = "Long range and big single hits. Marks targets so everything hits harder."
+color = Color(0.30588236, 0.65882355, 0.87058824, 1)
+units = Array[ExtResource("2_tnunl")]([ExtResource("3_k03w4"), ExtResource("4_ep8v0"), ExtResource("5_3jgcr"), ExtResource("6_jr5mt"), ExtResource("7_bjvif"), ExtResource("8_rysky")])

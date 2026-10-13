@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_2ukqb"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/eosinophil_lancer.png" id="2_w0ijw"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/eosinophil_lancer_attack.png" id="1_2civf"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/fortress/eosinophil_lancer_idle.png" id="2_gh71t"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_exvii"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/eosinophil_spear.tres" id="4_lbco1"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/fortress/eosinophil_shredder.tres" id="5_81xv1"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/fortress/eosinophil_lancer.png" id="6_75nv3"]
 
 [resource]
-script = ExtResource("1_2ukqb")
+script = ExtResource("3_exvii")
 id = "eosinophil_lancer"
-display_name = "Eosinophil Lancer"
+display_name = "Long Blaster Cell"
 role = 1
 cost = 20
 max_hp = 40
@@ -15,6 +19,10 @@ attack_range = 3.2
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_w0ijw")
+tier = 1
+evolutions = Array[ExtResource("3_exvii")]([ExtResource("4_lbco1"), ExtResource("5_81xv1")])
+texture = ExtResource("6_75nv3")
+anim_idle = ExtResource("2_gh71t")
+anim_attack = ExtResource("1_2civf")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

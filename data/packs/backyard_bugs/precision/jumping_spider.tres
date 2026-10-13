@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5iwcy"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/heavy_jumper.tres" id="2_ae6at"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/quick_jumper.tres" id="3_soau0"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/jumping_spider.png" id="4_w1ga4"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/jumping_spider_attack.png" id="1_soau0"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/jumping_spider_idle.png" id="2_w1ga4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vnnux"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/heavy_jumper.tres" id="4_j13er"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/quick_jumper.tres" id="5_km6a5"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/jumping_spider.png" id="6_x211r"]
 
 [resource]
-script = ExtResource("1_5iwcy")
+script = ExtResource("3_vnnux")
 id = "jumping_spider"
 display_name = "Jumping Spider"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-evolutions = Array[ExtResource("1_5iwcy")]([ExtResource("2_ae6at"), ExtResource("3_soau0")])
-texture = ExtResource("4_w1ga4")
+evolutions = Array[ExtResource("3_vnnux")]([ExtResource("4_j13er"), ExtResource("5_km6a5")])
+texture = ExtResource("6_x211r")
+anim_idle = ExtResource("2_w1ga4")
+anim_attack = ExtResource("1_soau0")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sniper. Huge piercing shots across the map."

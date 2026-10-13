@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ve3g8"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/spiked_core.png" id="2_iv5gc"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/spiked_core_attack.png" id="1_glyna"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/spiked_core_idle.png" id="2_fab8k"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_acce5"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/overload_spiked_core.tres" id="4_kekrv"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/tractor_spiked_core.tres" id="5_xisjd"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/spiked_core.png" id="6_0hlw8"]
 
 [resource]
-script = ExtResource("1_ve3g8")
+script = ExtResource("3_acce5")
 id = "spiked_core"
 display_name = "Spiked Core"
 cost = 16
@@ -12,6 +16,10 @@ max_hp = 260
 reflect = 0.8
 attack_mode = 1
 damage = 5.0
-texture = ExtResource("2_iv5gc")
+tier = 1
+evolutions = Array[ExtResource("3_acce5")]([ExtResource("4_kekrv"), ExtResource("5_xisjd")])
+texture = ExtResource("6_0hlw8")
+anim_idle = ExtResource("2_fab8k")
+anim_attack = ExtResource("1_glyna")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Reflects 80% of smasher damage."

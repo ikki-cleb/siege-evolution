@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/thorny_stump_attack.png" id="1_uy7ap"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/thorny_stump_idle.png" id="2_eosa6"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_wrpa2"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/bursting_thorny_stump.png" id="4_gtufm"]
+
+[resource]
+script = ExtResource("3_wrpa2")
+id = "bursting_thorny_stump"
+display_name = "Bursting Thorny Stump"
+cost = 68
+max_hp = 260
+reflect = 0.8
+attack_mode = 1
+damage = 5.0
+tier = 2
+explode_damage = 120.0
+texture = ExtResource("4_gtufm")
+anim_idle = ExtResource("2_eosa6")
+anim_attack = ExtResource("1_uy7ap")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Erupts violently when it breaks."

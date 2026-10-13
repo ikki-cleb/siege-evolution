@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/wide_grenadier_attack.png" id="1_jyiab"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/wide_grenadier_idle.png" id="2_8eahc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_x77sh"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/rallying_wide_grenadier.png" id="4_hlsv4"]
+
+[resource]
+script = ExtResource("3_x77sh")
+id = "rallying_wide_grenadier"
+display_name = "Rallying Wide Grenadier"
+role = 1
+cost = 36
+max_hp = 15
+attack_mode = 1
+damage = 1.2
+attack_range = 2.4
+attack_interval = 0.6
+hits_air = true
+adjacency_bonus = 0.15
+tier = 2
+aura_speed = 0.2
+texture = ExtResource("4_hlsv4")
+anim_idle = ExtResource("2_8eahc")
+anim_attack = ExtResource("1_jyiab")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Neighbors attack 20% faster."

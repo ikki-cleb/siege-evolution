@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_imu4j"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/dense_nettles.png" id="2_qwbbb"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/dense_nettles_idle.png" id="1_tyscg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_qny02"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/regrowing_dense_nettles.tres" id="3_qs8xq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/sticky_dense_nettles.tres" id="4_xx85t"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/dense_nettles.png" id="5_thql1"]
 
 [resource]
-script = ExtResource("1_imu4j")
+script = ExtResource("2_qny02")
 id = "dense_nettles"
 display_name = "Dense Nettles"
 cost = 6
 max_hp = 60
 reflect = 0.3
+tier = 1
+evolutions = Array[ExtResource("2_qny02")]([ExtResource("3_qs8xq"), ExtResource("4_xx85t")])
 can_place_on_water = true
-texture = ExtResource("2_qwbbb")
+texture = ExtResource("5_thql1")
+anim_idle = ExtResource("1_tyscg")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More HP."

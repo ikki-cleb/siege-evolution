@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/precision/barbed_fence_idle.png" id="1_a8g3b"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_camnj"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/precision/exploding_barbed_fence.png" id="3_nrlbu"]
+
+[resource]
+script = ExtResource("2_camnj")
+id = "exploding_barbed_fence"
+display_name = "Exploding Barbed Fence"
+cost = 22
+max_hp = 35
+reflect = 0.5
+tier = 2
+explode_damage = 35.0
+can_place_on_water = true
+texture = ExtResource("3_nrlbu")
+anim_idle = ExtResource("1_a8g3b")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Blasts nearby invaders when it breaks."

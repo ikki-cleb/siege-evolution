@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/misting_blister_beetle_attack.png" id="1_5r804"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/misting_blister_beetle_idle.png" id="2_cetvd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_s64ra"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/foraging_misting_blister_beetle.png" id="4_bjv51"]
+
+[resource]
+script = ExtResource("3_s64ra")
+id = "foraging_misting_blister_beetle"
+display_name = "Foraging Misting Blister Beetle"
+role = 1
+cost = 54
+max_hp = 15
+damage = 1.0
+attack_range = 3.5
+attack_interval = 1.2
+hits_air = true
+splash_radius = 1.0
+poison_dps = 2.5
+poison_duration = 3.0
+tier = 2
+bounty = 1
+texture = ExtResource("4_bjv51")
+anim_idle = ExtResource("2_cetvd")
+anim_attack = ExtResource("1_5r804")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Its kills drop an extra coin."

@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_0sqe5"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/thistle_hay.png" id="2_nssfo"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/thistle_hay_idle.png" id="1_5jnb8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_ppu34"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/hooked_thistle_hay.tres" id="3_p60s4"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/swarm/exploding_thistle_hay.tres" id="4_yqv3e"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/thistle_hay.png" id="5_tn4dr"]
 
 [resource]
-script = ExtResource("1_0sqe5")
+script = ExtResource("2_ppu34")
 id = "thistle_hay"
 display_name = "Thistle Hay"
 cost = 4
 max_hp = 22
 reflect = 0.4
+tier = 1
+evolutions = Array[ExtResource("2_ppu34")]([ExtResource("3_p60s4"), ExtResource("4_yqv3e")])
 can_place_on_water = true
-texture = ExtResource("2_nssfo")
+texture = ExtResource("5_tn4dr")
+anim_idle = ExtResource("1_5jnb8")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Reflects 40% of smasher damage."

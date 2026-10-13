@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fc0lk"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/patrol_ion_cannon.png" id="2_rh6if"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/patrol_ion_cannon_attack.png" id="1_acsjq"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/patrol_ion_cannon_idle.png" id="2_etfs3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_5unuq"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/arc_patrol_ion_cannon.tres" id="4_airhj"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/multi_target_patrol_ion_cannon.tres" id="5_4dr1w"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/patrol_ion_cannon.png" id="6_7s86q"]
 
 [resource]
-script = ExtResource("1_fc0lk")
+script = ExtResource("3_5unuq")
 id = "patrol_ion_cannon"
 display_name = "Patrol Ion Cannon"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 3.5
 attack_interval = 1.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_rh6if")
+tier = 1
+evolutions = Array[ExtResource("3_5unuq")]([ExtResource("4_airhj"), ExtResource("5_4dr1w")])
+texture = ExtResource("6_7s86q")
+anim_idle = ExtResource("2_etfs3")
+anim_attack = ExtResource("1_acsjq")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More range, hits fliers."

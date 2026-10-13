@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/rapid_bottle_rocket_attack.png" id="1_68fdd"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/rapid_bottle_rocket_idle.png" id="2_mfumb"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1mius"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/prize_rapid_bottle_rocket.tres" id="4_tvc6p"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bouncing_rapid_bottle_rocket.tres" id="5_b2xy7"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/rapid_bottle_rocket.png" id="6_diqls"]
+
+[resource]
+script = ExtResource("3_1mius")
+id = "rapid_bottle_rocket"
+display_name = "Rapid Bottle Rocket"
+role = 1
+cost = 22
+max_hp = 15
+damage = 30.0
+attack_range = 5.0
+attack_interval = 1.9
+hits_air = true
+pierce = true
+tier = 1
+evolutions = Array[ExtResource("3_1mius")]([ExtResource("4_tvc6p"), ExtResource("5_b2xy7")])
+texture = ExtResource("6_diqls")
+anim_idle = ExtResource("2_mfumb")
+anim_attack = ExtResource("1_68fdd")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Fires much faster."

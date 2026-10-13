@@ -1,19 +1,23 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vsxew"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/reinforced_silo.tres" id="2_ipkrj"]
-[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/thorned_silo.tres" id="3_w47ck"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/stone_silo.png" id="4_mlk4t"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/stone_silo_attack.png" id="1_w47ck"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/stone_silo_idle.png" id="2_mlk4t"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ffhxx"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/reinforced_silo.tres" id="4_3qqs0"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/thorned_silo.tres" id="5_huthp"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/stone_silo.png" id="6_3or7f"]
 
 [resource]
-script = ExtResource("1_vsxew")
+script = ExtResource("3_ffhxx")
 id = "stone_silo"
 display_name = "Stone Silo"
 cost = 18
 max_hp = 260
 attack_mode = 1
 damage = 3.0
-evolutions = Array[ExtResource("1_vsxew")]([ExtResource("2_ipkrj"), ExtResource("3_w47ck")])
-texture = ExtResource("4_mlk4t")
+evolutions = Array[ExtResource("3_ffhxx")]([ExtResource("4_3qqs0"), ExtResource("5_huthp")])
+texture = ExtResource("6_3or7f")
+anim_idle = ExtResource("2_mlk4t")
+anim_attack = ExtResource("1_w47ck")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Enormous wall that damages everything next to it."

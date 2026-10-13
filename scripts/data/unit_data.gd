@@ -18,7 +18,7 @@ enum AttackMode {
 @export var id: String = ""
 @export var display_name: String = ""
 @export var role: Role = Role.WALL
-## ATP to buy this unit. For an evolution, the ATP to evolve into it.
+## Coins to buy this unit. For an evolution, the coins to evolve into it.
 @export var cost: int = 5
 @export var max_hp: int = 20
 ## HP regained per second during waves (pauses for 2s after being hit).
@@ -56,8 +56,43 @@ enum AttackMode {
 @export var mark_duration: float = 0.0
 
 @export_group("Evolution")
-## The two evolutions this unit can become (empty for evolved units).
+## 0 = a placed unit, 1 = its first evolution, 2 = a capstone (second tier).
+@export var tier: int = 0
+## The two evolutions this unit can become next: tier-1 options for a
+## base unit, capstones for a tier-1 evolution, none for a capstone.
 @export var evolutions: Array[UnitData] = []
+
+@export_group("Capstone mechanics")
+## Each hit jumps to this many more invaders nearby (70% damage per jump).
+@export var chain_count: int = 0
+## Attacks this many targets at once (0 or 1 = one target).
+@export var multishot: int = 0
+## Shots hit every invader in a line through the target.
+@export var line_pierce: bool = false
+## Instantly finishes any non-boss below this share of its HP (0.2 = 20%).
+@export var execute_below: float = 0.0
+## Shoves ground invaders this many tiles back along their route.
+@export var knockback: int = 0
+## Each hit permanently removes this much armor from the target.
+@export var armor_shred: int = 0
+## Invaders this unit kills drop this many extra coins.
+@export var bounty: int = 0
+## Leaves a patch on the ground for a few seconds: "burn", "freeze" or "toxic".
+@export var zone_kind: String = ""
+## Burn: damage per second. Freeze: slow (0.5 = 50%). Toxic: poison per second.
+@export var zone_power: float = 0.0
+## A smasher biting this wall is stunned for this long (at most every 3s).
+@export var grab_stun: float = 0.0
+## Damage dealt to invaders around it when this unit is destroyed.
+@export var explode_damage: float = 0.0
+## Comes back at full HP once per wave after being destroyed.
+@export var rebuild: bool = false
+## Aura on the 8 tiles around it: neighbors attack this much faster...
+@export var aura_speed: float = 0.0
+## ...take this share less damage...
+@export var aura_shield: float = 0.0
+## ...and ignore spill goo.
+@export var aura_cleanse: bool = false
 
 @export_group("Water")
 ## Can be placed on water tiles (each pack's basic wall: nets and mines).
@@ -67,8 +102,24 @@ enum AttackMode {
 
 @export_group("Looks")
 @export var texture: Texture2D
+## Optional animations: horizontal strips of square frames (e.g. 4 frames of
+## 64x64 = a 256x64 PNG). Idle loops; attack plays once per shot. Capstones
+## reuse their tier-1 strips. Without them the still `texture` is used.
+@export var anim_idle: Texture2D
+@export var anim_attack: Texture2D
 @export var shot_color: Color = Color.WHITE
 @export_multiline var description: String = ""
+
+
+## The picture for buttons and menus: the first frame of the idle animation
+## if there is one, else the still sprite.
+func icon() -> Texture2D:
+	if anim_idle == null:
+		return texture
+	var frame := AtlasTexture.new()
+	frame.atlas = anim_idle
+	frame.region = Rect2(0, 0, anim_idle.get_height(), anim_idle.get_height())
+	return frame
 
 
 ## True if this unit does anything to invaders on its own.

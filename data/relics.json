@@ -1,0 +1,757 @@
+[
+  {
+    "id": "sharpening_stone",
+    "name": "Sharpening Stone",
+    "rarity": "common",
+    "color": "#c8d0dc",
+    "filter": "attackers",
+    "desc": "Attackers deal +15% damage.",
+    "mult": {
+      "damage": 0.15
+    }
+  },
+  {
+    "id": "spyglass",
+    "name": "Spyglass",
+    "rarity": "common",
+    "color": "#7ac0ff",
+    "filter": "attackers",
+    "desc": "Attackers get +0.4 range.",
+    "add": {
+      "attack_range": 0.4
+    }
+  },
+  {
+    "id": "oiled_gears",
+    "name": "Oiled Gears",
+    "rarity": "common",
+    "color": "#d8a050",
+    "filter": "attackers",
+    "desc": "Attackers fire 12% faster.",
+    "mult": {
+      "fire_rate": 0.12
+    }
+  },
+  {
+    "id": "heavy_rounds",
+    "name": "Heavy Rounds",
+    "rarity": "common",
+    "color": "#d0a040",
+    "filter": "single",
+    "desc": "Single-target attackers deal +20% damage.",
+    "mult": {
+      "damage": 0.2
+    }
+  },
+  {
+    "id": "wide_lens",
+    "name": "Wide Lens",
+    "rarity": "common",
+    "color": "#90e0ff",
+    "filter": "pulse",
+    "desc": "Pulse units get +0.3 range.",
+    "add": {
+      "attack_range": 0.3
+    }
+  },
+  {
+    "id": "blast_powder",
+    "name": "Blast Powder",
+    "rarity": "common",
+    "color": "#ff9040",
+    "filter": "splash",
+    "desc": "Splash hits cover +0.3 more tiles.",
+    "add": {
+      "splash_radius": 0.3
+    }
+  },
+  {
+    "id": "frost_charm",
+    "name": "Frost Charm",
+    "rarity": "common",
+    "color": "#a0e0ff",
+    "filter": "slow",
+    "desc": "Slows are 8% stronger.",
+    "add": {
+      "slow": 0.08
+    }
+  },
+  {
+    "id": "long_chill",
+    "name": "Long Chill",
+    "rarity": "common",
+    "color": "#a0d0ff",
+    "filter": "slow",
+    "desc": "Slows last 1s longer.",
+    "add": {
+      "slow_duration": 1.0
+    }
+  },
+  {
+    "id": "daze_bell",
+    "name": "Daze Bell",
+    "rarity": "common",
+    "color": "#ffe060",
+    "filter": "stun",
+    "desc": "Stuns last 0.25s longer.",
+    "add": {
+      "stun_duration": 0.25
+    }
+  },
+  {
+    "id": "venom_sac",
+    "name": "Venom Sac",
+    "rarity": "common",
+    "color": "#80e050",
+    "filter": "poison",
+    "desc": "Poison does +25% damage.",
+    "mult": {
+      "poison_dps": 0.25
+    }
+  },
+  {
+    "id": "slow_rot",
+    "name": "Slow Rot",
+    "rarity": "common",
+    "color": "#90c060",
+    "filter": "poison",
+    "desc": "Poison lasts 2s longer.",
+    "add": {
+      "poison_duration": 2.0
+    }
+  },
+  {
+    "id": "red_ink",
+    "name": "Red Ink",
+    "rarity": "common",
+    "color": "#ff5050",
+    "filter": "mark",
+    "desc": "Marks add +10% more damage taken.",
+    "add": {
+      "mark_bonus": 0.1
+    }
+  },
+  {
+    "id": "long_mark",
+    "name": "Lasting Ink",
+    "rarity": "common",
+    "color": "#ff8080",
+    "filter": "mark",
+    "desc": "Marks last 2s longer.",
+    "add": {
+      "mark_duration": 2.0
+    }
+  },
+  {
+    "id": "hive_mind",
+    "name": "Hive Mind",
+    "rarity": "common",
+    "color": "#ffd040",
+    "filter": "swarm",
+    "desc": "Swarm units get +5% speed per neighbor.",
+    "add": {
+      "adjacency_bonus": 0.05
+    }
+  },
+  {
+    "id": "feather_fletching",
+    "name": "Feather Fletching",
+    "rarity": "common",
+    "color": "#e0e8ff",
+    "filter": "anti_air",
+    "desc": "Anti-air units fire 15% faster.",
+    "mult": {
+      "fire_rate": 0.15
+    }
+  },
+  {
+    "id": "ground_spikes",
+    "name": "Ground Spikes",
+    "rarity": "common",
+    "color": "#c09060",
+    "filter": "ground_only",
+    "desc": "Ground-only attackers deal +20% damage.",
+    "mult": {
+      "damage": 0.2
+    }
+  },
+  {
+    "id": "eagle_eye",
+    "name": "Eagle Eye",
+    "rarity": "common",
+    "color": "#ffd070",
+    "filter": "long_range",
+    "desc": "Long-range attackers get +0.5 range.",
+    "add": {
+      "attack_range": 0.5
+    }
+  },
+  {
+    "id": "close_quarters",
+    "name": "Close Quarters",
+    "rarity": "common",
+    "color": "#ff8060",
+    "filter": "short_range",
+    "desc": "Short-range attackers deal +25% damage.",
+    "mult": {
+      "damage": 0.25
+    }
+  },
+  {
+    "id": "bird_net",
+    "name": "Bird Net",
+    "rarity": "common",
+    "color": "#c0a070",
+    "filter": "anti_air",
+    "desc": "Anti-air units deal +25% damage to fliers.",
+    "add": {
+      "flier_damage": 0.25
+    }
+  },
+  {
+    "id": "giant_slayer",
+    "name": "Giant Slayer",
+    "rarity": "common",
+    "color": "#ff7070",
+    "filter": "attackers",
+    "desc": "Attackers deal +25% damage to bosses.",
+    "add": {
+      "boss_damage": 0.25
+    }
+  },
+  {
+    "id": "can_opener",
+    "name": "Can Opener",
+    "rarity": "common",
+    "color": "#b0c0d0",
+    "filter": "attackers",
+    "desc": "Attackers deal +25% damage to armored invaders.",
+    "add": {
+      "armored_damage": 0.25
+    }
+  },
+  {
+    "id": "tax_collector",
+    "name": "Tax Collector",
+    "rarity": "common",
+    "color": "#ffd040",
+    "filter": "economy",
+    "desc": "Clean-wave bonuses are doubled.",
+    "economy": {
+      "clean_bonus_mult": 1.0
+    }
+  },
+  {
+    "id": "spare_parts",
+    "name": "Spare Parts",
+    "rarity": "common",
+    "color": "#c0a080",
+    "filter": "economy",
+    "desc": "Get 2 free basic walls in your hand right away.",
+    "economy": {
+      "free_walls": 2
+    }
+  },
+  {
+    "id": "gift_box",
+    "name": "Gift Box",
+    "rarity": "common",
+    "color": "#ff80c0",
+    "filter": "economy",
+    "desc": "Get 25 coins right away.",
+    "economy": {
+      "gift_coins": 25
+    }
+  },
+  {
+    "id": "first_aid",
+    "name": "First Aid Kit",
+    "rarity": "common",
+    "color": "#ff6070",
+    "filter": "economy",
+    "desc": "Heal your base by 4 HP right away.",
+    "economy": {
+      "base_heal": 4
+    }
+  },
+  {
+    "id": "piggy_bank",
+    "name": "Piggy Bank",
+    "rarity": "common",
+    "color": "#ffb0c0",
+    "filter": "economy",
+    "desc": "Get 6 coins at the start of every wave.",
+    "economy": {
+      "wave_coins": 6
+    }
+  },
+  {
+    "id": "lucky_coin",
+    "name": "Lucky Coin",
+    "rarity": "rare",
+    "color": "#ffd040",
+    "filter": "economy",
+    "desc": "Every kill drops +1 coin.",
+    "economy": {
+      "kill_coins": 1
+    }
+  },
+  {
+    "id": "elite_training",
+    "name": "Elite Training",
+    "rarity": "rare",
+    "color": "#ff9040",
+    "filter": "attackers",
+    "desc": "Evolved units fire 20% faster.",
+    "add": {
+      "evolved_rate": 0.2
+    }
+  },
+  {
+    "id": "veterans_medal",
+    "name": "Veteran's Medal",
+    "rarity": "rare",
+    "color": "#ffc040",
+    "filter": "attackers",
+    "desc": "Evolved units deal +30% damage.",
+    "add": {
+      "evolved_damage": 0.3
+    }
+  },
+  {
+    "id": "lone_wolf",
+    "name": "Lone Wolf",
+    "rarity": "rare",
+    "color": "#a0a8c0",
+    "filter": "attackers",
+    "desc": "Attackers with no units around them deal +40% damage.",
+    "add": {
+      "lonely_damage": 0.4
+    }
+  },
+  {
+    "id": "critical_eye",
+    "name": "Critical Eye",
+    "rarity": "rare",
+    "color": "#ffe060",
+    "filter": "attackers",
+    "desc": "Attacks have a 15% chance to deal double damage.",
+    "add": {
+      "crit": 0.15
+    }
+  },
+  {
+    "id": "bargain_scroll",
+    "name": "Bargain Scroll",
+    "rarity": "rare",
+    "color": "#e0c080",
+    "filter": "economy",
+    "desc": "Evolutions cost 25% less.",
+    "economy": {
+      "evolve_discount": 0.25
+    }
+  },
+  {
+    "id": "recycling_bin",
+    "name": "Recycling Bin",
+    "rarity": "rare",
+    "color": "#70c070",
+    "filter": "economy",
+    "desc": "Removing older units refunds 80% instead of 50%.",
+    "economy": {
+      "refund_old": 0.8
+    }
+  },
+  {
+    "id": "piercing_tips",
+    "name": "Piercing Tips",
+    "rarity": "rare",
+    "color": "#c0e0ff",
+    "filter": "attackers",
+    "desc": "Attacks pierce armor.",
+    "grant": [
+      "pierce"
+    ]
+  },
+  {
+    "id": "shrapnel",
+    "name": "Shrapnel",
+    "rarity": "rare",
+    "color": "#ffb060",
+    "filter": "single",
+    "desc": "Single-target shots splash a small area.",
+    "add": {
+      "splash_radius": 0.5
+    }
+  },
+  {
+    "id": "cold_snap",
+    "name": "Cold Snap",
+    "rarity": "rare",
+    "color": "#70c0ff",
+    "filter": "attackers",
+    "desc": "Slowed invaders take +30% damage.",
+    "add": {
+      "vs_slowed": 0.3
+    }
+  },
+  {
+    "id": "concussion",
+    "name": "Concussion",
+    "rarity": "rare",
+    "color": "#ffd040",
+    "filter": "attackers",
+    "desc": "Stunned invaders take +50% damage.",
+    "add": {
+      "vs_stunned": 0.5
+    }
+  },
+  {
+    "id": "plague_jar",
+    "name": "Plague Jar",
+    "rarity": "rare",
+    "color": "#80e050",
+    "filter": "poison",
+    "desc": "Poison does +20% damage and spreads when a victim dies.",
+    "mult": {
+      "poison_dps": 0.2
+    },
+    "grant": [
+      "poison_spreads"
+    ]
+  },
+  {
+    "id": "festering",
+    "name": "Festering",
+    "rarity": "rare",
+    "color": "#90d050",
+    "filter": "attackers",
+    "desc": "Poisoned invaders take +25% damage.",
+    "add": {
+      "vs_poisoned": 0.25
+    }
+  },
+  {
+    "id": "chain_link",
+    "name": "Chain Link",
+    "rarity": "rare",
+    "color": "#c0d0ff",
+    "filter": "chain",
+    "desc": "Chain hits jump to 1 more target.",
+    "add": {
+      "chain_count": 1
+    }
+  },
+  {
+    "id": "spare_arrows",
+    "name": "Spare Arrows",
+    "rarity": "rare",
+    "color": "#e0c090",
+    "filter": "multishot",
+    "desc": "Multishot units hit 1 more target.",
+    "add": {
+      "multishot": 1
+    }
+  },
+  {
+    "id": "battering_ram",
+    "name": "Battering Ram",
+    "rarity": "rare",
+    "color": "#c08060",
+    "filter": "knockback",
+    "desc": "Knockbacks shove 1 tile further.",
+    "add": {
+      "knockback": 1
+    }
+  },
+  {
+    "id": "acid_flask",
+    "name": "Acid Flask",
+    "rarity": "rare",
+    "color": "#c0ff60",
+    "filter": "attackers",
+    "desc": "Every hit strips 1 armor.",
+    "add": {
+      "armor_shred": 1
+    }
+  },
+  {
+    "id": "packed_ranks",
+    "name": "Packed Ranks",
+    "rarity": "rare",
+    "color": "#e0a040",
+    "filter": "attackers",
+    "desc": "Attackers deal +6% damage for every unit next to them.",
+    "add": {
+      "damage_per_neighbor": 0.06
+    }
+  },
+  {
+    "id": "interest_ledger",
+    "name": "Interest Ledger",
+    "rarity": "rare",
+    "color": "#e0e080",
+    "filter": "economy",
+    "desc": "After each wave, gain 10% of your coins (up to 15).",
+    "economy": {
+      "interest": 0.1
+    }
+  },
+  {
+    "id": "skyward",
+    "name": "Skyward",
+    "rarity": "rare",
+    "color": "#a0f0ff",
+    "filter": "anti_air",
+    "desc": "Anti-air units deal +50% damage to fliers, but 10% less to ground invaders.",
+    "add": {
+      "flier_damage": 0.5,
+      "ground_damage": -0.1
+    }
+  },
+  {
+    "id": "champion",
+    "name": "Champion",
+    "rarity": "epic",
+    "color": "#ffd040",
+    "filter": "attackers",
+    "desc": "Evolved units deal +60% damage and get +0.5 range. Unevolved attackers deal 15% less.",
+    "add": {
+      "evolved_damage": 0.6,
+      "evolved_range": 0.5,
+      "unevolved_damage": -0.15
+    }
+  },
+  {
+    "id": "philosophers_stone",
+    "name": "Philosopher's Stone",
+    "rarity": "epic",
+    "color": "#ff60ff",
+    "filter": "economy",
+    "desc": "Evolutions cost half, but new units cost 12% more.",
+    "economy": {
+      "evolve_discount": 0.5,
+      "unit_markup": 0.12
+    }
+  },
+  {
+    "id": "executioners_axe",
+    "name": "Executioner's Axe",
+    "rarity": "epic",
+    "color": "#d0d0e0",
+    "filter": "attackers",
+    "desc": "Attacks finish off any non-boss below 15% HP.",
+    "add": {
+      "execute_below": 0.15
+    }
+  },
+  {
+    "id": "sky_hooks",
+    "name": "Sky Hooks",
+    "rarity": "epic",
+    "color": "#a0e0ff",
+    "filter": "ground_only",
+    "desc": "Ground-only attackers can now hit fliers.",
+    "grant": [
+      "hits_air"
+    ]
+  },
+  {
+    "id": "golden_goose",
+    "name": "Golden Goose",
+    "rarity": "epic",
+    "color": "#ffd040",
+    "filter": "economy",
+    "desc": "Every kill drops +2 coins, but clean-wave bonuses are halved.",
+    "economy": {
+      "kill_coins": 2,
+      "clean_bonus_mult": -0.5
+    }
+  },
+  {
+    "id": "storm_core",
+    "name": "Storm Core",
+    "rarity": "epic",
+    "color": "#80c0ff",
+    "filter": "single",
+    "desc": "Single-target shots chain to 1 extra invader.",
+    "add": {
+      "chain_count": 1
+    }
+  },
+  {
+    "id": "triple_shot",
+    "name": "Triple Shot",
+    "rarity": "epic",
+    "color": "#ffe080",
+    "filter": "single",
+    "desc": "Single-target attackers fire at 2 targets at once.",
+    "add": {
+      "multishot": 2
+    }
+  },
+  {
+    "id": "doom_bell",
+    "name": "Doom Bell",
+    "rarity": "epic",
+    "color": "#c080ff",
+    "filter": "attackers",
+    "desc": "Every hit stuns for 0.2s, but attackers fire 8% slower.",
+    "add": {
+      "stun_duration": 0.2
+    },
+    "mult": {
+      "fire_rate": -0.08
+    }
+  },
+  {
+    "id": "buddy_system",
+    "name": "Buddy System",
+    "rarity": "common",
+    "color": "#d09060",
+    "filter": "attackers",
+    "desc": "Attackers next to a wall deal +15% damage.",
+    "add": {
+      "wall_buddy_damage": 0.15
+    }
+  },
+  {
+    "id": "brace_posts",
+    "name": "Brace Posts",
+    "rarity": "common",
+    "color": "#c0a070",
+    "filter": "attackers",
+    "desc": "Attackers next to a wall fire 12% faster.",
+    "add": {
+      "wall_buddy_rate": 0.12
+    }
+  },
+  {
+    "id": "sticky_mortar",
+    "name": "Sticky Mortar",
+    "rarity": "common",
+    "color": "#b0c070",
+    "filter": "walls",
+    "desc": "Invaders next to a wall are slowed 15%.",
+    "add": {
+      "wall_slow": 0.15
+    }
+  },
+  {
+    "id": "nettle_hedge",
+    "name": "Nettle Hedge",
+    "rarity": "common",
+    "color": "#80c060",
+    "filter": "walls",
+    "desc": "Walls sting invaders next to them for 2 damage per second.",
+    "add": {
+      "wall_burn": 2.0
+    }
+  },
+  {
+    "id": "bulk_bricks",
+    "name": "Bulk Bricks",
+    "rarity": "common",
+    "color": "#c87850",
+    "filter": "economy",
+    "desc": "Walls cost 2 coins less (never below 1).",
+    "economy": {
+      "wall_discount": 2
+    }
+  },
+  {
+    "id": "watchtower",
+    "name": "Watchtower",
+    "rarity": "rare",
+    "color": "#c09060",
+    "filter": "attackers",
+    "desc": "Attackers next to a wall get +0.6 range.",
+    "add": {
+      "wall_buddy_range": 0.6
+    }
+  },
+  {
+    "id": "exposed_flank",
+    "name": "Exposed Flank",
+    "rarity": "rare",
+    "color": "#ff7050",
+    "filter": "walls",
+    "desc": "Invaders next to a wall take +20% damage from everything.",
+    "add": {
+      "wall_mark": 0.2
+    }
+  },
+  {
+    "id": "long_road",
+    "name": "Long Road",
+    "rarity": "rare",
+    "color": "#d0b080",
+    "filter": "attackers",
+    "desc": "Invaders take +2% damage for every tile they've walked (up to +60%).",
+    "add": {
+      "walked_damage": 0.02
+    }
+  },
+  {
+    "id": "flat_pack",
+    "name": "Flat-Pack Walls",
+    "rarity": "rare",
+    "color": "#e0c080",
+    "filter": "economy",
+    "desc": "Get 1 free wall after every wave, and removing a wall always refunds its full cost.",
+    "economy": {
+      "wave_walls": 1,
+      "wall_refund": 1
+    }
+  },
+  {
+    "id": "bastion",
+    "name": "Bastion",
+    "rarity": "epic",
+    "color": "#ffb040",
+    "filter": "attackers",
+    "desc": "Attackers next to a wall deal +40% damage and fire 25% faster. Attackers away from walls deal 15% less.",
+    "add": {
+      "wall_buddy_damage": 0.4,
+      "wall_buddy_rate": 0.25,
+      "no_wall_damage": -0.15
+    }
+  },
+  {
+    "id": "labyrinth",
+    "name": "Labyrinth",
+    "rarity": "epic",
+    "color": "#60c070",
+    "filter": "economy",
+    "desc": "Walls cost just 1 coin, but every other unit costs 12% more.",
+    "economy": {
+      "wall_discount": 99,
+      "unit_markup": 0.12
+    }
+  },
+  {
+    "id": "colony",
+    "name": "Colony",
+    "rarity": "epic",
+    "color": "#ffb020",
+    "filter": "attackers",
+    "desc": "Units with 3+ neighbors deal +60% damage and fire 30% faster. Units with 0-1 neighbors deal 20% less.",
+    "add": {
+      "cluster_damage": 0.6,
+      "cluster_rate": 0.3,
+      "small_group_damage": -0.2
+    }
+  },
+  {
+    "id": "affliction",
+    "name": "Affliction",
+    "rarity": "epic",
+    "color": "#c060ff",
+    "filter": "attackers",
+    "desc": "+20% damage for each status (slow, stun, poison, mark) on the target. 15% less against invaders with none.",
+    "add": {
+      "per_status_damage": 0.2,
+      "clean_target_damage": -0.15
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/bullet_ant_major_attack.png" id="1_lpipt"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/bullet_ant_major_idle.png" id="2_daxqg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6n8ua"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/swarming_bullet_ant_major.png" id="4_jdfbj"]
+
+[resource]
+script = ExtResource("3_6n8ua")
+id = "swarming_bullet_ant_major"
+display_name = "Swarming Bullet Ant Major"
+role = 1
+cost = 52
+max_hp = 25
+damage = 7.0
+attack_interval = 0.45
+pierce = true
+adjacency_bonus = 0.15
+tier = 2
+chain_count = 2
+texture = ExtResource("4_jdfbj")
+anim_idle = ExtResource("2_daxqg")
+anim_attack = ExtResource("1_lpipt")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Strikes chain to 2 more invaders."

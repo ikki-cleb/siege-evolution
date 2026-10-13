@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_dart_blaster_attack.png" id="1_7wuhf"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/long_dart_blaster_idle.png" id="2_81lkp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_eyews"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/laser_long_dart_blaster.png" id="4_mmluu"]
+
+[resource]
+script = ExtResource("3_eyews")
+id = "laser_long_dart_blaster"
+display_name = "Laser Long Dart Blaster"
+role = 1
+cost = 56
+max_hp = 15
+damage = 4.5
+attack_range = 4.5
+hits_air = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_mmluu")
+anim_idle = ExtResource("2_81lkp")
+anim_attack = ExtResource("1_7wuhf")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Shots pierce every invader in a line."

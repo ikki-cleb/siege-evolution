@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/long_field_gun_attack.png" id="1_a6mtj"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/long_field_gun_idle.png" id="2_t73ah"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_7brsy"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/railgun_long_field_gun.png" id="4_rfy4c"]
+
+[resource]
+script = ExtResource("3_7brsy")
+id = "railgun_long_field_gun"
+display_name = "Railgun Long Field Gun"
+role = 1
+cost = 56
+max_hp = 30
+damage = 8.0
+attack_range = 3.6
+attack_interval = 1.4
+hits_air = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_rfy4c")
+anim_idle = ExtResource("2_t73ah")
+anim_attack = ExtResource("1_a6mtj")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Shots pierce every invader in a line."

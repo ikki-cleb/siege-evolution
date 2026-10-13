@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3sqwe"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/cobblestone.tres" id="2_fs01p"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/thorned_pebble.tres" id="3_oesel"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/pebble_wall.png" id="4_s3miq"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/pebble_wall_idle.png" id="1_fs01p"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_oesel"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/cobblestone.tres" id="3_s3miq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/thorned_pebble.tres" id="4_ek5xn"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/pebble_wall.png" id="5_a6r4s"]
 
 [resource]
-script = ExtResource("1_3sqwe")
+script = ExtResource("2_oesel")
 id = "pebble_wall"
 display_name = "Pebble Wall"
 cost = 7
 max_hp = 90
-evolutions = Array[ExtResource("1_3sqwe")]([ExtResource("2_fs01p"), ExtResource("3_oesel")])
+evolutions = Array[ExtResource("2_oesel")]([ExtResource("3_s3miq"), ExtResource("4_ek5xn")])
 can_place_on_water = true
-texture = ExtResource("4_s3miq")
+texture = ExtResource("5_a6r4s")
+anim_idle = ExtResource("1_fs01p")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Very tough wall."

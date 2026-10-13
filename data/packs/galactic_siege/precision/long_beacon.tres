@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_i3poi"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/long_beacon.png" id="2_gruch"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/long_beacon_attack.png" id="1_82d8f"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/long_beacon_idle.png" id="2_t6fgh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1xs82"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/multi_target_long_beacon.tres" id="4_s7w0q"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/overclocked_long_beacon.tres" id="5_k2h7v"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/long_beacon.png" id="6_xcpt0"]
 
 [resource]
-script = ExtResource("1_i3poi")
+script = ExtResource("3_1xs82")
 id = "long_beacon"
 display_name = "Long Beacon"
 role = 2
@@ -15,6 +19,10 @@ attack_range = 4.5
 hits_air = true
 mark_bonus = 0.3
 mark_duration = 3.0
-texture = ExtResource("2_gruch")
+tier = 1
+evolutions = Array[ExtResource("3_1xs82")]([ExtResource("4_s7w0q"), ExtResource("5_k2h7v")])
+texture = ExtResource("6_xcpt0")
+anim_idle = ExtResource("2_t6fgh")
+anim_attack = ExtResource("1_82d8f")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

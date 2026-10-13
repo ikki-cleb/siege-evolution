@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kdsht"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/hunting_ant.png" id="2_cpevh"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/hunting_ant_attack.png" id="1_0vmx5"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/hunting_ant_idle.png" id="2_074pd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1v4oq"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/foraging_hunting_ant.tres" id="4_emk05"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/swarm/many_legged_hunting_ant.tres" id="5_dfo07"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/hunting_ant.png" id="6_e24hn"]
 
 [resource]
-script = ExtResource("1_kdsht")
+script = ExtResource("3_1v4oq")
 id = "hunting_ant"
 display_name = "Hunting Ant"
 role = 1
@@ -16,6 +20,10 @@ attack_interval = 0.45
 hits_air = true
 pierce = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_cpevh")
+tier = 1
+evolutions = Array[ExtResource("3_1v4oq")]([ExtResource("4_emk05"), ExtResource("5_dfo07")])
+texture = ExtResource("6_e24hn")
+anim_idle = ExtResource("2_074pd")
+anim_attack = ExtResource("1_0vmx5")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

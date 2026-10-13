@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_0nify"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/toy_bomber.png" id="2_mmx1i"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/toy_bomber_death.png" id="1_jx42t"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/toy_bomber_move.png" id="2_t6u6c"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_5japh"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/toy_bomber.png" id="4_e4qs0"]
 
 [resource]
-script = ExtResource("1_0nify")
+script = ExtResource("3_5japh")
 id = "toy_bomber"
 display_name = "Toy Bomber"
 movement = 2
@@ -12,7 +14,9 @@ max_hp = 24
 armor = 1
 speed = 0.8
 base_damage = 2
-atp_drop = 2
+coin_drop = 2
 bomb_damage = 35.0
-texture = ExtResource("2_mmx1i")
+texture = ExtResource("4_e4qs0")
+anim_move = ExtResource("2_t6u6c")
+anim_death = ExtResource("1_jx42t")
 description = "Drops a bomb on your most valuable unit near its flight line, hitting the tiles around it too."

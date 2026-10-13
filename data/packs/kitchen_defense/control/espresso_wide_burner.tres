@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/wide_burner_attack.png" id="1_xim1o"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/wide_burner_idle.png" id="2_wjxgo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_adi7c"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/espresso_wide_burner.png" id="4_dofss"]
+
+[resource]
+script = ExtResource("3_adi7c")
+id = "espresso_wide_burner"
+display_name = "Espresso Wide Burner"
+role = 1
+cost = 60
+max_hp = 25
+attack_mode = 1
+damage = 3.5
+attack_range = 3.0
+hits_air = true
+tier = 2
+aura_speed = 0.2
+texture = ExtResource("4_dofss")
+anim_idle = ExtResource("2_wjxgo")
+anim_attack = ExtResource("1_xim1o")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Neighbors attack 20% faster."

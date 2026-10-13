@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ebur6"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/prize_bull.png" id="2_sebpc"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/prize_bull_attack.png" id="1_bgekl"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/prize_bull_idle.png" id="2_ngg4y"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0stc3"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/hunting_prize_bull.tres" id="4_d1nws"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/bucking_prize_bull.tres" id="5_pbxme"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/prize_bull.png" id="6_7vexd"]
 
 [resource]
-script = ExtResource("1_ebur6")
+script = ExtResource("3_0stc3")
 id = "prize_bull"
 display_name = "Prize Bull"
 role = 1
@@ -12,6 +16,10 @@ cost = 16
 max_hp = 80
 damage = 17.0
 attack_interval = 1.1
-texture = ExtResource("2_sebpc")
+tier = 1
+evolutions = Array[ExtResource("3_0stc3")]([ExtResource("4_d1nws"), ExtResource("5_pbxme")])
+texture = ExtResource("6_7vexd")
+anim_idle = ExtResource("2_ngg4y")
+anim_attack = ExtResource("1_bgekl")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Hits far harder."

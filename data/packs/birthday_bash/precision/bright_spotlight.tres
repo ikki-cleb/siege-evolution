@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/bright_spotlight_attack.png" id="1_drmkx"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/precision/bright_spotlight_idle.png" id="2_6uxy8"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_g3oxu"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/unwrapping_bright_spotlight.tres" id="4_slahq"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/precision/bouncing_bright_spotlight.tres" id="5_h1ah1"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/precision/bright_spotlight.png" id="6_sj4uk"]
+
+[resource]
+script = ExtResource("3_g3oxu")
+id = "bright_spotlight"
+display_name = "Bright Spotlight"
+role = 2
+cost = 12
+max_hp = 15
+damage = 1.0
+attack_range = 3.0
+hits_air = true
+mark_bonus = 0.7
+mark_duration = 3.0
+tier = 1
+evolutions = Array[ExtResource("3_g3oxu")]([ExtResource("4_slahq"), ExtResource("5_h1ah1")])
+texture = ExtResource("6_sj4uk")
+anim_idle = ExtResource("2_6uxy8")
+anim_attack = ExtResource("1_drmkx")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Marks for +70% damage."

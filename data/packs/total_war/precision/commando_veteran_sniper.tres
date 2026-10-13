@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/veteran_sniper_attack.png" id="1_hll1b"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/veteran_sniper_idle.png" id="2_p8rl2"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ecpdf"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/commando_veteran_sniper.png" id="4_tfk2o"]
+
+[resource]
+script = ExtResource("3_ecpdf")
+id = "commando_veteran_sniper"
+display_name = "Commando Veteran Sniper"
+role = 1
+cost = 56
+max_hp = 15
+damage = 8.0
+attack_range = 3.0
+hits_air = true
+tier = 2
+execute_below = 0.2
+texture = ExtResource("4_tfk2o")
+anim_idle = ExtResource("2_p8rl2")
+anim_attack = ExtResource("1_hll1b")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Finishes off invaders below 20% HP."

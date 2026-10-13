@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_yvon1"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/heavy_orbital_lance.tres" id="2_15ots"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/rapid_orbital_lance.tres" id="3_pyol5"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/orbital_lance.png" id="4_4ra64"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/orbital_lance_attack.png" id="1_pyol5"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/orbital_lance_idle.png" id="2_4ra64"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_sovw4"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/heavy_orbital_lance.tres" id="4_iv2lu"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/rapid_orbital_lance.tres" id="5_e0bnr"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/orbital_lance.png" id="6_fcuvv"]
 
 [resource]
-script = ExtResource("1_yvon1")
+script = ExtResource("3_sovw4")
 id = "orbital_lance"
 display_name = "Orbital Lance"
 role = 1
@@ -17,7 +19,9 @@ attack_range = 5.0
 attack_interval = 3.0
 hits_air = true
 pierce = true
-evolutions = Array[ExtResource("1_yvon1")]([ExtResource("2_15ots"), ExtResource("3_pyol5")])
-texture = ExtResource("4_4ra64")
+evolutions = Array[ExtResource("3_sovw4")]([ExtResource("4_iv2lu"), ExtResource("5_e0bnr")])
+texture = ExtResource("6_fcuvv")
+anim_idle = ExtResource("2_4ra64")
+anim_attack = ExtResource("1_pyol5")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Sniper. Huge piercing shots across the map."

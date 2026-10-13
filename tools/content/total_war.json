@@ -365,6 +365,486 @@
     "virulent_bloom": [
       "virulent_sludge",
       "Virulent Sludge"
+    ],
+    "fibrin_bastion": [
+      "field_repaired_reinforced_sandbags",
+      "Field-Repaired Reinforced Sandbags"
+    ],
+    "clotting_snare": [
+      "barbed_reinforced_sandbags",
+      "Barbed Reinforced Sandbags"
+    ],
+    "thrombus_mine": [
+      "booby_trapped_spiked_barricade",
+      "Booby-Trapped Spiked Barricade"
+    ],
+    "barbed_thrombus": [
+      "barbed_spiked_barricade",
+      "Barbed Spiked Barricade"
+    ],
+    "devouring_macrophage": [
+      "commando_heavy_turret",
+      "Commando Heavy Turret"
+    ],
+    "titan_macrophage": [
+      "recoil_heavy_turret",
+      "Recoil Heavy Turret"
+    ],
+    "engulfing_foam": [
+      "armor_piercing_siege_turret",
+      "Armor-Piercing Siege Turret"
+    ],
+    "foam_eruption": [
+      "flaming_siege_turret",
+      "Flaming Siege Turret"
+    ],
+    "presenting_dendrite": [
+      "relay_big_field_gun",
+      "Relay Big Field Gun"
+    ],
+    "dendrite_volley": [
+      "twin_barrel_big_field_gun",
+      "Twin-Barrel Big Field Gun"
+    ],
+    "sentinel_dendrite": [
+      "railgun_long_field_gun",
+      "Railgun Long Field Gun"
+    ],
+    "harvesting_dendrite": [
+      "loot_long_field_gun",
+      "Loot Long Field Gun"
+    ],
+    "keloid_wall": [
+      "field_repaired_armored_depot",
+      "Field-Repaired Armored Depot"
+    ],
+    "scar_lattice": [
+      "bunkered_armored_depot",
+      "Bunkered Armored Depot"
+    ],
+    "signaling_fibroblast": [
+      "rallying_rapid_depot",
+      "Rallying Rapid Depot"
+    ],
+    "granulation_tissue": [
+      "barbed_rapid_depot",
+      "Barbed Rapid Depot"
+    ],
+    "eosinophil_barrage": [
+      "twin_barrel_heavy_howitzer",
+      "Twin-Barrel Heavy Howitzer"
+    ],
+    "major_basic_protein": [
+      "commando_heavy_howitzer",
+      "Commando Heavy Howitzer"
+    ],
+    "eosinophil_spear": [
+      "railgun_long_howitzer",
+      "Railgun Long Howitzer"
+    ],
+    "eosinophil_shredder": [
+      "armor_piercing_long_howitzer",
+      "Armor-Piercing Long Howitzer"
+    ],
+    "fortress_granuloma": [
+      "waterproof_reinforced_bunker",
+      "Waterproof Reinforced Bunker"
+    ],
+    "bone_granuloma": [
+      "field_repaired_reinforced_bunker",
+      "Field-Repaired Reinforced Bunker"
+    ],
+    "bursting_granuloma": [
+      "booby_trapped_spiked_bunker",
+      "Booby-Trapped Spiked Bunker"
+    ],
+    "grasping_granuloma": [
+      "barbed_spiked_bunker",
+      "Barbed Spiked Bunker"
+    ],
+    "cornified_layer": [
+      "field_repaired_double_wire",
+      "Field-Repaired Double Wire"
+    ],
+    "mucosal_barrier": [
+      "waterproof_double_wire",
+      "Waterproof Double Wire"
+    ],
+    "cilia_trap": [
+      "barbed_razor_wire",
+      "Barbed Razor Wire"
+    ],
+    "bursting_cell": [
+      "booby_trapped_razor_wire",
+      "Booby-Trapped Razor Wire"
+    ],
+    "frenzied_horde": [
+      "twin_barrel_veteran_rifleman",
+      "Twin-Barrel Veteran Rifleman"
+    ],
+    "killer_neutrophil": [
+      "commando_veteran_rifleman",
+      "Commando Veteran Rifleman"
+    ],
+    "net_neutrophil": [
+      "relay_scout_rifleman",
+      "Relay Scout Rifleman"
+    ],
+    "scavenger_neutrophil": [
+      "loot_scout_rifleman",
+      "Loot Scout Rifleman"
+    ],
+    "barrage_monocyte": [
+      "super_twin_aa_gunner",
+      "Super Twin AA Gunner"
+    ],
+    "piercing_monocyte": [
+      "armor_piercing_twin_aa_gunner",
+      "Armor-Piercing Twin AA Gunner"
+    ],
+    "sniper_monocyte": [
+      "railgun_sentry_aa_gunner",
+      "Railgun Sentry AA Gunner"
+    ],
+    "signal_monocyte": [
+      "rallying_sentry_aa_gunner",
+      "Rallying Sentry AA Gunner"
+    ],
+    "histamine_burst": [
+      "flaming_heavy_grenadier",
+      "Flaming Heavy Grenadier"
+    ],
+    "shredding_basophil": [
+      "armor_piercing_heavy_grenadier",
+      "Armor-Piercing Heavy Grenadier"
+    ],
+    "shockwave_basophil": [
+      "recoil_wide_grenadier",
+      "Recoil Wide Grenadier"
+    ],
+    "rallying_basophil": [
+      "rallying_wide_grenadier",
+      "Rallying Wide Grenadier"
+    ],
+    "executioner_nk": [
+      "super_elite_commando",
+      "Super Elite Commando"
+    ],
+    "chain_nk": [
+      "relay_elite_commando",
+      "Relay Elite Commando"
+    ],
+    "stalker_nk": [
+      "loot_ranger_commando",
+      "Loot Ranger Commando"
+    ],
+    "whirling_nk": [
+      "twin_barrel_ranger_commando",
+      "Twin-Barrel Ranger Commando"
+    ],
+    "snaring_net": [
+      "barbed_steel_tank_trap",
+      "Barbed Steel Tank Trap"
+    ],
+    "regrowing_net": [
+      "field_repaired_steel_tank_trap",
+      "Field-Repaired Steel Tank Trap"
+    ],
+    "freezing_net": [
+      "frost_wide_tank_trap",
+      "Frost Wide Tank Trap"
+    ],
+    "bursting_net": [
+      "booby_trapped_wide_tank_trap",
+      "Booby-Trapped Wide Tank Trap"
+    ],
+    "armored_keratin": [
+      "bunkered_thick_barrier",
+      "Bunkered Thick Barrier"
+    ],
+    "rebuilt_plate": [
+      "field_repaired_thick_barrier",
+      "Field-Repaired Thick Barrier"
+    ],
+    "spike_trap_plate": [
+      "booby_trapped_spiked_barrier",
+      "Booby-Trapped Spiked Barrier"
+    ],
+    "hooked_plate": [
+      "barbed_spiked_barrier",
+      "Barbed Spiked Barrier"
+    ],
+    "antibody_storm": [
+      "twin_barrel_veteran_sniper",
+      "Twin-Barrel Veteran Sniper"
+    ],
+    "neutralizing_plasma": [
+      "commando_veteran_sniper",
+      "Commando Veteran Sniper"
+    ],
+    "memory_lance": [
+      "railgun_marksman",
+      "Railgun Marksman"
+    ],
+    "long_lived_b_cell": [
+      "loot_marksman",
+      "Loot Marksman"
+    ],
+    "complement_tagger": [
+      "armor_piercing_laser_spotter",
+      "Armor-Piercing Laser Spotter"
+    ],
+    "chain_tagger": [
+      "relay_laser_spotter",
+      "Relay Laser Spotter"
+    ],
+    "multi_tagger": [
+      "twin_barrel_long_range_spotter",
+      "Twin-Barrel Long-Range Spotter"
+    ],
+    "coordinator_tagger": [
+      "rallying_long_range_spotter",
+      "Rallying Long-Range Spotter"
+    ],
+    "executioner_t": [
+      "commando_heavy_bazooka",
+      "Commando Heavy Bazooka"
+    ],
+    "hammer_t": [
+      "recoil_heavy_bazooka",
+      "Recoil Heavy Bazooka"
+    ],
+    "hunter_t": [
+      "relay_roaming_bazooka",
+      "Relay Roaming Bazooka"
+    ],
+    "twin_patrol_t": [
+      "twin_barrel_roaming_bazooka",
+      "Twin-Barrel Roaming Bazooka"
+    ],
+    "railgun_lance": [
+      "railgun_heavy_long_tom",
+      "Railgun Heavy Long Tom"
+    ],
+    "finishing_lance": [
+      "commando_heavy_long_tom",
+      "Commando Heavy Long Tom"
+    ],
+    "bounty_lance": [
+      "loot_rapid_long_tom",
+      "Loot Rapid Long Tom"
+    ],
+    "ricochet_lance": [
+      "relay_rapid_long_tom",
+      "Relay Rapid Long Tom"
+    ],
+    "interferon_storm": [
+      "armor_piercing_advanced_radar",
+      "Armor-Piercing Advanced Radar"
+    ],
+    "rallying_beacon": [
+      "rallying_advanced_radar",
+      "Rallying Advanced Radar"
+    ],
+    "shield_beacon": [
+      "waterproof_tall_radar",
+      "Waterproof Tall Radar"
+    ],
+    "pulse_beacon": [
+      "recoil_tall_radar",
+      "Recoil Tall Radar"
+    ],
+    "mucus_plug": [
+      "field_repaired_thick_barricade",
+      "Field-Repaired Thick Barricade"
+    ],
+    "grasping_mucus": [
+      "barbed_thick_barricade",
+      "Barbed Thick Barricade"
+    ],
+    "glue_mucus": [
+      "frost_gluey_barricade",
+      "Frost Gluey Barricade"
+    ],
+    "bursting_mucus": [
+      "booby_trapped_gluey_barricade",
+      "Booby-Trapped Gluey Barricade"
+    ],
+    "shredding_mast_cell": [
+      "armor_piercing_dense_smoke_launcher",
+      "Armor-Piercing Dense Smoke Launcher"
+    ],
+    "degranulation_burst": [
+      "flaming_dense_smoke_launcher",
+      "Flaming Dense Smoke Launcher"
+    ],
+    "shoving_mast_cell": [
+      "recoil_wide_smoke_launcher",
+      "Recoil Wide Smoke Launcher"
+    ],
+    "alarm_mast_cell": [
+      "rallying_wide_smoke_launcher",
+      "Rallying Wide Smoke Launcher"
+    ],
+    "corrosive_spitter": [
+      "armor_piercing_heavy_mortar",
+      "Armor-Piercing Heavy Mortar"
+    ],
+    "burning_spitter": [
+      "flaming_heavy_mortar",
+      "Flaming Heavy Mortar"
+    ],
+    "twin_spitter": [
+      "twin_barrel_long_mortar",
+      "Twin-Barrel Long Mortar"
+    ],
+    "bouncing_spitter": [
+      "relay_long_mortar",
+      "Relay Long Mortar"
+    ],
+    "inferno_node": [
+      "flaming_hot_flame_turret",
+      "Flaming Hot Flame Turret"
+    ],
+    "heatstroke_node": [
+      "commando_hot_flame_turret",
+      "Commando Hot Flame Turret"
+    ],
+    "heatwave_node": [
+      "recoil_wide_flame_turret",
+      "Recoil Wide Flame Turret"
+    ],
+    "warming_node": [
+      "rallying_wide_flame_turret",
+      "Rallying Wide Flame Turret"
+    ],
+    "chain_storm": [
+      "relay_overcharged_turret",
+      "Relay Overcharged Turret"
+    ],
+    "storm_volley": [
+      "twin_barrel_overcharged_turret",
+      "Twin-Barrel Overcharged Turret"
+    ],
+    "shockwave_storm": [
+      "recoil_chain_shock_turret",
+      "Recoil Chain Shock Turret"
+    ],
+    "freezing_storm": [
+      "frost_chain_shock_turret",
+      "Frost Chain Shock Turret"
+    ],
+    "scorched_zone": [
+      "armor_piercing_power_water_cannon",
+      "Armor-Piercing Power Water Cannon"
+    ],
+    "sepsis_zone": [
+      "commando_power_water_cannon",
+      "Commando Power Water Cannon"
+    ],
+    "edema_zone": [
+      "recoil_wide_water_cannon",
+      "Recoil Wide Water Cannon"
+    ],
+    "fevered_zone": [
+      "loot_wide_water_cannon",
+      "Loot Wide Water Cannon"
+    ],
+    "regrowing_membrane": [
+      "field_repaired_stacked_barrels",
+      "Field-Repaired Stacked Barrels"
+    ],
+    "sticky_membrane": [
+      "barbed_stacked_barrels",
+      "Barbed Stacked Barrels"
+    ],
+    "toxic_burst_membrane": [
+      "booby_trapped_leaky_barrels",
+      "Booby-Trapped Leaky Barrels"
+    ],
+    "antitoxin_membrane": [
+      "waterproof_leaky_barrels",
+      "Waterproof Leaky Barrels"
+    ],
+    "necrotizing_t": [
+      "commando_hazard_trooper",
+      "Commando Hazard Trooper"
+    ],
+    "twin_venom_t": [
+      "twin_barrel_hazard_trooper",
+      "Twin-Barrel Hazard Trooper"
+    ],
+    "chain_venom_t": [
+      "relay_long_chem_trooper",
+      "Relay Long Chem Trooper"
+    ],
+    "venom_sniper_t": [
+      "railgun_long_chem_trooper",
+      "Railgun Long Chem Trooper"
+    ],
+    "corroding_sprayer": [
+      "armor_piercing_caustic_mortar",
+      "Armor-Piercing Caustic Mortar"
+    ],
+    "toxic_cloud_sprayer": [
+      "gas_caustic_mortar",
+      "Gas Caustic Mortar"
+    ],
+    "fanning_sprayer": [
+      "twin_barrel_misting_mortar",
+      "Twin-Barrel Misting Mortar"
+    ],
+    "harvest_sprayer": [
+      "loot_misting_mortar",
+      "Loot Misting Mortar"
+    ],
+    "dissolving_pool": [
+      "armor_piercing_leaking_canister",
+      "Armor-Piercing Leaking Canister"
+    ],
+    "boiling_pool": [
+      "gas_leaking_canister",
+      "Gas Leaking Canister"
+    ],
+    "flooding_pool": [
+      "recoil_spreading_canister",
+      "Recoil Spreading Canister"
+    ],
+    "rich_pool": [
+      "loot_spreading_canister",
+      "Loot Spreading Canister"
+    ],
+    "pandemic_lancer": [
+      "relay_venom_drone",
+      "Relay Venom Drone"
+    ],
+    "plague_executioner": [
+      "commando_venom_drone",
+      "Commando Venom Drone"
+    ],
+    "plague_volley": [
+      "twin_barrel_long_range_drone",
+      "Twin-Barrel Long-Range Drone"
+    ],
+    "plague_spear": [
+      "railgun_long_range_drone",
+      "Railgun Long-Range Drone"
+    ],
+    "undying_bloom": [
+      "field_repaired_hardened_sludge",
+      "Field-Repaired Hardened Sludge"
+    ],
+    "choking_bloom": [
+      "barbed_hardened_sludge",
+      "Barbed Hardened Sludge"
+    ],
+    "spore_burst_bloom": [
+      "booby_trapped_virulent_sludge",
+      "Booby-Trapped Virulent Sludge"
+    ],
+    "blight_field": [
+      "gas_virulent_sludge",
+      "Gas Virulent Sludge"
     ]
   },
   "art_style": "toys",
@@ -626,7 +1106,7 @@
       "smash": {
         "normal": "toy_tank",
         "elite": "heavy_tank",
-        "elite_level": 5
+        "elite_level": 4
       },
       "jump": {
         "normal": "motorbike"
@@ -634,17 +1114,17 @@
       "fly": {
         "normal": "paper_plane",
         "elite": "jet",
-        "elite_level": 4
+        "elite_level": 3
       },
       "bomb": {
         "normal": "toy_bomber",
         "elite": "heavy_bomber",
-        "elite_level": 6
+        "elite_level": 4
       },
       "navy": {
         "normal": "patrol_boat",
         "elite": "destroyer",
-        "elite_level": 4
+        "elite_level": 3
       },
       "battleship": {
         "normal": "battleship"
@@ -683,16 +1163,6 @@
         "swarm": 0.5,
         "jump": 0.25,
         "fly": 0.25
-      },
-      {
-        "smash": 0.35,
-        "split": 0.3,
-        "bomb": 0.35
-      },
-      {
-        "swarm": 0.4,
-        "jump": 0.3,
-        "bomb": 0.3
       },
       {
         "swarm": 0.2,
@@ -736,16 +1206,6 @@
         "sub": 0.25
       },
       {
-        "battleship": 0.35,
-        "sub": 0.3,
-        "swarm": 0.35
-      },
-      {
-        "navy": 0.4,
-        "bomb": 0.3,
-        "swarm": 0.3
-      },
-      {
         "navy": 0.25,
         "sub": 0.2,
         "battleship": 0.2,
@@ -753,7 +1213,7 @@
         "bomb": 0.15
       }
     ],
-    "growth_per_wave": 0.32
+    "growth_per_wave": 0.411
   },
   "tutorial": {
     "waves": [
@@ -847,34 +1307,6 @@
         [
           "toy_tank",
           3,
-          5.0,
-          0
-        ],
-        [
-          "toy_bomber",
-          2,
-          5.0,
-          3
-        ]
-      ],
-      [
-        [
-          "toy_soldier",
-          20,
-          0.45,
-          0
-        ],
-        [
-          "motorbike",
-          4,
-          2.0,
-          4
-        ]
-      ],
-      [
-        [
-          "toy_tank",
-          3,
           4.0,
           0
         ],
@@ -905,22 +1337,19 @@
       ]
     ],
     "tips": [
-      "Welcome to the toy war! Your pack plays exactly the same here. Toy soldiers march around your units; every kill drops ATP.",
+      "Welcome to the toy war! Your pack plays exactly the same here. Toy soldiers march around your units; every kill drops coins.",
       "Units that survived a wave can evolve. Anything placed this round refunds in full.",
       "Troop Trucks unload three recruits when destroyed.",
       "Toy Tanks ignore your maze and roll through any unit in their way (red line).",
       "Paper Planes fly straight to the HQ (blue dashes). Only some units can hit fliers.",
       "NEW: Toy Bombers drop a bomb on your most valuable unit near their flight line. Shoot them down early, or spread out.",
       "Stunt Bikes jump any single unit tile, like the deer. Build walls two tiles thick.",
-      "Tanks and bombers together: guard your expensive units.",
-      "Big march with bikes mixed in. Thick walls keep the bikes on the long route.",
       "Final wave! Next level takes the war to the water."
     ]
   },
   "levels": [
     {
       "name": "1. Sandbox",
-      "preview": true,
       "hand": [
         12,
         15,
@@ -929,7 +1358,7 @@
         0,
         0
       ],
-      "atp": 40,
+      "coins": 40,
       "income": 5,
       "layout": [
         "....S....",
@@ -959,9 +1388,9 @@
         0,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 5,
-      "budget": 9.5,
+      "budget": 11,
       "layout": [
         "S...N...S",
         "....~....",
@@ -992,37 +1421,7 @@
       ]
     },
     {
-      "name": "3. Toy Shelf",
-      "hand": [
-        12,
-        8,
-        7,
-        5,
-        0,
-        0
-      ],
-      "atp": 20,
-      "income": 5,
-      "budget": 15,
-      "layout": [
-        "S.......S",
-        ".........",
-        "..#...#..",
-        ".........",
-        "##.....##",
-        ".........",
-        "...#.#...",
-        ".........",
-        "##.....##",
-        ".........",
-        "..#...#..",
-        ".........",
-        ".........",
-        "....B...."
-      ]
-    },
-    {
-      "name": "4. Rubber Duck Harbor",
+      "name": "3. Rubber Duck Harbor",
       "sea": true,
       "hand": [
         14,
@@ -1032,9 +1431,9 @@
         10,
         0
       ],
-      "atp": 20,
+      "coins": 20,
       "income": 6,
-      "budget": 21,
+      "budget": 25,
       "layout": [
         "S..N....S",
         "...~.....",
@@ -1065,37 +1464,7 @@
       ]
     },
     {
-      "name": "5. Bedroom Floor",
-      "hand": [
-        16,
-        12,
-        7,
-        5,
-        10,
-        0
-      ],
-      "atp": 25,
-      "income": 6,
-      "budget": 21,
-      "layout": [
-        "S........",
-        ".........",
-        "...##....",
-        "...##...S",
-        ".........",
-        ".........",
-        ".##...##.",
-        ".##...##.",
-        ".........",
-        ".........",
-        "....##...",
-        "....##...",
-        ".........",
-        "........B"
-      ]
-    },
-    {
-      "name": "6. Pool Party Landing",
+      "name": "4. Pool Party Landing",
       "sea": true,
       "hand": [
         16,
@@ -1105,9 +1474,9 @@
         10,
         7
       ],
-      "atp": 25,
+      "coins": 25,
       "income": 6,
-      "budget": 25,
+      "budget": 29,
       "layout": [
         "N~..S..~N",
         "~~.....~~",
@@ -1126,7 +1495,7 @@
       ]
     },
     {
-      "name": "7. Playroom Siege",
+      "name": "5. Playroom Siege",
       "hand": [
         20,
         12,
@@ -1135,9 +1504,9 @@
         10,
         7
       ],
-      "atp": 30,
+      "coins": 30,
       "income": 7,
-      "budget": 29,
+      "budget": 34.5,
       "boss": "mega_tank",
       "layout": [
         "S...S...S",

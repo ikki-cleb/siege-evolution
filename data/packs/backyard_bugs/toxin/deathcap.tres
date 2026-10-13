@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_75068"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/deathcap.png" id="2_j04ud"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/deathcap_attack.png" id="1_cvrfj"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/deathcap_idle.png" id="2_78bpw"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_w3sft"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/shell_cracking_deathcap.tres" id="4_y32sb"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/toxin/venomous_deathcap.tres" id="5_01jbu"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/deathcap.png" id="6_lduxf"]
 
 [resource]
-script = ExtResource("1_75068")
+script = ExtResource("3_w3sft")
 id = "deathcap"
 display_name = "Deathcap"
 role = 1
@@ -13,6 +17,10 @@ attack_mode = 1
 attack_range = 1.6
 poison_dps = 4.5
 poison_duration = 3.0
-texture = ExtResource("2_j04ud")
+tier = 1
+evolutions = Array[ExtResource("3_w3sft")]([ExtResource("4_y32sb"), ExtResource("5_01jbu")])
+texture = ExtResource("6_lduxf")
+anim_idle = ExtResource("2_78bpw")
+anim_attack = ExtResource("1_cvrfj")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

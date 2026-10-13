@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_tbq5r"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/reactive_mast_cell.png" id="2_tyqmo"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/reactive_mast_cell_attack.png" id="1_1aust"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/reactive_mast_cell_idle.png" id="2_gbru5"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_m2scq"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/shredding_mast_cell.tres" id="4_7tt71"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/degranulation_burst.tres" id="5_w11ny"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/reactive_mast_cell.png" id="6_sbest"]
 
 [resource]
-script = ExtResource("1_tbq5r")
+script = ExtResource("3_m2scq")
 id = "reactive_mast_cell"
-display_name = "Reactive Mast Cell"
+display_name = "Strong Allergy Cell"
 role = 1
 cost = 12
 max_hp = 25
@@ -15,6 +19,10 @@ damage = 3.5
 attack_range = 1.8
 slow = 0.35
 slow_duration = 1.2
-texture = ExtResource("2_tyqmo")
+tier = 1
+evolutions = Array[ExtResource("3_m2scq")]([ExtResource("4_7tt71"), ExtResource("5_w11ny")])
+texture = ExtResource("6_sbest")
+anim_idle = ExtResource("2_gbru5")
+anim_attack = ExtResource("1_1aust")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

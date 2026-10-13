@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Resource" path="res://data/invaders/total_war/toy_soldier.tres" id="1_2q3nq"]
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="2_lpydw"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/mega_tank.png" id="3_seh5y"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/mega_tank_death.png" id="1_seh5y"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/mega_tank_move.png" id="2_fp6fd"]
+[ext_resource type="Resource" path="res://data/invaders/total_war/toy_soldier.tres" id="3_xnmb0"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="4_llkew"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/mega_tank.png" id="5_7adm5"]
 
 [resource]
-script = ExtResource("2_lpydw")
+script = ExtResource("4_llkew")
 id = "mega_tank"
 display_name = "Mega Tank"
 movement = 1
@@ -14,10 +16,12 @@ armor = 1
 speed = 0.4
 base_damage = 10
 smash_damage = 20.0
-atp_drop = 20
+coin_drop = 20
 is_boss = true
-minion = ExtResource("1_2q3nq")
+minion = ExtResource("3_xnmb0")
 minion_count = 1
 minion_interval = 4.5
-texture = ExtResource("3_seh5y")
+texture = ExtResource("5_7adm5")
+anim_move = ExtResource("2_fp6fd")
+anim_death = ExtResource("1_seh5y")
 description = "Boss: a giant tank that rolls over everything and deploys soldiers."

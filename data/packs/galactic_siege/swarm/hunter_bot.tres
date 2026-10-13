@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fcf8l"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/hunter_bot.png" id="2_ycyvs"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/hunter_bot_attack.png" id="1_4jpe5"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/hunter_bot_idle.png" id="2_bn5rq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_7h4jr"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/salvage_hunter_bot.tres" id="4_bcmad"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/multi_target_hunter_bot.tres" id="5_ivgn7"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/hunter_bot.png" id="6_ob4u5"]
 
 [resource]
-script = ExtResource("1_fcf8l")
+script = ExtResource("3_7h4jr")
 id = "hunter_bot"
 display_name = "Hunter Bot"
 role = 1
@@ -16,6 +20,10 @@ attack_interval = 0.45
 hits_air = true
 pierce = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_ycyvs")
+tier = 1
+evolutions = Array[ExtResource("3_7h4jr")]([ExtResource("4_bcmad"), ExtResource("5_ivgn7")])
+texture = ExtResource("6_ob4u5")
+anim_idle = ExtResource("2_bn5rq")
+anim_attack = ExtResource("1_4jpe5")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

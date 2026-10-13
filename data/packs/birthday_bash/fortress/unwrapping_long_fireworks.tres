@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/long_fireworks_attack.png" id="1_axufx"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/long_fireworks_idle.png" id="2_1unso"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_wycly"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/unwrapping_long_fireworks.png" id="4_rggq2"]
+
+[resource]
+script = ExtResource("3_wycly")
+id = "unwrapping_long_fireworks"
+display_name = "Unwrapping Long Fireworks"
+role = 1
+cost = 84
+max_hp = 40
+damage = 30.0
+attack_range = 3.2
+attack_interval = 2.6
+hits_air = true
+pierce = true
+tier = 2
+knockback = 1
+armor_shred = 2
+texture = ExtResource("4_rggq2")
+anim_idle = ExtResource("2_1unso")
+anim_attack = ExtResource("1_axufx")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Strips 2 armor and shoves back."

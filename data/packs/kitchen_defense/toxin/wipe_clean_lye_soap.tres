@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/lye_soap_idle.png" id="1_j5rkr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_p1bpo"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/wipe_clean_lye_soap.png" id="3_43ymq"]
+
+[resource]
+script = ExtResource("2_p1bpo")
+id = "wipe_clean_lye_soap"
+display_name = "Wipe-Clean Lye Soap"
+cost = 22
+max_hp = 25
+reflect = 0.8
+tier = 2
+aura_shield = 0.2
+aura_cleanse = true
+can_place_on_water = true
+texture = ExtResource("3_43ymq")
+anim_idle = ExtResource("1_j5rkr")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Neighbors take 20% less damage and ignore goo."

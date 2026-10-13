@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_uoqod"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/siege_turret.png" id="2_nhsru"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/siege_turret_attack.png" id="1_2e0xk"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/siege_turret_idle.png" id="2_ae6an"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_u5485"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/armor_piercing_siege_turret.tres" id="4_lwj3t"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/flaming_siege_turret.tres" id="5_4n4bm"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/siege_turret.png" id="6_r30rt"]
 
 [resource]
-script = ExtResource("1_uoqod")
+script = ExtResource("3_u5485")
 id = "siege_turret"
 display_name = "Siege Turret"
 role = 1
@@ -14,6 +18,10 @@ damage = 9.0
 attack_range = 1.8
 attack_interval = 1.1
 splash_radius = 1.0
-texture = ExtResource("2_nhsru")
+tier = 1
+evolutions = Array[ExtResource("3_u5485")]([ExtResource("4_lwj3t"), ExtResource("5_4n4bm")])
+texture = ExtResource("6_r30rt")
+anim_idle = ExtResource("2_ae6an")
+anim_attack = ExtResource("1_2e0xk")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Longer reach and hits splash."

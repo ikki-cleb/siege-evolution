@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/rotting_manure_attack.png" id="1_1poxj"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/rotting_manure_idle.png" id="2_3m17x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_xsu31"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/stinging_rotting_manure.png" id="4_105hn"]
+
+[resource]
+script = ExtResource("3_xsu31")
+id = "stinging_rotting_manure"
+display_name = "Stinging Rotting Manure"
+role = 1
+cost = 54
+attack_mode = 1
+attack_range = 1.6
+poison_dps = 4.5
+poison_duration = 3.0
+tier = 2
+zone_kind = "toxic"
+zone_power = 3.0
+texture = ExtResource("4_105hn")
+anim_idle = ExtResource("2_3m17x")
+anim_attack = ExtResource("1_1poxj")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Leaves a toxic patch around itself."

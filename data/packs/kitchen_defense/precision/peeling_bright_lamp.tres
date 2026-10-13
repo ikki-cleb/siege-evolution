@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/bright_lamp_attack.png" id="1_qran4"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/bright_lamp_idle.png" id="2_78o0a"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_4hsxo"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/peeling_bright_lamp.png" id="4_mu26k"]
+
+[resource]
+script = ExtResource("3_4hsxo")
+id = "peeling_bright_lamp"
+display_name = "Peeling Bright Lamp"
+role = 2
+cost = 52
+max_hp = 35
+attack_mode = 1
+attack_range = 2.5
+hits_air = true
+mark_bonus = 0.45
+mark_duration = 1.5
+tier = 2
+armor_shred = 1
+texture = ExtResource("4_mu26k")
+anim_idle = ExtResource("2_78o0a")
+anim_attack = ExtResource("1_qran4")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Pulses strip 1 armor."

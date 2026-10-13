@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_n166s"]
-[ext_resource type="Texture2D" path="res://art/invaders/total_war/motorbike.png" id="2_v4m6l"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/motorbike_death.png" id="1_nnolc"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/invaders/motorbike_move.png" id="2_dxhl8"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_0p6ld"]
+[ext_resource type="Texture2D" path="res://art/invaders/total_war/motorbike.png" id="4_egs3o"]
 
 [resource]
-script = ExtResource("1_n166s")
+script = ExtResource("3_0p6ld")
 id = "motorbike"
 display_name = "Stunt Bike"
 max_hp = 18
 speed = 1.6
 base_damage = 2
-atp_drop = 2
+coin_drop = 2
 jumps = true
-texture = ExtResource("2_v4m6l")
+texture = ExtResource("4_egs3o")
+anim_move = ExtResource("2_dxhl8")
+anim_death = ExtResource("1_nnolc")
 description = "Jumps any single unit tile off a ramp."

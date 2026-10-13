@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/long_rattler_attack.png" id="1_7oeua"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/toxin/long_rattler_idle.png" id="2_mx6d3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_rqwx0"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/toxin/herding_long_rattler.png" id="4_oseww"]
+
+[resource]
+script = ExtResource("3_rqwx0")
+id = "herding_long_rattler"
+display_name = "Herding Long Rattler"
+role = 1
+cost = 48
+damage = 1.0
+attack_range = 3.0
+attack_interval = 0.9
+poison_dps = 3.5
+poison_duration = 4.0
+tier = 2
+chain_count = 2
+texture = ExtResource("4_oseww")
+anim_idle = ExtResource("2_mx6d3")
+anim_attack = ExtResource("1_7oeua")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Poison chains to 2 more invaders."

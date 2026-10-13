@@ -1,15 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_exjes"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/rapid_depot.png" id="2_axkrh"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/fortress/rapid_depot_idle.png" id="1_wih5r"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_kt7ok"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/rallying_rapid_depot.tres" id="3_dueq6"]
+[ext_resource type="Resource" path="res://data/packs/total_war/fortress/barbed_rapid_depot.tres" id="4_ks121"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/fortress/rapid_depot.png" id="5_1gx7y"]
 
 [resource]
-script = ExtResource("1_exjes")
+script = ExtResource("2_kt7ok")
 id = "rapid_depot"
 display_name = "Rapid Depot"
 cost = 10
 max_hp = 70
 regen = 16.0
-texture = ExtResource("2_axkrh")
+tier = 1
+evolutions = Array[ExtResource("2_kt7ok")]([ExtResource("3_dueq6"), ExtResource("4_ks121")])
+texture = ExtResource("5_1gx7y")
+anim_idle = ExtResource("1_wih5r")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Heals much faster."

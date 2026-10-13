@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_hakjr"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/deer.png" id="2_dpsfh"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/deer_death.png" id="1_g27sm"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/deer_move.png" id="2_0vm4v"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_3axss"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/deer.png" id="4_s0p53"]
 
 [resource]
-script = ExtResource("1_hakjr")
+script = ExtResource("3_3axss")
 id = "deer"
 display_name = "Deer"
 max_hp = 22
 speed = 1.25
 base_damage = 2
-atp_drop = 2
+coin_drop = 2
 jumps = true
-texture = ExtResource("2_dpsfh")
+texture = ExtResource("4_s0p53")
+anim_move = ExtResource("2_0vm4v")
+anim_death = ExtResource("1_g27sm")
 description = "Leaps over any single unit tile. Walls two tiles thick stop it."

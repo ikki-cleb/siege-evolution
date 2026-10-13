@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/hot_sauce_squirter_attack.png" id="1_te5sn"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/control/hot_sauce_squirter_idle.png" id="2_avc82"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_7pqt8"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/peeling_hot_sauce_squirter.tres" id="4_e4vmp"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/control/sizzling_hot_sauce_squirter.tres" id="5_ceis0"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/control/hot_sauce_squirter.png" id="6_uukl4"]
+
+[resource]
+script = ExtResource("3_7pqt8")
+id = "hot_sauce_squirter"
+display_name = "Hot Sauce Squirter"
+role = 1
+cost = 12
+max_hp = 15
+damage = 6.0
+attack_range = 3.0
+attack_interval = 1.1
+hits_air = true
+splash_radius = 1.0
+tier = 1
+evolutions = Array[ExtResource("3_7pqt8")]([ExtResource("4_e4vmp"), ExtResource("5_ceis0")])
+texture = ExtResource("6_uukl4")
+anim_idle = ExtResource("2_avc82")
+anim_attack = ExtResource("1_te5sn")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "More damage."

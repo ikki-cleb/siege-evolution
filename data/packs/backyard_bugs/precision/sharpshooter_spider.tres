@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3o4na"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/sharpshooter_spider.png" id="2_sxski"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/sharpshooter_spider_attack.png" id="1_xe707"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/sharpshooter_spider_idle.png" id="2_chuol"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0jhdu"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/lancing_sharpshooter_spider.tres" id="4_oivcm"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/foraging_sharpshooter_spider.tres" id="5_y5t01"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/sharpshooter_spider.png" id="6_mosfv"]
 
 [resource]
-script = ExtResource("1_3o4na")
+script = ExtResource("3_0jhdu")
 id = "sharpshooter_spider"
 display_name = "Sharpshooter Spider"
 role = 1
@@ -13,6 +17,10 @@ max_hp = 15
 damage = 4.5
 attack_range = 4.5
 hits_air = true
-texture = ExtResource("2_sxski")
+tier = 1
+evolutions = Array[ExtResource("3_0jhdu")]([ExtResource("4_oivcm"), ExtResource("5_y5t01")])
+texture = ExtResource("6_mosfv")
+anim_idle = ExtResource("2_chuol")
+anim_attack = ExtResource("1_xe707")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

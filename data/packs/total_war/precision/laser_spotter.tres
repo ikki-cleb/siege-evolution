@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_thn0c"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/precision/laser_spotter.png" id="2_hl0hr"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/laser_spotter_attack.png" id="1_npcwg"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/precision/laser_spotter_idle.png" id="2_jmocp"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_v35cm"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/armor_piercing_laser_spotter.tres" id="4_5w6rt"]
+[ext_resource type="Resource" path="res://data/packs/total_war/precision/relay_laser_spotter.tres" id="5_mkrp4"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/precision/laser_spotter.png" id="6_atvqm"]
 
 [resource]
-script = ExtResource("1_thn0c")
+script = ExtResource("3_v35cm")
 id = "laser_spotter"
 display_name = "Laser Spotter"
 role = 2
@@ -15,6 +19,10 @@ attack_range = 3.0
 hits_air = true
 mark_bonus = 0.7
 mark_duration = 3.0
-texture = ExtResource("2_hl0hr")
+tier = 1
+evolutions = Array[ExtResource("3_v35cm")]([ExtResource("4_5w6rt"), ExtResource("5_mkrp4")])
+texture = ExtResource("6_atvqm")
+anim_idle = ExtResource("2_jmocp")
+anim_attack = ExtResource("1_npcwg")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +70% damage."

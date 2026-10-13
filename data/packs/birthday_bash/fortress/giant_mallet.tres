@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/giant_mallet_attack.png" id="1_ttcdj"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/giant_mallet_idle.png" id="2_p5by0"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_wymje"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/grand_finale_giant_mallet.tres" id="4_2oe0i"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/fortress/bumper_giant_mallet.tres" id="5_8j2m1"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/giant_mallet.png" id="6_532iq"]
+
+[resource]
+script = ExtResource("3_wymje")
+id = "giant_mallet"
+display_name = "Giant Mallet"
+role = 1
+cost = 16
+max_hp = 80
+damage = 17.0
+attack_interval = 1.1
+tier = 1
+evolutions = Array[ExtResource("3_wymje")]([ExtResource("4_2oe0i"), ExtResource("5_8j2m1")])
+texture = ExtResource("6_532iq")
+anim_idle = ExtResource("2_p5by0")
+anim_attack = ExtResource("1_ttcdj")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Hits far harder."

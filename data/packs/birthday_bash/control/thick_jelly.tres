@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/thick_jelly_attack.png" id="1_njkld"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/thick_jelly_idle.png" id="2_8crnc"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_mau1x"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/re_inflating_thick_jelly.tres" id="4_6it8n"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/gooey_thick_jelly.tres" id="5_nq8ry"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/thick_jelly.png" id="6_ix4or"]
+
+[resource]
+script = ExtResource("3_mau1x")
+id = "thick_jelly"
+display_name = "Thick Jelly"
+cost = 6
+max_hp = 60
+attack_mode = 1
+attack_range = 1.2
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+tier = 1
+evolutions = Array[ExtResource("3_mau1x")]([ExtResource("4_6it8n"), ExtResource("5_nq8ry")])
+can_place_on_water = true
+texture = ExtResource("6_ix4or")
+anim_idle = ExtResource("2_8crnc")
+anim_attack = ExtResource("1_njkld")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "More HP."

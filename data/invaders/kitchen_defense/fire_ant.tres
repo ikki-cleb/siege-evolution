@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/fire_ant_death.png" id="1_qmv7i"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/fire_ant_move.png" id="2_crti0"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_6qdmp"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/fire_ant.png" id="4_n6ih8"]
+
+[resource]
+script = ExtResource("3_6qdmp")
+id = "fire_ant"
+display_name = "Fire Ant"
+max_hp = 15
+armor = 1
+speed = 1.9
+coin_drop = 2
+is_elite = true
+texture = ExtResource("4_n6ih8")
+anim_move = ExtResource("2_crti0")
+anim_death = ExtResource("1_qmv7i")
+description = "Elite: fast and armored."

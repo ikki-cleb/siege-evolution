@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/long_rail_cannon_attack.png" id="1_l2er8"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/long_rail_cannon_idle.png" id="2_hkq5s"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_iqdu8"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/beam_long_rail_cannon.png" id="4_f1a7w"]
+
+[resource]
+script = ExtResource("3_iqdu8")
+id = "beam_long_rail_cannon"
+display_name = "Beam Long Rail Cannon"
+role = 1
+cost = 84
+max_hp = 40
+damage = 30.0
+attack_range = 3.2
+attack_interval = 2.6
+hits_air = true
+pierce = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_f1a7w")
+anim_idle = ExtResource("2_hkq5s")
+anim_attack = ExtResource("1_l2er8")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Blasts pierce every invader in a line."

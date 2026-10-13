@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_esusi"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/furious_goose.png" id="2_ldlfm"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/furious_goose_attack.png" id="1_4dptx"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/furious_goose_idle.png" id="2_lk662"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gxpev"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/tusked_furious_goose.tres" id="4_f3tmq"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/control/bonfire_furious_goose.tres" id="5_gnmcb"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/furious_goose.png" id="6_m542t"]
 
 [resource]
-script = ExtResource("1_esusi")
+script = ExtResource("3_gxpev")
 id = "furious_goose"
 display_name = "Furious Goose"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 3.0
 attack_interval = 1.1
 hits_air = true
 splash_radius = 1.0
-texture = ExtResource("2_ldlfm")
+tier = 1
+evolutions = Array[ExtResource("3_gxpev")]([ExtResource("4_f3tmq"), ExtResource("5_gnmcb")])
+texture = ExtResource("6_m542t")
+anim_idle = ExtResource("2_lk662")
+anim_attack = ExtResource("1_4dptx")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

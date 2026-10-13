@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/long_cork_popper_attack.png" id="1_fu5gk"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/long_cork_popper_idle.png" id="2_bekqr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_alwws"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/skewering_long_cork_popper.tres" id="4_2neui"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/tip_jar_long_cork_popper.tres" id="5_wsluh"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/long_cork_popper.png" id="6_iffei"]
+
+[resource]
+script = ExtResource("3_alwws")
+id = "long_cork_popper"
+display_name = "Long Cork Popper"
+role = 1
+cost = 15
+max_hp = 30
+damage = 8.0
+attack_range = 3.6
+attack_interval = 1.4
+hits_air = true
+tier = 1
+evolutions = Array[ExtResource("3_alwws")]([ExtResource("4_2neui"), ExtResource("5_wsluh")])
+texture = ExtResource("6_iffei")
+anim_idle = ExtResource("2_bekqr")
+anim_attack = ExtResource("1_fu5gk")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Much more range."

@@ -1,23 +1,27 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Resource" path="res://data/invaders/immune_system/rhinovirus.tres" id="1_lmn6c"]
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="2_h5gfh"]
-[ext_resource type="Texture2D" path="res://art/invaders/immune_system/superbug.png" id="3_3yjr3"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/superbug_death.png" id="1_3yjr3"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/superbug_move.png" id="2_q306m"]
+[ext_resource type="Resource" path="res://data/invaders/immune_system/rhinovirus.tres" id="3_nqmp7"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="4_14mjk"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/superbug.png" id="5_qkihr"]
 
 [resource]
-script = ExtResource("2_h5gfh")
+script = ExtResource("4_14mjk")
 id = "superbug"
 display_name = "Superbug"
 movement = 1
-max_hp = 450
+max_hp = 600
 armor = 1
 speed = 0.4
 base_damage = 10
 smash_damage = 15.0
-atp_drop = 15
+coin_drop = 15
 is_boss = true
-minion = ExtResource("1_lmn6c")
+minion = ExtResource("3_nqmp7")
 minion_count = 1
 minion_interval = 4.0
-texture = ExtResource("3_3yjr3")
+texture = ExtResource("5_qkihr")
+anim_move = ExtResource("2_q306m")
+anim_death = ExtResource("1_3yjr3")
 description = "Boss: armored, smashes through units, and releases viruses as it goes."

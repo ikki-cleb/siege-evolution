@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jg3lp"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/power_sprinkler.png" id="2_3q6yl"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/power_sprinkler_attack.png" id="1_guadf"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/power_sprinkler_idle.png" id="2_teffo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_1ntmf"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/shell_cracking_power_sprinkler.tres" id="4_p3jdw"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/predator_power_sprinkler.tres" id="5_h4qcb"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/power_sprinkler.png" id="6_gsc4n"]
 
 [resource]
-script = ExtResource("1_jg3lp")
+script = ExtResource("3_1ntmf")
 id = "power_sprinkler"
 display_name = "Power Sprinkler"
 role = 1
@@ -17,6 +21,10 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-texture = ExtResource("2_3q6yl")
+tier = 1
+evolutions = Array[ExtResource("3_1ntmf")]([ExtResource("4_p3jdw"), ExtResource("5_h4qcb")])
+texture = ExtResource("6_gsc4n")
+anim_idle = ExtResource("2_teffo")
+anim_attack = ExtResource("1_guadf")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

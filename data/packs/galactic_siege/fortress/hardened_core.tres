@@ -1,16 +1,24 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ustnk"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/hardened_core.png" id="2_wpy2c"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/hardened_core_attack.png" id="1_2jpuh"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/hardened_core_idle.png" id="2_p3km4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_id5t6"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/sealed_hardened_core.tres" id="4_vp6ny"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/self_repairing_hardened_core.tres" id="5_b1jha"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/hardened_core.png" id="6_dyq0i"]
 
 [resource]
-script = ExtResource("1_ustnk")
+script = ExtResource("3_id5t6")
 id = "hardened_core"
 display_name = "Hardened Core"
 cost = 16
 max_hp = 480
 attack_mode = 1
 damage = 3.0
-texture = ExtResource("2_wpy2c")
+tier = 1
+evolutions = Array[ExtResource("3_id5t6")]([ExtResource("4_vp6ny"), ExtResource("5_b1jha")])
+texture = ExtResource("6_dyq0i")
+anim_idle = ExtResource("2_p3km4")
+anim_attack = ExtResource("1_2jpuh")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Nearly unbreakable."

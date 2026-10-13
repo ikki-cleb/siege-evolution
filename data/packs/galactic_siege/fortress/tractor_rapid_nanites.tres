@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/rapid_nanites_idle.png" id="1_pe1wo"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_hv35w"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/tractor_rapid_nanites.png" id="3_rlkqe"]
+
+[resource]
+script = ExtResource("2_hv35w")
+id = "tractor_rapid_nanites"
+display_name = "Tractor Rapid Nanites"
+cost = 40
+max_hp = 70
+regen = 16.0
+tier = 2
+grab_stun = 1.0
+texture = ExtResource("3_rlkqe")
+anim_idle = ExtResource("1_pe1wo")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Smashers that bite it get stuck."

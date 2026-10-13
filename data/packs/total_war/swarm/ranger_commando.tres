@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_x0xqt"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/ranger_commando.png" id="2_pkwnw"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/ranger_commando_attack.png" id="1_tpndi"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/swarm/ranger_commando_idle.png" id="2_rocao"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_0p5xs"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/loot_ranger_commando.tres" id="4_oi33i"]
+[ext_resource type="Resource" path="res://data/packs/total_war/swarm/twin_barrel_ranger_commando.tres" id="5_d6t3e"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/swarm/ranger_commando.png" id="6_5aaud"]
 
 [resource]
-script = ExtResource("1_x0xqt")
+script = ExtResource("3_0p5xs")
 id = "ranger_commando"
 display_name = "Ranger Commando"
 role = 1
@@ -16,6 +20,10 @@ attack_interval = 0.45
 hits_air = true
 pierce = true
 adjacency_bonus = 0.15
-texture = ExtResource("2_pkwnw")
+tier = 1
+evolutions = Array[ExtResource("3_0p5xs")]([ExtResource("4_oi33i"), ExtResource("5_d6t3e")])
+texture = ExtResource("6_5aaud")
+anim_idle = ExtResource("2_rocao")
+anim_attack = ExtResource("1_tpndi")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "More range, hits fliers."

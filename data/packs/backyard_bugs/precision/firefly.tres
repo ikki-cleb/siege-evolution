@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ycfab"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/bright_firefly.tres" id="2_g2dl5"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/signal_firefly.tres" id="3_0ts5h"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/firefly.png" id="4_iprex"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/firefly_attack.png" id="1_0ts5h"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/firefly_idle.png" id="2_iprex"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lgbvi"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/bright_firefly.tres" id="4_wya4q"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/signal_firefly.tres" id="5_ahkle"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/firefly.png" id="6_dmfxv"]
 
 [resource]
-script = ExtResource("1_ycfab")
+script = ExtResource("3_lgbvi")
 id = "firefly"
 display_name = "Firefly"
 role = 2
@@ -17,7 +19,9 @@ attack_range = 3.0
 hits_air = true
 mark_bonus = 0.3
 mark_duration = 3.0
-evolutions = Array[ExtResource("1_ycfab")]([ExtResource("2_g2dl5"), ExtResource("3_0ts5h")])
-texture = ExtResource("4_iprex")
+evolutions = Array[ExtResource("3_lgbvi")]([ExtResource("4_wya4q"), ExtResource("5_ahkle")])
+texture = ExtResource("6_dmfxv")
+anim_idle = ExtResource("2_iprex")
+anim_attack = ExtResource("1_0ts5h")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks targets: they take 40% more damage from everything."

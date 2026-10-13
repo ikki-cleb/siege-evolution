@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/rat_death.png" id="1_3y140"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/rat_move.png" id="2_dlwy8"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_so0o4"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/rat.png" id="4_quswj"]
+
+[resource]
+script = ExtResource("3_so0o4")
+id = "rat"
+display_name = "Rat"
+speed = 1.4
+texture = ExtResource("4_quswj")
+anim_move = ExtResource("2_dlwy8")
+anim_death = ExtResource("1_3y140")

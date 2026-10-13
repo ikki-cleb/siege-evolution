@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_86j4p"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/venom_membrane.png" id="2_xjfnr"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/venom_membrane_idle.png" id="1_qcknf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_loww8"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/toxic_burst_membrane.tres" id="3_jws5f"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/antitoxin_membrane.tres" id="4_rc100"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/venom_membrane.png" id="5_thvd2"]
 
 [resource]
-script = ExtResource("1_86j4p")
+script = ExtResource("2_loww8")
 id = "venom_membrane"
-display_name = "Venom Membrane"
+display_name = "Venom Skin"
 cost = 6
 max_hp = 25
 reflect = 0.8
+tier = 1
+evolutions = Array[ExtResource("2_loww8")]([ExtResource("3_jws5f"), ExtResource("4_rc100")])
 can_place_on_water = true
-texture = ExtResource("2_xjfnr")
+texture = ExtResource("5_thvd2")
+anim_idle = ExtResource("1_qcknf")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Reflects 80% of smasher damage."

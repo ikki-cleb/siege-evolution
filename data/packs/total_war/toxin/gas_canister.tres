@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_u6vwo"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/leaking_canister.tres" id="2_p4km2"]
-[ext_resource type="Resource" path="res://data/packs/total_war/toxin/spreading_canister.tres" id="3_mx1fs"]
-[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/gas_canister.png" id="4_ckw1i"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/gas_canister_attack.png" id="1_mx1fs"]
+[ext_resource type="Texture2D" path="res://art/anim/total_war/units/toxin/gas_canister_idle.png" id="2_ckw1i"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_oi5l4"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/leaking_canister.tres" id="4_v8h7i"]
+[ext_resource type="Resource" path="res://data/packs/total_war/toxin/spreading_canister.tres" id="5_2h5i4"]
+[ext_resource type="Texture2D" path="res://art/units/total_war/toxin/gas_canister.png" id="6_rqhys"]
 
 [resource]
-script = ExtResource("1_u6vwo")
+script = ExtResource("3_oi5l4")
 id = "gas_canister"
 display_name = "Gas Canister"
 role = 1
@@ -15,7 +17,9 @@ attack_mode = 1
 attack_range = 1.6
 poison_dps = 2.5
 poison_duration = 3.0
-evolutions = Array[ExtResource("1_u6vwo")]([ExtResource("2_p4km2"), ExtResource("3_mx1fs")])
-texture = ExtResource("4_ckw1i")
+evolutions = Array[ExtResource("3_oi5l4")]([ExtResource("4_v8h7i"), ExtResource("5_2h5i4")])
+texture = ExtResource("6_rqhys")
+anim_idle = ExtResource("2_ckw1i")
+anim_attack = ExtResource("1_mx1fs")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poisons everything around it."

@@ -1,0 +1,245 @@
+[
+  {
+    "id": "bug_squasher",
+    "name": "Bug Squasher",
+    "desc": "Beat World 1.",
+    "kind": "world",
+    "group": "Progress",
+    "param": "backyard_bugs",
+    "target": 5
+  },
+  {
+    "id": "farm_hand",
+    "name": "Farm Hand",
+    "desc": "Beat World 2.",
+    "kind": "world",
+    "group": "Progress",
+    "param": "wild_kingdom",
+    "target": 5
+  },
+  {
+    "id": "germ_buster",
+    "name": "Germ Buster",
+    "desc": "Beat World 3.",
+    "kind": "world",
+    "group": "Progress",
+    "param": "immune_system",
+    "target": 5
+  },
+  {
+    "id": "toy_general",
+    "name": "Toy General",
+    "desc": "Beat World 4.",
+    "kind": "world",
+    "group": "Progress",
+    "param": "total_war",
+    "target": 5
+  },
+  {
+    "id": "star_defender",
+    "name": "Star Defender",
+    "desc": "Beat World 5.",
+    "kind": "world",
+    "group": "Progress",
+    "param": "galactic_siege",
+    "target": 5
+  },
+  {
+    "id": "cell_to_the_stars",
+    "name": "To the Stars",
+    "desc": "Beat all 5 main worlds.",
+    "kind": "main_game",
+    "group": "Progress",
+    "param": "",
+    "target": 5
+  },
+  {
+    "id": "pantry_protector",
+    "name": "Pantry Protector",
+    "desc": "Beat Kitchen Defense.",
+    "kind": "world",
+    "group": "Progress",
+    "param": "kitchen_defense",
+    "target": 5
+  },
+  {
+    "id": "party_saver",
+    "name": "Party Saver",
+    "desc": "Beat Birthday Bash.",
+    "kind": "world",
+    "group": "Progress",
+    "param": "birthday_bash",
+    "target": 5
+  },
+  {
+    "id": "fortress_master",
+    "name": "Fortress Master",
+    "desc": "Beat all 25 main-world levels with Fortress.",
+    "kind": "mastery",
+    "group": "Pack Mastery",
+    "param": "fortress",
+    "target": 25
+  },
+  {
+    "id": "swarm_master",
+    "name": "Swarm Master",
+    "desc": "Beat all 25 main-world levels with Swarm.",
+    "kind": "mastery",
+    "group": "Pack Mastery",
+    "param": "swarm",
+    "target": 25
+  },
+  {
+    "id": "precision_master",
+    "name": "Precision Master",
+    "desc": "Beat all 25 main-world levels with Precision.",
+    "kind": "mastery",
+    "group": "Pack Mastery",
+    "param": "precision",
+    "target": 25
+  },
+  {
+    "id": "control_master",
+    "name": "Control Master",
+    "desc": "Beat all 25 main-world levels with Control.",
+    "kind": "mastery",
+    "group": "Pack Mastery",
+    "param": "control",
+    "target": 25
+  },
+  {
+    "id": "toxin_master",
+    "name": "Toxin Master",
+    "desc": "Beat all 25 main-world levels with Toxin.",
+    "kind": "mastery",
+    "group": "Pack Mastery",
+    "param": "toxin",
+    "target": 25
+  },
+  {
+    "id": "jack_of_all_packs",
+    "name": "Jack of All Packs",
+    "desc": "Master all 5 packs.",
+    "kind": "all_mastery",
+    "group": "Pack Mastery",
+    "param": "",
+    "target": 5
+  },
+  {
+    "id": "flawless",
+    "name": "Flawless",
+    "desc": "Clear a level without losing any base HP.",
+    "kind": "flawless",
+    "group": "Skill",
+    "param": "",
+    "target": 1
+  },
+  {
+    "id": "untouchable_boss",
+    "name": "Untouchable Boss",
+    "desc": "Beat a boss level without losing any base HP.",
+    "kind": "flawless_boss",
+    "group": "Skill",
+    "param": "",
+    "target": 1
+  },
+  {
+    "id": "close_call",
+    "name": "Close Call",
+    "desc": "Win a level with exactly 1 base HP left.",
+    "kind": "close_call",
+    "group": "Skill",
+    "param": "",
+    "target": 1
+  },
+  {
+    "id": "back_to_basics",
+    "name": "Back to Basics",
+    "desc": "Win a level without evolving anything.",
+    "kind": "no_evolve",
+    "group": "Skill",
+    "param": "",
+    "target": 1
+  },
+  {
+    "id": "blindfolded",
+    "name": "Blindfolded",
+    "desc": "Beat a boss level with Paths off the whole time.",
+    "kind": "blind_boss",
+    "group": "Skill",
+    "param": "",
+    "target": 1
+  },
+  {
+    "id": "minimalist",
+    "name": "Minimalist",
+    "desc": "Win a level with 6 or fewer units on the board.",
+    "kind": "minimalist",
+    "group": "Skill",
+    "param": "",
+    "target": 6
+  },
+  {
+    "id": "first_steps",
+    "name": "First Steps",
+    "desc": "Evolve a unit.",
+    "kind": "evolve",
+    "group": "Collection & Fun",
+    "param": "",
+    "target": 1
+  },
+  {
+    "id": "capstone",
+    "name": "Capstone!",
+    "desc": "Buy your first capstone.",
+    "kind": "capstone",
+    "group": "Collection & Fun",
+    "param": "",
+    "target": 1
+  },
+  {
+    "id": "capstone_collector",
+    "name": "Capstone Collector",
+    "desc": "Own capstones with all 12 mechanics (over time).",
+    "kind": "mechanics",
+    "group": "Collection & Fun",
+    "param": "",
+    "target": 12
+  },
+  {
+    "id": "coin_hoarder",
+    "name": "Coin Hoarder",
+    "desc": "Earn 10,000 coins in total.",
+    "kind": "stat",
+    "group": "Collection & Fun",
+    "param": "coins",
+    "target": 10000
+  },
+  {
+    "id": "exterminator",
+    "name": "Exterminator",
+    "desc": "Defeat 5,000 invaders.",
+    "kind": "stat",
+    "group": "Collection & Fun",
+    "param": "kills",
+    "target": 5000
+  },
+  {
+    "id": "pinata_smasher",
+    "name": "Piñata Smasher",
+    "desc": "Break 50 piñatas.",
+    "kind": "stat",
+    "group": "Collection & Fun",
+    "param": "pinatas",
+    "target": 50
+  },
+  {
+    "id": "big_spender",
+    "name": "Big Spender",
+    "desc": "Have 100 or more coins at once.",
+    "kind": "coins_at_once",
+    "group": "Collection & Fun",
+    "param": "",
+    "target": 100
+  }
+]

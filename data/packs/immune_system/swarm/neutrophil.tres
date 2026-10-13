@@ -1,20 +1,24 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_fdw52"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/frenzied_neutrophil.tres" id="2_08ujt"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/scout_neutrophil.tres" id="3_x81qx"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/neutrophil.png" id="4_oqqw4"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/neutrophil_attack.png" id="1_x81qx"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/neutrophil_idle.png" id="2_oqqw4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_xkspn"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/frenzied_neutrophil.tres" id="4_j2eld"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/scout_neutrophil.tres" id="5_bqde2"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/neutrophil.png" id="6_4lw72"]
 
 [resource]
-script = ExtResource("1_fdw52")
+script = ExtResource("3_xkspn")
 id = "neutrophil"
-display_name = "Neutrophil"
+display_name = "White Blood Cell"
 role = 1
 cost = 8
 damage = 2.3
 attack_interval = 0.45
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_fdw52")]([ExtResource("2_08ujt"), ExtResource("3_x81qx")])
-texture = ExtResource("4_oqqw4")
+evolutions = Array[ExtResource("3_xkspn")]([ExtResource("4_j2eld"), ExtResource("5_bqde2")])
+texture = ExtResource("6_4lw72")
+anim_idle = ExtResource("2_oqqw4")
+anim_attack = ExtResource("1_x81qx")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Fast melee jabs, faster in groups."

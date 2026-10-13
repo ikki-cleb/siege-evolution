@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/fork_attack.png" id="1_13dba"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/fork_idle.png" id="2_7in2c"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_2xu2g"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/sharp_fork.tres" id="4_fcqyp"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/swarm/long_fork.tres" id="5_tlikc"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/fork.png" id="6_2l66g"]
+
+[resource]
+script = ExtResource("3_2xu2g")
+id = "fork"
+display_name = "Fork"
+role = 1
+cost = 8
+damage = 2.3
+attack_interval = 0.45
+adjacency_bonus = 0.15
+evolutions = Array[ExtResource("3_2xu2g")]([ExtResource("4_fcqyp"), ExtResource("5_tlikc")])
+texture = ExtResource("6_2l66g")
+anim_idle = ExtResource("2_7in2c")
+anim_attack = ExtResource("1_13dba")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Fast melee jabs, faster in groups."

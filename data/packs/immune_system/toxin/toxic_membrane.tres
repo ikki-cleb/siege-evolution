@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3k4tf"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/thick_membrane.tres" id="2_32fmk"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/venom_membrane.tres" id="3_qmrqc"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/toxic_membrane.png" id="4_ntnhb"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/toxic_membrane_idle.png" id="1_32fmk"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_qmrqc"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/thick_membrane.tres" id="3_ntnhb"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/venom_membrane.tres" id="4_qlapp"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/toxic_membrane.png" id="5_d0rwx"]
 
 [resource]
-script = ExtResource("1_3k4tf")
+script = ExtResource("2_qmrqc")
 id = "toxic_membrane"
-display_name = "Toxic Membrane"
+display_name = "Toxic Skin"
 max_hp = 25
 reflect = 0.3
-evolutions = Array[ExtResource("1_3k4tf")]([ExtResource("2_32fmk"), ExtResource("3_qmrqc")])
+evolutions = Array[ExtResource("2_qmrqc")]([ExtResource("3_ntnhb"), ExtResource("4_qlapp")])
 can_place_on_water = true
-texture = ExtResource("4_ntnhb")
+texture = ExtResource("5_d0rwx")
+anim_idle = ExtResource("1_32fmk")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Wall that hurts smashers biting it."

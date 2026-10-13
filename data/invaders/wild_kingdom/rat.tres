@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_iojw5"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/rat.png" id="2_22uv0"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/rat_death.png" id="1_yt5nf"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/rat_move.png" id="2_bpvgh"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_e1w2o"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/rat.png" id="4_p28tx"]
 
 [resource]
-script = ExtResource("1_iojw5")
+script = ExtResource("3_e1w2o")
 id = "rat"
 display_name = "Rat"
 max_hp = 9
 speed = 1.6
-texture = ExtResource("2_22uv0")
+texture = ExtResource("4_p28tx")
+anim_move = ExtResource("2_bpvgh")
+anim_death = ExtResource("1_yt5nf")
 description = "Fast farm pests that come in swarms."

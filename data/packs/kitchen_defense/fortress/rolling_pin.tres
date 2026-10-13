@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/rolling_pin_attack.png" id="1_pra6o"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/fortress/rolling_pin_idle.png" id="2_sv7vg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_v2muy"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/marble_rolling_pin.tres" id="4_tf22y"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/fortress/wide_rolling_pin.tres" id="5_u4aob"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/fortress/rolling_pin.png" id="6_b5jlg"]
+
+[resource]
+script = ExtResource("3_v2muy")
+id = "rolling_pin"
+display_name = "Rolling Pin"
+role = 1
+cost = 14
+max_hp = 60
+damage = 9.0
+attack_interval = 1.1
+evolutions = Array[ExtResource("3_v2muy")]([ExtResource("4_tf22y"), ExtResource("5_u4aob")])
+texture = ExtResource("6_b5jlg")
+anim_idle = ExtResource("2_sv7vg")
+anim_attack = ExtResource("1_pra6o")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Slow, crushing melee hits."

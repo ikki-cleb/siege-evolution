@@ -1,25 +1,29 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Resource" path="res://data/invaders/backyard_bugs/termite.tres" id="1_b87nx"]
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="2_1upbf"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/giant_centipede.png" id="3_nh5b3"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/giant_centipede_death.png" id="1_nh5b3"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/giant_centipede_move.png" id="2_gncud"]
+[ext_resource type="Resource" path="res://data/invaders/backyard_bugs/termite.tres" id="3_5xs1j"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="4_mkhn8"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/giant_centipede.png" id="5_6urkf"]
 
 [resource]
-script = ExtResource("2_1upbf")
+script = ExtResource("4_mkhn8")
 id = "giant_centipede"
 display_name = "Giant Centipede"
 movement = 1
-max_hp = 520
+max_hp = 450
 armor = 1
 speed = 0.45
 base_damage = 10
 smash_damage = 15.0
-atp_drop = 15
+coin_drop = 15
 is_boss = true
 burrow_after = 4
 burrow_length = 5
-minion = ExtResource("1_b87nx")
+minion = ExtResource("3_5xs1j")
 minion_count = 1
 minion_interval = 4.0
-texture = ExtResource("3_nh5b3")
+texture = ExtResource("5_6urkf")
+anim_move = ExtResource("2_gncud")
+anim_death = ExtResource("1_nh5b3")
 description = "Boss: rams through units, tunnels under part of your maze, and releases termites."

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/bubble_machine_attack.png" id="1_x0gus"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/control/bubble_machine_idle.png" id="2_j3pi4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_6ubmg"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/fast_bubble_machine.tres" id="4_41p7d"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/control/wide_bubble_machine.tres" id="5_j70yw"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/control/bubble_machine.png" id="6_brtx7"]
+
+[resource]
+script = ExtResource("3_6ubmg")
+id = "bubble_machine"
+display_name = "Bubble Machine"
+role = 1
+cost = 11
+max_hp = 25
+attack_mode = 1
+damage = 2.0
+attack_range = 1.8
+slow = 0.35
+slow_duration = 1.2
+evolutions = Array[ExtResource("3_6ubmg")]([ExtResource("4_41p7d"), ExtResource("5_j70yw")])
+texture = ExtResource("6_brtx7")
+anim_idle = ExtResource("2_j3pi4")
+anim_attack = ExtResource("1_x0gus")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Damages and slows everything around it."

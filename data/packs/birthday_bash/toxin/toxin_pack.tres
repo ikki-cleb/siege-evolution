@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PackData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/pack_data.gd" id="1_k8l07"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_3e31k"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/sour_candy_wall.tres" id="3_eang0"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/lemon_squirter.tres" id="4_6qojy"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/silly_string.tres" id="5_j5gw6"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/punch_bowl.tres" id="6_t1nc6"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/stink_bomb.tres" id="7_171pe"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/moldy_cake.tres" id="8_n81fl"]
+
+[resource]
+script = ExtResource("1_k8l07")
+id = "toxin"
+display_name = "Toxin"
+description = "Poison that ignores armor and spreads between invaders. Slow to start, brutal on crowds."
+color = Color(0.42352942, 0.77254903, 0.31764707, 1)
+product_id = "pack_toxin"
+units = Array[ExtResource("2_3e31k")]([ExtResource("3_eang0"), ExtResource("4_6qojy"), ExtResource("5_j5gw6"), ExtResource("6_t1nc6"), ExtResource("7_171pe"), ExtResource("8_n81fl")])

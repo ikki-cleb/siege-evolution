@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/spreading_sap_attack.png" id="1_224qg"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/swarm/spreading_sap_idle.png" id="2_hxq2t"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_811kl"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/swarm/dewy_spreading_sap.png" id="4_l1sig"]
+
+[resource]
+script = ExtResource("3_811kl")
+id = "dewy_spreading_sap"
+display_name = "Dewy Spreading Sap"
+cost = 24
+max_hp = 25
+attack_mode = 1
+damage = 0.5
+attack_range = 2.2
+attack_interval = 0.5
+slow = 0.5
+slow_duration = 1.0
+tier = 2
+zone_kind = "freeze"
+zone_power = 0.5
+texture = ExtResource("4_l1sig")
+anim_idle = ExtResource("2_hxq2t")
+anim_attack = ExtResource("1_224qg")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Leaves a freezing patch around itself."

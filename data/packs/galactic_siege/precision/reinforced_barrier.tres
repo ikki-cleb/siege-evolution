@@ -1,15 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_3k5yj"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/reinforced_barrier.png" id="2_g6ugd"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/reinforced_barrier_idle.png" id="1_jvbjm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_2pxb7"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/deflector_reinforced_barrier.tres" id="3_jjyuu"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/self_repairing_reinforced_barrier.tres" id="4_2xums"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/reinforced_barrier.png" id="5_woj8v"]
 
 [resource]
-script = ExtResource("1_3k5yj")
+script = ExtResource("2_2pxb7")
 id = "reinforced_barrier"
 display_name = "Reinforced Barrier"
 cost = 6
 max_hp = 70
+tier = 1
+evolutions = Array[ExtResource("2_2pxb7")]([ExtResource("3_jjyuu"), ExtResource("4_2xums")])
 can_place_on_water = true
-texture = ExtResource("2_g6ugd")
+texture = ExtResource("5_woj8v")
+anim_idle = ExtResource("1_jvbjm")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "More HP."

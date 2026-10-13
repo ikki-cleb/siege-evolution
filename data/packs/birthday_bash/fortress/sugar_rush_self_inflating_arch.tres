@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/self_inflating_arch_idle.png" id="1_ijku4"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_e4sd1"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/sugar_rush_self_inflating_arch.png" id="3_aeks4"]
+
+[resource]
+script = ExtResource("2_e4sd1")
+id = "sugar_rush_self_inflating_arch"
+display_name = "Sugar-Rush Self-Inflating Arch"
+cost = 40
+max_hp = 70
+regen = 16.0
+tier = 2
+aura_speed = 0.25
+texture = ExtResource("3_aeks4")
+anim_idle = ExtResource("1_ijku4")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Neighbors attack 25% faster."

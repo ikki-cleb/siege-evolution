@@ -30,7 +30,7 @@ func _run() -> void:
 		game.start_wave()
 		while game.phase == game.Phase.WAVE:
 			await process_frame
-		print("  leaked: %s   base %d/20, ATP %d" % [leaks, game.base_hp, game.atp])
+		print("  leaked: %s   base %d/20, coins %d" % [leaks, game.base_hp, game.coins])
 	print("RESULT: %s" % ("WON" if game.phase == game.Phase.WON else "LOST"))
 	quit()
 
@@ -52,7 +52,7 @@ func _print_board(game: Node) -> void:
 				line += "#"
 			elif cell in board.spawn_cells:
 				line += "S"
-			elif cell == board.base_cell:
+			elif board.is_base(cell):
 				line += "B"
 			else:
 				line += "·" if route.has(cell) else " "

@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_b5dk1"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/misting_sprayer.png" id="2_rv3ka"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/misting_sprayer_attack.png" id="1_45cd2"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/misting_sprayer_idle.png" id="2_shr15"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_kh8i0"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/fanning_sprayer.tres" id="4_s00hl"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/harvest_sprayer.tres" id="5_c3tkt"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/misting_sprayer.png" id="6_r3l7t"]
 
 [resource]
-script = ExtResource("1_b5dk1")
+script = ExtResource("3_kh8i0")
 id = "misting_sprayer"
-display_name = "Misting Sprayer"
+display_name = "Misting Poison Sprayer"
 role = 1
 cost = 13
 max_hp = 15
@@ -17,6 +21,10 @@ hits_air = true
 splash_radius = 1.0
 poison_dps = 2.5
 poison_duration = 3.0
-texture = ExtResource("2_rv3ka")
+tier = 1
+evolutions = Array[ExtResource("3_kh8i0")]([ExtResource("4_s00hl"), ExtResource("5_c3tkt")])
+texture = ExtResource("6_r3l7t")
+anim_idle = ExtResource("2_shr15")
+anim_attack = ExtResource("1_45cd2")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "More range."

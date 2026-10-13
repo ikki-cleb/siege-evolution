@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/swatter_trap_attack.png" id="1_sh8eb"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/swatter_trap_idle.png" id="2_vq5do"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_t1bwo"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/two_handed_swatter_trap.png" id="4_bvkr7"]
+
+[resource]
+script = ExtResource("3_t1bwo")
+id = "two_handed_swatter_trap"
+display_name = "Two-Handed Swatter Trap"
+role = 1
+cost = 68
+max_hp = 25
+damage = 12.0
+attack_range = 3.5
+attack_interval = 1.6
+hits_air = true
+pierce = true
+tier = 2
+multishot = 2
+texture = ExtResource("4_bvkr7")
+anim_idle = ExtResource("2_vq5do")
+anim_attack = ExtResource("1_sh8eb")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Strikes 2 targets at once."

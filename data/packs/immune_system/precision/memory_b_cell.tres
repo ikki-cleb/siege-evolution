@@ -1,18 +1,26 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8wxum"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/memory_b_cell.png" id="2_lt4i8"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/memory_b_cell_attack.png" id="1_fiycg"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/precision/memory_b_cell_idle.png" id="2_i5m7w"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_eoogc"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/memory_lance.tres" id="4_8y1t7"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/precision/long_lived_b_cell.tres" id="5_upvcv"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/precision/memory_b_cell.png" id="6_cilsv"]
 
 [resource]
-script = ExtResource("1_8wxum")
+script = ExtResource("3_eoogc")
 id = "memory_b_cell"
-display_name = "Memory B-Cell"
+display_name = "Long Antibody Shooter"
 role = 1
 cost = 13
 max_hp = 15
 damage = 4.5
 attack_range = 4.5
 hits_air = true
-texture = ExtResource("2_lt4i8")
+tier = 1
+evolutions = Array[ExtResource("3_eoogc")]([ExtResource("4_8y1t7"), ExtResource("5_upvcv")])
+texture = ExtResource("6_cilsv")
+anim_idle = ExtResource("2_i5m7w")
+anim_attack = ExtResource("1_fiycg")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/thistle_hay_idle.png" id="1_jr5fm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_87cd3"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/hooked_thistle_hay.png" id="3_am6g3"]
+
+[resource]
+script = ExtResource("2_87cd3")
+id = "hooked_thistle_hay"
+display_name = "Hooked Thistle Hay"
+cost = 14
+max_hp = 22
+reflect = 0.4
+tier = 2
+grab_stun = 0.6
+can_place_on_water = true
+texture = ExtResource("3_am6g3")
+anim_idle = ExtResource("1_jr5fm")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Smashers that bite it get stuck."

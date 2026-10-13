@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/giant_mallet_attack.png" id="1_e0o6x"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/fortress/giant_mallet_idle.png" id="2_ru73i"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_gjfn2"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/fortress/bumper_giant_mallet.png" id="4_qqcjn"]
+
+[resource]
+script = ExtResource("3_gjfn2")
+id = "bumper_giant_mallet"
+display_name = "Bumper Giant Mallet"
+role = 1
+cost = 60
+max_hp = 80
+damage = 24.0
+attack_interval = 1.1
+tier = 2
+knockback = 1
+texture = ExtResource("4_qqcjn")
+anim_idle = ExtResource("2_ru73i")
+anim_attack = ExtResource("1_e0o6x")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Crushing hits shove invaders back."

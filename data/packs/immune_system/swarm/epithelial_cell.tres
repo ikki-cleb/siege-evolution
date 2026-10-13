@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_r0cbm"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/keratinized_cell.tres" id="2_ggyok"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/ciliated_cell.tres" id="3_p0cxn"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/epithelial_cell.png" id="4_2j0mb"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/swarm/epithelial_cell_idle.png" id="1_ggyok"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_p0cxn"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/keratinized_cell.tres" id="3_2j0mb"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/swarm/ciliated_cell.tres" id="4_q8lat"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/swarm/epithelial_cell.png" id="5_jggl2"]
 
 [resource]
-script = ExtResource("1_r0cbm")
+script = ExtResource("2_p0cxn")
 id = "epithelial_cell"
-display_name = "Epithelial Cell"
+display_name = "Skin Cell"
 cost = 3
 max_hp = 18
-evolutions = Array[ExtResource("1_r0cbm")]([ExtResource("2_ggyok"), ExtResource("3_p0cxn")])
+evolutions = Array[ExtResource("2_p0cxn")]([ExtResource("3_2j0mb"), ExtResource("4_q8lat")])
 can_place_on_water = true
-texture = ExtResource("4_2j0mb")
+texture = ExtResource("5_jggl2")
+anim_idle = ExtResource("1_ggyok")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Dirt-cheap wall."

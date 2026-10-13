@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_03hvd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/power_sprinkler.tres" id="2_yp2sv"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/wide_sprinkler.tres" id="3_l2c60"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/sprinkler.png" id="4_m7fqg"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/sprinkler_attack.png" id="1_l2c60"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/control/sprinkler_idle.png" id="2_m7fqg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_snl8e"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/power_sprinkler.tres" id="4_en7od"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/control/wide_sprinkler.tres" id="5_0rlny"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/control/sprinkler.png" id="6_verrc"]
 
 [resource]
-script = ExtResource("1_03hvd")
+script = ExtResource("3_snl8e")
 id = "sprinkler"
 display_name = "Sprinkler"
 role = 1
@@ -19,7 +21,9 @@ attack_interval = 0.5
 hits_air = true
 slow = 0.5
 slow_duration = 1.0
-evolutions = Array[ExtResource("1_03hvd")]([ExtResource("2_yp2sv"), ExtResource("3_l2c60")])
-texture = ExtResource("4_m7fqg")
+evolutions = Array[ExtResource("3_snl8e")]([ExtResource("4_en7od"), ExtResource("5_0rlny")])
+texture = ExtResource("6_verrc")
+anim_idle = ExtResource("2_m7fqg")
+anim_attack = ExtResource("1_l2c60")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "Heavily slows and burns a wide area."

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_5dgky"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/masked_hunter.tres" id="2_i3pbd"]
-[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/patrol_assassin.tres" id="3_0w7kg"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/assassin_bug.png" id="4_vdfpf"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/assassin_bug_attack.png" id="1_0w7kg"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/assassin_bug_idle.png" id="2_vdfpf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pvjqm"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/masked_hunter.tres" id="4_sgqdt"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/patrol_assassin.tres" id="5_qvcae"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/assassin_bug.png" id="6_3feap"]
 
 [resource]
-script = ExtResource("1_5dgky")
+script = ExtResource("3_pvjqm")
 id = "assassin_bug"
 display_name = "Assassin Bug"
 role = 1
@@ -16,7 +18,9 @@ damage = 12.0
 attack_range = 2.5
 attack_interval = 1.6
 pierce = true
-evolutions = Array[ExtResource("1_5dgky")]([ExtResource("2_i3pbd"), ExtResource("3_0w7kg")])
-texture = ExtResource("4_vdfpf")
+evolutions = Array[ExtResource("3_pvjqm")]([ExtResource("4_sgqdt"), ExtResource("5_qvcae")])
+texture = ExtResource("6_3feap")
+anim_idle = ExtResource("2_vdfpf")
+anim_attack = ExtResource("1_0w7kg")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Armor-piercing strikes. Ground only."

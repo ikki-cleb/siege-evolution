@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/thick_streamers_attack.png" id="1_bm0g5"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/thick_streamers_idle.png" id="2_7lv1x"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_epj7h"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/gooey_thick_streamers.tres" id="4_o6pii"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/super_thick_streamers.tres" id="5_n2tne"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/thick_streamers.png" id="6_g82eb"]
+
+[resource]
+script = ExtResource("3_epj7h")
+id = "thick_streamers"
+display_name = "Thick Streamers"
+cost = 6
+max_hp = 60
+attack_mode = 1
+damage = 0.5
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+tier = 1
+evolutions = Array[ExtResource("3_epj7h")]([ExtResource("4_o6pii"), ExtResource("5_n2tne")])
+texture = ExtResource("6_g82eb")
+anim_idle = ExtResource("2_7lv1x")
+anim_attack = ExtResource("1_bm0g5")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "More HP."

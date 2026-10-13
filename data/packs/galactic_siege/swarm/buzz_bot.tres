@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_i73q8"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/frenzy_bot.tres" id="2_7hnt8"]
-[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/scout_bot.tres" id="3_e0ltm"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/buzz_bot.png" id="4_ev5ts"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/buzz_bot_attack.png" id="1_e0ltm"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/swarm/buzz_bot_idle.png" id="2_ev5ts"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_def6o"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/frenzy_bot.tres" id="4_fsd7r"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/swarm/scout_bot.tres" id="5_6rts5"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/swarm/buzz_bot.png" id="6_h4udg"]
 
 [resource]
-script = ExtResource("1_i73q8")
+script = ExtResource("3_def6o")
 id = "buzz_bot"
 display_name = "Buzz Bot"
 role = 1
@@ -14,7 +16,9 @@ cost = 8
 damage = 2.3
 attack_interval = 0.45
 adjacency_bonus = 0.15
-evolutions = Array[ExtResource("1_i73q8")]([ExtResource("2_7hnt8"), ExtResource("3_e0ltm")])
-texture = ExtResource("4_ev5ts")
+evolutions = Array[ExtResource("3_def6o")]([ExtResource("4_fsd7r"), ExtResource("5_6rts5")])
+texture = ExtResource("6_h4udg")
+anim_idle = ExtResource("2_ev5ts")
+anim_attack = ExtResource("1_e0ltm")
 shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
 description = "Fast melee jabs, faster in groups."

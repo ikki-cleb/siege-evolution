@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_jbegc"]
-[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/long_spit_llama.png" id="2_pepnu"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/long_spit_llama_attack.png" id="1_g8pmr"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/long_spit_llama_idle.png" id="2_1t2vf"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pv3yd"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/goring_long_spit_llama.tres" id="4_ld0xo"]
+[ext_resource type="Resource" path="res://data/packs/wild_kingdom/fortress/market_long_spit_llama.tres" id="5_jpujl"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/long_spit_llama.png" id="6_h2imq"]
 
 [resource]
-script = ExtResource("1_jbegc")
+script = ExtResource("3_pv3yd")
 id = "long_spit_llama"
 display_name = "Long-Spit Llama"
 role = 1
@@ -14,6 +18,10 @@ damage = 8.0
 attack_range = 3.6
 attack_interval = 1.4
 hits_air = true
-texture = ExtResource("2_pepnu")
+tier = 1
+evolutions = Array[ExtResource("3_pv3yd")]([ExtResource("4_ld0xo"), ExtResource("5_jpujl")])
+texture = ExtResource("6_h2imq")
+anim_idle = ExtResource("2_1t2vf")
+anim_attack = ExtResource("1_g8pmr")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

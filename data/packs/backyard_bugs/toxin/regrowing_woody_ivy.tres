@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/woody_ivy_attack.png" id="1_28eqw"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/toxin/woody_ivy_idle.png" id="2_hw6y7"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_4ckoe"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/toxin/regrowing_woody_ivy.png" id="4_6xwrp"]
+
+[resource]
+script = ExtResource("3_4ckoe")
+id = "regrowing_woody_ivy"
+display_name = "Regrowing Woody Ivy"
+cost = 52
+max_hp = 100
+attack_mode = 1
+poison_dps = 3.0
+poison_duration = 2.0
+poison_spreads = true
+tier = 2
+rebuild = true
+texture = ExtResource("4_6xwrp")
+anim_idle = ExtResource("2_hw6y7")
+anim_attack = ExtResource("1_28eqw")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Rebuilds itself once per wave."

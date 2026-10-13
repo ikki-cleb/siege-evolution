@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_6niuv"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/control/high_fever.png" id="2_25gxj"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/high_fever_attack.png" id="1_4edss"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/control/high_fever_idle.png" id="2_lwbfd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_f25et"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/inferno_node.tres" id="4_m3wgk"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/control/heatstroke_node.tres" id="5_05ilw"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/control/high_fever.png" id="6_cel6t"]
 
 [resource]
-script = ExtResource("1_6niuv")
+script = ExtResource("3_f25et")
 id = "high_fever"
-display_name = "High Fever"
+display_name = "High Fever Spot"
 role = 1
 cost = 14
 max_hp = 25
@@ -14,6 +18,10 @@ attack_mode = 1
 damage = 6.0
 attack_range = 2.0
 hits_air = true
-texture = ExtResource("2_25gxj")
+tier = 1
+evolutions = Array[ExtResource("3_f25et")]([ExtResource("4_m3wgk"), ExtResource("5_05ilw")])
+texture = ExtResource("6_cel6t")
+anim_idle = ExtResource("2_lwbfd")
+anim_attack = ExtResource("1_4edss")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More damage."

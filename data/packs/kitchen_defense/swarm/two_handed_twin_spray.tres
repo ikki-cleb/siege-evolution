@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/twin_spray_attack.png" id="1_8ktas"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/twin_spray_idle.png" id="2_pdxpt"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_xpyhf"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/two_handed_twin_spray.png" id="4_nxqpd"]
+
+[resource]
+script = ExtResource("3_xpyhf")
+id = "two_handed_twin_spray"
+display_name = "Two-Handed Twin Spray"
+role = 1
+cost = 36
+max_hp = 12
+damage = 4.2
+attack_range = 2.5
+attack_interval = 0.7
+hits_air = true
+adjacency_bonus = 0.15
+tier = 2
+multishot = 3
+texture = ExtResource("4_nxqpd")
+anim_idle = ExtResource("2_pdxpt")
+anim_attack = ExtResource("1_8ktas")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Pokes 3 targets at once."

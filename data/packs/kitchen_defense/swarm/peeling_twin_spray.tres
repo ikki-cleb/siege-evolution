@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/twin_spray_attack.png" id="1_bu7ky"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/swarm/twin_spray_idle.png" id="2_j3nnm"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_lbn4y"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/swarm/peeling_twin_spray.png" id="4_qp1br"]
+
+[resource]
+script = ExtResource("3_lbn4y")
+id = "peeling_twin_spray"
+display_name = "Peeling Twin Spray"
+role = 1
+cost = 36
+max_hp = 12
+damage = 4.2
+attack_range = 2.5
+attack_interval = 0.7
+hits_air = true
+adjacency_bonus = 0.15
+tier = 2
+armor_shred = 1
+texture = ExtResource("4_qp1br")
+anim_idle = ExtResource("2_j3nnm")
+anim_attack = ExtResource("1_bu7ky")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Each poke strips 1 armor."

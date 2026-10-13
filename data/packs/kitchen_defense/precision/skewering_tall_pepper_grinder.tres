@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/tall_pepper_grinder_attack.png" id="1_6qu5t"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/tall_pepper_grinder_idle.png" id="2_7nnh3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_vgfbh"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/skewering_tall_pepper_grinder.png" id="4_y8ewo"]
+
+[resource]
+script = ExtResource("3_vgfbh")
+id = "skewering_tall_pepper_grinder"
+display_name = "Skewering Tall Pepper Grinder"
+role = 1
+cost = 56
+max_hp = 15
+damage = 4.5
+attack_range = 4.5
+hits_air = true
+tier = 2
+line_pierce = true
+texture = ExtResource("4_y8ewo")
+anim_idle = ExtResource("2_7nnh3")
+anim_attack = ExtResource("1_6qu5t")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Shots pierce every invader in a line."

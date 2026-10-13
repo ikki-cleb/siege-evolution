@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_dnoxq"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/signal_firefly.png" id="2_dr48u"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/signal_firefly_attack.png" id="1_tp17w"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/precision/signal_firefly_idle.png" id="2_inwpg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_wt0cn"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/many_legged_signal_firefly.tres" id="4_15b0c"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/precision/buzzing_signal_firefly.tres" id="5_22fp4"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/precision/signal_firefly.png" id="6_t7gfp"]
 
 [resource]
-script = ExtResource("1_dnoxq")
+script = ExtResource("3_wt0cn")
 id = "signal_firefly"
 display_name = "Signal Firefly"
 role = 2
@@ -15,6 +19,10 @@ attack_range = 4.5
 hits_air = true
 mark_bonus = 0.3
 mark_duration = 3.0
-texture = ExtResource("2_dr48u")
+tier = 1
+evolutions = Array[ExtResource("3_wt0cn")]([ExtResource("4_15b0c"), ExtResource("5_22fp4")])
+texture = ExtResource("6_t7gfp")
+anim_idle = ExtResource("2_inwpg")
+anim_attack = ExtResource("1_tp17w")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Much more range."

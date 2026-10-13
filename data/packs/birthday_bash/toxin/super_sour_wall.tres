@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/super_sour_wall_idle.png" id="1_oyd2b"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_t2mxs"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/surprise_super_sour_wall.tres" id="3_uit6a"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/toxin/party_proof_super_sour_wall.tres" id="4_sbbak"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/super_sour_wall.png" id="5_7h0qj"]
+
+[resource]
+script = ExtResource("2_t2mxs")
+id = "super_sour_wall"
+display_name = "Super Sour Wall"
+cost = 6
+max_hp = 25
+reflect = 0.8
+tier = 1
+evolutions = Array[ExtResource("2_t2mxs")]([ExtResource("3_uit6a"), ExtResource("4_sbbak")])
+can_place_on_water = true
+texture = ExtResource("5_7h0qj")
+anim_idle = ExtResource("1_oyd2b")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Reflects 80% of smasher damage."

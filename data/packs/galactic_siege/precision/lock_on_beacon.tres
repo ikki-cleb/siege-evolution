@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_haedl"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/lock_on_beacon.png" id="2_hyean"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/lock_on_beacon_attack.png" id="1_xh0vw"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/precision/lock_on_beacon_idle.png" id="2_vr8wd"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_nt7ff"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/phase_shred_lock_on_beacon.tres" id="4_x1c7r"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/precision/arc_lock_on_beacon.tres" id="5_05epq"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/precision/lock_on_beacon.png" id="6_cyf1s"]
 
 [resource]
-script = ExtResource("1_haedl")
+script = ExtResource("3_nt7ff")
 id = "lock_on_beacon"
 display_name = "Lock-On Beacon"
 role = 2
@@ -15,6 +19,10 @@ attack_range = 3.0
 hits_air = true
 mark_bonus = 0.7
 mark_duration = 3.0
-texture = ExtResource("2_hyean")
+tier = 1
+evolutions = Array[ExtResource("3_nt7ff")]([ExtResource("4_x1c7r"), ExtResource("5_05epq")])
+texture = ExtResource("6_cyf1s")
+anim_idle = ExtResource("2_vr8wd")
+anim_attack = ExtResource("1_xh0vw")
 shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
 description = "Marks for +70% damage."

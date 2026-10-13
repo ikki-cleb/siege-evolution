@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/wafting_skunk_attack.png" id="1_ffnsv"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/control/wafting_skunk_idle.png" id="2_3i1bi"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_ffeou"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/control/bucking_wafting_skunk.png" id="4_ht0xp"]
+
+[resource]
+script = ExtResource("3_ffeou")
+id = "bucking_wafting_skunk"
+display_name = "Bucking Wafting Skunk"
+role = 1
+cost = 46
+max_hp = 25
+attack_mode = 1
+damage = 2.0
+attack_range = 2.6
+slow = 0.35
+slow_duration = 1.2
+tier = 2
+knockback = 1
+texture = ExtResource("4_ht0xp")
+anim_idle = ExtResource("2_3i1bi")
+anim_attack = ExtResource("1_ffnsv")
+shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
+description = "Pulses shove invaders back."

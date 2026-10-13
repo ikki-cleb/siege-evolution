@@ -1,15 +1,21 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_kijxp"]
-[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/cobblestone.png" id="2_7n286"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/units/fortress/cobblestone_idle.png" id="1_ghkyi"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="2_x3mxl"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/regrowing_cobblestone.tres" id="3_mbfea"]
+[ext_resource type="Resource" path="res://data/packs/backyard_bugs/fortress/sticky_cobblestone.tres" id="4_su7nx"]
+[ext_resource type="Texture2D" path="res://art/units/backyard_bugs/fortress/cobblestone.png" id="5_7k77n"]
 
 [resource]
-script = ExtResource("1_kijxp")
+script = ExtResource("2_x3mxl")
 id = "cobblestone"
 display_name = "Cobblestone"
 cost = 10
 max_hp = 220
+tier = 1
+evolutions = Array[ExtResource("2_x3mxl")]([ExtResource("3_mbfea"), ExtResource("4_su7nx")])
 can_place_on_water = true
-texture = ExtResource("2_7n286")
+texture = ExtResource("5_7k77n")
+anim_idle = ExtResource("1_ghkyi")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more HP."

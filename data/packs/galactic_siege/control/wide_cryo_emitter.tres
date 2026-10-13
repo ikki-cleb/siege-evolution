@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_vwahe"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/wide_cryo_emitter.png" id="2_33avn"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/wide_cryo_emitter_attack.png" id="1_5vfho"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/control/wide_cryo_emitter_idle.png" id="2_c0qux"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_dtfky"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/repulsor_wide_cryo_emitter.tres" id="4_lj7hs"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/control/overclocked_wide_cryo_emitter.tres" id="5_glh01"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/control/wide_cryo_emitter.png" id="6_mmddr"]
 
 [resource]
-script = ExtResource("1_vwahe")
+script = ExtResource("3_dtfky")
 id = "wide_cryo_emitter"
 display_name = "Wide Cryo Emitter"
 role = 1
@@ -15,6 +19,10 @@ damage = 2.0
 attack_range = 2.6
 slow = 0.35
 slow_duration = 1.2
-texture = ExtResource("2_33avn")
+tier = 1
+evolutions = Array[ExtResource("3_dtfky")]([ExtResource("4_lj7hs"), ExtResource("5_glh01")])
+texture = ExtResource("6_mmddr")
+anim_idle = ExtResource("2_c0qux")
+anim_attack = ExtResource("1_5vfho")
 shot_color = Color(0.7694118, 0.68470585, 0.9035294, 1)
 description = "More range."

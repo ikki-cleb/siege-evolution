@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/long_stink_bomb_attack.png" id="1_pfmtv"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/toxin/long_stink_bomb_idle.png" id="2_2aqtq"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_m1t5j"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/toxin/double_long_stink_bomb.png" id="4_wo46a"]
+
+[resource]
+script = ExtResource("3_m1t5j")
+id = "double_long_stink_bomb"
+display_name = "Double Long Stink Bomb"
+role = 1
+cost = 76
+damage = 2.0
+attack_range = 3.5
+attack_interval = 1.5
+hits_air = true
+poison_dps = 4.5
+poison_duration = 5.0
+poison_spreads = true
+tier = 2
+multishot = 2
+texture = ExtResource("4_wo46a")
+anim_idle = ExtResource("2_2aqtq")
+anim_attack = ExtResource("1_pfmtv")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Infects 2 targets at once."

@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_8l71w"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/venomous_t.tres" id="2_ljk6t"]
-[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/reaching_t.tres" id="3_pktcb"]
-[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/killer_t.png" id="4_6fc38"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/killer_t_attack.png" id="1_pktcb"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/units/toxin/killer_t_idle.png" id="2_6fc38"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_y1dy0"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/venomous_t.tres" id="4_sqa6k"]
+[ext_resource type="Resource" path="res://data/packs/immune_system/toxin/reaching_t.tres" id="5_jkwuw"]
+[ext_resource type="Texture2D" path="res://art/units/immune_system/toxin/killer_t.png" id="6_vw3sl"]
 
 [resource]
-script = ExtResource("1_8l71w")
+script = ExtResource("3_y1dy0")
 id = "killer_t"
-display_name = "Killer T-Cell"
+display_name = "Poison Cell"
 role = 1
 cost = 12
 damage = 1.0
@@ -16,7 +18,9 @@ attack_range = 2.0
 attack_interval = 0.9
 poison_dps = 3.5
 poison_duration = 4.0
-evolutions = Array[ExtResource("1_8l71w")]([ExtResource("2_ljk6t"), ExtResource("3_pktcb")])
-texture = ExtResource("4_6fc38")
+evolutions = Array[ExtResource("3_y1dy0")]([ExtResource("4_sqa6k"), ExtResource("5_jkwuw")])
+texture = ExtResource("6_vw3sl")
+anim_idle = ExtResource("2_6fc38")
+anim_attack = ExtResource("1_pktcb")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Poisons its target. Ground only."

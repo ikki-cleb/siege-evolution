@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_a3utp"]
-[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/rhino_beetle.png" id="2_uaamm"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/rhino_beetle_death.png" id="1_alqbo"]
+[ext_resource type="Texture2D" path="res://art/anim/backyard_bugs/invaders/rhino_beetle_move.png" id="2_dtqy5"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_7xb52"]
+[ext_resource type="Texture2D" path="res://art/invaders/backyard_bugs/rhino_beetle.png" id="4_5eoaq"]
 
 [resource]
-script = ExtResource("1_a3utp")
+script = ExtResource("3_7xb52")
 id = "rhino_beetle"
 display_name = "Rhino Beetle"
 movement = 1
@@ -12,6 +14,8 @@ max_hp = 45
 speed = 0.7
 base_damage = 3
 smash_damage = 6.0
-atp_drop = 2
-texture = ExtResource("2_uaamm")
+coin_drop = 2
+texture = ExtResource("4_5eoaq")
+anim_move = ExtResource("2_dtqy5")
+anim_death = ExtResource("1_alqbo")
 description = "Ignores the maze and rams through units."

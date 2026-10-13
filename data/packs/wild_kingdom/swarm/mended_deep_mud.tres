@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/deep_mud_attack.png" id="1_1mh54"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/swarm/deep_mud_idle.png" id="2_ksxv3"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_r4vri"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/swarm/mended_deep_mud.png" id="4_r7vgr"]
+
+[resource]
+script = ExtResource("3_r4vri")
+id = "mended_deep_mud"
+display_name = "Mended Deep Mud"
+cost = 24
+max_hp = 60
+attack_mode = 1
+damage = 0.5
+attack_interval = 0.5
+slow = 0.3
+slow_duration = 1.0
+tier = 2
+rebuild = true
+texture = ExtResource("4_r7vgr")
+anim_idle = ExtResource("2_ksxv3")
+anim_attack = ExtResource("1_1mh54")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "Rebuilds itself once per wave."

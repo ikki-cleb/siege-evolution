@@ -15,10 +15,24 @@ extends SceneTree
 const CONTENT_DIR := "res://tools/content/"
 ## Build order matters: worlds that borrow packs come after their source.
 const WORLD_FILES: Array[String] = ["immune_system.json", "backyard_bugs.json", "wild_kingdom.json",
-	"total_war.json", "galactic_siege.json"]
+	"total_war.json", "galactic_siege.json", "kitchen_defense.json",
+	"birthday_bash.json"]
+
+## Every level has this many waves; the boss arrives on the last one.
+const WAVES_PER_LEVEL := 8
 
 var invaders := {}
 var _content_by_id := {}
+## Base units and their evolutions per world, for the title screen's
+## evolution showcase (written to data/showcase.json so the menu doesn't
+## have to load whole worlds, which is slow).
+var _showcase := {}
+## Each world's boss and a familiar invader (move strips), for the
+## world-select postcards. Stored in showcase.json under "_cards".
+var _cards := {}
+## Each world's wave rules for endless mode (written to data/endless.json):
+## endless waves are generated in the game from the same rules as level 5.
+var _endless := {}
 
 
 func _initialize() -> void:
@@ -26,6 +40,13 @@ func _initialize() -> void:
 		var content: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(CONTENT_DIR + file_name))
 		_content_by_id[content.biome.id] = content
 		_build_world(content)
+	_showcase["_cards"] = _cards
+	var endless_file := FileAccess.open("res://data/endless.json", FileAccess.WRITE)
+	endless_file.store_string(JSON.stringify(_endless, "\t"))
+	endless_file.close()
+	var file := FileAccess.open("res://data/showcase.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(_showcase, "\t"))
+	file.close()
 	print("Content written to data/")
 	quit()
 
@@ -58,6 +79,22 @@ func _build_world(content: Dictionary) -> void:
 	for i in content.levels.size():
 		biome.levels.append(_level(biome_id, i + 1, content.levels[i], content))
 	_save(biome, "res://data/biomes/%s.tres" % biome_id)
+	# Endless mode continues from the last level's final wave.
+	var last: Dictionary = content.levels[-1]
+	_endless[biome_id] = {"budget": float(last.budget) * (1.0 + content.waves.growth_per_wave * (WAVES_PER_LEVEL - 1)),
+		"sea": last.get("sea", false), "boss": last.get("boss", ""),
+		"mix": content.waves.mix, "sea_mix": content.waves.get("sea_mix", []),
+		"categories": content.waves.categories, "threat": content.waves.threat}
+	# Postcard art: the boss of the last level and the world's second invader.
+	var anim := "res://art/anim/%s/invaders/%s_move.png"
+	var boss_id: String = content.levels[-1].get("boss", "")
+	var boss_art := boss_id
+	for row in content.invaders:
+		if row.id == boss_id:
+			boss_art = row.get("art", row.id)
+	var familiar: Dictionary = content.invaders[mini(1, content.invaders.size() - 1)]
+	_cards[biome_id] = {"boss": anim % [biome_id, boss_art],
+		"invader": anim % [biome_id, familiar.get("art", familiar.id)]}
 
 
 ## The packs for a world: its own, or another world's with units renamed.
@@ -74,11 +111,16 @@ static func pack_rows(content: Dictionary, all_content: Dictionary) -> Array:
 			_apply_rename(unit, renames)
 			for evolution in unit.evolutions:
 				_apply_rename(evolution, renames)
+				for capstone in evolution.get("evolutions", []):
+					_apply_rename(capstone, renames)
 		result.append(copy)
 	return result
 
 
 static func _apply_rename(row: Dictionary, renames: Dictionary) -> void:
+	# Capstones without a themed name yet keep their World 1 name.
+	if not renames.has(row.id):
+		return
 	var entry: Array = renames[row.id]
 	row.id = entry[0]
 	row.name = entry[1]
@@ -86,10 +128,10 @@ static func _apply_rename(row: Dictionary, renames: Dictionary) -> void:
 
 # --- Levels -----------------------------------------------------------------
 # Each level row in the JSON:
-#   hand: ATP value of free units per pack slot (see LevelData.hand_value)
-#   atp: starting ATP. income: bonus ATP for a wave where nothing leaks
-#   budget: threat of wave 1 (levels 2-7); later waves grow by growth_per_wave
-#   boss: invader id that arrives on wave 10 (optional)
+#   hand: coin value of free units per pack slot (see LevelData.hand_value)
+#   coins: starting coins. income: bonus coins for a wave where nothing leaks
+#   budget: threat of wave 1 (levels 2-5); later waves grow by growth_per_wave
+#   boss: invader id that arrives on the last wave (optional)
 # Level 1 uses the handwritten "tutorial" waves and tips instead.
 
 func _level(biome_id: String, number: int, table: Dictionary, content: Dictionary) -> LevelData:
@@ -98,11 +140,16 @@ func _level(biome_id: String, number: int, table: Dictionary, content: Dictionar
 	level.layout = PackedStringArray(table.layout)
 	level.base_hp = 20
 	level.hand_value = PackedInt32Array(table.hand)
-	level.starting_atp = int(table.atp)
-	level.atp_per_wave = int(table.income)
-	level.show_path_preview = table.get("preview", false)
+	level.starting_coins = int(table.coins)
+	level.coins_per_wave = int(table.income)
 	if table.has("tips"):
 		level.wave_tips = PackedStringArray(table.tips)
+	# Painted backgrounds (see tools/import_backgrounds.py), WebP or PNG.
+	for extension in ["webp", "png"]:
+		var background := "res://art/backgrounds/%s/level_%02d.%s" % [biome_id, number, extension]
+		if ResourceLoader.exists(background):
+			level.background = load(background)
+			break
 	if table.has("tiles"):
 		var tiles := "res://art/tiles/%s/%s/" % [biome_id, table.tiles]
 		level.floor_texture = load(tiles + "floor.png")
@@ -117,7 +164,7 @@ func _level(biome_id: String, number: int, table: Dictionary, content: Dictionar
 				wave.entries.append(_entry(row[0], int(row[1]), row[2], row[3]))
 			level.waves.append(wave)
 	else:
-		for w in 10:
+		for w in WAVES_PER_LEVEL:
 			level.waves.append(_generated_wave(number, w, table, content.waves))
 	return _save(level, "res://data/levels/%s/level_%02d.tres" % [biome_id, number])
 
@@ -128,7 +175,7 @@ func _generated_wave(level_number: int, wave_index: int, table: Dictionary, rule
 	var wave := WaveData.new()
 	var budget: float = table.budget * (1.0 + rules.growth_per_wave * wave_index)
 	var delay := 0.0
-	if table.has("boss") and wave_index == 9:
+	if table.has("boss") and wave_index == WAVES_PER_LEVEL - 1:
 		wave.entries.append(_entry(table.boss, 1, 1.0, 6.0, 0))
 		budget *= 0.5  # The boss brings minions, so fewer escorts.
 	# Sea levels use their own mix (boats plus landing troops).
@@ -174,14 +221,57 @@ func _pack(biome_id: String, row: Dictionary) -> PackData:
 	var dir := "res://data/packs/%s/%s" % [biome_id, row.id]
 	DirAccess.make_dir_recursive_absolute(dir)
 	var art_dir := "res://art/units/%s/%s" % [biome_id, row.id]
+	var anim_dir := "res://art/anim/%s/units/%s" % [biome_id, row.id]
 	for unit_row in row.units:
 		var unit := _unit(unit_row, {}, art_dir, pack.color)
+		_unit_anims(unit, anim_dir, unit_row.id)
 		for evo_row in unit_row.evolutions:
 			# Evolutions start as a copy of the base unit, then apply changes.
 			var evolution := _unit(evo_row, unit_row, art_dir, pack.color)
+			_unit_anims(evolution, anim_dir, evo_row.id)
+			evolution.tier = 1
+			# Capstones start as a copy of the tier-1 evolution.
+			var tier1: Dictionary = unit_row.duplicate()
+			tier1.merge(evo_row, true)
+			for cap_row in evo_row.get("evolutions", []):
+				var capstone := _unit(cap_row, tier1, art_dir, pack.color)
+				# Capstones reuse their tier-1 animations (the game adds a star).
+				capstone.anim_idle = evolution.anim_idle
+				capstone.anim_attack = evolution.anim_attack
+				capstone.tier = 2
+				evolution.evolutions.append(_save(capstone, "%s/%s.tres" % [dir, cap_row.id]))
 			unit.evolutions.append(_save(evolution, "%s/%s.tres" % [dir, evo_row.id]))
+		_add_to_showcase(biome_id, pack, unit)
 		pack.units.append(_save(unit, "%s/%s.tres" % [dir, unit_row.id]))
 	return _save(pack, "%s/%s_pack.tres" % [dir, row.id])
+
+
+## Notes a base unit and its tier-1 evolutions (name + idle strip) for the
+## title screen showcase. Units without animations are skipped.
+func _add_to_showcase(biome_id: String, pack: PackData, unit: UnitData) -> void:
+	if unit.anim_idle == null:
+		return
+	var evolutions := []
+	for evolution in unit.evolutions:
+		if evolution.anim_idle != null:
+			evolutions.append({"name": evolution.display_name, "idle": evolution.anim_idle.resource_path})
+	if evolutions.is_empty():
+		return
+	if not _showcase.has(biome_id):
+		_showcase[biome_id] = []
+	_showcase[biome_id].append({"id": unit.id, "name": unit.display_name, "idle": unit.anim_idle.resource_path,
+		"color": pack.color.to_html(false), "evolutions": evolutions})
+
+
+## Animation strips, if they exist: <unit id>_idle.png and <unit id>_attack.png.
+func _unit_anims(unit: UnitData, anim_dir: String, id: String) -> void:
+	unit.anim_idle = _strip("%s/%s_idle.png" % [anim_dir, id])
+	unit.anim_attack = _strip("%s/%s_attack.png" % [anim_dir, id])
+
+
+## Loads an animation strip if it's there (null otherwise).
+func _strip(path: String) -> Texture2D:
+	return load(path) if ResourceLoader.exists(path) else null
 
 
 func _unit(row: Dictionary, base: Dictionary, art_dir: String, pack_color: Color) -> UnitData:
@@ -213,6 +303,21 @@ func _unit(row: Dictionary, base: Dictionary, art_dir: String, pack_color: Color
 	unit.poison_spreads = value.call("spreads", false)
 	unit.mark_bonus = value.call("mark", 0.0)
 	unit.mark_duration = value.call("mark_dur", 0.0)
+	unit.chain_count = int(value.call("chain", 0))
+	unit.multishot = int(value.call("multishot", 0))
+	unit.line_pierce = value.call("line", false)
+	unit.execute_below = value.call("execute", 0.0)
+	unit.knockback = int(value.call("knockback", 0))
+	unit.armor_shred = int(value.call("shred", 0))
+	unit.bounty = int(value.call("bounty", 0))
+	unit.zone_kind = value.call("zone", "")
+	unit.zone_power = value.call("zone_power", 0.0)
+	unit.grab_stun = value.call("grab", 0.0)
+	unit.explode_damage = value.call("explode", 0.0)
+	unit.rebuild = value.call("rebuild", false)
+	unit.aura_speed = value.call("aura_speed", 0.0)
+	unit.aura_shield = value.call("aura_shield", 0.0)
+	unit.aura_cleanse = value.call("aura_cleanse", false)
 	unit.description = row.get("desc", "")
 	unit.shot_color = pack_color.lightened(0.4)
 	unit.texture = load("%s/%s.png" % [art_dir, row.id])
@@ -237,7 +342,7 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 	invader.speed = row.speed
 	invader.base_damage = int(row.base_damage)
 	invader.smash_damage = row.get("smash", 0.0)
-	invader.atp_drop = int(row.get("drop", 1))
+	invader.coin_drop = int(row.get("drop", 1))
 	invader.burrow_after = int(row.get("burrow_after", 0))
 	invader.jumps = row.get("jumps", false)
 	invader.naval = row.get("naval", false)
@@ -246,6 +351,8 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 	invader.blink_interval = row.get("blink_interval", 0.0)
 	invader.blink_distance = int(row.get("blink_distance", 0))
 	invader.burrow_length = int(row.get("burrow_length", 0))
+	invader.spill_every = int(row.get("spill_every", 0))
+	invader.spill_slow = row.get("spill_slow", 0.0)
 	invader.is_elite = row.get("elite", false)
 	invader.is_boss = row.get("boss", false)
 	if row.has("split_into"):
@@ -255,8 +362,17 @@ func _invader(biome_id: String, row: Dictionary) -> void:
 		invader.minion = invaders[row.minion]
 		invader.minion_count = int(row.minion_count)
 		invader.minion_interval = row.minion_interval
+		invader.minion_throw = int(row.get("minion_throw", 0))
+	if row.has("pinata_pool"):
+		for id in row.pinata_pool:
+			invader.pinata_pool.append(invaders[id])
+		invader.pinata_min = int(row.pinata_min)
+		invader.pinata_max = int(row.pinata_max)
 	invader.description = row.get("desc", "")
 	invader.texture = load("res://art/invaders/%s/%s.png" % [biome_id, row.id])
+	var anim_dir := "res://art/anim/%s/invaders" % biome_id
+	invader.anim_move = _strip("%s/%s_move.png" % [anim_dir, row.id])
+	invader.anim_death = _strip("%s/%s_death.png" % [anim_dir, row.id])
 	invaders[row.id] = _save(invader, "res://data/invaders/%s/%s.tres" % [biome_id, row.id])
 
 

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/stale_moldy_bread_attack.png" id="1_783s2"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/stale_moldy_bread_idle.png" id="2_p1pwg"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_p7k4y"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/self_stacking_stale_moldy_bread.tres" id="4_uva0v"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/sticky_stale_moldy_bread.tres" id="5_vfgd7"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/stale_moldy_bread.png" id="6_apaas"]
+
+[resource]
+script = ExtResource("3_p7k4y")
+id = "stale_moldy_bread"
+display_name = "Stale Moldy Bread"
+cost = 12
+max_hp = 100
+attack_mode = 1
+poison_dps = 3.0
+poison_duration = 2.0
+poison_spreads = true
+tier = 1
+evolutions = Array[ExtResource("3_p7k4y")]([ExtResource("4_uva0v"), ExtResource("5_vfgd7")])
+texture = ExtResource("6_apaas")
+anim_idle = ExtResource("2_p1pwg")
+anim_attack = ExtResource("1_783s2")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "More HP."

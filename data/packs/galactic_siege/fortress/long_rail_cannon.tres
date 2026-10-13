@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_ieuyr"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/long_rail_cannon.png" id="2_bqmic"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/long_rail_cannon_attack.png" id="1_clhrs"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/fortress/long_rail_cannon_idle.png" id="2_by4oe"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_n4flg"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/beam_long_rail_cannon.tres" id="4_2tfyf"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/fortress/phase_shred_long_rail_cannon.tres" id="5_v0ddd"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/fortress/long_rail_cannon.png" id="6_q2hl1"]
 
 [resource]
-script = ExtResource("1_ieuyr")
+script = ExtResource("3_n4flg")
 id = "long_rail_cannon"
 display_name = "Long Rail Cannon"
 role = 1
@@ -15,6 +19,10 @@ attack_range = 3.2
 attack_interval = 2.6
 hits_air = true
 pierce = true
-texture = ExtResource("2_bqmic")
+tier = 1
+evolutions = Array[ExtResource("3_n4flg")]([ExtResource("4_2tfyf"), ExtResource("5_v0ddd")])
+texture = ExtResource("6_q2hl1")
+anim_idle = ExtResource("2_by4oe")
+anim_attack = ExtResource("1_clhrs")
 shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
 description = "Much more range."

@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="UnitData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1_lq3s0"]
-[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/corrosive_bot.png" id="2_0qcde"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/corrosive_bot_attack.png" id="1_s2rp4"]
+[ext_resource type="Texture2D" path="res://art/anim/galactic_siege/units/toxin/corrosive_bot_idle.png" id="2_n2qcr"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_qoeej"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/terminator_corrosive_bot.tres" id="4_h7nxw"]
+[ext_resource type="Resource" path="res://data/packs/galactic_siege/toxin/multi_target_corrosive_bot.tres" id="5_t1gam"]
+[ext_resource type="Texture2D" path="res://art/units/galactic_siege/toxin/corrosive_bot.png" id="6_32523"]
 
 [resource]
-script = ExtResource("1_lq3s0")
+script = ExtResource("3_qoeej")
 id = "corrosive_bot"
 display_name = "Corrosive Bot"
 role = 1
@@ -14,6 +18,10 @@ attack_range = 2.0
 attack_interval = 0.9
 poison_dps = 6.0
 poison_duration = 4.0
-texture = ExtResource("2_0qcde")
+tier = 1
+evolutions = Array[ExtResource("3_qoeej")]([ExtResource("4_h7nxw"), ExtResource("5_t1gam")])
+texture = ExtResource("6_32523")
+anim_idle = ExtResource("2_n2qcr")
+anim_attack = ExtResource("1_s2rp4")
 shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
 description = "Stronger poison."

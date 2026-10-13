@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/super_soaker_attack.png" id="1_guo68"]
+[ext_resource type="Texture2D" path="res://art/anim/birthday_bash/units/swarm/super_soaker_idle.png" id="2_7rdxn"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_oqlry"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/laser_super_soaker.tres" id="4_hwj5s"]
+[ext_resource type="Resource" path="res://data/packs/birthday_bash/swarm/sugar_rush_super_soaker.tres" id="5_sx0dw"]
+[ext_resource type="Texture2D" path="res://art/units/birthday_bash/swarm/super_soaker.png" id="6_nu3mq"]
+
+[resource]
+script = ExtResource("3_oqlry")
+id = "super_soaker"
+display_name = "Super Soaker"
+role = 1
+cost = 9
+max_hp = 12
+damage = 2.8
+attack_range = 3.5
+attack_interval = 0.7
+hits_air = true
+adjacency_bonus = 0.15
+tier = 1
+evolutions = Array[ExtResource("3_oqlry")]([ExtResource("4_hwj5s"), ExtResource("5_sx0dw")])
+texture = ExtResource("6_nu3mq")
+anim_idle = ExtResource("2_7rdxn")
+anim_attack = ExtResource("1_guo68")
+shot_color = Color(0.9482353, 0.8611765, 0.6494118, 1)
+description = "More range."

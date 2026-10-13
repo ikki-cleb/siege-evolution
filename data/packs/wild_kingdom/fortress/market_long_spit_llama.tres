@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/long_spit_llama_attack.png" id="1_ffups"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/units/fortress/long_spit_llama_idle.png" id="2_mnrxh"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_akftm"]
+[ext_resource type="Texture2D" path="res://art/units/wild_kingdom/fortress/market_long_spit_llama.png" id="4_is63w"]
+
+[resource]
+script = ExtResource("3_akftm")
+id = "market_long_spit_llama"
+display_name = "Market Long-Spit Llama"
+role = 1
+cost = 56
+max_hp = 30
+damage = 8.0
+attack_range = 3.6
+attack_interval = 1.4
+hits_air = true
+tier = 2
+bounty = 2
+texture = ExtResource("4_is63w")
+anim_idle = ExtResource("2_mnrxh")
+anim_attack = ExtResource("1_ffups")
+shot_color = Color(0.8917647, 0.6258824, 0.54352945, 1)
+description = "Its kills drop 2 extra coins."

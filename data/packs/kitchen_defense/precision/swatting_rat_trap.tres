@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/rat_trap_attack.png" id="1_rf0nk"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/precision/rat_trap_idle.png" id="2_3cu6e"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_g1ct4"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/precision/swatting_rat_trap.png" id="4_f7e8t"]
+
+[resource]
+script = ExtResource("3_g1ct4")
+id = "swatting_rat_trap"
+display_name = "Swatting Rat Trap"
+role = 1
+cost = 68
+max_hp = 25
+damage = 21.0
+attack_range = 2.5
+attack_interval = 1.6
+pierce = true
+tier = 2
+knockback = 1
+texture = ExtResource("4_f7e8t")
+anim_idle = ExtResource("2_3cu6e")
+anim_attack = ExtResource("1_rf0nk")
+shot_color = Color(0.5835295, 0.79529417, 0.92235297, 1)
+description = "Strikes shove invaders back."

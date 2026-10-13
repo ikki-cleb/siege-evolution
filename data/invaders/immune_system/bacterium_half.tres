@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_413rv"]
-[ext_resource type="Texture2D" path="res://art/invaders/immune_system/bacterium_half.png" id="2_db4j2"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/bacterium_half_death.png" id="1_w2h8y"]
+[ext_resource type="Texture2D" path="res://art/anim/immune_system/invaders/bacterium_half_move.png" id="2_csj2h"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_q5nxe"]
+[ext_resource type="Texture2D" path="res://art/invaders/immune_system/bacterium_half.png" id="4_30dlp"]
 
 [resource]
-script = ExtResource("1_413rv")
+script = ExtResource("3_q5nxe")
 id = "bacterium_half"
 display_name = "Bacterium"
 max_hp = 5
 speed = 1.2
-atp_drop = 0
-texture = ExtResource("2_db4j2")
+coin_drop = 0
+texture = ExtResource("4_30dlp")
+anim_move = ExtResource("2_csj2h")
+anim_death = ExtResource("1_w2h8y")

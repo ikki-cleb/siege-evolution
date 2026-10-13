@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InvaderData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/slug_death.png" id="1_7elsk"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/invaders/slug_move.png" id="2_i52qn"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_bbc82"]
+[ext_resource type="Texture2D" path="res://art/invaders/kitchen_defense/slug.png" id="4_7i5ti"]
+
+[resource]
+script = ExtResource("3_bbc82")
+id = "slug"
+display_name = "Slug"
+max_hp = 30
+speed = 0.6
+base_damage = 2
+coin_drop = 2
+spill_every = 2
+spill_slow = 0.4
+texture = ExtResource("4_7i5ti")
+anim_move = ExtResource("2_i52qn")
+anim_death = ExtResource("1_7elsk")
+description = "Spiller: slimes the units beside its route. Sticky units attack 40% slower until the wave ends."

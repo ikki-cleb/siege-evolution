@@ -1,16 +1,20 @@
 [gd_resource type="Resource" script_class="InvaderData" format=3]
 
-[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="1_4j1un"]
-[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/weasel.png" id="2_0f88f"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/weasel_death.png" id="1_uot5y"]
+[ext_resource type="Texture2D" path="res://art/anim/wild_kingdom/invaders/weasel_move.png" id="2_ubenm"]
+[ext_resource type="Script" path="res://scripts/data/invader_data.gd" id="3_uth8r"]
+[ext_resource type="Texture2D" path="res://art/invaders/wild_kingdom/weasel.png" id="4_gdimx"]
 
 [resource]
-script = ExtResource("1_4j1un")
+script = ExtResource("3_uth8r")
 id = "weasel"
 display_name = "Weasel"
 max_hp = 15
 armor = 1
 speed = 2.0
-atp_drop = 2
+coin_drop = 2
 is_elite = true
-texture = ExtResource("2_0f88f")
+texture = ExtResource("4_gdimx")
+anim_move = ExtResource("2_ubenm")
+anim_death = ExtResource("1_uot5y")
 description = "Elite: a very fast, armored pest."

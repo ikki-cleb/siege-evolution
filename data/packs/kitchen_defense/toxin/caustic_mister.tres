@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="UnitData" format=3]
+
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/caustic_mister_attack.png" id="1_md7ux"]
+[ext_resource type="Texture2D" path="res://art/anim/kitchen_defense/units/toxin/caustic_mister_idle.png" id="2_fi54r"]
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="3_pw0vh"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/peeling_caustic_mister.tres" id="4_laury"]
+[ext_resource type="Resource" path="res://data/packs/kitchen_defense/toxin/bleach_caustic_mister.tres" id="5_0ttns"]
+[ext_resource type="Texture2D" path="res://art/units/kitchen_defense/toxin/caustic_mister.png" id="6_322uo"]
+
+[resource]
+script = ExtResource("3_pw0vh")
+id = "caustic_mister"
+display_name = "Caustic Mister"
+role = 1
+cost = 13
+max_hp = 15
+damage = 1.0
+attack_range = 2.5
+attack_interval = 1.2
+hits_air = true
+splash_radius = 1.0
+poison_dps = 4.5
+poison_duration = 3.0
+tier = 1
+evolutions = Array[ExtResource("3_pw0vh")]([ExtResource("4_laury"), ExtResource("5_0ttns")])
+texture = ExtResource("6_322uo")
+anim_idle = ExtResource("2_fi54r")
+anim_attack = ExtResource("1_md7ux")
+shot_color = Color(0.65411764, 0.86352944, 0.5905882, 1)
+description = "Stronger poison."
