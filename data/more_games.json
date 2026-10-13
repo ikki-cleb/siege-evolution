@@ -1,0 +1,8 @@
+{
+	"_about": "The Settings screen's 'More Ad Free Games from this Developer' card. It only shows once the link for the player's platform is filled in (test builds always show it, as a preview). Fill these in after the store accounts exist; see LAUNCH.md.",
+	"title": "More Ad Free Games from this Developer",
+	"ios_url": "",
+	"android_url": "",
+	"web_url": "",
+	"banner": "res://art/more_games/banner.png"
+}

@@ -12,7 +12,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 var failures := 0
 ## If scripts fail to compile, checks silently never run; catch that too.
 var checks_run := 0
-const MIN_RULE_CHECKS := 171
+const MIN_RULE_CHECKS := 172
 var progress: Node
 
 
@@ -1356,6 +1356,18 @@ func _test_menu_pizazz() -> void:
 	menu._going_back = true
 	menu._show(menu._show_title)
 	_check(menu._scroll.position.x < 0, "Back slides the previous screen in from the left")
+	# "More Ad Free Games": hidden without a store link (except as a test preview).
+	var store_node: Node = root.get_node("Store")
+	menu._show(menu._show_settings)
+	await process_frame
+	var preview: bool = _all_texts(menu._content).has("More Ad Free Games from this Developer")
+	var was_test: bool = store_node.test_mode
+	store_node.test_mode = false
+	menu._show(menu._show_settings)
+	await process_frame
+	var hidden: bool = not _all_texts(menu._content).has("More Ad Free Games from this Developer")
+	store_node.test_mode = was_test
+	_check(preview and hidden, "Settings shows the More Games card only once a store link is set (test builds preview it)")
 	menu.queue_free()
 	await process_frame
 

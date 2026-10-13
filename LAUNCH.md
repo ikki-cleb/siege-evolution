@@ -85,7 +85,19 @@ Reference files:
     - **Target API level:** Google requires recent Android versions every August. If the Console warns about it, raise `gradle_build/target_sdk` in `export_presets.cfg`.
 11. [ ] Apply for production access, then promote the tested build to production in the Console.
 
-## 7. Before every release
+## 7. "More Ad Free Games" link
+
+The Settings screen has a "More Ad Free Games from this Developer" card
+(featuring Trivia Ladder). It stays hidden in real builds until its link is
+set. Once your developer pages exist, fill them in `data/more_games.json`:
+
+- `ios_url`: your App Store developer page, e.g. `https://apps.apple.com/developer/<your-name>/id<number>` (open any of your apps in the App Store and tap your developer name to find it).
+- `android_url`: your Google Play developer page, e.g. `https://play.google.com/store/apps/dev?id=<number>` (or `https://play.google.com/store/search?q=pub:<Your%20Name>&c=apps`).
+- `web_url` (optional): shown in web builds.
+
+To feature a different game, swap the icon and texts in `tools/draw_more_games.py` and run it.
+
+## 8. Before every release
 
 ```bash
 godot --headless --fixed-fps 60 --script tests/sim_test.gd -- rules
@@ -101,5 +113,6 @@ python3 tools/check_listing.py
 
 - **Purchases:** `scripts/store.gd` sells the items. On phones it hands purchases to `scripts/billing/google_play_billing.gd` (Android) or `scripts/billing/app_store_billing.gd` (iPhone), which wrap Godot's official billing plugins. The plugins aren't in the repo: `tools/ci/fetch_plugins.sh` downloads them during each Codemagic build. If a plugin release renames its download, set `BILLING_PLUGIN_URL` / `IOS_PLUGINS_URL` in Codemagic to the exact file.
 - **Test mode:** web, editor and debug builds keep free, instant test purchases. Release phone builds never do.
+- **More games link:** `data/more_games.json` (see section 7).
 - **Notches:** `Look.safe_top` moves the game below a phone's notch or camera hole.
 - **Not supported yet:** iPad (iPhone only, so no iPad screenshots are needed), cloud saves, and tablets in landscape.

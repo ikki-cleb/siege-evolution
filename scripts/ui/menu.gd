@@ -221,11 +221,68 @@ func _show_settings() -> void:
 	var name_label := _label(_calm_name(slider.value), 14, GOLD, HORIZONTAL_ALIGNMENT_RIGHT, row)
 	name_label.custom_minimum_size.x = 80
 	var material := _calm_preview()
+	_more_games_card()
 	slider.value_changed.connect(func(value: float):
 		Progress.set_calm_strength(value)
 		name_label.text = _calm_name(value)
 		if material:
 			CalmBackground.set_strength(material, value))
+
+
+## "More Ad Free Games from this Developer": a postcard (like the world
+## cards) that opens the developer's page in the App Store / Google Play.
+## Links live in data/more_games.json; the card is hidden until the link for
+## this platform is filled in (test builds show it anyway, as a preview).
+func _more_games_card() -> void:
+	var info = JSON.parse_string(FileAccess.get_file_as_string("res://data/more_games.json"))
+	if not info is Dictionary:
+		return
+	var url := _more_games_url(info)
+	if url == "" and not Store.test_mode:
+		return
+	_spacer(8)
+	var panel := PanelContainer.new()
+	var style := Look.panel(CARD_COLOR, Color.TRANSPARENT, 12)
+	style.set_content_margin_all(0)
+	style.border_color = Color("#f7c948")
+	style.set_border_width_all(2)
+	style.border_width_bottom = 5  # 3D edge, like the world postcards
+	panel.add_theme_stylebox_override("panel", style)
+	_content.add_child(panel)
+	var card := VBoxContainer.new()
+	card.add_theme_constant_override("separation", 0)
+	panel.add_child(card)
+	var banner := TextureRect.new()
+	banner.texture = load(info.get("banner", ""))
+	banner.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	banner.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	banner.custom_minimum_size.y = 90
+	card.add_child(banner)
+	var margin := MarginContainer.new()
+	for side in ["left", "right", "top", "bottom"]:
+		margin.add_theme_constant_override("margin_" + side, 10)
+	card.add_child(margin)
+	var below := VBoxContainer.new()
+	margin.add_child(below)
+	var title := _label(info.get("title", "More Games"), 15, Color("#f7c948"), HORIZONTAL_ALIGNMENT_LEFT, below)
+	title.theme_type_variation = "TitleLabel"
+	var where := "App Store" if OS.has_feature("ios") else "Google Play" if OS.has_feature("android") else "web"
+	_label("Tap to see them on the %s." % where if url != "" else "Preview: the store link isn't set yet.",
+		11, DIM_TEXT, HORIZONTAL_ALIGNMENT_LEFT, below)
+	_make_tappable(panel, func():
+		if url != "":
+			OS.shell_open(url)
+		else:
+			_toast("The store link isn't set yet (data/more_games.json)."))
+
+
+## The link for this platform (iPhone, Android, or the web builds).
+func _more_games_url(info: Dictionary) -> String:
+	if OS.has_feature("ios"):
+		return info.get("ios_url", "")
+	if OS.has_feature("android"):
+		return info.get("android_url", "")
+	return info.get("web_url", "")
 
 
 ## A name for a Background strength: Off, Light, Medium or Strong.

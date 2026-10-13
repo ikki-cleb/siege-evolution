@@ -835,6 +835,15 @@ plugins, wrapped by `scripts/billing/google_play_billing.gd` and
 plugin). The plugins are fetched during the Codemagic builds
 (`tools/ci/fetch_plugins.sh`). Product ids and store setup: `store/in-app-products.md`.
 
+## More games link
+
+Settings ends with a postcard-style card, **"More Ad Free Games from this
+Developer"**, with a banner for Trivia Ladder (the user's other game, drawn in
+its own indigo-and-gold style by `tools/draw_more_games.py`). Tapping it opens
+the developer page in the App Store (iPhone) or Google Play (Android); links
+live in `data/more_games.json`. The user chose to **hide the card until a
+link is set** (test builds show it as a preview, with a toast instead of a link).
+
 ## Store release
 
 The user's packaging answers carry over from their Trivia Ladder app: no
